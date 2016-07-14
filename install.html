@@ -107,10 +107,14 @@ sudo php ./script/config_gen.php</pre>
               <li><b>OAUTH2 over IMAP</b><p>Gmail and Outlook.com support OAUTH2 authentication over IMAP. This is preferable to normal IMAP authentication because Cypht never has access to your account password.<br /><br />
               Example oauth2 ini file:<br />
               <a href="https://github.com/jasonmunro/hm3/blob/master/modules/imap/oauth2.ini">https://github.com/jasonmunro/hm3/blob/master/modules/imap/oauth2.ini</a><br /><br />
-              Authorize an application for gmail</br />
+              Authorize an application for gmail<br />
               <a href="https://console.developers.google.com/project">https://console.developers.google.com/project</a><br /><br />
               Authorize an application for outlook.com<br />
               <a href="https://account.live.com/developers/applications/">https://account.live.com/developers/applications/</a><br /><br />
+              </p></li>
+              <li><b>LDAP contacts</b><p>Cypht can use an LDAP server for contacts (read-only for now).<br /><br />
+              Example ldap.ini file:<br />
+              <a href="https://github.com/jasonmunro/hm3/blob/master/modules/contacts/ldap.ini">https://github.com/jasonmunro/hm3/blob/master/modules/contacts/ldap.ini</a><br /><br />
               </p></li>
               <li><b>WordPress</b><p>Cypht can aggregate WordPress.com notifications.<br /><br />
               Example wordpress.ini file:<br />
@@ -120,7 +124,6 @@ sudo php ./script/config_gen.php</pre>
               </p></li>
       </ul>
 
-      </p>
       <h4>Having problems?</h4>
       I'm happy to help trouble-shoot any installation issues you run into. Send a message to jason <span class="e_hl">[at]</span> cypht <span class="e_hl">[dot]</span> org and I will get back to you as soon as I can.
   </div>
