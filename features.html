@@ -47,21 +47,27 @@ arrays of translated strings defined in PHP. All 45 translations are seeded
 with strings from the Google Translate API. Right to left languages are supported.
       </li>
       <li>
-Module sets for IMAP and POP3 are pretty robust, and the SMTP module set
-is functional, but still under development.
+Module sets for IMAP, POP3, SMTP, LDAP or local contacts, WordPress, Github,
+and lots more! Check out the <a href="modules.html">Modules</a> page for a
+complete list.
       </li>
       <li>
 Sessions and user data can be stored in any PDO compatible database or flat
-files on the server. Authentication is flexible and currently supports POP3,
-IMAP, an included database schema, dynamic authentication using popular E-mail
-providers, or auto-discovery based on the user's E-mail domain. Sessions and
-Authentication were built to be overridden for site specific needs without
-breaking module sets.
+files on the server.
       </li>
       <li>
-On the server, page request processing peaks at around 4-5MB of memory (1-2 MB with HHVM). The module system
-only includes PHP files required to process the current request, so time is not
-wasted parsing unused code paths.
+Authentication is flexible and currently supports POP3, IMAP, LDAP, an included
+database schema, dynamic authentication using popular E-mail providers, or
+auto-discovery based on the user's E-mail domain.
+      </li>
+      <li>
+Sessions and Authentication were built to be overridden for site specific needs
+without breaking module sets.
+      </li>
+      <li>
+On the server, page request processing peaks at around 4-5MB of memory (1-2 MB
+with HHVM). The module system only includes PHP files required to process the
+current request, so time is not wasted parsing unused code paths.
       </li>
       <li>
 There is a build process that pre-calculates module assignments and combines
@@ -70,7 +76,8 @@ as possible. There is also a developer mode in which individual components are
 included directly for easy debugging and module development.
       </li>
       <li>
-The HTML5 Page structure is semantic and simple, with attention paid to accessibility best-practices.
+The HTML5 Page structure is semantic and simple, with attention paid to
+accessibility best-practices.
       </li>
       </ul>
     </div>
