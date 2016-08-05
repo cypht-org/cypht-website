@@ -1,7 +1,6 @@
 html { background-color: #fff; overflow-y: scroll; }
 a { color: teal; text-decoration: none; }
 body { padding: 0px; margin: 0px; font-family: Sans-Serif; width: 100%; background-color: #fff }
-h1 { text-shadow: 1px -1px 0px #999; margin: 0px; padding: 0px; font-size: 90px; text-align: left; color: #fff; letter-spacing: -2px; text-align: center; padding-top: 20px; padding-bottom: 20px; }
 .selected { color: #333 !important; }
 .para {clear: both; max-width: 40em; margin: 0px; margin-left: auto; margin-right: auto; padding: 20px; padding-left: 30px; font-size: 12pt; min-height: 400px; line-height: 20pt; color: #666; margin-top: 20px; padding-bottom: 60px; }
 .inner {clear: both; max-width: 40em; margin: 0px; margin-left: auto; margin-right: auto; }
@@ -23,6 +22,6 @@ ul li:before { margin-left: -2em; color: #aaa; content: '\229A'; padding-right: 
 .caption { text-align: center; padding-bottom: 15px; font-size: 90%; font-style: italic; }
 h3 { margin: 10px; margin-left: 0px; margin-top: 30px; padding: 0px; }
 .top { margin-top: 0px !important; }
-.logo { color: #fff; }
+.logo { margin: auto; text-align: center; margin-top: 38px; margin-bottom: 20px; }
 pre { padding: 10px; font-size: 12px; line-height: 12px; background-color: #f5f5f5; }
 .issue_link { float: right; }
