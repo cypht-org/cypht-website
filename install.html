@@ -12,7 +12,7 @@
       <a href="features.html" title="More about Cypht features">Features</a>
       <a href="security.html" title="Information about security practices">Security</a>
       <a href="modules.html" title="How Cypht module sets work">Mods</a>
-      <a href="https://github.com/jasonmunro/hm3" title="Browse or download the source from github">Code</a>
+      <a href="https://github.com/jasonmunro/cypht" title="Browse or download the source from github">Code</a>
       <a href="docs/code_docs/index.html" title="Code documentation generated with apigen">Docs</a>
       <a class="selected" href="install.html" title="Installation instructions">Install</a>
       <a href="license.html" title="License Details">License</a>
@@ -34,32 +34,32 @@
 DESTINATION="/usr/share/cypht"
 
 # create working directory
-mkdir hm3-temp
-cd hm3-temp
+mkdir cypht-temp
+cd cypht-temp
 
 # grab latest code
-wget https://github.com/jasonmunro/hm3/archive/master.zip
+wget https://github.com/jasonmunro/cypht/archive/master.zip
 
 # unpack the archive
 unzip master.zip
 
 # create a vanilla ini file
-cp hm3-master/hm3.sample.ini hm3-master/hm3.ini
+cp cypht-master/hm3.sample.ini cypht-master/hm3.ini
 
 # fix permissions and ownership
-find hm3-master -type d -print | xargs chmod 755
-find hm3-master -type f -print | xargs chmod 644
-sudo chown -R root:root hm3-master
+find cypht-master -type d -print | xargs chmod 755
+find cypht-master -type f -print | xargs chmod 644
+sudo chown -R root:root cypht-master
 
 # copy to destination folder
-sudo mv hm3-master $DESTINATION
+sudo mv cypht-master $DESTINATION
 
 # remove working directory
 cd ..
-sudo rm -rf hm3-temp
+sudo rm -rf cypht-temp
 </pre>
       <h4>2. Configure the program</h4>
-      <p>To configure Cypht for your environment, you must first edit the <a href="https://github.com/jasonmunro/hm3/blob/master/hm3.sample.ini">hm3.ini</a> file to your liking, then run the config_gen.php script to generate the optimized configuration file and assets used at run-time.</p>
+      <p>To configure Cypht for your environment, you must first edit the <a href="https://github.com/jasonmunro/cypht/blob/master/hm3.sample.ini">hm3.ini</a> file to your liking, then run the config_gen.php script to generate the optimized configuration file and assets used at run-time.</p>
 
       <p>First edit the hm3.ini file to configure Cypht for your environment. If you choose to use a database for any of the 3 available purposes (authentication, sessions, or user settings), you will need to complete the "DB support" section and create the required tables. SQL to do so can be found in the hm3.sample.ini file. The ini file has lots of comments explaining what each option does.</p>
 
@@ -100,13 +100,13 @@ sudo php ./script/config_gen.php</pre>
       <ul>
           <li><b>Github</b><p>Cypht can connect to github and aggregate notification data about repository activity.<br /><br />
               Example github.ini file:<br />
-              <a href="https://github.com/jasonmunro/hm3/blob/master/modules/github/github.ini">https://github.com/jasonmunro/hm3/blob/master/modules/github/github.ini</a><br /><br />
+              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/github/github.ini">https://github.com/jasonmunro/cypht/blob/master/modules/github/github.ini</a><br /><br />
               Authorize an application for github:<br />
               <a href="https://github.com/settings/developers">https://github.com/settings/developers</a>
               </p></li>
               <li><b>OAUTH2 over IMAP</b><p>Gmail and Outlook.com support OAUTH2 authentication over IMAP. This is preferable to normal IMAP authentication because Cypht never has access to your account password.<br /><br />
               Example oauth2 ini file:<br />
-              <a href="https://github.com/jasonmunro/hm3/blob/master/modules/imap/oauth2.ini">https://github.com/jasonmunro/hm3/blob/master/modules/imap/oauth2.ini</a><br /><br />
+              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/imap/oauth2.ini">https://github.com/jasonmunro/cypht/blob/master/modules/imap/oauth2.ini</a><br /><br />
               Authorize an application for gmail<br />
               <a href="https://console.developers.google.com/project">https://console.developers.google.com/project</a><br /><br />
               Authorize an application for outlook.com<br />
@@ -114,11 +114,11 @@ sudo php ./script/config_gen.php</pre>
               </p></li>
               <li><b>LDAP contacts</b><p>Cypht can use an LDAP server for contacts (read-only for now).<br /><br />
               Example ldap.ini file:<br />
-              <a href="https://github.com/jasonmunro/hm3/blob/master/modules/contacts/ldap.ini">https://github.com/jasonmunro/hm3/blob/master/modules/ldap_contacts/ldap.ini</a><br /><br />
+              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/contacts/ldap.ini">https://github.com/jasonmunro/cypht/blob/master/modules/ldap_contacts/ldap.ini</a><br /><br />
               </p></li>
               <li><b>WordPress</b><p>Cypht can aggregate WordPress.com notifications.<br /><br />
               Example wordpress.ini file:<br />
-              <a href="https://github.com/jasonmunro/hm3/blob/master/modules/wordpress/wordpress.ini">https://github.com/jasonmunro/hm3/blob/master/modules/wordpress/wordpress.ini</a><br /><br />
+              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/wordpress/wordpress.ini">https://github.com/jasonmunro/cypht/blob/master/modules/wordpress/wordpress.ini</a><br /><br />
               Authorize an application for WordPress.com:<br />
               <a href="https://developer.wordpress.com/apps/">https://developer.wordpress.com/apps/</a>
               </p></li>
