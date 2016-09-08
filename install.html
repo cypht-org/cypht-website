@@ -77,7 +77,7 @@ chown -R www-data /var/lib/hm3/
       <p>Cypht uses a build process to create an optimized configuration, and to combine and minimize page assets. Once you have edited your hm3.ini file, generate the configuration with:</p>
 
       <pre>cd /usr/share/cypht  (or wherever you put the code in section 1)
-sudo php ./script/config_gen.php</pre>
+sudo php ./scripts/config_gen.php</pre>
 
       <p>This will create a sub-directory called site that contains the code and page assets that need to be inside the document root, and it creates an optimized configuration file called hm3.rc in the current directory. Anytime you change the ini file settings, or move the source location, you will need to re-run the config_gen script to update the program.</p>
 
