@@ -31,7 +31,14 @@
       </p><pre>
 #!/bin/bash
 
+# this is where Cypht will be installed
 DESTINATION="/usr/local/share/cypht"
+
+# validate the destination directory
+sudo test -r $DESTINATION -a -x $DESTINATION
+if [ $? -ne 0 ]; then
+    sudo mkdir $DESTINATION
+fi
 
 # create working directory
 mkdir cypht-temp
@@ -57,6 +64,7 @@ sudo mv cypht-master/* $DESTINATION
 # remove working directory
 cd ..
 sudo rm -rf cypht-temp
+
 </pre>
       <h4>2. Configure the program</h4>
       <p>To configure Cypht for your environment, you must first edit the <a href="https://github.com/jasonmunro/cypht/blob/master/hm3.sample.ini">hm3.ini</a> file to your liking, then run the config_gen.php script to generate the optimized configuration file and assets used at run-time.</p>
