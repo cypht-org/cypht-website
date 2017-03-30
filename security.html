@@ -102,10 +102,13 @@ Only white-listed and typed/sanitized input is allowed. Modules must pre-define 
 Modules can't reference PHP super-globals, and there are no globally scoped variables at all (there are a few static class instances with private data structures that use getter/setter methods)
 </li>
 <li>
-    <a href="http://cypht.org/docs/test_coverage/index.html">100% unit test coverage with PHPUnit</a> for the application framework
+    <a href="http://cypht.org/docs/test_coverage/index.html">100% unit test coverage with PHPUnit</a> for the application framework (currently just below 100% because of 2 missing lines in Memcached sessions)
 </li>
 <li>
-    UI tests using Selenium (still very limited) and a generously donated subscription from <a href="http://browserstack.com">browserstack.com</a>
+    UI tests using Selenium (still very limited but getting better).
+<li>
+    Continuous Integration testing done with <a href="https://travis-ci.org">Travis CI</a> and <a href="https://saucelabs.com">Sauce Labs</a>: &nbsp; <img src="https://travis-ci.org/jasonmunro/cypht.svg?branch=master" alt="build:passed">
+</li>
 </ul>
 
     </div>
