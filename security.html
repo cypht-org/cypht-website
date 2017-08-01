@@ -25,10 +25,7 @@
 <h3 class="top">In the browser</h3>
 <ul>
 <li>
-Forced TLS for browser connections
-</li>
-<li>
-All cookies are session level, HTTP only, and have the secure flag, path, and domain values set
+By default all cookies are session level, HTTP only, and have the secure flag, path, and domain values set (except one cookie used to pass user notices to the javascript)
 </li>
 <li>
 HTTP request header fingerprinting, CSRF token protection, and target/source origin mismatch blocking
@@ -40,13 +37,13 @@ Security related HTTP headers like X-XSS-Protection, X-Content-Type-Options, X-F
 Configurable idle timeout module set that ends a session after a predetermined amount of time
 </li>
 <li>
-Support for 2 factor authentication with any TOTP compatible authenticator app
+Support for 2 factor authentication with any TOTP compatible authentication application
 </li>
 <li>
-Optional AES encrypted AJAX responses (still experimental)
+Optional AES encrypted AJAX responses
 </li>
 <li>
-Optional AES encrypted local storage cache (still experimental)
+Optional AES encrypted local session storage cache
 </li>
 <li>
 <a href="https://www.google.com/recaptcha/intro/index.html">reCAPTCHA</a> support for the login form
@@ -102,12 +99,12 @@ Only white-listed and typed/sanitized input is allowed. Modules must pre-define 
 Modules can't reference PHP super-globals, and there are no globally scoped variables at all (there are a few static class instances with private data structures that use getter/setter methods)
 </li>
 <li>
-    <a href="http://cypht.org/docs/test_coverage/index.html">100% unit test coverage with PHPUnit</a> for the application framework (currently just below 100% because of 2 missing lines in Memcached sessions)
+    <a href="http://cypht.org/docs/test_coverage/index.html">100% unit test coverage with PHPUnit</a> for the application framework
 </li>
 <li>
-    UI tests using Selenium (still very limited but getting better).
+    UI tests using Selenium with python bindings (currently at 64 tests)
 <li>
-    Continuous Integration testing done with <a href="https://travis-ci.org">Travis CI</a> and <a href="https://saucelabs.com">Sauce Labs</a>: &nbsp; <img src="https://travis-ci.org/jasonmunro/cypht.svg?branch=master" alt="build:passed">
+    Continuous Integration for UI tests, unit tests, and static code analysis done with <a href="https://travis-ci.org">Travis CI</a>. You can read ore info about our testing process at the <a href="/testing.html">testing page</a>
 </li>
 </ul>
 
