@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang=en-us>
+  <head>
+    <meta charset="utf-8" />
+    <title>Cypht - Tests</title><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="icon" class="tab_icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAFVJREFUOI3NkkEKACEMA2d92fpzfVn3oHhYqAF7qIFeSpImUMjGA1jEoEQTFKAC/UDbp3bhBRqj0m7a5C78F56Rx5MEdUBHFMlkV09ogN3xB7kG+fgA0tc160Jy09wAAAAASUVORK5CYII=">
+    <link type="text/css" rel="stylesheet" media="all" href="site.css" />
+  </head>
+  <body>
+  <div class="inner">
+    <div class="logo"><a href="index.html" title="home"><img alt="Cypht" src="logo.png" /></a></div>
+    <div class="links">
+      <a href="features.html" title="More about Cypht features">Features</a>
+      <a href="security.html" title="Information about security practices">Security</a>
+      <a href="modules.html" title="How Cypht module sets work">Mods</a>
+      <a href="https://github.com/jasonmunro/cypht" title="Browse or download the source from github">Code</a>
+      <a href="docs/code_docs/index.html" title="Code documentation generated with apigen">Docs</a>
+      <a href="install.html" title="Installation instructions">Install</a>
+      <a href="license.html" title="License Details">License</a>
+      <a class="selected" href="tests.html" title="Tests">Tests</a>
+      <a href="http://unencumberedbyfacts.com" title="blog">blog</a>
+    </div>
+  </div>
+  <div class="para">
+      <p>
+      Cypht uses PHPUnit to run our unit tests, and Selenium for integration testing. I periodically update the HTML
+      coverage report located here:<br /><br /><a href="docs/test_coverage/index.html" title="Tests">/docs/test_coverage/index.html</a></br></br>
+      Currently our unit tests only cover the application framework (all the code under "lib/"), and the core
+      module set, and our Selenium tests are still pretty basic. We make use of the following services that generously provide
+      access to Open Source projects:<br />
+      </p>
+      <h3>Travis CI</h3>
+      <a href="https://travis-ci.org/jasonmunro/cypht/builds">https://travis-ci.org/jasonmunro/cypht/builds</a><br /><br />
+      Travis CI is a really cool continuous integration service that we use to re-run our unit and UI tests every time
+      a change is pushed to Github. Our Travis build is 18 combinations, 6 versions of PHP (5.4, 5.5, 5.6, 5.7, 7.0, 7.1,
+      7.2) with 3 different databases (Mysql, Postgresql, Sqlite). 
+      <h3>BrowserStack</h3>
+      <a href="https://www.browserstack.com/">https://www.browserstack.com/</a><br /><br />
+      BrowserStack is a cloud based Selenium grid we use to run our UI tests. We connect to it directly from Travis CI.
+      Currently we test 4 browsers (Safari, IE, Edge, and Chrome). Firefox is disable for now due to a compatibility issue
+      with the test environment.
+      <h3>Coveralls</h3>
+      <a href="https://coveralls.io/github/jasonmunro/cypht">https://coveralls.io/github/jasonmunro/cypht</a><br /><br />
+      Coveralls.io provides access to the PHPUnit test coverage report, and is updated every time code is pushed to Github.
+      It has some cool metrics to track unit test coverage over time, and in general is a nicer UI than the PHPUnit HTML
+      report.
+      <h3>Scrutinizer</h3>
+      <a href="https://scrutinizer-ci.com/g/jasonmunro/cypht/">https://scrutinizer-ci.com/g/jasonmunro/cypht/</a><br /><br />
+      Scrutinizer is a static code analyzer with a lot of great options. It understands our doc-string format and provides
+      additinal information about potential type mismatches, in addition to a number of other static checks. Currently
+      I have it limited to the application framework (all the code under "lib/"). Like the Travis builds and Coveralls reports,
+      a new analysis is run every time we push code to Github.
+  </div>
+  </body>
+</html>

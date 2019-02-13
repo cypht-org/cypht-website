@@ -16,7 +16,7 @@
       <a href="docs/code_docs/index.html" title="Code documentation generated with apigen">Docs</a>
       <a class="selected" href="install.html" title="Installation instructions">Install</a>
       <a href="license.html" title="License Details">License</a>
-      <a href="docs/test_coverage/index.html" title="Tests">Tests</a>
+      <a href="tests.html" title="Tests">Tests</a>
       <a href="http://unencumberedbyfacts.com" title="blog">blog</a>
     </div>
   </div>
@@ -31,7 +31,14 @@
       </p><pre>
 #!/bin/bash
 
+# this is where Cypht will be installed
 DESTINATION="/usr/local/share/cypht"
+
+# validate the destination directory
+sudo test -r $DESTINATION -a -x $DESTINATION
+if [ $? -ne 0 ]; then
+    sudo mkdir $DESTINATION
+fi
 
 # create working directory
 mkdir cypht-temp
@@ -42,6 +49,9 @@ wget https://github.com/jasonmunro/cypht/archive/master.zip
 
 # unpack the archive
 unzip master.zip
+
+# run composer
+cd cypht-master && composer install && cd ..
 
 # create a vanilla ini file
 cp cypht-master/hm3.sample.ini cypht-master/hm3.ini
@@ -57,6 +67,7 @@ sudo mv cypht-master/* $DESTINATION
 # remove working directory
 cd ..
 sudo rm -rf cypht-temp
+
 </pre>
       <h4>2. Configure the program</h4>
       <p>To configure Cypht for your environment, you must first edit the <a href="https://github.com/jasonmunro/cypht/blob/master/hm3.sample.ini">hm3.ini</a> file to your liking, then run the config_gen.php script to generate the optimized configuration file and assets used at run-time.</p>
@@ -68,6 +79,7 @@ sudo rm -rf cypht-temp
       <pre>sudo mkdir /var/lib/hm3
 sudo mkdir /var/lib/hm3/attachments
 sudo mkdir /var/lib/hm3/users
+sudo mkdir /var/lib/hm3/app_data
 
 chown -R www-data /var/lib/hm3/
       </pre>
@@ -108,7 +120,7 @@ php ./scripts/update_password.php username password</pre>
 
       <p>Debug mode is not as efficient as the normal version, and it is NOT designed to be secure. DO NOT RUN DEBUG MODE IN PRODUCTION. You have been warned! Debug mode outputs lots of information to the PHP error log that can be useful for trouble-shooting problems. The location of the error log varies based on your php.ini settings and web-server software.</p>
       <h4>7. Other INI files</h4>
-      <p>Some Cypht modules require additional ini files to be configured. These should NOT be inside the web-server document root. Cypht will look for them in the location defined by "app_data_dir" in the hm3.ini file. A sample ini file for each module set that requires one is included in the source for that module. To configure them you must create the Oauth2 API credentials at the service you are connecting to, update the example ini files with the API credentials, then put them in the folder defined by app_data_dir.
+      <p>Some Cypht modules require additional ini files to be configured. These should NOT be inside the web-server document root. Cypht will look for them in the location defined by "app_data_dir" in the hm3.ini file. A sample ini file for each module set that requires one is included in the source for that module. To configure them you must copy the sample ini file to the "app_data_dir" and edit it for your setup. Some of these require configuring your service with a provider, specifically ones related to Oauth2 client setup (Github, WordPress, Oauth2 over IMAP for Gmail and Outlook). Re-run the config_gen script after configuring an ini file and it will be merged into the main configuration settings.
       <ul>
           <li><b>Github</b><p>Cypht can connect to github and aggregate notification data about repository activity.<br /><br />
               Example github.ini file:<br />
@@ -124,9 +136,9 @@ php ./scripts/update_password.php username password</pre>
               Authorize an application for outlook.com<br />
               <a href="https://account.live.com/developers/applications/">https://account.live.com/developers/applications/</a><br /><br />
               </p></li>
-              <li><b>LDAP contacts</b><p>Cypht can use an LDAP server for contacts (read-only for now).<br /><br />
+              <li><b>LDAP contacts</b><p>Cypht can use an LDAP server for contacts.<br /><br />
               Example ldap.ini file:<br />
-              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/contacts/ldap.ini">https://github.com/jasonmunro/cypht/blob/master/modules/ldap_contacts/ldap.ini</a><br /><br />
+              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/ldap_contacts/ldap.ini">https://github.com/jasonmunro/cypht/blob/master/modules/ldap_contacts/ldap.ini</a><br /><br />
               </p></li>
               <li><b>WordPress</b><p>Cypht can aggregate WordPress.com notifications.<br /><br />
               Example wordpress.ini file:<br />
@@ -134,6 +146,9 @@ php ./scripts/update_password.php username password</pre>
               Authorize an application for WordPress.com:<br />
               <a href="https://developer.wordpress.com/apps/">https://developer.wordpress.com/apps/</a>
               </p></li>
+              <li><b>Custom themes</b><p>You can create your own themes for Cypht. Edit the themes.ini file to include your theme, and put the css file in modules/themes/assets.<br /><br />
+              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/themes/themes.ini">https://github.com/jasonmunro/cypht/blob/master/modules/themes/themes.ini</a><br /><br />
+
       </ul>
 
       <h4>Having problems?</h4>
