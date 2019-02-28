@@ -67,7 +67,7 @@ Session level data is encrypted with a long random string generated on login. Da
 Persistent data stored between logins is encrypted with a key derived from your clear text password, which is obviously not stored anywhere
 </li>
 <li>
-All encryption is done with libsodium if available, otherwsie with AES-256-CBC, encrypt-then-MAC, and PBKDF2 key derivation using OpenSSL (NOT Mcrypt)
+All encryption is done with libsodium if available, otherwise with AES-256-CBC, encrypt-then-MAC, and PBKDF2 key derivation using OpenSSL (NOT Mcrypt)
 </li>
 <li>
 PHP ini settings are tightened up at runtime for extra security, including open basedir and session best practices (ones writable at runtime)
