@@ -105,3 +105,30 @@ navbar-collapse{
   }
 
 }
+ 
+
+/* Intro section */
+body{
+	font-family: 'Lato', sans-serif;
+}
+#as-services{
+  margin:auto auto 40px auto;
+  padding-top: 40px;
+  background-image: linear-gradient(to top, #E0E0E0 , #fff);
+}
+#as-services .as-services-head{
+	margin:0 auto 50px auto;
+	 
+}
+#as-services .as-services-head h2{
+	color: #333;
+    font-size: 32px;
+    font-weight: 700;
+}
+#as-services .as-services-head p{
+	color: #777;
+	font-size: 20px;
+	font-weight: 300;
+}
+ 
+ 
