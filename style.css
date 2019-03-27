@@ -1,52 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran|Oswald|Raleway');
 
-
-
-
-
-/*============= COURSE SECTION =============*/
-
-.narrow {
-  width: 75%;
-  margin: 1.5rem auto;
-  padding-top: 2rem;
+header{
+  position: absolute;
+  z-index: 10;
+  width: 100%;
 }
-.narrow h1 {
-    font-size: 2.4rem;
-  }
-.btn-secondary {
-  border-width: medium;
-  border-radius: 0;
-  padding: .6rem 1.2rem;
-  font-size: 1.2rem;
+
+.navbar{
+  padding: 20px 0;
+}
+
+.navbar-brand{
+  font-weight: 800;
   text-transform: uppercase;
-  margin: 1rem;
-  border-color: #1EBBA3;
-  background-color: #1EBBA3;
-  color: white;
-}
-.btn-secondary:hover,
-.btn-secondary:focus {
-  border-color: #189582;
-  background-color: #189582;
-  color: white;
+  font-size: 2em;
+  color: #262626;
 }
 
+.nav-item{
+  font-weight: 800;
+  text-transform: uppercase;
+}
 
-/*============ BOOTSTRAP BREAK POINTS:
+.navbar-light .navbar-nav .nav-item .nav-link:hover,
+.navbar-light .navbar-nav .nav-item.active .nav-link{
+  background: #81B441;
+  color: #333;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
 
-Extra small (xs) devices (portrait phones, less than 576px)
-No media query since this is the default in Bootstrap
+.navbar-light .navbar-nav .nav-item .nav-link{
+  color: #eee;
+  padding: 5px 15px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1em;
+}
 
-Small (sm) devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
+.banner{
+  position: relative;
+  background: url(img/cypht\ bg.png);
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  padding: 250px 0 200px;
 
-Medium (md) devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
+}
 
-Large (lg) devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
+.banner h2{
+  margin: 0;
+  padding: 0;
+  font-size: 3.2em;
+  font-weight: 1000;
+  background: -webkit-linear-gradient(#eee, #777);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
 
-Extra (xl) large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
+.banner p{
+  margin: 1em 0 0;
+  padding: 0;
+  font-size: 1.4em;
+  line-height: 1.5em;
+  color: #bbb
+}
 
-=============*/
+ 
+.navbar-light .navbar-toggler{
+  border: none;
+  color: #fff;
+  border: 2px solid #7f7f7f;
+  border-radius: 0;
+  outline: none;
+}
+
+navbar-collapse{
+  background: #fff;
+}
+
+.example_d {
+  color: #81B441 !important;
+  text-transform: uppercase;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #81B441 !important;
+  border-radius: 3px;
+  display: inline-block;
+  }
+
+  .example_d:hover {
+    color: #eee !important;
+    border-radius: 50px;
+    border-color: #eee !important;
+    transition: all 0.3s ease 0s;
+    }
+
+@media(max-width:768px){
+  .banner{
+    padding: 200px 0;
+  }
+
+  .banner h2{
+    font-size: 1.8em;
+  }
+
+}
