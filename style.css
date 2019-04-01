@@ -112,7 +112,7 @@ body{
 	font-family: 'Lato', sans-serif;
 }
 #as-services{
-  margin:auto auto 40px auto;
+  margin:auto auto auto auto;
   padding-top: 40px;
   background-image: linear-gradient(to top, #E0E0E0 , #fff);
 }
@@ -131,4 +131,8 @@ body{
 	font-weight: 300;
 }
  
+/*featuire section start*/
+.feature-section{
+  background: #E0E0E0;
+}
  
