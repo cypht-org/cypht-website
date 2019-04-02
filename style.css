@@ -125,6 +125,7 @@ body h2 {
 section{
   margin:auto auto auto auto;
   padding-top: 40px;
+  padding-bottom: 40px
 }
 
 section h2{
@@ -199,6 +200,38 @@ section p{
 
 .security-section p,h3{
   color: #2F4858
+}
+
+/*Mods section*/
+.module-section{
+  background: 
+  /* top, transparent red, faked with gradient */ 
+  linear-gradient(
+    rgba(4, 26, 0, 0.85), 
+    rgba(4, 26, 0, 0.85)
+  ),
+  /* bottom, image */
+  url(img/mail-bg.png);
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.module-section h2{
+  color: #eee;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.module-section p{
+  color: #bbb;
+	font-size: 20px;
+  font-weight: 300;
+}
+
+.module-section button{
+  color: #262626
 }
  
 
