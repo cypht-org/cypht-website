@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Catamaran|Oswald|Raleway');
 
+
 header{
   position: absolute;
   z-index: 10;
@@ -105,34 +106,101 @@ navbar-collapse{
   }
 
 }
- 
 
-/* Intro section */
-body{
+body {
 	font-family: 'Lato', sans-serif;
 }
-#as-services{
+
+body p, li{
+	color: #777;
+	font-size: 20px;
+	font-weight: 300;
+}
+
+body h2 {
+  color: #333;
+    font-size: 32px;
+    font-weight: 700;
+}
+section{
   margin:auto auto auto auto;
   padding-top: 40px;
-  background-image: linear-gradient(to top, #E0E0E0 , #fff);
+}
+
+section h2{
+  font-size: 32px;
+    font-weight: 700;
+}
+
+section p{
+  font-size: 20px;
+  font-weight: 300;
+}
+
+/* Intro section */
+
+#as-services{
+   background-image: linear-gradient(to top,  #E7F6D1 , #fff);
 }
 #as-services .as-services-head{
 	margin:0 auto 50px auto;
 	 
 }
 #as-services .as-services-head h2{
-	color: #333;
-    font-size: 32px;
-    font-weight: 700;
+	color: #81B441;
 }
 #as-services .as-services-head p{
-	color: #777;
-	font-size: 20px;
-	font-weight: 300;
+	color: #2F4858;
+ 
 }
  
 /*featuire section start*/
-.feature-section{
-  background: #E0E0E0;
+.feature-section {
+  background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(4, 26, 0, 0.85), 
+      rgba(4, 26, 0, 0.85)
+    ),
+    /* bottom, image */
+    url(img/cloud-bg.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.feature-section h2{
+  color: #eee;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.feature-section li{
+  color: #bbb;
+	font-size: 20px;
+  font-weight: 300;
+  margin: 15px auto 18px auto;  
+}
+
+.feature-section a {
+  color: #81B441;
+  margin-bottom: 30px;
+}
+
+/*Security section*/
+.security-section{
+  background-image: linear-gradient(to bottom, #E7F6D1 , #fff);
+}
+
+.security-section h2{
+  color: #81B441;
+}
+
+.security-section p,h3{
+  color: #2F4858
 }
  
+
+
+
