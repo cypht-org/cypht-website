@@ -270,11 +270,17 @@ background-size: cover;
   background: #eee;
   position: relative;
   min-height: 100vh;;
-  padding: 150px 50px 100px 50px;
+  padding: 180px 50px 100px 50px;
  }
 
  .content-section li{
    margin: 10px auto 10px;
+ }
+
+ .content-section p{
+   border-left: 5px solid #aaa;
+   padding-left: 20px;
+
  }
 
 
