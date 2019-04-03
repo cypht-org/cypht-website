@@ -266,5 +266,16 @@ background-size: cover;
   position: -webkit-sticky
 }
 
+.content-section{
+  background: #eee;
+  position: relative;
+  min-height: 100vh;;
+  padding: 150px 50px 100px 50px;
+ }
+
+ .content-section li{
+   margin: 10px auto 10px;
+ }
+
 
 
