@@ -8,7 +8,7 @@ header{
 }
 
 .navbar{
-  padding: 20px 0;
+ padding: 0px;
 }
 
 .navbar-brand{
@@ -256,21 +256,23 @@ background-size: cover;
 /*social section*/
 .social-section{
   background: #041A00;
-  padding-bottom: 10px;
-  padding-top: 10px;
 }
 
-.social-section img{
-  max-height: 100px;
-  max-width: 100px;
-  position: -webkit-sticky
+.social-section a{
+  color: #81B441;
+}
+
+.social-section p{
+  color: #bbb;
+	font-size: 20px;
+  font-weight: 300;
 }
 
 .content-section{
   background: #eee;
   position: relative;
   min-height: 100vh;;
-  padding: 180px 50px 100px 50px;
+  padding: 100px 50px 100px 50px;
  }
 
  .content-section li{

@@ -13,9 +13,9 @@
 	<header>		 
 				<nav class="navbar navbar-expand-lg navbar-light">
 						<div class="container">
-								<a class="navbar-brand" href="#">
-								<img src="img/cypht_logo_white.svg" width="200" height="100" alt="">
-						</a>
+								<a class="navbar-brand" href="../index.html">
+									<img src="../img/cypht_logo_white.svg" width="150" height="75" alt="">  
+							 </a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						  <span class="navbar-toggler-icon"></span>
 						</button>
@@ -23,30 +23,29 @@
 						<div class="collapse navbar-collapse " id="navbarSupportedContent">
 						  	<ul class="navbar-nav ml-lg-auto">
 									<li class="nav-item active">
-										<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+										<a class="nav-link" href="index2.html">Home <span class="sr-only">(current)</span></a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">Features</a>
+										<a class="nav-link" href="Pages/features.html">Features</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">Security</a>
+										<a class="nav-link" href="Pages/securuty.html">Security</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">Mods</a>
+										<a class="nav-link" href="Pages/modules.html">Mods</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">License</a>
+										<a class="nav-link" href="Pages/license.html">License</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">Test</a>
+										<a class="nav-link" href="Pages/tests.html">Test</a>
 									</li>
 									<li class="nav-item">
 										<a class="nav-link" href="#">Blog</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">Contact</a>
+										<a class="nav-link" href="#contact">Contact</a>
 									</li>
-								
 								</ul>
 						</div>
 						</div>
@@ -60,8 +59,8 @@
 				<div class="col-sm-7">
 					<h2>All your E-mail, from all your accounts, in one place</h2>
 					<p>Cypht is not your father's webmail. Unless you are one of my daughters, in which case it is your father's webmail. Cypht (pronounced "sift") is like a news reader, but for E-mail. Cypht does not replace your existing accounts - it combines them into one. And it's also a news reader.</p>
-					<div class="button_cont" ><a class="example_d float-right" href="add-website-here" target="_blank" rel="nofollow noopener">Install</a></div>
-					<div class="button_cont" ><a class="example_d float-right" href="add-website-here" target="_blank" rel="nofollow noopener">Get Doc</a></div>
+					<div class="button_cont" ><a class="example_d float-right" href="Pages/install.html" target="_blank" rel="nofollow noopener">Install</a></div>
+					<div class="button_cont" ><a class="example_d float-right" href="http://127.0.0.1:5500/docs/code_docs/index.html" target="_blank" rel="nofollow noopener">Get Doc</a></div>
 				</div>
 			</div>
 		</div>
@@ -124,7 +123,7 @@
 										<li>Sessions and Authentication can be customized without breaking any modules using the site module set</li>
 								</ul>
 						</div>
-						<a href="">the complete list</a>
+						<a href="Pages/features.html">the complete list</a>
 				</div>
 		</div>
 			
@@ -138,7 +137,8 @@
 			<p>
 				 We want to hear from you! Drop by the #hastymail IRC channel on freenode, or send me an E-mail at jason [at] cypht [dot] org. We take security seriously. Cypht is an entirely volunteer effort, so we can't afford a bounty program. We can however promise that any security issue reported to us before release will receive a quick response, a thorough review, a sincere thanks, and an honorable mention on this page.
 			</p>
-			<button type="button" class="btn btn-success">Read more</button>
+			<a href="Pages/securuty.html"><button type="button" class="btn btn-success">Read more</button></a>
+			
 		</div>
 	</section>
 
@@ -147,12 +147,12 @@
 		<div class="container text-center">
 				<h2>A modular design</h2>
 				<p>Instead of an application with a plugin API, Cypht is an application comprised entirely of plugins, or as we call them, "module sets". There is only one required set, the "core" modules. The components of any module set can be added to, or even replaced, by site specific modules. All the functionality of Cypht is broken out into module sets, and each set is built from small pieces that are also easy to override. </p>			 
-				<button type="button" class="btn btn-light">Read more</button>
+				<a href="Pages/modules.html"><button  type="button" class="btn btn-light">Read more</button></a>
 			</div>
 	</section>
 
 	<!--Footer section-->
-	<section class="footer-section">
+	<section class="footer-section" id="contact">
 			<div class="container text-center">
 					<h2>Have a suggestion or a question?</h2>
 					<h3>Or maybe you want to throw huge wads of cash at us? </h3>
@@ -160,9 +160,24 @@
 			</div>
 	</section>
 
-	<section class="social-section text-center">
-					 <h2 style="color: #eee">Social icons here</3>
-	</section>
+	<section class=" social-section text-center">
+		 <div class="container">
+				<div class="  row">
+						<div class="col-md-3 col-sm-12">
+							<p>Fill out an issue at Github</p><a href="https://github.com/jasonmunro/cypht/issues/new/choose">Issues list</a>
+						</div>
+						<div class="col-md-3 col-sm-12">
+							<p>Chat with us on our freenode IRC channel</p> <a href="irc://freenode/hastymail">#hastymail</a>
+						</div>
+						<div class="col-md-3 col-sm-12">
+							<p>Chat with us at Gitter</p><a href="https://gitter.im/cypht-org/community">Cypht at Gitter</a>
+						</div>
+						<div class="col-md-3 col-sm-12">
+							<p>Or send an E-mail to br jason [at] <br> cypht [dot] org</p>
+						</div>						 
+					</div>
+		 </div>
+ 	</section>
 
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
