@@ -15,7 +15,7 @@ header{
 }
 
 .fixed-top.scrolled {
-  background-color: #222 !important;
+  background-color: #343a40 !important;
   transition: background-color 200ms linear;
 }
 
@@ -26,7 +26,7 @@ header{
 
 .navbar-light .navbar-nav .nav-item .nav-link:hover,
 .navbar-light .navbar-nav .nav-item.active .nav-link{
-  background: #81B441;
+  background: #509ab4;
   color: #333;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
 }
@@ -67,7 +67,7 @@ header{
   color: #bbb
 }
 
- 
+
 .navbar-light .navbar-toggler{
   border: none;
   color: #fff;
@@ -81,11 +81,11 @@ navbar-collapse{
 }
 
 .example_d {
-  color: #81B441 !important;
+  color: #0079BF !important;
   text-transform: uppercase;
   margin: 10px;
   padding: 10px;
-  border: 2px solid #81B441 !important;
+  border: 2px solid #0079BF !important;
   border-radius: 3px;
   display: inline-block;
   }
@@ -146,26 +146,22 @@ section p{
 }
 #as-services .as-services-head{
 	margin:0 auto 50px auto;
-	 
+
 }
 #as-services .as-services-head h2{
-	color: #81B441;
+	color: #0079BF;
 }
 #as-services .as-services-head p{
 	color: #2F4858;
- 
+
 }
- 
+
 /*featuire section start*/
 .feature-section {
-  background: 
-    /* top, transparent red, faked with gradient */ 
-    linear-gradient(
-      rgba(4, 26, 0, 0.85), 
-      rgba(4, 26, 0, 0.85)
-    ),
-    /* bottom, image */
-    url(img/cloud-bg.png);
+  background:linear-gradient(
+      rgba(0, 17, 26, 0.85),
+      rgba(0, 20, 36, 0.85)
+    ),url(img/cloud-bg.png);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -182,11 +178,11 @@ section p{
   color: #bbb;
 	font-size: 20px;
   font-weight: 300;
-  margin: 15px auto 18px auto;  
+  margin: 15px auto 18px auto;
 }
 
 .feature-section a {
-  color: #81B441;
+  color: #0079BF;
   margin-bottom: 30px;
 }
 
@@ -196,7 +192,7 @@ section p{
 }
 
 .security-section h2{
-  color: #81B441;
+  color: #0079BF;
 }
 
 .security-section p,h3{
@@ -205,11 +201,11 @@ section p{
 
 /*Mods section*/
 .module-section{
-  background: 
-  /* top, transparent red, faked with gradient */ 
+  background:
+  /* top, transparent red, faked with gradient */
   linear-gradient(
-    rgba(4, 26, 0, 0.85), 
-    rgba(4, 26, 0, 0.85)
+    rgba(0, 11, 26, 0.85),
+    rgba(0, 24, 34, 0.85)
   ),
   /* bottom, image */
   url(img/mail-bg.png);
@@ -234,7 +230,7 @@ background-size: cover;
 .module-section button{
   color: #262626
 }
- 
+
 /* Footer section */
 .footer-section{
   background : #E7F6D1
@@ -242,7 +238,7 @@ background-size: cover;
 }
 
 .footer-section h2{
-  color: #81B441;
+  color: #0079BF;
   font-size: 32px;
   font-weight: 700;
 }
@@ -256,11 +252,11 @@ background-size: cover;
 
 /*social section*/
 .social-section{
-  background: #041A00;
+  background: #000e21;
 }
 
 .social-section a{
-  color: #81B441;
+  color: #0079BF;
 }
 
 .social-section p{
@@ -273,7 +269,8 @@ background-size: cover;
   background: #eee;
   position: relative;
   min-height: 100vh;;
-  padding: 100px 50px 100px 50px;
+  padding: 120px 50px 20px 50px;
+  margin-bottom: 80px;
  }
 
  .content-section li{
