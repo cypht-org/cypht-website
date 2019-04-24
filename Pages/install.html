@@ -1,62 +1,63 @@
 <!DOCTYPE html>
-<html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Install</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="../style.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    </head>
-    <body>
-        <header> 
-                   <nav class="navbar  navbar-expand-lg navbar-dark bg-dark fixed-top">
-                        <div class="container">
-                            <a class="navbar-brand" href="../index.html">
-                                <img src="../img/cypht_logo.svg" width="150" height="75" alt="">
-                            </a>
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                  <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                                      <ul class="navbar-nav ml-lg-auto">
-                                        <li class="nav-item ">
-                                            <a class="nav-link" href="../index.html">Home </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link " href="features.html">Features<span class="sr-only">(current)</span></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="securuty.html">Security</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="modules.html">Mods</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="license.html">License</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="tests.html">Test</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="http://unencumberedbyfacts.com/">Blog</a>
-                                        </li>
-                                        </ul>
-                                </div>
-                        </div>     
-                    </nav>
-       </header>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cypht</title>
+    <link rel="icon" class="tab_ico" type="images/ico" href="../images/cypht_ico.ico">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="../stylesss.css" rel="stylesheet">
+</head>
+<body>
 
+<!-- Navigation -->
+	<nav class="navbar navbar-expand-md navbar-dark sticky-top">
+		<div class=" container">
+			<a href="../home.html" class="navbar-brand"><img style="height: 50px;" src="../images/cypht logo3.png" alt=""></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-lg-auto">
+							<li class="nav-item ">
+								<a class="nav-link lead " href="../home.html">Home <span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link lead" href="features.html">Features</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active lead " href="install.html">Install</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link lead" href="securuty.html">Security</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link lead" href="modules.html">Modules</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link lead" href="license.html">License</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link lead" href="tests.html">Test</a>
+							</li>
+						</ul>
+                        <a href="http://unencumberedbyfacts.com/"><button type="button" class="btn btn-outline-warning lead">Blog</button></a>
+                    </div>
+		</div>
+	</nav>
+ 
     <section class="content-section container">
-        <h2>Installation</h2>
+        <h2 class="display-4">Installation</h2>
         <hr>
-        <h2>Requirements</h2>
-        <p>      Cypht requires at least PHP 5.4, composer, and at minimum the <a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a>, <a href="http://php.net/manual/en/book.mbstring.php">mbstring</a> and <a href="http://php.net/manual/en/book.curl.php">cURL</a> extensions. Cypht can also leverage several other extensions as defined here: <a href="https://github.com/jasonmunro/cypht/blob/master/composer.json#L31-L37">https://github.com/jasonmunro/cypht/blob/master/composer.json#L31-L37</a>. Testing is done on <a href="https://www.debian.org/">Debian</a> and <a href="http://www.ubuntu.com/">Ubuntu</a> platforms with <a href="http://nginx.com/">Nginx</a> and <a href="http://httpd.apache.org/">Apache</a>.
+        <h2 class="display-4">Requirements</h2>
+        <p class="lead">      Cypht requires at least PHP 5.4, composer, and at minimum the <a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a>, <a href="http://php.net/manual/en/book.mbstring.php">mbstring</a> and <a href="http://php.net/manual/en/book.curl.php">cURL</a> extensions. Cypht can also leverage several other extensions as defined here: <a href="https://github.com/jasonmunro/cypht/blob/master/composer.json#L31-L37">https://github.com/jasonmunro/cypht/blob/master/composer.json#L31-L37</a>. Testing is done on <a href="https://www.debian.org/">Debian</a> and <a href="http://www.ubuntu.com/">Ubuntu</a> platforms with <a href="http://nginx.com/">Nginx</a> and <a href="http://httpd.apache.org/">Apache</a>.
         </p>
-        <h2>Steps</h2>
-        <h4>1. Download and prepare the code</h4>
+        <h2 class="display-4">Steps</h2>
+        <h3 class="lead">1. Download and prepare the code</h3>
       <p>It's important to consider where you put the Cypht source. The web-server will need read-only access to it, and moving it from one place to another requires re-running the configuration script. Do NOT put the source in the document root as this could create a security risk. On Debian, it's common to use the /usr/local/share/ sub-directory for a situation like this. Here is short bash script that will download the latest code, setup the correct permissions and ownership, put the source in /usr/local/share/cypht, and create a default hm3.ini file. It requires sudo access:
 
 
@@ -101,12 +102,12 @@ cd ..
 sudo rm -rf cypht-temp
 
 </pre>
-      <h4>2. Configure the program</h4>
-      <p>To configure Cypht for your environment, you must first edit the <a href="https://github.com/jasonmunro/cypht/blob/master/hm3.sample.ini">hm3.ini</a> file to your liking, then run the config_gen.php script to generate the optimized configuration file and assets used at run-time.</p>
+      <h3 class="lead">2. Configure the program</h3>
+      <p class="lead">To configure Cypht for your environment, you must first edit the <a href="https://github.com/jasonmunro/cypht/blob/master/hm3.sample.ini">hm3.ini</a> file to your liking, then run the config_gen.php script to generate the optimized configuration file and assets used at run-time.</p>
 
-      <p>First edit the hm3.ini file to configure Cypht for your environment. If you choose to use a database for any of the 3 available purposes (authentication, sessions, or user settings), you will need to complete the "DB support" section and create the required tables. SQL to do so can be found in the hm3.sample.ini file. The ini file has lots of comments explaining what each option does.</p>
+      <p class="lead">First edit the hm3.ini file to configure Cypht for your environment. If you choose to use a database for any of the 3 available purposes (authentication, sessions, or user settings), you will need to complete the "DB support" section and create the required tables. SQL to do so can be found in the hm3.sample.ini file. The ini file has lots of comments explaining what each option does.</p>
 
-      <p>Cypht needs read, and read-write access to a few directories on the server. For security reasons these should NOT be inside the web-server document root. A good place for these is under the /var/lib/ sub-directory. Here are the commands To create the required directories per the default values in the ini file (assuming your web-server software runs as the "www-data" user).</p>
+      <p class="lead">Cypht needs read, and read-write access to a few directories on the server. For security reasons these should NOT be inside the web-server document root. A good place for these is under the /var/lib/ sub-directory. Here are the commands To create the required directories per the default values in the ini file (assuming your web-server software runs as the "www-data" user).</p>
 
       <pre>sudo mkdir /var/lib/hm3
 sudo mkdir /var/lib/hm3/attachments
@@ -115,26 +116,26 @@ sudo mkdir /var/lib/hm3/app_data
 
 chown -R www-data /var/lib/hm3/
       </pre>
-      <p>The /var/lib/hm3/users directory is only required if you are using the file-system and not a database to store user settings (user_config_type = file in the hm3.ini). You can put these directories anywhere, just make sure the values in the ini file point to the right place.
+      <p class="lead">The /var/lib/hm3/users directory is only required if you are using the file-system and not a database to store user settings (user_config_type = file in the hm3.ini). You can put these directories anywhere, just make sure the values in the ini file point to the right place.
       </p>
-      <h4>3. Generate the run-time configuration</h4>
-      <p>Cypht uses a build process to create an optimized configuration, and to combine and minimize page assets. Once you have edited your hm3.ini file, generate the configuration with:</p>
+      <h3 class="lead">3. Generate the run-time configuration</h3>
+      <p class="lead">Cypht uses a build process to create an optimized configuration, and to combine and minimize page assets. Once you have edited your hm3.ini file, generate the configuration with:</p>
 
       <pre>cd /usr/local/share/cypht  (or wherever you put the code in section 1)
 sudo php ./scripts/config_gen.php</pre>
 
-      <p>This will create a sub-directory called site that contains the code and page assets that need to be inside the document root, and it creates an optimized configuration file called hm3.rc in the current directory. Anytime you change the ini file settings, or move the source location, you will need to re-run the config_gen script to update the program.</p>
+      <p class="lead">This will create a sub-directory called site that contains the code and page assets that need to be inside the document root, and it creates an optimized configuration file called hm3.rc in the current directory. Anytime you change the ini file settings, or move the source location, you will need to re-run the config_gen script to update the program.</p>
 
 
-      <h4>4. Enable the program in your web-server</h4>
-      <p>The easiest way to serve Cypht is to symlink it to the web-server document root.  You can also copy the generated files to your web-server location, but then you will need to re-copy them anytime the config_gen script is run. If the source is located at /usr/local/share/cypht, and the web-server document root is at /var/www/html, the following command will make Cypht available under the "mail" path of the
+      <h3 class="lead">4. Enable the program in your web-server</h3>
+      <p class="lead">The easiest way to serve Cypht is to symlink it to the web-server document root.  You can also copy the generated files to your web-server location, but then you will need to re-copy them anytime the config_gen script is run. If the source is located at /usr/local/share/cypht, and the web-server document root is at /var/www/html, the following command will make Cypht available under the "mail" path of the
       web-server:</p>
 
       <pre>sudo ln -s /usr/local/share/cypht/site /var/www/html/mail</pre>
 
-      <p>Now going to https://your-server/mail/ should load the Cypht login page. Note that If you use a symlink, your web-server must be configured to follow symlinks.</p>
-      <h4>5. Users</h4>
-      <p>Setting up users depends on what type of authentication you configure in the hm3.ini file. If you are using the local database configuration for users, there are scripts in the scripts/ directory to help manage them:
+      <p class="lead">Now going to https://your-server/mail/ should load the Cypht login page. Note that If you use a symlink, your web-server must be configured to follow symlinks.</p>
+      <h3 class="lead">5. Users</h3>
+      <p class="lead">Setting up users depends on what type of authentication you configure in the hm3.ini file. If you are using the local database configuration for users, there are scripts in the scripts/ directory to help manage them:
       <pre>
 # create an account
 php ./scripts/create_account.php username password
@@ -145,45 +146,45 @@ php ./scripts/delete_account.php username
 # change an account password
 php ./scripts/update_password.php username password</pre>
       </p>
-      <h4>6. Debug mode</h4>
-      <p>Cypht has a debug or developer mode that can be used to troubleshoot problems or enable faster development of modules. To enable the debug version of Cypht, just sym-link the entire source directory instead of the site sub-directory:</p>
+      <h3 class="lead">6. Debug mode</h3>
+      <p class="lead">Cypht has a debug or developer mode that can be used to troubleshoot problems or enable faster development of modules. To enable the debug version of Cypht, just sym-link the entire source directory instead of the site sub-directory:</p>
 
       <pre>sudo ln -s /usr/local/share/cypht /var/www/html/mail-debug</pre>
 
-      <p>Debug mode is not as efficient as the normal version, and it is NOT designed to be secure. DO NOT RUN DEBUG MODE IN PRODUCTION. You have been warned! Debug mode outputs lots of information to the PHP error log that can be useful for trouble-shooting problems. The location of the error log varies based on your php.ini settings and web-server software.</p>
-      <h4>7. Other INI files</h4>
-      <p>Some Cypht modules require additional ini files to be configured. These should NOT be inside the web-server document root. Cypht will look for them in the location defined by "app_data_dir" in the hm3.ini file. A sample ini file for each module set that requires one is included in the source for that module. To configure them you must copy the sample ini file to the "app_data_dir" and edit it for your setup. Some of these require configuring your service with a provider, specifically ones related to Oauth2 client setup (Github, WordPress, Oauth2 over IMAP for Gmail and Outlook). Re-run the config_gen script after configuring an ini file and it will be merged into the main configuration settings.
+      <p class="lead">Debug mode is not as efficient as the normal version, and it is NOT designed to be secure. DO NOT RUN DEBUG MODE IN PRODUCTION. You have been warned! Debug mode outputs lots of information to the PHP error log that can be useful for trouble-shooting problems. The location of the error log varies based on your php.ini settings and web-server software.</p>
+      <h3 class="lead">7. Other INI files</h3>
+      <p class="lead">Some Cypht modules require additional ini files to be configured. These should NOT be inside the web-server document root. Cypht will look for them in the location defined by "app_data_dir" in the hm3.ini file. A sample ini file for each module set that requires one is included in the source for that module. To configure them you must copy the sample ini file to the "app_data_dir" and edit it for your setup. Some of these require configuring your service with a provider, specifically ones related to Oauth2 client setup (Github, WordPress, Oauth2 over IMAP for Gmail and Outlook). Re-run the config_gen script after configuring an ini file and it will be merged into the main configuration settings.
       <ul>
-          <li><b>Github</b><p>Cypht can connect to github and aggregate notification data about repository activity.<br /><br />
+          <li class="lead"><b>Github</b><p class="lead">Cypht can connect to github and aggregate notification data about repository activity.<br /><br />
               Example github.ini file:<br />
-              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/github/github.ini">https://github.com/jasonmunro/cypht/blob/master/modules/github/github.ini</a><br /><br />
+              <a class="lead"  href="https://github.com/jasonmunro/cypht/blob/master/modules/github/github.ini">https://github.com/jasonmunro/cypht/blob/master/modules/github/github.ini</a><br /><br />
               Authorize an application for github:<br />
-              <a href="https://github.com/settings/developers">https://github.com/settings/developers</a>
+              <a class="lead" href="https://github.com/settings/developers">https://github.com/settings/developers</a>
               </p></li>
-              <li><b>OAUTH2 over IMAP</b><p>Gmail and Outlook.com support OAUTH2 authentication over IMAP. This is preferable to normal IMAP authentication because Cypht never has access to your account password.<br /><br />
+              <li class="lead"><b>OAUTH2 over IMAP</b><p class="lead">Gmail and Outlook.com support OAUTH2 authentication over IMAP. This is preferable to normal IMAP authentication because Cypht never has access to your account password.<br /><br />
               Example oauth2 ini file:<br />
-              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/imap/oauth2.ini">https://github.com/jasonmunro/cypht/blob/master/modules/imap/oauth2.ini</a><br /><br />
+              <a class="lead" href="https://github.com/jasonmunro/cypht/blob/master/modules/imap/oauth2.ini">https://github.com/jasonmunro/cypht/blob/master/modules/imap/oauth2.ini</a><br /><br />
               Authorize an application for gmail<br />
-              <a href="https://console.developers.google.com/project">https://console.developers.google.com/project</a><br /><br />
+              <a class="lead" href="https://console.developers.google.com/project">https://console.developers.google.com/project</a><br /><br />
               Authorize an application for outlook.com<br />
-              <a href="https://account.live.com/developers/applications/">https://account.live.com/developers/applications/</a><br /><br />
-              </p></li>
-              <li><b>LDAP contacts</b><p>Cypht can use an LDAP server for contacts.<br /><br />
+              <a class="lead" href="https://account.live.com/developers/applications/">https://account.live.com/developers/applications/</a><br /><br />
+              </p ></li>
+              <li class="lead"><b>LDAP contacts</b><p class="lead">Cypht can use an LDAP server for contacts.<br /><br />
               Example ldap.ini file:<br />
-              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/ldap_contacts/ldap.ini">https://github.com/jasonmunro/cypht/blob/master/modules/ldap_contacts/ldap.ini</a><br /><br />
+              <a class="lead" href="https://github.com/jasonmunro/cypht/blob/master/modules/ldap_contacts/ldap.ini">https://github.com/jasonmunro/cypht/blob/master/modules/ldap_contacts/ldap.ini</a><br /><br />
               </p></li>
-              <li><b>WordPress</b><p>Cypht can aggregate WordPress.com notifications.<br /><br />
+              <li class="lead"><b>WordPress</b><p class="lead">Cypht can aggregate WordPress.com notifications.<br /><br />
               Example wordpress.ini file:<br />
-              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/wordpress/wordpress.ini">https://github.com/jasonmunro/cypht/blob/master/modules/wordpress/wordpress.ini</a><br /><br />
+              <a class="lead" href="https://github.com/jasonmunro/cypht/blob/master/modules/wordpress/wordpress.ini">https://github.com/jasonmunro/cypht/blob/master/modules/wordpress/wordpress.ini</a><br /><br />
               Authorize an application for WordPress.com:<br />
-              <a href="https://developer.wordpress.com/apps/">https://developer.wordpress.com/apps/</a>
+              <a class="lead" href="https://developer.wordpress.com/apps/">https://developer.wordpress.com/apps/</a>
               </p></li>
-              <li><b>Custom themes</b><p>You can create your own themes for Cypht. Edit the themes.ini file to include your theme, and put the css file in modules/themes/assets.<br /><br />
-              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/themes/themes.ini">https://github.com/jasonmunro/cypht/blob/master/modules/themes/themes.ini</a><br /><br />
+              <li class="lvead"><b>Custom themes</b><p class="lead">You can create your own themes for Cypht. Edit the themes.ini file to include your theme, and put the css file in modules/themes/assets.<br /><br />
+              <a href="https:/v/github.com/jasonmunro/cypht/blob/master/modules/themes/themes.ini">https://github.com/jasonmunro/cypht/blob/master/modules/themes/themes.ini</a><br /><br />
 
       </ul>
 
-      <h4>Having problems?</h4>
+      <h3 class="lead">Having problems?</h3>
       I'm happy to help trouble-shoot any installation issues you run into. Send a message to jason <span class="e_hl">[at]</span> cypht <span class="e_hl">[dot]</span> org and I will get back to you as soon as I can.
       
     </section>
