@@ -26,8 +26,8 @@ header{ position: absolute; z-index: 10; width: 100%; }
 .example_d:hover { color: #eee !important; border-radius: 50px; border-color: #eee !important; transition: all 0.3s ease 0s; }
 @media(max-width:768px){ .banner{ padding: 200px 0; } .banner h2{ font-size: 1.8em; } }
 body { font-family: 'Lato', sans-serif; }
-body p, li{ color: #777; font-size: 20px; font-weight: 300; }
-body h2 { color: #333; font-size: 32px; font-weight: 700; }
+body p, li{ color: #222; font-size: 20px; font-weight: 300; }
+body h2 { color: #333; font-size: 32px; font-weight: 700; margin-bottom: 20px; }
 section{ margin:auto auto auto auto; padding-top: 30px; padding-bottom: 30px }
 section h2{ font-size: 32px; font-weight: 700; }
 section p{ font-size: 20px; font-weight: 300; }
@@ -52,7 +52,7 @@ section p{ font-size: 20px; font-weight: 300; }
 .social-section{ background: linear-gradient( rgba(4, 26, 0, 0.85), rgba(4, 26, 0, 0.85)), url(img/cloud.png); background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; }
 .social-section a{ color: #81B441; }
 .social-section p{ color: #bbb; font-size: 20px; font-weight: 300; }
-.content-section{ background: #eee; position: relative; min-height: 100vh;; padding: 130px 50px 100px 50px; }
+.content-section{ background: #f4f4f4; position: relative; min-height: 100vh;; padding: 130px 50px 100px 50px; }
 .content-section li{ margin: 10px auto 10px; }
 .content-section p{ border-left: 5px solid #aaa; padding-left: 20px; }
 .issue_link { float: right; }
