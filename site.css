@@ -21,6 +21,7 @@ header{ position: absolute; z-index: 10; width: 100%; }
 .banner h2{ margin: 0; padding: 0; font-size: 3.2em; font-weight: 1000; background: -webkit-linear-gradient(#eee, #777); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; }
 .banner p{ margin: 1em 0 0; padding: 0; font-size: 1.4em; line-height: 1.5em; color: #bbb }
 .navbar-light .navbar-toggler{ border: none; color: #fff; border: 2px solid #7f7f7f; border-radius: 0; outline: none; }
+.toggler-home { border: none !important;}
 .example_d { color: #81B441 !important; text-transform: uppercase; margin: 10px; padding: 10px; border: 2px solid #81B441 !important; border-radius: 3px; display: inline-block; }
 .example_d:hover { color: #eee !important; border-radius: 50px; border-color: #eee !important; transition: all 0.3s ease 0s; }
 @media(max-width:768px){ .banner{ padding: 200px 0; } .banner h2{ font-size: 1.8em; } }
