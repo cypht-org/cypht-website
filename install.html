@@ -1,31 +1,61 @@
-<!DOCTYPE html><html lang=en-us>
-  <head>
-    <meta charset="utf-8" />
-    <title>Cypht - Install</title><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <link rel="icon" class="tab_icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAFVJREFUOI3NkkEKACEMA2d92fpzfVn3oHhYqAF7qIFeSpImUMjGA1jEoEQTFKAC/UDbp3bhBRqj0m7a5C78F56Rx5MEdUBHFMlkV09ogN3xB7kG+fgA0tc160Jy09wAAAAASUVORK5CYII=">
-    <link type="text/css" rel="stylesheet" media="all" href="site.css" />
-  </head>
-  <body>
-  <div class="inner">
-    <div class="logo"><a href="index.html" title="home"><img alt="Cypht" src="logo.png" /></a></div>
-    <div class="links">
-      <a href="features.html" title="More about Cypht features">Features</a>
-      <a href="security.html" title="Information about security practices">Security</a>
-      <a href="modules.html" title="How Cypht module sets work">Mods</a>
-      <a href="https://github.com/jasonmunro/cypht" title="Browse or download the source from github">Code</a>
-      <a href="docs/code_docs/index.html" title="Code documentation generated with apigen">Docs</a>
-      <a class="selected" href="install.html" title="Installation instructions">Install</a>
-      <a href="license.html" title="License Details">License</a>
-      <a href="tests.html" title="Tests">Tests</a>
-      <a href="http://unencumberedbyfacts.com" title="blog">blog</a>
-      <a href="contact.html" title="contact">contact</a>
-    </div>
-  </div>
-  <div class="para">
-      <h3 class="top">Requirements</h3>
-      Cypht requires at least PHP 5.4, composer, and at minimum the <a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a>, <a href="http://php.net/manual/en/book.mbstring.php">mbstring</a> and <a href="http://php.net/manual/en/book.curl.php">cURL</a> extensions. Cypht can also leverage several other extensions as defined here: <a href="https://github.com/jasonmunro/cypht/blob/master/composer.json#L31-L37">https://github.com/jasonmunro/cypht/blob/master/composer.json#L31-L37</a>. Testing is done on <a href="https://www.debian.org/">Debian</a> and <a href="http://www.ubuntu.com/">Ubuntu</a> platforms with <a href="http://nginx.com/">Nginx</a> and <a href="http://httpd.apache.org/">Apache</a>.
-      <h3>Steps</h3>
-      <h4>1. Download and prepare the code</h4>
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Install</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="icon.ico">
+        <link rel="stylesheet" href="site.css">
+    </head>
+    <body>
+        <header> 
+                   <nav class="navbar  navbar-expand-lg navbar-dark bg-dark fixed-top">
+                        <div class="container">
+                            <a class="navbar-brand" href="index.html">
+                                <img src="img/logo.svg" width="120" height="60" alt="">  
+                             </a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                  <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                                      <ul class="navbar-nav ml-lg-auto">
+                                        <li class="nav-item ">
+                                            <a class="nav-link" href="index.html">Home </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link " href="features.html">Features<span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="security.html">Security</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="modules.html">Mods</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="license.html">License</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="tests.html">Test</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="https://unencumberedbyfacts.com/">Blog</a>
+                                        </li>
+                                        </ul>
+                                </div>
+                        </div>     
+                    </nav>
+       </header>
+
+    <section class="content-section container">
+        <h2>Installation</h2>
+        <hr>
+        <h2>Requirements</h2>
+        <p>      Cypht requires at least PHP 5.4, composer, and at minimum the <a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a>, <a href="http://php.net/manual/en/book.mbstring.php">mbstring</a> and <a href="http://php.net/manual/en/book.curl.php">cURL</a> extensions. Cypht can also leverage several other extensions as defined here: <a href="https://github.com/jasonmunro/cypht/blob/master/composer.json#L31-L37">https://github.com/jasonmunro/cypht/blob/master/composer.json#L31-L37</a>. Testing is done on <a href="https://www.debian.org/">Debian</a> and <a href="http://www.ubuntu.com/">Ubuntu</a> platforms with <a href="http://nginx.com/">Nginx</a> and <a href="http://httpd.apache.org/">Apache</a>.
+        </p>
+        <h2>Steps</h2>
+        <h4>1. Download and prepare the code</h4>
       <p>It's important to consider where you put the Cypht source. The web-server will need read-only access to it, and moving it from one place to another requires re-running the configuration script. Do NOT put the source in the document root as this could create a security risk. On Debian, it's common to use the /usr/local/share/ sub-directory for a situation like this. Here is short bash script that will download the latest code, setup the correct permissions and ownership, put the source in /usr/local/share/cypht, and create a default hm3.ini file. It requires sudo access:
 
 
@@ -154,6 +184,6 @@ php ./scripts/update_password.php username password</pre>
 
       <h4>Having problems?</h4>
       I'm happy to help trouble-shoot any installation issues you run into. Send a message to jason <span class="e_hl">[at]</span> cypht <span class="e_hl">[dot]</span> org and I will get back to you as soon as I can.
-  </div>
-  </body>
+    </section>
+    </body>
 </html>
