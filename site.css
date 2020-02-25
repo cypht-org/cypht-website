@@ -17,7 +17,7 @@ header{ position: absolute; z-index: 10; width: 100%; }
 .nav-item{ font-weight: 800; text-transform: uppercase; }
 .navbar-light .navbar-nav .nav-item .nav-link:hover, .navbar-light .navbar-nav .nav-item.active .nav-link{ background: #81B441; color: #333; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ; }
 .navbar-light .navbar-nav .nav-item .nav-link{ color: #eee; padding: 5px 15px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 1em; }
-.banner{ position: relative; background: url(img/cypht.png); min-height: 100vh; background-size: cover; background-position: center; padding: 250px 0 200px; }
+.banner{ position: relative; background: url(img/cypht.png); min-height: 100vh; background-size: cover; background-position: center; padding: 120px 0 200px; }
 .banner h2{ margin: 0; padding: 0; font-size: 3.2em; font-weight: 1000; background: -webkit-linear-gradient(#eee, #777); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; }
 .banner p{ margin: 1em 0 0; padding: 0; font-size: 1.4em; line-height: 1.5em; color: #bbb }
 .navbar-light .navbar-toggler{ border: none; color: #fff; border: 2px solid #7f7f7f; border-radius: 0; outline: none; }
