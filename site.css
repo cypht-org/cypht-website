@@ -1221,9 +1221,28 @@ h3 {
 .content-section {
 	background: #f4f4f4;
 	position: relative;
-	min-height: 100vh;
-	;
+	min-height: 100vh; 
 	padding: 130px 50px 100px 50px;
+}
+
+.content-section-doc { 
+	background: #E7F2D1;
+	position: relative; 
+	padding: 0px 50px 00px 50px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.content-section-doc p{
+	padding: 20px;
+}
+
+.content-section-doc h1{ 
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 2em;
+	font-weight: bold;
+	color: #80B444;
 }
 
 .content-section li {
