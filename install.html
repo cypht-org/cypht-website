@@ -58,10 +58,23 @@
         <h2>Installation</h2>
         <hr>
         <h2>Requirements</h2>
-        <p>      Cypht requires at least PHP 5.4, <a href="https://getcomposer.org/">Composer</a>, and at minimum the <a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a>, <a href="http://php.net/manual/en/book.mbstring.php">mbstring</a> and <a href="http://php.net/manual/en/book.curl.php">cURL</a> extensions. Cypht can also leverage several other extensions as defined in <a href="https://github.com/jasonmunro/cypht/blob/master/composer.json#L37-L44">composer.json</a>. Testing is done on <a href="https://www.debian.org/">Debian</a> and <a href="http://www.ubuntu.com/">Ubuntu</a> platforms with <a href="http://nginx.com/">Nginx</a> and <a href="http://httpd.apache.org/">Apache</a>.
+        <p>      Cypht requires at least PHP 5.4, <a href="https://getcomposer.org/">Composer 2</a>, and at minimum the <a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a>, <a href="http://php.net/manual/en/book.mbstring.php">mbstring</a> and <a href="http://php.net/manual/en/book.curl.php">cURL</a> extensions. Cypht can also leverage several other extensions as defined in <a href="https://github.com/jasonmunro/cypht/blob/master/composer.json#L37-L44">composer.json</a>. Testing is done on <a href="https://www.debian.org/">Debian</a> and <a href="http://www.ubuntu.com/">Ubuntu</a> platforms with <a href="http://nginx.com/">Nginx</a> and <a href="http://httpd.apache.org/">Apache</a>.
         </p>
+        <p>Before proceeding please make sure your system meet minimal requirements</p>
         <h2>Steps</h2>
-        <h4>1. Download and prepare the code</h4>
+        <h4>1. Check minimum requirements</h4>
+        <p><pre>
+#!/bin/bash
+
+# You need to check php version which should be >=5.4
+php --version
+
+# Next you need to check composer version which should be >=2.0.0
+composer --version
+
+# List installed PHP extensions. at least OpenSSL, mbstring and cURL should be in the list
+php -m</pre></p>
+        <h4>2. Download and prepare the code</h4>
       <p>It's important to consider where you put the Cypht source. The web-server will need read-only access to it, and moving it from one place to another requires re-running the configuration script. Do NOT put the source in the document root as this could create a security risk. On Debian, it's common to use the /usr/local/share/ sub-directory for a situation like this. Here is short bash script that will download the latest code, setup the correct permissions and ownership, put the source in /usr/local/share/cypht, and create a default hm3.ini file. It requires sudo access:
 
 
