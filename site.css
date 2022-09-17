@@ -1267,5 +1267,24 @@ pre {
 	word-wrap: break-word;
 }
 
+html,body{
+	overflow-x: hidden;
+}
+
+.hero{
+	padding: 0px 5vw;
+	height: 60vh;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	z-index: 10000;
+}
+
+@media screen and (max-width: 576px) {
+	.hero{
+		height: 50vh;
+	}
+}
+
 
 /*.navbar-toggler { position: absolute; left: 20px; top: 20px; }*/
