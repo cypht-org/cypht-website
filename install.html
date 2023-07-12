@@ -59,7 +59,7 @@
         <h2>Installation</h2>
         <hr>
         <h2>Requirements</h2>
-        <p>      Cypht requires at least PHP 5.4, <a href="https://getcomposer.org/">Composer 2</a>, and at minimum the <a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a>, <a href="http://php.net/manual/en/book.mbstring.php">mbstring</a> and <a href="http://php.net/manual/en/book.curl.php">cURL</a> extensions. Cypht can also leverage several other extensions as defined in <a href="https://github.com/jasonmunro/cypht/blob/master/composer.json#L37-L44">composer.json</a>. Testing is done on <a href="https://www.debian.org/">Debian</a> and <a href="http://www.ubuntu.com/">Ubuntu</a> platforms with <a href="http://nginx.com/">Nginx</a> and <a href="http://httpd.apache.org/">Apache</a>.
+        <p>      Cypht requires at least PHP 5.4, <a href="https://getcomposer.org/">Composer 2</a>, and at minimum the <a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a>, <a href="http://php.net/manual/en/book.mbstring.php">mbstring</a> and <a href="http://php.net/manual/en/book.curl.php">cURL</a> extensions. Cypht can also leverage several other extensions as defined in <a href="https://github.com/cypht-org/cypht/blob/master/composer.json#L37-L44">composer.json</a>. Testing is done on <a href="https://www.debian.org/">Debian</a> and <a href="http://www.ubuntu.com/">Ubuntu</a> platforms with <a href="http://nginx.com/">Nginx</a> and <a href="http://httpd.apache.org/">Apache</a>.
         </p>
         <p>Before proceeding please make sure your system meets minimal requirements</p>
         <h2>Steps</h2>
@@ -96,7 +96,7 @@ mkdir cypht-temp
 cd cypht-temp
 
 # grab latest code
-wget https://github.com/jasonmunro/cypht/archive/master.zip
+wget https://github.com/cypht-org/cypht/archive/master.zip
 
 # unpack the archive
 unzip master.zip
@@ -121,7 +121,7 @@ sudo rm -rf cypht-temp
 
 </pre>
       <h4>2. Configure the program</h4>
-      <p>To configure Cypht for your environment, you must first edit the <a href="https://github.com/jasonmunro/cypht/blob/master/hm3.sample.ini">hm3.ini</a> file to your liking, then run the config_gen.php script to generate the optimized configuration file and assets used at run-time.</p>
+      <p>To configure Cypht for your environment, you must first edit the <a href="https://github.com/cypht-org/cypht/blob/master/hm3.sample.ini">hm3.ini</a> file to your liking, then run the config_gen.php script to generate the optimized configuration file and assets used at run-time.</p>
 
       <p>First edit the hm3.ini file to configure Cypht for your environment. If you choose to use a database for any of the 3 available purposes (authentication, sessions, or user settings), you will need to complete the "DB support" section and create the required tables. SQL to do so can be found in the hm3.sample.ini file. The ini file has lots of comments explaining what each option does.</p>
 
@@ -175,13 +175,13 @@ php ./scripts/update_password.php username password</pre>
       <ul>
           <li><b>Github</b><p>Cypht can connect to github and aggregate notification data about repository activity.<br /><br />
               Example github.ini file:<br />
-              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/github/github.ini">https://github.com/jasonmunro/cypht/blob/master/modules/github/github.ini</a><br /><br />
+              <a href="https://github.com/cypht-org/cypht/blob/master/modules/github/github.ini">https://github.com/cypht-org/cypht/blob/master/modules/github/github.ini</a><br /><br />
               Authorize an application for github:<br />
               <a href="https://github.com/settings/developers">https://github.com/settings/developers</a>
               </p></li>
               <li><b>OAUTH2 over IMAP</b><p>Gmail and Outlook.com support OAUTH2 authentication over IMAP. This is preferable to normal IMAP authentication because Cypht never has access to your account password.<br /><br />
               Example oauth2 ini file:<br />
-              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/imap/oauth2.ini">https://github.com/jasonmunro/cypht/blob/master/modules/imap/oauth2.ini</a><br /><br />
+              <a href="https://github.com/cypht-org/cypht/blob/master/modules/imap/oauth2.ini">https://github.com/cypht-org/cypht/blob/master/modules/imap/oauth2.ini</a><br /><br />
               Authorize an application for gmail<br />
               <a href="https://console.developers.google.com/project">https://console.developers.google.com/project</a><br /><br />
               Authorize an application for outlook.com<br />
@@ -189,16 +189,16 @@ php ./scripts/update_password.php username password</pre>
               </p></li>
               <li><b>LDAP contacts</b><p>Cypht can use an LDAP server for contacts.<br /><br />
               Example ldap.ini file:<br />
-              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/ldap_contacts/ldap.ini">https://github.com/jasonmunro/cypht/blob/master/modules/ldap_contacts/ldap.ini</a><br /><br />
+              <a href="https://github.com/cypht-org/cypht/blob/master/modules/ldap_contacts/ldap.ini">https://github.com/cypht-org/cypht/blob/master/modules/ldap_contacts/ldap.ini</a><br /><br />
               </p></li>
               <li><b>WordPress</b><p>Cypht can aggregate WordPress.com notifications.<br /><br />
               Example wordpress.ini file:<br />
-              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/wordpress/wordpress.ini">https://github.com/jasonmunro/cypht/blob/master/modules/wordpress/wordpress.ini</a><br /><br />
+              <a href="https://github.com/cypht-org/cypht/blob/master/modules/wordpress/wordpress.ini">https://github.com/cypht-org/cypht/blob/master/modules/wordpress/wordpress.ini</a><br /><br />
               Authorize an application for WordPress.com:<br />
               <a href="https://developer.wordpress.com/apps/">https://developer.wordpress.com/apps/</a>
               </p></li>
               <li><b>Custom themes</b><p>You can create your own themes for Cypht. Edit the themes.ini file to include your theme, and put the css file in modules/themes/assets.<br /><br />
-              <a href="https://github.com/jasonmunro/cypht/blob/master/modules/themes/themes.ini">https://github.com/jasonmunro/cypht/blob/master/modules/themes/themes.ini</a><br /><br />
+              <a href="https://github.com/cypht-org/cypht/blob/master/modules/themes/themes.ini">https://github.com/cypht-org/cypht/blob/master/modules/themes/themes.ini</a><br /><br />
 
       </ul>
 
