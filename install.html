@@ -57,7 +57,18 @@
 
     <section class="content-section container">
         <h2>Installation</h2>
+        <p>
+          Cypht has four differents installation ways:
+        </p>
+        <ul>
+          <li>Manual installation</li>
+          <li>Installation within Tiki</li>
+          <li>install using Docker (use cypht docker image)</li>
+          <li>Install cypht on a YunoHost server</li>
+        </ul>
+        <p>Please read the bellow explanations about each way and pick one of your choice.</p>
         <hr>
+        <h2>1. Manual installation</h2>
         <h2>Requirements</h2>
         <p>      Cypht requires at least PHP 5.6, <a href="https://getcomposer.org/">Composer 2</a>, and at minimum the <a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a>, <a href="http://php.net/manual/en/book.mbstring.php">mbstring</a> and <a href="http://php.net/manual/en/book.curl.php">cURL</a> extensions. Cypht can also leverage several other extensions as defined in <a href="https://github.com/cypht-org/cypht/blob/master/composer.json#L37-L44">composer.json</a>. Testing is done on <a href="https://www.debian.org/">Debian</a> and <a href="http://www.ubuntu.com/">Ubuntu</a> platforms with <a href="http://nginx.com/">Nginx</a> and <a href="http://httpd.apache.org/">Apache</a>.
         </p>
@@ -202,6 +213,51 @@ php ./scripts/update_password.php username password</pre>
 
       </ul>
 
+      <h2>2. Install cypht using Docker</h2>
+      <p>
+        Using Docker is one of the easiest way to install cypht as the cypht docker image comes with all the steps required in the manual instalation done for you. But the bad news is that this instllation way requires docker knowledge.<br/>
+        Here is the cypht docker repository: <a href="https://hub.docker.com/r/sailfrog/cypht-docker">https://hub.docker.com/r/sailfrog/cypht-docker</a><br/>
+        To run containers required by cypht, please, first make sure you have docker and docker-compose installed on your system, then take a look on the section "exemple docker-compose" of repository overview, then do the following: 
+      </p>
+      <ul>
+        <li>Create a new directory on your system named as you want.</li>
+        <li>In the directory created previously, create a file named "docker-compose.yaml"</li>
+        <li>Open your CLI/terminal and move to the directory containning the docker-compose file and run the command to run containers <pre>docker-compose up -d</pre></li>
+        <li>After containers started, you can access cypht on port 80 of your host if you didn't change the port value in the docker-compose file.</li>
+      </ul>
+      <p>
+        NOTE: Please change usernames and passwords before using the given docker-compose code in your production environment.
+      </p>
+
+      <h2>3. Install Cypht on a YunoHost server</h2>
+      <p>This is an other easy way of installing and use Cypht.</p>
+      <p>YunoHost is an operating system that aims to simplify server administration as much as possible to democratize self-hosting while remaining reliable,
+        secure, ethical and lightweight. It is a free software project owned exclusively by volunteers. Technically, it can be seen as a distribution based on 
+        Debian GNU/Linux and can be installed on many types of hardware.<br/>
+        To learn more about YunoHost, visit <a href="https://yunohost.org/fr/whatsyunohost">https://yunohost.org/fr/whatsyunohost</a>
+      </p>
+      <p>
+        To install Cypht on YunoHost, please follow these steps:
+      </p>
+      <ul>
+        <li>If you don't have an installed YunoHost server, please consult <a href="https://yunohost.org/#/install">the guide</a> to learn how to install it. If you have it, please go directly to the next step.</li>
+        <li>If you just installed YunoHost or had it installed before, access your server and go to the admin dashboard, then click on "Applications"</li>
+        <li>In the next page, click on the "install" button</li>
+        <li>In the search area, enter "cypht"</li>
+        <li>In the search result, click on cypht app</li>
+        <li>Scroll down, then fill in the form according to your need or keep the default values, then clik on the "install" button. Note: Make sure the url value is not 
+          used by another app on the server or in case you have another cypht instance previously installed you have to modify it instead of using the default valuue.
+        </li>
+        <li>Once clicked on the "install" button, wait for the installation to complete, it may take while.</li>
+        <li>Once the installation completed, your are taking back to the applications dashboard.</li>
+        <li>To open the app, click on the app recently installed and then on the "open the app" button, then the application opens in a new tab.</li>
+        <li>Enter the username and admin password you've provided previously in the installation form and then click on the login button to enter cypht and start configuring your email accounts.</li>
+      </ul>
+      <h2>4. Install Cypht within Tiki</h2>
+      <p>If you have tiki installed, you can use Cypht within tiki. This is an easy way of installing Cypht.<br/>
+        Please follow the following link for a complete guide of how to install and use cypht within Tiki.</br>
+        <a href="https://doc.tiki.org/Webmail">https://doc.tiki.org/Webmail</a>
+      </p>
       <h4>Having problems?</h4>
       I'm happy to help trouble-shoot any installation issues you run into. Send a message to jason <span class="e_hl">[at]</span> cypht <span class="e_hl">[dot]</span> org and I will get back to you as soon as I can.
     </section>
