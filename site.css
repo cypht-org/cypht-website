@@ -1054,9 +1054,9 @@ header {
 }
 
 .example_d:hover {
-	color: #eee !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
 	border-radius: 50px;
-	border-color: #eee !important;
 	transition: all 0.3s ease 0s;
 }
 
@@ -1286,6 +1286,55 @@ html,body{
 	z-index: 10000;
 }
 
+.install-btn {
+    background-color: transparent;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    min-width: 160px;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 98;
+    max-height: 0;
+    min-width: 160px;
+    transition: max-height 0.15s ease-out;
+    overflow: hidden;
+    margin-left: 11px;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    background-color: #f9f9f9;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #e2e2e2;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    max-height: 500px;
+    min-width: 160px;
+    transition: max-height 0.25s ease-in;
+  }
+  
+  .dropdown:hover .install-btn {
+    transition: max-height 0.25s ease-in;
+  }
+  
+  
 @media screen and (max-width: 576px) {
 	.hero{
 		height: 50vh;
