@@ -1,81 +1,131 @@
 <!DOCTYPE html>
 <html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Contribute</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/png" href="img/icon.ico">
-        <link rel="stylesheet" href="site.css">
-    </head>
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
-              <div class="container">
-                <a class="navbar-brand" href="index.html">
-                  <img src="img/logo.svg" width="120" height="60" alt="">
-                </a>
-                <button class="navbar-toggler toggler-home" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                  <ul class="navbar-nav ml-lg-auto">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contribute</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="img/icon.ico">
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo.svg" width="120" height="60" alt="">
+            </a>
+            <button class="navbar-toggler toggler-home" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav ml-lg-auto">
                     <li class="nav-item">
-                      <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span>
-                      </a>
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="features.html">Features</a>
+                        <a class="nav-link" href="features.html">Features</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="security.html">Security</a>
+                        <a class="nav-link" href="security.html">Security</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="modules.html">Mods</a>
+                        <a class="nav-link" href="modules.html">Mods</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="license.html">License</a>
+                        <a class="nav-link" href="license.html">License</a>
                     </li>
                     <li class="nav-item">
                         <!--<a class="nav-link" href="tests.html">Test</a>-->
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="documentation.html">Documentation</a>
+                        <a class="nav-link" href="documentation.html">Documentation</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="https://unencumberedbyfacts.com">Blog</a>
+                        <a class="nav-link" href="https://unencumberedbyfacts.com" target="_blank">Blog</a>
                     </li>
                     <li class="nav-item active">
-                      <a onclick="document.getElementsByClassName('navbar-collapse')[0].style.display='none';" class="nav-link" href="contribute.html">Contribute</a>
+                        <a onclick="document.getElementsByClassName('navbar-collapse')[0].style.display='none';"
+                           class="nav-link" href="contribute.html">Contribute</a>
                     </li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-          </header>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 
-       <section class="contibute-section container">
-          <div class="container text-center">
-              <h2>Want to contribute?</h2>
-              <h2>Have a question? </h2>
-              <p>We love feedback so let us know what you think! <br>
-                Leave a comment, submit your problem or contribute to the project <br>
-                  by first joining the community. </p>
-                  
-                  <a href="https://github.com/cypht-org/cypht/"><button type="button" class="btn btn-success">GitHub</button></a>
-                  <a href="https://gitter.im/cypht-org/community"><button type="button" class="btn btn-success">Gitter</button></a>
-                  <a href="https://www.openhub.net/p/cypht/"><button type="button" class="btn btn-success">OpenHub</button></a>
-          </div>
-        
-       </section>
-       <script>
-              ((window.gitter = {}).chat = {}).options = {
-                room: 'cypht-org/community'
-              };
-       </script>
-       <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
-       <script src="jquery.slim.min.js"></script>
-       <script src="bootstrap.bundle.min.js"></script>
-    </body>
+<section class="contibute-section container">
+    <div class="container">
+        <h2 id="contributing">Want to contribute?</h2>
+        <p>First of all, thank you for interest to cypht! The goal of this page is to provide everything you need to know in order to contribute to cypht-website and its different integrations.</p>
+        <p>Cypht project has been designed with standalone PHP, no framework required.</p>
+        <ul>
+            <li><a href="#development-workflow">Development Workflow</a></li>
+            <li><a href="#requirements">Requirements</a></li>
+            <li><a href="#git-guidelines">Git Guidelines</a></li>
+        </ul>
+        <h2 id="development-workflow">Development Workflow</h2>
+        <p>The project has been designed with plain html css, no need for extra features, or framework.</p>
+
+        <h2 id="requirements">Requirements</h2>
+        <ol>
+            <li>You're familiar with <a href="https://github.com">GitHub</a> and the
+                <a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests">Pull Request</a> (PR) workflow.
+            </li>
+            <li>You've read the Cypht <a href="documentation.html">documentation</a> and the <a
+                    href="https://github.com/cypht-org/cypht#readme">README</a>.
+            </li>
+            <li>You know about the <a href="https://gitter.im/cypht-org/community">Cypht community.</a> Please use this as help.
+            </li>
+        </ol>
+        <h2 id="git-guidelines">Git Guidelines</h2>
+        <ol>
+            <li>Make sure that the contribution you want to make is explained or detailed in a GitHub issue! Find an
+                <a href="https://github.com/cypht-org/cypht-website/issues">existing issue</a> or
+                <a href="https://github.com/cypht-org/cypht-website/issues/new/choose">open a new one</a>.
+            </li>
+            <li>Once done,
+                <a href="https://github.com/cypht-org/cypht-website/fork">fork the cypht website repository</a> to your own GitHub account.
+                You can request a maintainer to check your issue before making a PR.
+            </li>
+            <li>Create a new Git branch.</li>
+            <li>Review the <a href="#development-workflow">Development Workflow</a> section that describes the project's technology used.
+            </li>
+            <li>Implement the changes on your branch.</li>
+            <li>
+                Submit the branch as a PR pointing to the <code>master</code> branch of cypht-website repository.
+                A maintainer will comment and/or review your Pull Request. Depending on the circumstances, this process may take some time.<br>
+            </li>
+        </ol>
+
+        <h2>Have a question? </h2>
+        <p>We love feedback so let us know what you think! <br> Leave a comment, submit your problem or contribute to
+            the project <br> by joining the community first.
+        </p>
+
+        <a href="https://github.com/cypht-org/cypht/">
+            <button type="button" class="btn btn-success">GitHub</button>
+        </a>
+        <a href="https://gitter.im/cypht-org/community">
+            <button type="button" class="btn btn-success">Gitter</button>
+        </a>
+        <a href="https://www.openhub.net/p/cypht/users">
+            <button type="button" class="btn btn-success">OpenHub</button>
+        </a>
+    </div>
+</section>
+<script>
+    ((window.gitter = {}).chat = {}).options = {
+        room: 'cypht-org/community'
+    };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+<script src="jquery.slim.min.js"></script>
+<script src="bootstrap.bundle.min.js"></script>
+</body>
+
 </html>
