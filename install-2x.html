@@ -69,7 +69,7 @@
         <h2>1. Manual installation</h2>
 
         <h2>Requirements</h2>
-        <p>Cypht requires at least PHP 5.6 for version 1.4.x, the upcoming Cypht 2.0 will require PHP 7.4,<a href="https://getcomposer.org/">Composer 2</a>, and at minimum the <a
+        <p>Cypht requires at least PHP 5.6 for version 1.4.x, the Cypht 2.0 will require PHP 7.4,<a href="https://getcomposer.org/">Composer 2</a>, and at minimum the <a
                 href="http://php.net/manual/en/book.openssl.php">OpenSSL</a>, <a
                 href="http://php.net/manual/en/book.mbstring.php">mbstring</a> and <a
                 href="http://php.net/manual/en/book.curl.php">cURL</a> extensions. Cypht can also leverage several other
@@ -112,25 +112,34 @@ fi
 mkdir cypht-temp
 cd cypht-temp
 
-# grab latest code
-wget https://github.com/cypht-org/cypht/archive/master.zip
+# Fetch latest release information
+$latest_release = Invoke-RestMethod -Uri "https://api.github.com/repos/cypht-org/cypht/releases/latest"
+
+# Extract tag name of the latest release
+$latest_tag = $latest_release.tag_name
+
+# Construct download URL for the latest release within the 2.x series
+$download_url = "https://github.com/cypht-org/cypht/archive/refs/tags/$latest_tag.zip"
+
+# Download the latest release
+Invoke-WebRequest -Uri $download_url -OutFile "latest_cypht_release.zip"
 
 # unpack the archive
-unzip master.zip
+unzip latest_cypht_release.zip
 
 # run composer
-cd cypht-master && composer install && cd ..
+cd latest_cypht_release && composer install && cd ..
 
 # create a .env file
-cp cypht-master/.env.example cypht-master/.env
+cp latest_cypht_release/.env.example latest_cypht_release/.env
 
 # fix permissions and ownership
-find cypht-master -type d -print | xargs chmod 755
-find cypht-master -type f -print | xargs chmod 644
-sudo chown -R root:root cypht-master
+find latest_cypht_release -type d -print | xargs chmod 755
+find latest_cypht_release -type f -print | xargs chmod 644
+sudo chown -R root:root latest_cypht_release
 
 # copy to destination folder
-sudo mv cypht-master/* $DESTINATION
+sudo mv latest_cypht_release/* $DESTINATION
 
 # remove working directory
 cd ..
@@ -141,7 +150,7 @@ sudo rm -rf cypht-temp
       <p>To configure Cypht for your environment, make adjustments to the <a href="https://github.com/cypht-org/cypht/blob/master/.env.example">.env</a> file according to your preferences. The .env file serves as the primary configuration file.</p>
 
       <p>First edit the .env file to configure Cypht for your environment. If you choose to leverage a database for authentication, sessions, or user settings, ensure to complete the relevant sections within the .env file based on the information provided in the config/app.php file.</p>
-      
+
       <p>The necessary SQL commands for creating tables can be found in the config/app.php file, specifically starting from line 617 in the "DB Sessions" section. </p>
 
       <p>Cypht needs read, and read-write access to a few directories on the server. For security reasons these should NOT be inside the web-server document root. A good place for these is under the /var/lib/ sub-directory. Here are the commands To create the required directories per the default values in the ini file (assuming your web-server software runs as the "www-data" user).</p>
@@ -162,7 +171,7 @@ sudo chown -R www-data /var/lib/hm3/
 sudo php ./scripts/config_gen.php</pre>
 
       <p>Recent updates have streamlined the process, and running the command above will now specifically generate the config/dynamic.php file. This file incorporates dynamic configurations, including 'handler_modules,' 'output_modules,' and 'input_filters.' Furthermore, the command continues to optimize the configuration and combine/minimize page assets, ensuring efficient runtime operation.</p>
-      
+
       <p>Additionally, executing this command will create a sub-directory called 'site' that contains the code and page assets required within the document root. If you ever relocate the source location, you'll need to re-run the config_gen script to update the program.</p>
 
 
@@ -244,7 +253,7 @@ php ./scripts/update_password.php username password</pre>
           YunoHost is an operating system that aims to simplify server administration as much as possible to democratize self-hosting while remaining reliable,
         secure, ethical and lightweight. It is a free software project owned exclusively by volunteers. Technically, it can be seen as a distribution based on
         Debian GNU/Linux and can be installed on many types of hardware.<br/>
-        To learn more about YunoHost, visit <a href="https://yunohost.org/fr/whatsyunohost">https://yunohost.org/fr/whatsyunohost</a>
+        To learn more about YunoHost, visit <a href="https://yunohost.org/en/overview/what_is_yunohost">https://yunohost.org/en/overview/what_is_yunohost</a>
       </p>
       <p>To install Cypht on YunoHost, please follow these steps:</p>
       <ul>
@@ -266,7 +275,7 @@ php ./scripts/update_password.php username password</pre>
         Please follow the following link for a complete guide of how to install and use cypht within Tiki.</br>
         <a href="https://doc.tiki.org/Webmail">https://doc.tiki.org/Webmail</a>
       </p></br>
-      
+
       <h4>Having problems?</h4>
       I'm happy to help trouble-shoot any installation issues you run into. Send a message to jason <span class="e_hl">[at]</span> cypht <span class="e_hl">[dot]</span> org and I will get back to you as soon as I can.
     </section>
