@@ -494,7 +494,8 @@ a.btn.disabled {
 .btn-success {
 	color: #fff;
 	background-color: #28a745;
-	border-color: #28a745
+	border-color: #28a745;
+	margin: 0.3125rem 0.3125rem 0.3125rem 0.3125rem; /* top, right, bottom, left */
 }
 
 .btn-success:hover {
