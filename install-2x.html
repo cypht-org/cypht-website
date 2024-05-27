@@ -314,13 +314,13 @@ sudo php ./scripts/config_gen.php</pre>
       required in the manual instalation done for you. But the bad news is that this instllation way requires docker
       knowledge.<br />
       Here is the cypht docker repository: <a
-        href="https://hub.docker.com/r/sailfrog/cypht-docker">https://hub.docker.com/r/sailfrog/cypht-docker</a><br />
+        href="https://hub.docker.com/r/cypht/cypht">https://hub.docker.com/r/cypht/cypht</a><br />
       To run containers required by cypht, please, first make sure you have docker and docker-compose installed on your
       system, then take a look on the section "exemple docker-compose" of repository overview, then do the following:
     </p>
     <ul>
       <li>Create a new directory on your system named as you want.</li>
-      <li>In the directory created previously, create a file named "docker-compose.yaml"</li>
+      <li>In the directory created previously, create a file named "docker-compose.yaml" then copy and paste the content of <a href="https://github.com/cypht-org/cypht/blob/master/docker/docker-compose.yaml">the example docker-compose file</a> in the created file or just download the example dcoker-compose file  in the previously created directory.</li>
       <li>Open your CLI/terminal and move to the directory containning the docker-compose file and run the command to
         run containers
         <pre>docker-compose up -d</pre>
