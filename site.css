@@ -376,7 +376,20 @@ pre code {
 	margin-right: -15px;
 	margin-left: -15px
 }
-
+.line {
+	display: flex;
+	padding: 15px;
+	max-width: 100%;
+}
+.item {
+	width: 49%;
+	margin-left: 0.5%;
+	margin-right: 0.5%;
+}
+.item img{
+	width: 100%;
+	height: auto;
+}
 .col-lg-4,
 .col-md-2,
 .col-md-3,
@@ -481,7 +494,8 @@ a.btn.disabled {
 .btn-success {
 	color: #fff;
 	background-color: #28a745;
-	border-color: #28a745
+	border-color: #28a745;
+	margin: 0.3125rem 0.3125rem 0.3125rem 0.3125rem; /* top, right, bottom, left */
 }
 
 .btn-success:hover {
@@ -1054,8 +1068,8 @@ header {
 }
 
 .example_d:hover {
-    color: #fff !important;
-    border: 2px solid #fff !important;
+    color: #eee !important;
+	border-color: #eee !important;
 	border-radius: 50px;
 	transition: all 0.3s ease 0s;
 }
@@ -1227,13 +1241,13 @@ h3 {
 .content-section {
 	background: #f4f4f4;
 	position: relative;
-	min-height: 100vh; 
+	min-height: 100vh;
 	padding: 130px 50px 100px 50px;
 }
 
-.content-section-doc { 
+.content-section-doc {
 	background: #E7F2D1;
-	position: relative; 
+	position: relative;
 	padding: 0px 50px 00px 50px;
 	margin-top: 50px;
 	margin-bottom: 50px;
@@ -1243,7 +1257,7 @@ h3 {
 	padding: 20px;
 }
 
-.content-section-doc h1{ 
+.content-section-doc h1{
 	padding-left: 20px;
 	padding-right: 20px;
 	font-size: 2em;
@@ -1286,55 +1300,21 @@ html,body{
 	z-index: 10000;
 }
 
-.install-btn {
-    background-color: transparent;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    min-width: 160px;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 98;
-    max-height: 0;
-    min-width: 160px;
-    transition: max-height 0.15s ease-out;
-    overflow: hidden;
-    margin-left: 11px;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    background-color: #f9f9f9;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #e2e2e2;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    max-height: 500px;
-    min-width: 160px;
-    transition: max-height 0.25s ease-in;
-  }
-  
-  .dropdown:hover .install-btn {
-    transition: max-height 0.25s ease-in;
-  }
-  
-  
+@media (max-width: 850px){
+	body{
+		padding: 0;
+	}
+	.container{
+		width: 100%;
+	}
+	.line{
+		display: block;
+	}
+	.item{
+		width: 100%;
+	}
+}
+
 @media screen and (max-width: 576px) {
 	.hero{
 		height: 50vh;
