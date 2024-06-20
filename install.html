@@ -226,6 +226,9 @@ sudo php ./scripts/config_gen.php</pre>
         <p>Setting up users depends on what type of authentication you configure in the .env file. If you are using the
             local database configuration for users, there are scripts in the scripts/ directory to help manage them:
         <pre>
+# Generate necessary tables to manage users,sessions, or settings depending on the configuration in the .env file
+php ./scripts/setup_database.php
+
 # create an account
 php ./scripts/create_account.php username password
 
@@ -233,7 +236,8 @@ php ./scripts/create_account.php username password
 php ./scripts/delete_account.php username
 
 # change an account password
-php ./scripts/update_password.php username password</pre>
+php ./scripts/update_password.php username password
+        </pre>
         </p>
         <h4>7. Debug mode</h4>
         <p>Cypht has a debug or developer mode that can be used to troubleshoot problems or enable faster development of
