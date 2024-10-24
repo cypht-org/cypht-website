@@ -30,8 +30,8 @@
 	--breakpoint-xs: 0;
 	--breakpoint-sm: 576px;
 	--breakpoint-md: 768px;
-	--breakpoint-lg: 992px;
-	--breakpoint-xl: 1200px;
+	--breakpoint-lg: 1271px;
+	--breakpoint-xl: 1271px;
 	--font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	--font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
 }
@@ -364,7 +364,7 @@ pre code {
 
 @media (min-width:1200px) {
 	.container {
-		max-width: 1140px
+		max-width: 1400px
 	}
 }
 
@@ -686,7 +686,7 @@ a.btn.disabled {
 	}
 }
 
-@media (min-width:992px) {
+@media (min-width:1272px) {
 	.navbar-expand-lg {
 		-ms-flex-flow: row nowrap;
 		flex-flow: row nowrap;
