@@ -96,7 +96,7 @@
         href="http://php.net/manual/en/book.mbstring.php">mbstring</a> and <a
         href="http://php.net/manual/en/book.curl.php">cURL</a> extensions. Cypht can also leverage several other
       extensions as defined in <a
-        href="https://github.com/cypht-org/cypht/blob/master/composer.json#L37-L44">composer.json</a>.
+        href="https://github.com/cypht-org/cypht/blob/2.x/composer.json#L37-L44">composer.json</a>.
       Testing is done on <a href="https://www.debian.org/">Debian</a> and <a href="http://www.ubuntu.com/">Ubuntu</a>
       platforms with <a href="http://nginx.com/">Nginx</a> and <a href="http://httpd.apache.org/">Apache</a>.
     </p>
@@ -178,7 +178,7 @@ sudo rm -rf cypht-temp
 </pre>
     <h4>3. Configure the program</h4>
     <p>To configure Cypht for your environment, make adjustments to the <a
-        href="https://github.com/cypht-org/cypht/blob/master/.env.example">.env</a> file according to your preferences.
+        href="https://github.com/cypht-org/cypht/blob/2.x/.env.example">.env</a> file according to your preferences.
       The .env file serves as the primary configuration file.</p>
 
     <p>First edit the .env file to configure Cypht for your environment. If you choose to leverage a database for
@@ -273,7 +273,7 @@ php ./scripts/update_password.php username password
         <p>Cypht can connect to github and aggregate notification data about repository activity.<br /><br />
           Example github.php file:<br />
           <a
-            href="https://github.com/cypht-org/cypht/blob/master/config/github.php">https://github.com/cypht-org/cypht/blob/master/config/github.php</a><br /><br />
+            href="https://github.com/cypht-org/cypht/blob/2.x/config/github.php">https://github.com/cypht-org/cypht/blob/2.x/config/github.php</a><br /><br />
           Authorize an application for github:<br />
           <a href="https://github.com/settings/developers">https://github.com/settings/developers</a>
         </p>
@@ -283,7 +283,7 @@ php ./scripts/update_password.php username password
           authentication because Cypht never has access to your account password.<br /><br />
           Example oauth2.php file:<br />
           <a
-            href="https://github.com/cypht-org/cypht/blob/master/config/oauth2.php">https://github.com/cypht-org/cypht/blob/master/config/oauth2.php</a><br /><br />
+            href="https://github.com/cypht-org/cypht/blob/2.x/config/oauth2.php">https://github.com/cypht-org/cypht/blob/2.x/config/oauth2.php</a><br /><br />
           Authorize an application for gmail<br />
           <a
             href="https://console.developers.google.com/project">https://console.developers.google.com/project</a><br /><br />
@@ -296,14 +296,14 @@ php ./scripts/update_password.php username password
         <p>Cypht can use an LDAP server for contacts.<br /><br />
           Example ldap.php file:<br />
           <a
-            href="https://github.com/cypht-org/cypht/blob/master/config/ldap.php">https://github.com/cypht-org/cypht/blob/master/config/ldap.php</a><br /><br />
+            href="https://github.com/cypht-org/cypht/blob/2.x/config/ldap.php">https://github.com/cypht-org/cypht/blob/2.x/config/ldap.php</a><br /><br />
         </p>
       </li>
       <li><b>WordPress</b>
         <p>Cypht can aggregate WordPress.com notifications.<br /><br />
           Example wordpress.php file:<br />
           <a
-            href="https://github.com/cypht-org/cypht/blob/master/config/wordpress.php">https://github.com/cypht-org/cypht/blob/master/config/wordpress.php</a><br /><br />
+            href="https://github.com/cypht-org/cypht/blob/2.x/config/wordpress.php">https://github.com/cypht-org/cypht/blob/2.x/config/wordpress.php</a><br /><br />
           Authorize an application for WordPress.com:<br />
           <a href="https://developer.wordpress.com/apps/">https://developer.wordpress.com/apps/</a>
         </p>
@@ -312,7 +312,7 @@ php ./scripts/update_password.php username password
         <p>You can create your own themes for Cypht. Edit the themes.php file to include your theme, and put the css
           file in modules/themes/assets.<br /><br />
           <a
-            href="https://github.com/cypht-org/cypht/blob/master/config/themes.php">https://github.com/cypht-org/cypht/blob/master/config/themes.php</a><br /><br />
+            href="https://github.com/cypht-org/cypht/blob/2.x/config/themes.php">https://github.com/cypht-org/cypht/blob/2.x/config/themes.php</a><br /><br />
 
     </ul>
 
