@@ -990,9 +990,10 @@
                 <span class="default-text">    if ($sources != 20) {</span><br>
                 <span class="default-text">        $reset = '<span class="tooltip_restore" restore_aria_label="Restore default value"><i class="bi bi-arrow-repeat refresh_list reset_default_value_input"></i></span>';</span><br>
                 <span class="default-text">    }</span><br>
-                <span class="default-text">    return '<tr class="tag_setting"><td><label for="tag_per_source">'.</span><br>
-                <span class="default-text">        $this->trans('Max messages per source').'</label></td>'.</span><br>
-                <span class="default-text">        '<td class="d-flex"><input type="text" size="2" class="form-control form-control-sm w-auto" id="tag_per_source" name="tag_per_source" value="'.$this->html_safe($sources).'" />'.$reset.'</td></tr>';</span><br>
+                <span class="default-text">    return '&lt;tr class="tag_setting"&gt;&lt;td&gt;&lt;label for="tag_per_source"&gt;'.</span><br>
+                <span class="default-text">        $this->trans('Max messages per source').'&lt;/label&gt;&lt;/td&gt;'.</span><br>
+                <span class="default-text">        '&lt;td class="d-flex"&gt;&lt;input type="text" size="2" class="form-control form-control-sm w-auto" </span>
+                <span class="default-text">        id="tag_per_source" name="tag_per_source" value="'.$this->html_safe($sources).'" /&gt;'.$reset.'&lt;/td&gt;&lt;/tr&gt;';</span><br>
                 <span class="function-keyword"> }</span><br>
                 <span class="function-keyword">}</span>
             </code>
