@@ -181,14 +181,10 @@
             </code>
 
             <p>- setup_base_page adds your new page to the routes, the first argument is the name of the page accessible
-                by typing /?page=all_users in the browser in this case</p>
+                by typing /?page=all_messages in the browser in this case</p>
             <p>- add_handler adds a handler to the page. A handler class contains logic, validates forms, binds alert
                 messages, and passes output variables for use in the output.</p>
-            <p>- add_output adds output to the page. An output class contains HTML that will be returned to the client
-            </p>
-
-            <p><s>by typing /?page=all_users</s></p>
-            <p>by typing /?page=all_messages</p>
+            <p>- add_output adds output to the page. An output class contains HTML that will be returned to the client by typing /?page=all_messages</p>
 
             <h3 class="bold-title"><b>Handler and Output Modules</b></h3>
             <p class="highlight-text">In <span class="highlight-secondary">nux/modules.php</span>:</p>
@@ -293,9 +289,9 @@
             <p>Add <span class="function-keyword">ajax_messages</span> to the list of allowed outputs.</p>
             <p>Add post/get variables if they exist in the list of allowed get/posts.</p>
 
-            <p>__Note:__ A page can have multiple handlers/outputs. A full list of all handlers and outputs attached to
+            <p><b><b>Note:</b></b> A page can have multiple handlers/outputs. A full list of all handlers and outputs attached to
                 a page can be seen by accessing <span class="function-keyword">?page=info</span> page on your instance in
-                the __configuration map section__.</p>
+                the <b>configuration map section</b>.</p>
 
             <h3 class="bold-title"><b>Add third party</b></h3>
             <p>Copy the minified file to the third-party directory</p>
@@ -479,16 +475,16 @@
 
             <p>Here is Hm_Output_content_section_start, the content after which we want to display our header. </p>
 
-            <p class="highlight-text">In <span class="highlight-secondary">core/output_modules.php</span>:
-            </p>
-            <p>class Hm_Output_content_section_start extends Hm_Output_Module {</p>
+            <p class="highlight-text">In <span class="highlight-secondary">core/output_modules.php</span>:</p>
 
             <code class="code-block">
+                <span class="function-keyword">class Hm_Output_content_section_start </span> extends Hm_Output_Module {</br>
                 <span class="function-keyword">/**</span><br>
                 <span class="default-text"> * Opens a main tag for the primary content section</span><br>
                 <span class="function-keyword"> */</span><br>
                 <span class="function-keyword">protected function output()</span> {<br>
-                <span class="default-text">    return '.$this->trans('Offline').'}</span><br>
+                <span class="default-text">    return '.$this->trans('Offline').'
+                }</span><br>
             </code>
 
             <p>In our case, we want to place our html content before closing: </p>
