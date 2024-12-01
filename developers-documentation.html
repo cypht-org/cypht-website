@@ -309,7 +309,7 @@
             <p>Edit .env file and add your module to CYPHT_MODULES variable</p>
 
             <h3 class="bold-title"><b>Create a module</b></h3>
-            <p>In the modules folder, you'll find a __hello_world__ module with the necessary scaffolding for creating a
+            <p>In the modules folder, you'll find a <b>hello_world</b> module with the necessary scaffolding for creating a
                 new module. Customize your module by following the code explained above.</p>
 
             <h3 class="bold-title"><b>Translate string</b></h3>
@@ -665,7 +665,7 @@
 
             <p>We can now define our handler:</p>
 
-            <p class="highlight-text">In <span class="highlight-secondary">core/setup.php</span>:</p>
+            <p class="highlight-text">In <span class="highlight-secondary">core/handler_modules.php</span>:</p>
 
             <code class="code-block">
                 <span class="function-keyword">class Hm_Handler_process_test_third_div</span> extends Hm_Handler_Module {<br>
@@ -806,7 +806,7 @@
 
             <p>We will need a handle and an output for that:</p>
 
-            <p class="highlight-text">In <span class="highlight-secondary">setup.php</span>:</p>
+            <p class="highlight-text">In <span class="highlight-secondary">core/setup.php</span>:</p>
             <code class="code-block">
                 <span class="function-keyword">add_handler</span>('settings', 'process_test_enable_tag_with_parent', true, 'tags', 'save_user_settings', 'before');<br>
                 <span class="function-keyword">add_output</span>('settings', 'test_enable_tag_with_parent_setting', true, 'tags', 'default_sort_order_setting', 'after');
