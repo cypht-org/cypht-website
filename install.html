@@ -58,7 +58,7 @@
                                 class="nav-link" href="contribute.html">Contribute</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/cypht-org/cypht-website/blob/master/install.html">
+                            <a class="nav-link" href="https://github.com/cypht-org/cypht-website/blob/master/install-1x.html">
                                  <img src="img/edit_icon.png" alt="Edit Icon" width="23" height="23" style="vertical-align:middle;" title="Edit this page">
                             </a>
                        </li>
@@ -69,19 +69,8 @@
     </header>
 
     <section class="content-section container">
-        <h2>Install Cypht master</h2>
-        <p>You can install specific versions of Cypht:</p>
-        <p>
-            <a href="install.html">
-                <button type="button" class="btn btn-success">Cypht master</button>
-            </a>
-            <a href="install-1x.html">
-                <button type="button" class="btn btn-success">Cypht v1.4.x</button>
-            </a>
-            <a href="install-2x.html">
-                <Cypht type="button" class="btn btn-success">Cypht v2.x</button>
-            </a>
-        </p>
+        <h2>Install Cypht</h2>
+
         <p>Cypht has four differents installation ways:</p>
         <ul>
             <li>Manual installation</li>
@@ -93,12 +82,12 @@
         <hr>
         <h2>1. Manual installation</h2>
         <h2>Requirements</h2>
-        <p>Cypht master requires at least PHP 8.1, <a href="https://getcomposer.org/">Composer 2</a>, and at minimum the
+        <p>Cypht 1.4.x requires PHP 5.6 or 7.0 or 7.1 or 7.2 or 7.3 or 7.4 (for PHP 8.1+, please use Cypht 2.1+), <a href="https://getcomposer.org/">Composer 2</a>, and at minimum the
             <a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a>, <a
                 href="http://php.net/manual/en/book.mbstring.php">mbstring</a> and <a
                 href="http://php.net/manual/en/book.curl.php">cURL</a> extensions. Cypht can also leverage several other
             extensions as defined in <a
-                href="https://github.com/cypht-org/cypht/blob/master/composer.json#L37-L44">composer.json</a>.
+                href="https://github.com/cypht-org/cypht/blob/1.4.x/composer.json#L37-L44">composer.json</a>.
             Testing is done on <a href="https://www.debian.org/">Debian</a> and <a
                 href="http://www.ubuntu.com/">Ubuntu</a>
             platforms with <a href="http://nginx.com/">Nginx</a> and <a href="http://httpd.apache.org/">Apache</a>.
@@ -108,101 +97,190 @@
         <h4>1. Check minimum requirements</h4>
         <p>
         <pre>
-            #!/bin/bash
+#!/bin/bash
 
-            # You need to check php version which should be >=8.1
-            php --version
+# You need to check php version which should be >=5.6 for version 1.4.x and 7.4 for Cypht version 2.x.x
+php --version
 
-            # Next you need to check composer version which should be >=2.0.0
-            composer --version
+# Next you need to check composer version which should be >=2.0.0
+composer --version
 
-            # List installed PHP extensions. at least OpenSSL, mbstring and cURL should be in the list
-            php -m
-        </pre>
+# List installed PHP extensions. at least OpenSSL, mbstring and cURL should be in the list
+php -m</pre>
         </p>
         <h4>2. Download and prepare the code</h4>
-        <p>It's important to consider where you put the Cypht source. The web-server will need read-only access to it,
-            and
-            moving it from one place to another requires re-running the configuration script. Do NOT put the source in
-            the
-            document root as this could create a security risk. On Debian, it's common to use the /usr/local/share/
-            sub-directory for a situation like this. Here is short bash script that will download the latest code, setup
-            the
-            correct permissions and ownership, put the source in /usr/local/share/cypht, and create a default .env file.
-            It requires sudo access:
-
-
+        <p>
+            It's important to consider where you place the Cypht source. 
+            The web server will need read-only access to it, and moving it from one place to another requires re-running the configuration script. 
+            Do <b>not</b> put the source in the document root as it could create a security risk. 
+            On Debian systems, it's common to place the source in the "/usr/local/share/" sub-directory for such cases. 
+            The provided bash script downloads(installs or upgrades) the specified version of Cypht, prepares the necessary directories, sets up correct permissions and ownership, and places the Cypht source in "/usr/local/share/cypht/cypht-version". 
+            It also ensures that the required configuration files are created, such as .env or hm3.ini (depending on the version). 
+            The script requires sudo access to perform these actions:
         </p>
         <pre>
 #!/bin/bash
 
-# this is where Cypht will be installed
-DESTINATION="/usr/local/share/cypht"
+# Base directory for Cypht installations
+BASE_DIR="/usr/local/share/cypht"
 
-# validate the destination directory
-sudo test -r $DESTINATION -a -x $DESTINATION
-if [ $? -ne 0 ]; then
-    sudo mkdir $DESTINATION
+# Function to check prerequisites
+check_prerequisites() {
+    if ! command -v composer &>/dev/null; then
+        echo "Error: Composer is not installed or not in the system PATH."
+        echo "Please install Composer before proceeding: https://getcomposer.org/download/"
+        exit 1
+    fi
+}
+
+# Function to install Cypht for a given version
+install_cypht() {
+    local version=$1
+    local destination="$BASE_DIR/cypht-$version"
+   
+    echo "Installing Cypht version $version..."
+
+    # Validate the destination directory
+    if [ -d "$destination" ]; then
+        echo "Error: Cypht version $version is already installed at $destination."
+        exit 1
+    fi
+    sudo mkdir -p "$destination"
+
+    # Create temporary working directory
+    temp_dir=$(mktemp -d)
+    cd "$temp_dir" || exit 1
+
+    # Download the selected version of Cypht
+    wget "https://github.com/cypht-org/cypht/archive/refs/tags/v$version.zip" -O "v$version.zip"
+    if [ $? -ne 0 ]; then
+        echo "Error downloading version $version."
+        exit 1
+    fi
+
+    # Unpack the archive
+    unzip "v$version.zip"
+    if [ $? -ne 0 ]; then
+        echo "Error unpacking v$version.zip."
+        exit 1
+    fi
+    extracted_folder="cypht-$version"
+
+    # Run composer
+    cd "$extracted_folder" || exit 1
+    composer install
+
+    # Handle configuration file creation
+    if [[ "$version" =~ ^1\.4\.[0-9]+$ ]]; then
+        echo "Detected version 1.4.x. Creating hm3.ini from hm3.sample.ini."
+        cp hm3.sample.ini hm3.ini
+    else
+        echo "Detected version $version. Creating .env from .env.example."
+        cp .env.example .env
+    fi
+
+    # Fix permissions and ownership
+    find . -type d -exec chmod 755 {} \;
+    find . -type f -exec chmod 644 {} \;
+    sudo chown -R root:root .
+
+    # Move files to the destination folder
+    echo "Copying files to $destination..."
+    sudo mv ./* ./.[!.]* "$destination"
+
+    # Clean up temporary directory
+    cd ..
+    sudo rm -rf "$temp_dir"
+
+    echo "Cypht $version installed successfully to $destination"
+}
+
+# Function to upgrade Cypht from one version to another
+upgrade_cypht() {
+    local current_version=$1
+    local new_version=$2
+    local current_dir="$BASE_DIR/cypht-$current_version"
+    local new_dir="$BASE_DIR/cypht-$new_version"
+
+    echo "Upgrading Cypht from version $current_version to version $new_version..."
+
+    # Check if the current version is installed
+    if [ ! -d "$current_dir" ]; then
+        echo "Error: Cypht version $current_version is not installed at $current_dir."
+        exit 1
+    fi
+
+    # Backup current installation
+    echo "Backing up current Cypht installation..."
+    backup_dir="/tmp/cypht-backup-$current_version-$(date +%s)"
+    sudo cp -r "$current_dir" "$backup_dir"
+    echo "Backup saved at $backup_dir."
+
+    # Install the new version
+    install_cypht "$new_version"
+
+    echo "Cypht upgraded from version $current_version to version $new_version."
+}
+
+# Check prerequisites
+check_prerequisites
+
+# Menu for version selection
+echo "Select the version of Cypht you want to install or upgrade to:"
+echo "1. Install Cypht (specific version)"
+echo "2. Upgrade from Cypht (old version to new version)"
+read -p "Enter your choice (1 or 2): " choice
+
+if [ "$choice" -eq 1 ]; then
+    # Install specific version
+    read -p "Enter the version to install (e.g., 2.1.0, 2.2.0, etc.): " version
+    install_cypht "$version"
+elif [ "$choice" -eq 2 ]; then
+    # Upgrade from one version to another
+    read -p "Enter your current Cypht version (e.g., 1.4.4): " current_version
+    read -p "Enter the new Cypht version to upgrade to (e.g., 2.4.0): " new_version
+    upgrade_cypht "$current_version" "$new_version"
+else
+    echo "Invalid choice. Please choose 1 or 2."
+    exit 1
 fi
-
-# create working directory
-mkdir cypht-temp
-cd cypht-temp
-
-# grab latest code
-wget https://github.com/cypht-org/cypht/archive/master.zip
-
-# unpack the archive
-unzip master.zip
-
-# run composer
-cd cypht-master && composer install && cd ..
-
-# create a vanilla ini file
-cp cypht-master/.env.example.ini cypht-master/.env
-
-# fix permissions and ownership
-find cypht-master -type d -print | xargs chmod 755
-find cypht-master -type f -print | xargs chmod 644
-sudo chown -R root:root cypht-master
-
-# copy to destination folder
-sudo mv cypht-master/* $DESTINATION
-
-# remove working directory
-cd ..
-sudo rm -rf cypht-temp</pre>
+        </pre>
         <h4>3. Configure the program</h4>
-        <p>To configure Cypht for your environment, make adjustments to the <a
-                href="https://github.com/cypht-org/cypht/blob/master/.env.example">.env</a> file according to your
-            preferences. The .env file serves as the primary configuration file.</p>
+        <p>
+            To configure Cypht for your environment, you must first edit the "hm3.ini" (for Cypht 1.4.x) or ".env" 
+            (for Cypht 2.x.x) file to your liking, then run the "config_gen.php" script to generate the optimized 
+            configuration file and assets used at run-time.
+        </p>
+        <p>
+            For Cypht 1.4.x, begin by editing the "hm3.ini" file to configure Cypht for your environment. 
+            If you choose to use a database for any of the three available purposes (authentication, sessions, or user settings), 
+            you will need to complete the "DB support" section and create the required tables. 
+            SQL to do so can be found in the "hm3.sample.ini" file. The "hm3.ini" file contains many comments explaining each configuration option and how to set it up for your environment.
+        </p>
 
-        <p>First edit the .env file to configure Cypht for your environment. If you choose to leverage a database for
-            authentication, sessions, or user settings, ensure to complete the relevant sections within the .env file
-            based on the information provided in the config/app.php file.</p>
+        <p>
+            For Cypht 2.x.x, instead of the "hm3.ini", you will need to edit the ".env" file. 
+            This file contains environment variables used to configure database connections, logging, email settings, and other key application parameters. 
+            Once the ".env" file is configured, proceed with running "config_gen.php" to finalize your Cypht setup.
+        </p>
 
-        <p>The necessary SQL commands for creating tables can be found in the config/app.php file, specifically starting
-            from line 617 in the "DB Sessions" section. </p>
-
-        <p>Cypht needs read, and read-write access to a few directories on the server. For security reasons these should
-            NOT be inside the web-server document root. A good place for these is under the /var/lib/ sub-directory.
-            Here are the commands To create the required directories per the default values in the ini file (assuming
-            your web-server software runs as the "www-data" user).</p>
-
-        <pre>sudo mkdir /var/lib/hm3
+        <pre>
+sudo mkdir /var/lib/hm3
 sudo mkdir /var/lib/hm3/attachments
 sudo mkdir /var/lib/hm3/users
-sudo mkdir /var/lib/hm3/app_data
-sudo chown -R www-data /var/lib/hm3/</pre>
+sudo mkdir /var/lib/hm3/app_data #no longer used in Cypht 2.x.x
+sudo chown -R www-data /var/lib/hm3/
+        </pre>
         <p>The "/var/lib/hm3/users" directory is only required if you are using the file-system and not a database to
             store
-            user settings (user_config_type = file in the .env). You can put these directories anywhere, just make sure
+            user settings (user_config_type = file in the "hm3.ini" or ".env"). You can put these directories anywhere, just make
+            sure
             the values in the ini file point to the right place.
         </p>
         <h4>4. Generate the run-time configuration</h4>
         <p>Cypht uses a build process to create an optimized configuration, and to combine and minimize page assets.
             Once
-            you have edited your .env file, generate the configuration with:</p>
+            you have edited your "hm3.ini" or ".env" file, generate the configuration with:</p>
 
         <pre>cd /usr/local/share/cypht  (or wherever you put the code in section 1)
 sudo php ./scripts/config_gen.php</pre>
@@ -231,12 +309,10 @@ sudo php ./scripts/config_gen.php</pre>
         <p>Now going to https://your-server/mail/ should load the Cypht login page. Note that If you use a symlink, your
             web-server must be configured to follow symlinks.</p>
         <h4>6. Users</h4>
-        <p>Setting up users depends on what type of authentication you configure in the .env file. If you are using the
+        <p>Setting up users depends on what type of authentication you configure in the hm3.ini file. If you are using
+            the
             local database configuration for users, there are scripts in the scripts/ directory to help manage them:
         <pre>
-# Generate necessary tables to manage users,sessions, or settings depending on the configuration in the .env file
-php ./scripts/setup_database.php
-
 # create an account
 php ./scripts/create_account.php username password
 
@@ -260,58 +336,68 @@ php ./scripts/update_password.php username password
             useful for trouble-shooting problems. The location of the error log varies based on your php.ini settings
             and
             web-server software.</p>
-        <h4>8. Other Configs files</h4>
-        <p>Some Cypht modules necessitate additional configuration files for proper setup. It is crucial that these files
-          are NOT located within the web-server document root. Certain modules may require configuration with a service
-          provider, particularly those related to Oauth2 client setup (such as Github, WordPress, Oauth2 over IMAP for
-          Gmail, and Outlook). After configuring related files, there is no need to rerun the config_gen script; the changes
-          will be automatically merged into the main configuration settings.Alternatively, you can clear your app cache.
-        </p>
+        <h4>8. Other INI files</h4>
+        <p>Some Cypht modules require additional ini files to be configured. These should NOT be inside the web-server
+            document root. Cypht will look for them in the location defined by "app_data_dir" in the hm3.ini file. A
+            sample
+            ini file for each module set that requires one is included in the source for that module. To configure them
+            you
+            must copy the sample ini file to the "app_data_dir" and edit it for your setup. Some of these require
+            configuring your service with a provider, specifically ones related to Oauth2 client setup (Github,
+            WordPress,
+            Oauth2 over IMAP for Gmail and Outlook). Re-run the config_gen script after configuring an ini file and it
+            will
+            be merged into the main configuration settings.
         <ul>
-          <li><b>Github</b>
-            <p>Cypht can connect to github and aggregate notification data about repository activity.<br /><br />
-              Example github.php file:<br />
-              <a
-                href="https://github.com/cypht-org/cypht/blob/master/config/github.php">https://github.com/cypht-org/cypht/blob/master/config/github.php</a><br /><br />
-              Authorize an application for github:<br />
-              <a href="https://github.com/settings/developers">https://github.com/settings/developers</a>
-            </p>
-          </li>
-          <li><b>OAUTH2 over IMAP</b>
-            <p>Gmail and Outlook.com support OAUTH2 authentication over IMAP. This is preferable to normal IMAP
-              authentication because Cypht never has access to your account password.<br /><br />
-              Example oauth2.php file:<br />
-              <a
-                href="https://github.com/cypht-org/cypht/blob/master/config/oauth2.php">https://github.com/cypht-org/cypht/blob/master/config/oauth2.php</a><br /><br />
-              Authorize an application for gmail<br />
-              <a
-                href="https://console.developers.google.com/project">https://console.developers.google.com/project</a><br /><br />
-              Authorize an application for outlook.com<br />
-              <a
-                href="https://account.live.com/developers/applications/">https://account.live.com/developers/applications/</a><br /><br />
-            </p>
-          </li>
-          <li><b>LDAP contacts</b>
-            <p>Cypht can use an LDAP server for contacts.<br /><br />
-              Example ldap.php file:<br />
-              <a
-                href="https://github.com/cypht-org/cypht/blob/master/config/ldap.php">https://github.com/cypht-org/cypht/blob/master/config/ldap.php</a><br /><br />
-            </p>
-          </li>
-          <li><b>WordPress</b>
-            <p>Cypht can aggregate WordPress.com notifications.<br /><br />
-              Example wordpress.php file:<br />
-              <a
-                href="https://github.com/cypht-org/cypht/blob/master/config/wordpress.php">https://github.com/cypht-org/cypht/blob/master/config/wordpress.php</a><br /><br />
-              Authorize an application for WordPress.com:<br />
-              <a href="https://developer.wordpress.com/apps/">https://developer.wordpress.com/apps/</a>
-            </p>
-          </li>
-          <li><b>Custom themes</b>
-            <p>You can create your own themes for Cypht. Edit the themes.php file to include your theme, and put the css
-              file in modules/themes/assets.<br /><br />
-              <a
-                href="https://github.com/cypht-org/cypht/blob/master/config/themes.php">https://github.com/cypht-org/cypht/blob/master/config/themes.php</a><br /><br />
+            <li><b>Github</b>
+                <p>Cypht can connect to github and aggregate notification data about repository activity.<br />
+                    Example github.ini file:<br />
+                    <a
+                        href="https://github.com/cypht-org/cypht/blob/1.4.x/modules/github/github.ini">https://github.com/cypht-org/cypht/blob/1.4.x/modules/github/github.ini</a><br /><br />
+                    Authorize an application for github:<br />
+                    <a href="https://github.com/settings/developers">https://github.com/settings/developers</a>
+                </p>
+            </li>
+            <li><b>OAUTH2 over IMAP</b>
+                <p>Gmail and Outlook.com support OAUTH2 authentication over IMAP. This is preferable to normal IMAP
+                    authentication because Cypht never has access to your account password.<br /><br />
+                    Example oauth2 ini file:<br />
+                    <a
+                        href="https://github.com/cypht-org/cypht/blob/1.4.x/modules/imap/oauth2.ini">https://github.com/cypht-org/cypht/blob/1.4.x/modules/imap/oauth2.ini</a><br /><br />
+                    Authorize an application for gmail<br />
+                    <a
+                        href="https://console.developers.google.com/project">https://console.developers.google.com/project</a><br /><br />
+                    Authorize an application for outlook.com<br />
+                    <a
+                        href="https://account.live.com/developers/applications/">https://account.live.com/developers/applications/</a><br /><br />
+                </p>
+            </li>
+            <li><b>LDAP contacts</b>
+                <p>Cypht can use an LDAP server for contacts.<br /><br />
+                    Example ldap.ini file:<br />
+                    <a
+                        href="https://github.com/cypht-org/cypht/blob/1.4.x/modules/ldap_contacts/ldap.ini">https://github.com/cypht-org/cypht/blob/1.4.x/modules/ldap_contacts/ldap.ini</a><br /><br />
+                </p>
+            </li>
+            <li><b>WordPress</b>
+                <p>Cypht can aggregate WordPress.com notifications.<br /><br />
+                    Example wordpress.ini file:<br />
+                    <a
+                        href="https://github.com/cypht-org/cypht/blob/1.4.x/modules/wordpress/wordpress.ini">https://github.com/cypht-org/cypht/blob/1.4.x/modules/wordpress/wordpress.ini</a><br /><br />
+                    Authorize an application for WordPress.com:<br />
+                    <a href="https://developer.wordpress.com/apps/">https://developer.wordpress.com/apps/</a>
+                </p>
+            </li>
+            <li><b>Custom themes</b>
+                <p>You can create your own themes for Cypht. Edit the themes.ini file to include your theme, and put the
+                    css
+                    file in modules/themes/assets.</p><br />
+                <p>
+                    <a
+                        href="https://github.com/cypht-org/cypht/blob/1.4.x/modules/themes/themes.ini">https://github.com/cypht-org/cypht/blob/1.4.x/modules/themes/themes.ini</a>
+                </p>
+            </li>
+
         </ul>
 
         <h2>2. Install cypht using Docker</h2>
@@ -320,14 +406,14 @@ php ./scripts/update_password.php username password
             required in the manual instalation done for you. But the bad news is that this installation way requires
             docker knowledge.<br />
             Here is the cypht docker repository: <a
-                href="https://hub.docker.com/r/cypht/cypht">https://hub.docker.com/r/cypht/cypht</a><br />
+                href="https://hub.docker.com/r/sailfrog/cypht-docker">https://hub.docker.com/r/sailfrog/cypht-docker</a><br />
             To run containers required by cypht, please, first make sure you have docker and docker-compose installed on
             your system, then take a look on the section "example docker-compose" of repository overview, then do the
             following:
         </p>
         <ul>
             <li>Create a new directory on your system named as you want.</li>
-            <li>In the directory created previously, create a file named "docker-compose.yaml" then copy and paste the content of <a href="https://github.com/cypht-org/cypht/blob/master/docker/docker-compose.yaml">the example docker-compose file</a> in the created file or just download the example docker-compose file in the previously created directory.</li>
+            <li>In the directory created previously, create a file named "docker-compose.yaml" then copy and paste the content of <a href="https://hub.docker.com/r/sailfrog/cypht-docker">the example docker-compose section</a> in the created file .</li>
             <li>Open your CLI/terminal and move to the directory containing the docker-compose file and run the command
                 to run containers
                 <pre>docker-compose up -d</pre>
@@ -394,7 +480,7 @@ php ./scripts/update_password.php username password
                 <div class="col-3 col-md-3 col-sm-12">
                     <p>
                         <span>Page on Github</span><br>
-                        <a href="https://github.com/cypht-org/cypht-website/blob/master/install.html">Edit here</a>
+                        <a href="https://github.com/cypht-org/cypht-website/blob/master/install-1x.html">Edit here</a>
                     </p>
                 </div>
                 <div class="col-3 col-md-3 col-sm-12">
@@ -418,7 +504,6 @@ php ./scripts/update_password.php username password
             </div>
         </div>
     </section>
-
     <script src="jquery.slim.min.js"></script>
     <script src="bootstrap.bundle.min.js"></script>
 </body>
