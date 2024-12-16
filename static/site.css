@@ -1023,7 +1023,7 @@ header {
 
 .banner {
 	position: relative;
-	background: url(img/cypht.png);
+	background: url(/img/cypht.png);
 	min-height: 100vh;
 	background-size: cover;
 	background-position: center;
@@ -1134,7 +1134,7 @@ section p {
 }
 
 .feature-section {
-	background: linear-gradient( rgba(4, 26, 0, 0.85), rgba(4, 26, 0, 0.85)), url(img/cloud.png);
+	background: linear-gradient( rgba(4, 26, 0, 0.85), rgba(4, 26, 0, 0.85)), url(/img/cloud.png);
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -1173,7 +1173,7 @@ h3 {
 }
 
 .module-section {
-	background: linear-gradient( rgba(4, 26, 0, 0.85), rgba(4, 26, 0, 0.85)), url(img/cloud.png);
+	background: linear-gradient( rgba(4, 26, 0, 0.85), rgba(4, 26, 0, 0.85)), url(/img/cloud.png);
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -1214,7 +1214,7 @@ h3 {
 }
 
 .social-section {
-	background: linear-gradient( rgba(4, 26, 0, 0.85), rgba(4, 26, 0, 0.85)), url(img/cloud.png);
+	background: linear-gradient( rgba(4, 26, 0, 0.85), rgba(4, 26, 0, 0.85)), url(/img/cloud.png);
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;

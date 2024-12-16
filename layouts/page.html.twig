@@ -7,8 +7,8 @@
     <title>{{page.title}}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="img/icon.ico">
-    <link rel="stylesheet" href="site.css">
+    <link rel="icon" type="image/png" href="/img/icon.ico">
+    <link rel="stylesheet" href="/site.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="img/logo.svg" width="120" height="60" alt="">
+                    <img src="/img/logo.svg" width="120" height="60" alt="">
                 </a>
                 <button class="navbar-toggler toggler-home" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -25,40 +25,12 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-lg-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="features.html">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="security.html">Security</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="modules.html">Mods</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="license.html">License</a>
-                        </li>
-                        <li class="nav-item">
-                            <!--<a class="nav-link" href="tests.html">Test</a>-->
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="documentation.html">Documentation</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://unencumberedbyfacts.com" target="_blank">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a onclick="document.getElementsByClassName('navbar-collapse')[0].style.display='none';"
-                                class="nav-link" href="contribute.html">Contribute</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/cypht-org/cypht-website/blob/master/how-to-join.html">
-                                 <img src="img/edit_icon.png" alt="Edit Icon" width="23" height="23" style="vertical-align:middle;" title="Edit this page">
-                            </a>
-                       </li>
+                        {% for page in site.pages.showable  %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="/{{page.path}}">{{page.title}} <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
@@ -105,8 +77,8 @@
             </div>
         </div>
     </section>
-    <script src="jquery.slim.min.js"></script>
-    <script src="bootstrap.bundle.min.js"></script>
+    <script src="/jquery.slim.min.js"></script>
+    <script src="/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
