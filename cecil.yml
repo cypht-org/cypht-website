@@ -1,0 +1,8 @@
+title: 'Cypht Website'
+baseline: 'cypht.org website'
+baseurl: 'https://www.cypht.org/'
+description: 'Cecil-powered static site generation for cypht.org'
+author:
+  name: multiple
+  url: 'https://example.com/'
+image: cecil-card.png
