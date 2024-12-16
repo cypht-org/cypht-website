@@ -36,9 +36,14 @@
             </div>
         </nav>
     </header>
+    {% if page.type == "home" %}
+        {{page.content}}
+    {% else %}
     <section class="content-section container">
         {{page.content}}
     </section>
+    {% endif %}
+
     <!--Footer section-->
     <section class="footer-section" id="contact">
         <div class="container text-center">
