@@ -36,12 +36,16 @@
             </div>
         </nav>
     </header>
-    {% if page.type == "home" %}
+    {% if page.title == "Home" %}
         {{page.content}}
+    {% elseif page.title == "Contribute" %}
+        <section class="contibute-section container">
+            {{page.content}}
+        </section>
     {% else %}
-    <section class="content-section container">
-        {{page.content}}
-    </section>
+        <section class="content-section container">
+            {{page.content}}
+        </section>
     {% endif %}
 
     <!--Footer section-->
