@@ -7,7 +7,7 @@ nocontainer: true
 <section class="content-section-doc container">
     <div class="line">
         <div  class="element1 item ">
-            <img src="img/login.PNG" alt="login" class="img-fluid">
+            <img src="/img/login.PNG" alt="login" class="img-fluid">
         </div>
         <div  class="element2 item ">
             <h1>Welcome to Cypht</h1>
@@ -26,7 +26,7 @@ nocontainer: true
             <p>After successfully logging in the webmail, the users will be redirected to the following home page of the webmail where the interactive interface allows user to perform multiple actions,</p>
         </div>
         <div class="element1 item">
-            <img src="img/home.PNG" alt="login" class="img-fluid">
+            <img src="/img/home.PNG" alt="login" class="img-fluid">
         </div>
     </div>
 </section>
@@ -35,7 +35,7 @@ nocontainer: true
 <section class="content-section-doc container">
     <div class="line">
         <div class="element1 item">
-            <img src="img/Add.PNG" alt="add" class="img-fluid">
+            <img src="/img/Add.PNG" alt="add" class="img-fluid">
         </div>
         <div class="element2 item3">
             <p>The users can Add an E-mail Account of any service provider to be able to access multiple inboxes from Cypht.</p>
@@ -51,7 +51,7 @@ nocontainer: true
             <p class="text-center">Enhanced customization capabilities allow user to setup, configure, and manage IMAP and SMTP or SMTP and JMAP servers and setup the ATOM/RSS Feed. Adding servers in Cypht is a straightforward process that involves two main steps. These steps are illustrated in the following image for your reference.</p>
         </div>
         <div class="element1 item">
-            <img src="img/Multi.PNG" alt="login" class="img-fluid">
+            <img src="/img/Multi.PNG" alt="login" class="img-fluid">
         </div>
     </div>
 </section>
@@ -66,7 +66,7 @@ nocontainer: true
                 Also, the webmail allows provides the functionality to search, sort, and filter emails.</p>
         </div>
         <div class="element1 item">
-            <img src="img/Inbox.PNG" alt="login" class="img-fluid">
+            <img src="/img/Inbox.PNG" alt="login" class="img-fluid">
         </div>
     </div>
 </section>
@@ -74,7 +74,7 @@ nocontainer: true
 <section class="content-section-doc container">
     <div class="line">
         <div class="element1 item">
-            <img src="img/Contact.PNG" alt="Contact" class="img-fluid">
+            <img src="/img/Contact.PNG" alt="Contact" class="img-fluid">
         </div>
         <div class="element2 item">
             <h1>Contact Book</h1>
@@ -90,7 +90,7 @@ nocontainer: true
             <p class="text-center">Or simply by clicking on the “one-person” icon in the message you receive.</p>
         </div>
         <div class="element1 item">
-            <img src="img/Oneperson.png" alt="Add a contact" class="img-fluid">
+            <img src="/img/Oneperson.png" alt="Add a contact" class="img-fluid">
         </div>
     </div>
 </section>
@@ -104,7 +104,7 @@ nocontainer: true
                 The created reminders and events will be shown in the calendar making it easier for user to keep track of the special events.</p>
         </div>
         <div class="element1 item">
-            <img src="img/Calendar.PNG" alt="Calendar" class="img-fluid">
+            <img src="/img/Calendar.PNG" alt="Calendar" class="img-fluid">
         </div>
     </div>
 </section>
@@ -113,7 +113,7 @@ nocontainer: true
     <div class="line">
 
         <div class="element1 item">
-            <img src="img/Compose.PNG" alt="Compose" class="img-fluid">
+            <img src="/img/Compose.PNG" alt="Compose" class="img-fluid">
         </div>
         <div class="element2 item">
             <h1>Compose Email</h1>
@@ -131,7 +131,7 @@ nocontainer: true
             <p>From webmail settings options, the user can access the feature to add numerous profiles in the webmail allowing users to combine IMAP accounts with SMTP accounts and setup signatures and reply-to details.</p>
         </div>
         <div class="element1 item">
-            <img src="img/userprofil.PNG" alt="profile" class="img-fluid">
+            <img src="/img/userprofil.PNG" alt="profile" class="img-fluid">
         </div>
     </div>
 </section>
@@ -139,7 +139,7 @@ nocontainer: true
 <section class="content-section-doc container">
     <div class="line">
         <div class="element1 item">
-            <img src="img/Developer.PNG" alt="developer" class="img-fluid">
+            <img src="/img/Developer.PNG" alt="developer" class="img-fluid">
         </div>
         <div class="element2 item">
             <h1>Developer Options</h1>
@@ -156,7 +156,7 @@ nocontainer: true
             <p>Sieve filters can be set up to automatically move, copy, or delete messages based on specific criteria such as sender, subject, keywords, or recipient. To add a Sieve filter, navigate to the Sieve Filters menu located in the Settings tab sidebar, select the email account for which you want to create a filter, and click the "Add Filter" button. Refer to the following image for a visual guide.</p>
         </div>
         <div class="element1 item">
-            <img src="img/sieveFilters.png" alt="Sieve filters" class="img-fluid">
+            <img src="/img/sieveFilters.png" alt="Sieve filters" class="img-fluid">
         </div>
     </div>
 </section>
@@ -170,7 +170,7 @@ nocontainer: true
             </p>
         </div>
         <div class="element1 item">
-            <img src="img/block_list.png" alt="Block List" class="img-fluid">
+            <img src="/img/block_list.png" alt="Block List" class="img-fluid">
         </div>
     </div>
 </section>
@@ -178,7 +178,7 @@ nocontainer: true
 <section class="content-section-doc container">
     <div class="line">
         <div class="element1 item">
-            <img src="img/snooze.png" alt="snooze" class="img-fluid">
+            <img src="/img/snooze.png" alt="snooze" class="img-fluid">
         </div>
         <div class="element2 item">
             <h1>Snooze</h1>
@@ -197,7 +197,7 @@ nocontainer: true
             </p>
         </div>
         <div class="element1 item">
-            <img src="img/Archive.png" alt="Sieve filters" class="img-fluid">
+            <img src="/img/Archive.png" alt="Sieve filters" class="img-fluid">
         </div>
     </div>
 </section>
