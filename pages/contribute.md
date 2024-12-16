@@ -1,6 +1,8 @@
 ---
 title: Contribute
+nocontainer: true
 ---
+<section class="contibute-section container">
  <div class="container">
     <h2 id="contributing">Want to contribute?</h2>
     <p>First of all, thank you for interest to cypht! The goal of this page is to provide everything you need to know in order to contribute to cypht-website and its different integrations.</p>
@@ -56,3 +58,4 @@ title: Contribute
         <button type="button" class="btn btn-success">OpenHub</button>
     </a>
 </div>
+</section>

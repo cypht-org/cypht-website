@@ -36,12 +36,8 @@
             </div>
         </nav>
     </header>
-    {% if page.title == "Home" %}
+    {% if page.nocontainer is defined %}
         {{page.content}}
-    {% elseif page.title == "Contribute" %}
-        <section class="contibute-section container">
-            {{page.content}}
-        </section>
     {% else %}
         <section class="content-section container">
             {{page.content}}

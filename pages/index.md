@@ -1,6 +1,6 @@
 ---
 title: Home
-type: home
+nocontainer: true
 ---
 
 <section class="banner">

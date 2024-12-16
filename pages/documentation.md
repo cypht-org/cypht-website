@@ -1,70 +1,7 @@
-<!DOCTYPE html>
-<html class="no-js">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Documentation</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="img/icon.ico">
-    <link rel="stylesheet" href="site.css">
-</head>
-<body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="img/logo.svg" width="120" height="60" alt="">
-            </a>
-            <button class="navbar-toggler toggler-home" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                <ul class="navbar-nav ml-lg-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="features.html">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="security.html">Security</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="modules.html">Mods</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="license.html">License</a>
-                    </li>
-                    <li class="nav-item">
-                        <!--<a class="nav-link" href="tests.html">Test</a>-->
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="documentation.html">Documentation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="developers-documentation.html">DEVS-DOC </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://unencumberedbyfacts.com" target="_blank">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a onclick="document.getElementsByClassName('navbar-collapse')[0].style.display='none';"
-                           class="nav-link" href="contribute.html">Contribute</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/cypht-org/cypht-website/blob/master/documentation.html">
-                             <img src="img/edit_icon.png" alt="Edit Icon" width="23" height="23" style="vertical-align:middle;" title="Edit this page">
-                        </a>
-                   </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
+---
+title: "Documentation"
+nocontainer: true
+---
 <div style="margin-top: 100px;"></div>
 
 <section class="content-section-doc container">
@@ -136,7 +73,6 @@
 
 <section class="content-section-doc container">
     <div class="line">
-
         <div class="element1 item">
             <img src="img/Contact.PNG" alt="Contact" class="img-fluid">
         </div>
@@ -227,7 +163,6 @@
 
 <section class="content-section-doc container">
     <div class="line">
-
         <div class="element2 item">
             <h1>Block List</h1>
             <p>
@@ -256,7 +191,6 @@
 
 <section class="content-section-doc container">
     <div class="line">
-
         <div class="element2 item">
             <h1>Archive</h1>
             <p>To archive emails in Cypht, you'll need to create an archive folder. The 'Archive' button is always available, but you won't be able to use it until you've set up a destination folder. Once you've done that, clicking 'Archive' will move the email to the designated folder and display a confirmation message.
@@ -267,45 +201,3 @@
         </div>
     </div>
 </section>
-<!--Footer section-->
-<section class="footer-section" id="contact">
-    <div class="container text-center">
-        <h2>Have a suggestion or a question?</h2>
-        <h3>Or maybe you want to throw huge wads of cash at us? </h3>
-        <p>We love feedback so let us know what you think!</p>
-    </div>
-</section>
-<section class=" social-section text-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-3 col-md-3 col-sm-12">
-                <p>
-                    <span>Page on Github</span><br>
-                    <a href="https://github.com/cypht-org/cypht-website/blob/master/documentation.html">Edit here</a>
-                </p>
-            </div>
-            <div class="col-3 col-md-3 col-sm-12">
-                <p>
-                    <span>Fill out an issue at Github</span><br>
-                    <a href="https://github.com/cypht-org/cypht/issues">Submit an issue</a>
-                </p>
-            </div>
-            <div class="col-3 col-md-3 col-sm-12">
-                <p>
-                    <span>Chat with us at Gitter</span><br>
-                    <a href="https://gitter.im/cypht-org/community">Cypht at Gitter</a>
-                </p>
-            </div>
-            <div class="col-3 col-md-3 col-sm-12">
-                <p>
-                    <span>Want to contribute?</span><br>
-                    <a href="contribute.html">Cypht website contribution</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-<script src="jquery.slim.min.js"></script>
-<script src="bootstrap.bundle.min.js"></script>
-</body>
-</html>
