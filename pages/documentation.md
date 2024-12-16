@@ -21,7 +21,6 @@ nocontainer: true
 
 <section class="content-section-doc container">
     <div class="line">
-
         <div class="element2 item">
             <p>After successfully logging in the webmail, the users will be redirected to the following home page of the webmail where the interactive interface allows user to perform multiple actions,</p>
         </div>
@@ -45,7 +44,6 @@ nocontainer: true
 
 <section class="content-section-doc container">
     <div class="line ">
-
         <div class="element2 item">
             <h1>Adding Servers and ATOM/RSS Feed</h1>
             <p class="text-center">Enhanced customization capabilities allow user to setup, configure, and manage IMAP and SMTP or SMTP and JMAP servers and setup the ATOM/RSS Feed. Adding servers in Cypht is a straightforward process that involves two main steps. These steps are illustrated in the following image for your reference.</p>
@@ -58,7 +56,6 @@ nocontainer: true
 
 <section class="content-section-doc container">
     <div class="line">
-
         <div class="element2 item">
             <h1>Combined Inbox</h1>
             <p>The advanced and most efficient service of the Cypht enables users to access multiple email accounts at the same time.
@@ -97,7 +94,6 @@ nocontainer: true
 
 <section class="content-section-doc container">
     <div class="line">
-
         <div class="element2 item">
             <h1>Calendar</h1>
             <p>The calendar feature allows user to create different events by clicking the “+” icon on top-right corner.
@@ -111,7 +107,6 @@ nocontainer: true
 
 <section class="content-section-doc container">
     <div class="line">
-
         <div class="element1 item">
             <img src="/img/Compose.PNG" alt="Compose" class="img-fluid">
         </div>
