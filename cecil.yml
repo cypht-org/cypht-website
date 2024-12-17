@@ -6,3 +6,13 @@ author:
   name: multiple
   url: 'https://example.com/'
 image: cecil-card.png
+pages:
+  virtual:
+    - path: install-redirect
+      slug: install
+      uglyurl: true
+      redirect: /install/
+    - path: contribute-redirect
+      slug: developers-documentation
+      uglyurl: true
+      redirect: /developers-documentation/
