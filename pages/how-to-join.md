@@ -49,7 +49,7 @@ exclude: true
             </ul>
         </div>
         <h3 class="h3">Configuration and Setup</h3>
-        <p>For installation, configuration, and setup, please check the <a href="install.html">installation
+        <p>For installation, configuration, and setup, please check the <a href="/install">installation
                 page</a></p>
         <h3 class="h3">Contributing to Cypht</h3>
         <p>When contributing to Cypht, follow these <a href="contribute.html">practices</a></p>

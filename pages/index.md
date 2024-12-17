@@ -2,7 +2,6 @@
 title: Home
 nocontainer: true
 ---
-
 <section class="banner">
     <div class="container-fluid">
         <div class="row align-items-center">
@@ -12,7 +11,7 @@ nocontainer: true
                     <p>Cypht (pronounced "sift") is like a news reader, but for E-mail. Cypht does
                         not replace your existing accounts - it combines them into one. And it's also a news reader.</p>
                         <div class="button_cont">
-                            <a class="example_d float-right" href="install.html">Install</a>
+                            <a class="example_d float-right" href="/install">Install</a>
                         </div>
                     </div>
                 </div>
