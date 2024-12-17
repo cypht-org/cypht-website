@@ -22,7 +22,7 @@ nocontainer: true
         <li>You've read the Cypht <a href="documentation.html">documentation</a> and the <a
                 href="https://github.com/cypht-org/cypht#readme">README</a>.
         </li>
-        <li>You know about the <a href="https://gitter.im/cypht-org/community">Cypht community.</a> Please use this as help and check <a href="how-to-join.html">how to join the community.</a>
+        <li>You know about the <a href="https://gitter.im/cypht-org/community">Cypht community.</a> Please use this as help and check <a href="/how-to-join">how to join the community.</a>
         </li>
     </ol>
     <h2 id="git-guidelines">Git Guidelines</h2>
