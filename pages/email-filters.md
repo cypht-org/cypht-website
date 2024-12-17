@@ -7,8 +7,7 @@ exclude: true
     Sieve, you can create complex filters to sort, move, delete, and flag your emails automatically. You can also use
     Sieve to create custom notifications and alerts.</p>
 <p>One key feature of Sieve is that filters run server-side, so they work even when you are not currently logged in.
-    However, it is important to note that your email server must support Sieve for these filters to function properly.
-</p>
+    However, it is important to note that your email server must support Sieve for these filters to function properly.</p>
 <p>Here are just a few of the things you can do with Sieve:</p>
 <hr>
 <ul>
@@ -34,19 +33,18 @@ exclude: true
     </li>
     <hr>
 </ul>
-<br />
-<p> To get started with Sieve in Cypht, simply go to your config file (hm3.ini for Cypht 1.4.x or .env for Cypht 2.0.x)
+<p>To get started with Sieve in Cypht, simply go to your config file (hm3.ini for Cypht 1.4.x or .env for Cypht 2.0.x)
     and enable the Sieve filter engine by enabling modules[ ]=sievefilters or by adding sievefilters on CYPHT_MODULES
-    variable like:
+    variable like:</p>
 <pre>modules[]=sievefilters #For Cypht 1.4.x
 CYPHT_MODULES="sievefilters" #For Cypht 2.0.x</pre>
 Once you have enabled the Sieve filter engine, you can create and manage your filters in the Filters section of the
 Cypht interface. You can create new filters, edit existing filters, and delete filters as needed.
-</p>
 <h3>How to create a Sieve filter in Cypht?</h3>
 <p>
     To create a Sieve filter in Cypht follow these steps:
 </p>
+
 <ul>
     <li>
         Go to <b>Settings</b> tab in the sidebar.<br />Then click on <b>Filters</b> tab, select the E-mail account you
@@ -66,7 +64,6 @@ Cypht interface. You can create new filters, edit existing filters, and delete f
         etc. Check out the <a href="documentation.html">documentation</a> page for other information.
     </li>
 </ul>
-<br />
 <p>
     And there you go: 😄Enjoy filters with Cypht.
 </p>
@@ -79,27 +76,31 @@ Cypht interface. You can create new filters, edit existing filters, and delete f
     In the "Filter name" field, enter a name for your new filter. In the "Filter script" field, enter your Sieve code.
     In addition to the Sieve code for filtering emails, you will also need to add the following code to your filter
     script:
+</p>
 <pre>require ["fileinto", "imap4flags", "notify"];
+
 # Set variables
 set "boss_email" "boss@example.com";
+
 # Rule to match emails from your boss
 if address :is "from" "${boss_email}" {
     # Notify you of the new email
     notify :message "You have a new email from your boss!" :options ["Important"] :method "mailto:your-email@example.com";
 }</pre>
-</p>
 <h3>Some examples of Sieve filters:
 </h3>
-<p>
-    The following are some examples of Sieve filters that you can use in Cypht:
-<pre># Filter out spam and unwanted emails
+<p>The following are some examples of Sieve filters that you can use in Cypht:</p>
+<pre>
+# Filter out spam and unwanted emails
 require ["fileinto"];
+
 # Move all emails from the sender "spam@example.com" to the "Spam" folder
 if address :from "spam@example.com" {
     fileinto "Spam";
 }
 </pre>
-<pre># Organize your inbox automatically
+<pre>
+# Organize your inbox automatically
 require ["fileinto"];
 # Move all emails from the sender "john.doe@example.com" to the "Work" folder
 if address :from "john.doe@example.com" {
@@ -109,13 +110,10 @@ if address :from "john.doe@example.com" {
 if header :subject "Important" {
   fileinto "Important";
 }
-        </pre>
-</p>
+</pre>
 <h3>Related links:</h3>
 <a href="http://sieve.info/">http://sieve.info/</a><br>
 <a href="https://p5r.uk/blog/2011/sieve-tutorial.html">https://p5r.uk/blog/2011/sieve-tutorial.html</a><br>
 <a href="https://www.fastmail.com/help/technical/sieve.html">https://www.fastmail.com/help/technical/sieve.html</a><br>
-<a
-    href="https://docs.gandi.net/en/gandimail/sieve/sieve_tutorial.html">https://docs.gandi.net/en/gandimail/sieve/sieve_tutorial.html</a>
-<br /><br />
-</section>
+<a href="https://docs.gandi.net/en/gandimail/sieve/sieve_tutorial.html">https://docs.gandi.net/en/gandimail/sieve/sieve_tutorial.html</a>
+<br />
