@@ -861,7 +861,7 @@ nocontainer: true
             <div class="col-3 col-md-3 col-sm-12">
                 <p>
                     <span>Want to contribute?</span><br>
-                    <a href="contribute.html">Cypht website contribution</a>
+                    <a href="/contribute">Cypht website contribution</a>
                 </p>
             </div>
         </div>

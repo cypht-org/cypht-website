@@ -44,7 +44,7 @@ weight: 2
     <hr>
     <li>
         Module sets for IMAP, SMTP, LDAP or local contacts, WordPress, Github,
-        and lots more! Check out the <a href="modules.html">Modules</a> page for a
+        and lots more! Check out the <a href="/modules">Modules</a> page for a
         complete list
     </li>
     <hr>
@@ -95,7 +95,7 @@ weight: 2
         searches that are used frequently. Saved search parameters can also be deleted later.
     </li>
     <li>
-        Sieve filters can be created to automatically move, copy, or delete messages based on specific criteria such as sender, subject, keywords, or recipient. This allows for efficient organization and management of incoming emails, saving time and improving productivity. Sieve filters can be easily edited or deleted as needed. For more information on how to create and manage Sieve filters, see <a href="email-filters.html">Email filters</a>.
+        Sieve filters can be created to automatically move, copy, or delete messages based on specific criteria such as sender, subject, keywords, or recipient. This allows for efficient organization and management of incoming emails, saving time and improving productivity. Sieve filters can be easily edited or deleted as needed. For more information on how to create and manage Sieve filters, see <a href="/email-filters">Email filters</a>.
     </li>
     <hr>
     <li>

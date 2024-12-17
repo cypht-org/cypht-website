@@ -20,7 +20,7 @@ nocontainer: true
         <li>You're familiar with <a href="https://github.com">GitHub</a> and the
             <a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests">Pull Request</a> (PR) workflow.
         </li>
-        <li>You've read the Cypht <a href="documentation.html">documentation</a> and the <a
+        <li>You've read the Cypht <a href="/documentation">documentation</a> and the <a
                 href="https://github.com/cypht-org/cypht#readme">README</a>.
         </li>
         <li>You know about the <a href="https://gitter.im/cypht-org/community">Cypht community.</a> Please use this as help and check <a href="/how-to-join">how to join the community.</a>

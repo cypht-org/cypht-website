@@ -94,7 +94,7 @@ nocontainer: true
                     </li>
                 </ul>
             </div>
-            <a style="width: 100%; text-align: center;" href="features.html">the complete list</a>
+            <a style="width: 100%; text-align: center;" href="/features">the complete list</a>
         </div>
     </div>
 </section>
@@ -118,7 +118,7 @@ nocontainer: true
             we call them, "module sets". There is only one required set, the "core" modules. The components of any
             module set can be added to, or even replaced, by site specific modules. All the functionality of Cypht
             is broken out into module sets, and each set is built from small pieces that are also easy to override.
-        </p><a href="modules.html">
+        </p><a href="/modules">
         <button type="button" class="btn btn-light">Read more</button>
     </a>
     </div>

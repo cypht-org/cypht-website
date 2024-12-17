@@ -52,13 +52,13 @@ exclude: true
         <p>For installation, configuration, and setup, please check the <a href="/install">installation
                 page</a></p>
         <h3 class="h3">Contributing to Cypht</h3>
-        <p>When contributing to Cypht, follow these <a href="contribute.html">practices</a></p>
+        <p>When contributing to Cypht, follow these <a href="/contribute">practices</a></p>
         <h3 class="h3">Community Resources</h3>
         <p>For more information and resources, explore the following:</p>
         <ul>
-            <li><a href="documentation.html">Official Cypht Documentation</a></li>
-            <li><a href="features.html">Major features</a></li>
-            <li><a href="contribute.html">How to contribute</a></li>
+            <li><a href="/documentation">Official Cypht Documentation</a></li>
+            <li><a href="/features">Major features</a></li>
+            <li><a href="/contribute">How to contribute</a></li>
         </ul>
         <p>
             Don't hesitate to ask for help or guidance. We have experienced community members who are willing to mentor

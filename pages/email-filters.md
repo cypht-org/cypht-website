@@ -61,7 +61,7 @@ Cypht interface. You can create new filters, edit existing filters, and delete f
     <li>
         In the "Conditions section", <br>
         you can add one or many conditions to your filter. You can add conditions based on the sender, subject, body,
-        etc. Check out the <a href="documentation.html">documentation</a> page for other information.
+        etc. Check out the <a href="/documentation">documentation</a> page for other information.
     </li>
 </ul>
 <p>
