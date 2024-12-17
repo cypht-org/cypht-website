@@ -1,5 +1,6 @@
 ---
 title: Home
+weight: 1
 nocontainer: true
 ---
 <section class="banner">

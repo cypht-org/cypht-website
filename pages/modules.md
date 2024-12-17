@@ -1,6 +1,6 @@
 ---
 title: Modules
-exclude: true
+weight: 4
 ---
 <h2>Overview</h2>
 <p>Cypht has a modular design. Instead of an application with a plugin API, Cypht is an application comprised

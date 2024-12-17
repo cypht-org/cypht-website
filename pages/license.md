@@ -1,5 +1,6 @@
 ---
 title: License
+weight: 5
 ---
 <h2>Cypht source code is distributed under the LGPL V2.1 license:</h2>
 <h3><a href="https://github.com/cypht-org/cypht/blob/masterLICENSE">Go to the license</a></h3>

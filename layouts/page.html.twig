@@ -25,7 +25,7 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-lg-auto">
-                        {% for pageEntry in site.pages.showable  %}
+                        {% for pageEntry in site.pages.showable|sort_by_weight  %}
                             {% set current = pageEntry.path == page.path %}
                             <li class="nav-item {{current ? 'active' : ''}}">
                                 <a
@@ -35,6 +35,16 @@
                                 >{{pageEntry.title}}</a>
                             </li>
                         {% endfor %}
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="https://unencumberedbyfacts.com/"
+                            >Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/cypht-org/cypht-website/blob/master/pages/{{page.path}}.md">
+                                 <img src="/img/edit_icon.png" alt="Edit Icon" width="23" height="23" style="vertical-align:middle;" title="Edit this page">
+                            </a>
+                       </li>
                     </ul>
                 </div>
             </div>
@@ -62,7 +72,7 @@
                 <div class="col-3 col-md-3 col-sm-12">
                     <p>
                         <span>Page on Github</span><br>
-                        <a href="https://github.com/cypht-org/cypht-website/blob/master/install-1x.html">Edit here</a>
+                        <a href="https://github.com/cypht-org/cypht-website/blob/master/pages/{{page.path}}.md">Edit here</a>
                     </p>
                 </div>
                 <div class="col-3 col-md-3 col-sm-12">
