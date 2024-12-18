@@ -27,7 +27,9 @@
     </blockquote>
     {% for file in site.data.configFiles %}
     <details>
-        <summary role="button">{{file | replace({".php": ""})}}</summary>
+        <summary class="h4" role="button">
+            {{file | replace({".php": ""})}}
+        </summary>
         {% for option in site.data.configOptions[file] %}
         {% set select = option.inputType == "select" %}
         {% set inputId = option.key ~ "_CCGINPUT" %}
@@ -50,7 +52,7 @@
                 {% endfor %}
             </select>
             {% endif %}
-            <button class="reset">Reset</button>
+            <button class="reset btn btn-light">Reset</button>
 
 
         </fieldset>
@@ -61,8 +63,8 @@
 
     <hr>
 
-    <button id="generate">Generate .env file</button>
-    <button id="reset-all">Reset all</button>
+    <button class="btn btn-success" id="generate">Generate .env file</button>
+    <button class="btn btn-light" id="reset-all">Reset all</button>
     <p>
         Please note that neither <code>allow_session_cache</code> &amp; <code>cache_class</code> are configurable
         through here,
@@ -71,7 +73,7 @@
             app.php (@github:cypht-org/cypht)
         </a> for more info
     </p>
-    <textarea id="result"></textarea>
+    <textarea class="container" id="result"></textarea>
     <nav>
         <ul>
             <a href="https://github.com/Denperidge/cypht-config-generator">

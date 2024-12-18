@@ -24,5 +24,5 @@ Nix users can use `nix-shell -p php81 gnumake git` to get all requirements to bu
 ```bash
 # In project root
 rm data/configOptions.json
-make
+php data/fetch.php  # alt: make
 ```
