@@ -1,0 +1,83 @@
+<style>
+    main {
+        width: 80%;
+        margin: auto;
+    }
+
+    fieldset#CYPHT_MODULES {
+        word-break: break-all;
+    }
+
+    #generate,
+    #reset-all {
+        margin: auto;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    #result {
+        height: 600px;
+    }
+</style>
+<main>
+    <h1>Cypht Config Generator</h1>
+    <blockquote>
+        Click any of the options below to configure Cypht!<br>
+        On the bottom of the page you can find a button to generate your .env
+    </blockquote>
+    {% for file in site.data.configfiles %}
+    <details>
+        <summary role="button">{{file | replace({".php": ""})}}</summary>
+        {% for option in site.data.configoptions[file] %}
+        {% set select = option.inputType == "select" %}
+        {% set inputId = option.key ~ "_CCGINPUT" %}
+        <fieldset id="{{option.key}}">
+            <legend>
+                <h3>{{option.key}}</h3>
+            </legend>
+            <label for="{{inputId}}">{{option.commentHtml}}</label>
+            {% if option.valueDefault %}<p>Default: {{option.valueDefault}}</p>{% endif %}
+
+            {% if not select %}
+            <input id="{{inputId}}" type="{{option.inputType}}" name="{{option.key}}"
+                data-default="{{option.valueDefault}}" {% if option.valueDefault %} {% if option.inputType=="checkbox"
+                and option.valueDefault=="true" %} checked="true" {% else %} value="{{option.valueDefault}}" {% endif %}
+                {% endif %} />
+            {% else %}
+            <select id="{{inputId}}" name="{{option.key}}" data-default="{{option.valueDefault}}">
+                {% for setValue in option.setValues %}
+                <option value="{{setValue.value}}">{{setValue.value}} - {{setValue.description}}</option>
+                {% endfor %}
+            </select>
+            {% endif %}
+            <button class="reset">Reset</button>
+
+
+        </fieldset>
+        {% endfor %}
+    </details>
+    <hr>
+    {% endfor %}
+
+    <hr>
+
+    <button id="generate">Generate .env file</button>
+    <button id="reset-all">Reset all</button>
+    <p>
+        Please note that neither <code>allow_session_cache</code> &amp; <code>cache_class</code> are configurable
+        through here,
+        as it is not recommended and as such quite advanced usage.
+        Check <a href="https://github.com/cypht-org/cypht/blob/master/config/app.php">
+            app.php (@github:cypht-org/cypht)
+        </a> for more info
+    </p>
+    <textarea id="result"></textarea>
+    <nav>
+        <ul>
+            <a href="https://github.com/Denperidge/cypht-config-generator">
+                <li>Source code</li>
+            </a>
+        </ul>
+    </nav>
+</main>
+<script src="/config-generator.js"></script>

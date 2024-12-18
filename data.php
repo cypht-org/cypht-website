@@ -7,6 +7,7 @@ $REGEX_REMOVE_FIRST_COMMENT = '/\/\*(.|\n)*?\*\//';
 $REGEX_REMOVE_LINE_COMMENTS = '/ *\/\/.*?$/m';
 $FILES = array("app.php", "database.php", "2fa.php", "carddav.php", "dynamic_login.php", "github.php", "ldap.php", "oauth2.php", "recaptcha.php", "wordpress.php");
 
+
 function getFile($filename) {
     $filepath = $GLOBALS["CACHE_DIR"] . $filename;
     
@@ -36,9 +37,6 @@ for ($i = 0; $i < count($FILES); $i++) {
     if ($filename == "app.php") {
         $contents = preg_replace($REGEX_REMOVE_FIRST_COMMENT, "", $contents, 1);
         $contents = preg_replace($REGEX_REMOVE_LINE_COMMENTS, "", $contents);
-        $out = fopen("data/test.php", "w");
-        fwrite($out, $contents);
-        fclose($out);
     }
     $fileOptions = array();
 
@@ -53,15 +51,22 @@ for ($i = 0; $i < count($FILES); $i++) {
         $key = $match["key"];
         $valueDefault = (array_key_exists("default", $match) ? trim($match["default"], " '") : null);
         $comment = $match["comment"]; // TODO Run cleancomment
+        $commentHtml = null;
+        if ($comment) {
+            // Clean comment
+            $commentLines = explode(
+                "|",
+                preg_replace('/\n\n/', "\n", $comment)
+            );
+            echo $commentLines[0];
+            $commentLines = array_map('trim', $commentLines);
+            $commentLines = array_filter($commentLines);
+            echo $commentLines[1];
+        }
         
+
+
         // Determine input type
-        /**
-         * The original Node.JS version had an automatic determiner of input type
-         * While developing the translation to PHP, I first moved the manual stuff
-         * I was then presented with only 6 items trying to be automatically determined,
-         * so it seems manual is the game. If automatic would ever be useful again, see the link
-         * here https://github.com/Denperidge/cypht-config-generator/blob/ccaa56ad0efc92d36c3aea38a2eb9be8fe1e4373/index.11tydata.mjs#L73
-         */
         if ($valueDefault) {
             if (is_int($valueDefault)) {
                 $inputType = "number";
