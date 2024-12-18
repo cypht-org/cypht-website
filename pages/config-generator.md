@@ -1,4 +1,4 @@
 ---
 title: Config generator
-layout: config-generator
+loadScriptAfter: /config-generator.js
 ---
