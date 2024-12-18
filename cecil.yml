@@ -1,0 +1,63 @@
+title: 'Cypht Website'
+baseline: 'cypht.org website'
+baseurl: 'https://www.cypht.org/'
+description: 'Cecil-powered static site generation for cypht.org'
+author:
+  name: multiple
+  url: 'https://example.com/'
+image: cecil-card.png
+pages:
+  virtual:
+    - path: contribute-redirect
+      slug: contribute
+      redirect: /contribute/
+      uglyurl: true
+    - path: developers-documentation-redirect
+      slug: developers-documentation
+      redirect: /developers-documentation/
+      uglyurl: true
+    - path: documentation-redirect
+      slug: documentation
+      redirect: /documentation/
+      uglyurl: true
+    - path: email-filters-redirect
+      slug: email-filters
+      redirect: /email-filters/
+      uglyurl: true
+    - path: features-redirect
+      slug: features
+      redirect: /features/
+      uglyurl: true
+    - path: how-to-join-redirect
+      slug: how-to-join
+      redirect: /how-to-join/
+      uglyurl: true
+    - path: install-redirect
+      slug: install
+      redirect: /install/
+      uglyurl: true
+    - path: install-1x-redirect
+      slug: install-1x
+      redirect: /install-1x/
+      uglyurl: true
+    - path: install-2x-redirect
+      slug: install-2x
+      redirect: /install-2x/
+      uglyurl: true
+    - path: license-redirect
+      slug: license
+      redirect: /license/
+      uglyurl: true
+    - path: modules-redirect
+      slug: modules
+      redirect: /modules/
+      uglyurl: true
+    - path: security-redirect
+      slug: security
+      redirect: /security/
+      uglyurl: true
+    - path: tests-redirect
+      slug: tests
+      redirect: /tests/
+      uglyurl: true
+    
