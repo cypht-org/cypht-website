@@ -27,7 +27,7 @@ if (!is_dir($GLOBALS["CACHE_DIR"])) {
     mkdir($GLOBALS["CACHE_DIR"]);
 }
 
-$options = array();
+$options = (object) [];
 for ($i = 0; $i < count($FILES); $i++) {
     $filename = $FILES[$i];
     $contents = getFile($filename);
@@ -36,6 +36,7 @@ for ($i = 0; $i < count($FILES); $i++) {
         $contents = preg_replace($REGEX_REMOVE_FIRST_COMMENT, "", $contents, 1);
         continue;
     }
+    $fileOptions = array();
 
     preg_match_all(
         $REGEX_THE_BIG_ONE, 
@@ -44,7 +45,7 @@ for ($i = 0; $i < count($FILES); $i++) {
         PREG_SET_ORDER);
     foreach ($matches as $match) {        
         $key = $match["key"];
-        $valueDefault = (array_key_exists("default", $match) ? trim($match["default"]) : null);
+        $valueDefault = (array_key_exists("default", $match) ? trim($match["default"], " '") : null);
         $comment = $match["comment"]; // TODO Run cleancomment
         
         // Determine input type
@@ -55,64 +56,77 @@ for ($i = 0; $i < count($FILES); $i++) {
          * so it seems manual is the game. If automatic would ever be useful again, see the link
          * here https://github.com/Denperidge/cypht-config-generator/blob/ccaa56ad0efc92d36c3aea38a2eb9be8fe1e4373/index.11tydata.mjs#L73
          */
-        switch ($key) {
-            case "DEFAULT_SMTP_TLS":
-            case "LDAP_AUTH_TLS":
-            case "DEFAULT_SMTP_TLS":
-            case "DEFAULT_SMTP_NO_AUTH":
-            case "AUTO_CREATE_PROFILE":
-            case "ALWAYS_MOBILE_UI":
-            case "ENCRYPT_AJAX_REQUESTS":
-            case "ENCRYPT_LOCAL_STORAGE":
-                $inputType = "checkbox";
-                break;
-                
-            case "DEFAULT_SMTP_NAME":
-            case "DEFAULT_SMTP_SERVER":
-            case "ADMIN_USERS":
-            case "COOKIE_DOMAIN":
-            case "COOKIE_PATH":
-            case "DEFAULT_EMAIL_DOMAIN":
-            case "REDIRECT_AFTER_LOGIN":
-            case "AUTH_CLASS":
-            case "API_LOGIN_KEY":
-            case "MEMCACHED_USER":
-            case "SESSION_CLASS":
-                $inputType = "text";
-                break;
-            
-            case "DB_PASS":  // database.php
-            case "REDIS_PASS":
-            case "MEMCACHED_PASS":
-            case "APP_2FA_SECRET":  // 2fa.php
-                $inputType = "password";
-                break;
-            
-            case "DEFAULT_SMTP_PORT":
+        if ($valueDefault) {
+            if (is_int($valueDefault)) {
                 $inputType = "number";
-                break;
+            } else if ($valueDefault == "false" || $valueDefault == "true") {
+                $inputType = "checkbox";
+            } else if (is_string($valueDefault)) {
+                $inputType = "text";
+            }
+        } else {
+            switch ($key) {
+                case "DEFAULT_SMTP_TLS":
+                case "LDAP_AUTH_TLS":
+                case "DEFAULT_SMTP_TLS":
+                case "DEFAULT_SMTP_NO_AUTH":
+                case "AUTO_CREATE_PROFILE":
+                case "ALWAYS_MOBILE_UI":
+                case "ENCRYPT_AJAX_REQUESTS":
+                case "ENCRYPT_LOCAL_STORAGE":
+                    $inputType = "checkbox";
+                    break;
+                    
+                case "DEFAULT_SMTP_NAME":
+                case "DEFAULT_SMTP_SERVER":
+                case "ADMIN_USERS":
+                case "COOKIE_DOMAIN":
+                case "COOKIE_PATH":
+                case "DEFAULT_EMAIL_DOMAIN":
+                case "REDIRECT_AFTER_LOGIN":
+                case "AUTH_CLASS":
+                case "API_LOGIN_KEY":
+                case "MEMCACHED_USER":
+                case "SESSION_CLASS":
+                    $inputType = "text";
+                    break;
+                
+                case "DB_PASS":  // database.php
+                case "REDIS_PASS":
+                case "MEMCACHED_PASS":
+                case "APP_2FA_SECRET":  // 2fa.php
+                    $inputType = "password";
+                    break;
+                
+                case "DEFAULT_SMTP_PORT":
+                    $inputType = "number";
+                    break;
+            }
         }
+        
 
         if (str_contains($key, "SECRET")) {
             $inputType = "password";
         }
 
         if (!isset($inputType)) {
+            //continue;
             throw new Exception("inputType could not be determined for $key");
         }
 
 
         // Push to array
-        $options[] = (object) [
+        $fileOptions[] = (object) [
             "key" => $key,
             "valueDefault" => $valueDefault,
             "comment" => $comment,
             "inputType" => $inputType,
         ];
     }
+
+    $options->$filename = $fileOptions;
+    echo "$filename " . count($fileOptions) . "\n";
 }
-echo count($options);
-echo "\n";
 $out = fopen("data/config-generator.json", "w");
 fwrite($out, json_encode($options, JSON_PRETTY_PRINT));
 fclose($out);
