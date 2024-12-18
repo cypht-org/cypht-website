@@ -25,7 +25,7 @@
         Click any of the options below to configure Cypht!<br>
         On the bottom of the page you can find a button to generate your .env
     </blockquote>
-    {% for file in site.data.configfiles %}
+    {% for file in site.data.configFiles %}
     <details>
         <summary role="button">{{file | replace({".php": ""})}}</summary>
         {% for option in site.data.configOptions[file] %}
