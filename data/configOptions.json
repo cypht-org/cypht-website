@@ -1,0 +1,1156 @@
+{
+    "app.php": [
+        {
+            "key": "SESSION_TYPE",
+            "valueDefault": "PHP",
+            "comment": "Session Type\nSessions are how the server maintains your logged in state. Cypht supports\nstandard PHP sessions, as well as its own completely independent session\nsystem that uses memcached or a database for storage. In order to use\ndatabase sessions, the database must be correctly configured in the \"DB\nSupport\" section and the hm_user_session table must be created (see\nconfig\/database.php for more information). In order to use Memcached\nsessions, the memcached server must be correctly configured in the\n\"Memcached Support\" section. In order to use Redis session, the Redis\nserver must be configured in the \"Redis Support\" section.\nValid values for this setting:\nPHP     Standard PHP session handlers\nDB      Custom database based sessions\nMEM     Custom Memcached based sessions\nREDIS   Custom Redis based sessions\ncustom  Create your own session class. See the modules\/site\/lib.php file for\n            more info",
+            "commentHtml": "Session&nbsp;Type\nSessions&nbsp;are&nbsp;how&nbsp;the&nbsp;server&nbsp;maintains&nbsp;your&nbsp;logged&nbsp;in&nbsp;state.&nbsp;Cypht&nbsp;supports\nstandard&nbsp;PHP&nbsp;sessions,&nbsp;as&nbsp;well&nbsp;as&nbsp;its&nbsp;own&nbsp;completely&nbsp;independent&nbsp;session\nsystem&nbsp;that&nbsp;uses&nbsp;memcached&nbsp;or&nbsp;a&nbsp;database&nbsp;for&nbsp;storage.&nbsp;In&nbsp;order&nbsp;to&nbsp;use\ndatabase&nbsp;sessions,&nbsp;the&nbsp;database&nbsp;must&nbsp;be&nbsp;correctly&nbsp;configured&nbsp;in&nbsp;the&nbsp;\"DB\nSupport\"&nbsp;section&nbsp;and&nbsp;the&nbsp;hm_user_session&nbsp;table&nbsp;must&nbsp;be&nbsp;created&nbsp;(see\nconfig\/database.php&nbsp;for&nbsp;more&nbsp;information).&nbsp;In&nbsp;order&nbsp;to&nbsp;use&nbsp;Memcached\nsessions,&nbsp;the&nbsp;memcached&nbsp;server&nbsp;must&nbsp;be&nbsp;correctly&nbsp;configured&nbsp;in&nbsp;the\n\"Memcached&nbsp;Support\"&nbsp;section.&nbsp;In&nbsp;order&nbsp;to&nbsp;use&nbsp;Redis&nbsp;session,&nbsp;the&nbsp;Redis\nserver&nbsp;must&nbsp;be&nbsp;configured&nbsp;in&nbsp;the&nbsp;\"Redis&nbsp;Support\"&nbsp;section.\nValid&nbsp;values&nbsp;for&nbsp;this&nbsp;setting:\nPHP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Standard&nbsp;PHP&nbsp;session&nbsp;handlers\nDB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Custom&nbsp;database&nbsp;based&nbsp;sessions\nMEM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Custom&nbsp;Memcached&nbsp;based&nbsp;sessions\nREDIS&nbsp;&nbsp;&nbsp;Custom&nbsp;Redis&nbsp;based&nbsp;sessions\ncustom&nbsp;&nbsp;Create&nbsp;your&nbsp;own&nbsp;session&nbsp;class.&nbsp;See&nbsp;the&nbsp;modules\/site\/lib.php&nbsp;file&nbsp;for\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;more&nbsp;info",
+            "inputType": "text"
+        },
+        {
+            "key": "AUTH_TYPE",
+            "valueDefault": "DB",
+            "comment": "Authentication Type\nThis setting defines how Cypht will authenticate your username and password\nwhen you login. If you want to use a database it must be correctly configured\nin the \"DB Support\" section and the hm_user table must be created (see\nconfig\/database.php for more information). There are 3 PHP cli scripts to\nhelp manage database users in the scripts\/ directory (create_account.php,\ndelete_account.php, and update_password.php). If you want to authenticate\nagainst an IMAP server, you must setup the imap_auth_* settings below. If\nyou want to authenticate against an LDAP server, you must setup the ldap_auth_*\nsettings. Finally, if you want to let users pick from a list of popular mail\nservices or try to auto\ndiscover a mail system, set this to dynamic and make\nsure the dynamic_login module set is enabled in the \"Module Sets\" section of\nthis file.\nValid values for this setting:\nDB       Authenticate against the database\nLDAP     Authenticate against an LDAP server\nIMAP     Authenticate using an IMAP server\ndynamic  Let the user choose from a list, or try to auto discover the mail\nservices based on the email domain\ncustom   Create your own auth class. See the modules\/site\/lib.php file for\nmore info",
+            "commentHtml": "Authentication&nbsp;Type\nThis&nbsp;setting&nbsp;defines&nbsp;how&nbsp;Cypht&nbsp;will&nbsp;authenticate&nbsp;your&nbsp;username&nbsp;and&nbsp;password\nwhen&nbsp;you&nbsp;login.&nbsp;If&nbsp;you&nbsp;want&nbsp;to&nbsp;use&nbsp;a&nbsp;database&nbsp;it&nbsp;must&nbsp;be&nbsp;correctly&nbsp;configured\nin&nbsp;the&nbsp;\"DB&nbsp;Support\"&nbsp;section&nbsp;and&nbsp;the&nbsp;hm_user&nbsp;table&nbsp;must&nbsp;be&nbsp;created&nbsp;(see\nconfig\/database.php&nbsp;for&nbsp;more&nbsp;information).&nbsp;There&nbsp;are&nbsp;3&nbsp;PHP&nbsp;cli&nbsp;scripts&nbsp;to\nhelp&nbsp;manage&nbsp;database&nbsp;users&nbsp;in&nbsp;the&nbsp;scripts\/&nbsp;directory&nbsp;(create_account.php,\ndelete_account.php,&nbsp;and&nbsp;update_password.php).&nbsp;If&nbsp;you&nbsp;want&nbsp;to&nbsp;authenticate\nagainst&nbsp;an&nbsp;IMAP&nbsp;server,&nbsp;you&nbsp;must&nbsp;setup&nbsp;the&nbsp;imap_auth_*&nbsp;settings&nbsp;below.&nbsp;If\nyou&nbsp;want&nbsp;to&nbsp;authenticate&nbsp;against&nbsp;an&nbsp;LDAP&nbsp;server,&nbsp;you&nbsp;must&nbsp;setup&nbsp;the&nbsp;ldap_auth_*\nsettings.&nbsp;Finally,&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;let&nbsp;users&nbsp;pick&nbsp;from&nbsp;a&nbsp;list&nbsp;of&nbsp;popular&nbsp;mail\nservices&nbsp;or&nbsp;try&nbsp;to&nbsp;auto\ndiscover&nbsp;a&nbsp;mail&nbsp;system,&nbsp;set&nbsp;this&nbsp;to&nbsp;dynamic&nbsp;and&nbsp;make\nsure&nbsp;the&nbsp;dynamic_login&nbsp;module&nbsp;set&nbsp;is&nbsp;enabled&nbsp;in&nbsp;the&nbsp;\"Module&nbsp;Sets\"&nbsp;section&nbsp;of\nthis&nbsp;file.\nValid&nbsp;values&nbsp;for&nbsp;this&nbsp;setting:\nDB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Authenticate&nbsp;against&nbsp;the&nbsp;database\nLDAP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Authenticate&nbsp;against&nbsp;an&nbsp;LDAP&nbsp;server\nIMAP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Authenticate&nbsp;using&nbsp;an&nbsp;IMAP&nbsp;server\ndynamic&nbsp;&nbsp;Let&nbsp;the&nbsp;user&nbsp;choose&nbsp;from&nbsp;a&nbsp;list,&nbsp;or&nbsp;try&nbsp;to&nbsp;auto&nbsp;discover&nbsp;the&nbsp;mail\nservices&nbsp;based&nbsp;on&nbsp;the&nbsp;email&nbsp;domain\ncustom&nbsp;&nbsp;&nbsp;Create&nbsp;your&nbsp;own&nbsp;auth&nbsp;class.&nbsp;See&nbsp;the&nbsp;modules\/site\/lib.php&nbsp;file&nbsp;for\nmore&nbsp;info",
+            "inputType": "text"
+        },
+        {
+            "key": "LDAP_AUTH_SERVER",
+            "valueDefault": "localhost",
+            "comment": "LDAP Authentication\nIf auth_type is set to LDAP, configure the LDAP server to authenticate against\nwith the following settings, otherwise these are ignored.\nThe hostname or IP address of the LDAP server to authenticate to",
+            "commentHtml": "LDAP&nbsp;Authentication\nIf&nbsp;auth_type&nbsp;is&nbsp;set&nbsp;to&nbsp;LDAP,&nbsp;configure&nbsp;the&nbsp;LDAP&nbsp;server&nbsp;to&nbsp;authenticate&nbsp;against\nwith&nbsp;the&nbsp;following&nbsp;settings,&nbsp;otherwise&nbsp;these&nbsp;are&nbsp;ignored.\nThe&nbsp;hostname&nbsp;or&nbsp;IP&nbsp;address&nbsp;of&nbsp;the&nbsp;LDAP&nbsp;server&nbsp;to&nbsp;authenticate&nbsp;to",
+            "inputType": "text"
+        },
+        {
+            "key": "LDAP_AUTH_PORT",
+            "valueDefault": "389",
+            "comment": "The port the LDAP server is listening on.",
+            "commentHtml": "The&nbsp;port&nbsp;the&nbsp;LDAP&nbsp;server&nbsp;is&nbsp;listening&nbsp;on.",
+            "inputType": "text"
+        },
+        {
+            "key": "LDAP_AUTH_TLS",
+            "valueDefault": null,
+            "comment": "Enable TLS\/SSL connections. Leave blank or set to false to disable. Set to\ntrue to enable TLS connections.",
+            "commentHtml": "Enable&nbsp;TLS\/SSL&nbsp;connections.&nbsp;Leave&nbsp;blank&nbsp;or&nbsp;set&nbsp;to&nbsp;false&nbsp;to&nbsp;disable.&nbsp;Set&nbsp;to\ntrue&nbsp;to&nbsp;enable&nbsp;TLS&nbsp;connections.",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "LDAP_AUTH_BASE_DN",
+            "valueDefault": "example,dc=com",
+            "comment": "The \"base dn\" of the LDAP server",
+            "commentHtml": "The&nbsp;\"base&nbsp;dn\"&nbsp;of&nbsp;the&nbsp;LDAP&nbsp;server",
+            "inputType": "text"
+        },
+        {
+            "key": "IMAP_AUTH_NAME",
+            "valueDefault": "Gandi",
+            "comment": "IMAP Authentication\nIf auth_type is set to IMAP, configure the IMAP server to authenticate against\nwith the following settings, otherwise these are ignored.\nThis is just a label used in the UI. It can be set to anything",
+            "commentHtml": "IMAP&nbsp;Authentication\nIf&nbsp;auth_type&nbsp;is&nbsp;set&nbsp;to&nbsp;IMAP,&nbsp;configure&nbsp;the&nbsp;IMAP&nbsp;server&nbsp;to&nbsp;authenticate&nbsp;against\nwith&nbsp;the&nbsp;following&nbsp;settings,&nbsp;otherwise&nbsp;these&nbsp;are&nbsp;ignored.\nThis&nbsp;is&nbsp;just&nbsp;a&nbsp;label&nbsp;used&nbsp;in&nbsp;the&nbsp;UI.&nbsp;It&nbsp;can&nbsp;be&nbsp;set&nbsp;to&nbsp;anything",
+            "inputType": "text"
+        },
+        {
+            "key": "IMAP_AUTH_SERVER",
+            "valueDefault": "mail.gandi.net",
+            "comment": "The hostname or IP address of the IMAP server to authenticate to",
+            "commentHtml": "The&nbsp;hostname&nbsp;or&nbsp;IP&nbsp;address&nbsp;of&nbsp;the&nbsp;IMAP&nbsp;server&nbsp;to&nbsp;authenticate&nbsp;to",
+            "inputType": "text"
+        },
+        {
+            "key": "IMAP_AUTH_PORT",
+            "valueDefault": "993",
+            "comment": "The hostname or IP address of the IMAP server to authenticate to",
+            "commentHtml": "The&nbsp;hostname&nbsp;or&nbsp;IP&nbsp;address&nbsp;of&nbsp;the&nbsp;IMAP&nbsp;server&nbsp;to&nbsp;authenticate&nbsp;to",
+            "inputType": "text"
+        },
+        {
+            "key": "IMAP_AUTH_TLS",
+            "valueDefault": "true",
+            "comment": "Enable TLS\/SSL connections. Leave blank or set to false to disable. Set to\ntrue to enable TLS connections. If you want to use IMAP STARTTLS, do NOT\nenable this. This is only for TLS enabled sockets (typically on port 993).",
+            "commentHtml": "Enable&nbsp;TLS\/SSL&nbsp;connections.&nbsp;Leave&nbsp;blank&nbsp;or&nbsp;set&nbsp;to&nbsp;false&nbsp;to&nbsp;disable.&nbsp;Set&nbsp;to\ntrue&nbsp;to&nbsp;enable&nbsp;TLS&nbsp;connections.&nbsp;If&nbsp;you&nbsp;want&nbsp;to&nbsp;use&nbsp;IMAP&nbsp;STARTTLS,&nbsp;do&nbsp;NOT\nenable&nbsp;this.&nbsp;This&nbsp;is&nbsp;only&nbsp;for&nbsp;TLS&nbsp;enabled&nbsp;sockets&nbsp;(typically&nbsp;on&nbsp;port&nbsp;993).",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "IMAP_AUTH_SIEVE_CONF_HOST",
+            "valueDefault": "",
+            "comment": "The hostname\/IP address and port sieve is listening on. Example: example.org:4190\nKeep this blank to disable sieve filter support on login",
+            "commentHtml": "The&nbsp;hostname\/IP&nbsp;address&nbsp;and&nbsp;port&nbsp;sieve&nbsp;is&nbsp;listening&nbsp;on.&nbsp;Example:&nbsp;example.org:4190\nKeep&nbsp;this&nbsp;blank&nbsp;to&nbsp;disable&nbsp;sieve&nbsp;filter&nbsp;support&nbsp;on&nbsp;login",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "IMAP_AUTH_SIEVE_TLS_MODE",
+            "valueDefault": "true",
+            "comment": "this will add the tls:\nto make this work make sure you set DEFAULT_SETTING_ENABLE_SIEVE_FILTER to true",
+            "commentHtml": "this&nbsp;will&nbsp;add&nbsp;the&nbsp;tls:\nto&nbsp;make&nbsp;this&nbsp;work&nbsp;make&nbsp;sure&nbsp;you&nbsp;set&nbsp;DEFAULT_SETTING_ENABLE_SIEVE_FILTER&nbsp;to&nbsp;true",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SMTP_NAME",
+            "valueDefault": null,
+            "comment": "Default SMTP Server\nYou can set a default SMTP server for all Cypht users. Authentication will be\ndone with the users login credentials, so this only makes sense if you are\nusing IMAP for authentication. Leave these values blank to disable a\ndefault SMTP server, otherwise fill in the required values below\nThis is just a label used in the UI. It can be set to anything",
+            "commentHtml": "Default&nbsp;SMTP&nbsp;Server\nYou&nbsp;can&nbsp;set&nbsp;a&nbsp;default&nbsp;SMTP&nbsp;server&nbsp;for&nbsp;all&nbsp;Cypht&nbsp;users.&nbsp;Authentication&nbsp;will&nbsp;be\ndone&nbsp;with&nbsp;the&nbsp;users&nbsp;login&nbsp;credentials,&nbsp;so&nbsp;this&nbsp;only&nbsp;makes&nbsp;sense&nbsp;if&nbsp;you&nbsp;are\nusing&nbsp;IMAP&nbsp;for&nbsp;authentication.&nbsp;Leave&nbsp;these&nbsp;values&nbsp;blank&nbsp;to&nbsp;disable&nbsp;a\ndefault&nbsp;SMTP&nbsp;server,&nbsp;otherwise&nbsp;fill&nbsp;in&nbsp;the&nbsp;required&nbsp;values&nbsp;below\nThis&nbsp;is&nbsp;just&nbsp;a&nbsp;label&nbsp;used&nbsp;in&nbsp;the&nbsp;UI.&nbsp;It&nbsp;can&nbsp;be&nbsp;set&nbsp;to&nbsp;anything",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SMTP_SERVER",
+            "valueDefault": null,
+            "comment": "The hostname or IP address of the SMTP server",
+            "commentHtml": "The&nbsp;hostname&nbsp;or&nbsp;IP&nbsp;address&nbsp;of&nbsp;the&nbsp;SMTP&nbsp;server",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SMTP_PORT",
+            "valueDefault": null,
+            "comment": "The port the SMTP server is listening on.",
+            "commentHtml": "The&nbsp;port&nbsp;the&nbsp;SMTP&nbsp;server&nbsp;is&nbsp;listening&nbsp;on.",
+            "inputType": "number"
+        },
+        {
+            "key": "DEFAULT_SMTP_TLS",
+            "valueDefault": null,
+            "comment": "Enable TLS\/SSL connections. Leave blank or set to false to disable. Set to\ntrue to enable TLS connections.",
+            "commentHtml": "Enable&nbsp;TLS\/SSL&nbsp;connections.&nbsp;Leave&nbsp;blank&nbsp;or&nbsp;set&nbsp;to&nbsp;false&nbsp;to&nbsp;disable.&nbsp;Set&nbsp;to\ntrue&nbsp;to&nbsp;enable&nbsp;TLS&nbsp;connections.",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SMTP_NO_AUTH",
+            "valueDefault": null,
+            "comment": "If your SMTP service does not require authentication, you can disable it\nby setting the following to true.",
+            "commentHtml": "If&nbsp;your&nbsp;SMTP&nbsp;service&nbsp;does&nbsp;not&nbsp;require&nbsp;authentication,&nbsp;you&nbsp;can&nbsp;disable&nbsp;it\nby&nbsp;setting&nbsp;the&nbsp;following&nbsp;to&nbsp;true.",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "USER_CONFIG_TYPE",
+            "valueDefault": "file",
+            "comment": "Settings Storage\nCypht supports 3 methods for saving user settings between logins. File based\nsettings, database table or custom implementation. To store settings in a\ndatabase, it must be configured in the \"DB Support\" section and the\nhm_user_settings table must be created (see config\/database.php for more\ninformation). To store settings on the filesystem, the user_settings_dir must\nbe created and the webserver software must be able to write to it. For custom\nimplementations, see Hm_User_Config_File.\nValid values for this setting:\nfile    Store user settings in the filesystem\nDB      Store user settings in a database\ncustom  Store user settings via custom implementation. Specify class name\nafter colon, e.g. custom:Custom_User_Config",
+            "commentHtml": "Settings&nbsp;Storage\nCypht&nbsp;supports&nbsp;3&nbsp;methods&nbsp;for&nbsp;saving&nbsp;user&nbsp;settings&nbsp;between&nbsp;logins.&nbsp;File&nbsp;based\nsettings,&nbsp;database&nbsp;table&nbsp;or&nbsp;custom&nbsp;implementation.&nbsp;To&nbsp;store&nbsp;settings&nbsp;in&nbsp;a\ndatabase,&nbsp;it&nbsp;must&nbsp;be&nbsp;configured&nbsp;in&nbsp;the&nbsp;\"DB&nbsp;Support\"&nbsp;section&nbsp;and&nbsp;the\nhm_user_settings&nbsp;table&nbsp;must&nbsp;be&nbsp;created&nbsp;(see&nbsp;config\/database.php&nbsp;for&nbsp;more\ninformation).&nbsp;To&nbsp;store&nbsp;settings&nbsp;on&nbsp;the&nbsp;filesystem,&nbsp;the&nbsp;user_settings_dir&nbsp;must\nbe&nbsp;created&nbsp;and&nbsp;the&nbsp;webserver&nbsp;software&nbsp;must&nbsp;be&nbsp;able&nbsp;to&nbsp;write&nbsp;to&nbsp;it.&nbsp;For&nbsp;custom\nimplementations,&nbsp;see&nbsp;Hm_User_Config_File.\nValid&nbsp;values&nbsp;for&nbsp;this&nbsp;setting:\nfile&nbsp;&nbsp;&nbsp;&nbsp;Store&nbsp;user&nbsp;settings&nbsp;in&nbsp;the&nbsp;filesystem\nDB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Store&nbsp;user&nbsp;settings&nbsp;in&nbsp;a&nbsp;database\ncustom&nbsp;&nbsp;Store&nbsp;user&nbsp;settings&nbsp;via&nbsp;custom&nbsp;implementation.&nbsp;Specify&nbsp;class&nbsp;name\nafter&nbsp;colon,&nbsp;e.g.&nbsp;custom:Custom_User_Config",
+            "inputType": "text"
+        },
+        {
+            "key": "USER_SETTINGS_DIR",
+            "valueDefault": "\/var\/lib\/hm3\/users",
+            "comment": "Settings Location\nIf user_config_type is set to file, this must be set to an existing directory\nthat the webserver software can read and write to. If settings storage is set\nto DB, this is ignored. It should not be inside the webserver document root.",
+            "commentHtml": "Settings&nbsp;Location\nIf&nbsp;user_config_type&nbsp;is&nbsp;set&nbsp;to&nbsp;file,&nbsp;this&nbsp;must&nbsp;be&nbsp;set&nbsp;to&nbsp;an&nbsp;existing&nbsp;directory\nthat&nbsp;the&nbsp;webserver&nbsp;software&nbsp;can&nbsp;read&nbsp;and&nbsp;write&nbsp;to.&nbsp;If&nbsp;settings&nbsp;storage&nbsp;is&nbsp;set\nto&nbsp;DB,&nbsp;this&nbsp;is&nbsp;ignored.&nbsp;It&nbsp;should&nbsp;not&nbsp;be&nbsp;inside&nbsp;the&nbsp;webserver&nbsp;document&nbsp;root.",
+            "inputType": "text"
+        },
+        {
+            "key": "ATTACHMENT_DIR",
+            "valueDefault": "\/var\/lib\/hm3\/attachments",
+            "comment": "Attachment Location\nThis must be set to an existing directory that the webserver software\ncan read and write to. It should not be inside the webserver document root.",
+            "commentHtml": "Attachment&nbsp;Location\nThis&nbsp;must&nbsp;be&nbsp;set&nbsp;to&nbsp;an&nbsp;existing&nbsp;directory&nbsp;that&nbsp;the&nbsp;webserver&nbsp;software\ncan&nbsp;read&nbsp;and&nbsp;write&nbsp;to.&nbsp;It&nbsp;should&nbsp;not&nbsp;be&nbsp;inside&nbsp;the&nbsp;webserver&nbsp;document&nbsp;root.",
+            "inputType": "text"
+        },
+        {
+            "key": "DISABLE_ORIGIN_CHECK",
+            "valueDefault": "false",
+            "comment": "Disable origin check\nTo help protect against CSRF attacks, Cypht checks origin headers to confirm\nthat the source and target origin domains match. If you are using proxies this\ncould create a problem making it impossible to login. Change this to true to\ndisable the origin check.",
+            "commentHtml": "Disable&nbsp;origin&nbsp;check\nTo&nbsp;help&nbsp;protect&nbsp;against&nbsp;CSRF&nbsp;attacks,&nbsp;Cypht&nbsp;checks&nbsp;origin&nbsp;headers&nbsp;to&nbsp;confirm\nthat&nbsp;the&nbsp;source&nbsp;and&nbsp;target&nbsp;origin&nbsp;domains&nbsp;match.&nbsp;If&nbsp;you&nbsp;are&nbsp;using&nbsp;proxies&nbsp;this\ncould&nbsp;create&nbsp;a&nbsp;problem&nbsp;making&nbsp;it&nbsp;impossible&nbsp;to&nbsp;login.&nbsp;Change&nbsp;this&nbsp;to&nbsp;true&nbsp;to\ndisable&nbsp;the&nbsp;origin&nbsp;check.",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "ADMIN_USERS",
+            "valueDefault": null,
+            "comment": "Admin Users\nYou can define a comma delimited list of admin users that Cypht will grant\nspecial rights to. Currently this only enables the \"create account\" link in\nthe account module set that provides a form to create a new account. This is\nonly used if the auth_type is set to DB. Leave this blank if you don't want\nto define any admin users, or are using IMAP authentication.",
+            "commentHtml": "Admin&nbsp;Users\nYou&nbsp;can&nbsp;define&nbsp;a&nbsp;comma&nbsp;delimited&nbsp;list&nbsp;of&nbsp;admin&nbsp;users&nbsp;that&nbsp;Cypht&nbsp;will&nbsp;grant\nspecial&nbsp;rights&nbsp;to.&nbsp;Currently&nbsp;this&nbsp;only&nbsp;enables&nbsp;the&nbsp;\"create&nbsp;account\"&nbsp;link&nbsp;in\nthe&nbsp;account&nbsp;module&nbsp;set&nbsp;that&nbsp;provides&nbsp;a&nbsp;form&nbsp;to&nbsp;create&nbsp;a&nbsp;new&nbsp;account.&nbsp;This&nbsp;is\nonly&nbsp;used&nbsp;if&nbsp;the&nbsp;auth_type&nbsp;is&nbsp;set&nbsp;to&nbsp;DB.&nbsp;Leave&nbsp;this&nbsp;blank&nbsp;if&nbsp;you&nbsp;don't&nbsp;want\nto&nbsp;define&nbsp;any&nbsp;admin&nbsp;users,&nbsp;or&nbsp;are&nbsp;using&nbsp;IMAP&nbsp;authentication.",
+            "inputType": "text"
+        },
+        {
+            "key": "COOKIE_DOMAIN",
+            "valueDefault": null,
+            "comment": "Cookie Domain\nBy default Cypht uses the server name used in the request to determine\nthe domain name to set the cookie for. Configurations that use a reverse\nproxy might need to define the domain name used for cookies. Leave this\nblank to let Cypht automatically determine the domain. You can also use\nthe special value of \"none\" to force Cypht to NOT set the cookie domain\nproperty at all. This is not recommended unless you know what you are\ndoing!",
+            "commentHtml": "Cookie&nbsp;Domain\nBy&nbsp;default&nbsp;Cypht&nbsp;uses&nbsp;the&nbsp;server&nbsp;name&nbsp;used&nbsp;in&nbsp;the&nbsp;request&nbsp;to&nbsp;determine\nthe&nbsp;domain&nbsp;name&nbsp;to&nbsp;set&nbsp;the&nbsp;cookie&nbsp;for.&nbsp;Configurations&nbsp;that&nbsp;use&nbsp;a&nbsp;reverse\nproxy&nbsp;might&nbsp;need&nbsp;to&nbsp;define&nbsp;the&nbsp;domain&nbsp;name&nbsp;used&nbsp;for&nbsp;cookies.&nbsp;Leave&nbsp;this\nblank&nbsp;to&nbsp;let&nbsp;Cypht&nbsp;automatically&nbsp;determine&nbsp;the&nbsp;domain.&nbsp;You&nbsp;can&nbsp;also&nbsp;use\nthe&nbsp;special&nbsp;value&nbsp;of&nbsp;\"none\"&nbsp;to&nbsp;force&nbsp;Cypht&nbsp;to&nbsp;NOT&nbsp;set&nbsp;the&nbsp;cookie&nbsp;domain\nproperty&nbsp;at&nbsp;all.&nbsp;This&nbsp;is&nbsp;not&nbsp;recommended&nbsp;unless&nbsp;you&nbsp;know&nbsp;what&nbsp;you&nbsp;are\ndoing!",
+            "inputType": "text"
+        },
+        {
+            "key": "COOKIE_PATH",
+            "valueDefault": null,
+            "comment": "Cookie Path\nBy default Cypht uses the request URI to determine the cookie path to set\nthe cookie for. Configurations that use mod_rewrite might need to define\nthe path used for cookies. E.g. \/cypht\/embedded?page=compose will set path\nto \/cypht\/embedded\/ which won't send the cookies back to the server. In that\ncase set cookie_path=\/cypht\/. Leave this blank to let Cypht automatically\ndetermine the path. You can also use the special value of \"none\" to force\nCypht to NOT set the cookie path property at all. This is not recommended\nunless you know what you are doing!",
+            "commentHtml": "Cookie&nbsp;Path\nBy&nbsp;default&nbsp;Cypht&nbsp;uses&nbsp;the&nbsp;request&nbsp;URI&nbsp;to&nbsp;determine&nbsp;the&nbsp;cookie&nbsp;path&nbsp;to&nbsp;set\nthe&nbsp;cookie&nbsp;for.&nbsp;Configurations&nbsp;that&nbsp;use&nbsp;mod_rewrite&nbsp;might&nbsp;need&nbsp;to&nbsp;define\nthe&nbsp;path&nbsp;used&nbsp;for&nbsp;cookies.&nbsp;E.g.&nbsp;\/cypht\/embedded?page=compose&nbsp;will&nbsp;set&nbsp;path\nto&nbsp;\/cypht\/embedded\/&nbsp;which&nbsp;won't&nbsp;send&nbsp;the&nbsp;cookies&nbsp;back&nbsp;to&nbsp;the&nbsp;server.&nbsp;In&nbsp;that\ncase&nbsp;set&nbsp;cookie_path=\/cypht\/.&nbsp;Leave&nbsp;this&nbsp;blank&nbsp;to&nbsp;let&nbsp;Cypht&nbsp;automatically\ndetermine&nbsp;the&nbsp;path.&nbsp;You&nbsp;can&nbsp;also&nbsp;use&nbsp;the&nbsp;special&nbsp;value&nbsp;of&nbsp;\"none\"&nbsp;to&nbsp;force\nCypht&nbsp;to&nbsp;NOT&nbsp;set&nbsp;the&nbsp;cookie&nbsp;path&nbsp;property&nbsp;at&nbsp;all.&nbsp;This&nbsp;is&nbsp;not&nbsp;recommended\nunless&nbsp;you&nbsp;know&nbsp;what&nbsp;you&nbsp;are&nbsp;doing!",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_EMAIL_DOMAIN",
+            "valueDefault": null,
+            "comment": "Outbound Email Domain\nDefault domain used for outbound email addresses when using IMAP auth and\nusers don't login with a full email address. Users can customize this with\nthe profiles module which will override this default",
+            "commentHtml": "Outbound&nbsp;Email&nbsp;Domain\nDefault&nbsp;domain&nbsp;used&nbsp;for&nbsp;outbound&nbsp;email&nbsp;addresses&nbsp;when&nbsp;using&nbsp;IMAP&nbsp;auth&nbsp;and\nusers&nbsp;don't&nbsp;login&nbsp;with&nbsp;a&nbsp;full&nbsp;email&nbsp;address.&nbsp;Users&nbsp;can&nbsp;customize&nbsp;this&nbsp;with\nthe&nbsp;profiles&nbsp;module&nbsp;which&nbsp;will&nbsp;override&nbsp;this&nbsp;default",
+            "inputType": "text"
+        },
+        {
+            "key": "AUTO_CREATE_PROFILE",
+            "valueDefault": null,
+            "comment": "Auto\nCreate Profile\nWhen a user logs in and they have only 1 IMAP server and 1 SMTP server, and\nno configured profiles \n enabling this option will auto\ncreate a profile for\nthem. Email and reply\nto addresses will use the default_email_domain if\nset, otherwise it will fallback to the domain Cypht is hosted on.",
+            "commentHtml": "Auto\nCreate&nbsp;Profile\nWhen&nbsp;a&nbsp;user&nbsp;logs&nbsp;in&nbsp;and&nbsp;they&nbsp;have&nbsp;only&nbsp;1&nbsp;IMAP&nbsp;server&nbsp;and&nbsp;1&nbsp;SMTP&nbsp;server,&nbsp;and\nno&nbsp;configured&nbsp;profiles&nbsp;\n&nbsp;enabling&nbsp;this&nbsp;option&nbsp;will&nbsp;auto\ncreate&nbsp;a&nbsp;profile&nbsp;for\nthem.&nbsp;Email&nbsp;and&nbsp;reply\nto&nbsp;addresses&nbsp;will&nbsp;use&nbsp;the&nbsp;default_email_domain&nbsp;if\nset,&nbsp;otherwise&nbsp;it&nbsp;will&nbsp;fallback&nbsp;to&nbsp;the&nbsp;domain&nbsp;Cypht&nbsp;is&nbsp;hosted&nbsp;on.",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "REDIRECT_AFTER_LOGIN",
+            "valueDefault": null,
+            "comment": "Redirect After Login\nYou can login directly to any page in Cypht by going to the correct url before\nlogging in, but that is not very user\nfriendly. To redirect users to a url\nafter login, add the url arguments below (everything in the url after, but\nincluding, the question mark). You must use double quotes around the value\notherwise it will cause an ini parsing error. To redirect users after login\nto the combined unread view you would use:\nredirect_after_login=\"?page=message_list&list_path=unread\"",
+            "commentHtml": "Redirect&nbsp;After&nbsp;Login\nYou&nbsp;can&nbsp;login&nbsp;directly&nbsp;to&nbsp;any&nbsp;page&nbsp;in&nbsp;Cypht&nbsp;by&nbsp;going&nbsp;to&nbsp;the&nbsp;correct&nbsp;url&nbsp;before\nlogging&nbsp;in,&nbsp;but&nbsp;that&nbsp;is&nbsp;not&nbsp;very&nbsp;user\nfriendly.&nbsp;To&nbsp;redirect&nbsp;users&nbsp;to&nbsp;a&nbsp;url\nafter&nbsp;login,&nbsp;add&nbsp;the&nbsp;url&nbsp;arguments&nbsp;below&nbsp;(everything&nbsp;in&nbsp;the&nbsp;url&nbsp;after,&nbsp;but\nincluding,&nbsp;the&nbsp;question&nbsp;mark).&nbsp;You&nbsp;must&nbsp;use&nbsp;double&nbsp;quotes&nbsp;around&nbsp;the&nbsp;value\notherwise&nbsp;it&nbsp;will&nbsp;cause&nbsp;an&nbsp;ini&nbsp;parsing&nbsp;error.&nbsp;To&nbsp;redirect&nbsp;users&nbsp;after&nbsp;login\nto&nbsp;the&nbsp;combined&nbsp;unread&nbsp;view&nbsp;you&nbsp;would&nbsp;use:\nredirect_after_login=\"?page=message_list&list_path=unread\"",
+            "inputType": "text"
+        },
+        {
+            "key": "APP_NAME",
+            "valueDefault": "Cypht",
+            "comment": "Application Name\nThis label is used in the UI to reference the program \n you can change it to\n\"Your awesome webmail\" to replace the Cypht name used in various places.",
+            "commentHtml": "Application&nbsp;Name\nThis&nbsp;label&nbsp;is&nbsp;used&nbsp;in&nbsp;the&nbsp;UI&nbsp;to&nbsp;reference&nbsp;the&nbsp;program&nbsp;\n&nbsp;you&nbsp;can&nbsp;change&nbsp;it&nbsp;to\n\"Your&nbsp;awesome&nbsp;webmail\"&nbsp;to&nbsp;replace&nbsp;the&nbsp;Cypht&nbsp;name&nbsp;used&nbsp;in&nbsp;various&nbsp;places.",
+            "inputType": "text"
+        },
+        {
+            "key": "ALWAYS_MOBILE_UI",
+            "valueDefault": null,
+            "comment": "Force Mobile UI\nCypht will detect mobile devices and display a mobile optimized UI. If you want\nto aways use this UI regardless of device, set this to true",
+            "commentHtml": "Force&nbsp;Mobile&nbsp;UI\nCypht&nbsp;will&nbsp;detect&nbsp;mobile&nbsp;devices&nbsp;and&nbsp;display&nbsp;a&nbsp;mobile&nbsp;optimized&nbsp;UI.&nbsp;If&nbsp;you&nbsp;want\nto&nbsp;aways&nbsp;use&nbsp;this&nbsp;UI&nbsp;regardless&nbsp;of&nbsp;device,&nbsp;set&nbsp;this&nbsp;to&nbsp;true",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_LANGUAGE",
+            "valueDefault": "en",
+            "comment": "Default Language\nUsers can select from available interface languages on the site settings page.\nThis sets the default for a user who has not done so. Valid values are the\nlangauge codes that have matching language definitions in the language\/ folder.",
+            "commentHtml": "Default&nbsp;Language\nUsers&nbsp;can&nbsp;select&nbsp;from&nbsp;available&nbsp;interface&nbsp;languages&nbsp;on&nbsp;the&nbsp;site&nbsp;settings&nbsp;page.\nThis&nbsp;sets&nbsp;the&nbsp;default&nbsp;for&nbsp;a&nbsp;user&nbsp;who&nbsp;has&nbsp;not&nbsp;done&nbsp;so.&nbsp;Valid&nbsp;values&nbsp;are&nbsp;the\nlangauge&nbsp;codes&nbsp;that&nbsp;have&nbsp;matching&nbsp;language&nbsp;definitions&nbsp;in&nbsp;the&nbsp;language\/&nbsp;folder.",
+            "inputType": "text"
+        },
+        {
+            "key": "JS_COMPRESS",
+            "valueDefault": "false",
+            "comment": "JavaScript Compression\nWhen the configuration script is run, all JavaScript files are concatenated\nand optionally compressed. To compress the content, define a command and its\noptions below. Cypht does not come with compresson software, so you must\ninstall and configure that separately. Leave blank or set to false to disable\nexternal compression. Compression software must be able to handle ES6.\nExample:\njs_compress='uglifyjs.terser \nc \nm \n\nverbose \n\nwarn'",
+            "commentHtml": "JavaScript&nbsp;Compression\nWhen&nbsp;the&nbsp;configuration&nbsp;script&nbsp;is&nbsp;run,&nbsp;all&nbsp;JavaScript&nbsp;files&nbsp;are&nbsp;concatenated\nand&nbsp;optionally&nbsp;compressed.&nbsp;To&nbsp;compress&nbsp;the&nbsp;content,&nbsp;define&nbsp;a&nbsp;command&nbsp;and&nbsp;its\noptions&nbsp;below.&nbsp;Cypht&nbsp;does&nbsp;not&nbsp;come&nbsp;with&nbsp;compresson&nbsp;software,&nbsp;so&nbsp;you&nbsp;must\ninstall&nbsp;and&nbsp;configure&nbsp;that&nbsp;separately.&nbsp;Leave&nbsp;blank&nbsp;or&nbsp;set&nbsp;to&nbsp;false&nbsp;to&nbsp;disable\nexternal&nbsp;compression.&nbsp;Compression&nbsp;software&nbsp;must&nbsp;be&nbsp;able&nbsp;to&nbsp;handle&nbsp;ES6.\nExample:\njs_compress='uglifyjs.terser&nbsp;\nc&nbsp;\nm&nbsp;\n\nverbose&nbsp;\n\nwarn'",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "CSS_COMPRESS",
+            "valueDefault": "false",
+            "comment": "CSS Compression\nWhen the configuration script is run, all CSS files are concatenated and\noptionally compressed. To compress the content, define a command and its\noptions below. Cypht does not come with compresson software, so you must\ninstall and configure that separately. Leave blank or set to false to disable\nexternal compression.\nExample:\ncss_compress='java \njar \/usr\/local\/lib\/yuicompressor\n2.4.8.jar \n\ntype css'",
+            "commentHtml": "CSS&nbsp;Compression\nWhen&nbsp;the&nbsp;configuration&nbsp;script&nbsp;is&nbsp;run,&nbsp;all&nbsp;CSS&nbsp;files&nbsp;are&nbsp;concatenated&nbsp;and\noptionally&nbsp;compressed.&nbsp;To&nbsp;compress&nbsp;the&nbsp;content,&nbsp;define&nbsp;a&nbsp;command&nbsp;and&nbsp;its\noptions&nbsp;below.&nbsp;Cypht&nbsp;does&nbsp;not&nbsp;come&nbsp;with&nbsp;compresson&nbsp;software,&nbsp;so&nbsp;you&nbsp;must\ninstall&nbsp;and&nbsp;configure&nbsp;that&nbsp;separately.&nbsp;Leave&nbsp;blank&nbsp;or&nbsp;set&nbsp;to&nbsp;false&nbsp;to&nbsp;disable\nexternal&nbsp;compression.\nExample:\ncss_compress='java&nbsp;\njar&nbsp;\/usr\/local\/lib\/yuicompressor\n2.4.8.jar&nbsp;\n\ntype&nbsp;css'",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "ENABLE_REDIS",
+            "valueDefault": "true",
+            "comment": "Caching Server Support\nCypht can use Redis or Memcache to improve performance, as well as to store\nuser sessions. Configure Redis or Memcached below and Cypht will\nautomatically use them for caching. All data cached for a user in either\nsystem is encrypted. Currently, the feeds, and IMAP modules will use\nthe configured cache. If both Redis and Memcached are configured, Redis will\nbe used for the cache.\nIf you want to use the user session as a cache, uncomment the line below and\nset to true. THIS IS NOT RECOMMENDED. Cypht uses parallel requests to the\nserver, and using the session as a cache is likely to cause race conditions\nand integrity issues. If you are running Cypht in an \"embedded\" mode with\nonly one email source, this option is less likely to be a problem.\n'allow_session_cache' => env('ALLOW_SESSION_CACHE', false),\n'cache_class' => env('CACHE_CLASS')",
+            "commentHtml": "Caching&nbsp;Server&nbsp;Support\nCypht&nbsp;can&nbsp;use&nbsp;Redis&nbsp;or&nbsp;Memcache&nbsp;to&nbsp;improve&nbsp;performance,&nbsp;as&nbsp;well&nbsp;as&nbsp;to&nbsp;store\nuser&nbsp;sessions.&nbsp;Configure&nbsp;Redis&nbsp;or&nbsp;Memcached&nbsp;below&nbsp;and&nbsp;Cypht&nbsp;will\nautomatically&nbsp;use&nbsp;them&nbsp;for&nbsp;caching.&nbsp;All&nbsp;data&nbsp;cached&nbsp;for&nbsp;a&nbsp;user&nbsp;in&nbsp;either\nsystem&nbsp;is&nbsp;encrypted.&nbsp;Currently,&nbsp;the&nbsp;feeds,&nbsp;and&nbsp;IMAP&nbsp;modules&nbsp;will&nbsp;use\nthe&nbsp;configured&nbsp;cache.&nbsp;If&nbsp;both&nbsp;Redis&nbsp;and&nbsp;Memcached&nbsp;are&nbsp;configured,&nbsp;Redis&nbsp;will\nbe&nbsp;used&nbsp;for&nbsp;the&nbsp;cache.\nIf&nbsp;you&nbsp;want&nbsp;to&nbsp;use&nbsp;the&nbsp;user&nbsp;session&nbsp;as&nbsp;a&nbsp;cache,&nbsp;uncomment&nbsp;the&nbsp;line&nbsp;below&nbsp;and\nset&nbsp;to&nbsp;true.&nbsp;THIS&nbsp;IS&nbsp;NOT&nbsp;RECOMMENDED.&nbsp;Cypht&nbsp;uses&nbsp;parallel&nbsp;requests&nbsp;to&nbsp;the\nserver,&nbsp;and&nbsp;using&nbsp;the&nbsp;session&nbsp;as&nbsp;a&nbsp;cache&nbsp;is&nbsp;likely&nbsp;to&nbsp;cause&nbsp;race&nbsp;conditions\nand&nbsp;integrity&nbsp;issues.&nbsp;If&nbsp;you&nbsp;are&nbsp;running&nbsp;Cypht&nbsp;in&nbsp;an&nbsp;\"embedded\"&nbsp;mode&nbsp;with\nonly&nbsp;one&nbsp;email&nbsp;source,&nbsp;this&nbsp;option&nbsp;is&nbsp;less&nbsp;likely&nbsp;to&nbsp;be&nbsp;a&nbsp;problem.\n'allow_session_cache'&nbsp;=>&nbsp;env('ALLOW_SESSION_CACHE',&nbsp;false),\n'cache_class'&nbsp;=>&nbsp;env('CACHE_CLASS')",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "REDIS_SERVER",
+            "valueDefault": "127.0.0.1",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "REDIS_PORT",
+            "valueDefault": "6379",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "REDIS_INDEX",
+            "valueDefault": "1",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "REDIS_PASS",
+            "valueDefault": null,
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "password"
+        },
+        {
+            "key": "REDIS_SOCKET",
+            "valueDefault": "\/var\/run\/redis\/redis-server.sock",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "ENABLE_MEMCACHED",
+            "valueDefault": "true",
+            "comment": "Memcached Support\nConfigure Memcached details below to use it for caching",
+            "commentHtml": "Memcached&nbsp;Support\nConfigure&nbsp;Memcached&nbsp;details&nbsp;below&nbsp;to&nbsp;use&nbsp;it&nbsp;for&nbsp;caching",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "MEMCACHED_SERVER",
+            "valueDefault": "127.0.0.1",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "MEMCACHED_PORT",
+            "valueDefault": "11211",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "MEMCACHED_AUTH",
+            "valueDefault": "false",
+            "comment": "If you need SASL authentication for memcached, set the following to true\nand add the username and password to authenticate with",
+            "commentHtml": "If&nbsp;you&nbsp;need&nbsp;SASL&nbsp;authentication&nbsp;for&nbsp;memcached,&nbsp;set&nbsp;the&nbsp;following&nbsp;to&nbsp;true\nand&nbsp;add&nbsp;the&nbsp;username&nbsp;and&nbsp;password&nbsp;to&nbsp;authenticate&nbsp;with",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "MEMCACHED_USER",
+            "valueDefault": null,
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "MEMCACHED_PASS",
+            "valueDefault": null,
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "password"
+        },
+        {
+            "key": "ALLOW_LONG_SESSION",
+            "valueDefault": "false",
+            "comment": "Allow Long Sessions\nCypht logins only last as long as the browser is open. Closing the browser,\nor moving to a new network, will cause you to be logged out. This setting\nprovides users with a \"stay logged in\" option during login that will set the\nsesison lifetime to a default of 30 days, and disable the IP address check.\nUSE WITH CAUTION SINCE THIS DISABLES SOME SESSION PROTECTIONS.\nSpecifically:\nSession cookies stay active after a browser restart making them more\nsusceptible to snooping\nThe browser \"fingerprint\" was use to help protect against session hijacking\nincludes the client's IP. With this option enabled a client IP can change\nmid\nsession and it won't log them out",
+            "commentHtml": "Allow&nbsp;Long&nbsp;Sessions\nCypht&nbsp;logins&nbsp;only&nbsp;last&nbsp;as&nbsp;long&nbsp;as&nbsp;the&nbsp;browser&nbsp;is&nbsp;open.&nbsp;Closing&nbsp;the&nbsp;browser,\nor&nbsp;moving&nbsp;to&nbsp;a&nbsp;new&nbsp;network,&nbsp;will&nbsp;cause&nbsp;you&nbsp;to&nbsp;be&nbsp;logged&nbsp;out.&nbsp;This&nbsp;setting\nprovides&nbsp;users&nbsp;with&nbsp;a&nbsp;\"stay&nbsp;logged&nbsp;in\"&nbsp;option&nbsp;during&nbsp;login&nbsp;that&nbsp;will&nbsp;set&nbsp;the\nsesison&nbsp;lifetime&nbsp;to&nbsp;a&nbsp;default&nbsp;of&nbsp;30&nbsp;days,&nbsp;and&nbsp;disable&nbsp;the&nbsp;IP&nbsp;address&nbsp;check.\nUSE&nbsp;WITH&nbsp;CAUTION&nbsp;SINCE&nbsp;THIS&nbsp;DISABLES&nbsp;SOME&nbsp;SESSION&nbsp;PROTECTIONS.\nSpecifically:\nSession&nbsp;cookies&nbsp;stay&nbsp;active&nbsp;after&nbsp;a&nbsp;browser&nbsp;restart&nbsp;making&nbsp;them&nbsp;more\nsusceptible&nbsp;to&nbsp;snooping\nThe&nbsp;browser&nbsp;\"fingerprint\"&nbsp;was&nbsp;use&nbsp;to&nbsp;help&nbsp;protect&nbsp;against&nbsp;session&nbsp;hijacking\nincludes&nbsp;the&nbsp;client's&nbsp;IP.&nbsp;With&nbsp;this&nbsp;option&nbsp;enabled&nbsp;a&nbsp;client&nbsp;IP&nbsp;can&nbsp;change\nmid\nsession&nbsp;and&nbsp;it&nbsp;won't&nbsp;log&nbsp;them&nbsp;out",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "LONG_SESSION_LIFETIME",
+            "valueDefault": "30",
+            "comment": "Set the session lifetime in days. Only applies if allow_long_session is set to\ntrue, and a user checks the box to \"stay logged in\" during login.",
+            "commentHtml": "Set&nbsp;the&nbsp;session&nbsp;lifetime&nbsp;in&nbsp;days.&nbsp;Only&nbsp;applies&nbsp;if&nbsp;allow_long_session&nbsp;is&nbsp;set&nbsp;to\ntrue,&nbsp;and&nbsp;a&nbsp;user&nbsp;checks&nbsp;the&nbsp;box&nbsp;to&nbsp;\"stay&nbsp;logged&nbsp;in\"&nbsp;during&nbsp;login.",
+            "inputType": "text"
+        },
+        {
+            "key": "ENCRYPT_AJAX_REQUESTS",
+            "valueDefault": null,
+            "comment": "Browser Encryption Options\nCypht can use the Forge JavaScript encryption library to encrypt AJAX\nresponses and data stored in browser local storage. Enabling either one of\nthese options causes the Forge JavaScript library to be included. This adds\nabout 70KB to the page size (when gzipped).\nUse AES encryption for AJAX responses. Set to true to enable, leave blank or\nset to false to disable.",
+            "commentHtml": "Browser&nbsp;Encryption&nbsp;Options\nCypht&nbsp;can&nbsp;use&nbsp;the&nbsp;Forge&nbsp;JavaScript&nbsp;encryption&nbsp;library&nbsp;to&nbsp;encrypt&nbsp;AJAX\nresponses&nbsp;and&nbsp;data&nbsp;stored&nbsp;in&nbsp;browser&nbsp;local&nbsp;storage.&nbsp;Enabling&nbsp;either&nbsp;one&nbsp;of\nthese&nbsp;options&nbsp;causes&nbsp;the&nbsp;Forge&nbsp;JavaScript&nbsp;library&nbsp;to&nbsp;be&nbsp;included.&nbsp;This&nbsp;adds\nabout&nbsp;70KB&nbsp;to&nbsp;the&nbsp;page&nbsp;size&nbsp;(when&nbsp;gzipped).\nUse&nbsp;AES&nbsp;encryption&nbsp;for&nbsp;AJAX&nbsp;responses.&nbsp;Set&nbsp;to&nbsp;true&nbsp;to&nbsp;enable,&nbsp;leave&nbsp;blank&nbsp;or\nset&nbsp;to&nbsp;false&nbsp;to&nbsp;disable.",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "ENCRYPT_LOCAL_STORAGE",
+            "valueDefault": null,
+            "comment": "Use AES encryption for data stored in the browser local storage. Set to true\nto enable, or leave blank or set to false to disable.",
+            "commentHtml": "Use&nbsp;AES&nbsp;encryption&nbsp;for&nbsp;data&nbsp;stored&nbsp;in&nbsp;the&nbsp;browser&nbsp;local&nbsp;storage.&nbsp;Set&nbsp;to&nbsp;true\nto&nbsp;enable,&nbsp;or&nbsp;leave&nbsp;blank&nbsp;or&nbsp;set&nbsp;to&nbsp;false&nbsp;to&nbsp;disable.",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DISABLE_IP_CHECK",
+            "valueDefault": "false",
+            "comment": "Allow client IP changes\nBy default Cypht will log you out if your client IP address changes. This is\nan extra layer of protection against session hijacking, but it's not uncommon\nfor your client IP to change. Change this to true if you want to disable this\ncheck",
+            "commentHtml": "Allow&nbsp;client&nbsp;IP&nbsp;changes\nBy&nbsp;default&nbsp;Cypht&nbsp;will&nbsp;log&nbsp;you&nbsp;out&nbsp;if&nbsp;your&nbsp;client&nbsp;IP&nbsp;address&nbsp;changes.&nbsp;This&nbsp;is\nan&nbsp;extra&nbsp;layer&nbsp;of&nbsp;protection&nbsp;against&nbsp;session&nbsp;hijacking,&nbsp;but&nbsp;it's&nbsp;not&nbsp;uncommon\nfor&nbsp;your&nbsp;client&nbsp;IP&nbsp;to&nbsp;change.&nbsp;Change&nbsp;this&nbsp;to&nbsp;true&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;disable&nbsp;this\ncheck",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "ALLOW_EXTERNAL_IMAGE_SOURCES",
+            "valueDefault": "true",
+            "comment": "Allow remote image sources\nWARNING: Using this feature could leak information to external sources.\nBy default, Cypht will not allow external images to be loaded when viewing an\nHTML formatted email message. A Content Security Policy header limits images\nsources to \"self\" only and the message content is filtered to remove any external\nresource. If you really want the ability to view external images in an email,\nyou first need to change the following setting to true. When viewing an HTML\nformatted message, you will now have a link before the message body called \"Allow\nImages\" that will reload the message part with external images visible.",
+            "commentHtml": "Allow&nbsp;remote&nbsp;image&nbsp;sources\nWARNING:&nbsp;Using&nbsp;this&nbsp;feature&nbsp;could&nbsp;leak&nbsp;information&nbsp;to&nbsp;external&nbsp;sources.\nBy&nbsp;default,&nbsp;Cypht&nbsp;will&nbsp;not&nbsp;allow&nbsp;external&nbsp;images&nbsp;to&nbsp;be&nbsp;loaded&nbsp;when&nbsp;viewing&nbsp;an\nHTML&nbsp;formatted&nbsp;email&nbsp;message.&nbsp;A&nbsp;Content&nbsp;Security&nbsp;Policy&nbsp;header&nbsp;limits&nbsp;images\nsources&nbsp;to&nbsp;\"self\"&nbsp;only&nbsp;and&nbsp;the&nbsp;message&nbsp;content&nbsp;is&nbsp;filtered&nbsp;to&nbsp;remove&nbsp;any&nbsp;external\nresource.&nbsp;If&nbsp;you&nbsp;really&nbsp;want&nbsp;the&nbsp;ability&nbsp;to&nbsp;view&nbsp;external&nbsp;images&nbsp;in&nbsp;an&nbsp;email,\nyou&nbsp;first&nbsp;need&nbsp;to&nbsp;change&nbsp;the&nbsp;following&nbsp;setting&nbsp;to&nbsp;true.&nbsp;When&nbsp;viewing&nbsp;an&nbsp;HTML\nformatted&nbsp;message,&nbsp;you&nbsp;will&nbsp;now&nbsp;have&nbsp;a&nbsp;link&nbsp;before&nbsp;the&nbsp;message&nbsp;body&nbsp;called&nbsp;\"Allow\nImages\"&nbsp;that&nbsp;will&nbsp;reload&nbsp;the&nbsp;message&nbsp;part&nbsp;with&nbsp;external&nbsp;images&nbsp;visible.",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "SINGLE_SERVER_MODE",
+            "valueDefault": "false",
+            "comment": "Single server mode\nThis setting restricts Cypht to only using a single email source (\nIMAP) and the default SMTP server defined in this file. It modifies the UI to\nremove the ability to add other email sources, and removes the password\nrestriction when saving data between logins. You must use either IMAP\nauthentication for this setting to be enforced, and auth server will be the\nsingle email source users have access to. If you enable this after users\nhave saved any settings, they will be lost (or if you disable it after they\nhave saved any settings). WARNING: USER SETTINGS SAVED TO THE SERVER WILL NOT\nBE ENCRYPTED WITH THIS ENABLED",
+            "commentHtml": "Single&nbsp;server&nbsp;mode\nThis&nbsp;setting&nbsp;restricts&nbsp;Cypht&nbsp;to&nbsp;only&nbsp;using&nbsp;a&nbsp;single&nbsp;email&nbsp;source&nbsp;(\nIMAP)&nbsp;and&nbsp;the&nbsp;default&nbsp;SMTP&nbsp;server&nbsp;defined&nbsp;in&nbsp;this&nbsp;file.&nbsp;It&nbsp;modifies&nbsp;the&nbsp;UI&nbsp;to\nremove&nbsp;the&nbsp;ability&nbsp;to&nbsp;add&nbsp;other&nbsp;email&nbsp;sources,&nbsp;and&nbsp;removes&nbsp;the&nbsp;password\nrestriction&nbsp;when&nbsp;saving&nbsp;data&nbsp;between&nbsp;logins.&nbsp;You&nbsp;must&nbsp;use&nbsp;either&nbsp;IMAP\nauthentication&nbsp;for&nbsp;this&nbsp;setting&nbsp;to&nbsp;be&nbsp;enforced,&nbsp;and&nbsp;auth&nbsp;server&nbsp;will&nbsp;be&nbsp;the\nsingle&nbsp;email&nbsp;source&nbsp;users&nbsp;have&nbsp;access&nbsp;to.&nbsp;If&nbsp;you&nbsp;enable&nbsp;this&nbsp;after&nbsp;users\nhave&nbsp;saved&nbsp;any&nbsp;settings,&nbsp;they&nbsp;will&nbsp;be&nbsp;lost&nbsp;(or&nbsp;if&nbsp;you&nbsp;disable&nbsp;it&nbsp;after&nbsp;they\nhave&nbsp;saved&nbsp;any&nbsp;settings).&nbsp;WARNING:&nbsp;USER&nbsp;SETTINGS&nbsp;SAVED&nbsp;TO&nbsp;THE&nbsp;SERVER&nbsp;WILL&nbsp;NOT\nBE&nbsp;ENCRYPTED&nbsp;WITH&nbsp;THIS&nbsp;ENABLED",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DISABLE_EMPTY_SUPERGLOBALS",
+            "valueDefault": "false",
+            "comment": "Integration options\nCypht does a few things to make it more secure by default, but these features\ncan make it difficult to integrate Cypht into 3rd party software. Specifically,\nCypht disables PHP \"super globals\", and sets a restrictive PHP \"open basedir\"\nsetting, tweaks PHP ini settings to increase security, and uses a browser\n\"fingerprint\" to improve session security. You can disable each with the\nfollowing options:\nDon't empty PHP super globals",
+            "commentHtml": "Integration&nbsp;options\nCypht&nbsp;does&nbsp;a&nbsp;few&nbsp;things&nbsp;to&nbsp;make&nbsp;it&nbsp;more&nbsp;secure&nbsp;by&nbsp;default,&nbsp;but&nbsp;these&nbsp;features\ncan&nbsp;make&nbsp;it&nbsp;difficult&nbsp;to&nbsp;integrate&nbsp;Cypht&nbsp;into&nbsp;3rd&nbsp;party&nbsp;software.&nbsp;Specifically,\nCypht&nbsp;disables&nbsp;PHP&nbsp;\"super&nbsp;globals\",&nbsp;and&nbsp;sets&nbsp;a&nbsp;restrictive&nbsp;PHP&nbsp;\"open&nbsp;basedir\"\nsetting,&nbsp;tweaks&nbsp;PHP&nbsp;ini&nbsp;settings&nbsp;to&nbsp;increase&nbsp;security,&nbsp;and&nbsp;uses&nbsp;a&nbsp;browser\n\"fingerprint\"&nbsp;to&nbsp;improve&nbsp;session&nbsp;security.&nbsp;You&nbsp;can&nbsp;disable&nbsp;each&nbsp;with&nbsp;the\nfollowing&nbsp;options:\nDon't&nbsp;empty&nbsp;PHP&nbsp;super&nbsp;globals",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DISABLE_OPEN_BASE_DIR",
+            "valueDefault": "false",
+            "comment": "Don't apply open basedir restrictions",
+            "commentHtml": "Don't&nbsp;apply&nbsp;open&nbsp;basedir&nbsp;restrictions",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DISABLE_INI_SETTINGS",
+            "valueDefault": "false",
+            "comment": "Don't tweak ini settings",
+            "commentHtml": "Don't&nbsp;tweak&nbsp;ini&nbsp;settings",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DISABLE_FINGERPRINT",
+            "valueDefault": "false",
+            "comment": "Don't use a browser fingerprint",
+            "commentHtml": "Don't&nbsp;use&nbsp;a&nbsp;browser&nbsp;fingerprint",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "AUTH_CLASS",
+            "valueDefault": null,
+            "comment": "You can create your own custom authentication and session classes using the\nsite module set, however you might want those classes located somewhere else\noutside of the Cypht code base. By setting session_type and auth_type to custom,\nyou can control what class is used with the following settings",
+            "commentHtml": "You&nbsp;can&nbsp;create&nbsp;your&nbsp;own&nbsp;custom&nbsp;authentication&nbsp;and&nbsp;session&nbsp;classes&nbsp;using&nbsp;the\nsite&nbsp;module&nbsp;set,&nbsp;however&nbsp;you&nbsp;might&nbsp;want&nbsp;those&nbsp;classes&nbsp;located&nbsp;somewhere&nbsp;else\noutside&nbsp;of&nbsp;the&nbsp;Cypht&nbsp;code&nbsp;base.&nbsp;By&nbsp;setting&nbsp;session_type&nbsp;and&nbsp;auth_type&nbsp;to&nbsp;custom,\nyou&nbsp;can&nbsp;control&nbsp;what&nbsp;class&nbsp;is&nbsp;used&nbsp;with&nbsp;the&nbsp;following&nbsp;settings",
+            "inputType": "text"
+        },
+        {
+            "key": "SESSION_CLASS",
+            "valueDefault": null,
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "CYPHT_MODULES",
+            "valueDefault": "core,contacts,local_contacts,feeds,imap,smtp,account,idle_timer,calendar,themes,nux,developer,history,saved_searches,advanced_search,highlights,profiles,inline_message,imap_folders,keyboard_shortcuts,tags",
+            "comment": "Modules\nModule Sets\nCypht uses module sets to separate functionality in the program. Module sets\ncan be enabled and disabled independently by commenting out or uncommenting\nthe assignments below. Add a new assignment to enable your own module sets.\nCore\nHandles page layout, login\/logout, and the default settings pages. This set\nis required.",
+            "commentHtml": "Modules\nModule&nbsp;Sets\nCypht&nbsp;uses&nbsp;module&nbsp;sets&nbsp;to&nbsp;separate&nbsp;functionality&nbsp;in&nbsp;the&nbsp;program.&nbsp;Module&nbsp;sets\ncan&nbsp;be&nbsp;enabled&nbsp;and&nbsp;disabled&nbsp;independently&nbsp;by&nbsp;commenting&nbsp;out&nbsp;or&nbsp;uncommenting\nthe&nbsp;assignments&nbsp;below.&nbsp;Add&nbsp;a&nbsp;new&nbsp;assignment&nbsp;to&nbsp;enable&nbsp;your&nbsp;own&nbsp;module&nbsp;sets.\nCore\nHandles&nbsp;page&nbsp;layout,&nbsp;login\/logout,&nbsp;and&nbsp;the&nbsp;default&nbsp;settings&nbsp;pages.&nbsp;This&nbsp;set\nis&nbsp;required.",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_NO_PASSWORD_SAVE",
+            "valueDefault": "false",
+            "comment": "API login",
+            "commentHtml": "API&nbsp;login",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SETTING_IMAP_PER_PAGE",
+            "valueDefault": "20",
+            "comment": "Number of messages per page when viewing IMAP folders\nDefaults to 20",
+            "commentHtml": "Number&nbsp;of&nbsp;messages&nbsp;per&nbsp;page&nbsp;when&nbsp;viewing&nbsp;IMAP&nbsp;folders\nDefaults&nbsp;to&nbsp;20",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_SIMPLE_MSG_PARTS",
+            "valueDefault": "false",
+            "comment": "Amount of IMAP message structure detail on the message view page\nDefaults to full structure",
+            "commentHtml": "Amount&nbsp;of&nbsp;IMAP&nbsp;message&nbsp;structure&nbsp;detail&nbsp;on&nbsp;the&nbsp;message&nbsp;view&nbsp;page\nDefaults&nbsp;to&nbsp;full&nbsp;structure",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SETTING_PAGINATE_LINKS",
+            "valueDefault": "true",
+            "comment": "Next and Previous emails on the message view page\nDefaults to full structure",
+            "commentHtml": "Next&nbsp;and&nbsp;Previous&nbsp;emails&nbsp;on&nbsp;the&nbsp;message&nbsp;view&nbsp;page\nDefaults&nbsp;to&nbsp;full&nbsp;structure",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SETTING_MSG_PART_ICONS",
+            "valueDefault": "true",
+            "comment": "Show icons for each IMAP message part type\nDefaults to true",
+            "commentHtml": "Show&nbsp;icons&nbsp;for&nbsp;each&nbsp;IMAP&nbsp;message&nbsp;part&nbsp;type\nDefaults&nbsp;to&nbsp;true",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SETTING_REVIEW_SENT_EMAIL",
+            "valueDefault": "true",
+            "comment": "Show the message after sending\nDefaults to true",
+            "commentHtml": "Show&nbsp;the&nbsp;message&nbsp;after&nbsp;sending\nDefaults&nbsp;to&nbsp;true",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SETTING_TEXT_ONLY",
+            "valueDefault": "false",
+            "comment": "Prefer text parts when viewing a message\nDefaults to false",
+            "commentHtml": "Prefer&nbsp;text&nbsp;parts&nbsp;when&nbsp;viewing&nbsp;a&nbsp;message\nDefaults&nbsp;to&nbsp;false",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SETTING_SENT_PER_SOURCE",
+            "valueDefault": "20",
+            "comment": "Per source max for the combined sent view\nDefaults to 20",
+            "commentHtml": "Per&nbsp;source&nbsp;max&nbsp;for&nbsp;the&nbsp;combined&nbsp;sent&nbsp;view\nDefaults&nbsp;to&nbsp;20",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_SENT_SINCE",
+            "valueDefault": "-1 week",
+            "comment": "Per source time limit for the combined sent view\nDefaults to 1 week",
+            "commentHtml": "Per&nbsp;source&nbsp;time&nbsp;limit&nbsp;for&nbsp;the&nbsp;combined&nbsp;sent&nbsp;view\nDefaults&nbsp;to&nbsp;1&nbsp;week",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_JUNK_SINCE",
+            "valueDefault": "-1 week",
+            "comment": "Per source time limit for junk page\nDefaults to 1 week",
+            "commentHtml": "Per&nbsp;source&nbsp;time&nbsp;limit&nbsp;for&nbsp;junk&nbsp;page\nDefaults&nbsp;to&nbsp;1&nbsp;week",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_JUNK_PER_SOURCE",
+            "valueDefault": "20",
+            "comment": "Per source number limit for junk page\nDefaults 20",
+            "commentHtml": "Per&nbsp;source&nbsp;number&nbsp;limit&nbsp;for&nbsp;junk&nbsp;page\nDefaults&nbsp;20",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_TAGS_SINCE",
+            "valueDefault": "-1 week",
+            "comment": "Per source time limit for tags page\nDefaults to 1 week",
+            "commentHtml": "Per&nbsp;source&nbsp;time&nbsp;limit&nbsp;for&nbsp;tags&nbsp;page\nDefaults&nbsp;to&nbsp;1&nbsp;week",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_TAGS_PER_SOURCE",
+            "valueDefault": "20",
+            "comment": "Per source number limit for tags page\nDefaults 20",
+            "commentHtml": "Per&nbsp;source&nbsp;number&nbsp;limit&nbsp;for&nbsp;tags&nbsp;page\nDefaults&nbsp;20",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_TRASH_SINCE",
+            "valueDefault": "-1 week",
+            "comment": "Per source time limit for trash page\nDefaults to 1 week",
+            "commentHtml": "Per&nbsp;source&nbsp;time&nbsp;limit&nbsp;for&nbsp;trash&nbsp;page\nDefaults&nbsp;to&nbsp;1&nbsp;week",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_TRASH_PER_SOURCE",
+            "valueDefault": "20",
+            "comment": "Per source number limit for trash page\nDefaults 20",
+            "commentHtml": "Per&nbsp;source&nbsp;number&nbsp;limit&nbsp;for&nbsp;trash&nbsp;page\nDefaults&nbsp;20",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_DRAFT_SINCE",
+            "valueDefault": "-1 week",
+            "comment": "Per source time limit for draft page\nDefaults to 1 week",
+            "commentHtml": "Per&nbsp;source&nbsp;time&nbsp;limit&nbsp;for&nbsp;draft&nbsp;page\nDefaults&nbsp;to&nbsp;1&nbsp;week",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_DRAFT_PER_SOURCE",
+            "valueDefault": "20",
+            "comment": "Per source number limit for draft page\nDefaults 20",
+            "commentHtml": "Per&nbsp;source&nbsp;number&nbsp;limit&nbsp;for&nbsp;draft&nbsp;page\nDefaults&nbsp;20",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_SHOW_LIST_ICONS",
+            "valueDefault": "true",
+            "comment": "Display source icons in message lists\nDefaults to true",
+            "commentHtml": "Display&nbsp;source&nbsp;icons&nbsp;in&nbsp;message&nbsp;lists\nDefaults&nbsp;to&nbsp;true",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SETTING_START_PAGE",
+            "valueDefault": "none",
+            "comment": "Redirect to this page on login\nDefaults to none",
+            "commentHtml": "Redirect&nbsp;to&nbsp;this&nbsp;page&nbsp;on&nbsp;login\nDefaults&nbsp;to&nbsp;none",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_DISABLE_DELETE_PROMPT",
+            "valueDefault": "false",
+            "comment": "Don't prompt when deleting something\nDefaults to false",
+            "commentHtml": "Don't&nbsp;prompt&nbsp;when&nbsp;deleting&nbsp;something\nDefaults&nbsp;to&nbsp;false",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SETTING_NO_FOLDER_ICONS",
+            "valueDefault": "false",
+            "comment": "Hide icons in the folder list\nDefaults to false",
+            "commentHtml": "Hide&nbsp;icons&nbsp;in&nbsp;the&nbsp;folder&nbsp;list\nDefaults&nbsp;to&nbsp;false",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SETTING_ALL_EMAIL_PER_SOURCE",
+            "valueDefault": "20",
+            "comment": "Source max for the all email combined view\nDefaults to 20",
+            "commentHtml": "Source&nbsp;max&nbsp;for&nbsp;the&nbsp;all&nbsp;email&nbsp;combined&nbsp;view\nDefaults&nbsp;to&nbsp;20",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_ALL_EMAIL_SINCE",
+            "valueDefault": "-1 week",
+            "comment": "Per source time limit for the all email combined view\nDefaults to 1 week",
+            "commentHtml": "Per&nbsp;source&nbsp;time&nbsp;limit&nbsp;for&nbsp;the&nbsp;all&nbsp;email&nbsp;combined&nbsp;view\nDefaults&nbsp;to&nbsp;1&nbsp;week",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_ALL_SINCE",
+            "valueDefault": "-1 week",
+            "comment": "Per source time limit for the everything combined view\nDefaults to 1 week",
+            "commentHtml": "Per&nbsp;source&nbsp;time&nbsp;limit&nbsp;for&nbsp;the&nbsp;everything&nbsp;combined&nbsp;view\nDefaults&nbsp;to&nbsp;1&nbsp;week",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_ALL_PER_SOURCE",
+            "valueDefault": "20",
+            "comment": "Per source max for the everything combined view\nDefaults to 20",
+            "commentHtml": "Per&nbsp;source&nbsp;max&nbsp;for&nbsp;the&nbsp;everything&nbsp;combined&nbsp;view\nDefaults&nbsp;to&nbsp;20",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_UNREAD_PER_SOURCE",
+            "valueDefault": "20",
+            "comment": "Per source max for the unread combined view\nDefaults to 20",
+            "commentHtml": "Per&nbsp;source&nbsp;max&nbsp;for&nbsp;the&nbsp;unread&nbsp;combined&nbsp;view\nDefaults&nbsp;to&nbsp;20",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_FLAGGED_PER_SOURCE",
+            "valueDefault": "20",
+            "comment": "Per source max for the flagged combined view\nDefaults to 20",
+            "commentHtml": "Per&nbsp;source&nbsp;max&nbsp;for&nbsp;the&nbsp;flagged&nbsp;combined&nbsp;view\nDefaults&nbsp;to&nbsp;20",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_FLAGGED_SINCE",
+            "valueDefault": "-1 week",
+            "comment": "Per source time limit for the flagged combined view\nDefaults to 1 week",
+            "commentHtml": "Per&nbsp;source&nbsp;time&nbsp;limit&nbsp;for&nbsp;the&nbsp;flagged&nbsp;combined&nbsp;view\nDefaults&nbsp;to&nbsp;1&nbsp;week",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_UNREAD_SINCE",
+            "valueDefault": "-1 week",
+            "comment": "Per source time limit for the unread combined view\nDefaults to 1 week",
+            "commentHtml": "Per&nbsp;source&nbsp;time&nbsp;limit&nbsp;for&nbsp;the&nbsp;unread&nbsp;combined&nbsp;view\nDefaults&nbsp;to&nbsp;1&nbsp;week",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_SEARCH_SINCE",
+            "valueDefault": "-1 week",
+            "comment": "Per source time limit for IMAP SEARCH to find matching messages\nDefaults to 1 week",
+            "commentHtml": "Per&nbsp;source&nbsp;time&nbsp;limit&nbsp;for&nbsp;IMAP&nbsp;SEARCH&nbsp;to&nbsp;find&nbsp;matching&nbsp;messages\nDefaults&nbsp;to&nbsp;1&nbsp;week",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_TIMEZONE",
+            "valueDefault": "UTC",
+            "comment": "Timezone for date displays\nDefaults to UTC",
+            "commentHtml": "Timezone&nbsp;for&nbsp;date&nbsp;displays\nDefaults&nbsp;to&nbsp;UTC",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_LIST_STYLE",
+            "valueDefault": "email_style",
+            "comment": "Message list format style\nDefaults to email client style",
+            "commentHtml": "Message&nbsp;list&nbsp;format&nbsp;style\nDefaults&nbsp;to&nbsp;email&nbsp;client&nbsp;style",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_LANGUAGE",
+            "valueDefault": "en",
+            "comment": "Interface language\nDefaults to en (English)",
+            "commentHtml": "Interface&nbsp;language\nDefaults&nbsp;to&nbsp;en&nbsp;(English)",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_UNREAD_EXCLUDE_FEEDS",
+            "valueDefault": "false",
+            "comment": "Hide new news feed items from the unread combined view\nDefaults to false",
+            "commentHtml": "Hide&nbsp;new&nbsp;news&nbsp;feed&nbsp;items&nbsp;from&nbsp;the&nbsp;unread&nbsp;combined&nbsp;view\nDefaults&nbsp;to&nbsp;false",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SETTING_FEED_LIMIT",
+            "valueDefault": "20",
+            "comment": "Per source max for news feeds\nDefaults to 20",
+            "commentHtml": "Per&nbsp;source&nbsp;max&nbsp;for&nbsp;news&nbsp;feeds\nDefaults&nbsp;to&nbsp;20",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_FEED_SINCE",
+            "valueDefault": "-1 week",
+            "comment": "Per source time limit for news feeds\nDefaults to 1 week",
+            "commentHtml": "Per&nbsp;source&nbsp;time&nbsp;limit&nbsp;for&nbsp;news&nbsp;feeds\nDefaults&nbsp;to&nbsp;1&nbsp;week",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_SMTP_COMPOSE_TYPE",
+            "valueDefault": "0",
+            "comment": "Toggle between plain text or HTML formatted mail on the compose page\nDefaults to 0 (plain text)",
+            "commentHtml": "Toggle&nbsp;between&nbsp;plain&nbsp;text&nbsp;or&nbsp;HTML&nbsp;formatted&nbsp;mail&nbsp;on&nbsp;the&nbsp;compose&nbsp;page\nDefaults&nbsp;to&nbsp;0&nbsp;(plain&nbsp;text)",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_SMTP_AUTO_BCC",
+            "valueDefault": "false",
+            "comment": "BCC a copy of outbound mail to the sender\nDefaults to false",
+            "commentHtml": "BCC&nbsp;a&nbsp;copy&nbsp;of&nbsp;outbound&nbsp;mail&nbsp;to&nbsp;the&nbsp;sender\nDefaults&nbsp;to&nbsp;false",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SETTING_THEME",
+            "valueDefault": "default",
+            "comment": "UI theme\nDefaults to the default white one (\"White Bread\")",
+            "commentHtml": "UI&nbsp;theme\nDefaults&nbsp;to&nbsp;the&nbsp;default&nbsp;white&nbsp;one&nbsp;(\"White&nbsp;Bread\")",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_UNREAD_EXCLUDE_WORDPRESS",
+            "valueDefault": "false",
+            "comment": "Hide WordPress notifications from the unread combined view\nDefaults to false",
+            "commentHtml": "Hide&nbsp;WordPress&nbsp;notifications&nbsp;from&nbsp;the&nbsp;unread&nbsp;combined&nbsp;view\nDefaults&nbsp;to&nbsp;false",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SETTING_WORDPRESS_SINCE",
+            "valueDefault": "-1 week",
+            "comment": "Time limit for WordPress notifications\nDefaults to 1 week",
+            "commentHtml": "Time&nbsp;limit&nbsp;for&nbsp;WordPress&nbsp;notifications\nDefaults&nbsp;to&nbsp;1&nbsp;week",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_UNREAD_EXCLUDE_GITHUB",
+            "valueDefault": "false",
+            "comment": "Hide Github notifications from the unread combined view\nDefaults to false",
+            "commentHtml": "Hide&nbsp;Github&nbsp;notifications&nbsp;from&nbsp;the&nbsp;unread&nbsp;combined&nbsp;view\nDefaults&nbsp;to&nbsp;false",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SETTING_GITHUB_LIMIT",
+            "valueDefault": "20",
+            "comment": "Max per source for Github notifications\nDefaults to 20",
+            "commentHtml": "Max&nbsp;per&nbsp;source&nbsp;for&nbsp;Github&nbsp;notifications\nDefaults&nbsp;to&nbsp;20",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_GITHUB_SINCE",
+            "valueDefault": "-1 week",
+            "comment": "Max per source for Github notifications\nDefaults to 20",
+            "commentHtml": "Max&nbsp;per&nbsp;source&nbsp;for&nbsp;Github&nbsp;notifications\nDefaults&nbsp;to&nbsp;20",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_INLINE_MESSAGE",
+            "valueDefault": "false",
+            "comment": "Display message details inline from the message list\nDefaults to false",
+            "commentHtml": "Display&nbsp;message&nbsp;details&nbsp;inline&nbsp;from&nbsp;the&nbsp;message&nbsp;list\nDefaults&nbsp;to&nbsp;false",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SETTING_INLINE_MESSAGE",
+            "valueDefault": "right",
+            "comment": "Display message style inline from the message list\nDefaults to right",
+            "commentHtml": "Display&nbsp;message&nbsp;style&nbsp;inline&nbsp;from&nbsp;the&nbsp;message&nbsp;list\nDefaults&nbsp;to&nbsp;right",
+            "inputType": "text"
+        },
+        {
+            "key": "DEFAULT_SETTING_ENABLE_KEYBOARD_SHORTCUTS",
+            "valueDefault": "false",
+            "comment": "Enable keyboard shortcuts\nDefaults to false",
+            "commentHtml": "Enable&nbsp;keyboard&nbsp;shortcuts\nDefaults&nbsp;to&nbsp;false",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DEFAULT_SETTING_ENABLE_SIEVE_FILTER",
+            "valueDefault": "false",
+            "comment": "Enable sieve filter\nDefaults to false",
+            "commentHtml": "Enable&nbsp;sieve&nbsp;filter\nDefaults&nbsp;to&nbsp;false",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "FANCY_LOGIN",
+            "valueDefault": "false",
+            "comment": "Fancy Login page\nUse this setting switch between the legacy login page and the fancy one",
+            "commentHtml": "Fancy&nbsp;Login&nbsp;page\nUse&nbsp;this&nbsp;setting&nbsp;switch&nbsp;between&nbsp;the&nbsp;legacy&nbsp;login&nbsp;page&nbsp;and&nbsp;the&nbsp;fancy&nbsp;one",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "JS_EXCLUDE_DEPS",
+            "valueDefault": "",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "checkbox"
+        }
+    ],
+    "database.php": [
+        {
+            "key": "DB_CONNECTION_TYPE",
+            "valueDefault": "host",
+            "comment": "DB Support\nDatabase Support\nCypht can use a database for 3 different purposes: authentication, sessions,\nand user settings. Each requires the following settings to be configured and\nthe correct table to be created. CREATE TABLE SQL statements for MySQL and\nPostgresql are below.\nConnection type. Can be \"host\" to connect to a hostname, or \"socket\" to\nconnect to a unix socket.",
+            "commentHtml": "DB&nbsp;Support\nDatabase&nbsp;Support\nCypht&nbsp;can&nbsp;use&nbsp;a&nbsp;database&nbsp;for&nbsp;3&nbsp;different&nbsp;purposes:&nbsp;authentication,&nbsp;sessions,\nand&nbsp;user&nbsp;settings.&nbsp;Each&nbsp;requires&nbsp;the&nbsp;following&nbsp;settings&nbsp;to&nbsp;be&nbsp;configured&nbsp;and\nthe&nbsp;correct&nbsp;table&nbsp;to&nbsp;be&nbsp;created.&nbsp;CREATE&nbsp;TABLE&nbsp;SQL&nbsp;statements&nbsp;for&nbsp;MySQL&nbsp;and\nPostgresql&nbsp;are&nbsp;below.\nConnection&nbsp;type.&nbsp;Can&nbsp;be&nbsp;\"host\"&nbsp;to&nbsp;connect&nbsp;to&nbsp;a&nbsp;hostname,&nbsp;or&nbsp;\"socket\"&nbsp;to\nconnect&nbsp;to&nbsp;a&nbsp;unix&nbsp;socket.",
+            "inputType": "text"
+        },
+        {
+            "key": "DB_HOST",
+            "valueDefault": "127.0.0.1",
+            "comment": "Database host name or ip address. If db_connection_type is set to \"socket\",\nthis value is ignored",
+            "commentHtml": "Database&nbsp;host&nbsp;name&nbsp;or&nbsp;ip&nbsp;address.&nbsp;If&nbsp;db_connection_type&nbsp;is&nbsp;set&nbsp;to&nbsp;\"socket\",\nthis&nbsp;value&nbsp;is&nbsp;ignored",
+            "inputType": "text"
+        },
+        {
+            "key": "DB_PORT",
+            "valueDefault": "3306",
+            "comment": "Database port. Only needed if your database is running on a non\nstandard\nport",
+            "commentHtml": "Database&nbsp;port.&nbsp;Only&nbsp;needed&nbsp;if&nbsp;your&nbsp;database&nbsp;is&nbsp;running&nbsp;on&nbsp;a&nbsp;non\nstandard\nport",
+            "inputType": "text"
+        },
+        {
+            "key": "DB_SOCKET",
+            "valueDefault": "\/var\/lib\/mysqld\/mysqld.sock",
+            "comment": "If db_connection_type is set to \"socket\", this should be the filesystem\nlocation of the unix socket file. If db_connection_type is set to \"host\"\nthis value is ignored.",
+            "commentHtml": "If&nbsp;db_connection_type&nbsp;is&nbsp;set&nbsp;to&nbsp;\"socket\",&nbsp;this&nbsp;should&nbsp;be&nbsp;the&nbsp;filesystem\nlocation&nbsp;of&nbsp;the&nbsp;unix&nbsp;socket&nbsp;file.&nbsp;If&nbsp;db_connection_type&nbsp;is&nbsp;set&nbsp;to&nbsp;\"host\"\nthis&nbsp;value&nbsp;is&nbsp;ignored.",
+            "inputType": "text"
+        },
+        {
+            "key": "DB_NAME",
+            "valueDefault": "cypht_db",
+            "comment": "Name of the database with the required tables",
+            "commentHtml": "Name&nbsp;of&nbsp;the&nbsp;database&nbsp;with&nbsp;the&nbsp;required&nbsp;tables",
+            "inputType": "text"
+        },
+        {
+            "key": "DB_USER",
+            "valueDefault": "root",
+            "comment": "User to connect to the database with",
+            "commentHtml": "User&nbsp;to&nbsp;connect&nbsp;to&nbsp;the&nbsp;database&nbsp;with",
+            "inputType": "text"
+        },
+        {
+            "key": "DB_PASS",
+            "valueDefault": null,
+            "comment": "Password to connect to the database with",
+            "commentHtml": "Password&nbsp;to&nbsp;connect&nbsp;to&nbsp;the&nbsp;database&nbsp;with",
+            "inputType": "password"
+        },
+        {
+            "key": "DB_DRIVER",
+            "valueDefault": "mysql",
+            "comment": "Database type. can be any supported PDO driver ; (http:\/\/php.net\/manual\/en\/pdo.drivers.php)",
+            "commentHtml": "Database&nbsp;type.&nbsp;can&nbsp;be&nbsp;any&nbsp;supported&nbsp;PDO&nbsp;driver&nbsp;;&nbsp;(http:\/\/php.net\/manual\/en\/pdo.drivers.php)",
+            "inputType": "text"
+        }
+    ],
+    "2fa.php": [
+        {
+            "key": "APP_2FA_SECRET",
+            "valueDefault": "",
+            "comment": "Constants used for 2 factor authentication with Google Authenticator\nSECURITY ALERT ! MAKE SURE THAT THIS FILE IS NOT ACCESSIBLE BY THE BROWSER !\nEnter the raw secret value (minimum 10 characters) to be used with the Google\nAuthenticator Application (or any TOTP app providing 6 digit pins). Users\nmust opt\nin for 2fa on the site settings page which provides a QR barcode\nto configure Google Authenticator.\nIn order for 2fa to work, your server MUST have an accurate date and time,\notherwise the codes won't match up. NTP is the standard way to keep a server's\ntime synced: http:\/\/www.ntp.org\/",
+            "commentHtml": "Constants&nbsp;used&nbsp;for&nbsp;2&nbsp;factor&nbsp;authentication&nbsp;with&nbsp;Google&nbsp;Authenticator\nSECURITY&nbsp;ALERT&nbsp;!&nbsp;MAKE&nbsp;SURE&nbsp;THAT&nbsp;THIS&nbsp;FILE&nbsp;IS&nbsp;NOT&nbsp;ACCESSIBLE&nbsp;BY&nbsp;THE&nbsp;BROWSER&nbsp;!\nEnter&nbsp;the&nbsp;raw&nbsp;secret&nbsp;value&nbsp;(minimum&nbsp;10&nbsp;characters)&nbsp;to&nbsp;be&nbsp;used&nbsp;with&nbsp;the&nbsp;Google\nAuthenticator&nbsp;Application&nbsp;(or&nbsp;any&nbsp;TOTP&nbsp;app&nbsp;providing&nbsp;6&nbsp;digit&nbsp;pins).&nbsp;Users\nmust&nbsp;opt\nin&nbsp;for&nbsp;2fa&nbsp;on&nbsp;the&nbsp;site&nbsp;settings&nbsp;page&nbsp;which&nbsp;provides&nbsp;a&nbsp;QR&nbsp;barcode\nto&nbsp;configure&nbsp;Google&nbsp;Authenticator.\nIn&nbsp;order&nbsp;for&nbsp;2fa&nbsp;to&nbsp;work,&nbsp;your&nbsp;server&nbsp;MUST&nbsp;have&nbsp;an&nbsp;accurate&nbsp;date&nbsp;and&nbsp;time,\notherwise&nbsp;the&nbsp;codes&nbsp;won't&nbsp;match&nbsp;up.&nbsp;NTP&nbsp;is&nbsp;the&nbsp;standard&nbsp;way&nbsp;to&nbsp;keep&nbsp;a&nbsp;server's\ntime&nbsp;synced:&nbsp;http:\/\/www.ntp.org\/",
+            "inputType": "password"
+        },
+        {
+            "key": "APP_2FA_SIMPLE",
+            "valueDefault": "false",
+            "comment": "By default the generated secret will be 64 characters before being base32\nencoded. To use a shorter secret that is easier to manually enter, set the\nfollowing to true. Note that if you change this setting after users have\nenabled 2fa, they will have to use a backup code to login, then reset there\naccount in the authenticator app.",
+            "commentHtml": "By&nbsp;default&nbsp;the&nbsp;generated&nbsp;secret&nbsp;will&nbsp;be&nbsp;64&nbsp;characters&nbsp;before&nbsp;being&nbsp;base32\nencoded.&nbsp;To&nbsp;use&nbsp;a&nbsp;shorter&nbsp;secret&nbsp;that&nbsp;is&nbsp;easier&nbsp;to&nbsp;manually&nbsp;enter,&nbsp;set&nbsp;the\nfollowing&nbsp;to&nbsp;true.&nbsp;Note&nbsp;that&nbsp;if&nbsp;you&nbsp;change&nbsp;this&nbsp;setting&nbsp;after&nbsp;users&nbsp;have\nenabled&nbsp;2fa,&nbsp;they&nbsp;will&nbsp;have&nbsp;to&nbsp;use&nbsp;a&nbsp;backup&nbsp;code&nbsp;to&nbsp;login,&nbsp;then&nbsp;reset&nbsp;there\naccount&nbsp;in&nbsp;the&nbsp;authenticator&nbsp;app.",
+            "inputType": "checkbox"
+        }
+    ],
+    "carddav.php": [
+        {
+            "key": "CARD_DAV_SERVER",
+            "valueDefault": "http:\/\/localhost:5232",
+            "comment": "Constants used for CardDav communication",
+            "commentHtml": "Constants&nbsp;used&nbsp;for&nbsp;CardDav&nbsp;communication",
+            "inputType": "text"
+        }
+    ],
+    "dynamic_login.php": [
+        {
+            "key": "DYNAMIC_HOST",
+            "valueDefault": "true",
+            "comment": "Constants used for dynamic login configuration\nSECURITY ALERT ! MAKE SURE THAT THIS FILE IS NOT ACCESSIBLE BY THE BROWSER !\nThe dynamic login module set tries to autodetect mail server configurations,\nbut you can configure it to act specifically with the following settings.\nSet this to true to use the hostname in the URL used to access Cypht to\ndetermine the domain for mail services (IMAP\/SMTP). If this is set to\ntrue, the mail service selection dropdown is not displayed on the login page.",
+            "commentHtml": "Constants&nbsp;used&nbsp;for&nbsp;dynamic&nbsp;login&nbsp;configuration\nSECURITY&nbsp;ALERT&nbsp;!&nbsp;MAKE&nbsp;SURE&nbsp;THAT&nbsp;THIS&nbsp;FILE&nbsp;IS&nbsp;NOT&nbsp;ACCESSIBLE&nbsp;BY&nbsp;THE&nbsp;BROWSER&nbsp;!\nThe&nbsp;dynamic&nbsp;login&nbsp;module&nbsp;set&nbsp;tries&nbsp;to&nbsp;autodetect&nbsp;mail&nbsp;server&nbsp;configurations,\nbut&nbsp;you&nbsp;can&nbsp;configure&nbsp;it&nbsp;to&nbsp;act&nbsp;specifically&nbsp;with&nbsp;the&nbsp;following&nbsp;settings.\nSet&nbsp;this&nbsp;to&nbsp;true&nbsp;to&nbsp;use&nbsp;the&nbsp;hostname&nbsp;in&nbsp;the&nbsp;URL&nbsp;used&nbsp;to&nbsp;access&nbsp;Cypht&nbsp;to\ndetermine&nbsp;the&nbsp;domain&nbsp;for&nbsp;mail&nbsp;services&nbsp;(IMAP\/SMTP).&nbsp;If&nbsp;this&nbsp;is&nbsp;set&nbsp;to\ntrue,&nbsp;the&nbsp;mail&nbsp;service&nbsp;selection&nbsp;dropdown&nbsp;is&nbsp;not&nbsp;displayed&nbsp;on&nbsp;the&nbsp;login&nbsp;page.",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DYNAMIC_HOST_SUBDOMAIN",
+            "valueDefault": "",
+            "comment": "If dynamic_host is true, you can strip the subdomain on the url with this\nsetting. Leave empty for no subdomain. For example, if a user accesses Cypht\nat webmail.example.com, set this to \"webmail\" to use just example.com for the\nIMAP\/SMTP services.",
+            "commentHtml": "If&nbsp;dynamic_host&nbsp;is&nbsp;true,&nbsp;you&nbsp;can&nbsp;strip&nbsp;the&nbsp;subdomain&nbsp;on&nbsp;the&nbsp;url&nbsp;with&nbsp;this\nsetting.&nbsp;Leave&nbsp;empty&nbsp;for&nbsp;no&nbsp;subdomain.&nbsp;For&nbsp;example,&nbsp;if&nbsp;a&nbsp;user&nbsp;accesses&nbsp;Cypht\nat&nbsp;webmail.example.com,&nbsp;set&nbsp;this&nbsp;to&nbsp;\"webmail\"&nbsp;to&nbsp;use&nbsp;just&nbsp;example.com&nbsp;for&nbsp;the\nIMAP\/SMTP&nbsp;services.",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DYNAMIC_USER",
+            "valueDefault": "false",
+            "comment": "Set this to true to use the domain portion of an E\nmail address used as a\nusername during login for mail services. Even if this is set to false, it\nwill still by attempted if dynamic_host is disabled and \"other\" is selected\nfrom the mail service dropdown. If set to true, the mail service selection\ndropdown is not displayed on the login page.",
+            "commentHtml": "Set&nbsp;this&nbsp;to&nbsp;true&nbsp;to&nbsp;use&nbsp;the&nbsp;domain&nbsp;portion&nbsp;of&nbsp;an&nbsp;E\nmail&nbsp;address&nbsp;used&nbsp;as&nbsp;a\nusername&nbsp;during&nbsp;login&nbsp;for&nbsp;mail&nbsp;services.&nbsp;Even&nbsp;if&nbsp;this&nbsp;is&nbsp;set&nbsp;to&nbsp;false,&nbsp;it\nwill&nbsp;still&nbsp;by&nbsp;attempted&nbsp;if&nbsp;dynamic_host&nbsp;is&nbsp;disabled&nbsp;and&nbsp;\"other\"&nbsp;is&nbsp;selected\nfrom&nbsp;the&nbsp;mail&nbsp;service&nbsp;dropdown.&nbsp;If&nbsp;set&nbsp;to&nbsp;true,&nbsp;the&nbsp;mail&nbsp;service&nbsp;selection\ndropdown&nbsp;is&nbsp;not&nbsp;displayed&nbsp;on&nbsp;the&nbsp;login&nbsp;page.",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DYNAMIC_SMTP_SUBDOMAIN",
+            "valueDefault": "",
+            "comment": "Subdomain to prepend to the mail service domain for SMTP. If the mail service\ndomain is example.com, but the SMTP server is at smtp.example.com, you would\nset this to \"smtp\". Leave blank for no subdomain.",
+            "commentHtml": "Subdomain&nbsp;to&nbsp;prepend&nbsp;to&nbsp;the&nbsp;mail&nbsp;service&nbsp;domain&nbsp;for&nbsp;SMTP.&nbsp;If&nbsp;the&nbsp;mail&nbsp;service\ndomain&nbsp;is&nbsp;example.com,&nbsp;but&nbsp;the&nbsp;SMTP&nbsp;server&nbsp;is&nbsp;at&nbsp;smtp.example.com,&nbsp;you&nbsp;would\nset&nbsp;this&nbsp;to&nbsp;\"smtp\".&nbsp;Leave&nbsp;blank&nbsp;for&nbsp;no&nbsp;subdomain.",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "DYNAMIC_MAIL_SUBDOMAIN",
+            "valueDefault": "",
+            "comment": "Subdomain to prepend to the mail service domain for IMAP. If the mail\nservice is example.com, but the IMAP service is at \"mail\", you would\nset this to \"mail\". Leave blank for no subdomain.",
+            "commentHtml": "Subdomain&nbsp;to&nbsp;prepend&nbsp;to&nbsp;the&nbsp;mail&nbsp;service&nbsp;domain&nbsp;for&nbsp;IMAP.&nbsp;If&nbsp;the&nbsp;mail\nservice&nbsp;is&nbsp;example.com,&nbsp;but&nbsp;the&nbsp;IMAP&nbsp;service&nbsp;is&nbsp;at&nbsp;\"mail\",&nbsp;you&nbsp;would\nset&nbsp;this&nbsp;to&nbsp;\"mail\".&nbsp;Leave&nbsp;blank&nbsp;for&nbsp;no&nbsp;subdomain.",
+            "inputType": "checkbox"
+        }
+    ],
+    "github.php": [
+        {
+            "key": "GITHUB_CLIENT_ID",
+            "valueDefault": "",
+            "comment": "[github.com]\nConstants used for oauth2 communication with github.com\nSECURITY ALERT ! MAKE SURE THAT THIS FILE IS NOT ACCESSIBLE BY THE BROWSER !",
+            "commentHtml": "[github.com]\nConstants&nbsp;used&nbsp;for&nbsp;oauth2&nbsp;communication&nbsp;with&nbsp;github.com\nSECURITY&nbsp;ALERT&nbsp;!&nbsp;MAKE&nbsp;SURE&nbsp;THAT&nbsp;THIS&nbsp;FILE&nbsp;IS&nbsp;NOT&nbsp;ACCESSIBLE&nbsp;BY&nbsp;THE&nbsp;BROWSER&nbsp;!",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "GITHUB_CLIENT_SECRET",
+            "valueDefault": "",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "password"
+        },
+        {
+            "key": "GITHUB_REDIRECT_URI",
+            "valueDefault": "http:\/\/localhost\/?page=home",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "GITHUB_AUTH_URL",
+            "valueDefault": "https:\/\/github.com\/login\/oauth\/authorize",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "GITHUB_TOKEN_URL",
+            "valueDefault": "https:\/\/github.com\/login\/oauth\/access_token",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        }
+    ],
+    "ldap.php": [
+        {
+            "key": "LDAP_SERVER",
+            "valueDefault": "localhost",
+            "comment": "Constants used for LDAP communication\nSECURITY ALERT ! MAKE SURE THAT THIS FILE IS NOT ACCESSIBLE BY THE BROWSER !\nCreate one section for each LDAP backend you want to support. The section name\nwill be used in the UI for the name of this addressbook",
+            "commentHtml": "Constants&nbsp;used&nbsp;for&nbsp;LDAP&nbsp;communication\nSECURITY&nbsp;ALERT&nbsp;!&nbsp;MAKE&nbsp;SURE&nbsp;THAT&nbsp;THIS&nbsp;FILE&nbsp;IS&nbsp;NOT&nbsp;ACCESSIBLE&nbsp;BY&nbsp;THE&nbsp;BROWSER&nbsp;!\nCreate&nbsp;one&nbsp;section&nbsp;for&nbsp;each&nbsp;LDAP&nbsp;backend&nbsp;you&nbsp;want&nbsp;to&nbsp;support.&nbsp;The&nbsp;section&nbsp;name\nwill&nbsp;be&nbsp;used&nbsp;in&nbsp;the&nbsp;UI&nbsp;for&nbsp;the&nbsp;name&nbsp;of&nbsp;this&nbsp;addressbook",
+            "inputType": "text"
+        },
+        {
+            "key": "LDAP_ENABLE_TLS",
+            "valueDefault": "true",
+            "comment": "| Flag to enable or disable TLS connections",
+            "commentHtml": "|&nbsp;Flag&nbsp;to&nbsp;enable&nbsp;or&nbsp;disable&nbsp;TLS&nbsp;connections",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "LDAP_PORT",
+            "valueDefault": "389",
+            "comment": "| Port to connect to",
+            "commentHtml": "|&nbsp;Port&nbsp;to&nbsp;connect&nbsp;to",
+            "inputType": "text"
+        },
+        {
+            "key": "LDAP_BASE_DN",
+            "valueDefault": "dc=example,dc=com",
+            "comment": "| Base DN",
+            "commentHtml": "|&nbsp;Base&nbsp;DN",
+            "inputType": "text"
+        },
+        {
+            "key": "LDAP_SEARCH_TERM",
+            "valueDefault": "objectclass=inetOrgPerson",
+            "comment": "| Base DN",
+            "commentHtml": "|&nbsp;Base&nbsp;DN",
+            "inputType": "text"
+        },
+        {
+            "key": "LDAP_AUTH",
+            "valueDefault": "false",
+            "comment": "| Flag to enable user binding. Anonymous binding is used when set to false",
+            "commentHtml": "|&nbsp;Flag&nbsp;to&nbsp;enable&nbsp;user&nbsp;binding.&nbsp;Anonymous&nbsp;binding&nbsp;is&nbsp;used&nbsp;when&nbsp;set&nbsp;to&nbsp;false",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "LDAP_USER",
+            "valueDefault": "",
+            "comment": "| Global username and password to bind with if auth is set to true. If left\n            | blank, users will have a setting on the Settings \n> Site page for this\n            | connection to enter their own",
+            "commentHtml": "|&nbsp;Global&nbsp;username&nbsp;and&nbsp;password&nbsp;to&nbsp;bind&nbsp;with&nbsp;if&nbsp;auth&nbsp;is&nbsp;set&nbsp;to&nbsp;true.&nbsp;If&nbsp;left\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;blank,&nbsp;users&nbsp;will&nbsp;have&nbsp;a&nbsp;setting&nbsp;on&nbsp;the&nbsp;Settings&nbsp;\n>&nbsp;Site&nbsp;page&nbsp;for&nbsp;this\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;connection&nbsp;to&nbsp;enter&nbsp;their&nbsp;own",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "LDAP_PASS",
+            "valueDefault": "",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "checkbox"
+        },
+        {
+            "key": "LDAP_OBJECT_CLASS",
+            "valueDefault": "top,person,organizationalperson,inetorgperson",
+            "comment": "| Object classes for the addressbook entries",
+            "commentHtml": "|&nbsp;Object&nbsp;classes&nbsp;for&nbsp;the&nbsp;addressbook&nbsp;entries",
+            "inputType": "text"
+        },
+        {
+            "key": "LDAP_READ_WRITE",
+            "valueDefault": "true",
+            "comment": "| Flag to allow editing of the addressbook contents",
+            "commentHtml": "|&nbsp;Flag&nbsp;to&nbsp;allow&nbsp;editing&nbsp;of&nbsp;the&nbsp;addressbook&nbsp;contents",
+            "inputType": "checkbox"
+        }
+    ],
+    "oauth2.php": [
+        {
+            "key": "GMAIL_CLIENT_ID",
+            "valueDefault": "",
+            "comment": "Constants used for oauth2 authentication over IMAP\nCurrently there are only two popular E\nmail providers supporting IMAP\/oauth2,\nOutlook and Gmail. In order to use oauth2 you must create a web application\nthat generates a client id, client secret and a redirect URI, then define them\nin this file.\nAn OAuth2 app can connect multiple accounts by using the user's authorization\nto request unique access tokens for each account during the OAuth2 flow.\nEach token corresponds to a specific user's permissions and account data.\nOutlook.com https:\/\/account.live.com\/developers\/applications\/\nGmail: https:\/\/console.developers.google.com\/project",
+            "commentHtml": "Constants&nbsp;used&nbsp;for&nbsp;oauth2&nbsp;authentication&nbsp;over&nbsp;IMAP\nCurrently&nbsp;there&nbsp;are&nbsp;only&nbsp;two&nbsp;popular&nbsp;E\nmail&nbsp;providers&nbsp;supporting&nbsp;IMAP\/oauth2,\nOutlook&nbsp;and&nbsp;Gmail.&nbsp;In&nbsp;order&nbsp;to&nbsp;use&nbsp;oauth2&nbsp;you&nbsp;must&nbsp;create&nbsp;a&nbsp;web&nbsp;application\nthat&nbsp;generates&nbsp;a&nbsp;client&nbsp;id,&nbsp;client&nbsp;secret&nbsp;and&nbsp;a&nbsp;redirect&nbsp;URI,&nbsp;then&nbsp;define&nbsp;them\nin&nbsp;this&nbsp;file.\nAn&nbsp;OAuth2&nbsp;app&nbsp;can&nbsp;connect&nbsp;multiple&nbsp;accounts&nbsp;by&nbsp;using&nbsp;the&nbsp;user's&nbsp;authorization\nto&nbsp;request&nbsp;unique&nbsp;access&nbsp;tokens&nbsp;for&nbsp;each&nbsp;account&nbsp;during&nbsp;the&nbsp;OAuth2&nbsp;flow.\nEach&nbsp;token&nbsp;corresponds&nbsp;to&nbsp;a&nbsp;specific&nbsp;user's&nbsp;permissions&nbsp;and&nbsp;account&nbsp;data.\nOutlook.com&nbsp;https:\/\/account.live.com\/developers\/applications\/\nGmail:&nbsp;https:\/\/console.developers.google.com\/project",
+            "inputType": "checkbox"
+        },
+        {
+            "key": "GMAIL_CLIENT_SECRET",
+            "valueDefault": "",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "password"
+        },
+        {
+            "key": "GMAIL_CLIENT_URI",
+            "valueDefault": "http:\/\/localhost\/?page=home",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "GMAIL_AUTH_URI",
+            "valueDefault": "https:\/\/accounts.google.com\/o\/oauth2\/auth",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "GMAIL_TOKEN_URI",
+            "valueDefault": "https:\/\/www.googleapis.com\/oauth2\/v3\/token",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "GMAIL_REFRESH_URI",
+            "valueDefault": "https:\/\/www.googleapis.com\/oauth2\/v3\/token",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "OUTLOOK_CLIENT_ID",
+            "valueDefault": "",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "OUTLOOK_CLIENT_SECRET",
+            "valueDefault": "",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "password"
+        },
+        {
+            "key": "OUTLOOK_CLIENT_URI",
+            "valueDefault": "http:\/\/localhost\/?page=home",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "OUTLOOK_AUTH_URI",
+            "valueDefault": "https:\/\/login.live.com\/oauth20_authorize.srf",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "OUTLOOK_TOKEN_URI",
+            "valueDefault": "https:\/\/login.live.com\/oauth20_token.srf",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "OUTLOOK_REFRESH_URI",
+            "valueDefault": "https:\/\/login.live.com\/oauth20_token.srf",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "OFFICE365_CLIENT_ID",
+            "valueDefault": "",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "OFFICE365_CLIENT_SECRET",
+            "valueDefault": "",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "password"
+        },
+        {
+            "key": "OFFICE365_CLIENT_URI",
+            "valueDefault": "http:\/\/localhost\/?page=home",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "OFFICE365_AUTH_URI",
+            "valueDefault": "https:\/\/login.live.com\/oauth20_authorize.srf",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "OFFICE365_TOKEN_URI",
+            "valueDefault": "https:\/\/login.live.com\/oauth20_token.srf",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        },
+        {
+            "key": "OFFICE365_REFRESH_URI",
+            "valueDefault": "https:\/\/login.live.com\/oauth20_token.srf",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "text"
+        }
+    ],
+    "recaptcha.php": [
+        {
+            "key": "RECAPTCHA_SECRET",
+            "valueDefault": "",
+            "comment": "Constants used for google recaptcha\nSECURITY ALERT ! MAKE SURE THAT THIS FILE IS NOT ACCESSIBLE BY THE BROWSER !",
+            "commentHtml": "Constants&nbsp;used&nbsp;for&nbsp;google&nbsp;recaptcha\nSECURITY&nbsp;ALERT&nbsp;!&nbsp;MAKE&nbsp;SURE&nbsp;THAT&nbsp;THIS&nbsp;FILE&nbsp;IS&nbsp;NOT&nbsp;ACCESSIBLE&nbsp;BY&nbsp;THE&nbsp;BROWSER&nbsp;!",
+            "inputType": "password"
+        },
+        {
+            "key": "RECAPTCHA_SITE_KEY",
+            "valueDefault": "",
+            "comment": "Site key from the recaptcha admin",
+            "commentHtml": "Site&nbsp;key&nbsp;from&nbsp;the&nbsp;recaptcha&nbsp;admin",
+            "inputType": "password"
+        }
+    ],
+    "wordpress.php": [
+        {
+            "key": "WORDPRESS_CLIENT_ID",
+            "valueDefault": "",
+            "comment": "[wordpress.com]\nConstants used for oauth2 communication with WordPress.com\nSECURITY ALERT ! MAKE SURE THAT THIS FILE IS NOT ACCESSIBLE BY THE BROWSER !",
+            "commentHtml": "[wordpress.com]\nConstants&nbsp;used&nbsp;for&nbsp;oauth2&nbsp;communication&nbsp;with&nbsp;WordPress.com\nSECURITY&nbsp;ALERT&nbsp;!&nbsp;MAKE&nbsp;SURE&nbsp;THAT&nbsp;THIS&nbsp;FILE&nbsp;IS&nbsp;NOT&nbsp;ACCESSIBLE&nbsp;BY&nbsp;THE&nbsp;BROWSER&nbsp;!",
+            "inputType": "password"
+        },
+        {
+            "key": "WORDPRESS_CLIENT_SECRET",
+            "valueDefault": "",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "password"
+        },
+        {
+            "key": "WORDPRESS_CLIENT_URI",
+            "valueDefault": "",
+            "comment": "",
+            "commentHtml": null,
+            "inputType": "password"
+        }
+    ]
+}

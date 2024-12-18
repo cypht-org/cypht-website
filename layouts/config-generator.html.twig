@@ -1,3 +1,6 @@
+---
+type: page
+---
 <style>
     main {
         width: 80%;
@@ -28,7 +31,7 @@
     {% for file in site.data.configfiles %}
     <details>
         <summary role="button">{{file | replace({".php": ""})}}</summary>
-        {% for option in site.data.configoptions[file] %}
+        {% for option in site.data.configOptions[file] %}
         {% set select = option.inputType == "select" %}
         {% set inputId = option.key ~ "_CCGINPUT" %}
         <fieldset id="{{option.key}}">

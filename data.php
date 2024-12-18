@@ -46,7 +46,6 @@ for ($i = 0; $i < count($FILES); $i++) {
         $matches,
         PREG_SET_ORDER);
     
-    echo "$filename has matches " . count($matches) . "\n";
     foreach ($matches as $match) {        
         $key = $match["key"];
         $valueDefault = (array_key_exists("default", $match) ? trim($match["default"], " '") : null);
@@ -55,13 +54,15 @@ for ($i = 0; $i < count($FILES); $i++) {
         if ($comment) {
             // Clean comment
             $commentLines = explode(
-                "|",
-                preg_replace('/\n\n/', "\n", $comment)
+                "\n    |",
+                preg_replace('/(\n\n|-)/', "\n", $comment)
             );
-            echo $commentLines[0];
             $commentLines = array_map('trim', $commentLines);
             $commentLines = array_filter($commentLines);
-            echo $commentLines[1];
+            $comment = implode("\n", $commentLines);
+
+            $commentHtml = preg_replace('/\n/', "<br>", $comment);
+            $commentHtml = preg_replace('/ /', "&nbsp;", $comment);
         }
         
 
@@ -130,14 +131,14 @@ for ($i = 0; $i < count($FILES); $i++) {
             "key" => $key,
             "valueDefault" => $valueDefault,
             "comment" => $comment,
+            "commentHtml" => $commentHtml,
             "inputType" => $inputType,
         ];
     }
 
     $options->$filename = $fileOptions;
-    echo "$filename " . count($fileOptions) . "\n";
 }
-$out = fopen("data/config-generator.json", "w");
+$out = fopen("data/configOptions.json", "w");
 fwrite($out, json_encode($options, JSON_PRETTY_PRINT));
 fclose($out);
 
