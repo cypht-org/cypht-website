@@ -6,7 +6,7 @@ $REGEX_THE_BIG_ONE = '/(\/\*(?<comment>(.|\n)*?)\*\/(.|\n)*?)?env\(\'(?<key>.*?)
 $REGEX_REMOVE_FIRST_COMMENT = '/\/\*(.|\n)*?\*\//';
 $REGEX_REMOVE_LINE_COMMENTS = '/ *\/\/.*?$/m';
 $REGEX_VALID_VALUES = '/Valid values.*?\n(?<values>(.|\n)*)/';
-$FILES = array("app.php", "database.php", "2fa.php", "carddav.php", "dynamic_login.php", "github.php", "ldap.php", "oauth2.php", "recaptcha.php", "wordpress.php");
+$FILES = json_decode(file_get_contents("data/configFiles.json"), false);
 
 
 function getFile($filename) {
