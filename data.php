@@ -4,6 +4,7 @@ $GLOBALS["CACHE_DIR"] = ".cache-config-generator/";
 
 $REGEX_THE_BIG_ONE = '/(\/\*(?<comment>(.|\n)*?)\*\/(.|\n)*?)?env\(\'(?<key>.*?)\'(, *?(?<default>.*?))?\)/';
 $REGEX_REMOVE_FIRST_COMMENT = '/\/\*(.|\n)*?\*\//';
+$REGEX_REMOVE_LINE_COMMENTS = '/ *\/\/.*?$/m';
 $FILES = array("app.php", "database.php", "2fa.php", "carddav.php", "dynamic_login.php", "github.php", "ldap.php", "oauth2.php", "recaptcha.php", "wordpress.php");
 
 function getFile($filename) {
@@ -34,7 +35,10 @@ for ($i = 0; $i < count($FILES); $i++) {
 
     if ($filename == "app.php") {
         $contents = preg_replace($REGEX_REMOVE_FIRST_COMMENT, "", $contents, 1);
-        continue;
+        $contents = preg_replace($REGEX_REMOVE_LINE_COMMENTS, "", $contents);
+        $out = fopen("data/test.php", "w");
+        fwrite($out, $contents);
+        fclose($out);
     }
     $fileOptions = array();
 
@@ -43,6 +47,8 @@ for ($i = 0; $i < count($FILES); $i++) {
         $contents,
         $matches,
         PREG_SET_ORDER);
+    
+    echo "$filename has matches " . count($matches) . "\n";
     foreach ($matches as $match) {        
         $key = $match["key"];
         $valueDefault = (array_key_exists("default", $match) ? trim($match["default"], " '") : null);
@@ -110,7 +116,6 @@ for ($i = 0; $i < count($FILES); $i++) {
         }
 
         if (!isset($inputType)) {
-            //continue;
             throw new Exception("inputType could not be determined for $key");
         }
 
