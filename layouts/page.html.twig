@@ -53,6 +53,8 @@
     </header>
     {% if page.nocontainer is defined %}
         {{page.content}}
+    {% elseif page.path == 'config-generator' %}
+        {{- include('partials/config-generator.html.twig') ~}}
     {% else %}
         <section class="content-section container">
             {{page.content}}
@@ -99,6 +101,9 @@
     </section>
     <script src="/jquery.slim.min.js"></script>
     <script src="/bootstrap.bundle.min.js"></script>
+    {% if page.loadScriptAfter is defined %}
+        <script src="{{page.loadScriptAfter}}"></script>
+    {% endif %}
 </body>
 
 </html>
