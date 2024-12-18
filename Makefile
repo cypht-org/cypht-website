@@ -1,4 +1,4 @@
-all: .cache-config-generator
+all: data/configOptions.json
 
 .PHONY: build
 build:
@@ -6,8 +6,7 @@ build:
 
 .PHONY: serve
 serve:
-	make .cache-config-generator
 	php cecil.phar serve
 
-.cache-config-generator:
-	php data.php
+data/configOptions.json:
+	php data/fetch.php
