@@ -1,0 +1,290 @@
+[
+    {
+        "key": "DB_PASS",
+        "valueDefault": null,
+        "comment": "\n    |\n    | Password to connect to the database with\n    ",
+        "inputType": "password"
+    },
+    {
+        "key": "DB_DRIVER",
+        "valueDefault": "'mysql'",
+        "comment": "\n    |\n    | Database type. can be any supported PDO driver ; (http:\/\/php.net\/manual\/en\/pdo.drivers.php)\n    ",
+        "inputType": "password"
+    },
+    {
+        "key": "APP_2FA_SECRET",
+        "valueDefault": "''",
+        "comment": "\n    | --------------------------------------------------------------------\n    | Constants used for 2 factor authentication with Google Authenticator\n    | --------------------------------------------------------------------\n    |\n    | SECURITY ALERT ! MAKE SURE THAT THIS FILE IS NOT ACCESSIBLE BY THE BROWSER !\n    |\n    | Enter the raw secret value (minimum 10 characters) to be used with the Google\n    | Authenticator Application (or any TOTP app providing 6 digit pins). Users\n    | must opt-in for 2fa on the site settings page which provides a QR barcode\n    | to configure Google Authenticator.\n    |\n    | In order for 2fa to work, your server MUST have an accurate date and time,\n    | otherwise the codes won't match up. NTP is the standard way to keep a server's\n    | time synced: http:\/\/www.ntp.org\/\n    |\n    ",
+        "inputType": "password"
+    },
+    {
+        "key": "APP_2FA_SIMPLE",
+        "valueDefault": "false",
+        "comment": "\n    |\n    | By default the generated secret will be 64 characters before being base32\n    | encoded. To use a shorter secret that is easier to manually enter, set the\n    | following to true. Note that if you change this setting after users have\n    | enabled 2fa, they will have to use a backup code to login, then reset there\n    | account in the authenticator app.\n    ",
+        "inputType": "password"
+    },
+    {
+        "key": "CARD_DAV_SERVER",
+        "valueDefault": "'http:\/\/localhost:5232'",
+        "comment": "\n    |\n    | ----------------------------------------\n    | Constants used for CardDav communication\n    | ----------------------------------------\n    |\n    ",
+        "inputType": "password"
+    },
+    {
+        "key": "DYNAMIC_HOST",
+        "valueDefault": "true",
+        "comment": "\n    | ----------------------------------------------\n    | Constants used for dynamic login configuration\n    | ----------------------------------------------\n    |\n    | SECURITY ALERT ! MAKE SURE THAT THIS FILE IS NOT ACCESSIBLE BY THE BROWSER !\n    |\n    | The dynamic login module set tries to autodetect mail server configurations,\n    | but you can configure it to act specifically with the following settings.\n    |\n    | Set this to true to use the hostname in the URL used to access Cypht to\n    | determine the domain for mail services (IMAP\/SMTP). If this is set to\n    | true, the mail service selection dropdown is not displayed on the login page.\n    |\n    ",
+        "inputType": "password"
+    },
+    {
+        "key": "DYNAMIC_HOST_SUBDOMAIN",
+        "valueDefault": "''",
+        "comment": "\n    | If dynamic_host is true, you can strip the subdomain on the url with this\n    | setting. Leave empty for no subdomain. For example, if a user accesses Cypht\n    | at webmail.example.com, set this to \"webmail\" to use just example.com for the\n    | IMAP\/SMTP services.\n    |\n    ",
+        "inputType": "password"
+    },
+    {
+        "key": "DYNAMIC_USER",
+        "valueDefault": "false",
+        "comment": "\n    | Set this to true to use the domain portion of an E-mail address used as a\n    | username during login for mail services. Even if this is set to false, it\n    | will still by attempted if dynamic_host is disabled and \"other\" is selected\n    | from the mail service dropdown. If set to true, the mail service selection\n    | dropdown is not displayed on the login page.\n    ",
+        "inputType": "password"
+    },
+    {
+        "key": "DYNAMIC_SMTP_SUBDOMAIN",
+        "valueDefault": "''",
+        "comment": "\n    | Subdomain to prepend to the mail service domain for SMTP. If the mail service\n    | domain is example.com, but the SMTP server is at smtp.example.com, you would\n    | set this to \"smtp\". Leave blank for no subdomain.\n    ",
+        "inputType": "password"
+    },
+    {
+        "key": "DYNAMIC_MAIL_SUBDOMAIN",
+        "valueDefault": "''",
+        "comment": "\n    | Subdomain to prepend to the mail service domain for IMAP. If the mail\n    | service is example.com, but the IMAP service is at \"mail\", you would\n    | set this to \"mail\". Leave blank for no subdomain.\n    ",
+        "inputType": "password"
+    },
+    {
+        "key": "GITHUB_CLIENT_ID",
+        "valueDefault": "''",
+        "comment": "\n    | [github.com]\n    | -------------------------------------------------------\n    | Constants used for oauth2 communication with github.com\n    | -------------------------------------------------------\n    |\n    | SECURITY ALERT ! MAKE SURE THAT THIS FILE IS NOT ACCESSIBLE BY THE BROWSER !\n    ",
+        "inputType": "password"
+    },
+    {
+        "key": "GITHUB_CLIENT_SECRET",
+        "valueDefault": "''",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "GITHUB_REDIRECT_URI",
+        "valueDefault": "'http:\/\/localhost\/?page=home'",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "GITHUB_AUTH_URL",
+        "valueDefault": "'https:\/\/github.com\/login\/oauth\/authorize'",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "GITHUB_TOKEN_URL",
+        "valueDefault": "'https:\/\/github.com\/login\/oauth\/access_token'",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "LDAP_SERVER",
+        "valueDefault": "'localhost'",
+        "comment": "\n    | -------------------------------------\n    | Constants used for LDAP communication\n    | -------------------------------------\n    |\n    | SECURITY ALERT ! MAKE SURE THAT THIS FILE IS NOT ACCESSIBLE BY THE BROWSER !\n    |\n    | Create one section for each LDAP backend you want to support. The section name\n    | will be used in the UI for the name of this addressbook\n    |\n    ",
+        "inputType": "password"
+    },
+    {
+        "key": "LDAP_ENABLE_TLS",
+        "valueDefault": "true",
+        "comment": "\n            | Flag to enable or disable TLS connections\n            ",
+        "inputType": "password"
+    },
+    {
+        "key": "LDAP_PORT",
+        "valueDefault": "389",
+        "comment": "\n            | Port to connect to\n            ",
+        "inputType": "password"
+    },
+    {
+        "key": "LDAP_BASE_DN",
+        "valueDefault": "'dc=example,dc=com'",
+        "comment": "\n            | Base DN\n            ",
+        "inputType": "password"
+    },
+    {
+        "key": "LDAP_SEARCH_TERM",
+        "valueDefault": "'objectclass=inetOrgPerson'",
+        "comment": "\n            | Base DN\n            ",
+        "inputType": "password"
+    },
+    {
+        "key": "LDAP_AUTH",
+        "valueDefault": "false",
+        "comment": "\n            | Flag to enable user binding. Anonymous binding is used when set to false\n            ",
+        "inputType": "password"
+    },
+    {
+        "key": "LDAP_USER",
+        "valueDefault": "''",
+        "comment": "\n            | Global username and password to bind with if auth is set to true. If left\n            | blank, users will have a setting on the Settings -> Site page for this\n            | connection to enter their own\n            ",
+        "inputType": "password"
+    },
+    {
+        "key": "LDAP_PASS",
+        "valueDefault": "''",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "LDAP_OBJECT_CLASS",
+        "valueDefault": "'top,person,organizationalperson,inetorgperson'",
+        "comment": "\n            | Object classes for the addressbook entries\n            ",
+        "inputType": "password"
+    },
+    {
+        "key": "LDAP_READ_WRITE",
+        "valueDefault": "true",
+        "comment": "\n            | Flag to allow editing of the addressbook contents\n            ",
+        "inputType": "password"
+    },
+    {
+        "key": "GMAIL_CLIENT_ID",
+        "valueDefault": "''",
+        "comment": "\n    | -------------------------------------------------\n    | Constants used for oauth2 authentication over IMAP\n    | -------------------------------------------------\n    |\n    | Currently there are only two popular E-mail providers supporting IMAP\/oauth2,\n    | Outlook and Gmail. In order to use oauth2 you must create a web application\n    | that generates a client id, client secret and a redirect URI, then define them\n    | in this file.\n    |\n    | An OAuth2 app can connect multiple accounts by using the user's authorization\n    | to request unique access tokens for each account during the OAuth2 flow.\n    | Each token corresponds to a specific user's permissions and account data.\n    |\n    | Outlook.com https:\/\/account.live.com\/developers\/applications\/\n    | Gmail: https:\/\/console.developers.google.com\/project\n    |\n    ",
+        "inputType": "password"
+    },
+    {
+        "key": "GMAIL_CLIENT_SECRET",
+        "valueDefault": "''",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "GMAIL_CLIENT_URI",
+        "valueDefault": "'http:\/\/localhost\/?page=home'",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "GMAIL_AUTH_URI",
+        "valueDefault": "'https:\/\/accounts.google.com\/o\/oauth2\/auth'",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "GMAIL_TOKEN_URI",
+        "valueDefault": "'https:\/\/www.googleapis.com\/oauth2\/v3\/token'",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "GMAIL_REFRESH_URI",
+        "valueDefault": "'https:\/\/www.googleapis.com\/oauth2\/v3\/token'",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "OUTLOOK_CLIENT_ID",
+        "valueDefault": "''",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "OUTLOOK_CLIENT_SECRET",
+        "valueDefault": "''",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "OUTLOOK_CLIENT_URI",
+        "valueDefault": "'http:\/\/localhost\/?page=home'",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "OUTLOOK_AUTH_URI",
+        "valueDefault": "'https:\/\/login.live.com\/oauth20_authorize.srf'",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "OUTLOOK_TOKEN_URI",
+        "valueDefault": "'https:\/\/login.live.com\/oauth20_token.srf'",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "OUTLOOK_REFRESH_URI",
+        "valueDefault": "'https:\/\/login.live.com\/oauth20_token.srf'",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "OFFICE365_CLIENT_ID",
+        "valueDefault": "''",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "OFFICE365_CLIENT_SECRET",
+        "valueDefault": "''",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "OFFICE365_CLIENT_URI",
+        "valueDefault": "'http:\/\/localhost\/?page=home'",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "OFFICE365_AUTH_URI",
+        "valueDefault": "'https:\/\/login.live.com\/oauth20_authorize.srf'",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "OFFICE365_TOKEN_URI",
+        "valueDefault": "'https:\/\/login.live.com\/oauth20_token.srf'",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "OFFICE365_REFRESH_URI",
+        "valueDefault": "'https:\/\/login.live.com\/oauth20_token.srf'",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "RECAPTCHA_SECRET",
+        "valueDefault": "''",
+        "comment": "\n    | -----------------------------------\n    | Constants used for google recaptcha\n    | -----------------------------------\n    |\n    | SECURITY ALERT ! MAKE SURE THAT THIS FILE IS NOT ACCESSIBLE BY THE BROWSER !\n    |\n    ",
+        "inputType": "password"
+    },
+    {
+        "key": "RECAPTCHA_SITE_KEY",
+        "valueDefault": "''",
+        "comment": " Site key from the recaptcha admin ",
+        "inputType": "password"
+    },
+    {
+        "key": "WORDPRESS_CLIENT_ID",
+        "valueDefault": "''",
+        "comment": "\n    | [wordpress.com]\n    | ----------------------------------------------------------\n    | Constants used for oauth2 communication with WordPress.com\n    | ----------------------------------------------------------\n    |\n    | SECURITY ALERT ! MAKE SURE THAT THIS FILE IS NOT ACCESSIBLE BY THE BROWSER !\n    ",
+        "inputType": "password"
+    },
+    {
+        "key": "WORDPRESS_CLIENT_SECRET",
+        "valueDefault": "''",
+        "comment": "",
+        "inputType": "password"
+    },
+    {
+        "key": "WORDPRESS_CLIENT_URI",
+        "valueDefault": "''",
+        "comment": "",
+        "inputType": "password"
+    }
+]

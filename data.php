@@ -27,6 +27,7 @@ if (!is_dir($GLOBALS["CACHE_DIR"])) {
     mkdir($GLOBALS["CACHE_DIR"]);
 }
 
+$options = array();
 for ($i = 0; $i < count($FILES); $i++) {
     $filename = $FILES[$i];
     $contents = getFile($filename);
@@ -36,28 +37,84 @@ for ($i = 0; $i < count($FILES); $i++) {
         continue;
     }
 
-    $options = array();
-
     preg_match_all(
         $REGEX_THE_BIG_ONE, 
         $contents,
         $matches,
         PREG_SET_ORDER);
     foreach ($matches as $match) {        
-        #echo $match[0];
-        #echo "\n";
-        #echo $match[5];
-        /*
-        foreach ($match as $key => $value) {
-            echo  $key;
-            echo "\n";
-        };*/
+        $key = $match["key"];
+        $valueDefault = (array_key_exists("default", $match) ? trim($match["default"]) : null);
+        $comment = $match["comment"]; // TODO Run cleancomment
+        
+        // Determine input type
+        /**
+         * The original Node.JS version had an automatic determiner of input type
+         * While developing the translation to PHP, I first moved the manual stuff
+         * I was then presented with only 6 items trying to be automatically determined,
+         * so it seems manual is the game. If automatic would ever be useful again, see the link
+         * here https://github.com/Denperidge/cypht-config-generator/blob/ccaa56ad0efc92d36c3aea38a2eb9be8fe1e4373/index.11tydata.mjs#L73
+         */
+        switch ($key) {
+            case "DEFAULT_SMTP_TLS":
+            case "LDAP_AUTH_TLS":
+            case "DEFAULT_SMTP_TLS":
+            case "DEFAULT_SMTP_NO_AUTH":
+            case "AUTO_CREATE_PROFILE":
+            case "ALWAYS_MOBILE_UI":
+            case "ENCRYPT_AJAX_REQUESTS":
+            case "ENCRYPT_LOCAL_STORAGE":
+                $inputType = "checkbox";
+                break;
+                
+            case "DEFAULT_SMTP_NAME":
+            case "DEFAULT_SMTP_SERVER":
+            case "ADMIN_USERS":
+            case "COOKIE_DOMAIN":
+            case "COOKIE_PATH":
+            case "DEFAULT_EMAIL_DOMAIN":
+            case "REDIRECT_AFTER_LOGIN":
+            case "AUTH_CLASS":
+            case "API_LOGIN_KEY":
+            case "MEMCACHED_USER":
+            case "SESSION_CLASS":
+                $inputType = "text";
+                break;
+            
+            case "DB_PASS":  // database.php
+            case "REDIS_PASS":
+            case "MEMCACHED_PASS":
+            case "APP_2FA_SECRET":  // 2fa.php
+                $inputType = "password";
+                break;
+            
+            case "DEFAULT_SMTP_PORT":
+                $inputType = "number";
+                break;
+        }
 
-        array_push($options, (object) [
-            "key" => $match["key"],
-        ]);
-        break;
+        if (str_contains($key, "SECRET")) {
+            $inputType = "password";
+        }
+
+        if (!isset($inputType)) {
+            throw new Exception("inputType could not be determined for $key");
+        }
+
+
+        // Push to array
+        $options[] = (object) [
+            "key" => $key,
+            "valueDefault" => $valueDefault,
+            "comment" => $comment,
+            "inputType" => $inputType,
+        ];
     }
 }
+echo count($options);
+echo "\n";
+$out = fopen("data/config-generator.json", "w");
+fwrite($out, json_encode($options, JSON_PRETTY_PRINT));
+fclose($out);
 
 ?>
