@@ -5,6 +5,7 @@ $GLOBALS["CACHE_DIR"] = ".cache-config-generator/";
 $REGEX_THE_BIG_ONE = '/(\/\*(?<comment>(.|\n)*?)\*\/(.|\n)*?)?env\(\'(?<key>.*?)\'(, *?(?<default>.*?))?\)/';
 $REGEX_REMOVE_FIRST_COMMENT = '/\/\*(.|\n)*?\*\//';
 $REGEX_REMOVE_LINE_COMMENTS = '/ *\/\/.*?$/m';
+$REGEX_VALID_VALUES = '/Valid values.*?\n(?<values>(.|\n)*)/';
 $FILES = array("app.php", "database.php", "2fa.php", "carddav.php", "dynamic_login.php", "github.php", "ldap.php", "oauth2.php", "recaptcha.php", "wordpress.php");
 
 
@@ -51,16 +52,18 @@ for ($i = 0; $i < count($FILES); $i++) {
         $valueDefault = (array_key_exists("default", $match) ? trim($match["default"], " '") : null);
         $comment = $match["comment"]; // TODO Run cleancomment
         $commentHtml = null;
+        $setValues = null;
         if ($comment) {
             // Clean comment
             $commentLines = explode(
                 "\n    |",
-                preg_replace('/(\n\n|-)/', "\n", $comment)
+                preg_replace('/\n\n/', "\n", $comment)
             );
             $commentLines = array_map('trim', $commentLines);
             $commentLines = array_filter($commentLines);
             $comment = implode("\n", $commentLines);
 
+            // Create HTML-innerText-insertable comment
             $commentHtml = preg_replace('/\n/', "<br>", $comment);
             $commentHtml = preg_replace('/ /', "&nbsp;", $comment);
         }
@@ -121,6 +124,46 @@ for ($i = 0; $i < count($FILES); $i++) {
             $inputType = "password";
         }
 
+        if ($comment) {
+            // Fetch setValues
+            preg_match(
+                $REGEX_VALID_VALUES,
+                $comment,
+                $match);
+            if ($match) {
+                $unfiliterdValues = explode("\n", $match["values"]);
+                $values = array();
+                $customAlreadyAdded = false;
+
+                foreach ($unfiliterdValues as $value) {
+                    if ($customAlreadyAdded) {
+                        // add all text after custom to custom
+                        $customAndMore = trim(array_pop($values)) . " " . trim($value);
+                        $values[] = $customAndMore;
+                        continue;
+                    }
+                    // manual override
+                    if (!str_starts_with($value, "langauge codes")) {
+                        $values[] = $value;
+                        if (str_starts_with($value, "custom")) {
+                            $customAlreadyAdded = true;
+                        }
+                    }
+                }
+                if (count($values) > 0) {  // superfluous?
+                    $setValues = array();
+                    foreach ($values as $commentLine) {
+                        $keyIndex = strpos($commentLine, ' ');
+                        $setValues[] = (object) [
+                            "value" => substr($commentLine, 0, $keyIndex),
+                            "description" => trim(substr($commentLine, $keyIndex)),
+                        ];
+                    }
+                    $inputType = "select";
+                }
+            }
+        }
+
         if (!isset($inputType)) {
             throw new Exception("inputType could not be determined for $key");
         }
@@ -133,6 +176,7 @@ for ($i = 0; $i < count($FILES); $i++) {
             "comment" => $comment,
             "commentHtml" => $commentHtml,
             "inputType" => $inputType,
+            "setValues" => $setValues
         ];
     }
 
