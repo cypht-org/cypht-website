@@ -19,3 +19,10 @@ php cecil.phar serve  # alt: make serve
 ```
 
 Nix users can use `nix-shell -p php81 gnumake git` to get all requirements to build.
+
+### Update config generator options
+```bash
+# In project root
+rm data/configOptions.json
+make
+```
