@@ -46,7 +46,7 @@
                 and option.valueDefault=="true" %} checked="true" {% else %} value="{{option.valueDefault}}" {% endif %}
                 {% endif %} />
             {% else %}
-            <select id="{{inputId}}" name="{{option.key}}" data-default="{{option.valueDefault}}">
+            <select class="btn btn-light text-left" id="{{inputId}}" name="{{option.key}}" data-default="{{option.valueDefault}}">
                 {% for setValue in option.setValues %}
                 <option value="{{setValue.value}}">{{setValue.value}} - {{setValue.description}}</option>
                 {% endfor %}
