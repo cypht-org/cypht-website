@@ -3,6 +3,7 @@ title: Install v1
 exclude: true
 version: v1.4.x
 php_versions: PHP 5.6 or 7.0 or 7.1 or 7.2 or 7.3 or 7.4 (for PHP 8.1+, please use Cypht 2.1+)
+config_file: hm3.ini
 steps:
     one: >
         #!/bin/bash
@@ -22,7 +23,6 @@ steps:
 
         php -m
     two:
-        config_file: .env
         install: >
             # grab latest code
 
@@ -56,4 +56,7 @@ steps:
             # copy to destination folder
             
             sudo mv cypht-1.4.x/* $DESTINATION
+    three: ""
+    eight:
+        other: Config files
 ---

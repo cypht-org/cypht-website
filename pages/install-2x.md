@@ -3,6 +3,7 @@ title: Install v2
 exclude: true
 version: v2.x
 php_versions: at least PHP 8.1
+config_file: .env
 steps:
     one: >
         #!/bin/bash
@@ -22,7 +23,6 @@ steps:
         
         php -m
     two:
-        config_file: hm3.ini
         install: >
             # Fetch latest release information
 
@@ -71,4 +71,22 @@ steps:
             # copy to destination folder
             
             sudo mv latest_cypht_release/* $DESTINATION
+    three: >
+        <p>To configure Cypht for your environment, make adjustments to the <a
+            href="https://github.com/cypht-org/cypht/blob/master/.env.example">.env</a> file according to your
+        preferences. The .env file serves as the primary configuration file.</p>
+
+        <p>First edit the .env file to configure Cypht for your environment. If you choose to leverage a database for
+            authentication, sessions, or user settings, ensure to complete the relevant sections within the .env file
+            based on the information provided in the config/app.php file.</p>
+
+        <p>The necessary SQL commands for creating tables can be found in the config/app.php file, specifically starting
+            from line 617 in the "DB Sessions" section. </p>
+    six:
+        beforescripts: >
+            # Generate necessary tables to manage users,sessions, or settings depending on the configuration in the .env file
+            
+            php ./scripts/setup_database.php
+    eight: >
+        
 ---
