@@ -162,59 +162,22 @@ php ./scripts/update_password.php username password
         useful for trouble-shooting problems. The location of the error log varies based on your php.ini settings
         and
         web-server software.</p>
-    <h4>8. Other Configs files</h4>
-    <p>Some Cypht modules necessitate additional configuration files for proper setup. It is crucial that these files
-        are NOT located within the web-server document root. Certain modules may require configuration with a service
-        provider, particularly those related to Oauth2 client setup (such as Github, WordPress, Oauth2 over IMAP for
-        Gmail, and Outlook). After configuring related files, there is no need to rerun the config_gen script; the
-        changes
-        will be automatically merged into the main configuration settings.Alternatively, you can clear your app cache.
-    </p>
+    <h4>8. {{page.steps.eight.title}}</h4>
+    <p>{{page.steps.eight.description}}</p>
     <ul>
-        <li><b>Github</b>
-            <p>Cypht can connect to github and aggregate notification data about repository activity.<br /><br />
-                Example github.php file:<br />
-                <a
-                    href="https://github.com/cypht-org/cypht/blob/master/config/github.php">https://github.com/cypht-org/cypht/blob/master/config/github.php</a><br /><br />
-                Authorize an application for github:<br />
-                <a href="https://github.com/settings/developers">https://github.com/settings/developers</a>
+        {% for config in page.steps.eight.configs %}
+        <li>
+            <b>{{config.title}}</b>
+            <p>
+            {{config.description}}
+            {% for title, link in config.links %}
+                <br/><br/>
+                {{title}}:<br/>
+                <a href="{{link}}">{{link}}</a>
+            {% endfor %}
             </p>
         </li>
-        <li><b>OAUTH2 over IMAP</b>
-            <p>Gmail and Outlook.com support OAUTH2 authentication over IMAP. This is preferable to normal IMAP
-                authentication because Cypht never has access to your account password.<br /><br />
-                Example oauth2.php file:<br />
-                <a
-                    href="https://github.com/cypht-org/cypht/blob/master/config/oauth2.php">https://github.com/cypht-org/cypht/blob/master/config/oauth2.php</a><br /><br />
-                Authorize an application for gmail<br />
-                <a
-                    href="https://console.developers.google.com/project">https://console.developers.google.com/project</a><br /><br />
-                Authorize an application for outlook.com<br />
-                <a
-                    href="https://account.live.com/developers/applications/">https://account.live.com/developers/applications/</a><br /><br />
-            </p>
-        </li>
-        <li><b>LDAP contacts</b>
-            <p>Cypht can use an LDAP server for contacts.<br /><br />
-                Example ldap.php file:<br />
-                <a
-                    href="https://github.com/cypht-org/cypht/blob/master/config/ldap.php">https://github.com/cypht-org/cypht/blob/master/config/ldap.php</a><br /><br />
-            </p>
-        </li>
-        <li><b>WordPress</b>
-            <p>Cypht can aggregate WordPress.com notifications.<br /><br />
-                Example wordpress.php file:<br />
-                <a
-                    href="https://github.com/cypht-org/cypht/blob/master/config/wordpress.php">https://github.com/cypht-org/cypht/blob/master/config/wordpress.php</a><br /><br />
-                Authorize an application for WordPress.com:<br />
-                <a href="https://developer.wordpress.com/apps/">https://developer.wordpress.com/apps/</a>
-            </p>
-        </li>
-        <li><b>Custom themes</b>
-            <p>You can create your own themes for Cypht. Edit the themes.php file to include your theme, and put the css
-                file in modules/themes/assets.<br /><br />
-                <a
-                    href="https://github.com/cypht-org/cypht/blob/master/config/themes.php">https://github.com/cypht-org/cypht/blob/master/config/themes.php</a><br /><br />
+        {% endfor %}
     </ul>
 
     <h2>2. Install cypht using Docker</h2>

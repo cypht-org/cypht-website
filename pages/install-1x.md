@@ -58,5 +58,31 @@ steps:
             sudo mv cypht-1.4.x/* $DESTINATION
     three: ""
     eight:
-        other: Config files
+        title: Other INI files
+        description: Some Cypht modules require additional ini files to be configured. These should NOT be inside the web-server document root. Cypht will look for them in the location defined by "app_data_dir" in the hm3.ini file. A sample ini file for each module set that requires one is included in the source for that module. To configure them you must copy the sample ini file to the "app_data_dir" and edit it for your setup. Some of these require configuring your service with a provider, specifically ones related to Oauth2 client setup (Github, WordPress, Oauth2 over IMAP for Gmail and Outlook). Re-run the config_gen script after configuring an ini file and it will be merged into the main configuration settings.
+        configs:
+            - title: Github
+              description: Cypht can connect to github and aggregate notification data about repository activity.
+              links:
+                Example github.ini file:  https://github.com/cypht-org/cypht/blob/1.4.x/modules/github/github.ini
+                Authorize an application for github:  https://github.com/settings/developers
+            - title: OAUTH2 over IMAP
+              description: Gmail and Outlook.com support OAUTH2 authentication over IMAP. This is preferable to normal IMAP authentication because Cypht never has access to your account password.
+              links:
+                Example oauth2 ini file:  https://github.com/cypht-org/cypht/blob/1.4.x/modules/imap/oauth2.ini
+                Authorize an application for gmail:  https://console.developers.google.com/project
+                Authorize an application for outlook.com:  https://account.live.com/developers/applications/
+            - title: LDAP contacts
+              description: Cypht can use an LDAP server for contacts.
+              links:
+                 Example ldap.ini file: https://github.com/cypht-org/cypht/blob/1.4.x/modules/ldap_contacts/ldap.ini
+            - title: WordPress
+              description: Cypht can aggregate WordPress.com notifications.
+              links:
+                Example wordpress.ini file:  https://github.com/cypht-org/cypht/blob/1.4.x/modules/wordpress/wordpress.ini
+                Authorize an application for WordPress.com:  https://developer.wordpress.com/apps/
+            - title: Custom themes 
+              description: You can create your own themes for Cypht. Edit the themes.ini file to include your theme, and put the css file in modules/themes/assets.
+              links:
+                Example themes.ini file: https://github.com/cypht-org/cypht/blob/1.4.x/modules/themes/themes.ini            
 ---

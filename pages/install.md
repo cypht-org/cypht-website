@@ -73,5 +73,31 @@ steps:
             
             php ./scripts/setup_database.php
     eight:
-        other: Config files
+        title: Other config files
+        description: Some Cypht modules necessitate additional configuration files for proper setup. It is crucial that these files are NOT located within the web-server document root. Certain modules may require configuration with a service provider, particularly those related to Oauth2 client setup (such as Github, WordPress, Oauth2 over IMAP for Gmail, and Outlook). After configuring related files, there is no need to rerun the config_gen script; the changes will be automatically merged into the main configuration settings.Alternatively, you can clear your app cache. 
+        configs:
+            - title: Github
+              description: Cypht can connect to github and aggregate notification data about repository activity.
+              links:
+                Example github.php file: https://github.com/cypht-org/cypht/blob/master/config/github.php
+                Authorize an application for github: https://github.com/settings/developers
+            - title: OAUTH2 over IMAP
+              description: Gmail and Outlook.com support OAUTH2 authentication over IMAP. This is preferable to normal IMAP authentication because Cypht never has access to your account password.
+              links:
+                Example oauth2.php file: https://github.com/cypht-org/cypht/blob/master/config/oauth2.php
+                Authorize an application for gmail: https://console.developers.google.com/project
+                Authorize an application for outlook.com: https://account.live.com/developers/applications/
+            - title: LDAP contacts
+              description: Cypht can use an LDAP server for contacts.
+              links:
+                Example ldap.php file: https://github.com/cypht-org/cypht/blob/master/config/ldap.php
+            - title: WordPress
+              description: Cypht can aggregate WordPress.com notifications.
+              links:
+                Example wordpress.php file:  https://github.com/cypht-org/cypht/blob/master/config/wordpress.php
+                Authorize an application for WordPress.com:  https://developer.wordpress.com/apps/
+            - title: Custom themes
+              description: You can create your own themes for Cypht. Edit the themes.php file to include your theme, and put the css file in modules/themes/assets.
+              links:
+                Example wordpress.php file: https://github.com/cypht-org/cypht/blob/master/config/themes.php
 ---
