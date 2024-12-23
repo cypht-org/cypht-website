@@ -2,6 +2,7 @@
 title: Install
 exclude: true
 version: master
+docker: https://hub.docker.com/r/cypht/cypht
 php_versions: at least PHP 8.11
 config_file: .env
 steps:
@@ -100,4 +101,5 @@ steps:
               description: You can create your own themes for Cypht. Edit the themes.php file to include your theme, and put the css file in modules/themes/assets.
               links:
                 Example wordpress.php file: https://github.com/cypht-org/cypht/blob/master/config/themes.php
+    docker_compose: <a href="https://github.com/cypht-org/cypht/blob/master/docker/docker-compose.yaml">the example docker-compose file</a> in the created file or just download the example docker-compose file in the previously created directory.
 ---

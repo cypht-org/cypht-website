@@ -2,6 +2,7 @@
 title: Install v1
 exclude: true
 version: v1.4.x
+docker: https://hub.docker.com/r/sailfrog/cypht-docker
 php_versions: PHP 5.6 or 7.0 or 7.1 or 7.2 or 7.3 or 7.4 (for PHP 8.1+, please use Cypht 2.1+)
 config_file: hm3.ini
 steps:
@@ -85,4 +86,5 @@ steps:
               description: You can create your own themes for Cypht. Edit the themes.ini file to include your theme, and put the css file in modules/themes/assets.
               links:
                 Example themes.ini file: https://github.com/cypht-org/cypht/blob/1.4.x/modules/themes/themes.ini            
+    docker_compose: <a href="https://hub.docker.com/r/sailfrog/cypht-docker">the example docker-compose section</a> in the created file.
 ---
