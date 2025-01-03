@@ -1,6 +1,6 @@
 ---
 title: Contribute
-weight: 8
+weight: 40
 nocontainer: true
 ---
 <section class="contibute-section container">

@@ -1,6 +1,6 @@
 ---
 title: Security
-weight: 3
+weight: 15
 ---
 <h2>Have a question about security?</h2>
 <h3>Found a flaw in Cypht? We want to hear from you!</h3>
