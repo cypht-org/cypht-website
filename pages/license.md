@@ -23,9 +23,6 @@ weight: 5
     <li><b>KindEditor</b><br/><a href="http://kindeditor.net/demo.php">http://kindeditor.net/demo.php</a><br/>Lightweight
         JavaScript WYSIWYG editory for HTML messages
     </li>
-    <li><b>Open Iconic</b><br/><a href="https://useiconic.com/open/">https://useiconic.com/open/</a><br/>Very cool
-        free and Open Source icon set
-    </li>
     <li><b>Forge</b><br/><a href="https://github.com/digitalbazaar/forge">https://github.com/digitalbazaar/forge</a><br/>JavaScript
         cryptography library
     </li>
@@ -60,7 +57,7 @@ weight: 5
     <li><b>Apigen</b><br/><a href="http://www.apigen.org/">http://www.apigen.org/</a><br/>PHP app to generate
         documentation from source code
     </li>
-    <li><b>Selenium</b><br/><a href="http://www.seleniumhq.org/">http://www.seleniumhq.org/</a><br/>Automated
+    <li><b>Selenium</b><br/><a href="https://www.selenium.dev/">https://www.selenium.dev/</a><br/>Automated
         browser testing
     </li>
 </ul>
