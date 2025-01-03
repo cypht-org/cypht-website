@@ -124,17 +124,36 @@ function onInputAllowLongSession(value) {
 
 // Generate .env file into #result when #generate is clicked
 function onClickGenerate(value) {
-    let text = "";
+    const textLines = [];
 
     const allInputs = $("input, select");
     allInputs.each(function(i) {
         const input = $(this);
         const value = input.attr("type") != "checkbox" ? input.val() : input.is(":checked");
-
-        text += `${input.attr("name")}=${value}\n`;
+        const name = input.attr("name");
+        const text = `${name}=${value}`;
+        textLines.push(text);
     });
 
-    $("#result").val(text)
+    textLines.sort();
+
+    let lastLine = "";
+    let lastPrefix = "";
+
+    Array.from(textLines).forEach((line, i) => {
+        const prefix = line.indexOf("_") ? line.split("_")[0] : line;
+
+        if (
+            (prefix != lastPrefix && lastPrefix != "")
+            || (line.startsWith("DEFAULT_SMTP") && lastLine.startsWith("DEFAULT_SETTING"))
+        ) {
+            textLines[i-1] += "\n"
+        }
+        lastPrefix = prefix;
+        lastLine = line;
+    })
+
+    $("#result").val(textLines.join("\n"))
 }
 
 // Reset button functionality (individual fields)
