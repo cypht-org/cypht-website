@@ -53,11 +53,12 @@
     </header>
     {% if page.nocontainer is defined %}
         {{page.content}}
-    {% elseif page.path == 'config-generator' %}
-        {{- include('partials/config-generator.html.twig') ~}}
     {% else %}
         <section class="content-section container">
             {{page.content}}
+            {% if page.path == 'config-generator' %}
+                {{- include('partials/config-generator.html.twig') ~}}
+            {% endif %}
         </section>
     {% endif %}
 
