@@ -884,6 +884,10 @@ button.bg-dark:hover {
 	text-align: center!important
 }
 
+.text-left {
+	text-align: left;
+}
+
 @media print {
 	*,
 	::after,
