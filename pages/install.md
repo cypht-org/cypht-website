@@ -2,19 +2,7 @@
 title: Install
 exclude: true
 ---
-<h2>Install Cypht master</h2>
-<p>You can install specific versions of Cypht:</p>
-<p>
-    <a href="/install">
-        <button type="button" class="btn btn-success">Cypht master</button>
-    </a>
-    <a href="/install-1x">
-        <button type="button" class="btn btn-success">Cypht v1.4.x</button>
-    </a>
-    <a href="/install-2x">
-        <button type="button" class="btn btn-success">Cypht v2.x</button>
-    </a>
-</p>
+<h2>Install Cypht</h2>
 <p>Cypht has four differents installation ways:</p>
 <ul>
     <li>Manual installation</li>
