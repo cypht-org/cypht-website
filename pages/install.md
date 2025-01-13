@@ -3,7 +3,7 @@ title: Install
 exclude: true
 version: master
 docker: https://hub.docker.com/r/cypht/cypht
-php_versions: at least PHP 8.11
+php_versions: at least PHP 8.1
 config_file: .env
 steps:
     one: >
