@@ -1,9 +1,9 @@
 ---
-title: Install
+title: Install v2
 exclude: true
-version: master
+version: v2.x
 docker: https://hub.docker.com/r/cypht/cypht
-php_versions: at least PHP 8.11
+php_versions: at least PHP 8.1
 config_file: .env
 steps:
     one: >
@@ -25,41 +25,56 @@ steps:
         php -m
     two:
         install: >
-            # grab latest code
+            # Fetch latest release information
 
-            wget https://github.com/cypht-org/cypht/archive/master.zip
+            $latest_release = Invoke-RestMethod -Uri "https://api.github.com/repos/cypht-org/cypht/releases/latest"
+
+
+            # Extract tag name of the latest release
+
+            $latest_tag = $latest_release.tag_name
+
+
+            # Construct download URL for the latest release within the 2.x series
+
+            $download_url = "https://github.com/cypht-org/cypht/archive/refs/tags/$latest_tag.zip"
+
+
+            # Download the latest release
+
+            Invoke-WebRequest -Uri $download_url -OutFile "latest_cypht_release.zip"
 
 
             # unpack the archive
 
-            unzip master.zip
+            unzip latest_cypht_release.zip
 
 
             # run composer
 
-            cd cypht-master && composer install && cd ..
+            cd latest_cypht_release && composer install && cd ..
 
 
-            # create a vanilla ini file
+            # create a .env file
 
-            cp cypht-master/.env.example.ini cypht-master/.env
+            cp latest_cypht_release/.env.example latest_cypht_release/.env
 
 
             # fix permissions and ownership
 
-            find cypht-master -type d -print | xargs chmod 755
+            find latest_cypht_release -type d -print | xargs chmod 755
 
-            find cypht-master -type f -print | xargs chmod 644
+            find latest_cypht_release -type f -print | xargs chmod 644
 
-            sudo chown -R root:root cypht-master
+            sudo chown -R root:root latest_cypht_release
 
 
             # copy to destination folder
             
-            sudo mv cypht-master/* $DESTINATION
+            sudo mv latest_cypht_release/* $DESTINATION
     three: >
         <p>To configure Cypht for your environment, make adjustments to the <a
-            href="https://github.com/cypht-org/cypht/blob/master/.env.example">.env</a> file according to your
+            href="https://github.com/cypht-org/cypht/blob/2.x/.env.example">.env</a> file according to your
         preferences. The .env file serves as the primary configuration file.</p>
 
         <p>First edit the .env file to configure Cypht for your environment. If you choose to leverage a database for
@@ -80,26 +95,26 @@ steps:
             - title: Github
               description: Cypht can connect to github and aggregate notification data about repository activity.
               links:
-                Example github.php file: https://github.com/cypht-org/cypht/blob/master/config/github.php
+                Example github.php file: https://github.com/cypht-org/cypht/blob/2.x/config/github.php
                 Authorize an application for github: https://github.com/settings/developers
             - title: OAUTH2 over IMAP
               description: Gmail and Outlook.com support OAUTH2 authentication over IMAP. This is preferable to normal IMAP authentication because Cypht never has access to your account password.
               links:
-                Example oauth2.php file: https://github.com/cypht-org/cypht/blob/master/config/oauth2.php
+                Example oauth2.php file: https://github.com/cypht-org/cypht/blob/2.x/config/oauth2.php
                 Authorize an application for gmail: https://console.developers.google.com/project
                 Authorize an application for outlook.com: https://account.live.com/developers/applications/
             - title: LDAP contacts
               description: Cypht can use an LDAP server for contacts.
               links:
-                Example ldap.php file: https://github.com/cypht-org/cypht/blob/master/config/ldap.php
+                Example ldap.php file: https://github.com/cypht-org/cypht/blob/2.x/config/ldap.php
             - title: WordPress
               description: Cypht can aggregate WordPress.com notifications.
               links:
-                Example wordpress.php file:  https://github.com/cypht-org/cypht/blob/master/config/wordpress.php
+                Example wordpress.php file:  https://github.com/cypht-org/cypht/blob/2.x/config/wordpress.php
                 Authorize an application for WordPress.com:  https://developer.wordpress.com/apps/
             - title: Custom themes
               description: You can create your own themes for Cypht. Edit the themes.php file to include your theme, and put the css file in modules/themes/assets.
               links:
-                Example wordpress.php file: https://github.com/cypht-org/cypht/blob/master/config/themes.php
-    docker_compose: <a href="https://github.com/cypht-org/cypht/blob/master/docker/docker-compose.yaml">the example docker-compose file</a> in the created file or just download the example docker-compose file in the previously created directory.
+                Example wordpress.php file: https://github.com/cypht-org/cypht/blob/2.x/config/themes.php
+    docker_compose: <a href="https://github.com/cypht-org/cypht/blob/2.x/docker/docker-compose.yaml">the example docker-compose file</a> in the created file or just download the example docker-compose file in the previously created directory.
 ---
