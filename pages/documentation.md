@@ -46,11 +46,23 @@ nocontainer: true
 <section class="content-section-doc container">
     <div class="line ">
         <div class="element2 item">
-            <h1>Adding Servers and ATOM/RSS Feed</h1>
+            <h1>Adding IMAP/JMAP/SMTP Servers and ATOM/RSS Feed</h1>
             <p class="text-center">Enhanced customization capabilities allow user to setup, configure, and manage IMAP and SMTP or SMTP and JMAP servers and setup the ATOM/RSS Feed. Adding servers in Cypht is a straightforward process that involves two main steps. These steps are illustrated in the following image for your reference.</p>
         </div>
         <div class="element1 item">
             <img src="/img/Multi.PNG" alt="login" class="img-fluid">
+        </div>
+    </div>
+</section>
+
+<section class="content-section-doc container">
+    <div class="line ">
+        <div class="element2 item">
+            <h1>Adding EWS Servers</h1>
+            <p class="text-center">Cypht supports seamless integration with Exchange servers through easy setup and configuration. This section allows users to add, configure, and manage Exchange servers (EWS). Adding an Exchange server involves filling out key details such as server address, username, and password, with options to customize settings like creating profiles, setting a default profile, and adding a signature. The right-hand preview shows the Exchange inbox interface, highlighting features such as folder navigation and email list display. This process is designed to simplify Exchange account management for users, as illustrated in the image below.</p>
+        </div>
+        <div class="element1 item">
+            <img src="/img/ews.png" alt="Exchange Server" class="img-fluid">
         </div>
     </div>
 </section>
