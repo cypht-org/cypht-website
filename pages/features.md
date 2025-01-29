@@ -1,6 +1,6 @@
 ---
 title: Features
-weight: 2
+weight: 10
 ---
 <h2>List of Features</h2>
 <hr>

@@ -53,15 +53,12 @@
     </header>
     {% if page.nocontainer is defined %}
         {{page.content}}
-    {% elseif page.path == 'install' %}
-        {% include 'partials/install.html.twig' with {'version': 'master'} %}
-    {% elseif page.path == 'install-1x' %}
-        {% include 'partials/install.html.twig' %}
-    {% elseif page.path == 'install-2x' %}
-        {% include 'partials/install.html.twig' %}
     {% else %}
         <section class="content-section container">
             {{page.content}}
+            {% if page.path == 'config-generator' %}
+                {{- include('partials/config-generator.html.twig') ~}}
+            {% endif %}
         </section>
     {% endif %}
 
@@ -105,6 +102,9 @@
     </section>
     <script src="/jquery.slim.min.js"></script>
     <script src="/bootstrap.bundle.min.js"></script>
+    {% if page.loadScriptAfter is defined %}
+        <script src="{{page.loadScriptAfter}}"></script>
+    {% endif %}
 </body>
 
 </html>

@@ -1,0 +1,12 @@
+[
+    "app.php",
+    "database.php",
+    "2fa.php",
+    "carddav.php",
+    "dynamic_login.php",
+    "github.php",
+    "ldap.php",
+    "oauth2.php",
+    "recaptcha.php",
+    "wordpress.php"
+]

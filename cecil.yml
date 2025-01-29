@@ -38,11 +38,11 @@ pages:
       uglyurl: true
     - path: install-1x-redirect
       slug: install-1x
-      redirect: /install-1x/
+      redirect: /install/
       uglyurl: true
     - path: install-2x-redirect
       slug: install-2x
-      redirect: /install-2x/
+      redirect: /install/
       uglyurl: true
     - path: license-redirect
       slug: license
