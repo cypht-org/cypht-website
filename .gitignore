@@ -1,5 +1,5 @@
 docs
 
 _site/
-.cache
+.cache*
 .cecil
