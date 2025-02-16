@@ -83,6 +83,18 @@ nocontainer: true
 
 <section class="content-section-doc container">
     <div class="line">
+        <div class="element2 item">
+            <h1>Combined View</h1>
+            <p>Cypht, your email client that allows you to access multiple email accounts simultaneously, features main folders such as Drafts, Everything, Flagged, Junk, Sent, Snoozed, Trash, and Unread. To ensure that email messages from your accounts appear in these folders, you need to add them by accessing the respective folder and clicking the "Add this folder to combined pages" icon located in the header of your folder view. This action integrates the folder into the combined view, making it easier to manage emails across all your accounts in one place. Refer to the provided image for visual guidance.</p>
+        </div>
+        <div class="element1 item">
+            <img src="/img/combined_view.png" alt="login" class="img-fluid">
+        </div>
+    </div>
+</section>
+
+<section class="content-section-doc container">
+    <div class="line">
         <div class="element1 item">
             <img src="/img/Contact.PNG" alt="Contact" class="img-fluid">
         </div>
