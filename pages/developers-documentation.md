@@ -3,43 +3,7 @@ title: Devs-doc
 weight: 35
 nocontainer: true
 ---
-<style>
-    .highlight-text {
-	font-size: 18px;
-	color: #0e0d0d;
-}
-
-.highlight-secondary {
-	color: #635108;
-}
-
-.code-block {
-	display: block;
-	background-color: #1e1e1e;
-	color: #f8f8f2;
-	padding: 15px;
-	border-radius: 5px;
-	font-size: 16px;
-	line-height: 1;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	margin-bottom: 20px;
-}
-
-.function-keyword {
-	color: #66d9ef;
-}
-
-.default-text {
-	color: #f8f8f2;
-}
-
-.bold-title {
-    font-weight: bold;
-}
-</style>
-
-<section class="contibute-section container">
+<section class="dev-docs-section contibute-section container">
     <div class="container">
         <h2>Folder structure</h2>
         <h3 class="bold-title"><b>.github</b></h3>
@@ -90,7 +54,7 @@ nocontainer: true
         <h3 class="bold-title"><b>.env</b></h3>
         <p>The .env file is for high-level configuration. For any variables you're unsure about, check the
             configuration folder for detailed explanations.</p>
-        <h1>How to</h1>
+        <h2>How to</h2>
         <h3 class="bold-title"><b>See the new link in the left menu</b></h3>
         <p>Sometimes you can add a link to the left menu without seeing it. Cypht caches all menus. You need to
             click on the reload link below the navigation menu.</p>

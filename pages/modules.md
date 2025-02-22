@@ -259,5 +259,4 @@ weight: 20
 <p> For more information, check out the "hello world" module set. It illustrates how modules work and has loads of
     comments that explain what is going on:<br/><br />
 </p>
-<a href="https://github.com/cypht-org/cypht/tree/master/modules/hello_world">https://github.com/cypht-org/cypht/tree/master/modules/hello_world</a>
-<br />
+https://github.com/cypht-org/cypht/tree/master/modules/hello_world

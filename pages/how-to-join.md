@@ -2,6 +2,7 @@
 title: How to join
 nocontainer: true
 exclude: true
+h1: false
 ---
 <section class="contibute-section container">
     <div class="container">

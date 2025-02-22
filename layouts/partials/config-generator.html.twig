@@ -1,25 +1,4 @@
-<style>
-    main {
-        width: 80%;
-        margin: auto;
-    }
-
-    fieldset#CYPHT_MODULES {
-        word-break: break-all;
-    }
-
-    #generate,
-    #reset-all {
-        margin: auto;
-        display: block;
-        margin-bottom: 20px;
-    }
-
-    #result {
-        height: 600px;
-    }
-</style>
-<main>
+<form id="config-generator">
     <h1>Cypht Config Generator</h1>
     <blockquote>
         Click any of the options below to configure Cypht!<br>
@@ -27,8 +6,8 @@
     </blockquote>
     {% for file in site.data.configFiles %}
     <details>
-        <summary class="h4" role="button">
-            {{file | replace({".php": ""})}}
+        <summary class="h4">
+            <h2 class="h4">{{file | replace({".php": ""})}}</h2>
         </summary>
         {% for option in site.data.configOptions[file] %}
         {% set select = option.inputType == "select" %}
@@ -43,7 +22,7 @@
             {% if not select %}
             <input id="{{inputId}}" type="{{option.inputType}}" name="{{option.key}}"
                 data-default="{{option.valueDefault}}" {% if option.valueDefault %} {% if option.inputType=="checkbox"
-                and option.valueDefault=="true" %} checked="true" {% else %} value="{{option.valueDefault}}" {% endif %}
+                and option.valueDefault=="true" %} checked {% else %} value="{{option.valueDefault}}" {% endif %}
                 {% endif %} />
             {% else %}
             <select class="btn btn-light text-left" id="{{inputId}}" name="{{option.key}}" data-default="{{option.valueDefault}}">
@@ -53,8 +32,6 @@
             </select>
             {% endif %}
             <button class="reset btn btn-light">Reset</button>
-
-
         </fieldset>
         {% endfor %}
     </details>
@@ -74,11 +51,12 @@
         </a> for more info
     </p>
     <textarea class="container" id="result"></textarea>
-    <nav>
-        <ul>
-            <a href="https://github.com/Denperidge/cypht-config-generator">
-                <li>Source code</li>
-            </a>
-        </ul>
-    </nav>
-</main>
+    
+    <hr>
+
+    <p>The 
+        <a href="https://github.com/Denperidge/cypht-config-generator">
+            config-generator source code can be found on GitHub
+        </a>
+    </p>
+</form>

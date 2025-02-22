@@ -1261,12 +1261,17 @@ h3 {
 	padding: 20px;
 }
 
-.content-section-doc h1{
+.content-section-doc h1, .content-section-doc h2 {
 	padding-left: 20px;
 	padding-right: 20px;
 	font-size: 2em;
 	font-weight: bold;
 	color: #80B444;
+	line-height: 48px;
+}
+
+.content-section-doc h2 {
+	margin-top: 1rem;
 }
 
 .content-section li {
@@ -1325,5 +1330,69 @@ html,body{
 	}
 }
 
+.line-between li {
+	padding-bottom: 1rem;
+	margin-bottom: 1rem;
+	border: 0;
+	border-bottom: 1px solid rgba(0, 0, 0, .1)
+}
+
+#config-generator {
+	width: 80%;
+	margin: auto;
+}
+
+#config-generator summary h2 {
+	display: inline;
+}
+
+fieldset#CYPHT_MODULES {
+	word-break: break-all;
+}
+
+#config-generator #generate,
+#config-generator #reset-all {
+	margin: auto;
+	display: block;
+	margin-bottom: 20px;
+}
+
+#config-generator #result {
+	height: 600px;
+}
+
+.dev-docs-section .highlight-text {
+	font-size: 18px;
+	color: #0e0d0d;
+}
+
+.dev-docs-section .highlight-secondary {
+	color: #635108;
+}
+
+.dev-docs-section .code-block {
+	display: block;
+	background-color: #1e1e1e;
+	color: #f8f8f2;
+	padding: 15px;
+	border-radius: 5px;
+	font-size: 16px;
+	line-height: 1;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	margin-bottom: 20px;
+}
+
+.dev-docs-section .function-keyword {
+	color: #66d9ef;
+}
+
+.dev-docs-section .default-text {
+	color: #f8f8f2;
+}
+
+.dev-docs-section .bold-title {
+    font-weight: bold;
+}
 
 /*.navbar-toggler { position: absolute; left: 20px; top: 20px; }*/

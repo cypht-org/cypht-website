@@ -2,6 +2,7 @@
 title: Home
 weight: 1
 nocontainer: true
+h1: Welcome to Cypht
 ---
 <section class="banner">
     <div class="container-fluid">
@@ -106,9 +107,9 @@ nocontainer: true
             volunteer effort, so we can't
             afford a bounty program. We can however promise that any security issue reported to us before release
             will receive a quick response, a thorough review, a sincere thanks, and an honorable mention on this
-            page. </p><a href="security.html">
-        <button type="button" class="btn btn-success">Read more</button>
-    </a>
+            page. </p>
+            <a class="btn btn-success" href="/security">
+            Read more</a>
     </div>
 </section>
 <section class="module-section">
@@ -118,8 +119,7 @@ nocontainer: true
             we call them, "module sets". There is only one required set, the "core" modules. The components of any
             module set can be added to, or even replaced, by site specific modules. All the functionality of Cypht
             is broken out into module sets, and each set is built from small pieces that are also easy to override.
-        </p><a href="/modules">
-        <button type="button" class="btn btn-light">Read more</button>
-    </a>
+        </p><a class="btn btn-light" href="/modules">Read more
+        </a>
     </div>
 </section>

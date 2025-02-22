@@ -10,28 +10,24 @@ exclude: true
     However, it is important to note that your email server must support Sieve for these filters to function properly.</p>
 <p>Here are just a few of the things you can do with Sieve:</p>
 <hr>
-<ul>
+<ul class="line-between">
     <li>
         Filter out spam and unwanted emails. Sieve filters can be used to filter out spam and unwanted emails based on
         their sender, subject, or content.
     </li>
-    <hr>
     <li>
         Organize your inbox automatically. Sieve filters can be used to automatically move or copy your emails into
         different folders based on their sender, subject, or content.
     </li>
-    <hr>
     <li>
         Forward important emails to specific people. Sieve filters can be used to automatically forward important emails
         to specific people, such as your manager or your assistant.
     </li>
-    <hr>
     <li>
         Sieve filters can be used to create custom notifications and alerts for important emails, such as those from
         your boss or clients. Unlike simply forwarding the email, these notifications and alerts can provide immediate
         and specific information, ensuring you stay updated without needing to sift through your inbox.
     </li>
-    <hr>
 </ul>
 <p>To get started with Sieve in Cypht, simply go to your config file (hm3.ini for Cypht 1.4.x or .env for Cypht 2.0.x)
     and enable the Sieve filter engine by enabling modules[ ]=sievefilters or by adding sievefilters on CYPHT_MODULES
@@ -112,8 +108,8 @@ if header :subject "Important" {
 }
 </pre>
 <h3>Related links:</h3>
-<a href="http://sieve.info/">http://sieve.info/</a><br>
-<a href="https://p5r.uk/blog/2011/sieve-tutorial.html">https://p5r.uk/blog/2011/sieve-tutorial.html</a><br>
-<a href="https://www.fastmail.com/help/technical/sieve.html">https://www.fastmail.com/help/technical/sieve.html</a><br>
-<a href="https://docs.gandi.net/en/gandimail/sieve/sieve_tutorial.html">https://docs.gandi.net/en/gandimail/sieve/sieve_tutorial.html</a>
-<br />
+
+- http://sieve.info/
+- https://p5r.uk/blog/2011/sieve-tutorial.html
+- https://www.fastmail.com/help/technical/sieve.html
+- https://docs.gandi.net/en/gandimail/sieve/sieve_tutorial.html

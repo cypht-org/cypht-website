@@ -2,6 +2,7 @@
 title: Contribute
 weight: 40
 nocontainer: true
+h1: Contributing to Cypht
 ---
 <section class="contibute-section container">
  <div class="container">
@@ -49,14 +50,14 @@ nocontainer: true
     <p>We love feedback so let us know what you think! <br> Leave a comment, submit your problem or contribute to
         the project <br> by joining the community first.
     </p>
-    <a href="https://github.com/cypht-org/cypht/">
-        <button type="button" class="btn btn-success">GitHub</button>
+    <a class="btn btn-success" href="https://github.com/cypht-org/cypht/">
+        GitHub
     </a>
-    <a href="https://gitter.im/cypht-org/community">
-        <button type="button" class="btn btn-success">Gitter</button>
+    <a class="btn btn-success" href="https://gitter.im/cypht-org/community">
+        Gitter
     </a>
-    <a href="https://www.openhub.net/p/cypht/users">
-        <button type="button" class="btn btn-success">OpenHub</button>
+    <a class="btn btn-success" href="https://www.openhub.net/p/cypht/users">
+        OpenHub
     </a>
 </div>
 </section>
