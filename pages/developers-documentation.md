@@ -3,7 +3,7 @@ title: Devs-doc
 weight: 35
 nocontainer: true
 ---
-<section class="dev-docs-section contibute-section container">
+<main class="dev-docs-section contibute-section container">
     <div class="container">
         <h2>Folder structure</h2>
         <h3 class="bold-title"><b>.github</b></h3>
@@ -792,4 +792,4 @@ nocontainer: true
     <a href="https://p5r.uk/blog/2011/sieve-tutorial.html">https://p5r.uk/blog/2011/sieve-tutorial.html</a><br>
     <a href="https://www.fastmail.com/help/technical/sieve.html">https://www.fastmail.com/help/technical/sieve.html</a><br>
     <a href="https://docs.gandi.net/en/gandimail/sieve/sieve_tutorial.html">https://docs.gandi.net/en/gandimail/sieve/sieve_tutorial.html</a>
-</section>
+</main>

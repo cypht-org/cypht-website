@@ -6,6 +6,7 @@ h1: false
 ---
 <div style="margin-top: 100px;"></div>
 
+<main>
 <section class="content-section-doc container">
     <div class="line">
         <div  class="element1 item ">
@@ -221,3 +222,4 @@ h1: false
         </div>
     </div>
 </section>
+</main>

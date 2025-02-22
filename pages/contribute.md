@@ -4,7 +4,7 @@ weight: 40
 nocontainer: true
 h1: Contributing to Cypht
 ---
-<section class="contibute-section container">
+<main class="contibute-section container">
  <div class="container">
     <h2 id="contributing">Want to contribute?</h2>
     <p>First of all, thank you for interest to cypht! The goal of this page is to provide everything you need to know in order to contribute to cypht-website and its different integrations.</p>
@@ -60,4 +60,4 @@ h1: Contributing to Cypht
         OpenHub
     </a>
 </div>
-</section>
+</main>

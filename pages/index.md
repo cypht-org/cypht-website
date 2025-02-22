@@ -4,6 +4,7 @@ weight: 1
 nocontainer: true
 h1: Welcome to Cypht
 ---
+<main>
 <section class="banner">
     <div class="container-fluid">
         <div class="row align-items-center">
@@ -123,3 +124,4 @@ h1: Welcome to Cypht
         </a>
     </div>
 </section>
+</main>
