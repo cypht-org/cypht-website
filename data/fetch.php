@@ -103,6 +103,7 @@ for ($i = 0; $i < count($FILES); $i++) {
                 case "API_LOGIN_KEY":
                 case "MEMCACHED_USER":
                 case "SESSION_CLASS":
+                case "GMAIL_CLIENT_ID":
                     $inputType = "text";
                     break;
                 

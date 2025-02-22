@@ -612,6 +612,22 @@
             "setValues": null
         },
         {
+            "key": "DEFAULT_SETTING_SNOOZED_SINCE",
+            "valueDefault": "-1 week",
+            "comment": "Per source time limit for snoozed page\nDefaults to 1 week",
+            "commentHtml": "Per&nbsp;source&nbsp;time&nbsp;limit&nbsp;for&nbsp;snoozed&nbsp;page\nDefaults&nbsp;to&nbsp;1&nbsp;week",
+            "inputType": "text",
+            "setValues": null
+        },
+        {
+            "key": "DEFAULT_SETTING_SNOOZED_PER_SOURCE",
+            "valueDefault": "20",
+            "comment": "Per source number limit for snoozed page\nDefaults 20",
+            "commentHtml": "Per&nbsp;source&nbsp;number&nbsp;limit&nbsp;for&nbsp;snoozed&nbsp;page\nDefaults&nbsp;20",
+            "inputType": "text",
+            "setValues": null
+        },
+        {
             "key": "DEFAULT_SETTING_TAGS_SINCE",
             "valueDefault": "-1 week",
             "comment": "Per source time limit for tags page\nDefaults to 1 week",
