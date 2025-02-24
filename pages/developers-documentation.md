@@ -262,7 +262,7 @@ nocontainer: true
         </code>
         <p>My Cypht project is available locally at cypht.test. Once we have added this page, we should be able to
             access cypht.test as follows: cypht.test?page=test</p>
-        <img src="./img/screenshots/1.png" style="width:100%; margin-bottom: 10px;"/>
+        <img src="/img/screenshots/1.png" style="width:100%; margin-bottom: 10px;"/>
         <p>You might find it strange that we see "Page Not Found!" 😔, but understand that this is completely normal
             because we have explained the concept of authorizing pages, forms, etc.</p>
         <p class="highlight-text">In <span class="highlight-secondary">core/setup.php</span>:</p>
@@ -292,7 +292,7 @@ nocontainer: true
         </code>
         <p>After authorizing our page, we can now see a blank page. At least we are getting a result, even if it's
             not yet what we expected 😁.</p>
-        <img src="./img/screenshots/2.png" style="width:100%; margin-bottom: 10px;"/>
+        <img src="/img/screenshots/2.png" style="width:100%; margin-bottom: 10px;"/>
         <p>As mentioned earlier, the concepts of output and handle are important. At this stage, we define outputs
             to display the content of our pages. To show content to the user, create outputs containing HTML.</p>
         <p class="highlight-text">In <span class="highlight-secondary">core/setup.php</span>:</p>
@@ -338,7 +338,7 @@ nocontainer: true
             <span class="function-keyword">}</span>
         </code>
         <p>And here is the result we get; we start to see the result that we are looking for 👌.</p>
-        <img src="./img/screenshots/3.png" style="width:100%; margin-bottom: 10px;"/>
+        <img src="/img/screenshots/3.png" style="width:100%; margin-bottom: 10px;"/>
         <p>Now that we know how to add content, let's add another section after the header. </p>
         <p>Define the output in core/setup.php to display it right after the header. You should already know what
             the penultimate and last parameters will be.</p>
@@ -367,7 +367,7 @@ nocontainer: true
             <span class="function-keyword">}</span>
         </code>
         <p class="highlight-text">And here is the result we hope for:</p>
-        <img src="./img/screenshots/4.png" style="width:100%; margin-bottom: 10px;"/>
+        <img src="/img/screenshots/4.png" style="width:100%; margin-bottom: 10px;"/>
         <p class="highlight-text">Let's add another element to our page just after our second
             element:</p>
         <p class="highlight-text">In <span class="highlight-secondary">core/setup.php</span>:</p>
@@ -392,7 +392,7 @@ nocontainer: true
             <span class="function-keyword">}</span>
         </code>
         <p class="highlight-text">And here is the result:</p>
-        <img src="./img/screenshots/5.png" style="width:100%; margin-bottom: 10px;"/>
+        <img src="/img/screenshots/5.png" style="width:100%; margin-bottom: 10px;"/>
         <p class="highlight-text">Now that we know how to add content, let's add a form element to
             the page. We'll submit the form and handle its processing in the backend</p>
         <p class="highlight-text">In <span class="highlight-secondary">core/setup.php</span>:</p>
@@ -429,7 +429,7 @@ nocontainer: true
             }
         </code>
         <p>Here is the result:</p>
-        <img src="./img/screenshots/6.png" style="width:100%; margin-bottom: 10px;"/>
+        <img src="/img/screenshots/6.png" style="width:100%; margin-bottom: 10px;"/>
         <p>We learned that add_output allows us to add HTML content to the page, while add_handler is used for
             backend processing (like a controller). Both accept similar parameters, with the concepts of 'before'
             and 'after' applying to handlers instead of outputs. Remember that these refer to other handlers, and
@@ -573,9 +573,9 @@ nocontainer: true
             <span class="function-keyword">}</span>
         </code>
         <p>Result before:</p>
-        <img src="./img/screenshots/7.png" style="width:100%; margin-bottom: 10px;"/>
+        <img src="/img/screenshots/7.png" style="width:100%; margin-bottom: 10px;"/>
         <p>Result after:</p>
-        <img src="./img/screenshots/8.png" style="width:100%; margin-bottom: 10px;"/>
+        <img src="/img/screenshots/8.png" style="width:100%; margin-bottom: 10px;"/>
         <h3 class="bold-title"><b>Practical Example: 2. How to add new settings</b></h3>
         <p>Let's start by adding a simple parameter and then we'll see how to add another section after.</p>
         <p>We will add our setting after this content:</p>
@@ -583,7 +583,7 @@ nocontainer: true
         <code class="code-block">
             <span class="default-text">Default message sort order</span>
         </code>
-        <img src="./img/screenshots/9.png" style="width:100%; margin-bottom: 10px;"/>
+        <img src="/img/screenshots/9.png" style="width:100%; margin-bottom: 10px;"/>
         <p>We will need a handle and an output for that:</p>
         <p class="highlight-text">In <span class="highlight-secondary">core/setup.php</span>:</p>
         <code class="code-block">
@@ -645,7 +645,7 @@ nocontainer: true
         <p>Remember, if you make changes, you need to define the restore action in JavaScript, as this can occur in
             various scenarios.</p>
         <p>You can now refresh your page to see the result:</p>
-        <img src="./img/screenshots/10.png" style="width:100%; margin-bottom: 10px;"/>
+        <img src="/img/screenshots/10.png" style="width:100%; margin-bottom: 10px;"/>
         <p>You might be wondering why updating our parameter gives an unexpected result; this is normal. Let me
             explain: remember the crucial concepts in Cypht related to authorizations and validations (such as
             allowed_pages, allowed_output, allowed_post, etc.). In this case, we need to authorize our
@@ -664,9 +664,9 @@ nocontainer: true
         </code>
         <p>Now that we know how to add a simple setting, let's explore how to add a section to the settings page:
         </p>
-        <img src="./img/screenshots/11.png" style="width:100%; margin-bottom: 10px;"/>
+        <img src="/img/screenshots/11.png" style="width:100%; margin-bottom: 10px;"/>
         <p>The goal is to add a new section to our settings page. Here’s how:</p>
-        <img src="./img/screenshots/13.jpg" style="width:100%; margin-bottom: 10px;"/>
+        <img src="/img/screenshots/13.jpg" style="width:100%; margin-bottom: 10px;"/>
         <p>In the image above, our section contains two elements, so we will define two handles to process them,
             along with three outputs: one for the section title, one for the first element, and another for the
             second element.</p>
@@ -782,7 +782,7 @@ nocontainer: true
             <span class="function-keyword">}</span>
         </code>
         <p>And there you have it! Refresh your page to see the result:</p>
-        <img src="./img/screenshots/12.png" style="width:100%; margin-bottom: 10px;"/>
+        <img src="/img/screenshots/12.png" style="width:100%; margin-bottom: 10px;"/>
     </div>
     <br/><br/>
     <h3>Related links:</h3>
