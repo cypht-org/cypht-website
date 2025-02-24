@@ -2,8 +2,9 @@
 title: How to join
 nocontainer: true
 exclude: true
+h1: false
 ---
-<section class="contibute-section container">
+<main class="contibute-section container">
     <div class="container">
         <h1>Getting Started with Cypht Community</h1>
         <h2>Introduction</h2>
@@ -65,4 +66,4 @@ exclude: true
             and support newcomers. Feel free to reach out on <a href="https://gitter.im/cypht-org/community">Gitter.</a>
         </p>
     </div>
-</section>
+</main>
