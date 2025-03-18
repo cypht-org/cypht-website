@@ -259,7 +259,7 @@ install_cypht "$selected_version"
 
     <p>
         To configure Cypht for your environment, you must first edit the "hm3.ini" (for Cypht 1.4.x) or ".env"
-        (for Cypht 2.x.x) file to your liking, then run the "config_gen.php" script to generate the optimized
+        (for Cypht 2.x.x) file to your liking, .env content can be generated using the <a href='/config-generator'>Cypht Config Generator</a>, then run the "config_gen.php" script to generate the optimized
         configuration file and assets used at run-time.
     </p>
 
