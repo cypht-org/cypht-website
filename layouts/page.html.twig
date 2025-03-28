@@ -65,7 +65,7 @@
         </main>
     {% endif %}
 
-    
+
     <footer>
         <section class="footer-section" id="contact">
             <div class="container text-center">
@@ -81,8 +81,7 @@
                     <div class="col-3 col-md-3 col-sm-12">
                         <p>
                             <span>Page on Github</span><br>
-                            <a href="https://github.com/cypht-org/cypht-website/blob/master/pages/{{page.path}}.md">Edit here</a>
-                        </p>
+                            <a href="https://github.com/cypht-org/cypht-website/blob/master/pages/{% if page.path %}{{page.path}}{% else %}index.md{% endif %}">Edit here</a>                        </p>
                     </div>
                     <div class="col-3 col-md-3 col-sm-12">
                         <p>
