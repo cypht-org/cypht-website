@@ -32,7 +32,7 @@ exclude: true
 
     <pre>
         #!/bin/bash
-        # You need to check php version which should be >=5.6 for version 1.4.x and 8.1+ for Cypht version 2.x.x
+        # You need to check php version. For Cypht version 1.4.x, ensure PHP version is between 5.6 and 7.4, while for version 2.x.x, PHP 8.1 or higher is required.
         php --version
         # Next you need to check composer version which should be >=2.0.0
         composer --version
