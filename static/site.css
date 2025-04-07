@@ -1396,3 +1396,109 @@ fieldset#CYPHT_MODULES {
 }
 
 /*.navbar-toggler { position: absolute; left: 20px; top: 20px; }*/
+
+/* Base class */
+/* Kickstart any navigation component with a set of style resets. Works with */
+/* `<nav>`s or `<ul>`s. */
+
+.nav {
+	display: flex;
+	flex-wrap: wrap;
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+  }
+  
+  .nav-link {
+	display: block;
+	padding: 0.5rem 1rem; /* Valeurs par défaut pour $nav-link-padding-y et $nav-link-padding-x */
+	text-decoration: none;
+  }
+  
+  .nav-link:hover,
+  .nav-link:focus {
+	text-decoration: none;
+  }
+  
+  /* Disabled state lightens text */
+  .nav-link.disabled {
+	color: #6c757d; /* Valeur par défaut pour $nav-link-disabled-color */
+  }
+  
+  /* Tabs */
+  
+  .nav-tabs {
+	border-bottom: 1px solid #dee2e6; /* Valeurs par défaut pour $nav-tabs-border-width et $nav-tabs-border-color */
+  }
+  
+  .nav-tabs .nav-item {
+	margin-bottom: -1px; /* Valeur par défaut pour $nav-tabs-border-width */
+  }
+  
+  .nav-tabs .nav-link {
+	border: 1px solid transparent; /* Valeur par défaut pour $nav-tabs-border-width */
+	border-top-left-radius: 0.25rem; /* Valeurs par défaut pour $nav-tabs-border-radius */
+	border-top-right-radius: 0.25rem;
+  }
+  
+  .nav-tabs .nav-link:hover,
+  .nav-tabs .nav-link:focus {
+	border-color: #e9ecef #e9ecef #dee2e6; /* Valeur par défaut pour $nav-tabs-link-hover-border-color */
+  }
+  
+  .nav-tabs .nav-link.disabled {
+	color: #6c757d; /* Valeur par défaut pour $nav-link-disabled-color */
+	background-color: transparent;
+	border-color: transparent;
+  }
+  
+  .nav-tabs .nav-link.active,
+  .nav-tabs .nav-item.show .nav-link {
+	color: #495057; /* Valeur par défaut pour $nav-tabs-link-active-color */
+	background-color: #fff; /* Valeur par défaut pour $nav-tabs-link-active-bg */
+	border-color: #dee2e6 #dee2e6 #fff; /* Valeur par défaut pour $nav-tabs-link-active-border-color */
+  }
+  
+  .nav-tabs .dropdown-menu {
+	/* Make dropdown border overlap tab border */
+	margin-top: -1px; /* Valeur par défaut pour $nav-tabs-border-width */
+	/* Remove the top rounded corners here since there is a hard edge above the menu */
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+  }
+  
+  /* Pills */
+  
+  .nav-pills .nav-link {
+	border-radius: 0.25rem; /* Valeur par défaut pour $nav-pills-border-radius */
+  }
+  
+  .nav-pills .nav-link.active,
+  .nav-pills .show > .nav-link {
+	color: #fff; /* Valeur par défaut pour $nav-pills-link-active-color */
+	background-color: #007bff; /* Valeur par défaut pour $nav-pills-link-active-bg */
+  }
+  
+  /* Justified variants */
+  
+  .nav-fill .nav-item {
+	flex: 1 1 auto;
+	text-align: center;
+  }
+  
+  .nav-justified .nav-item {
+	flex-basis: 0;
+	flex-grow: 1;
+	text-align: center;
+  }
+  
+  /* Tabbable tabs */
+  /* Hide tabbable panes to start, show them when `.active` */
+  
+  .tab-content > .tab-pane {
+	display: none;
+  }
+  
+  .tab-content > .active {
+	display: block;
+  }

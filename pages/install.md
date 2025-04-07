@@ -38,6 +38,7 @@ exclude: true
         composer --version
     </pre>
 
+    <h4>2. Download and prepare the code</h4>
     <p>
         It's important to consider where you place the Cypht source.
         The web server will need read-only access to it, and moving it from one place to another requires re-running the configuration script.
@@ -47,216 +48,426 @@ exclude: true
         It also ensures that the required configuration files are created, such as .env or hm3.ini (depending on the version).
         The script requires sudo access to perform these actions:
     </p>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="linux-tab" data-toggle="tab" href="#linux" role="tab" aria-controls="linux" aria-selected="true">Linux</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="windows-tab" data-toggle="tab" href="#windows" role="tab" aria-controls="windows" aria-selected="false">Windows</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="linux" role="tabpanel" aria-labelledby="linux-tab">
+            <pre>
+    
+                #!/bin/bash
 
-    <pre>
-#!/bin/bash
+                bold_green() {
+                echo -e "\033[1m\033[32m✓ $1\033[0m"
+                }
 
-bold_green() {
-  echo -e "\033[1m\033[32m✓ $1\033[0m"
-}
+                bold_red() {
+                echo -e "\033[1m\033[31m$1\033[0m"
+                }
 
-bold_red() {
-  echo -e "\033[1m\033[31m$1\033[0m"
-}
+                bold_blue() {
+                echo -e "\033[1m\033[34m$1\033[0m"
+                }
 
-bold_blue() {
-  echo -e "\033[1m\033[34m$1\033[0m"
-}
+                bold_yellow() {
+                echo -e "\033[1m\033[33m$1\033[0m"
+                }
 
-bold_yellow() {
-  echo -e "\033[1m\033[33m$1\033[0m"
-}
+                # Function to check prerequisites
+                check_prerequisites() {
+                    echo "Checking prerequisites..."
 
-# Function to check prerequisites
-check_prerequisites() {
-    echo "Checking prerequisites..."
+                    # Check if PHP is installed
+                    if ! command -v php &>/dev/null; then
+                        bold_red "Error: PHP is not installed or not in the system PATH."
+                        bold_red "Please install PHP before proceeding."
+                        exit 1
+                    fi
 
-    # Check if PHP is installed
-    if ! command -v php &>/dev/null; then
-        bold_red "Error: PHP is not installed or not in the system PATH."
-        bold_red "Please install PHP before proceeding."
-        exit 1
-    fi
+                    # Print the PHP version
+                    bold_green "PHP is installed."
 
-    # Print the PHP version
-    bold_green "PHP is installed."
+                    # List installed PHP extensions
+                    required_extensions=("openssl" "mbstring" "curl")
+                    missing_extensions=()
 
-    # List installed PHP extensions
-    required_extensions=("openssl" "mbstring" "curl")
-    missing_extensions=()
+                    for ext in "${required_extensions[@]}"; do
+                        if ! php -m | grep -iq "$ext"; then
+                            missing_extensions+=("$ext")
+                        fi
+                    done
 
-    for ext in "${required_extensions[@]}"; do
-        if ! php -m | grep -iq "$ext"; then
-            missing_extensions+=("$ext")
-        fi
-    done
+                    if [ ${#missing_extensions[@]} -gt 0 ]; then
+                        bold_red "Error: The following required PHP extensions are missing: ${missing_extensions[*]}"
+                        bold_red "Please install the missing extensions before proceeding."
+                        exit 1
+                    else
+                        bold_green "All required PHP extensions (OpenSSL, mbstring, cURL) are installed."
+                    fi
 
-    if [ ${#missing_extensions[@]} -gt 0 ]; then
-        bold_red "Error: The following required PHP extensions are missing: ${missing_extensions[*]}"
-        bold_red "Please install the missing extensions before proceeding."
-        exit 1
-    else
-        bold_green "All required PHP extensions (OpenSSL, mbstring, cURL) are installed."
-    fi
+                    # Check if Composer is installed
+                    if ! command -v composer &>/dev/null; then
+                        bold_red "Error: Composer is not installed or not in the system PATH."
+                        bold_red "Please install Composer before proceeding: https://getcomposer.org/download/"
+                        exit 1
+                    fi
 
-    # Check if Composer is installed
-    if ! command -v composer &>/dev/null; then
-        bold_red "Error: Composer is not installed or not in the system PATH."
-        bold_red "Please install Composer before proceeding: https://getcomposer.org/download/"
-        exit 1
-    fi
+                    # Print the Composer version
+                    bold_green "Composer is installed.\n"
 
-    # Print the Composer version
-    bold_green "Composer is installed.\n"
+                }
 
-}
+                # Function to fetch the list of valid tags from the GitHub repository
+                fetch_tags() {
+                    echo "Fetching latest versions from GitHub..." >&2  # Print to stderr to avoid mixing with output
+                    curl -s https://api.github.com/repos/cypht-org/cypht/releases | \
+                    jq -r '.[] | select(.created_at > "2018-11-13T03:58:48Z") | .tag_name' | sort -V | \
+                    awk -F. '
+                    {
+                        major = substr($1, 2)  # Extract major version number (e.g., "1" from "v1.x.y")
+                        latest[major] = $0     # Always update the latest version for this major version
+                    }
+                    END {
+                        # Print the latest version for each major version
+                        for (major in latest) {
+                            print latest[major]
+                        }
+                    }' | sort -V  # Sort the final output by version
+                }
 
-# Function to fetch the list of valid tags from the GitHub repository
-fetch_tags() {
-    echo "Fetching latest versions from GitHub..." >&2  # Print to stderr to avoid mixing with output
-    curl -s https://api.github.com/repos/cypht-org/cypht/releases | \
-    jq -r '.[] | select(.created_at > "2018-11-13T03:58:48Z") | .tag_name' | sort -V | \
-    awk -F. '
-    {
-        major = substr($1, 2)  # Extract major version number (e.g., "1" from "v1.x.y")
-        latest[major] = $0     # Always update the latest version for this major version
-    }
-    END {
-        # Print the latest version for each major version
-        for (major in latest) {
-            print latest[major]
-        }
-    }' | sort -V  # Sort the final output by version
-}
+                # Function to install Cypht for a given version
+                install_cypht() {
+                    local version=$1
+                    local destination="$BASE_DIR/cypht-$version"
 
-# Function to install Cypht for a given version
-install_cypht() {
-    local version=$1
-    local destination="$BASE_DIR/cypht-$version"
+                    # Check if the destination directory already exists
+                    if [ -d "$destination" ]; then
+                        bold_yellow "Cypht version $version already exists at $destination."
+                        read -p "Do you want to overwrite it? (yes/no) [yes]: " overwrite
+                        overwrite="${overwrite:-yes}"  # Default to 'yes' if no input is provided
+                        if [[ "$overwrite" != "yes" ]]; then
+                            bold_red "Installation aborted."
+                            exit 0
+                        else
+                            bold_blue "Overwriting existing installation..."
+                            sudo rm -rf "$destination"
+                        fi
+                    fi
 
-    # Check if the destination directory already exists
-    if [ -d "$destination" ]; then
-        bold_yellow "Cypht version $version already exists at $destination."
-        read -p "Do you want to overwrite it? (yes/no) [yes]: " overwrite
-        overwrite="${overwrite:-yes}"  # Default to 'yes' if no input is provided
-        if [[ "$overwrite" != "yes" ]]; then
-            bold_red "Installation aborted."
-            exit 0
-        else
-            bold_blue "Overwriting existing installation..."
-            sudo rm -rf "$destination"
-        fi
-    fi
+                    # Create destination directory
+                    bold_blue "Creating directory for version $version: $destination\n\n"
+                    sudo mkdir -p "$destination"
 
-    # Create destination directory
-    bold_blue "Creating directory for version $version: $destination\n\n"
-    sudo mkdir -p "$destination"
+                    # Create temporary working directory
+                    temp_dir=$(mktemp -d)
+                    cd "$temp_dir" || exit 1
 
-    # Create temporary working directory
-    temp_dir=$(mktemp -d)
-    cd "$temp_dir" || exit 1
+                    # Download the selected version of Cypht
+                    if [ "$version" == "master" ]; then
+                        bold_blue "Downloading the latest development version (master branch)..."
+                        wget "https://github.com/cypht-org/cypht/archive/refs/heads/master.zip" -O "master.zip"
+                        archive_name="master.zip"
+                        extracted_folder="cypht-master"
+                    else
+                        bold_blue "Downloading version $version..."
+                        wget "https://github.com/cypht-org/cypht/archive/refs/tags/$version.zip" -O "$version.zip"
+                        archive_name="$version.zip"
+                        extracted_folder="cypht-${version#v}"
+                    fi
 
-    # Download the selected version of Cypht
-    if [ "$version" == "master" ]; then
-        bold_blue "Downloading the latest development version (master branch)..."
-        wget "https://github.com/cypht-org/cypht/archive/refs/heads/master.zip" -O "master.zip"
-        archive_name="master.zip"
-        extracted_folder="cypht-master"
-    else
-        bold_blue "Downloading version $version..."
-        wget "https://github.com/cypht-org/cypht/archive/refs/tags/$version.zip" -O "$version.zip"
-        archive_name="$version.zip"
-        extracted_folder="cypht-${version#v}"
-    fi
+                    if [ $? -ne 0 ]; then
+                        bold_red "Error downloading version $version."
+                        exit 1
+                    fi
 
-    if [ $? -ne 0 ]; then
-        bold_red "Error downloading version $version."
-        exit 1
-    fi
+                    # Unpack the archive
+                    bold_blue "Unpacking the archive...\n"
+                    unzip "$archive_name"
 
-    # Unpack the archive
-    bold_blue "Unpacking the archive...\n"
-    unzip "$archive_name"
+                    if [ $? -ne 0 ]; then
+                        bold_red "Error unpacking the archive."
+                        exit 1
+                    fi
 
-    if [ $? -ne 0 ]; then
-        bold_red "Error unpacking the archive."
-        exit 1
-    fi
+                    # Run composer
+                    cd "$extracted_folder" || exit 1
+                    bold_blue "Installing dependencies with composer...\n"
+                    composer install
 
-    # Run composer
-    cd "$extracted_folder" || exit 1
-    bold_blue "Installing dependencies with composer...\n"
-    composer install
+                    # Handle configuration file creation
 
-    # Handle configuration file creation
+                    if [[ "$selected_version" =~ ^v1 ]]; then
+                        bold_blue "Creating hm3.ini from hm3.sample.ini\n"
+                        cp hm3.sample.ini hm3.ini
+                    else
+                        bold_blue "Creating .env from .env.example....\n"
+                        cp .env.example .env
+                    fi
 
-    if [[ "$selected_version" =~ ^v1 ]]; then
-        bold_blue "Creating hm3.ini from hm3.sample.ini\n"
-        cp hm3.sample.ini hm3.ini
-    else
-        bold_blue "Creating .env from .env.example....\n"
-        cp .env.example .env
-    fi
+                    # Fix permissions and ownership
+                    bold_blue "Fixing permissions...\n"
+                    find . -type d -exec chmod 755 {} \;
+                    find . -type f -exec chmod 644 {} \;
 
-    # Fix permissions and ownership
-    bold_blue "Fixing permissions...\n"
-    find . -type d -exec chmod 755 {} \;
-    find . -type f -exec chmod 644 {} \;
+                    # Ask for group (root is default for other systems, or user for macOS)
+                    read -p "Enter the group to own the files [root]: " group
+                    group="${group:-root}"
 
-    # Ask for group (root is default for other systems, or user for macOS)
-    read -p "Enter the group to own the files [root]: " group
-    group="${group:-root}"
+                    sudo chown -R root:"$group" .
 
-    sudo chown -R root:"$group" .
+                    # Move files to the destination folder
+                    bold_blue "Copying files to $destination...\n"
+                    sudo mv ./* ./.[!.]* "$destination"
 
-    # Move files to the destination folder
-    bold_blue "Copying files to $destination...\n"
-    sudo mv ./* ./.[!.]* "$destination"
+                    # Clean up temporary directory
+                    cd ..
+                    sudo rm -rf "$temp_dir"
 
-    # Clean up temporary directory
-    cd ..
-    sudo rm -rf "$temp_dir"
+                    if [ $? -ne 0 ]; then
+                        echo "Error moving files to $destination."
+                        exit 1
+                    fi
+                    bold_green "Cypht $version installed successfully to $destination"
+                }
 
-    if [ $? -ne 0 ]; then
-        echo "Error moving files to $destination."
-        exit 1
-    fi
-    bold_green "Cypht $version installed successfully to $destination"
-}
+                # Main script execution
 
-# Main script execution
+                # Check prerequisites
+                check_prerequisites
 
-# Check prerequisites
-check_prerequisites
+                # Fetch available version tags
+                available_versions=$(fetch_tags)
+                available_versions=$(echo -e "$available_versions\nmaster")  # Add master branch to the list
 
-# Fetch available version tags
-available_versions=$(fetch_tags)
-available_versions=$(echo -e "$available_versions\nmaster")  # Add master branch to the list
+                # Display available versions
+                echo "$available_versions" | nl -s '. '
 
-# Display available versions
-echo "$available_versions" | nl -s '. '
+                # Prompt user to select a version
+                read -p "Enter the version number (e.g. 1 for $(echo "$available_versions" | head -n 1)) [master]: " version_choice
+                version_choice="${version_choice:-$(echo "$available_versions" | grep -n "master" | cut -d: -f1)}"
 
-# Prompt user to select a version
-read -p "Enter the version number (e.g. 1 for $(echo "$available_versions" | head -n 1)) [master]: " version_choice
-version_choice="${version_choice:-$(echo "$available_versions" | grep -n "master" | cut -d: -f1)}"
+                # Get the version based on the user’s choice
+                selected_version=$(echo "$available_versions" | sed -n "${version_choice}p")
 
-# Get the version based on the user’s choice
-selected_version=$(echo "$available_versions" | sed -n "${version_choice}p")
+                if [ -z "$selected_version" ]; then
+                    bold_red "Error: Invalid version choice. Please select a valid number from the list."
+                    exit 1
+                fi
 
-if [ -z "$selected_version" ]; then
-    bold_red "Error: Invalid version choice. Please select a valid number from the list."
-    exit 1
-fi
+                # Prompt user for BASE_DIR
+                read -p "Enter the base directory for Cypht installation [/usr/local/share/cypht]: " BASE_DIR
+                BASE_DIR="${BASE_DIR:-/usr/local/share/cypht}"
 
-# Prompt user for BASE_DIR
-read -p "Enter the base directory for Cypht installation [/usr/local/share/cypht]: " BASE_DIR
-BASE_DIR="${BASE_DIR:-/usr/local/share/cypht}"
+                bold_blue "Installation of version: $selected_version"
+                install_cypht "$selected_version"
 
-bold_blue "Installation of version: $selected_version"
-install_cypht "$selected_version"
+            </pre>
+        </div>
+        <div class="tab-pane fade" id="windows" role="tabpanel" aria-labelledby="windows-tab">
+            <pre>
+                @echo off
+                setlocal enabledelayedexpansion
 
-    </pre>
+                :: Enabling ANSI Support and UTF-8 Encoding
+                chcp 65001 >nul
+                reg add HKCU\Console /v VirtualTerminalLevel /t REG_DWORD /d 1 /f >nul 2>&1
 
+                :: Définition des codes couleur et symboles
+                for /F "tokens=2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1) do rem"') do (
+                    set "ESC=%%a"
+                )
+                set "GREEN=%ESC%[32m"
+                set "RED=%ESC%[31m"
+                set "RESET=%ESC%[0m"
+
+                :: Minimalist version and functional guarantee
+                echo
+                echo Checking prerequisites...
+                echo.
+                ::1. PHP Verification...
+                where php >nul 2>&1
+                if %errorlevel% neq 0 (
+                echo %RED%Error: PHP is not installed or not in the system PATH.%RESET%
+                echo %RED%Please install PHP before proceeding.%RESET%
+                pause
+                exit /b 1
+                )
+                echo %GREEN%   [✓] PHP is installed.%RESET%
+
+                set "required_extensions=openssl mbstring curl "
+                set "missing_extensions="
+
+                for %%e in (%required_extensions%) do (
+                    php -m | find /i "%%e" >nul 2>&1
+                    if errorlevel 1 (
+                        set "missing_extensions=!missing_extensions! %%e"
+                        echo %RED%   [X] Extension PHP %%e missing%RESET%
+                    )
+                )
+
+                if defined missing_extensions (
+                    echo.
+                    echo  %RED%   [X] Missing extension :%missing_extensions% %RESET%
+                    echo %RED%Install these extensions before proceeding%RESET%
+                    pause
+                    exit /b 1
+                ) else (
+                    echo.
+                    echo %GREEN%   [✓] All required PHP extensions [OpenSSL, mbstring, cURL] are installed.%RESET%
+                )
+                echo.
+
+                :: 2. Composer Verification
+                where composer >nul 2>&1
+                if %errorlevel% neq 0 (
+                echo %RED%   Error: Composer is not installed or not in the system PATH.%RESET%
+                echo %RED%   Please install Composer before proceeding: https://getcomposer.org/download/%RESET%
+                pause
+                exit /b 1
+                )
+                echo %GREEN%   [✓] Composer is installed.%RESET%
+                echo.
+                :: fetch list of valid tags from the GitHub repository
+
+                :: Create a temporary file
+                set "temp_file=%temp%\cypht_versions.txt"
+
+                :: fetch list
+                powershell -command "$releases = Invoke-RestMethod -Uri 'https://api.github.com/repos/cypht-org/cypht/releases' -UseBasicParsing; $versions = $releases | Where-Object { $_.created_at -gt [datetime]'2018-11-13T03:58:48Z' } | Select-Object -ExpandProperty tag_name; $latest = $versions | Where-Object { $_ -match '^v\d+\.\d+\.\d+$' } | Group-Object { ($_ -split '\.')[0] } | ForEach-Object { $_.Group | Sort-Object -Descending | Select-Object -First 1 }; if ($versions -contains 'master') { $latest += 'master' }; $latest | Sort-Object" > "%temp_file%"
+
+                :: Check if we have recovered any versions
+                set "count=0"
+                for /f "delims=" %%v in (%temp_file%) do (
+                    set /a "count+=1"
+                    set "version[!count!]=%%v"
+                )
+
+                :: Displaying Numbered Versions
+                if !count! equ 0 (
+                    echo %RED%No version found!%RESET%
+                    goto cleanup
+                )
+
+                echo Fetching latest versions from GitHub...
+                for /l %%i in (1,1,!count!) do (
+                    echo    %%i. !version[%%i]!
+                )
+
+                :: Also offer the master version
+                set /a "count+=1"
+                set "version[!count!]=master"
+                echo    !count!. master
+                echo.
+
+                :cleanup
+                del "%temp_file%" 2>nul
+
+
+                :: 3. Request version
+                echo.
+                :input_version_number
+                set /p "VERSION=Enter the version number (e.g. 1 for v1.4.5) [master]:"
+                if "!VERSION!"=="" set "VERSION=!count!"
+                if not defined version[%VERSION%] (
+                    echo %RED%   Error: Invalid version choice. Please select a valid number from the list..%RESET%
+                    goto input_version_number
+                )
+                :: 4. Request directory
+                set /p "INSTALL_DIR=Enter the base directory for Cypht installation [C:\cypht]:"
+                if "!INSTALL_DIR!"=="" set "INSTALL_DIR=C:\cypht"
+                :: 5. Confirmation
+                echo.
+
+                echo Installation in progress... 
+                set "version=!version[%VERSION%]!"
+                set "destination=%INSTALL_DIR%\cypht-%version%"
+                echo.
+
+                :: Check if the folder already exists
+                if exist "%destination%" (
+                    echo %RED%[X] Version %version% already exists in %destination%.%RESET%
+                    set /p "overwrite=Do you want to crush it? (yes/no) [yes]:"
+                    if "!overwrite!"=="" set "overwrite=yes"
+                    if /i "!overwrite!"=="no" (
+                        echo Installation canceled.
+                        exit /b 0
+                    )
+                    echo Overwriting of the existing installation...
+                    rmdir /s /q "%destination%"
+                )
+
+                :: Create destination folder
+                echo Creating the folder for the release %version%: %destination%
+                mkdir "%destination%" 2>nul
+                if not exist "%destination%" (
+                    echo %RED%Failed to create the folder.%RESET%
+                    exit /b 1
+                )
+
+                :: Create a temporary folder
+                set "temp_dir=%temp%\cypht_install"
+                mkdir "%temp_dir%" 2>nul
+
+                :: Download Cypht
+                if "%version%"=="master" (
+                    echo Download the development version [master]...
+                    powershell -command "Invoke-WebRequest -Uri 'https://github.com/cypht-org/cypht/archive/refs/heads/master.zip' -OutFile '%temp_dir%\master.zip'"
+                    set "archive_name=master.zip"
+                    set "extracted_folder=cypht-master"
+                ) else (
+                    echo Download the development version %version%...
+                    powershell -command "Invoke-WebRequest -Uri 'https://github.com/cypht-org/cypht/archive/refs/tags/%version%.zip' -OutFile '%temp_dir%\%version%.zip'"
+                    set "archive_name=%version%.zip"
+                    set "extracted_folder=cypht-!version:v=!"
+                )
+
+                if not exist "%temp_dir%\%archive_name%" (
+                    echo %RED%Error downloading.%RESET%
+                    exit /b 1
+                )
+
+
+                echo Extracting the archive...
+                powershell -command "Expand-Archive -Path '%temp_dir%\%archive_name%' -DestinationPath '%destination%'; $extracted = Get-ChildItem '%destination%' -Directory | Where-Object {$_.Name -like 'cypht-*'} | Select-Object -First 1; if ($extracted) { Get-ChildItem $extracted.FullName | Move-Item -Destination '%destination%' -Force; Remove-Item $extracted.FullName -Recurse -Force }"
+                if not exist "%destination%" (
+                    echo %RED%Error during extraction.%RESET%
+                    exit /b 1
+                )
+
+                ::Cleaning
+                rd /s /q "%temp_dir%"
+
+                cd /d "%destination%"
+
+                :: Create the configuration file
+                if "!version:~0,2!"=="v1" (
+                    echo Creating hm3.ini from hm3.sample.ini
+                    copy "%destination%\hm3.sample.ini" "%destination%\hm3.ini"
+                ) else (
+                    echo Creating .env from .env.example
+                    copy "%destination%\.env.example" "%destination%\.env"
+                )
+
+
+                echo.
+                echo Installing dependencies with Composer...
+                powershell -command "composer install"
+
+                echo.
+                echo Copying files to %destination%
+                echo.
+                echo  %GREEN% ✓ Cypht %version%  installed successfully to %destination% %RESET%
+                pause
+            </pre>
+        </div>
+    </div>
+    
+    <h4>3. Configure the program</h4>
     <p>
         To configure Cypht for your environment, you must first edit the "hm3.ini" (for Cypht 1.4.x) or ".env"
         (for Cypht 2.x.x) file to your liking, .env content can be generated using the <a href='/config-generator'>Cypht Config Generator</a>, then run the "config_gen.php" script to generate the optimized
@@ -283,6 +494,14 @@ install_cypht "$selected_version"
     <pre>
         cd /usr/local/share/cypht  (or wherever you put the code in section 1)
         sudo php ./scripts/config_gen.php
+    </pre>
+    <p>Now going to https://your-server/mail/ should load the Cypht login page. Note that If you use a symlink, your web-server must be configured to follow symlinks.</p>
+
+    <h4>5. Enable the program in your web-server</h4>
+    <p>The easiest way to serve Cypht is to symlink it to the web-server document root. You can also copy the generated files to your web-server location, but then you will need to re-copy them anytime the config_gen script is run. If the source is located at /usr/local/share/cypht, and the web-server document root is at /var/www/html, the following command will make Cypht available under the "mail" path of the web-server:</p>
+
+    <pre>
+        sudo ln -s /usr/local/share/cypht/site /var/www/html/mail
     </pre>
     <p>Now going to https://your-server/mail/ should load the Cypht login page. Note that If you use a symlink, your web-server must be configured to follow symlinks.</p>
 
@@ -431,3 +650,4 @@ install_cypht "$selected_version"
         We are happy to help trouble-shoot any installation issues you run into. Chat with us at Gitter <a href="https://gitter.im/cypht-org/community">Cypht at Gitter</a> and We'll get back to you as soon as we can.
 
 </section>
+
