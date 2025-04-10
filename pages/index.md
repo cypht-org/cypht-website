@@ -73,6 +73,7 @@ h1: Welcome to Cypht
             </div>
             <div class="col-md-4">
                 <ul>
+                    <li>Server-side Sieve email filtering to automatically organize your inbox even when you're offline</li>
                     <li>Search all your E-mail accounts and RSS feeds at once with a simple form</li>
                     <li>Simple interface translation system that does not use gettext or .po files, just arrays of
                         translated strings defined in PHP. Right to left languages are supported.
