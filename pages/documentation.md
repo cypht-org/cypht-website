@@ -41,7 +41,15 @@ h1: false
         </div>
         <div class="element2 item3">
             <p>The users can Add an E-mail Account of any service provider to be able to access multiple inboxes from Cypht.</p>
+            <p>For some service providers(Gmail, Outlook, Office365), some information are required in your configuration file(.env for Cypht 2.x.x or hm3.ini for Cypht 1.4.x):</p>
+            <pre>
+                SERVICE_CLIENT_ID=
+                SERVICE_CLIENT_SECRET=
+                SERVICE_CLIENT_URI=
+            </pre>
+            <p><a href="/cypht-enable-gmail-oauth">How to get them?</a></p>
         </div>
+
     </div>
 </section>
 
