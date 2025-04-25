@@ -55,6 +55,10 @@ exclude: true
         <li class="nav-item">
             <a class="nav-link" id="windows-tab" data-toggle="tab" href="#windows" role="tab" aria-controls="windows" aria-selected="false">Windows</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" id="cpanel-tab" data-toggle="tab" href="#cpanel" role="tab" aria-controls="cpanel" aria-selected="false">Cpanel</a>
+        </li>
+        
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="linux" role="tabpanel" aria-labelledby="linux-tab">
@@ -463,6 +467,266 @@ exclude: true
                 echo.
                 echo  %GREEN% ✓ Cypht %version%  installed successfully to %destination% %RESET%
                 pause
+            </pre>
+        </div>
+        <div class="tab-pane fade" id="cpanel" role="tabpanel" aria-labelledby="cpanel-tab">
+            <pre>
+                #!/bin/bash
+
+                bold_green() {
+                echo -e "\033[1m\033[32m✓ $1\033[0m"
+                }
+
+                bold_red() {
+                echo -e "\033[1m\033[31m$1\033[0m"
+                }
+
+                bold_blue() {
+                echo -e "\033[1m\033[34m$1\033[0m"
+                }
+
+                bold_yellow() {
+                echo -e "\033[1m\033[33m$1\033[0m"
+                }
+
+                # Function to check prerequisites
+                check_prerequisites() {
+                    echo "Checking prerequisites..."
+                    
+                    # Check if PHP is installed
+                    if ! command -v php &>/dev/null; then
+                        bold_red "Error: PHP is not installed or not in the system PATH."
+                        bold_red "Please install PHP before proceeding."
+                        exit 1
+                    fi
+
+                    # Print the PHP version
+                    bold_green "PHP is installed."
+
+                    # List installed PHP extensions
+                    required_extensions=("openssl" "mbstring" "curl")
+                    missing_extensions=()
+
+                    for ext in "${required_extensions[@]}"; do
+                        if ! php -m | grep -iq "$ext"; then
+                            missing_extensions+=("$ext")
+                        fi
+                    done
+
+                    if [ ${#missing_extensions[@]} -gt 0 ]; then
+                        bold_red "Error: The following required PHP extensions are missing: ${missing_extensions[*]}"
+                        bold_red "Please install the missing extensions before proceeding."
+                        exit 1
+                    else
+                        bold_green "All required PHP extensions (OpenSSL, mbstring, cURL) are installed."
+                    fi
+
+                    # Check if Composer is installed
+                    if ! command -v composer &>/dev/null; then
+                        bold_red "Error: Composer is not installed or not in the system PATH."
+                        bold_red "Please install Composer before proceeding: https://getcomposer.org/download/"
+                        exit 1
+                    fi
+
+                    # Print the Composer version
+                    bold_green "Composer is installed.\n"
+
+                    # Check if jq is installed (needed for version parsing)
+                    # if ! command -v jq &>/dev/null; then
+                    #     bold_red "Error: jq is not installed but required to fetch versions."
+                    #     bold_red "Please install it with:"
+                    #     bold_blue "  apt update && apt install jq"
+                    #     exit 1
+                    # fi
+
+                }
+
+                # Function to fetch the list of valid tags from the GitHub repository
+                selected_version=""
+                fetch_tags() {
+                    echo "Fetching latest versions from GitHub..." >&2  # Print to stderr to avoid mixing with output
+                    versions=$(curl -s https://api.github.com/repos/cypht-org/cypht/releases | grep '"tag_name":' | awk -F'"' '{print $4}' | sort -Vr)
+                    local master_version="master"
+
+                    declare -A latest_versions
+
+                    for version in $versions; do
+                        if [[ "$version" =~ ^v([0-9]+)\.[0-9]+\.[0-9]+$ ]]; then
+                            local major_version=${BASH_REMATCH[1]}
+                            if [[ -z "${latest_versions[$major_version]}" ]]; then
+                                latest_versions[$major_version]=$version
+                            fi
+                        fi
+                    done
+
+                    local sorted_majors=($(printf "%s\n" "${!latest_versions[@]}" | sort -nr))
+
+                    local count=1
+                    for major in "${sorted_majors[@]}"; do
+                        echo "$count. ${latest_versions[$major]}"
+                        ((count++))
+                    done
+                    echo "---------------------"
+
+                    local max_option=$count
+                    echo "$max_option. $master_version"
+                    echo ""
+
+                    while true; do
+                        read -p "Enter the version number (e.g. 1 for v1.4.5) [master]: " choice
+                        
+                        if [[ -z "$choice" ]]; then
+                            selected_version="$master_version"
+                            break
+                        fi
+                        
+                        if ! [[ "$choice" =~ ^[0-9]+$ ]]; then
+                            bold_red "Invalid version choice. Please select a valid number from the list.."
+                            continue
+                        fi
+                        
+                        if (( choice < 1 || choice > max_option )); then
+                            bold_red "Invalid version choice. Please select a valid number from the list.."
+                            continue
+                        fi
+                        
+                        if (( choice == max_option )); then
+                            selected_version="$master_version"
+                        else
+                            local selected_index=$((choice-1))
+                            selected_version="${latest_versions[${sorted_majors[$selected_index]}]}"
+                        fi
+                        break
+                    done
+                }
+
+                # Function to install Cypht for a given version
+                install_cypht() {
+                    local version=$1
+                    local destination="$BASE_DIR"
+
+                    # Create temporary working directory
+                    temp_dir=$(mktemp -d)
+                    cd "$temp_dir" || exit 1
+
+                    # Download the selected version of Cypht
+                    if [ "$version" == "master" ]; then
+                        bold_blue "Downloading the latest development version (master branch)..."
+                        wget "https://github.com/cypht-org/cypht/archive/refs/heads/master.zip" -O "master.zip"
+                        archive_name="master.zip"
+                        extracted_folder="cypht-master"
+                    else
+                        bold_blue "Downloading version $version..."
+                        wget "https://github.com/cypht-org/cypht/archive/refs/tags/$version.zip" -O "$version.zip"
+                        archive_name="$version.zip"
+                        extracted_folder="cypht-${version#v}"
+                    fi
+
+                    if [ $? -ne 0 ]; then
+                        bold_red "Error downloading version $version."
+                        exit 1
+                    fi
+
+                    # Unpack the archive
+                    bold_blue "Unpacking the archive...\n"
+                    unzip "$archive_name"
+
+                    if [ $? -ne 0 ]; then
+                        bold_red "Error unpacking the archive."
+                        exit 1
+                    fi
+
+                    # Run composer
+                    cd "$extracted_folder" || exit 1
+                    bold_blue "Installing dependencies with composer...\n"
+                    composer install
+
+                    # Handle configuration file creation
+
+                    if [[ "$selected_version" =~ ^v1 ]]; then
+                        bold_blue "Creating hm3.ini from hm3.sample.ini\n"
+                        cp hm3.sample.ini hm3.ini
+                    else
+                        bold_blue "Creating .env from .env.example....\n"
+                        cp .env.example .env
+                    fi
+
+                    # Move files to the destination folder
+                    bold_blue "Copying files to $destination...\n"
+                    rm -rf "$destination"
+                    mkdir -p "$destination"
+                    mv ./* ./.[!.]* "$destination/"
+
+                    # Clean up temporary directory
+                    cd ..
+                    rm -rf "$temp_dir"
+
+                    if [ $? -ne 0 ]; then
+                        echo "Error moving files to $destination."
+                        exit 1
+                    fi
+                    bold_green "Cypht $version installed successfully to $destination"
+                }
+
+                # Function: check_public_html_data
+                # Description:  Checks if the user's public_html folder contains data.
+                #               If data is found, it warns the user and asks
+                #               for confirmation to continue, with 'no' as the default option.
+                # Returns:      0 if the user chooses to continue or if the folder is empty/does not exist.
+                #               1 if the user chooses to exit.
+                check_public_html_data() {
+                    local public_html_dir="$BASE_DIR"
+
+                    if [ -n "$(ls -A "$public_html_dir")" ]; then
+                        # Le dossier contient des données
+                        echo ""
+                        bold_yellow "WARNING: The folder public_html/ contains data."
+                        bold_yellow "If you continue, this data could be lost or overwritten."
+                        echo ""
+
+                        read -p "Do you really want to continue? (yes/no) [no]: " -r user_response
+
+                        user_response=${user_response,,} #
+                        user_response=${user_response:-no} #
+
+                        case "$user_response" in
+                            yes|y)
+                                return 0
+                                ;;
+                            *)
+                                return 1
+                                ;;
+                        esac
+                    else
+                        return 0
+                    fi
+                }
+
+                # Main script execution
+
+                # Check prerequisites
+                check_prerequisites
+                BASE_DIR="$HOME/public_html"
+
+                # Fetch available version tags
+                fetch_tags
+
+                if check_public_html_data; then
+                    
+                    mkdir -p ~/hm3/{attachments,users,app_data}
+                    
+                    bold_blue "Installation of version: $selected_version"
+                    install_cypht "$selected_version"
+
+                else
+
+                    echo ""
+                    bold_yellow "You have canceled the installation process."
+                    echo ""
+                    exit 1
+                fi
+
+
             </pre>
         </div>
     </div>
