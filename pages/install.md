@@ -59,7 +59,7 @@ exclude: true
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="linux" role="tabpanel" aria-labelledby="linux-tab">
             <pre>
-    
+
                 #!/bin/bash
 
                 bold_green() {
@@ -81,6 +81,14 @@ exclude: true
                 # Function to check prerequisites
                 check_prerequisites() {
                     echo "Checking prerequisites..."
+
+                    # Check if jq is installed (needed for version parsing)
+                    if ! command -v jq &>/dev/null; then
+                        bold_red "Error: jq is not installed but required to fetch versions."
+                        bold_red "Please install it with:"
+                        bold_blue "  sudo apt update && sudo apt install jq"
+                        exit 1
+                    fi
 
                     # Check if PHP is installed
                     if ! command -v php &>/dev/null; then
@@ -383,7 +391,7 @@ exclude: true
                 :: 5. Confirmation
                 echo.
 
-                echo Installation in progress... 
+                echo Installation in progress...
                 set "version=!version[%VERSION%]!"
                 set "destination=%INSTALL_DIR%\cypht-%version%"
                 echo.
@@ -466,7 +474,7 @@ exclude: true
             </pre>
         </div>
     </div>
-    
+
     <h4>3. Configure the program</h4>
     <p>
         To configure Cypht for your environment, you must first edit the "hm3.ini" (for Cypht 1.4.x) or ".env"
