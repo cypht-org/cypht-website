@@ -3,7 +3,7 @@ title: License
 weight: 25
 ---
 <h2>Cypht source code is distributed under the LGPL V2.1 license:</h2>
-<h3><a href="https://github.com/cypht-org/cypht/blob/masterLICENSE">Go to the license</a></h3>
+<h3><a href="https://github.com/cypht-org/cypht/blob/master/LICENSE">Go to the license</a></h3>
 <p> Cypht will always be both free and Open Source. Cypht uses a handful of third party libraries both indirectly
     and directly. Compatible version of direct dependencies are always included in the Cypht source or installed via
     PHP composer.
