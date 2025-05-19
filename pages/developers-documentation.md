@@ -28,6 +28,7 @@ nocontainer: true
         <h3 class="bold-title"><b>lib</b></h3>
         <p>Contain the core of Cypht</p>
         <h3 class="bold-title"><b>modules</b></h3>
+        <p>Contains all modules. Each module contains the files below:</p>
         <ul>
             <li>site.js: contains module-specific javascript code</li>
             <li>site.css: contains module-specific CSS code</li>
@@ -39,8 +40,8 @@ nocontainer: true
             <li>Assets folder: some modules have assets (fonts, images, samples). Please see the core or local_contacts
                 modules.</li>
         </ul>
-        <p>Contains all modules. Each module contains the files below:</p>
         <p>You will get a detailed explanation of how each module works in config/app.php.</p>
+        <p><strong>Important information</strong> about inter-module dependencies: Cypht modules are designed to be pluggable functionality that can be conditionally turned on or off. It is important to design and keep them as self-contained as possible. It is OK to depend on the core module but when you face a situation where you need to use functionality from another module you should ask yourself if you are building the functionality in the right place. One example is sievefilters module - it is adding support for Sieve managment on top of existing IMAP servers that support it. Overall, it depends on the imap module and cannot work without it. However, IMAP module does not depend on Sievefilters module and can work without it. Thus, if you put any functionality that is connected with Sieve (including configuration storage or simple Sieve parsing) in IMAP module, this is breaking module encapsulation. The right place to put it is in Sievefilters module. If you want to extend a module in IMAP to support Sieve, consider adding a module in Sievefilters and define it to run "after" or "before" another module in IMAP module. This will help you augment functionality in one module by not touching it at all. Avoid require/include lines for files from another module at all costs.</p>
         <h3 class="bold-title"><b>scripts</b></h3>
         <p>Contains script files to generate configuration (done once after installation), create/delete/update user
             accounts, generate necessary tables to manage users, sessions, or settings based on values in the
