@@ -170,8 +170,10 @@ nocontainer: true
             the <b>configuration map section</b>.</p>
         <h3 class="bold-title"><b>Add third party</b></h3>
         <p>Copy the minified file to the third-party directory</p>
-        <p>Add the file path in Hm_Output_page_js~np~::~/np~output or Hm_Output_header_css~np~::~/np~output if it is
-            a CSS file.</p>
+       <p>
+        Add the file path in <code>Hm_Output_page_js.output</code> or 
+        <code>Hm_Output_header_css.output</code> if it is a CSS file.
+        </p>
         <p>Finally, add the file in the combine_includes function in scripts/config_gen.php so that it is added when
             generating the production site.</p>
         <h3 class="bold-title"><b>Enable a module</b></h3>
