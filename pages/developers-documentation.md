@@ -12,55 +12,54 @@ nocontainer: true
             across the repository. You'll also find templates for pull requests, issues, and bug reports. To edit
             the default text in a merge request description, simply modify the relevant file in this folder.</p>
         <h3 class="bold-title"><b>.travis</b></h3>
-        <p>Refer to <a href="https://docs.travis-ci.com/user/for-beginners/" target="_blank">https://docs.travis-ci.com/user/for-beginners/</a></p>
+        <p>Refer to <a href="https://docs.travis-ci.com/user/for-beginners/" target="_blank">Travis CI for Beginners.</a></p>
         <h3 class="bold-title"><b>Config</b></h3>
-        <p>This was introduced with the support of .env files in Cypht</p>
-        <p>It contains all the contents of the .env file grouped by semantics within the files. Files in this folder
-            return an array. They simply take the values from the .env file and set a default value if it is not
-            defined in .env.</p>
-        <p>A special case is that the Dynamic.php file (not tracked by git) is automatically generated every time
-            you change something in the .env file. After compiling all other files in this folder, this is the
+        <p>This was introduced with the support of <span style="background: rgb(128 128 128 / 21%); padding:2px; border-radius:4px">.env</span> files in Cypht</p>
+        <p>It contains all the contents of the <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">.env</span> file grouped by semantics within the files. Files in this folder
+            return an array. They simply take the values from the <span style="background: rgb(128 128 128 / 21%); padding:4px; border-radius:4px; width:fit-content">.env</span> file and set a default value if it is not
+            defined.</p>
+        <p>A special case is that the <span style="background: rgb(128 128 128 / 21%); padding:2px; border-radius:4px">Dynamic.php</span> file (not tracked by git) is automatically generated every time
+            you change something in the <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">.env.</span> file. After compiling all other files in this folder, this is the
             configuration file used by Cypht at runtime.</p>
-        <p>Related PR: Switching cypht config hm3.* to dotenv</p>
-        <p><a href="https://github.com/cypht-org/cypht/pull/823/" target="_blank">https://github.com/cypht-org/cypht/pull/823/</a></p>
+        <p><a href="https://github.com/cypht-org/cypht/pull/823/" target="_blank">Related PR: Switching cypht config hm3.* to dotenv</a></p>
         <h3 class="bold-title"><b>language</b></h3>
-        <p>Contain translation files</p>
+        <p>Contains translation files</p>
         <h3 class="bold-title"><b>lib</b></h3>
-        <p>Contain the core of Cypht</p>
+        <p>Contains the core of Cypht</p>
         <h3 class="bold-title"><b>modules</b></h3>
         <p>Contains all modules. Each module contains the files below:</p>
         <ul>
-            <li>site.js: contains module-specific javascript code</li>
-            <li>site.css: contains module-specific CSS code</li>
-            <li>setup.php: These are management modules, output modules, pages, allowed post variables, allowed get
+            <li><span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">site.js</span>: contains module-specific javascript code</li>
+            <li><span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">site.css</span>: contains module-specific CSS code</li>
+            <li><span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">setup.php</span>: These are management modules, output modules, pages, allowed post variables, allowed get
                 variables, allowed output variables, allowed cookies are set.</li>
-            <li>modules.php: This file contains handlers and output classes. Some modules with multiple handlers,
+            <li><span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">modules.php</span>: This file contains handlers and output classes. Some modules with multiple handlers,
                 outputs and functions may use this file to simply include other files. Take a look at
-                modules/core/modules.php to get an idea.</li>
-            <li>Assets folder: some modules have assets (fonts, images, samples). Please see the core or local_contacts
+                <span style="background: rgb(128 128 128 / 21%); padding:2px; border-radius:4px">modules/core/modules.php</span> to get an idea.</li>
+            <li><span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">Assets folder</span>: some modules have assets (fonts, images, samples). Please see the core or local_contacts
                 modules.</li>
         </ul>
-        <p>You will get a detailed explanation of how each module works in config/app.php.</p>
+        <p>You will get a detailed explanation of how each module works in <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">config/app.php.</span></p>
         <p><strong>Important information</strong> about inter-module dependencies: Cypht modules are designed to be pluggable functionality that can be conditionally turned on or off. It is important to design and keep them as self-contained as possible. It is OK to depend on the core module but when you face a situation where you need to use functionality from another module you should ask yourself if you are building the functionality in the right place. One example is sievefilters module - it is adding support for Sieve managment on top of existing IMAP servers that support it. Overall, it depends on the imap module and cannot work without it. However, IMAP module does not depend on Sievefilters module and can work without it. Thus, if you put any functionality that is connected with Sieve (including configuration storage or simple Sieve parsing) in IMAP module, this is breaking module encapsulation. The right place to put it is in Sievefilters module. If you want to extend a module in IMAP to support Sieve, consider adding a module in Sievefilters and define it to run "after" or "before" another module in IMAP module. This will help you augment functionality in one module by not touching it at all. Avoid require/include lines for files from another module at all costs.</p>
         <h3 class="bold-title"><b>scripts</b></h3>
         <p>Contains script files to generate configuration (done once after installation), create/delete/update user
             accounts, generate necessary tables to manage users, sessions, or settings based on values in the
             environment file and finally others script for development purpose.</p>
         <h3 class="bold-title"><b>site</b></h3>
-        <p>The site folder contains production files generated by scripts/config_gen.php</p>
+        <p>The site folder contains production files generated by <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">scripts/config_gen.php</span></p>
         <h3 class="bold-title"><b>tests</b></h3>
         <p>contains PHPUnit and selenium tests</p>
         <h3 class="bold-title"><b>third_party</b></h3>
         <p>Contains third party minified files used in Cypht</p>
         <h3 class="bold-title"><b>.env</b></h3>
-        <p>The .env file is for high-level configuration. For any variables you're unsure about, check the
+        <p>The <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">.env</span> file is for high-level configuration. For any variables you're unsure about, check the
             configuration folder for detailed explanations.</p>
         <h2>How to</h2>
         <h3 class="bold-title"><b>See the new link in the left menu</b></h3>
         <p>Sometimes you can add a link to the left menu without seeing it. Cypht caches all menus. You need to
             click on the reload link below the navigation menu.</p>
         <h3 class="bold-title"><b>Create a page</b></h3>
-        <p>Cypht supports two types of pages: basic and AJAX. Basic pages are accessible via URL and require a page
+        <p>Cypht supports two types of pages: <b>basic</b> and <b>AJAX</b>. Basic pages are accessible via URL and require a page
             reload, while AJAX pages load asynchronously.</p>
         <p>To create a page called list_messages that displays all messages from the database, navigate to the
             correct module (e.g., the nux module) and insert the following code just before the return array:</p>
@@ -70,11 +69,13 @@ nocontainer: true
             <span class="function-keyword">add_handler</span>('all_messages', 'load_messages',  true);<br>
             <span class="function-keyword">add_output</span>('all_messages', 'print_messages', true);
         </code>
-        <p>- setup_base_page adds your new page to the routes, the first argument is the name of the page accessible
-            by typing /?page=all_messages in the browser in this case</p>
-        <p>- add_handler adds a handler to the page. A handler class contains logic, validates forms, binds alert
-            messages, and passes output variables for use in the output.</p>
-        <p>- add_output adds output to the page. An output class contains HTML that will be returned to the client by typing /?page=all_messages</p>
+        <ul>
+        <li><b>setup_base_page</b> adds your new page to the routes, the first argument is the name of the page accessible
+            by typing <b>/?page=all_messages</b> in the browser in this case</li>
+        <li><b>add_handler</b> adds a handler to the page. A handler class contains logic, validates forms, binds alert
+            messages, and passes output variables for use in the output.</li>
+        <li><b>add_output</b> adds output to the page. An output class contains HTML that will be returned to the client by typing <b>/?page=all_messages</b></li>
+        </ul>
         <h3 class="bold-title"><b>Handler and Output Modules</b></h3>
         <p class="highlight-text">In <span class="highlight-secondary">nux/modules.php</span>:</p>
         <code class="code-block">
@@ -177,7 +178,7 @@ nocontainer: true
         <p>Finally, add the file in the combine_includes function in scripts/config_gen.php so that it is added when
             generating the production site.</p>
         <h3 class="bold-title"><b>Enable a module</b></h3>
-        <p>Edit .env file and add your module to CYPHT_MODULES variable</p>
+        <p>Edit <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">.env</span> file and add your module to CYPHT_MODULES variable</p>
         <h3 class="bold-title"><b>Create a module</b></h3>
         <p>In the modules folder, you'll find a <b>hello_world</b> module with the necessary scaffolding for creating a
             new module. Customize your module by following the code explained above.</p>
@@ -251,11 +252,13 @@ nocontainer: true
             developer tools, go to the Network tab, filter by Fetch/XHR to see AJAX requests, then run the code.
             Click on the request you want to inspect and view the preview or response.</p>
         <h3 class="bold-title"><b>The core module</b></h3>
-        <p>The core module handles:</p>
-        <p>- Rendering CSS headers</p>
-        <p>- Displaying alert messages</p>
-        <p>- Loading JS files and defining shared JS functions</p>
-        <p>- Configuring basic features like backups, server pages, settings, etc.</p>
+        <p>The core module is responsible for:</p>
+        <ul>
+        <li> Rendering CSS headers</li>
+        <li> Displaying alert messages</li>
+        <li> Loading JavaScript files and defining shared JavaScript functions</li>
+        <li> Configuring basic features like backups, server pages, settings, etc.</li>
+        </ul>
         <h3 class="bold-title"><b>Practical Example: 1. Add a <code>test</code> page</b></h3>
         <p>As mentioned earlier, we use the setup_base_page function to add a new page. We'll call this function to
             make our test page available: </p>
@@ -303,14 +306,14 @@ nocontainer: true
             <span class="default-text">add_output('test', 'test_heading', true, 'core', 'content_section_start', 'after');</span>
         </code>
         <p>The first parameter refers to the page that we defined above: test. The second parameter refers to the
-            class (module) that we need to define in core/modules.php with the name Hm_Output_test_heading (In the
-            definition of the output in setup.php, we are not going to include Hm_Output_ because it is a prefix
+            class (module) that we need to define in <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">core/modules.php</span> with the name <b>Hm_Output_test_heading</b> (In the
+            definition of the output in <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">setup.php</span>, we are not going to include <b>Hm_Output_</b> because it is a prefix
             that will be detected automatically). The third parameter allows you to indicate whether this content
             will be displayed based on the user's authentication status. The fourth parameter indicates the module
             that contains the module (output) code. The fifth parameter indicates the position on our page where
             this content will be displayed, and the sixth parameter, which goes with the fifth, determines whether
             this content will be before or after the fifth parameter.</p>
-        <p>Here is Hm_Output_content_section_start, the content after which we want to display our header. </p>
+        <p>Here is <b>Hm_Output_content_section_start</b>, the content after which we want to display our header. </p>
         <p class="highlight-text">In <span class="highlight-secondary">core/output_modules.php</span>:</p>
         <code class="code-block">
             <span class="function-keyword">class Hm_Output_content_section_start </span> extends Hm_Output_Module {</br>
@@ -343,7 +346,7 @@ nocontainer: true
         <p>And here is the result we get; we start to see the result that we are looking for 👌.</p>
         <img src="/img/screenshots/3.png" style="width:100%; margin-bottom: 10px;"/>
         <p>Now that we know how to add content, let's add another section after the header. </p>
-        <p>Define the output in core/setup.php to display it right after the header. You should already know what
+        <p>Define the output in <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">core/setup.php</span> to display it right after the header. You should already know what
             the penultimate and last parameters will be.</p>
         <p class="highlight-text">In <span class="highlight-secondary">core/setup.php</span>:</p>
         <code class="code-block">
@@ -407,36 +410,36 @@ nocontainer: true
         <code class="code-block">
             class Hm_Output_test_third_div extends Hm_Output_Module {
                 protected function output() {
-                    return '&lt;div class="nux_help mt-3 col-lg-12 col-md-12 col-sm-12"&gt;' +
-                        '&lt;div class="card"&gt;' +
-                            '&lt;div class="card-body"&gt;' +
-                                '&lt;div class="card_title"&gt;&lt;h4&gt;' + 
-                                    $this->trans('Test Our Form') + '&lt;/h4&gt;&lt;/div&gt;' +
-                                '&lt;form class="add_server me-0" method="POST" action="?page=test"&gt;' +
-                                    '&lt;input type="hidden" name="hm_page_key" value="' + 
-                                        $this->html_safe(Hm_Request_Key::generate()) + '" /&gt;' +
-                                    '&lt;div class="subtitle mt-4"&gt;Tag name&lt;/div&gt;' +
-                                    '&lt;div class="form-floating mb-3"&gt;' +
-                                        '&lt;input required type="text" id="new_tag_name" name="new_tag_name" class="txt_fld'
-                                        'form-control" value="" placeholder="' + $this->trans('Tag name') + '" /&gt;' +
-                                        '&lt;label class="" for="new_tag_name"&gt;' + 
-                                            $this->trans('Tag name') + '&lt;/label&gt;' +
-                                    '&lt;/div&gt;' +
-                                    '&lt;input type="submit" class="btn btn-primary px-5" value="' + 
-                                        $this->trans('Add') + '" name="submit_tag" /&gt;' +
-                                '&lt;/form&gt;' +
-                            '&lt;/div&gt;' +
-                        '&lt;/div&gt;' +
+                    return '&lt;div class="nux_help mt-3 col-lg-12 col-md-12 col-sm-12"&gt;' .
+                        '&lt;div class="card"&gt;' .
+                            '&lt;div class="card-body"&gt;' .
+                                '&lt;div class="card_title"&gt;&lt;h4&gt;' . 
+                                    $this->trans('Test Our Form') . '&lt;/h4&gt;&lt;/div&gt;' .
+                                '&lt;form class="add_server me-0" method="POST" action="?page=test"&gt;' .
+                                    '&lt;input type="hidden" name="hm_page_key" value="' . 
+                                        $this->html_safe(Hm_Request_Key::generate()) . '" /&gt;' .
+                                    '&lt;div class="subtitle mt-4"&gt;Tag name&lt;/div&gt;' .
+                                    '&lt;div class="form-floating mb-3"&gt;' .
+                                        '&lt;input required type="text" id="new_tag_name" name="new_tag_name" class="txt_fld ' .
+                                        'form-control" value="" placeholder="' . $this->trans('Tag name') . '" /&gt;' .
+                                        '&lt;label class="" for="new_tag_name"&gt;' . 
+                                            $this->trans('Tag name') . '&lt;/label&gt;' .
+                                    '&lt;/div&gt;' .
+                                    '&lt;input type="submit" class="btn btn-primary px-5" value="' . 
+                                        $this->trans('Add') . '" name="submit_tag" /&gt;' .
+                                '&lt;/form&gt;' .
+                            '&lt;/div&gt;' .
+                        '&lt;/div&gt;' .
                     '&lt;/div&gt;';
                 }
             }
         </code>
         <p>Here is the result:</p>
         <img src="/img/screenshots/6.png" style="width:100%; margin-bottom: 10px;"/>
-        <p>We learned that add_output allows us to add HTML content to the page, while add_handler is used for
+        <p>We learned that add_output allows us to add HTML content to the page, while <b>add_handler</b> is used for
             backend processing (like a controller). Both accept similar parameters, with the concepts of 'before'
             and 'after' applying to handlers instead of outputs. Remember that these refer to other handlers, and
-            the class will extend Hm_Handler_Module</p>
+            the class will extend <b>Hm_Handler_Module</b></p>
         <p class="highlight-text">In <span class="highlight-secondary">core/setup.php</span>:</p>
         <code class="code-block">
             <span class="default-text">add_handler('test', 'process_test_third_div', true, 'core', 'load_user_data', 'after');</span>
@@ -499,13 +502,13 @@ nocontainer: true
             <span class="function-keyword">/**</span><br>
             <span class="function-keyword"> * If "stay logged in" is checked, set the session lifetime</span><br>
             <span class="function-keyword"> */</span><br>
-            <span class="function-keyword">public function process()</span> {<br>
+            <span class="function-keyword">   public function process()</span> {<br>
             <span class="default-text">    list($success, $form) = $this->process_form(array('new_tag_name'));</span><br>
             <span class="default-text">    if ($success && $form['new_tag_name']) {</span><br>
             <span class="default-text">        $this->session->set('tag_name', $form['new_tag_name']);</span><br>
             <span class="default-text">    }</span><br>
-            <span class="function-keyword">}</span><br>
-            <span class="function-keyword">}</span>
+            <span class="function-keyword">  }</span><br>
+            <span class="function-keyword"> }</span>
         </code>
         <p>Remember: to retrieve our stored data, we need another handler, and it must be placed after the handlers
             that store the data; otherwise, it may cause malfunctions.</p>
@@ -517,7 +520,7 @@ nocontainer: true
         <code class="code-block">
             <span class="default-text">$res = $this->session->get('key', 'Default Value');</span>
         </code>
-        <p>Let's also define the module in handler_modules.php</p>
+        <p>Let's also define the module in <span style="background: rgb(128 128 128 / 21%); padding:2px; border-radius:4px">handler_modules.php</span></p>
         <p class="highlight-text">In <span
                 class="highlight-secondary">core/handler_modules.php</span>:</p>
         <code class="code-block">
@@ -539,8 +542,8 @@ nocontainer: true
         <code class="code-block">
             <span class="default-text">$this->session->del('key');</span>
         </code>
-        <p>In the Hm_Handler_get_test_third_div module, we will never encounter a null value because we provided a
-            default. Therefore, the is_null condition is unnecessary. We use $this->out('tag_name', $res); to pass
+        <p>In the <b>Hm_Handler_get_test_third_div</b> module, we will never encounter a null value because we provided a
+            default. Therefore, the <b>is_null</b> condition is unnecessary. We use $this->out('tag_name', $res); to pass
             our data to the output. To retrieve it from the output, we will do it like this:</p>
         <code class="code-block">
             <span class="default-text">$this->get('key');</span>
@@ -593,13 +596,13 @@ nocontainer: true
             <span class="function-keyword">add_handler</span>('settings', 'process_test_enable_tag_with_parent', true, 'tags', 'save_user_settings', 'before');<br>
             <span class="function-keyword">add_output</span>('settings', 'test_enable_tag_with_parent_setting', true, 'tags', 'default_sort_order_setting', 'after');
         </code>
-        <p>default_sort_order_setting is the output for 'Default message sort order.' When adding an output, we need
-            to specify its position. In this case, we want to place it after default_sort_order_setting. The
-            process_test_enable_tag_with_parent_setting must come before save_user_settings since we need to save it
-            as well. Thus, our configuration process will be applied and saved before handling save_user_settings.
+        <p><b>default_sort_order_setting</b> is the output for 'Default message sort order.' When adding an output, we need
+            to specify its position. In this case, we want to place it after <b>default_sort_order_setting</b>. The
+            <b>process_test_enable_tag_with_parent_setting</b> must come before <b>save_user_settings</b> since we need to save it
+            as well. Thus, our configuration process will be applied and saved before handling <b>save_user_settings</b>.
         </p>
         <p>Now that we’ve defined our routes, we need to write the module for processing:
-            process_test_enable_tag_with_parent_setting for the handle and test_enable_tag_with_parent_setting for
+            <b>process_test_enable_tag_with_parent_setting</b> for the handle and <b>test_enable_tag_with_parent_setting</b> for
             the output.</p>
         <p class="highlight-text">In <span class="highlight-secondary">module.php</span>:</p>
         <code class="code-block">
@@ -637,7 +640,7 @@ nocontainer: true
             <span class="function-keyword"> }</span><br>
             <span class="function-keyword">}</span>
         </code>
-        <p>reset_default_value_checkbox class here <span class="tooltip_restore"
+        <p><b>reset_default_value_checkbox</b> class here <span class="tooltip_restore"
                 restore_aria_label="Restore default value"><i
                     class="bi bi-arrow-repeat refresh_list reset_default_value_checkbox"></i></span> is being used
             in js (module core site.js) to restore the default value at line:</p>
