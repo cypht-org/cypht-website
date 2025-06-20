@@ -730,7 +730,7 @@ nocontainer: true
             <span class="default-text"> * Settings in this section control the tag messages view</span><br>
             <span class="function-keyword"> */</span><br>
             <span class="function-keyword">protected function output()</span> {<br>
-            <span class="default-text">    $res = '<tr><td data-target=".tag_setting" colspan="2" class="settings_subtitle cursor-pointer border-bottom p-2">'.</span><br>
+            <span class="default-text">    $res = '</span><tr><td data-target=".tag_setting" colspan="2" class="settings_subtitle cursor-pointer border-bottom p-2">'.<br>
             <span class="default-text">        '<i class="bi bi-tags fs-5 me-2"></i>'.</span><br>
             <span class="default-text">        $this->trans('Tags').'</td></tr>';</span><br>
             <span class="default-text">        print_r($res);</span><br>
