@@ -56,9 +56,12 @@ nocontainer: true
         <p>The .env file is for high-level configuration. For any variables you're unsure about, check the
             configuration folder for detailed explanations.</p>
         <h2>How to</h2>
+        <section id="new-link">
         <h3 class="bold-title"><b>See the new link in the left menu</b></h3>
         <p>Sometimes you can add a link to the left menu without seeing it. Cypht caches all menus. You need to
             click on the reload link below the navigation menu.</p>
+        </section>
+        <section id="create-a-page">
         <h3 class="bold-title"><b>Create a page</b></h3>
         <p>Cypht supports two types of pages: basic and AJAX. Basic pages are accessible via URL and require a page
             reload, while AJAX pages load asynchronously.</p>
@@ -75,6 +78,8 @@ nocontainer: true
         <p>- add_handler adds a handler to the page. A handler class contains logic, validates forms, binds alert
             messages, and passes output variables for use in the output.</p>
         <p>- add_output adds output to the page. An output class contains HTML that will be returned to the client by typing /?page=all_messages</p>
+        </section>
+        <section id="handler-and-output-modules">
         <h3 class="bold-title"><b>Handler and Output Modules</b></h3>
         <p class="highlight-text">In <span class="highlight-secondary">nux/modules.php</span>:</p>
         <code class="code-block">
@@ -168,7 +173,7 @@ nocontainer: true
         <p><b><b>Note:</b></b> A page can have multiple handlers/outputs. A full list of all handlers and outputs attached to
             a page can be seen by accessing <span class="function-keyword">?page=info</span> page on your instance in
             the <b>configuration map section</b>.</p>
-        <h3 class="bold-title"><b>Add third party</b></h3>
+        <h4 class="bold-title"><b>Add third party</b></h4>
         <p>Copy the minified file to the third-party directory</p>
        <p>
         Add the file path in <code>Hm_Output_page_js.output</code> or 
@@ -176,11 +181,13 @@ nocontainer: true
         </p>
         <p>Finally, add the file in the combine_includes function in scripts/config_gen.php so that it is added when
             generating the production site.</p>
-        <h3 class="bold-title"><b>Enable a module</b></h3>
+        <h4 class="bold-title"><b>Enable a module</b></h4>
         <p>Edit .env file and add your module to CYPHT_MODULES variable</p>
-        <h3 class="bold-title"><b>Create a module</b></h3>
+        <h4 class="bold-title"><b>Create a module</b></h4>
         <p>In the modules folder, you'll find a <b>hello_world</b> module with the necessary scaffolding for creating a
             new module. Customize your module by following the code explained above.</p>
+        </section>
+        <section id="translate-string">
         <h3 class="bold-title"><b>Translate string</b></h3>
         <p>If you need to translate a string in:</p>
         <p><span class="highlight-secondary">Handler module</span>:</p>
@@ -197,12 +204,12 @@ nocontainer: true
         </code>
         <p>The second parameter here is optional because the default language is the user's language in the settings
             page.</p>
-        <h3 class="bold-title"><b>Add new translation string</b></h3>
+        <h4 class="bold-title"><b>Add new translation string</b></h4>
         <p>Add your string to each file contained in the language folder.</p>
         <p>The file names in this folder are language codes. And all return an array. Just add your new string to
             the end of the array. If you know the translation of the text in a language, add it as a value,
             otherwise add false as a value.</p>
-        <h3 class="bold-title"><b>Add new language</b></h3>
+        <h4 class="bold-title"><b>Add new language</b></h4>
         <p>Duplicate the en.php file into the language folder</p>
         <p>Rename it (Cypht uses 2 digit code, please refer to <a
                 href="https://en.wikipedia.org/wiki/List_of_ISO_639_lingual_codes"
@@ -210,9 +217,11 @@ nocontainer: true
         <p>In the renamed file, modify interface_lang and interface_direction in the array accordingly.</p>
         <p>Add your language in the interface_langs() function.</p>
         <p>Update this test to add your language: Hm_Test_Core_Output_Modules::test_lingual_setting</p>
+        </section>
+        <section id="tests">
         <h3 class="bold-title"><b>Run test</b></h3>
         <p>Cypht has PHPUnit tests and selenium</p>
-        <h3 class="bold-title"><b> PHPUnit</b></h3>
+        <h4 class="bold-title"><b> PHPUnit</b></h4>
         <p>To run all tests:</p>
         <code style="display: block; background-color: #1e1e1e; color: #f8f8f2; padding: 15px; border-radius: 5px; font-size: 16px; line-height: 1.5; overflow-x: auto; white-space: pre-wrap; margin-bottom: 20px;">
             <span class="function-keyword"> php vendor/phpunit/phpunit/phpunit --configuration tests/phpunit/phpunit.xml</span>
@@ -236,7 +245,7 @@ nocontainer: true
         <code class="code-block">
             <span class="function-keyword">sh runall.sh</span>
         </code>
-        <h3 class="bold-title"><b>Fix PHPUnit failing tests</b></h3>
+        <h4 class="bold-title"><b>Fix PHPUnit failing tests</b></h4>
         <p>Run all tests or filter specific ones, and the console will show the results. In VSCode or similar, click
             on the file path to go directly to the line causing the issue. Check recent changes to classes, divs, or
             logic in the handlers that may be causing the failure.</p>
@@ -246,16 +255,22 @@ nocontainer: true
             <span class="default-text">Failed asserting that true is false.</span>
             <span class="default-text">/Applications/MAMP/htdocs/cypht/tests/phpunit/cache.php:19</span>
         </code>
+        </section>
+        <section id="debug-ajax-requests">
         <h3 class="bold-title"><b>Debug AJAX requests</b></h3>
         <p>Cypht relies heavily on AJAX requests. To debug, add var_dump and exit in your code. Open your browser's
             developer tools, go to the Network tab, filter by Fetch/XHR to see AJAX requests, then run the code.
             Click on the request you want to inspect and view the preview or response.</p>
+        </section>
+        <section id="the-core-module">
         <h3 class="bold-title"><b>The core module</b></h3>
         <p>The core module handles:</p>
         <p>- Rendering CSS headers</p>
         <p>- Displaying alert messages</p>
         <p>- Loading JS files and defining shared JS functions</p>
         <p>- Configuring basic features like backups, server pages, settings, etc.</p>
+        </section>
+        <section id="practical-example-1">
         <h3 class="bold-title"><b>Practical Example: 1. Add a <code>test</code> page</b></h3>
         <p>As mentioned earlier, we use the setup_base_page function to add a new page. We'll call this function to
             make our test page available: </p>
@@ -579,6 +594,8 @@ nocontainer: true
         <img src="/img/screenshots/7.png" style="width:100%; margin-bottom: 10px;"/>
         <p>Result after:</p>
         <img src="/img/screenshots/8.png" style="width:100%; margin-bottom: 10px;"/>
+        </section>
+        <section id="practical-example-2">
         <h3 class="bold-title"><b>Practical Example: 2. How to add new settings</b></h3>
         <p>Let's start by adding a simple parameter and then we'll see how to add another section after.</p>
         <p>We will add our setting after this content:</p>
@@ -725,7 +742,7 @@ nocontainer: true
             <span class="default-text"> * Settings in this section control the tag messages view</span><br>
             <span class="function-keyword"> */</span><br>
             <span class="function-keyword">protected function output()</span> {<br>
-            <span class="default-text">    $res = '<tr><td data-target=".tag_setting" colspan="2" class="settings_subtitle cursor-pointer border-bottom p-2">'.</span><br>
+            <span class="default-text">    $res = '</span><tr><td data-target=".tag_setting" colspan="2" class="settings_subtitle cursor-pointer border-bottom p-2">'.<br>
             <span class="default-text">        '<i class="bi bi-tags fs-5 me-2"></i>'.</span><br>
             <span class="default-text">        $this->trans('Tags').'</td></tr>';</span><br>
             <span class="default-text">        print_r($res);</span><br>
@@ -787,6 +804,7 @@ nocontainer: true
         <p>And there you have it! Refresh your page to see the result:</p>
         <img src="/img/screenshots/12.png" style="width:100%; margin-bottom: 10px;"/>
     </div>
+    </section>
     <br/><br/>
     <h3>Related links:</h3>
     <a href="https://github.com/dovecot/imaptest/wiki/About">https://github.com/dovecot/imaptest/wiki/About</a><br>
