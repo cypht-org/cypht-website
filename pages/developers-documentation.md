@@ -57,9 +57,12 @@ nocontainer: true
         <h2>Third-party integrations</h2>
         <p>Cypht is currently being actively used as embedded web mail client in Tiki. Be sure to read the integration code <a href="https://gitlab.com/tikiwiki/tiki/-/tree/master/lib/cypht?ref_type=heads">here</a> before doing changes in Cypht codebase, as some changes will require updates to the Tiki-Cypht integration and some changes might be done in a less disturbing way to prevent upstream from breaking. Be especially careful when doing bigger refactorings as module updates, overall layout updates, interface changes as in routing, error messaging, internal imap/smtp or other module updates. When in doubt, please request PR review from <a href="https://github.com/kroky">Victor</a>.</p>
         <h2>How to</h2>
+        <section id="new-link">
         <h3 class="bold-title"><b>See the new link in the left menu</b></h3>
         <p>Sometimes you can add a link to the left menu without seeing it. Cypht caches all menus. You need to
             click on the reload link below the navigation menu.</p>
+        </section>
+        <section id="create-a-page">
         <h3 class="bold-title"><b>Create a page</b></h3>
         <p>Cypht supports two types of pages: <b>basic</b> and <b>AJAX</b>. Basic pages are accessible via URL and require a page
             reload, while AJAX pages load asynchronously.</p>
@@ -171,7 +174,7 @@ nocontainer: true
         <p><b><b>Note:</b></b> A page can have multiple handlers/outputs. A full list of all handlers and outputs attached to
             a page can be seen by accessing <span class="function-keyword">?page=info</span> page on your instance in
             the <b>configuration map section</b>.</p>
-        <h3 class="bold-title"><b>Add third party</b></h3>
+        <h4 class="bold-title"><b>Add third party</b></h4>
         <p>Copy the minified file to the third-party directory</p>
        <p>
         Add the file path in <code>Hm_Output_page_js.output</code> or 
@@ -184,6 +187,8 @@ nocontainer: true
         <h3 class="bold-title"><b>Create a module</b></h3>
         <p>In the modules folder, you'll find a <b>hello_world</b> module with the necessary scaffolding for creating a
             new module. Customize your module by following the code explained above.</p>
+        </section>
+        <section id="translate-string">
         <h3 class="bold-title"><b>Translate string</b></h3>
         <p>If you need to translate a string in:</p>
         <p><span class="highlight-secondary">Handler module</span>:</p>
@@ -200,12 +205,12 @@ nocontainer: true
         </code>
         <p>The second parameter here is optional because the default language is the user's language in the settings
             page.</p>
-        <h3 class="bold-title"><b>Add new translation string</b></h3>
+        <h4 class="bold-title"><b>Add new translation string</b></h4>
         <p>Add your string to each file contained in the language folder.</p>
         <p>The file names in this folder are language codes. And all return an array. Just add your new string to
             the end of the array. If you know the translation of the text in a language, add it as a value,
             otherwise add false as a value.</p>
-        <h3 class="bold-title"><b>Add new language</b></h3>
+        <h4 class="bold-title"><b>Add new language</b></h4>
         <p>Duplicate the en.php file into the language folder</p>
         <p>Rename it (Cypht uses 2 digit code, please refer to <a
                 href="https://en.wikipedia.org/wiki/List_of_ISO_639_lingual_codes"
@@ -213,9 +218,11 @@ nocontainer: true
         <p>In the renamed file, modify interface_lang and interface_direction in the array accordingly.</p>
         <p>Add your language in the interface_langs() function.</p>
         <p>Update this test to add your language: Hm_Test_Core_Output_Modules::test_lingual_setting</p>
+        </section>
+        <section id="tests">
         <h3 class="bold-title"><b>Run test</b></h3>
         <p>Cypht has PHPUnit tests and selenium</p>
-        <h3 class="bold-title"><b> PHPUnit</b></h3>
+        <h4 class="bold-title"><b> PHPUnit</b></h4>
         <p>To run all tests:</p>
         <code style="display: block; background-color: #1e1e1e; color: #f8f8f2; padding: 15px; border-radius: 5px; font-size: 16px; line-height: 1.5; overflow-x: auto; white-space: pre-wrap; margin-bottom: 20px;">
             <span class="function-keyword"> php vendor/phpunit/phpunit/phpunit --configuration tests/phpunit/phpunit.xml</span>
@@ -239,7 +246,7 @@ nocontainer: true
         <code class="code-block">
             <span class="function-keyword">sh runall.sh</span>
         </code>
-        <h3 class="bold-title"><b>Fix PHPUnit failing tests</b></h3>
+        <h4 class="bold-title"><b>Fix PHPUnit failing tests</b></h4>
         <p>Run all tests or filter specific ones, and the console will show the results. In VSCode or similar, click
             on the file path to go directly to the line causing the issue. Check recent changes to classes, divs, or
             logic in the handlers that may be causing the failure.</p>
@@ -249,10 +256,14 @@ nocontainer: true
             <span class="default-text">Failed asserting that true is false.</span>
             <span class="default-text">/Applications/MAMP/htdocs/cypht/tests/phpunit/cache.php:19</span>
         </code>
+        </section>
+        <section id="debug-ajax-requests">
         <h3 class="bold-title"><b>Debug AJAX requests</b></h3>
         <p>Cypht relies heavily on AJAX requests. To debug, add var_dump and exit in your code. Open your browser's
             developer tools, go to the Network tab, filter by Fetch/XHR to see AJAX requests, then run the code.
             Click on the request you want to inspect and view the preview or response.</p>
+        </section>
+        <section id="the-core-module">
         <h3 class="bold-title"><b>The core module</b></h3>
         <p>The core module is responsible for:</p>
         <ul>
@@ -584,6 +595,8 @@ nocontainer: true
         <img src="/img/screenshots/7.png" style="width:100%; margin-bottom: 10px;"/>
         <p>Result after:</p>
         <img src="/img/screenshots/8.png" style="width:100%; margin-bottom: 10px;"/>
+        </section>
+        <section id="practical-example-2">
         <h3 class="bold-title"><b>Practical Example: 2. How to add new settings</b></h3>
         <p>Let's start by adding a simple parameter and then we'll see how to add another section after.</p>
         <p>We will add our setting after this content:</p>
@@ -792,6 +805,7 @@ nocontainer: true
         <p>And there you have it! Refresh your page to see the result:</p>
         <img src="/img/screenshots/12.png" style="width:100%; margin-bottom: 10px;"/>
     </div>
+    </section>
     <br/><br/>
     <h3>Related links:</h3>
     <a href="https://github.com/dovecot/imaptest/wiki/About">https://github.com/dovecot/imaptest/wiki/About</a><br>
