@@ -47,7 +47,30 @@ h1: false
                 SERVICE_CLIENT_SECRET=
                 SERVICE_CLIENT_URI=
             </pre>
-            <p><a href="/cypht-enable-gmail-oauth">How to get them?</a></p>
+
+            <a href="#" type="button" data-toggle="modal" data-target="#serviceProviderModal">
+                How to get them?
+            </a>
+
+            <div class="modal fade" id="serviceProviderModal" tabindex="-1" role="dialog" aria-labelledby="serviceProviderModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="serviceProviderModalLabel">Service providers links</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            1. <a href="/cypht-enable-gmail-oauth">Gmail</a><br>
+                            2. <a href="/cypht-enable-outlook-and-office365-oauth">Outlook and Office365?</a><br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
