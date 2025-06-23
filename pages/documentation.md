@@ -23,6 +23,7 @@ h1: false
 </section>
 
 <section class="content-section-doc container">
+    <h2 class="sr-only">After logging in</h2>
     <div class="line">
         <div class="element2 item">
             <p>After successfully logging in the webmail, the users will be redirected to the following home page of the webmail where the interactive interface allows user to perform multiple actions,</p>
@@ -35,6 +36,7 @@ h1: false
 
 
 <section class="content-section-doc container">
+    <h2 class="sr-only">Adding e-mail accounts</h2>
     <div class="line">
         <div class="element1 item">
             <img src="/img/Add.PNG" alt="add" class="img-fluid">
@@ -140,6 +142,7 @@ h1: false
 </section>
 
 <section class="content-section-doc container">
+    <h3 class="sr-only">One-click contact adding within a received message</h3>
     <div class="line">
         <div class="element2 item">
             <p class="text-center">Or simply by clicking on the “one-person” icon in the message you receive.</p>
