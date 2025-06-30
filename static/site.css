@@ -466,6 +466,13 @@ pre code {
 	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
 
+.code-badge {
+	background: rgb(128 128 128 / 21%);
+	padding: 3px;
+	border-radius: 4px;
+	width: fit-content;
+}
+
 @media (prefers-reduced-motion:reduce) {
 	.btn {
 		transition: none
@@ -1384,7 +1391,7 @@ fieldset#CYPHT_MODULES {
 }
 
 .dev-docs-section .function-keyword {
-	color: #66d9ef;
+	color: #2d97ac;
 }
 
 .dev-docs-section .default-text {
