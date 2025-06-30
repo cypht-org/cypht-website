@@ -14,12 +14,12 @@ nocontainer: true
         <h3 class="bold-title"><b>.travis</b></h3>
         <p>Refer to <a href="https://docs.travis-ci.com/user/for-beginners/" target="_blank">Travis CI for Beginners.</a></p>
         <h3 class="bold-title"><b>Config</b></h3>
-        <p>This was introduced with the support of <span style="background: rgb(128 128 128 / 21%); padding:2px; border-radius:4px">.env</span> files in Cypht</p>
-        <p>It contains all the contents of the <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">.env</span> file grouped by semantics within the files. Files in this folder
-            return an array. They simply take the values from the <span style="background: rgb(128 128 128 / 21%); padding:4px; border-radius:4px; width:fit-content">.env</span> file and set a default value if it is not
+        <p>This was introduced with the support of <span class="code-badge">.env</span> files in Cypht</p>
+        <p>It contains all the contents of the <span class="code-badge">.env</span> file grouped by semantics within the files. Files in this folder
+            return an array. They simply take the values from the <span class="code-badge">.env</span> file and set a default value if it is not
             defined.</p>
-        <p>A special case is that the <span style="background: rgb(128 128 128 / 21%); padding:2px; border-radius:4px">Dynamic.php</span> file (not tracked by git) is automatically generated every time
-            you change something in the <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">.env.</span> file. After compiling all other files in this folder, this is the
+        <p>A special case is that the <span class="code-badge">Dynamic.php</span> file (not tracked by git) is automatically generated every time
+            you change something in the <span class="code-badge">.env.</span> file. After compiling all other files in this folder, this is the
             configuration file used by Cypht at runtime.</p>
         <p><a href="https://github.com/cypht-org/cypht/pull/823/" target="_blank">Related PR: Switching cypht config hm3.* to dotenv</a></p>
         <h3 class="bold-title"><b>language</b></h3>
@@ -29,30 +29,30 @@ nocontainer: true
         <h3 class="bold-title"><b>modules</b></h3>
         <p>Contains all modules. Each module contains the files below:</p>
         <ul>
-            <li><span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">site.js</span>: contains module-specific javascript code</li>
-            <li><span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">site.css</span>: contains module-specific CSS code</li>
-            <li><span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">setup.php</span>: These are management modules, output modules, pages, allowed post variables, allowed get
+            <li><span class="code-badge">site.js</span>: contains module-specific javascript code</li>
+            <li><span class="code-badge">site.css</span>: contains module-specific CSS code</li>
+            <li><span class="code-badge">setup.php</span>: These are management modules, output modules, pages, allowed post variables, allowed get
                 variables, allowed output variables, allowed cookies are set.</li>
-            <li><span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">modules.php</span>: This file contains handlers and output classes. Some modules with multiple handlers,
+            <li><span class="code-badge">modules.php</span>: This file contains handlers and output classes. Some modules with multiple handlers,
                 outputs and functions may use this file to simply include other files. Take a look at
-                <span style="background: rgb(128 128 128 / 21%); padding:2px; border-radius:4px">modules/core/modules.php</span> to get an idea.</li>
-            <li><span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">Assets folder</span>: some modules have assets (fonts, images, samples). Please see the core or local_contacts
+                <span class="code-badge">modules/core/modules.php</span> to get an idea.</li>
+            <li><span class="code-badge">Assets folder</span>: some modules have assets (fonts, images, samples). Please see the core or local_contacts
                 modules.</li>
         </ul>
-        <p>You will get a detailed explanation of how each module works in <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">config/app.php.</span></p>
+        <p>You will get a detailed explanation of how each module works in <span class="code-badge">config/app.php.</span></p>
         <p><strong>Important information</strong> about inter-module dependencies: Cypht modules are designed to be pluggable functionality that can be conditionally turned on or off. It is important to design and keep them as self-contained as possible. It is OK to depend on the core module but when you face a situation where you need to use functionality from another module you should ask yourself if you are building the functionality in the right place. One example is sievefilters module - it is adding support for Sieve managment on top of existing IMAP servers that support it. Overall, it depends on the imap module and cannot work without it. However, IMAP module does not depend on Sievefilters module and can work without it. Thus, if you put any functionality that is connected with Sieve (including configuration storage or simple Sieve parsing) in IMAP module, this is breaking module encapsulation. The right place to put it is in Sievefilters module. If you want to extend a module in IMAP to support Sieve, consider adding a module in Sievefilters and define it to run "after" or "before" another module in IMAP module. This will help you augment functionality in one module by not touching it at all. Avoid require/include lines for files from another module at all costs.</p>
         <h3 class="bold-title"><b>scripts</b></h3>
         <p>Contains script files to generate configuration (done once after installation), create/delete/update user
             accounts, generate necessary tables to manage users, sessions, or settings based on values in the
             environment file and finally others script for development purpose.</p>
         <h3 class="bold-title"><b>site</b></h3>
-        <p>The site folder contains production files generated by <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">scripts/config_gen.php</span></p>
+        <p>The site folder contains production files generated by <span class="code-badge">scripts/config_gen.php</span></p>
         <h3 class="bold-title"><b>tests</b></h3>
         <p>contains PHPUnit and selenium tests</p>
         <h3 class="bold-title"><b>third_party</b></h3>
         <p>Contains third party minified files used in Cypht</p>
         <h3 class="bold-title"><b>.env</b></h3>
-        <p>The <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">.env</span> file is for high-level configuration. For any variables you're unsure about, check the
+        <p>The <span class="code-badge">.env</span> file is for high-level configuration. For any variables you're unsure about, check the
             configuration folder for detailed explanations.</p>
         <h2>How to</h2>
         <h3 class="bold-title"><b>See the new link in the left menu</b></h3>
@@ -178,7 +178,7 @@ nocontainer: true
         <p>Finally, add the file in the combine_includes function in scripts/config_gen.php so that it is added when
             generating the production site.</p>
         <h3 class="bold-title"><b>Enable a module</b></h3>
-        <p>Edit <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">.env</span> file and add your module to CYPHT_MODULES variable</p>
+        <p>Edit <span class="code-badge">.env</span> file and add your module to CYPHT_MODULES variable</p>
         <h3 class="bold-title"><b>Create a module</b></h3>
         <p>In the modules folder, you'll find a <b>hello_world</b> module with the necessary scaffolding for creating a
             new module. Customize your module by following the code explained above.</p>
@@ -306,8 +306,8 @@ nocontainer: true
             <span class="default-text">add_output('test', 'test_heading', true, 'core', 'content_section_start', 'after');</span>
         </code>
         <p>The first parameter refers to the page that we defined above: test. The second parameter refers to the
-            class (module) that we need to define in <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">core/modules.php</span> with the name <b>Hm_Output_test_heading</b> (In the
-            definition of the output in <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">setup.php</span>, we are not going to include <b>Hm_Output_</b> because it is a prefix
+            class (module) that we need to define in <span class="code-badge">core/modules.php</span> with the name <b>Hm_Output_test_heading</b> (In the
+            definition of the output in <span class="code-badge">setup.php</span>, we are not going to include <b>Hm_Output_</b> because it is a prefix
             that will be detected automatically). The third parameter allows you to indicate whether this content
             will be displayed based on the user's authentication status. The fourth parameter indicates the module
             that contains the module (output) code. The fifth parameter indicates the position on our page where
@@ -346,7 +346,7 @@ nocontainer: true
         <p>And here is the result we get; we start to see the result that we are looking for 👌.</p>
         <img src="/img/screenshots/3.png" style="width:100%; margin-bottom: 10px;"/>
         <p>Now that we know how to add content, let's add another section after the header. </p>
-        <p>Define the output in <span style="background: rgb(128 128 128 / 21%); padding:3px; border-radius:4px; width:fit-content">core/setup.php</span> to display it right after the header. You should already know what
+        <p>Define the output in <span class="code-badge">core/setup.php</span> to display it right after the header. You should already know what
             the penultimate and last parameters will be.</p>
         <p class="highlight-text">In <span class="highlight-secondary">core/setup.php</span>:</p>
         <code class="code-block">
@@ -520,7 +520,7 @@ nocontainer: true
         <code class="code-block">
             <span class="default-text">$res = $this->session->get('key', 'Default Value');</span>
         </code>
-        <p>Let's also define the module in <span style="background: rgb(128 128 128 / 21%); padding:2px; border-radius:4px">handler_modules.php</span></p>
+        <p>Let's also define the module in <span class="code-badge">handler_modules.php</span></p>
         <p class="highlight-text">In <span
                 class="highlight-secondary">core/handler_modules.php</span>:</p>
         <code class="code-block">
