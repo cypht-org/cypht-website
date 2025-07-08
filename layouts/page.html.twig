@@ -1,59 +1,54 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{page.title}}</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page.title}} - CYPHT</title>
     <link rel="icon" type="image/png" href="/img/icon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="/site.css">
     <link rel="canonical" href="{{site.baseurl}}{{page.path}}">
 </head>
-
 <body>
     {% if not page.h1 is defined or page.h1 != false %}
     <h1 class="sr-only">{{page.h1 |default(page.title)}}</h1>
     {% endif %}
-    <header>
-        <nav aria-label="Site navigation" class="navbar navbar-expand-lg navbar-dark  fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="/">
-                    <img src="/img/logo.svg" width="120" height="60" alt="">
-                </a>
-                <button class="navbar-toggler toggler-home" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-lg-auto">
-                        {% for pageEntry in site.pages.showable|sort_by_weight  %}
-                            {% set current = pageEntry.path == page.path %}
-                            <li class="nav-item {{current ? 'active' : ''}}">
-                                <a
-                                    class="nav-link"
-                                    href="/{{pageEntry.path}}"
-                                    {{ current ? 'aria-current="page"' : '' }}
-                                >{{pageEntry.title}}</a>
-                            </li>
-                        {% endfor %}
-                        <li class="nav-item">
-                            <a class="nav-link"
-                               href="https://unencumberedbyfacts.com/"
-                            >Blog</a>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="/">
+                <img src="/img/logo.svg" width="80" height="40" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    {% for pageEntry in site.pages.showable|sort_by_weight  %}
+                        {% set current = pageEntry.path == page.path  %}
+                        <li class="nav-item {{current ? 'active' : ''}}">
+                            <a
+                                class="nav-link ms-lg-3 {{current ? 'btn btn-primary' : ''}}"
+                                href="/{{pageEntry.path}}"
+                                {{ current ? 'aria-current="page"' : '' }}
+                            >{{pageEntry.title}}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/cypht-org/cypht-website/blob/master/pages/{{page.path}}.md">
-                                 <img src="/img/edit_icon.png" alt="Edit Icon" width="23" height="23" style="vertical-align:middle;" title="Edit this page">
-                            </a>
-                       </li>
-                    </ul>
-                </div>
+                    {% endfor %}
+                    <li class="nav-item">
+                        <a class="nav-link ms-lg-3" href="https://unencumberedbyfacts.com/" target="_blank">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary ms-lg-3" href="DEMO_URL" target="_blank">Live Demo</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary text-white ms-lg-3" href="https://github.com/cypht-org/cypht" target="_blank"><i class="fab fa-github me-2"></i>GitHub</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
     {% if page.nocontainer is defined %}
         {{page.content}}
     {% else %}
@@ -64,52 +59,79 @@
             {% endif %}
         </main>
     {% endif %}
-
-
-    <footer>
-        <section class="footer-section" id="contact">
-            <div class="container text-center">
-                <h2>Have a suggestion or a question?</h2>
-                <h3>Or maybe you want to throw huge wads of cash at us? </h3>
-                <p>We love feedback so let us know what you think!</p>
-            </div>
-        </section>
-        <nav aria-label="Developer links" class=" social-section text-center">
-            <h2 class="sr-only">Developer links</h2>
-            <div class="container">
-                <div class="row">
-                    <div class="col-3 col-md-3 col-sm-12">
-                        <p>
-                            <span>Page on Github</span><br>
-                            <a href="https://github.com/cypht-org/cypht-website/blob/master/pages/{% if page.path %}{{page.path}}.md{% else %}index.md{% endif %}">Edit here</a>                        </p>
-                    </div>
-                    <div class="col-3 col-md-3 col-sm-12">
-                        <p>
-                            <span>Fill out an issue at Github</span><br>
-                            <a href="https://github.com/cypht-org/cypht/issues">Submit an issue</a>
-                        </p>
-                    </div>
-                    <div class="col-3 col-md-3 col-sm-12">
-                        <p>
-                            <span>Chat with us at Gitter</span><br>
-                            <a href="https://gitter.im/cypht-org/community">Cypht at Gitter</a>
-                        </p>
-                    </div>
-                    <div class="col-3 col-md-3 col-sm-12">
-                        <p>
-                            <span>Want to contribute?</span><br>
-                            <a href="/contribute">Cypht website contribution</a>
-                        </p>
-                    </div>
+    <section class="footer-section" id="contact">
+        <div class="container text-center">
+            <h2>Have a suggestion or a question?</h2>
+            <h3>Or maybe you want to throw huge wads of cash at us? </h3>
+            <p>We love feedback so let us know what you think!</p>
+        </div>
+    </section>
+    <section>
+        <h2 class="sr-only">Developer links</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <p>
+                        <span>Page on Github</span><br>
+                        <a href="https://github.com/cypht-org/cypht-website/blob/master/pages/{% if page.path %}{{page.path}}.md{% else %}index.md{% endif %}" target="_blank">Edit here</a>
+                    </p>
+                </div>
+                <div class="col-12 col-md-3">
+                    <p>
+                        <span>Fill out an issue at Github</span><br>
+                        <a href="https://github.com/cypht-org/cypht/issues" target="_blank">Submit an issue</a>
+                    </p>
+                </div>
+                <div class="col-12 col-md-3">
+                    <p>
+                        <span>Chat with us at Gitter</span><br>
+                        <a href="https://gitter.im/cypht-org/community" target="_blank">Cypht at Gitter</a>
+                    </p>
+                </div>
+                <div class="col-12 col-md-3">
+                    <p>
+                        <span>Want to contribute?</span><br>
+                        <a href="/contribute">Cypht website contribution</a>
+                    </p>
                 </div>
             </div>
-        </nav>
+        </div>
+    </section>
+    <footer>
+        
+               
+        <div class="container">
+            <p>&copy; 2025 Cypht community.</p>
+            <p>Developed with passion and the support of the open source community.</p>
+            <p>
+                <a href="https://github.com/cypht-org/cypht" target="_blank"><i class="fab fa-github me-2"></i>GitHub</a>
+            </p>
+        </div>
     </footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="/jquery.slim.min.js"></script>
-    <script src="/bootstrap.bundle.min.js"></script>
     {% if page.loadScriptAfter is defined %}
         <script src="{{page.loadScriptAfter}}"></script>
     {% endif %}
-</body>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
 
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
 </html>
