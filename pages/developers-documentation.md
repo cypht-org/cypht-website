@@ -54,6 +54,8 @@ nocontainer: true
         <h3 class="bold-title"><b>.env</b></h3>
         <p>The <span class="code-badge">.env</span> file is for high-level configuration. For any variables you're unsure about, check the
             configuration folder for detailed explanations.</p>
+        <h2>Third-party integrations</h2>
+        <p>Cypht is currently being actively used as embedded web mail client in Tiki. Be sure to read the integration code <a href="https://gitlab.com/tikiwiki/tiki/-/tree/master/lib/cypht?ref_type=heads">here</a> before doing changes in Cypht codebase, as some changes will require updates to the Tiki-Cypht integration and some changes might be done in a less disturbing way to prevent upstream from breaking. Be especially careful when doing bigger refactorings as module updates, overall layout updates, interface changes as in routing, error messaging, internal imap/smtp or other module updates. When in doubt, please request PR review from <a href="https://github.com/kroky">Victor</a>.</p>
         <h2>How to</h2>
         <h3 class="bold-title"><b>See the new link in the left menu</b></h3>
         <p>Sometimes you can add a link to the left menu without seeing it. Cypht caches all menus. You need to
