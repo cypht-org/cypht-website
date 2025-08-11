@@ -34,6 +34,7 @@ exclude: true
         #!/bin/bash
         # You need to check php version. For Cypht version 1.4.x, ensure PHP version is between 5.6 and 7.4, while for version 2.x.x, PHP 8.1 or higher is required.
         php --version
+        # For PHP 8.4 if there is missing php_imap extension, please download(to https://pecl.php.net/package/imap/1.0.3/windows) and add it manually(adding to php-8.4.4\ext and uncommenting ;extension=imap in php.ini)
         # Next you need to check composer version which should be >=2.0.0
         composer --version
     </pre>
@@ -105,7 +106,7 @@ exclude: true
                     bold_green "PHP is installed."
 
                     # List installed PHP extensions
-                    required_extensions=("openssl" "mbstring" "curl")
+                    required_extensions=("openssl" "mbstring" "curl" "session" "dom" "fileinfo" "filter" "gd" "mysqli" "phar" "simplexml" "soap" "tokenizer" "xml" "xmlwriter" "zlib" "imap")
                     missing_extensions=()
 
                     for ext in "${required_extensions[@]}"; do
@@ -119,7 +120,7 @@ exclude: true
                         bold_red "Please install the missing extensions before proceeding."
                         exit 1
                     else
-                        bold_green "All required PHP extensions (OpenSSL, mbstring, cURL) are installed."
+                        bold_green "All required PHP extensions (OpenSSL, mbstring, cURL, session, dom, fileinfo, filter, gd, mysqli, phar, simplexml, soap, tokenizer, xml, xmlwriter, zlib, imap) are installed."
                     fi
 
                     # Check if Composer is installed
