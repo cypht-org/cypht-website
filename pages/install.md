@@ -34,6 +34,8 @@ exclude: true
         #!/bin/bash
         # You need to check php version. For Cypht version 1.4.x, ensure PHP version is between 5.6 and 7.4, while for version 2.x.x, PHP 8.1 or higher is required.
         php --version
+        # List installed PHP extensions. at least OpenSSL, mbstring and cURL should be in the list
+        php -m
         # For PHP 8.4 if there is missing php_imap extension, please download(to https://pecl.php.net/package/imap/1.0.3/windows) and add it manually(adding to php-8.4.4\ext and uncommenting ;extension=imap in php.ini)
         # Next you need to check composer version which should be >=2.0.0
         composer --version
