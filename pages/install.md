@@ -61,7 +61,7 @@ exclude: true
         <li class="nav-item">
             <a class="nav-link" id="cpanel-tab" data-toggle="tab" href="#cpanel" role="tab" aria-controls="cpanel" aria-selected="false">Cpanel</a>
         </li>
-        
+
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="linux" role="tabpanel" aria-labelledby="linux-tab">
@@ -503,7 +503,7 @@ exclude: true
                 # Function to check prerequisites
                 check_prerequisites() {
                     echo "Checking prerequisites..."
-                    
+
                     # Check if PHP is installed
                     if ! command -v php &>/dev/null; then
                         bold_red "Error: PHP is not installed or not in the system PATH."
@@ -585,22 +585,22 @@ exclude: true
 
                     while true; do
                         read -p "Enter the version number (e.g. 1 for v1.4.5) [master]: " choice
-                        
+
                         if [[ -z "$choice" ]]; then
                             selected_version="$master_version"
                             break
                         fi
-                        
+
                         if ! [[ "$choice" =~ ^[0-9]+$ ]]; then
                             bold_red "Invalid version choice. Please select a valid number from the list.."
                             continue
                         fi
-                        
+
                         if (( choice < 1 || choice > max_option )); then
                             bold_red "Invalid version choice. Please select a valid number from the list.."
                             continue
                         fi
-                        
+
                         if (( choice == max_option )); then
                             selected_version="$master_version"
                         else
@@ -723,9 +723,9 @@ exclude: true
                 fetch_tags
 
                 if check_public_html_data; then
-                    
+
                     mkdir -p ~/hm3/{attachments,users,app_data}
-                    
+
                     bold_blue "Installation of version: $selected_version"
                     install_cypht "$selected_version"
 
@@ -778,6 +778,49 @@ exclude: true
     <pre>
         sudo ln -s /usr/local/share/cypht/site /var/www/html/mail
     </pre>
+
+    <h4>Nginx Configuration</h4>
+    <p>For Nginx users, add these security rules to your server configuration:</p>
+
+    <pre>
+    location = / {
+        rewrite ^/$ /index.php last;
+    }
+
+    # Block hidden files starting with .
+    location ~ /\. {
+        deny all;
+    }
+
+    # Block sensitive files
+    location ~* \.(env|ini|log|conf|json|lock|yml|yaml|md|txt|sh|bat|ps1|xml|bak|sql|dist|inc|cfg|db|csv)$ {
+        deny all;
+    }
+
+    # Allow exceptions for specific files
+    location ~* ^/(server_accounts_sample\.yaml|server_accounts_sample\.csv|contact_sample\.csv)$ {
+        allow all;
+    }
+
+    # Block RELEASE_NOTES, Makefile, Docker-related configs
+    location ~* /(RELEASE_NOTES|Makefile|Dockerfile|docker-compose\.yml|docker-compose\.dev\.yaml|docker-compose\.prod\.yaml)$ {
+        deny all;
+    }
+
+    # Block .git directory
+    location ~ /\.git {
+        deny all;
+    }
+
+    # Disable directory listing
+    autoindex off;
+    </pre>
+
+    <p>Make sure to reload Nginx after making these changes:</p>
+    <pre>
+    sudo systemctl reload nginx
+    </pre>
+
     <p>Now going to https://your-server/mail/ should load the Cypht login page. Note that If you use a symlink, your web-server must be configured to follow symlinks.</p>
 
     <h4>6. Users</h4>
