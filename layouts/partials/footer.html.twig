@@ -1,0 +1,164 @@
+{% set footer_links = {
+    links: [
+        {
+            title: 'features',
+            childrens: [
+                {
+                    'title': 'Email Filters',
+                    'href': '/features/email-filters'
+                },
+                {
+                    'title': 'Security Features',
+                    'href': '/features/security'
+                },
+                {
+                    'title': 'Multi-Account',
+                    'href': '/features/multi-account'
+                }
+            ]
+        },
+        {
+            title: 'resources',
+            childrens: [
+                {
+                    'title': 'Getting Started',
+                    'href': '/getting-started'
+                },
+                {
+                    'title': 'User Guide',
+                    'href': '/user-guide'
+                },
+                {
+                    'title': 'Admin Guide',
+                    'href': '/admin-guide'
+                }
+            ]
+        },
+        {
+            title: 'about',
+            childrens: [
+                {
+                    'title': 'About Us',
+                    'href': '/about'
+                },
+                {
+                    'title': 'License',
+                    'href': '/license'
+                },
+                {
+                    'title': 'Contribute',
+                    'href': '/contribute'
+                }
+            ]
+        },
+        {
+            title: 'support',
+            childrens: [
+                {
+                    'title': 'FAQ',
+                    'href': '/faq'
+                },
+                {
+                    'title': 'Community',
+                    'href': '/community'
+                }
+            ]
+        }
+    ],
+    policies: [
+        {
+            title: 'Privacy Policy',
+            href: '/privacy',
+            external: true
+        },
+        {
+            title: 'Terms of Service',
+            href: '/terms',
+            external: true
+        },
+        {
+            title: 'Cookie Policy',
+            href: '/cookies',
+            external: true
+        }
+    ],
+    socials: [
+        {
+            title: 'Twitter',
+            icon: 'bi bi-twitter-x',
+            href: 'https://twitter.com/CyphtOrg',
+            external: true
+        },
+        {
+            title: 'GitHub',
+            icon: 'bi bi-github',
+            href: 'https://github.com/Cypht/Cypht',
+            external: true
+        },
+        {
+            title: 'Discord',
+            icon: 'bi bi-discord',
+            href: 'https://discord.gg/Cypht',
+            external: true
+        }
+    ]
+} %}
+
+<footer class="modern-footer">
+    <!-- Main footer section -->
+    <div class="footer-main">
+        <div class="footer-container d-lg-flex mb-2">
+            <!-- Branding and newsletter -->
+            <div class="footer-brand">
+                <div class="d-flex flex-column">
+                    <div class="logo-wrapper">
+                        <img src="/img/logo_dark.svg" alt="Cypht" class="footer-logo">
+                    </div>
+                    <p class="brand-description">
+                        Client de messagerie sécurisé et open source pour tous vos besoins de communication.
+                    </p>
+                </div>
+
+                <div class="social-links">
+                    {% for social in footer_links.socials %}
+                        <a href="{{ social.href }}" class="social-link" target="_blank" rel="noopener">
+                            <i class="{{ social.icon }}"></i>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Organized links -->
+            <div class="footer-links flex-1 pt-lg-4 d-flex justify-content-end">
+                {% for link in footer_links.links %}
+                    <div class="link-column">
+                        <h4 class="link-title text-capitalize">{{ link.title }}</h4>
+                        {% for children in link.childrens %}
+                            <a href="{{ children.href }}" class="link-item">{{ children.title }}</a>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer bottom -->
+    <div class="footer-bottom cy-container">
+        <div class="footer-container">
+            <div class="footer-bottom-content">
+                <p class="copyright">
+                    © {{ "now"|date("Y") }} Cypht.org. Tous droits réservés.
+                </p>
+                <div class="policies-links">
+                    {% for link in footer_links.policies %}
+                        <a href="{{ link.href }}" target="{{ link.external ? '_blank' : '' }}" rel="noopener">
+                            {{ link.title }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <span class="text-center d-flex justify-content-center footer-label">Cypht</span>
+        </div>
+    </div>
+</footer>
