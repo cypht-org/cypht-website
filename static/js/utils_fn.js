@@ -156,15 +156,6 @@ export class UtilsFn {
       // Loading state
       content.innerHTML = '<div class="loading">Loading…</div>';
 
-      // Cache hit
-      // if (this.mdCache.has(normalized)) {
-      //   content.innerHTML = this.mdCache.get(normalized);
-      //   if (typeof Prism !== "undefined") {
-      //     Prism.highlightAllUnder(content);
-      //   }
-      //   return;
-      // }
-
       const response = await fetch(file_path);
       if (!response.ok) {
         throw new Error(
@@ -187,12 +178,6 @@ export class UtilsFn {
         <p>${error.message}</p>
       </div>
       `.trim();
-      // log error
-      // console.error("Detailed error:", {
-      //   message: error.message,
-      //   name: error.name,
-      //   stack: error.stack,
-      // });
     }
   }
 
@@ -314,11 +299,3 @@ export class UtilsFn {
     });
   }
 }
-
-// UtilsFn.mdCache = new Map();
-
-// export UtilsFn to window
-// if (typeof window !== "undefined") {
-//   window.UtilsFn = UtilsFn;
-//   window.utilsFn = UtilsFn;
-// }

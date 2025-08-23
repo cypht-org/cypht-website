@@ -683,7 +683,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <p>${module.description}</p>
                     </div>
                     <div class="md-item-buttons py-1 d-flex justify-content-start align-items-center">
-                    <a href="${module.issues_link}" target="_blank" class="module-issue-link d-flex align-items-center gap-2"><i class="bi bi-box-arrow-up-right"></i>View module issues on GitHub</a>
+                    <a href="${module.issues_link}" target="_blank" class="module-issue-link d-flex align-items-center gap-2"><i class="bi bi-box-arrow-up-right"></i>View on Github</a>
                     </div>
                 </div>
             `;

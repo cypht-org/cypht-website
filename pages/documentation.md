@@ -53,7 +53,7 @@ h1: false
     <!-- doc-container -->
     <div class="doc-container">
       <div class="row p-2">
-          <div class="col-lg-3 col-xl-2 menu-content">
+          <div class="col-lg-3 menu-content">
             <div class="doc-top-nav">
               <div class="d-lg-none">
                 <button 
