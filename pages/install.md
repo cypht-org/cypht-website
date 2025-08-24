@@ -893,29 +893,63 @@ exclude: true
 
     <h2>2. Install cypht using Docker</h2>
     <p>
-        Using Docker is one of the easiest way to install cypht as the cypht docker image comes with all the steps required in the manual instalation done for you. But the bad news is that this installation way requiresdocker knowledge.<br /> Here is the cypht docker repository: <a                 href="https://hub.docker.com/r/sailfrog/cypht-docker">https://hub.docker.com/r/sailfrog/cypht-docker</a><br />
-        To run containers required by cypht, please, first make sure you have docker and docker-compose installed on
-        your system, then take a look on the section "example docker-compose" of repository overview, then do the
-        following:
+        Using Docker is one of the easiest way to install cypht as the cypht docker image comes with all the steps required in the manual instalation done for you.
     </p>
-    <ul>
-        <li>Create a new directory on your system named as you want.</li>
+    <p> Here is the Cypht docker repository: <a href="https://hub.docker.com/r/cypht/cypht">https://hub.docker.com/r/cypht/cypht</a>
+    <h3><b>Requirements</b></h3>
+        <ul>
+            <li><b>Docker Engine</b>: Ensure Docker is installed on your system. <a href="https://docs.docker.com/get-started/get-docker/">Get Docker</a>
+            <li><b>Docker Compose</b>: Ensure Docker Compose is installed (it's often included with modern Docker Desktop installations). <a href="https://docs.docker.com/compose/install/">Install Docker Compose</a>
+        </ul>
+    <h3><b>Quick Start</b></h3>
+    <p>Follow these steps to get a basic Cypht instance running</p>
+    <ol>
         <li>
-            In the directory created previously, create a file named "docker-compose.yaml" then copy and paste the content of <a href="https://hub.docker.com/r/sailfrog/cypht-docker">the example docker-compose section</a> in the created file.
+            Create a Project Directory
+            <pre>mkdir cypht-docker&#10;cd cypht-docker</pre>
         </li>
         <li>
-            Open your CLI/terminal and move to the directory containing the docker-compose file and run the command to run containers
+            Create a new file named "docker-compose.yml" or "docker-compose.yaml" in the directory you just created
+        </li>
+        <li>
+            Copy and paste the content of <a href="https://github.com/cypht-org/cypht/blob/master/docker/docker-compose.yaml">https://github.com/cypht-org/cypht/blob/master/docker/docker-compose.yaml</a> in the created file.
+        </li>
+        <li>
+            Open your CLI/Terminal and move to the directory containing the docker-compose file and run the command to run containers
+            <pre>docker compose up -d</pre>
+            If you are using the Legacy Standalone docker-compose you will run 
             <pre>docker-compose up -d</pre>
+
+            <b>Important Note on docker-compose (Legacy Standalone Tool)</b><br>
+            <p>You may have the older, standalone docker-compose (with a hyphen) tool installed. This legacy version can sometimes experience incompatibility with newer Docker Engine versions, leading to errors or unexpected behavior.</p>
+
+            <p>If you encounter errors when using the legacy docker-compose command, your best course of action is to migrate to the modern docker compose plugin. This modern version is bundled and maintained as part of the Docker CLI itself, guaranteeing compatibility with your current Docker Engine installation. Migration is the recommended solution over troubleshooting compatibility issues with the deprecated Standalone Tool.</p>
         </li>
         <li>
-            After containers started, you can access cypht on port 80 of your host if you didn't change the port value in the docker-compose file.
+            After containers started, you can access cypht on port 80 of your host if you didn't change the port value in the docker-compose file. Open your web browser and navigate to http://your-server-ip:80 or http://localhost:80.
         </li>
-    </ul>
-
-        <p>
-            NOTE: Please change usernames and passwords before using the given docker-compose code in your production
-            environment.
-        </p>
+    </ol>
+    <p>
+        NOTE: Please change usernames (default: admin) and passwords (default: admin) before using the given docker-compose code in your production
+        environment.
+    </p>
+    <h3 id="persisting-data"><b>Persisting Application Data</b></h3>
+    <p>
+        To ensure user configurations and email attachments are preserved across container restarts and updates, you must mount persistent volumes to the container. Update your cypht service in the docker-compose.yml file to include the volumes section:
+        <pre>
+cypht:
+    image: cypht/cypht:2.4.2
+    ports:
+        - "80:80"
+    environment:
+        - AUTH_USERNAME=admin
+        # ... other environment variables
+    volumes:
+        # Mount host directories for persistent storage
+        - ./data/user_settings:/var/lib/hm3/users          # User profiles and settings
+        - ./data/user_attachments:/var/lib/hm3/attachments # Email attachments
+        </pre>
+    </p>
 
         <h2>3. Install Cypht on a YunoHost server</h2>
         <p>This is an other easy way of installing and use Cypht.<br>
