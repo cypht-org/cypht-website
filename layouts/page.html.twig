@@ -8,8 +8,7 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" type="image/png" href="/img/icon.ico">
-		<link rel="stylesheet" href="/site.css">
-		<link rel="stylesheet" href="/main.css">
+		<link rel="stylesheet" href="/assets/main.css">
 		<link rel="canonical" href="{{site.baseurl}}{{page.path}}">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
@@ -18,20 +17,19 @@
 	<body>
 		{% include 'partials/navbar.html.twig' %}
 		<div class="flex-1  main-content">
-			
 			{% if page.nocontainer is defined %}
-			{{page.content}}
-		{% else %}
-			<main class="">
 				{{page.content}}
-				{% if page.path == 'config-generator' %}
-					{{- include('partials/config-generator.html.twig') ~}}
-				{% endif %}
-			</main>
-		{% endif %}
+			{% else %}
+				<main class="">
+					{{page.content}}
+					{% if page.path == 'config-generator' %}
+						{{- include('partials/config-generator.html.twig') ~}}
+					{% endif %}
+				</main>
+			{% endif %}
 		</div>
 		{% include 'partials/footer.html.twig' %}
-		
+
 		<script src="/jquery.slim.min.js"></script>
 		<script src="/bootstrap.bundle.min.js"></script>
 		{% if page.loadScriptAfter is defined %}

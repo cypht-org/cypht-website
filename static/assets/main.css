@@ -1,8 +1,14 @@
+@import url('../main.css');
+@import url('./home_page.css');
+
+
 /* ==========================================
    IMPORTS AND FONTS
 ========================================== */
 @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap');
+
+@import url('./home_page.css');
 
 /* ==========================================
    CSS RESET AND BASE STYLES
@@ -25,6 +31,7 @@
       --color-secondary: #F8973F;
       --color-border: #e5e7eb;
       --cypht-color: #80B441;
+      --cypht-btn-bg: #ffffff1a;
 
       /* Fonts */
       --font-sans: 'Montserrat', Arial, sans-serif;
@@ -407,7 +414,7 @@ a:hover {
       transform: translateX(-50%);
       background: rgba(31, 31, 31, 0.95);
       backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid #ffffff1a;
       border-radius: 8px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
       opacity: 0;
@@ -943,19 +950,22 @@ a:hover {
 /* ==========================================
    MAIN CONTENT
 ========================================== */
-.main-content {
-      min-height: 100dvh;
-}
 
 .main-content section {
-      min-height: 100dvh;
+      min-height: 50dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+}
+
+.section-content {
+      max-width: var(--container-6xl);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      background-color: transparent;
 }
-
-.section-content {}
 
 /* ==========================================
    MEDIA QUERIES - RESPONSIVE DESIGN

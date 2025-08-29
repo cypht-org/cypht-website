@@ -1,0 +1,497 @@
+.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+      padding: .65rem 1.25rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: .95rem;
+      border: 1px solid transparent;
+      transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.btn:hover {
+      transform: translateY(-1px);
+}
+
+/* =====================
+   Minimal hero variant
+===================== */
+.hero-minimal {
+      min-height: 90dvh;
+      width: 100%;
+      padding: 6rem 1.25rem 3rem;
+      text-align: center;
+      gap: .75rem;
+}
+
+/* Subtle grid background */
+#hero_minimal::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'> <path d='M32 0H0v32' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/> </svg>");
+      background-size: 32px 32px;
+      background-repeat: repeat;
+}
+
+.hero-minimal>* {
+      position: relative;
+      z-index: 1;
+}
+
+.chip {
+      display: inline-block;
+      padding: .35rem .6rem;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--color-border);
+      font-weight: 600;
+      font-size: .75rem;
+      color: var(--color-text);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+}
+
+.minimal-title {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      font-size: clamp(2rem, 5.8vw, 4rem);
+      margin: .4rem auto .4rem;
+}
+
+.minimal-subtitle {
+      max-width: 68ch;
+      margin: 0 auto 1rem;
+      opacity: .8;
+}
+
+.minimal-ctas {
+      display: flex;
+      gap: .6rem;
+      justify-content: center;
+      margin: .75rem 0 1.5rem;
+}
+
+.btn-light {
+      background: #fff;
+      color: #111;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+}
+
+.btn-dark {
+      background: rgba(31, 31, 31, 0.8);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
+}
+
+.minimal-mockup {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      border: solid 5px #dadada4b;
+      padding: 1px;
+}
+
+.minimal-mockup img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: inherit;
+
+}
+
+/* Decorative squares around hero text */
+.hero-minimal {
+      position: relative;
+      isolation: isolate;
+}
+
+/* About Section */
+.about-section {
+      padding: 4rem 1.25rem;
+}
+
+/* About reference-style heading block */
+.about-overline {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 700;
+      font-size: .8rem;
+      color: rgba(17, 17, 17, .6);
+      text-align: center;
+      margin: 0 0 .5rem;
+}
+
+.about-heading {
+      text-align: center;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      font-size: clamp(1.8rem, 4.8vw, 2.6rem);
+      margin: 0 0 .5rem;
+}
+
+.about-subtitle-center {
+      text-align: center;
+      max-width: 70ch;
+      margin: 0 auto 2rem;
+      opacity: .8;
+}
+
+/* Three-card grid */
+.about-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+}
+
+.about-card {
+      background: #fff;
+      border: 1px solid rgba(17, 17, 17, .08);
+      border-radius: 16px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, .06);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      cursor: pointer;
+}
+
+.about-card h3 {
+      margin: .5rem 0 .25rem;
+      font-weight: 600;
+      font-size: 1rem;
+}
+
+.about-card p {
+      margin: 0;
+      opacity: .7;
+      font-size: .84rem;
+}
+
+.about-card:hover,
+.about-card:focus-within {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .08);
+      border-color: #80b44184;
+}
+
+/* Expandable description */
+.card-desc {
+      position: relative;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      /* lines visible by default */
+      -webkit-box-orient: vertical;
+      line-clamp: 3;
+      overflow: hidden;
+      transition: max-height .25s ease;
+}
+
+.card-desc.is-clamped::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2.2rem;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+}
+
+.about-card.expanded .card-desc {
+      -webkit-line-clamp: unset;
+      line-clamp: unset;
+      overflow: visible;
+}
+
+.about-card.expanded .card-desc.is-clamped::after {
+      display: none;
+}
+
+.card-toggle {
+      align-self: flex-start;
+      margin-top: .6rem;
+      border: 0;
+      font-weight: 600;
+      font-size: .84rem;
+      cursor: pointer;
+      background: rgba(31, 31, 31, 0.9);
+      color: white;
+      border-radius: 4px;
+      padding: .3rem 1.2rem;
+}
+
+.card-toggle:focus {
+      outline: 2px solid rgba(43, 74, 203, .35);
+      outline-offset: 3px;
+      border-radius: 4px;
+}
+
+/* Illustration area mimic */
+.card-illustration {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: .5rem;
+      padding: 1.1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(17, 17, 17, .04);
+      background: linear-gradient(180deg, #fff, #f9f9f9);
+      box-shadow: inset 0 0 0 1px rgba(17, 17, 17, .03);
+      margin-bottom: .9rem;
+      height: 20.3rem;
+}
+
+.card-illustration img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      max-width: 100%;
+      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, .08));
+}
+
+.pill {
+      display: inline-flex;
+      align-items: center;
+      height: 28px;
+      padding: 0 .6rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      font-weight: 700;
+      color: #111;
+      background: #fff;
+      border: 1px solid rgba(17, 17, 17, .08);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+}
+
+.pill-soft {
+      background: #f6f9ff;
+      border-color: rgba(65, 105, 225, .2);
+      color: #2b4acb;
+}
+
+.pill-strong {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+}
+
+.icon-grid {
+      display: grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: #f6f7f8;
+      border: 1px solid rgba(17, 17, 17, .06);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, .06);
+      font-size: 1.25rem;
+}
+
+@media (min-width: 992px) {
+      .about-grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+      }
+
+      .about-card {
+            padding: 1.5rem;
+      }
+
+      .card-illustration {
+            min-height: 180px;
+      }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+      .about-card {
+            transition: none;
+      }
+}
+
+/* Optional: tone down or hide decorations on small screens */
+@media (max-width: 768px) {
+
+      .hero-minimal::before,
+      .hero-minimal::after {
+            opacity: .7;
+            transform: scale(.9);
+      }
+}
+
+/* Keep hero content above decorations */
+.hero-minimal>* {
+      position: relative;
+      z-index: 1;
+}
+
+/* Mini stat (avatars + text) */
+.mini-stat {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: 2rem;
+      color: var(--color-text);
+}
+
+.stat-text {
+      font-size: .92rem;
+      opacity: .8;
+}
+
+/* =====================
+   About variants styles
+===================== */
+/* shared */
+.about-title {
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+      margin: 0 0 .5rem;
+}
+
+.about-subtitle {
+      max-width: 60ch;
+      opacity: .8;
+      margin: 0 0 1.25rem;
+}
+
+.about-ctas {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+}
+
+/* Variant A: Feature + Stats */
+.about-a {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
+}
+
+.about-a-col {
+      width: 100%;
+}
+
+.about-a-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+}
+
+.feature-card {
+      border: 1px solid rgba(17, 17, 17, .08);
+      border-radius: 14px;
+      padding: 1rem;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .06);
+}
+
+.feature-card h4 {
+      margin: .25rem 0 .25rem;
+      font-weight: 700;
+      font-size: 1rem;
+}
+
+.feature-card p {
+      margin: 0;
+      opacity: .8;
+      font-size: .95rem;
+}
+
+.feature-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(173, 255, 47, .25), rgba(248, 151, 63, .25));
+      box-shadow: 0 8px 20px rgba(248, 151, 63, .15);
+}
+
+.about-stats {
+      margin-top: .5rem;
+      border: 1px solid rgba(17, 17, 17, .06);
+      border-radius: 12px;
+      background: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .5rem 1rem;
+      padding: .6rem .8rem;
+}
+
+.about-stats .stat {
+      display: grid;
+      place-items: center;
+      padding: .25rem .6rem;
+}
+
+.about-stats .stat strong {
+      font-weight: 800;
+      margin-right: .35rem;
+}
+
+.about-stats .stat span {
+      opacity: .7;
+}
+
+@media (min-width: 992px) {
+      .about-a {
+            grid-template-columns: 1.1fr 1.2fr;
+            align-items: start;
+      }
+}
+
+.avatar-group {
+      display: flex;
+      align-items: center;
+}
+
+.avatar-group .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
+      margin-left: -10px;
+      background: #ddd;
+}
+
+.avatar-group .avatar:first-child {
+      margin-left: 0;
+}
+
+.stat-text {
+      font-size: .92rem;
+      opacity: .8;
+}
+
+.stat-text strong {
+      opacity: 1;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+      .btn {
+            width: 100%;
+            max-width: 320px;
+      }
+
+      .minimal-ctas {
+            flex-direction: column;
+      }
+}
