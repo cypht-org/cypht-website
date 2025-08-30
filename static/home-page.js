@@ -126,3 +126,85 @@ document.addEventListener('DOMContentLoaded', () => {
 
   cards.forEach(prepareCard);
 });
+
+
+// Features
+document.addEventListener('DOMContentLoaded', function() {
+  // Animation des cartes au chargement
+  const cards = document.querySelectorAll('.f-card');
+  
+  // Ajouter un délai progressif pour l'animation d'entrée
+  cards.forEach((card, index) => {
+    setTimeout(() => {
+      card.classList.add('visible');
+    }, 100 * index);
+  });
+  
+  // Effet parallaxe léger sur les images
+  cards.forEach(card => {
+    const img = card.querySelector('img');
+    if (img) {
+      card.addEventListener('mousemove', function(e) {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // Calculer le décalage de l'image (effet très léger)
+        const offsetX = (x - rect.width / 2) / 30;
+        const offsetY = (y - rect.height / 2) / 30;
+        
+        img.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+      });
+      
+      // Réinitialiser la position lorsque la souris quitte la carte
+      card.addEventListener('mouseleave', function() {
+        img.style.transform = 'translate(0, 0)';
+      });
+    }
+  });
+});
+
+// Testimonials
+document.addEventListener('DOMContentLoaded', function() {
+  // Animation des cartes de témoignages au défilement
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  // Observer chaque carte de témoignage
+  document.querySelectorAll('.testimonial-card').forEach(card => {
+    observer.observe(card);
+  });
+});
+
+// Faq
+
+document.addEventListener('DOMContentLoaded', function() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      
+      // Close all FAQ items
+      faqItems.forEach(faqItem => {
+        faqItem.classList.remove('active');
+      });
+      
+      // If the clicked item wasn't active, open it
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+});

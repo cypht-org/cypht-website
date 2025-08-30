@@ -1,5 +1,4 @@
-@import url('../main.css');
-@import url('./home_page.css');
+@import url('./home/index.css');
 
 
 /* ==========================================
@@ -8,7 +7,7 @@
 @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap');
 
-@import url('./home_page.css');
+/* @import url('./home_page.css'); */
 
 /* ==========================================
    CSS RESET AND BASE STYLES
@@ -511,7 +510,7 @@ a:hover {
       padding: 0.5rem 1rem;
       border-radius: 8px;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 0.875rem;
       border: 1px solid transparent;
       cursor: pointer;
@@ -734,7 +733,7 @@ a:hover {
 .footer-brand .logo-wrapper {
       display: flex;
       align-items: center;
-      width: 95px;
+      width: 120px;
       height: auto;
       margin-bottom: 12px;
 }
@@ -760,8 +759,8 @@ a:hover {
       opacity: 0.7;
       line-height: 1.6;
       max-width: 400px;
-      font-size: 0.81rem;
-      width: 300px;
+      font-size: 0.87rem;
+      width: 400px;
 }
 
 /* Newsletter */
@@ -806,7 +805,7 @@ a:hover {
       padding: 0.75rem 1.5rem;
       border-radius: 12px;
       font-weight: 600;
-      font-size: 0.875rem;
+      font-size: 0.9rem;
       cursor: pointer;
       transition: all 0.3s ease;
       white-space: nowrap;
@@ -849,8 +848,8 @@ a:hover {
 }
 
 .link-title {
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-size: .93rem;
+      font-weight: 600;
       color: var(--color-text);
       margin-bottom: 0.2rem;
 }
@@ -859,7 +858,7 @@ a:hover {
       color: var(--color-text);
       opacity: 0.6;
       text-decoration: none;
-      font-size: 0.82rem;
+      font-size: 0.875rem;
       transition: all 0.2s ease;
       padding: 0.05rem 0;
 }
@@ -890,7 +889,7 @@ a:hover {
       color: var(--color-text);
       text-decoration: none;
       opacity: 0.6;
-      font-size: .74rem;
+      font-size: .76rem;
 }
 
 .footer-bottom-content a:hover {
@@ -964,7 +963,7 @@ a:hover {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background-color: transparent;
+      /* background-color: transparent; */
 }
 
 /* ==========================================
