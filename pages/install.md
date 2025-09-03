@@ -21,9 +21,8 @@ exclude: true
             <a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a>, <a
                 href="http://php.net/manual/en/book.mbstring.php">mbstring</a> and <a
                 href="http://php.net/manual/en/book.curl.php">cURL</a> extensions. Cypht can also leverage several other
-            extensions as defined in <a                 href="https://github.com/cypht-org/cypht/blob/1.4.x/composer.json#L37-L44">composer.json</a>.
-            Testing is done on <a href="https://www.debian.org/">Debian</a> and <a
-                href="http://www.ubuntu.com/">Ubuntu</a>
+            extensions as defined in <a href="https://github.com/cypht-org/cypht/blob/1.4.x/composer.json#L37-L44">composer.json</a>.
+            Testing is done on <a href="https://www.debian.org/">Debian</a> and <a href="http://www.ubuntu.com/">Ubuntu</a>
             platforms with <a href="http://nginx.com/">Nginx</a> and <a href="http://httpd.apache.org/">Apache</a>.
     </p>
     <p>Before proceeding please make sure your system meets minimal requirements</p>
@@ -36,6 +35,7 @@ exclude: true
         php --version
         # List installed PHP extensions. at least OpenSSL, mbstring and cURL should be in the list
         php -m
+        <!-- should the following comment be removed because php-imap is deprecated, removed from php8.4, and not needed by Cypht? -->
         # For PHP 8.4 if there is missing php_imap extension, please download(to https://pecl.php.net/package/imap/1.0.3/windows) and add it manually(adding to php-8.4.4\ext and uncommenting ;extension=imap in php.ini)
         # Next you need to check composer version which should be >=2.0.0
         composer --version
@@ -108,7 +108,7 @@ exclude: true
                     bold_green "PHP is installed."
 
                     # List installed PHP extensions
-                    required_extensions=("openssl" "mbstring" "curl" "session" "dom" "fileinfo" "filter" "gd" "mysqli" "phar" "simplexml" "soap" "tokenizer" "xml" "xmlwriter" "zlib" "imap")
+                    required_extensions=("openssl" "mbstring" "curl" "session" "dom" "fileinfo" "filter" "gd" "mysqli" "phar" "simplexml" "soap" "tokenizer" "xml" "xmlwriter" "zlib")
                     missing_extensions=()
 
                     for ext in "${required_extensions[@]}"; do
@@ -122,7 +122,7 @@ exclude: true
                         bold_red "Please install the missing extensions before proceeding."
                         exit 1
                     else
-                        bold_green "All required PHP extensions (OpenSSL, mbstring, cURL, session, dom, fileinfo, filter, gd, mysqli, phar, simplexml, soap, tokenizer, xml, xmlwriter, zlib, imap) are installed."
+                        bold_green "All required PHP extensions (OpenSSL, mbstring, cURL, session, dom, fileinfo, filter, gd, mysqli, phar, simplexml, soap, tokenizer, xml, xmlwriter, zlib) are installed."
                     fi
 
                     # Check if Composer is installed
