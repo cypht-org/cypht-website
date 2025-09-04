@@ -35,8 +35,7 @@ exclude: true
         php --version
         # List installed PHP extensions. at least OpenSSL, mbstring and cURL should be in the list
         php -m
-        <!-- should the following comment be removed because php-imap is deprecated, removed from php8.4, and not needed by Cypht? -->
-        # For PHP 8.4 if there is missing php_imap extension, please download(to https://pecl.php.net/package/imap/1.0.3/windows) and add it manually(adding to php-8.4.4\ext and uncommenting ;extension=imap in php.ini)
+        # For PHP 8.4 if there is missing php_imap extension is deprecated and unmaintained - see [php watch](https://php.watch/versions/8.4/imap-unbundled) and [GitHub repo](https://github.com/php/pecl-mail-imap), please download(to https://pecl.php.net/package/imap/1.0.3/windows) and add it manually(adding to php-8.4.4\ext and uncommenting ;extension=imap in php.ini), particularly for Windows users who won't be able to log in Cypht without that extension installed.
         # Next you need to check composer version which should be >=2.0.0
         composer --version
     </pre>
