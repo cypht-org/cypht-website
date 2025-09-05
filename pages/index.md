@@ -44,7 +44,7 @@ h1: Welcome to Cypht
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="as-services-head">
-                    <h2>An open source solution</h2>
+                    <h2>An Open Source solution</h2>
                     <p> Cypht is Open Source (LGPL V2), and written in PHP and JavaScript. If you are looking for a
                         lightweight webmail solution for an ISP, school, business, or just personal use, I hope that
                         Cypht can help!</p>
