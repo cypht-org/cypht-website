@@ -21,9 +21,8 @@ exclude: true
             <a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a>, <a
                 href="http://php.net/manual/en/book.mbstring.php">mbstring</a> and <a
                 href="http://php.net/manual/en/book.curl.php">cURL</a> extensions. Cypht can also leverage several other
-            extensions as defined in <a                 href="https://github.com/cypht-org/cypht/blob/1.4.x/composer.json#L37-L44">composer.json</a>.
-            Testing is done on <a href="https://www.debian.org/">Debian</a> and <a
-                href="http://www.ubuntu.com/">Ubuntu</a>
+            extensions as defined in <a href="https://github.com/cypht-org/cypht/blob/1.4.x/composer.json#L37-L44">composer.json</a>.
+            Testing is done on <a href="https://www.debian.org/">Debian</a> and <a href="http://www.ubuntu.com/">Ubuntu</a>
             platforms with <a href="http://nginx.com/">Nginx</a> and <a href="http://httpd.apache.org/">Apache</a>.
     </p>
     <p>Before proceeding please make sure your system meets minimal requirements</p>
@@ -34,6 +33,9 @@ exclude: true
         #!/bin/bash
         # You need to check php version. For Cypht version 1.4.x, ensure PHP version is between 5.6 and 7.4, while for version 2.x.x, PHP 8.1 or higher is required.
         php --version
+        # List installed PHP extensions. at least OpenSSL, mbstring and cURL should be in the list
+        php -m
+        # For PHP 8.4 if there is missing php_imap extension is deprecated and unmaintained - see [php watch](https://php.watch/versions/8.4/imap-unbundled) and [GitHub repo](https://github.com/php/pecl-mail-imap), please download(to https://pecl.php.net/package/imap/1.0.3/windows) and add it manually(adding to php-8.4.4\ext and uncommenting ;extension=imap in php.ini), particularly for Windows users who won't be able to log in Cypht without that extension installed.
         # Next you need to check composer version which should be >=2.0.0
         composer --version
     </pre>
@@ -58,7 +60,7 @@ exclude: true
         <li class="nav-item">
             <a class="nav-link" id="cpanel-tab" data-toggle="tab" href="#cpanel" role="tab" aria-controls="cpanel" aria-selected="false">Cpanel</a>
         </li>
-        
+
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="linux" role="tabpanel" aria-labelledby="linux-tab">
@@ -105,7 +107,7 @@ exclude: true
                     bold_green "PHP is installed."
 
                     # List installed PHP extensions
-                    required_extensions=("openssl" "mbstring" "curl")
+                    required_extensions=("openssl" "mbstring" "curl" "session" "dom" "fileinfo" "filter" "gd" "mysqli" "phar" "simplexml" "soap" "tokenizer" "xml" "xmlwriter" "zlib")
                     missing_extensions=()
 
                     for ext in "${required_extensions[@]}"; do
@@ -119,7 +121,7 @@ exclude: true
                         bold_red "Please install the missing extensions before proceeding."
                         exit 1
                     else
-                        bold_green "All required PHP extensions (OpenSSL, mbstring, cURL) are installed."
+                        bold_green "All required PHP extensions (OpenSSL, mbstring, cURL, session, dom, fileinfo, filter, gd, mysqli, phar, simplexml, soap, tokenizer, xml, xmlwriter, zlib) are installed."
                     fi
 
                     # Check if Composer is installed
@@ -500,7 +502,7 @@ exclude: true
                 # Function to check prerequisites
                 check_prerequisites() {
                     echo "Checking prerequisites..."
-                    
+
                     # Check if PHP is installed
                     if ! command -v php &>/dev/null; then
                         bold_red "Error: PHP is not installed or not in the system PATH."
@@ -582,22 +584,22 @@ exclude: true
 
                     while true; do
                         read -p "Enter the version number (e.g. 1 for v1.4.5) [master]: " choice
-                        
+
                         if [[ -z "$choice" ]]; then
                             selected_version="$master_version"
                             break
                         fi
-                        
+
                         if ! [[ "$choice" =~ ^[0-9]+$ ]]; then
                             bold_red "Invalid version choice. Please select a valid number from the list.."
                             continue
                         fi
-                        
+
                         if (( choice < 1 || choice > max_option )); then
                             bold_red "Invalid version choice. Please select a valid number from the list.."
                             continue
                         fi
-                        
+
                         if (( choice == max_option )); then
                             selected_version="$master_version"
                         else
@@ -720,9 +722,9 @@ exclude: true
                 fetch_tags
 
                 if check_public_html_data; then
-                    
+
                     mkdir -p ~/hm3/{attachments,users,app_data}
-                    
+
                     bold_blue "Installation of version: $selected_version"
                     install_cypht "$selected_version"
 
@@ -775,6 +777,49 @@ exclude: true
     <pre>
         sudo ln -s /usr/local/share/cypht/site /var/www/html/mail
     </pre>
+
+    <h4>Nginx Configuration</h4>
+    <p>For Nginx users, add these security rules to your server configuration:</p>
+
+    <pre>
+    location = / {
+        rewrite ^/$ /index.php last;
+    }
+
+    # Block hidden files starting with .
+    location ~ /\. {
+        deny all;
+    }
+
+    # Block sensitive files
+    location ~* \.(env|ini|log|conf|json|lock|yml|yaml|md|txt|sh|bat|ps1|xml|bak|sql|dist|inc|cfg|db|csv)$ {
+        deny all;
+    }
+
+    # Allow exceptions for specific files
+    location ~* ^/(server_accounts_sample\.yaml|server_accounts_sample\.csv|contact_sample\.csv)$ {
+        allow all;
+    }
+
+    # Block RELEASE_NOTES, Makefile, Docker-related configs
+    location ~* /(RELEASE_NOTES|Makefile|Dockerfile|docker-compose\.yml|docker-compose\.dev\.yaml|docker-compose\.prod\.yaml)$ {
+        deny all;
+    }
+
+    # Block .git directory
+    location ~ /\.git {
+        deny all;
+    }
+
+    # Disable directory listing
+    autoindex off;
+    </pre>
+
+    <p>Make sure to reload Nginx after making these changes:</p>
+    <pre>
+    sudo systemctl reload nginx
+    </pre>
+
     <p>Now going to https://your-server/mail/ should load the Cypht login page. Note that If you use a symlink, your web-server must be configured to follow symlinks.</p>
 
     <h4>6. Users</h4>
@@ -847,29 +892,63 @@ exclude: true
 
     <h2>2. Install cypht using Docker</h2>
     <p>
-        Using Docker is one of the easiest way to install cypht as the cypht docker image comes with all the steps required in the manual instalation done for you. But the bad news is that this installation way requiresdocker knowledge.<br /> Here is the cypht docker repository: <a                 href="https://hub.docker.com/r/sailfrog/cypht-docker">https://hub.docker.com/r/sailfrog/cypht-docker</a><br />
-        To run containers required by cypht, please, first make sure you have docker and docker-compose installed on
-        your system, then take a look on the section "example docker-compose" of repository overview, then do the
-        following:
+        Using Docker is one of the easiest way to install cypht as the cypht docker image comes with all the steps required in the manual instalation done for you.
     </p>
-    <ul>
-        <li>Create a new directory on your system named as you want.</li>
+    <p> Here is the Cypht docker repository: <a href="https://hub.docker.com/r/cypht/cypht">https://hub.docker.com/r/cypht/cypht</a>
+    <h3><b>Requirements</b></h3>
+        <ul>
+            <li><b>Docker Engine</b>: Ensure Docker is installed on your system. <a href="https://docs.docker.com/get-started/get-docker/">Get Docker</a>
+            <li><b>Docker Compose</b>: Ensure Docker Compose is installed (it's often included with modern Docker Desktop installations). <a href="https://docs.docker.com/compose/install/">Install Docker Compose</a>
+        </ul>
+    <h3><b>Quick Start</b></h3>
+    <p>Follow these steps to get a basic Cypht instance running</p>
+    <ol>
         <li>
-            In the directory created previously, create a file named "docker-compose.yaml" then copy and paste the content of <a href="https://hub.docker.com/r/sailfrog/cypht-docker">the example docker-compose section</a> in the created file.
+            Create a Project Directory
+            <pre>mkdir cypht-docker&#10;cd cypht-docker</pre>
         </li>
         <li>
-            Open your CLI/terminal and move to the directory containing the docker-compose file and run the command to run containers
+            Create a new file named "docker-compose.yml" or "docker-compose.yaml" in the directory you just created
+        </li>
+        <li>
+            Copy and paste the content of <a href="https://github.com/cypht-org/cypht/blob/master/docker/docker-compose.yaml">https://github.com/cypht-org/cypht/blob/master/docker/docker-compose.yaml</a> in the created file.
+        </li>
+        <li>
+            Open your CLI/Terminal and move to the directory containing the docker-compose file and run the command to run containers
+            <pre>docker compose up -d</pre>
+            If you are using the Legacy Standalone docker-compose you will run 
             <pre>docker-compose up -d</pre>
+
+            <b>Important Note on docker-compose (Legacy Standalone Tool)</b><br>
+            <p>You may have the older, standalone docker-compose (with a hyphen) tool installed. This legacy version can sometimes experience incompatibility with newer Docker Engine versions, leading to errors or unexpected behavior.</p>
+
+            <p>If you encounter errors when using the legacy docker-compose command, your best course of action is to migrate to the modern docker compose plugin. This modern version is bundled and maintained as part of the Docker CLI itself, guaranteeing compatibility with your current Docker Engine installation. Migration is the recommended solution over troubleshooting compatibility issues with the deprecated Standalone Tool.</p>
         </li>
         <li>
-            After containers started, you can access cypht on port 80 of your host if you didn't change the port value in the docker-compose file.
+            After containers started, you can access cypht on port 80 of your host if you didn't change the port value in the docker-compose file. Open your web browser and navigate to http://your-server-ip:80 or http://localhost:80.
         </li>
-    </ul>
-
-        <p>
-            NOTE: Please change usernames and passwords before using the given docker-compose code in your production
-            environment.
-        </p>
+    </ol>
+    <p>
+        NOTE: Please change usernames (default: admin) and passwords (default: admin) before using the given docker-compose code in your production
+        environment.
+    </p>
+    <h3 id="persisting-data"><b>Persisting Application Data</b></h3>
+    <p>
+        To ensure user configurations and email attachments are preserved across container restarts and updates, you must mount persistent volumes to the container. Update your cypht service in the docker-compose.yml file to include the volumes section:
+        <pre>
+cypht:
+    image: cypht/cypht:2.4.2
+    ports:
+        - "80:80"
+    environment:
+        - AUTH_USERNAME=admin
+        # ... other environment variables
+    volumes:
+        # Mount host directories for persistent storage
+        - ./data/user_settings:/var/lib/hm3/users          # User profiles and settings
+        - ./data/user_attachments:/var/lib/hm3/attachments # Email attachments
+        </pre>
+    </p>
 
         <h2>3. Install Cypht on a YunoHost server</h2>
         <p>This is an other easy way of installing and use Cypht.<br>
