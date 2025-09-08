@@ -1,5 +1,6 @@
 @import url('./home/index.css');
-
+@import url('./features.css');
+@import url('./security.css');
 
 /* ==========================================
    IMPORTS AND FONTS
@@ -87,10 +88,21 @@ body {
       display: flex;
       flex-direction: column;
       height: 100%;
+      scroll-behavior: smooth;
+      scroll-padding-top: 2rem;
 }
 
 a:hover {
       text-decoration: none;
+}
+
+
+.sidbar-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      opacity: .7;
+      text-transform: capitalize;
+      padding-bottom: 0.3rem;
 }
 
 /* ==========================================

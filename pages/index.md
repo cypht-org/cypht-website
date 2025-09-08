@@ -213,7 +213,7 @@ loadScriptAfter: /home-page.js
                     </div>
                 </div>
             </div>
-            </div>      
+            </div>
         </div>
     </section>
     <section class="faq-section">
@@ -237,7 +237,7 @@ loadScriptAfter: /home-page.js
                     </a>
                 </div>
                 </div>
-            </div>   
+            </div>
             <div class="faq-right">
                 <!-- Question 1 -->
                 <div class="faq-item active">
@@ -292,46 +292,6 @@ loadScriptAfter: /home-page.js
                 </div>
                 </div>
             </div>
-            </div>
-        </div>
-    </section>
-    <section class="label-section">
-        <div class="section-content w-full">
-            <div class="label-card">
-                    <div class="label-badge">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <rect width="24" height="24" rx="12" fill="#81B441"/>
-                        <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Ready to simplify your email?</span>
-                </div>
-                <h2 class="label-headline">
-                    Are You Managing <span class="highlight">Multiple Email</span> 
-                    <!-- <div class="icon-decoration">
-                        <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
-                            <path d="M10 24C10 16.268 16.268 10 24 10V10C31.732 10 38 16.268 38 24V24" stroke="#2c2f29ff" stroke-width="2.5" stroke-linecap="round"/>
-                            <path d="M7 28L12.5 22.5M12.5 22.5L18 28M12.5 22.5V38" stroke="#2c2f29ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div> -->
-                    Accounts Right?
-                    <div class="squiggle-decoration">
-                        <svg width="120" height="40" viewBox="0 0 120 40" fill="none">
-                            <path d="M10 25C20 15 30 35 40 25C50 15 60 35 70 25C80 15 90 35 100 25C110 15" stroke="#F2994A" stroke-width="3" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                </h2>
-                <p class="label-description">
-                    Experience the power of Cypht's combined inbox - connect Gmail, Outlook, Yahoo and more. 
-                    Join thousands of users who've simplified their email workflow and communication.
-                </p>
-                <div class="label-action">
-                    <a href="/download" class="btn btn-light">
-                        Install Cypht Now
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
