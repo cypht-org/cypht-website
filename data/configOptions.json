@@ -113,7 +113,7 @@
         {
             "key": "IMAP_AUTH_PORT",
             "valueDefault": "993",
-            "comment": "The hostname or IP address of the IMAP server to authenticate to",
+            "comment": "The port used for IMAP communication.",
             "commentHtml": "The&nbsp;hostname&nbsp;or&nbsp;IP&nbsp;address&nbsp;of&nbsp;the&nbsp;IMAP&nbsp;server&nbsp;to&nbsp;authenticate&nbsp;to",
             "inputType": "text",
             "setValues": null
