@@ -171,33 +171,91 @@
 .security-features {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+      gap: 25px;
 }
 
 .security-feature {
+      position: relative;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 25px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
       display: flex;
       gap: 20px;
-      padding: 20px;
-      background-color: #f8f9fa;
-      border-radius: 12px;
-      transition: all 0.3s ease;
+}
+
+.security-feature::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--feature-color, #81B441), var(--feature-color-2, #558017));
+      border-radius: 16px 16px 0 0;
+      opacity: 0.7;
 }
 
 .security-feature:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-      background-color: #fff;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+#browser .security-feature {
+      --feature-color: #4f46e5;
+      --feature-color-2: #818cf8;
+}
+
+#server .security-feature {
+      --feature-color: #ef4444;
+      --feature-color-2: #f87171;
+}
+
+#development .security-feature {
+      --feature-color: #10b981;
+      --feature-color-2: #34d399;
 }
 
 .feature-icon {
-      font-size: 2rem;
-      color: #81B441;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background-color: rgba(var(--icon-bg, 129, 180, 65), 0.15);
+      color: rgb(var(--icon-color, 129, 180, 65));
+      border-radius: 50%;
+      font-size: 1.75rem;
       flex-shrink: 0;
+      transition: all 0.3s ease;
+}
+
+#browser .feature-icon {
+      --icon-bg: 79, 70, 229;
+      --icon-color: 79, 70, 229;
+}
+
+#server .feature-icon {
+      --icon-bg: 239, 68, 68;
+      --icon-color: 239, 68, 68;
+}
+
+#development .feature-icon {
+      --icon-bg: 16, 185, 129;
+      --icon-color: 16, 185, 129;
+}
+
+.security-feature:hover .feature-icon {
+      transform: scale(1.1);
 }
 
 .feature-content h4 {
-      font-size: 1.1rem;
-      font-weight: 600;
+      font-size: 1.15rem;
+      font-weight: 700;
       margin-bottom: 10px;
       color: #2F4858;
 }
@@ -205,18 +263,8 @@
 .feature-content p {
       margin-bottom: 0;
       font-size: 0.95rem;
-      color: #555;
-}
-
-.feature-content a {
-      color: #81B441;
-      text-decoration: none;
-      font-weight: 500;
-}
-
-.feature-content a:hover {
-      color: #558017;
-      text-decoration: underline;
+      color: #64748b;
+      line-height: 1.6;
 }
 
 /* Responsive styles */

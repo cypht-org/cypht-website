@@ -1,133 +1,364 @@
 ---
 title: Features
 weight: 10
+loadScriptAfter: /js/feature.js
 ---
 
-<div class="d-flex justify-content-center">
-
-<div class="section-content">
-
-    <div>
-    <!-- Hero section for eatures section -->
-
+<div class="d-flex flex-column justify-content-center">
+  
+  <section class="hero-features">
+  <div class="hero-grid-bg"></div>
+  <div class="container">
+    <div class="hero-content text-center">
+      <div class="hero-badge">
+        <span>A simplified email experience</span>
+      </div>
+      <h1 class="hero-title">
+        Advanced features <br> for Cypht
+      </h1>
+      <p class="hero-subtitle">
+        Modern and high-performance interface with optimal security <br>
+        for a unified and customizable email experience.
+      </p>
+      <div class="hero-buttons">
+        <a href="#messagerie" class="btn btn-outline-primary btn-lg">View features</a>
+        <a href="/download" class="btn btn-dark btn-lg">Download Cypht</a>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="section-content">
-        <h2>List of Features</h2>
-        <hr>
-            <ul class="line-between">
-                <li>
-                    Combined inbox, unread, sent, and flagged message views for all your E-mail accounts (and
-                    RSS feeds), as well as standard E-mail client folder navigation
-                </li>
-                <li>
-                    Flexible profiles to combine IMAP accounts with SMTP accounts and setup signatures and
-                        reply-to details
-                    </li>
-                    <li>
-                        Search all your E-mail accounts and RSS feeds at once with a simple form., or do complex searches across
-                        your accounts with the advanced search module set
-                    </li>
-                    <li>
-                        Move or copy emails from one account to another
-                    </li>
-                    <li>
-                        Compose messages in plain text, HTML, or Markdown
-                    </li>
-                    <li>
-                        Pages are comprised of only 3 HTTP requests totaling ~50KB (gzipped). Data to
-                        populate a page from different sources is collected with parallel AJAX
-                        requests. Output is validated HTML5 and local storage (session only) is used to
-                        cache content for speedier reloads. All the little interface icons use
-                        data-urls so they are served inline (and they can all be disabled). With
-                        standard browser caching, pages tend to transfer 10 to 20 KB
-                    </li>
-                    <li>
-                        Simple interface translation system that does not use gettext or .po files, just
-                        arrays of translated strings defined in PHP. Right to left languages are supported.
-                    </li>
-                    <li>
-                        Module sets for IMAP, SMTP, LDAP or local contacts, WordPress, Github,
-                        and lots more! Check out the <a href="/modules">Modules</a> page for a
-                        complete list
-                    </li>
-                    <li>
-                        Sessions and user data can be stored in any PDO compatible database or flat
-                        files on the server
-                    </li>
-                    <li>
-                        Authentication is flexible and currently supports IMAP, LDAP, an included
-                        database schema, dynamic authentication using popular E-mail providers,
-                        auto-discovery based on the user's E-mail domain, or you can roll your own with
-                        the site module set
-                    </li>
-                    <li>
-                        Sessions and Authentication can be customized without breaking any modules using
-                        the site module set
-                    </li>
-                    <li>
-                        On the server, page request processing peaks at around 4-5MB of memory. The module system only includes PHP
-                        files required to process the
-                        current request, so time is not wasted parsing unused code paths
-                    </li>
-                    <li>
-                        All the work of processing a request and providing a response is done with
-                        module sets. The application framework manages module assignment and provides a
-                        controlled execution environment, but modules are where the actual work is done
-                    </li>
-                    <li>
-                        There is a build process that pre-calculates module assignments and combines
-                        and compresses page assets, making the production version of your site as fast
-                        as possible. There is also a developer mode in which individual components are
-                        included directly for easy debugging and module development
-                    </li>
-                    <li>
-                        The HTML5 Page structure is semantic and simple, with attention paid to
-                        accessibility best-practices
-                    </li>
-                    <li>
-                        Save the parameters of a search so that you can quickly access them later from
-                        the menu without having to enter them again. This is particularly useful for parameters of
-                        searches that are used frequently. Saved search parameters can also be deleted later.
-                    </li>
-                    <li>
-                        Sieve filters can be created to automatically move, copy, or delete messages based on specific criteria such as sender, subject, keywords, or recipient. This allows for efficient organization and management of incoming emails, saving time and improving productivity. Sieve filters can be easily edited or deleted as needed. For more information on how to create and manage Sieve filters, see <a href="/email-filters">Email filters</a>.
-                    </li>
-                    <li>
-                        JMAP (JSON Meta Application Protocol) support for faster, more efficient synchronization of emails across devices.
-                    </li>
-                    <li>
-                        Snooze feature to temporarily hide emails and bring them back at a more convenient time.
-                    </li>
-                    <li>
-                        Screen emails to help manage unwanted or irrelevant communications by filtering or prioritizing certain types of messages.
-                    </li>
-                    <li>
-                        IMAP capabilities for sharing folders to allow collaboration by sharing email folders between accounts.
-                    </li>
-                    <li>
-                        Delivery receipt to get confirmation when your emails are delivered to the recipient's inbox.
-                    </li>
-                    <li>
-                        Support for setting and managing environment variables to customize server-side configurations.
-                    </li>
-                    <li>
-                        IMAP folder subscriptions for managing which folders you want to subscribe to and view in your mail client.
-                    </li>
-                    <li>
-                        Collected Recipients and Trusted Senders feature to track commonly contacted people and trusted email addresses for enhanced security and efficiency.
-                    </li>
-                    <li>
-                        A simpler way to show the source of an email for better understanding of its origin and security analysis.
-                    </li>
-                    <li>
-                        Tags/Labels support to organize and categorize emails easily for better management and quick access to relevant content.
-                    </li>
-                    <li>
-                        Exchange Web Services (EWS) support is in development. For more details and updates, check out the progress <a href="https://github.com/cypht-org/cypht/pull/1278">here</a>.
-                    </li>
-            </ul>
-        <hr>
+<div class="container-fluid my-0 section-content">
+    <div class="row">
+      <!-- Sidebar améliorée -->
+    <div class="col-md-3 col-lg-3">
+      <div class="features-sidebar-simple">
+      <!-- <div> -->
+          <span class="sidbar-title mb-3">Categories</span>
+      <!-- </div> -->
+        <div class="sidebar-nav-simple">
+          <a href="#messagerie" class="sidebar-link-simple active" data-category="messagerie">
+            <span class="active-indicator">▶</span>
+            Messaging
+          </a>
+          <a href="#recherche" class="sidebar-link-simple" data-category="recherche">
+            <span class="active-indicator">▶</span>
+            Search
+          </a>
+          <a href="#performance" class="sidebar-link-simple" data-category="performance">
+            <span class="active-indicator">▶</span>
+            Performance
+          </a>
+          <a href="#securite" class="sidebar-link-simple" data-category="securite">
+            <span class="active-indicator">▶</span>
+            Security
+          </a>
+          <a href="#developpement" class="sidebar-link-simple" data-category="developpement">
+            <span class="active-indicator">▶</span>
+            Development
+          </a>
+        </div>
+        <!-- <div class="sidebar-link-info p-0">
+            Key features of Cypht
+         </div> -->
+      </div>
     </div>
-
+      <!-- Main content -->
+      <main class="col-md-9">
+        <!-- Messagerie -->
+        <h3 id="messagerie" class="mb-3">
+         <i class="bi bi-inbox-fill text-primary"></i>Messaging & Organization
+        </h3>
+      <!--  -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-inbox"></i>
+                        </div>
+                        <h5 class="feature-title">Unified Inbox</h5>
+                        <p class="feature-description">Inbox, sent, flagged, and RSS views combined across all accounts.</p>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-pencil-square"></i>
+                        </div>
+                        <h5 class="feature-title">Flexible Profiles</h5>
+                        <p class="feature-description">Combine IMAP & SMTP accounts, manage signatures and reply-to details.</p>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-arrows-move"></i>
+                        </div>
+                        <h5 class="feature-title">Move & Copy</h5>
+                        <p class="feature-description">Easily move or copy emails between different accounts.</p>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <h5 class="feature-title">Snooze Emails</h5>
+                        <p class="feature-description">Temporarily hide emails and bring them back at a better time.</p>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-funnel"></i>
+                        </div>
+                        <h5 class="feature-title">Smart Filters</h5>
+                        <p class="feature-description">Automatic rules (Sieve) to move, copy, or delete messages.</p>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-tags-fill"></i>
+                        </div>
+                        <h5 class="feature-title">Tags & Labels</h5>
+                        <p class="feature-description">Organize and categorize emails with labels for quick access.</p>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-folder-symlink-fill"></i>
+                        </div>
+                        <h5 class="feature-title">IMAP Folder Sharing</h5>
+                        <p class="feature-description">Collaborate by sharing IMAP folders with other accounts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Recherche -->
+        <h3 id="recherche" class="mb-3"><i class="bi bi-search text-success"></i> Search & Productivity</h3>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+          <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-search"></i>
+                        </div>
+                        <h5 class="feature-title">Advanced Search</h5>
+                        <p class="feature-description">Search all accounts with simple or advanced filters.</p>
+                    </div>
+                </div>
+            </div>
+          <!--  -->
+          <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-save"></i>
+                        </div>
+                        <h5 class="feature-title">Saved Searches</h5>
+                        <p class="feature-description">Save search parameters to access them quickly later.</p>
+                    </div>
+                </div>
+            </div>
+           <!--  -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <h5 class="feature-title">Trusted Senders</h5>
+                        <p class="feature-description">Track trusted email addresses and frequently contacted people.</p>
+                    </div>
+                </div>
+            </div>
+          <!--  -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-code-square"></i>
+                        </div>
+                        <h5 class="feature-title">Email Source Viewer</h5>
+                        <p class="feature-description">Easily view the raw source of an email for better analysis.</p>
+                    </div>
+                </div>
+            </div>
+          <!--  -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-check2-circle"></i>
+                        </div>
+                        <h5 class="feature-title">Delivery Receipts</h5>
+                        <p class="feature-description">Get confirmation when your emails are delivered.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Performance -->
+        <h3 id="performance" class="mb-3"><i class="bi bi-lightning-charge-fill text-warning"></i> Performance & User Experience</h3>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-speedometer2"></i>
+                        </div>
+                        <h5 class="feature-title">Lightweight Pages</h5>
+                        <p class="feature-description">Only 3 HTTP requests (~50KB gzipped), fast and efficient.</p>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-hdd-network"></i>
+                        </div>
+                        <h5 class="feature-title">Smart Caching</h5>
+                        <p class="feature-description">Parallel AJAX + local storage for faster reloads.</p>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-universal-access-circle"></i>
+                        </div>
+                        <h5 class="feature-title">Accessibility</h5>
+                        <p class="feature-description">Semantic HTML5 with RTL language support.</p>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-sync"></i>
+                        </div>
+                        <h5 class="feature-title">JMAP Sync</h5>
+                        <p class="feature-description">Faster synchronization with JMAP protocol.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sécurité -->
+        <h3 id="securite" class="mb-3"><i class="bi bi-shield-lock-fill text-danger"></i> Security & Authentication</h3>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-key-fill"></i>
+                        </div>
+                        <h5 class="feature-title">Flexible Authentication</h5>
+                        <p class="feature-description">Supports IMAP, LDAP, database, or custom auth methods.</p>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-database-fill"></i>
+                        </div>
+                        <h5 class="feature-title">Session Storage</h5>
+                        <p class="feature-description">Sessions stored in PDO databases or flat files.</p>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-sliders"></i>
+                        </div>
+                        <h5 class="feature-title">Env Variables</h5>
+                        <p class="feature-description">Easily manage server-side configurations with env vars.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Développement -->
+        <h3 id="developpement" class="mb-3"><i class="bi bi-code-slash text-info"></i> Development & Extensibility</h3>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-puzzle-fill"></i>
+                        </div>
+                        <h5 class="feature-title">Modules</h5>
+                        <p class="feature-description">IMAP, SMTP, LDAP, WordPress, GitHub and more modules available.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-cpu-fill"></i>
+                        </div>
+                        <h5 class="feature-title">Build Process</h5>
+                        <p class="feature-description">Pre-calculated assets, developer mode for easy debugging.</p>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-translate"></i>
+                        </div>
+                        <h5 class="feature-title">Translations</h5>
+                        <p class="feature-description">Simple system using PHP arrays, no gettext/.po required.</p>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="col">
+                <div class="feature-card">
+                    <div class="feature-card-body">
+                        <div class="feature-icon-wrapper">
+                            <i class="bi bi-microsoft"></i>
+                        </div>
+                        <h5 class="feature-title">EWS Support</h5>
+                        <p class="feature-description">Exchange Web Services (EWS) support in development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </main>
+    </div>
+  </div>
 </div>
