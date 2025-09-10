@@ -45,7 +45,7 @@
                             >Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/cypht-org/cypht-website/blob/master/pages/{{page.path}}.md">
+                            <a class="nav-link" href="https://github.com/cypht-org/cypht-website/blob/master/pages/{% if page.path %}{{page.path}}.md{% else %}index.md{% endif %}">
                                  <img src="/img/edit_icon.png" alt="Edit Icon" width="23" height="23" style="vertical-align:middle;" title="Edit this page">
                             </a>
                        </li>
