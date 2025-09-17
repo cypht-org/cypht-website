@@ -18,17 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
     
-    // Créer un tableau des positions des sections pour référence rapide
-    const sectionPositions = Array.from(sections).map(section => {
-      return {
-        id: section.getAttribute('id'),
-        top: section.getBoundingClientRect().top + window.pageYOffset,
-        bottom: section.getBoundingClientRect().top + window.pageYOffset + section.offsetHeight
-      };
-    });
-    
-    console.log('Positions des sections:', sectionPositions);
-    
     // Fonction pour déterminer quelle section est visible
     function setActiveSection() {
       // Position de défilement actuelle + une marge pour déclencher le changement plus tôt
@@ -113,13 +102,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Recalculer les positions des sections lors du redimensionnement de la fenêtre
-    window.addEventListener('resize', function() {
-      sectionPositions.forEach((section, index) => {
-        const elem = sections[index];
-        section.top = elem.getBoundingClientRect().top + window.pageYOffset;
-        section.bottom = section.top + elem.offsetHeight;
-      });
-      setActiveSection();
-    });
+    // window.addEventListener('resize', function() {
+    //   sectionPositions.forEach((section, index) => {
+    //     const elem = sections[index];
+    //     section.top = elem.getBoundingClientRect().top + window.pageYOffset;
+    //     section.bottom = section.top + elem.offsetHeight;
+    //   });
+    //   setActiveSection();
+    // });
   }
 });

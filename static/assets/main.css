@@ -24,7 +24,7 @@
    CSS VARIABLES - COLOR SYSTEM AND THEMES
 ========================================== */
 :root {
-      /* Light mode colors */
+      /* Light theme (default) */
       --color-bg: #FAFAFA;
       --color-text: #111111;
       --color-primary: #80B441;
@@ -32,6 +32,11 @@
       --color-border: #e5e7eb;
       --cypht-color: #80B441;
       --cypht-btn-bg: #ffffff1a;
+      --nav-item-color: rgba(31, 31, 31, 0.8);
+      --nav-item-hover-bg: rgba(0, 0, 0, 0.05);
+      --nav-item-hover-color: #1f1f1f;
+      --nav-item-active-bg: rgba(0, 0, 0, 0.08);
+      --nav-item-active-color: #1f1f1f;
 
       /* Fonts */
       --font-sans: 'Montserrat', Arial, sans-serif;
@@ -65,15 +70,38 @@
       /* 1152px */
       --container-7xl: 80rem;
       /* 1280px */
+
+      color-scheme: light;
 }
 
-/* Dark mode variables */
+/* Dark theme */
 [data-theme="dark"] {
-      --color-bg: #111111;
-      --color-text: #f5f5f5;
-      --color-primary: #057ABB;
-      --color-secondary: #F8973F;
-      --color-border: #333333;
+      --color-bg: #0f172a;
+      --color-text: #f8fafc;
+      --color-border: #334155;
+      --nav-item-color: rgba(255, 255, 255, 0.8);
+      --nav-item-hover-bg: rgba(255, 255, 255, 0.1);
+      --nav-item-hover-color: #ffffff;
+      --nav-item-active-bg: rgba(255, 255, 255, 0.15);
+      --nav-item-active-color: #ffffff;
+
+      color-scheme: dark;
+}
+
+/* System preference for dark mode */
+@media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+            --color-bg: #0f172a;
+            --color-text: #f8fafc;
+            --color-border: #334155;
+            --nav-item-color: rgba(255, 255, 255, 0.8);
+            --nav-item-hover-bg: rgba(255, 255, 255, 0.1);
+            --nav-item-hover-color: #ffffff;
+            --nav-item-active-bg: rgba(255, 255, 255, 0.15);
+            --nav-item-active-color: #ffffff;
+
+            color-scheme: dark;
+      }
 }
 
 /* ==========================================
@@ -333,9 +361,7 @@ a:hover {
       height: 100%;
 }
 
-[data-theme="light"] .logo-img {
-      filter: brightness(0);
-}
+
 
 .brand-text {
       font-size: 1.125rem;
@@ -370,7 +396,7 @@ a:hover {
       padding: 0.2rem 1rem;
       border-radius: 5px;
       text-decoration: none;
-      color: rgba(255, 255, 255, 0.8);
+      color: light-dark(green, red);
       font-weight: 600;
       font-size: 0.91rem;
       border: none;
@@ -381,9 +407,9 @@ a:hover {
       cursor: pointer;
 }
 
-[data-theme="light"] .nav-item {
+/* [data-theme="light"] .nav-item {
       color: rgba(31, 31, 31, 0.8);
-}
+} */
 
 .nav-item:hover {
       background: rgba(255, 255, 255, 0.1);
