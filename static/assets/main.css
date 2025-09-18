@@ -1,6 +1,8 @@
 @import url('./home/index.css');
 @import url('./features.css');
 @import url('./security.css');
+@import url('./tools/module.css');
+
 
 /* ==========================================
    IMPORTS AND FONTS
@@ -392,11 +394,11 @@ a:hover {
       position: relative;
       display: flex;
       align-items: center;
-      gap: 0.25rem;
+      gap: 0.7rem;
       padding: 0.2rem 1rem;
       border-radius: 5px;
       text-decoration: none;
-      color: light-dark(green, red);
+      color: light-dark(#d1d1d1, #d1d1d1);
       font-weight: 600;
       font-size: 0.91rem;
       border: none;
@@ -413,23 +415,23 @@ a:hover {
 
 .nav-item:hover {
       background: rgba(255, 255, 255, 0.1);
-      color: white;
+      color: ligth-dark(white);
 }
 
-[data-theme="light"] .nav-item:hover {
+/* [data-theme="light"] .nav-item:hover {
       background: rgba(0, 0, 0, 0.05);
       color: #1f1f1f;
-}
+} */
 
 .nav-item.active {
       background: rgba(255, 255, 255, 0.15);
       color: white;
 }
 
-[data-theme="light"] .nav-item.active {
+/* [data-theme="light"] .nav-item.active {
       background: rgba(0, 0, 0, 0.08);
       color: #1f1f1f;
-}
+} */
 
 .dropdown-arrow {
       font-size: 0.7rem;
@@ -461,11 +463,11 @@ a:hover {
 }
 
 
-[data-theme="light"] .dropdown-panel {
+/* [data-theme="light"] .dropdown-panel {
       background: rgba(255, 255, 255, 0.95);
       border: 1px solid rgba(0, 0, 0, 0.1);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
+} */
 
 .nav-dropdown:hover .dropdown-panel {
       opacity: 1;
@@ -495,19 +497,19 @@ a:hover {
       transition: all 0.2s ease;
 }
 
-[data-theme="light"] .dropdown-item {
+/* [data-theme="light"] .dropdown-item {
       color: rgba(31, 31, 31, 0.8);
-}
+} */
 
 .dropdown-item:hover {
       background: rgba(255, 255, 255, 0.1);
       color: white;
 }
 
-[data-theme="light"] .dropdown-item:hover {
+/* [data-theme="light"] .dropdown-item:hover {
       background: rgba(0, 0, 0, 0.05);
       color: #1f1f1f;
-}
+} */
 
 /* Dropdown item elements */
 .drop-item-icon {
@@ -782,9 +784,9 @@ a:hover {
       height: 100%;
 }
 
-[data-theme="light"] .footer-logo {
+/* [data-theme="light"] .footer-logo {
       filter: brightness(0);
-}
+} */
 
 .brand-name {
       font-size: 1.5rem;

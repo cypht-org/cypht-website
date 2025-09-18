@@ -1,4 +1,4 @@
-.hero-features {
+.ft-hero {
       display: flex;
       position: relative;
       flex-direction: column;
@@ -9,7 +9,7 @@
       overflow-y: auto;
 }
 
-.hero-features:before {
+.ft-hero:before {
       content: "";
       position: absolute;
       inset: 0;
@@ -18,10 +18,136 @@
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'> <path d='M32 0H0v32' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/> </svg>");
       background-size: 32px 32px;
       background-repeat: repeat;
+
 }
 
 
-.hero-content ul li {
+
+
+
+
+/* Proposal */
+
+.p-container {
+      max-width: var(--container-6xl);
+}
+
+.icons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 2.5rem 3.5rem;
+      justify-items: center;
+      align-items: center;
+      margin-top: 2rem;
+      min-height: 320px;
+      position: relative;
+      background: #80b4410c;
+      border-radius: 18px;
+      box-shadow: 0 2px 24px rgba(126, 180, 65, 0.148);
+      padding: 2rem 1rem;
+}
+
+/* Ajout des lignes verticales */
+.icons-grid::before,
+.icons-grid::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: .5px;
+      background: #80B441;
+      /* Plus visible */
+      z-index: 1;
+      pointer-events: none;
+}
+
+.icons-grid::before {
+      left: 33.33%;
+}
+
+.icons-grid::after {
+      left: 66.66%;
+}
+
+/* Ajout des lignes horizontales */
+.icons-grid .hline,
+.icons-grid .hline2 {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: .5px;
+      background: #80b44186;
+      z-index: 1;
+      pointer-events: none;
+}
+
+.icons-grid .hline {
+      top: 33.33%;
+}
+
+.icons-grid .hline2 {
+      top: 66.66%;
+}
+
+/* Positionnement relatif pour la grille */
+.icons-grid {
+      position: relative;
+}
+
+.icon-box {
+      /* background: #fff; */
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+      padding: 1.2rem;
+      transition:
+            transform 0.25s cubic-bezier(.4, 2, .6, 1),
+            box-shadow 0.25s,
+            background 0.3s;
+      width: 72px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-row: auto;
+      grid-column: auto;
+      animation: cardIn 0.7s cubic-bezier(.4, 2, .6, 1) both;
+      cursor: pointer;
+      will-change: transform, box-shadow;
+}
+
+
+
+.icon-box:nth-child(5),
+.icon-box:nth-child(4),
+.icon-box:nth-child(9) {
+      background-color: #80B441 !important;
+      color: white !important;
+}
+
+.icon-box:nth-child(5) svg,
+.icon-box:nth-child(4) svg,
+.icon-box:nth-child(9) svg {
+      color: #fff !important;
+      /* fill: #fff;
+      stroke: #fff; */
+}
+
+.icon-box:nth-child(7) img,
+.icon-box:nth-child(7) svg {
+      width: 55px !important;
+      height: 55px !important;
+      max-width: none;
+      max-height: none;
+}
+
+/* Placement manuel pour l'effet quinconce */
+
+/* Proposal */
+
+.ft-hero-content ul li {
       list-style: none;
       border: 0.7px solid #ccc;
       padding: 0.2rem 1rem;
@@ -32,19 +158,26 @@
       transition: all 0.9s;
 }
 
-.hero-content ul li:hover {
+.ft-hero-content ul li:hover {
       border-color: var(--color-primary)/80;
       color: var(--color-primary);
       font-weight: 600;
 
 }
 
-.hero-title {
+.ft-hero-title {
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.05;
       font-size: clamp(2rem, 5.8vw, 4rem);
       margin: .4rem auto .4rem;
+}
+
+.ft-hero-subtitle {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 500px;
+      line-height: 1.6;
 }
 
 /* list section */
@@ -611,4 +744,151 @@
       .fs-content {
             width: 65%;
       }
+}
+
+.col-lg-6 .icons-grid {
+      align-self: center;
+}
+
+@media (max-width: 600px) {
+      .icons-grid {
+            gap: 1.2rem 1.2rem;
+            min-height: 180px;
+      }
+
+      .icon-box {
+            width: 48px;
+            height: 48px;
+            padding: 0.5rem;
+      }
+}
+
+@keyframes cardIn {
+      0% {
+            opacity: 0;
+            transform: scale(0.85) translateY(30px);
+      }
+
+      100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+      }
+}
+
+.icon-box {
+      animation: cardIn 0.7s cubic-bezier(.4, 2, .6, 1) both;
+}
+
+.icon-box:nth-child(1) {
+      animation-delay: 0.05s;
+}
+
+.icon-box:nth-child(2) {
+      animation-delay: 0.12s;
+}
+
+.icon-box:nth-child(3) {
+      animation-delay: 0.19s;
+}
+
+.icon-box:nth-child(4) {
+      animation-delay: 0.26s;
+}
+
+.icon-box:nth-child(5) {
+      animation-delay: 0.33s;
+}
+
+.icon-box:nth-child(6) {
+      animation-delay: 0.40s;
+}
+
+.icon-box:nth-child(7) {
+      animation-delay: 0.47s;
+}
+
+.icon-box:nth-child(8) {
+      animation-delay: 0.54s;
+}
+
+.icon-box:nth-child(9) {
+      animation-delay: 0.61s;
+}
+
+.icons-grid::before,
+.icons-grid::after {
+      opacity: 0;
+      animation: gridLineIn 1s 0.3s forwards;
+}
+
+@keyframes gridLineIn {
+      from {
+            opacity: 0;
+            transform: scaleY(0.7);
+      }
+
+      to {
+            opacity: 1;
+            transform: scaleY(1);
+      }
+}
+
+.icons-grid .hline,
+.icons-grid .hline2 {
+      opacity: 0;
+      animation: gridLineIn 1s 0.5s forwards;
+}
+
+.icon-box:hover {
+      transform: translateY(-10px) scale(1.08) rotate(-2deg);
+      box-shadow: 0 12px 32px rgba(127, 180, 65, 0.13), 0 2px 8px rgba(0, 0, 0, 0.07);
+      background: linear-gradient(135deg, #80b44131 0%, #80b44169 100%);
+      z-index: 2;
+}
+
+.icon-box img,
+.icon-box svg {
+      transition: transform 0.3s cubic-bezier(.4, 2, .6, 1);
+}
+
+.icon-box:hover img,
+.icon-box:hover svg {
+      transform: scale(1.15) rotate(4deg);
+}
+
+@keyframes randomBounce {
+      0% {
+            transform: scale(1) rotate(0deg);
+            opacity: 1;
+      }
+
+      20% {
+            transform: scale(1.18) rotate(-6deg);
+            opacity: 1;
+      }
+
+      40% {
+            transform: scale(0.95) rotate(3deg);
+            opacity: 0.7;
+      }
+
+      60% {
+            transform: scale(1.08) rotate(-2deg);
+            opacity: 0.5;
+      }
+
+      80% {
+            transform: scale(1.02) rotate(2deg);
+            opacity: 0.2;
+      }
+
+      100% {
+            transform: scale(1) rotate(0deg);
+            opacity: 0;
+      }
+}
+
+.icon-box.random-animate {
+      animation: randomBounce 0.9s cubic-bezier(.4, 2, .6, 1);
+      z-index: 3;
 }

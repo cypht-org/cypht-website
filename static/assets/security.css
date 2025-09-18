@@ -1,3 +1,110 @@
+/* Section principale */
+.hero-security {
+      padding: 4rem 2rem;
+      /* background: #f8f9fa; */
+      /* léger gris clair */
+}
+
+.hero-security:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'> <path d='M32 0H0v32' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/> </svg>");
+      background-size: 32px 32px;
+      background-repeat: repeat;
+}
+
+
+/* Container en 2 colonnes */
+.hero-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      /* max-width: 1200px; */
+      margin: 0 auto;
+      flex-wrap: wrap;
+      max-width: var(--container-6xl);
+      padding: 0 1.8rem;
+      /* responsive mobile */
+}
+
+/* Texte */
+.hero-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+}
+
+/* Chip style */
+/* .chip {
+      display: inline-block;
+      background: #e8f0fe;
+      color: #1a73e8;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+} */
+
+/* Titre */
+.hero-title {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      font-size: clamp(2rem, 3.8vw, 4rem);
+      margin: .4rem auto .4rem;
+}
+
+/* Sous-titre */
+.hero-subtitle {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 500px;
+      line-height: 1.6;
+}
+
+/* Bouton */
+.hero-buttons .btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: #222;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+}
+
+.hero-buttons .btn:hover {
+      background: #000;
+}
+
+/* Image */
+.sec-hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+}
+
+.sec-hero-image img {
+      max-width: 100%;
+      height: auto;
+}
+
+.sec-hero-image {
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s;
+      will-change: transform, box-shadow;
+}
+
+.sec-hero-image:hover {
+      transform: scale(1.07) rotate(-3deg);
+      background-color: transparent;
+}
+
 /* Security Page Styles */
 .sec-list-content {
       max-width: var(--container-6xl);

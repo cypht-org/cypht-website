@@ -5,27 +5,36 @@ loadScriptAfter: /js/security.js
 loadCssAfter: /assets/security.css
 ---
 
-<div class="d-flex flex-column justify-content-center gap-4">
-    <section class="hero-features">
-        <div class="hero-content text-center d-flex flex-column row-gap-4">
-            <div class="d-flex flex-column gap-3">
-                <div >
-                    <span class="chip">Security First</span>
-                </div>
-                <h1 class="hero-title">
-                    Security at Cypht
-                </h1>
-                <p class="hero-subtitle">
-                    We take security seriously at every level of our application.
-                </p>
-            </div>
-        </div>
+<div class="d-flex flex-column justify-content-center gap-4"> 
+  <section class="hero-security">
+    <div class="hero-container">
+      <!-- Texte à gauche -->
+      <div class="hero-content">
+         <div >
+             <span class="chip">🔒 End-to-end Encryption</span>
+          </div>
+        <h1 class="hero-title">
+          Maximum Security for Your Communications
+        </h1>
+        <p class="hero-subtitle">
+          Protect your emails with advanced encryption and guaranteed privacy.
+        </p>
         <div class="hero-buttons">
-            <a href="#messaging" class="btn btn-dark py-2">Install Cypht</a>
+          <a href="#security" class="btn btn-dark">Explore Our Protections</a>
         </div>
-    </section>
+      </div>
 
-    <div class="d-flex justify-content-center">
+      <!-- Image à droite -->
+      <div class="sec-hero-image">
+        <img src="/img/security/hero_i1.png" alt="Mail security illustration" loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </section>
+    <!--  -->
+   
+  </section>
+
+    <div class="d-flex justify-content-center mt-5">
         <div class="d-flex flex-sm-column flex-lg-row flex-column  w-100 sec-list-content" style="column-gap: 3rem;">
             <div class="sec-sidebar">
               <div class="d-flex align-items-center gap-2">

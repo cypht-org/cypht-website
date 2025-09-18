@@ -112,3 +112,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // });
   }
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    function animateRandomCard() {
+        const cards = document.querySelectorAll('.icon-box');
+        if (cards.length === 0) return;
+        const randomIndex = Math.floor(Math.random() * cards.length);
+        const card = cards[randomIndex];
+        card.classList.add('random-animate');
+        card.addEventListener('animationend', function handler() {
+            card.classList.remove('random-animate');
+            card.style.opacity = "0";
+            card.removeEventListener('animationend', handler);
+        });
+    }
+
+    // Première animation après 1.2s
+    setTimeout(animateRandomCard, 1200);
+
+    // Puis toutes les 4 secondes
+    setInterval(animateRandomCard, 4000);
+});
