@@ -1,60 +1,51 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Animation pour les éléments de sécurité
-  const securityFeatures = document.querySelectorAll('.security-feature');
-  
-  // Observer pour déclencher l'animation quand les éléments sont visibles
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = 1;
-        entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
+document.addEventListener("DOMContentLoaded", function () {
+  const menuLinks = document.querySelectorAll(".sec-tabs-menu a");
+  const sections = document.querySelectorAll(".sec-tab-content");
+
+  // Fonction pour enlever l'active
+  function clearActive() {
+    menuLinks.forEach(link => link.classList.remove("sec-active"));
+  }
+
+  // Clique sur un menu
+  menuLinks.forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // Retirer l'active partout
+      clearActive();
+
+      // Ajouter l'active sur le lien cliqué
+      this.classList.add("sec-active");
+
+      // Scroll smooth vers la section
+      const targetId = this.getAttribute("href");
+      document.querySelector(targetId).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
+  });
+
+  // Détection du scroll pour activer le bon menu
+  window.addEventListener("scroll", function () {
+    let current = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150; // marge pour déclencher avant
+      const sectionHeight = section.clientHeight;
+
+      if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+        current = section.getAttribute("id");
       }
     });
-  }, {
-    threshold: 0.1
-  });
-  
-  // Observer chaque élément de sécurité
-  securityFeatures.forEach(feature => {
-    observer.observe(feature);
-  });
-  
-  // Gestion des onglets
-  const tabLinks = document.querySelectorAll('.security-tabs .nav-link');
-  const tabContents = document.querySelectorAll('.tab-pane');
-  
-  tabLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      // Retirer la classe active de tous les onglets
-      tabLinks.forEach(l => l.classList.remove('active'));
-      
-      // Ajouter la classe active à l'onglet actuel
-      this.classList.add('active');
-      
-      // Afficher le contenu de l'onglet
-      const targetId = this.getAttribute('data-bs-target').substring(1);
-      
-      tabContents.forEach(content => {
-        if (content.id === targetId) {
-          content.classList.add('show', 'active');
-        } else {
-          content.classList.remove('show', 'active');
-        }
-      });
-      
-      // Réinitialiser l'animation des éléments de sécurité
-      const features = document.querySelectorAll(`#${targetId} .security-feature`);
-      features.forEach((feature, index) => {
-        feature.style.opacity = 0;
-        feature.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-          feature.style.opacity = 1;
-          feature.style.transform = 'translateY(0)';
-        }, 100 + (index * 100));
-      });
-    });
+
+    if (current) {
+      clearActive();
+      const activeLink = document.querySelector(`.sec-tabs-menu a[href="#${current}"]`);
+      if (activeLink) {
+        activeLink.classList.add("sec-active");
+      }
+    }
   });
 });
