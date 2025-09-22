@@ -1,48 +1,44 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const menuLinks = document.querySelectorAll(".sec-tabs-menu a");
+  const menuLinks = document.querySelectorAll(".sec-tabs-menu ul li a");
   const sections = document.querySelectorAll(".sec-tab-content");
 
-  // Fonction pour enlever l'active
+  // reset
   function clearActive() {
     menuLinks.forEach(link => link.classList.remove("sec-active"));
   }
 
-  // Clique sur un menu
+  // onClick
   menuLinks.forEach(link => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
 
-      // Retirer l'active partout
       clearActive();
-
-      // Ajouter l'active sur le lien cliqué
       this.classList.add("sec-active");
 
-      // Scroll smooth vers la section
       const targetId = this.getAttribute("href");
-      document.querySelector(targetId).scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+      const targetSection = document.querySelector(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
   });
 
-  // Détection du scroll pour activer le bon menu
+  // onScroll
   window.addEventListener("scroll", function () {
-    let current = "";
+    let currentId = "";
 
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 150; // marge pour déclencher avant
+      const sectionTop = section.offsetTop - 180;
       const sectionHeight = section.clientHeight;
 
       if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-        current = section.getAttribute("id");
+        currentId = section.getAttribute("id");
       }
     });
 
-    if (current) {
+    if (currentId) {
       clearActive();
-      const activeLink = document.querySelector(`.sec-tabs-menu a[href="#${current}"]`);
+      const activeLink = document.querySelector(`.sec-tabs-menu a[href="#${currentId}"]`);
       if (activeLink) {
         activeLink.classList.add("sec-active");
       }

@@ -32,7 +32,7 @@ loadScriptAfter: /home-page.js
         </div>
     </section>
     <section>
-    		<div class="section-content about-section">
+    	<div class="section-content about-section">
                 <div>
                     <p class="about-overline">What is Cypht?</p>
                     <h2 class="about-heading">About Cypht</h2>
@@ -71,21 +71,18 @@ loadScriptAfter: /home-page.js
                         </div>
                         <button class="card-toggle" type="button" aria-expanded="false">Read more</button>
                     </div>
-                </div>
+             </div>
     	</div>
     </section>
     <!-- features -->
     <section class="features-section" id="features">
         <div class="section-content features-wide px-4">
-            <!-- En-tête de la section -->
             <div class=" w-full">
                 <span class="about-overline">Key Features</span>
                 <h2 class="features-title">How to use <span class="accent">Cypht</span> to simplify <br> your communications</h2>
                 <p class="features-subtitle">Cypht combines all your email accounts into a single, secure interface, offering you a unified and seamless communication experience.</p>
             </div>
-            <!-- Grille des fonctionnalités principale -->
             <div class="features-grid mosaic-grid">
-                <!-- Grande carte principale -->
                 <div class="f-card m-hero">
                     <div class="m-hero-col">
                        <div class="mb-3"> <span class="pill pill-soft">Unified Interface</span> </div>
@@ -96,7 +93,7 @@ loadScriptAfter: /home-page.js
                         <img src="/img/u3.png" alt="Cypht Unified Interface" class="phone-mock">
                     </div>
                 </div>
-                <!-- Carte de gauche -->
+                <!-- left card -->
                 <div class="f-card f-soft m-left">
                     <div class="f-illus">
                            <img src="/img/u1.png" alt="Cypht Unified Interface" class="phone-mock">
@@ -104,7 +101,7 @@ loadScriptAfter: /home-page.js
                     <h3>Advanced Email Management</h3>
                     <p>Move or copy emails between accounts. Compose in plain text, HTML, or Markdown with flexible signature options.</p>
                 </div>
-                <!-- Carte de droite -->
+                <!-- right card -->
                 <div class="f-card f-soft m-right">
                     <div class="f-illus">
                               <img src="/img/u4.png" alt="Cypht Unified Interface" class="phone-mock">
@@ -112,7 +109,7 @@ loadScriptAfter: /home-page.js
                     <h3>Universal Search</h3>
                     <p>Search all your email accounts and RSS feeds simultaneously with a powerful yet simple search interface.</p>
                 </div>
-                <!-- Carte jaune -->
+                <!-- yellow card -->
                 <div class="f-card m-yellow">
                     <div class="f-apps">
                         <h3>Extensive Module System</h3>
@@ -124,10 +121,10 @@ loadScriptAfter: /home-page.js
                             <i class="bi bi-github"></i>
                             <i class="bi bi-wordpress"></i>
                         </div>
-                        <a href="/features" class="see-all-link">See all modules <i class="bi bi-arrow-right"></i></a>
+                        <a href="/modules" class="see-all-link">See all modules <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
-                <!-- Carte cyan -->
+                <!-- cyan card -->
                 <div class="f-card m-cyan">
                     <div class="f-sync">
                         <h3>Server-Side Filtering</h3>
@@ -138,7 +135,7 @@ loadScriptAfter: /home-page.js
                         </div>
                     </div>
                 </div>
-                <!-- Carte CTA -->
+                <!-- CTA card -->
                 <div class="f-card m-cta">
                     <div>
                         <div class="cta-badge">
