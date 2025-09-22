@@ -541,15 +541,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="module-item-content h-100">
                     <div class="md-item-header">
                         <div class="d-flex">
-                            <span class="module-chip" style="background-color: ${typeInfo.color}1a; color: ${typeInfo.color}; border: 1px solid ${typeInfo.color}33;">
+                         <span class="md-item-chip">
                                 ${typeInfo.name}
                             </span>
                         </div>
 
-                        <div class="module-item-cover d-flex ">
+                        <div class="module-item-cover d-flex">
                             <span></span>
                         </div>
-                        
+
                         <h4>${module.name}</h4>
                         <p>${module.description}</p>
                     </div>

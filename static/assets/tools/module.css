@@ -378,6 +378,18 @@
       color: var(--color-primary);
 }
 
+.md-item-chip {
+      font-size: .7rem;
+      font-weight: 600;
+      color: #fff;
+      display: block;
+      background-color: #0000006b;
+      padding: .1rem .6rem;
+      border-radius: 5px;
+      transition: all .18s ease;
+      border: 1px solid #e5e7eb;
+}
+
 /* .md-items-content {
       background: #fff;
       border-radius: 12px;
@@ -385,3 +397,5 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
       border: 1px solid #e5e7eb;
 } */
+
+/* <span class="module-chip" style="background-color: ${typeInfo.color}1a; color: ${typeInfo.color}; border: 1px solid ${typeInfo.color}33;"> */
