@@ -1,115 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{page.title}}</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="/img/icon.ico">
-    <link rel="stylesheet" href="/site.css">
-    <link rel="canonical" href="{{site.baseurl}}{{page.path}}">
-</head>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>{{page.title}}</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/png" href="/img/icon.ico">
+		<link rel="stylesheet" href="/assets/main.css">
+		<link rel="canonical" href="{{site.baseurl}}{{page.path}}">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+	</head>
 
-<body>
-    {% if not page.h1 is defined or page.h1 != false %}
-    <h1 class="sr-only">{{page.h1 |default(page.title)}}</h1>
-    {% endif %}
-    <header>
-        <nav aria-label="Site navigation" class="navbar navbar-expand-lg navbar-dark  fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="/">
-                    <img src="/img/logo.svg" width="120" height="60" alt="">
-                </a>
-                <button class="navbar-toggler toggler-home" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-lg-auto">
-                        {% for pageEntry in site.pages.showable|sort_by_weight  %}
-                            {% set current = pageEntry.path == page.path %}
-                            <li class="nav-item {{current ? 'active' : ''}}">
-                                <a
-                                    class="nav-link"
-                                    href="/{{pageEntry.path}}"
-                                    {{ current ? 'aria-current="page"' : '' }}
-                                >{{pageEntry.title}}</a>
-                            </li>
-                        {% endfor %}
-                        <li class="nav-item">
-                            <a class="nav-link"
-                               href="https://unencumberedbyfacts.com/"
-                            >Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/cypht-org/cypht-website/blob/master/pages/{% if page.path %}{{page.path}}.md{% else %}index.md{% endif %}">
-                                 <img src="/img/edit_icon.png" alt="Edit Icon" width="23" height="23" style="vertical-align:middle;" title="Edit this page">
-                            </a>
-                       </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    {% if page.nocontainer is defined %}
-        {{page.content}}
-    {% else %}
-        <main class="content-section container">
-            {{page.content}}
-            {% if page.path == 'config-generator' %}
-                {{- include('partials/config-generator.html.twig') ~}}
-            {% endif %}
-        </main>
-    {% endif %}
+	<body>
+		{% include 'partials/navbar.html.twig' %}
+		<div class="flex-1  main-content">
+			{% if page.nocontainer is defined %}
+				{{page.content}}
+			{% else %}
+				<main class="">
+					{{page.content}}
+					{% if page.path == 'config-generator' %}
+						{{- include('partials/config-generator.html.twig') ~}}
+					{% endif %}
+				</main>
+			{% endif %}
+		</div>
+		{% include 'partials/footer_label.html.twig' %}
+		{% include 'partials/footer.html.twig' %}
 
-
-    <footer>
-        <section class="footer-section" id="contact">
-            <div class="container text-center">
-                <h2>Have a suggestion or a question?</h2>
-                <h3>Or maybe you want to throw huge wads of cash at us? </h3>
-                <p>We love feedback so let us know what you think!</p>
-            </div>
-        </section>
-        <nav aria-label="Developer links" class=" social-section text-center">
-            <h2 class="sr-only">Developer links</h2>
-            <div class="container">
-                <div class="row">
-                    <div class="col-3 col-md-3 col-sm-12">
-                        <p>
-                            <span>Page on Github</span><br>
-                            <a href="https://github.com/cypht-org/cypht-website/blob/master/pages/{% if page.path %}{{page.path}}.md{% else %}index.md{% endif %}">Edit here</a>                        </p>
-                    </div>
-                    <div class="col-3 col-md-3 col-sm-12">
-                        <p>
-                            <span>Fill out an issue at Github</span><br>
-                            <a href="https://github.com/cypht-org/cypht/issues">Submit an issue</a>
-                        </p>
-                    </div>
-                    <div class="col-3 col-md-3 col-sm-12">
-                        <p>
-                            <span>Chat with us at Gitter</span><br>
-                            <a href="https://gitter.im/cypht-org/community">Cypht at Gitter</a>
-                        </p>
-                    </div>
-                    <div class="col-3 col-md-3 col-sm-12">
-                        <p>
-                            <span>Want to contribute?</span><br>
-                            <a href="/contribute">Cypht website contribution</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </footer>
-    <script src="/jquery.slim.min.js"></script>
-    <script src="/bootstrap.bundle.min.js"></script>
-    {% if page.loadScriptAfter is defined %}
-        <script src="{{page.loadScriptAfter}}"></script>
-    {% endif %}
-</body>
-
+		<script src="/jquery.slim.min.js"></script>
+		<script src="/js/theme-switcher.js"></script>
+		{% if page.loadScriptAfter is defined %}
+			<script src="{{page.loadScriptAfter}}"></script>
+		{% endif %}
+	</body>
 </html>

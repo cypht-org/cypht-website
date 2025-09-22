@@ -1,0 +1,161 @@
+/* Label section with bg-primary background */
+.label-section {
+      /* background-color: #81B441; */
+      /* Matches bg-primary */
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+      /* border-radius: 16px;
+      margin: 2rem auto;
+      max-width: 1200px; */
+      color: white;
+      /* White text on colored background */
+}
+
+.label-section .section-content {
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #81B441 0%, #68a124 100%);
+      border-radius: 16px;
+}
+
+.label-card {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      text-align: center;
+}
+
+.label-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.2);
+      /* Semi-transparent white */
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.label-headline {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: white;
+      margin: 0 0 1.5rem 0;
+      position: relative;
+      display: inline-block;
+}
+
+.label-headline .highlight {
+      color: rgba(31, 31, 31, 0.9);
+      ;
+      /* Light yellow to contrast on green background */
+      position: relative;
+      z-index: 1;
+}
+
+.icon-decoration {
+      display: inline-block;
+      margin-left: 0.5rem;
+      position: relative;
+      top: -0.5rem;
+}
+
+.squiggle-decoration {
+      position: absolute;
+      right: -20px;
+      bottom: -5px;
+      z-index: 0;
+}
+
+.label-description {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+}
+
+.label-action {
+      display: flex;
+      justify-content: center;
+}
+
+.btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background-color: white;
+      color: #558017;
+      /* Dark green to contrast with white background */
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-download:hover {
+      background-color: #f0f0f0;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* SVG in decoration with adapted color */
+.squiggle-decoration svg path {
+      stroke: rgba(255, 255, 255, 0.5);
+      /* Semi-transparent white */
+}
+
+/* Subtle background pattern */
+.label-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+            radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+      .label-section {
+            padding: 4rem 1rem;
+            margin: 1rem;
+      }
+
+      .label-headline {
+            font-size: 2.25rem;
+      }
+
+      .squiggle-decoration,
+      .icon-decoration {
+            display: none;
+      }
+
+      .label-description {
+            font-size: 1.1rem;
+      }
+}
+
+@media (max-width: 576px) {
+      .label-headline {
+            font-size: 1.75rem;
+      }
+
+      .btn-download {
+            width: 100%;
+            justify-content: center;
+      }
+}
