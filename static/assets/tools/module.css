@@ -1,6 +1,4 @@
 /* ====== HERO MODULE ====== */
-
-
 .module-container {
       margin: 0 auto;
       height: 80dvh;
@@ -11,10 +9,6 @@
 
 .module-hero {
       height: 100%;
-      /* text-align: center;
-      padding: 0 8rem; */
-      /* max-width: var(--container-6xl); */
-      /* background: #fff; */
 }
 
 .module-hero:before {
