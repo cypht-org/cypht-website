@@ -1,161 +1,315 @@
-/* Label section with bg-primary background */
-.label-section {
-      /* background-color: #81B441; */
-      /* Matches bg-primary */
-      padding: 6rem 0;
-      position: relative;
-      overflow: hidden;
-      /* border-radius: 16px;
-      margin: 2rem auto;
-      max-width: 1200px; */
-      color: white;
-      /* White text on colored background */
-}
+/* ==========================================
+   HORIZONTAL CTA BANNER - INSPIRED DESIGN
+========================================== */
 
-.label-section .section-content {
+.horizontal-cta-section {
       padding: 4rem 0;
-      background: linear-gradient(135deg, #81B441 0%, #68a124 100%);
-      border-radius: 16px;
+      background: var(--color-bg);
+      position: relative;
 }
 
-.label-card {
-      position: relative;
-      max-width: 900px;
+.cta-banner {
+      max-width: var(--container-6xl);
       margin: 0 auto;
       padding: 0 1.5rem;
-      text-align: center;
 }
 
-.label-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background-color: rgba(255, 255, 255, 0.2);
-      /* Semi-transparent white */
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-weight: 500;
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.label-headline {
-      font-size: 3rem;
-      font-weight: 800;
-      line-height: 1.2;
-      color: white;
-      margin: 0 0 1.5rem 0;
-      position: relative;
-      display: inline-block;
-}
-
-.label-headline .highlight {
-      color: rgba(31, 31, 31, 0.9);
-      ;
-      /* Light yellow to contrast on green background */
-      position: relative;
-      z-index: 1;
-}
-
-.icon-decoration {
-      display: inline-block;
-      margin-left: 0.5rem;
-      position: relative;
-      top: -0.5rem;
-}
-
-.squiggle-decoration {
-      position: absolute;
-      right: -20px;
-      bottom: -5px;
-      z-index: 0;
-}
-
-.label-description {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.6;
-      max-width: 700px;
-      margin: 0 auto 2.5rem;
-}
-
-.label-action {
+.cta-content {
+      background: var(--color-primary);
+      border-radius: 16px;
+      padding: 4.5rem 3rem;
       display: flex;
-      justify-content: center;
-}
-
-.btn-download {
-      display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
-      background-color: white;
-      color: #558017;
-      /* Dark green to contrast with white background */
-      padding: 1rem 2rem;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      justify-content: space-between;
+      gap: 2rem;
+      box-shadow: var(--shadow-xl);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      min-height: 140px;
 }
 
-.btn-download:hover {
-      background-color: #f0f0f0;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-}
-
-/* SVG in decoration with adapted color */
-.squiggle-decoration svg path {
-      stroke: rgba(255, 255, 255, 0.5);
-      /* Semi-transparent white */
-}
-
-/* Subtle background pattern */
-.label-section::before {
+.cta-content::before {
       content: "";
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background-image:
-            radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-      pointer-events: none;
+      background: linear-gradient(135deg,
+                  rgba(255, 255, 255, 0.1) 0%,
+                  rgba(255, 255, 255, 0.05) 100%);
+      z-index: 0;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-      .label-section {
-            padding: 4rem 1rem;
-            margin: 1rem;
+.cta-content:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-2xl);
+}
+
+.cta-content>* {
+      position: relative;
+      z-index: 1;
+}
+
+/* Main text section */
+.cta-main-text {
+      flex: 1;
+      min-width: 0;
+}
+
+.cta-title {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: white;
+      margin: 0;
+      letter-spacing: -0.02em;
+}
+
+/* Description section */
+.cta-description {
+      flex: 1.2;
+      min-width: 0;
+      padding: 0 1rem;
+}
+
+.cta-subtitle {
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0;
+      text-align: left;
+}
+
+/* Action button */
+.cta-action {
+      flex-shrink: 0;
+}
+
+.cta-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 14px;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+}
+
+.cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+}
+
+.cta-button:hover::before {
+      opacity: 1;
+}
+
+.cta-button:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button svg {
+      transition: transform 0.3s ease;
+}
+
+.cta-button:hover svg {
+      transform: rotate(-45deg);
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .cta-content {
+      background: var(--color-primary);
+}
+
+[data-theme="dark"] .cta-content::before {
+      background: linear-gradient(135deg,
+                  rgba(255, 255, 255, 0.1) 0%,
+                  rgba(255, 255, 255, 0.05) 100%);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+      .cta-content {
+            padding: 2rem 2.5rem;
+            gap: 1.5rem;
       }
 
-      .label-headline {
-            font-size: 2.25rem;
+      .cta-title {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
       }
 
-      .squiggle-decoration,
-      .icon-decoration {
-            display: none;
-      }
-
-      .label-description {
+      .cta-subtitle {
             font-size: 1.1rem;
       }
 }
 
-@media (max-width: 576px) {
-      .label-headline {
-            font-size: 1.75rem;
+@media (max-width: 768px) {
+      .horizontal-cta-section {
+            padding: 3rem 0;
       }
 
-      .btn-download {
-            width: 100%;
-            justify-content: center;
+      .cta-banner {
+            padding: 0 1rem;
+      }
+
+      .cta-content {
+            flex-direction: column;
+            text-align: center;
+            padding: 3rem 2rem;
+            gap: 2rem;
+            min-height: 160px;
+      }
+
+      .cta-main-text {
+            order: 1;
+      }
+
+      .cta-description {
+            order: 2;
+            padding: 0;
+      }
+
+      .cta-action {
+            order: 3;
+      }
+
+      .cta-title {
+            font-size: clamp(1.5rem, 6vw, 2.25rem);
+      }
+
+      .cta-subtitle {
+            font-size: 1.125rem;
+            text-align: center;
+      }
+
+      .cta-button {
+            width: 80px;
+            height: 80px;
+      }
+}
+
+@media (max-width: 480px) {
+      .cta-content {
+            padding: 2.5rem 1.5rem;
+            gap: 1.5rem;
+            min-height: 150px;
+      }
+
+      .cta-title {
+            font-size: clamp(1.25rem, 8vw, 2rem);
+      }
+
+      .cta-subtitle {
+            font-size: 1rem;
+            line-height: 1.5;
+      }
+
+      .cta-button {
+            width: 70px;
+            height: 70px;
+      }
+}
+
+/* Animation for page load */
+.cta-content {
+      animation: slideInUp 0.8s ease-out;
+}
+
+.cta-title {
+      animation: fadeInLeft 0.8s ease-out 0.2s both;
+}
+
+.cta-subtitle {
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.cta-button {
+      animation: fadeInRight 0.8s ease-out 0.6s both;
+}
+
+@keyframes slideInUp {
+      from {
+            opacity: 0;
+            transform: translateY(30px);
+      }
+
+      to {
+            opacity: 1;
+            transform: translateY(0);
+      }
+}
+
+@keyframes fadeInLeft {
+      from {
+            opacity: 0;
+            transform: translateX(-30px);
+      }
+
+      to {
+            opacity: 1;
+            transform: translateX(0);
+      }
+}
+
+@keyframes fadeInRight {
+      from {
+            opacity: 0;
+            transform: translateX(30px);
+      }
+
+      to {
+            opacity: 1;
+            transform: translateX(0);
+      }
+}
+
+@keyframes fadeInUp {
+      from {
+            opacity: 0;
+            transform: translateY(20px);
+      }
+
+      to {
+            opacity: 1;
+            transform: translateY(0);
+      }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+
+      .cta-content,
+      .cta-title,
+      .cta-subtitle,
+      .cta-button {
+            animation: none;
+      }
+
+      .cta-button::before {
+            display: none;
+      }
+
+      .cta-button:hover svg {
+            transform: none;
       }
 }

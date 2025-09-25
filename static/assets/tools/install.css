@@ -1,0 +1,526 @@
+/* ==========================================
+   INSTALL PAGE - MODERN STYLING
+========================================== */
+
+/* Main container */
+.install-page {
+      max-width: var(--container-6xl);
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      background: var(--color-bg);
+      min-height: 100vh;
+}
+
+/* Page header */
+.install-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem 0;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      border-radius: 20px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+}
+
+.install-header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      z-index: 0;
+}
+
+.install-header>* {
+      position: relative;
+      z-index: 1;
+}
+
+.install-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      margin: 0 0 1rem 0;
+      letter-spacing: -0.02em;
+}
+
+.install-subtitle {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin: 0;
+      font-weight: 400;
+}
+
+/* Installation methods grid */
+.install-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+}
+
+.install-method-card {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border-light);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+}
+
+.install-method-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg,
+                  rgba(128, 180, 65, 0.02) 0%,
+                  rgba(248, 151, 63, 0.02) 100%);
+      z-index: 0;
+}
+
+.install-method-card>* {
+      position: relative;
+      z-index: 1;
+}
+
+.install-method-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-primary);
+}
+
+.method-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--color-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: white;
+      font-size: 1.5rem;
+}
+
+.method-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin: 0 0 1rem 0;
+}
+
+.method-description {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin: 0 0 1.5rem 0;
+}
+
+.method-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--color-primary);
+      color: white;
+      border: 1px solid var(--color-primary);
+      border-radius: 8px;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+}
+
+.method-button:hover {
+      background: var(--color-primary-dark);
+      border-color: var(--color-primary-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+      color: white;
+}
+
+/* Section styling */
+.install-section {
+      margin-bottom: 3rem;
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border-light);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+}
+
+.section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin: 0 0 1.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+}
+
+.section-title::before {
+      content: "";
+      width: 4px;
+      height: 2rem;
+      background: var(--color-primary);
+      border-radius: 2px;
+}
+
+.section-subtitle {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin: 2rem 0 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+}
+
+.section-subtitle::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--color-primary);
+      border-radius: 50%;
+}
+
+/* Requirements box */
+.requirements-box {
+      background: var(--color-bg-tertiary);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid var(--color-primary);
+}
+
+.requirements-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin: 0 0 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+}
+
+.requirements-title::before {
+      content: "✓";
+      color: var(--color-primary);
+      font-weight: bold;
+}
+
+.requirements-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+}
+
+.requirements-list li {
+      padding: 0.5rem 0;
+      color: var(--color-text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+}
+
+.requirements-list li::before {
+      content: "•";
+      color: var(--color-primary);
+      font-weight: bold;
+      margin-right: 0.5rem;
+}
+
+/* Code blocks */
+.install-code {
+      background: var(--color-bg-tertiary);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      position: relative;
+      overflow-x: auto;
+}
+
+.install-code pre {
+      margin: 0;
+      font-family: var(--font-family-monospace);
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--color-text);
+      background: none;
+      border: none;
+      padding: 0;
+}
+
+.code-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+}
+
+.code-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+}
+
+.copy-button {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+      background: var(--color-primary);
+      color: white;
+      border-color: var(--color-primary);
+}
+
+/* Steps styling */
+.install-steps {
+      counter-reset: step-counter;
+}
+
+.install-step {
+      counter-increment: step-counter;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--color-bg-tertiary);
+      border-radius: 12px;
+      border-left: 4px solid var(--color-primary);
+      position: relative;
+}
+
+.install-step::before {
+      content: counter(step-counter);
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 30px;
+      height: 30px;
+      background: var(--color-primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.875rem;
+}
+
+.step-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin: 0 0 1rem 0;
+}
+
+.step-content {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+}
+
+/* Links styling */
+.install-page a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+}
+
+.install-page a:hover {
+      color: var(--color-primary-dark);
+      text-decoration: underline;
+}
+
+/* Lists styling */
+.install-page ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+}
+
+.install-page ul li {
+      padding: 0.5rem 0;
+      color: var(--color-text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+}
+
+.install-page ul li::before {
+      content: "→";
+      color: var(--color-primary);
+      font-weight: bold;
+      margin-top: 0.1rem;
+}
+
+/* Horizontal rule */
+.install-page hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+      margin: 3rem 0;
+      border-radius: 1px;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .install-method-card,
+[data-theme="dark"] .install-section {
+      background: var(--color-bg-secondary);
+      border-color: var(--color-border);
+}
+
+[data-theme="dark"] .requirements-box,
+[data-theme="dark"] .install-code,
+[data-theme="dark"] .install-step {
+      background: var(--color-bg-tertiary);
+      border-color: var(--color-border);
+}
+
+[data-theme="dark"] .copy-button {
+      background: var(--color-bg-secondary);
+      border-color: var(--color-border);
+      color: var(--color-text-secondary);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+      .install-page {
+            padding: 1rem;
+      }
+
+      .install-header {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+      }
+
+      .install-methods {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+      }
+
+      .install-method-card,
+      .install-section {
+            padding: 1.5rem;
+      }
+
+      .section-title {
+            font-size: 1.75rem;
+      }
+
+      .section-subtitle {
+            font-size: 1.25rem;
+      }
+}
+
+@media (max-width: 480px) {
+      .install-header {
+            padding: 1rem;
+      }
+
+      .install-title {
+            font-size: clamp(2rem, 8vw, 2.5rem);
+      }
+
+      .install-subtitle {
+            font-size: 1rem;
+      }
+
+      .install-method-card,
+      .install-section {
+            padding: 1rem;
+      }
+
+      .method-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.25rem;
+      }
+
+      .method-title {
+            font-size: 1.25rem;
+      }
+}
+
+/* Animation for page load */
+.install-header {
+      animation: fadeInDown 0.8s ease-out;
+}
+
+.install-method-card {
+      animation: fadeInUp 0.8s ease-out;
+      animation-fill-mode: both;
+}
+
+.install-method-card:nth-child(1) {
+      animation-delay: 0.1s;
+}
+
+.install-method-card:nth-child(2) {
+      animation-delay: 0.2s;
+}
+
+.install-method-card:nth-child(3) {
+      animation-delay: 0.3s;
+}
+
+.install-method-card:nth-child(4) {
+      animation-delay: 0.4s;
+}
+
+.install-section {
+      animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+@keyframes fadeInDown {
+      from {
+            opacity: 0;
+            transform: translateY(-30px);
+      }
+
+      to {
+            opacity: 1;
+            transform: translateY(0);
+      }
+}
+
+@keyframes fadeInUp {
+      from {
+            opacity: 0;
+            transform: translateY(30px);
+      }
+
+      to {
+            opacity: 1;
+            transform: translateY(0);
+      }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+
+      .install-header,
+      .install-method-card,
+      .install-section {
+            animation: none;
+      }
+}

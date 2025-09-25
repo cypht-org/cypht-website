@@ -91,18 +91,18 @@
       display: flex;
       align-items: center;
       gap: 0.7rem;
-      padding: 0.2rem 1rem;
-      border-radius: 5px;
+      padding: 0.2rem 1rem !important;
+      border-radius: 4px;
       text-decoration: none;
-      color: light-dark(#d1d1d1, #d1d1d1);
+      color: rgba(255, 255, 255, 0.8);
       font-weight: 600;
       font-size: 0.91rem;
       border: none;
       background: none;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       text-transform: capitalize !important;
-      cursor: pointer;
+      min-height: 35px;
 }
 
 /* [data-theme="light"] .nav-item {
@@ -110,24 +110,16 @@
 } */
 
 .nav-item:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: ligth-dark(white);
+      background: rgba(255, 255, 255, 0.054);
+      color: white;
+      transform: translateY(-1px);
 }
-
-/* [data-theme="light"] .nav-item:hover {
-      background: rgba(0, 0, 0, 0.05);
-      color: #1f1f1f;
-} */
 
 .nav-item.active {
       background: rgba(255, 255, 255, 0.15);
       color: white;
+      box-shadow: var(--shadow-sm);
 }
-
-/* [data-theme="light"] .nav-item.active {
-      background: rgba(0, 0, 0, 0.08);
-      color: #1f1f1f;
-} */
 
 .dropdown-arrow {
       font-size: 0.7rem;
@@ -149,13 +141,16 @@
       transform: translateX(-50%);
       background: rgba(31, 31, 31, 0.95);
       backdrop-filter: blur(20px);
-      border: 1px solid #ffffff1a;
-      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
       opacity: 0;
       visibility: hidden;
       transform: translateX(-50%) translateY(-10px);
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1000;
+      min-width: 600px;
+      padding: 0.75rem;
 }
 
 .nav-dropdown:hover .dropdown-panel {
@@ -170,43 +165,46 @@
 }
 
 .dropdown-content {
-      /* padding: 1rem 1.5rem; */
       display: grid;
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: 1fr 1fr;
       gap: 0.5rem;
-      padding: 0.5rem;
+      padding: 0;
 }
 
 .dropdown-item {
       display: flex;
-      gap: 0.5rem;
-      padding: 0.4rem 0.7rem !important;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem !important;
       text-decoration: none;
       color: rgba(255, 255, 255, 0.8);
       font-size: 0.875rem;
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 8px !important;
+      width: 100%;
+      min-height: 60px;
 }
 
 .dropdown-item:hover {
       background: rgba(255, 255, 255, 0.1) !important;
-      border-radius: 8px !important;
-      color: white;
-
+      color: white !important;
+      transform: translateX(4px);
 }
 
 /* Dropdown item elements */
 .drop-item-icon {
       flex-shrink: 0;
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
       background-color: rgba(255, 255, 255, 0.1);
       padding: 0.5rem;
       border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 40px;
-      width: 40px;
+      height: 36px;
+      width: 36px;
+      transition: all 0.3s ease;
 }
 
 .drop-item-content {
@@ -217,13 +215,13 @@
 .drop-item-title {
       font-size: .88rem;
       font-weight: 600;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.9);
 }
 
 .drop-item-description {
       font-weight: 400;
       font-size: .85rem;
-      color: gray;
+      color: rgba(255, 255, 255, 0.6);
 }
 
 
@@ -338,6 +336,64 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+}
+
+/* GitHub button */
+.github-btn {
+      display: flex !important;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+      background: rgba(255, 255, 255, 0.05) !important;
+      color: rgba(255, 255, 255, 0.8) !important;
+      backdrop-filter: blur(10px);
+}
+
+.github-btn:hover {
+      background: rgba(255, 255, 255, 0.1) !important;
+      color: white !important;
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+      color: rgba(255, 255, 255, 0.8) !important;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.1) !important;
+      color: white !important;
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.theme-toggle i {
+      font-size: 1.1rem;
+      transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover i {
+      transform: rotate(180deg);
 }
 
 /* Small mobile screens - 480px and below */

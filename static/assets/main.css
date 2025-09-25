@@ -1,7 +1,12 @@
+@import url('./typography.css');
+@import url('./animations.css');
+@import url('./spacing.css');
+@import url('./accessibility.css');
 @import url('./home/index.css');
 @import url('./features.css');
 @import url('./security.css');
 @import url('./tools/module.css');
+@import url('./tools/install.css');
 @import url('./navbar.css');
 @import url('./footer.css');
 
@@ -26,19 +31,40 @@
    CSS VARIABLES - COLOR SYSTEM AND THEMES
 ========================================== */
 :root {
-      /* Light theme (default) */
+      /* Light theme (default) - Enhanced color system */
       --color-bg: #FAFAFA;
-      --color-text: #111111;
+      --color-bg-secondary: #FFFFFF;
+      --color-bg-tertiary: #F8F9FA;
+      --color-text: #1A1A1A;
+      --color-text-secondary: #6B7280;
+      --color-text-muted: #9CA3AF;
       --color-primary: #80B441;
+      --color-primary-light: #9BCB5A;
+      --color-primary-dark: #6A9A2F;
       --color-secondary: #F8973F;
-      --color-border: #e5e7eb;
+      --color-secondary-light: #FAB563;
+      --color-secondary-dark: #E8851F;
+      --color-accent: #3B82F6;
+      --color-success: #10B981;
+      --color-warning: #F59E0B;
+      --color-error: #EF4444;
+      --color-border: #E5E7EB;
+      --color-border-light: #F3F4F6;
+      --color-border-dark: #D1D5DB;
       --cypht-color: #80B441;
-      --cypht-btn-bg: #ffffff1a;
-      --nav-item-color: rgba(31, 31, 31, 0.8);
+      --cypht-btn-bg: rgba(255, 255, 255, 0.1);
+      --nav-item-color: rgba(26, 26, 26, 0.8);
       --nav-item-hover-bg: rgba(0, 0, 0, 0.05);
-      --nav-item-hover-color: #1f1f1f;
+      --nav-item-hover-color: #1A1A1A;
       --nav-item-active-bg: rgba(0, 0, 0, 0.08);
-      --nav-item-active-color: #1f1f1f;
+      --nav-item-active-color: #1A1A1A;
+
+      /* Shadow system */
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 
       /* Fonts */
       --font-sans: 'Montserrat', Arial, sans-serif;
@@ -76,16 +102,41 @@
       color-scheme: light;
 }
 
-/* Dark theme */
+/* Dark theme - Enhanced */
 [data-theme="dark"] {
-      --color-bg: #0f172a;
-      --color-text: #f8fafc;
+      --color-bg: #0F172A;
+      --color-bg-secondary: #1E293B;
+      --color-bg-tertiary: #334155;
+      --color-text: #F8FAFC;
+      --color-text-secondary: #CBD5E1;
+      --color-text-muted: #94A3B8;
+      --color-primary: #9BCB5A;
+      --color-primary-light: #B8D97A;
+      --color-primary-dark: #80B441;
+      --color-secondary: #FAB563;
+      --color-secondary-light: #FBCA83;
+      --color-secondary-dark: #F8973F;
+      --color-accent: #60A5FA;
+      --color-success: #34D399;
+      --color-warning: #FBBF24;
+      --color-error: #F87171;
       --color-border: #334155;
-      --nav-item-color: rgba(255, 255, 255, 0.8);
+      --color-border-light: #475569;
+      --color-border-dark: #1E293B;
+      --cypht-color: #9BCB5A;
+      --cypht-btn-bg: rgba(255, 255, 255, 0.1);
+      --nav-item-color: rgba(248, 250, 252, 0.8);
       --nav-item-hover-bg: rgba(255, 255, 255, 0.1);
-      --nav-item-hover-color: #ffffff;
+      --nav-item-hover-color: #F8FAFC;
       --nav-item-active-bg: rgba(255, 255, 255, 0.15);
-      --nav-item-active-color: #ffffff;
+      --nav-item-active-color: #F8FAFC;
+
+      /* Enhanced shadows for dark theme */
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+      --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 
       color-scheme: dark;
 }
@@ -315,17 +366,19 @@ a:hover {
       font-size: 0.875rem;
       border: 1px solid transparent;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       white-space: nowrap;
-      background: rgba(255, 255, 255, 0.057);
-      color: white;
-
+      background: var(--cypht-btn-bg);
+      color: var(--color-text);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
 }
 
 .action-btn:hover {
-      background: rgba(255, 255, 255, 0.267);
-      color: white;
-      transition: background 0.2s ease, color 0.2s ease;
+      background: var(--nav-item-hover-bg);
+      color: var(--nav-item-hover-color);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
 }
 
 /* Specific buttons */
@@ -349,23 +402,28 @@ a:hover {
 }
 
 .primary-btn {
-      background: white;
-      color: #1f1f1f;
-      font-weight: 500;
-}
-
-[data-theme="light"] .primary-btn {
-      background: #1f1f1f;
+      background: var(--color-primary);
       color: white;
+      font-weight: 600;
+      border: 1px solid var(--color-primary);
+      box-shadow: var(--shadow-md);
 }
 
 .primary-btn:hover {
-      background: rgba(255, 255, 255, 0.9);
-      transform: translateY(-1px);
+      background: var(--color-primary-dark);
+      border-color: var(--color-primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
 }
 
-[data-theme="light"] .primary-btn:hover {
-      background: rgba(31, 31, 31, 0.9);
+[data-theme="dark"] .primary-btn {
+      background: var(--color-primary);
+      color: var(--color-bg);
+}
+
+[data-theme="dark"] .primary-btn:hover {
+      background: var(--color-primary-light);
+      border-color: var(--color-primary-light);
 }
 
 .mobile-section {
