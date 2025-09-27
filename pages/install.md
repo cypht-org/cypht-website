@@ -46,10 +46,378 @@ exclude: true
         The web server will need read-only access to it, and moving it from one place to another requires re-running the configuration script.
         Do <b>not</b> put the source in the document root as it could create a security risk.
         On Debian systems, it's common to place the source in the "/usr/local/share/" sub-directory for such cases.
-        The provided bash script downloads(installs or upgrades) the specified version of Cypht, prepares the necessary directories, sets up correct permissions and ownership, and places the Cypht source in "/usr/local/share/cypht/cypht-version".
+        The provided bash script downloads installs (installs and/or upgrades <a href="#" type="button" data-toggle="modal" data-target="#serviceProviderModal">check</a>) the specified version of Cypht, prepares the necessary directories, sets up correct permissions and ownership, and places the Cypht source in "/usr/local/share/cypht/cypht-version".
         It also ensures that the required configuration files are created, such as .env or hm3.ini (depending on the version).
         The script requires sudo access to perform these actions:
     </p>
+    
+
+    <div class="modal fade" id="serviceProviderModal" tabindex="-1" role="dialog" aria-labelledby="serviceProviderModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="serviceProviderModalLabel">INSTALL/UPGRADE SCRIPT</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs" id="myTab-upgrade" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="upgrade-linux-tab" data-toggle="tab" href="#upgrade-linux" role="tab" aria-controls="upgrade-linux" aria-selected="true">Linux</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="upgrade-windows-tab" data-toggle="tab" href="#upgrade-windows" role="tab" aria-controls="upgrade-windows" aria-selected="true">Windows</a>
+                        </li>
+                        
+                    </ul>
+                    <div class="tab-content" id="upgradeContent" style="max-height:600px; overflow-y: auto;">
+                        <div class="tab-pane fade show active" id="upgrade-linux" role="tabpanel" aria-labelledby="upgrade-linux-tab">
+                            <pre>
+        #!/bin/bash
+
+        bold_green() {
+            echo -e "\033[1m\033[32m✓ $1\033[0m"
+        }
+
+        bold_red() {
+            echo -e "\033[1m\033[31m$1\033[0m"
+        }
+
+        bold_blue() {
+            echo -e "\033[1m\033[34m$1\033[0m"
+        }
+
+        bold_yellow() {
+            echo -e "\033[1m\033[33m$1\033[0m"
+        }
+
+        # Function to check prerequisites
+        check_prerequisites() {
+            echo "Checking prerequisites..."
+
+            # Check if jq is installed (needed for version parsing)
+            if ! command -v jq &>/dev/null; then
+                bold_red "Error: jq is not installed but required to fetch versions."
+                bold_red "Please install it with:"
+                bold_blue "  sudo apt update && sudo apt install jq"
+                exit 1
+            fi
+
+            # Check if PHP is installed
+            if ! command -v php &>/dev/null; then
+                bold_red "Error: PHP is not installed or not in the system PATH."
+                bold_red "Please install PHP before proceeding."
+                exit 1
+            fi
+
+            # Print the PHP version
+            bold_green "PHP is installed."
+
+            # List installed PHP extensions
+            required_extensions=("openssl" "mbstring" "curl" "session" "dom" "fileinfo" "filter" "gd" "mysqli" "phar" "simplexml" "soap" "tokenizer" "xml" "xmlwriter" "zlib")
+            missing_extensions=()
+
+            for ext in "${required_extensions[@]}"; do
+                if ! php -m | grep -iq "$ext"; then
+                    missing_extensions+=("$ext")
+                fi
+            done
+
+            if [ ${#missing_extensions[@]} -gt 0 ]; then
+                bold_red "Error: The following required PHP extensions are missing: ${missing_extensions[*]}"
+                bold_red "Please install the missing extensions before proceeding."
+                exit 1
+            else
+                bold_green "All required PHP extensions (OpenSSL, mbstring, cURL, session, dom, fileinfo, filter, gd, mysqli, phar, simplexml, soap, tokenizer, xml, xmlwriter, zlib) are installed."
+            fi
+
+            # Check if Composer is installed
+            if ! command -v composer &>/dev/null; then
+                bold_red "Error: Composer is not installed or not in the system PATH."
+                bold_red "Please install Composer before proceeding: https://getcomposer.org/download/"
+                exit 1
+            fi
+
+            # Print the Composer version
+            bold_green "Composer is installed.\n"
+        }
+
+        # Function to fetch the list of valid tags from the GitHub repository (version 2.x.y and above only)
+        fetch_tags() {
+            echo "Fetching latest versions from GitHub..." >&2
+            curl -s https://api.github.com/repos/cypht-org/cypht/releases | \
+            jq -r '.[] | .tag_name' | sort -V | \
+            awk -F. '
+            {
+                # Extract major version number (e.g., "2" from "v2.x.y")
+                major = substr($1, 2)
+                # Only include version 2.x.y and above
+                if (major >= 2) {
+                    print $0
+                }
+            }' | sort -Vr | head -20  # Show latest 20 versions, newest first
+        }
+
+        # Function to install/upgrade Cypht for a given version
+        install_cypht() {
+            local version=$1
+            local previous_version=$2
+            local destination="$BASE_DIR/cypht-$version"
+            local previous_destination="$BASE_DIR/cypht-$previous_version"
+            local temp_dir=$(mktemp -d)
+
+            # Check if this is an upgrade (previous version exists)
+            if [ -n "$previous_version" ] && [ -d "$previous_destination" ]; then
+                bold_yellow "Upgrading from $previous_version to $version..."
+                
+                # Backup .env file from previous version
+                if [ -f "$previous_destination/.env" ]; then
+                    bold_blue "Backing up .env file from previous version..."
+                    cp "$previous_destination/.env" "$temp_dir/.env.backup"
+                    bold_green "Backed up .env file from $previous_version"
+                fi
+                
+                # Backup config directory from previous version if it exists
+                if [ -d "$previous_destination/config" ]; then
+                    bold_blue "Backing up config directory from previous version..."
+                    cp -r "$previous_destination/config" "$temp_dir/config.backup"
+                    bold_green "Backed up config directory from $previous_version"
+                fi
+                
+                # Remove previous installation
+                bold_blue "Removing previous version $previous_version..."
+                sudo rm -rf "$previous_destination"
+                bold_green "Removed $previous_destination"
+            fi
+
+            # Create destination directory
+            bold_blue "Installing Cypht version $version..."
+            sudo mkdir -p "$destination"
+
+            # Create temporary working directory
+            cd "$temp_dir" || exit 1
+
+            # Download the selected version of Cypht
+            bold_blue "Downloading version $version..."
+            wget "https://github.com/cypht-org/cypht/archive/refs/tags/$version.zip" -O "$version.zip"
+
+            if [ $? -ne 0 ]; then
+                bold_red "Error downloading version $version."
+                exit 1
+            fi
+
+            # Unpack the archive
+            bold_blue "Unpacking the archive...\n"
+            unzip "$version.zip"
+
+            if [ $? -ne 0 ]; then
+                bold_red "Error unpacking the archive."
+                exit 1
+            fi
+
+            # Run composer in the extracted folder
+            cd "cypht-${version#v}" || exit 1
+            bold_blue "Installing dependencies with composer...\n"
+            composer install --no-dev --optimize-autoloader
+
+            # Restore .env file from backup if this is an upgrade
+            if [ -n "$previous_version" ] && [ -f "$temp_dir/.env.backup" ]; then
+                bold_blue "Restoring .env file from previous version..."
+                cp "$temp_dir/.env.backup" ".env"
+                bold_green "Restored .env file from $previous_version"
+            else
+                # Create .env file from example for new installations
+                bold_blue "Creating .env from .env.example...\n"
+                cp .env.example .env
+            fi
+
+            # Fix permissions and ownership
+            bold_blue "Fixing permissions...\n"
+            find . -type d -exec chmod 755 {} \;
+            find . -type f -exec chmod 644 {} \;
+
+            # Ask for group (root is default for other systems, or user for macOS)
+            read -p "Enter the group to own the files [root]: " group
+            group="${group:-root}"
+
+            sudo chown -R root:"$group" .
+
+            # Move files to the destination folder
+            bold_blue "Copying files to $destination...\n"
+            sudo mv ./* ./.[!.]* "$destination" 2>/dev/null || true
+
+            # Clean up temporary directory
+            cd /tmp
+            sudo rm -rf "$temp_dir"
+
+            if [ $? -ne 0 ]; then
+                bold_red "Error moving files to $destination."
+                exit 1
+            fi
+            
+            bold_green "Cypht $version installed successfully to $destination"
+            
+            # Display upgrade notes if this was an upgrade
+            if [ -n "$previous_version" ]; then
+                echo
+                bold_green "Process completed successfully!"
+                bold_green "Upgrade from $previous_version to $version completed."
+                bold_yellow "Please check the Cypht documentation for any additional upgrade steps:"
+                bold_blue "https://www.cypht.org/install/"
+            else
+                bold_green "Process completed successfully!"
+                bold_green "Cypht $version has been installed successfully."
+                bold_yellow "Please check the Cypht documentation for configuration:"
+                bold_blue "https://www.cypht.org/install/"
+            fi
+        }
+
+        # Function to detect existing installations
+        detect_existing_installations() {
+            local base_dir=$1
+            local existing_installs=()
+            
+            if [ -d "$base_dir" ]; then
+                for dir in "$base_dir"/cypht-*; do
+                    if [ -d "$dir" ]; then
+                        local version=$(basename "$dir" | sed 's/cypht-//')
+                        existing_installs+=("$version")
+                    fi
+                done
+            fi
+            
+            printf '%s\n' "${existing_installs[@]}"
+        }
+
+        # Function to compare versions
+        version_gt() {
+            local v1=$1
+            local v2=$2
+            # Remove 'v' prefix for comparison
+            v1=${v1#v}
+            v2=${v2#v}
+            
+            # Use sort -V to compare versions
+            [ "$(printf "%s\n" "$v1" "$v2" | sort -V | tail -n1)" = "$v1" ] && [ "$v1" != "$v2" ]
+        }
+
+        # Main script execution
+
+        # Check prerequisites
+        check_prerequisites
+
+        # Set base directory
+        read -p "Enter the base directory for Cypht installation [/usr/local/share/cypht]: " BASE_DIR
+        BASE_DIR="${BASE_DIR:-/usr/local/share/cypht}"
+
+        # Detect existing installations
+        existing_versions=($(detect_existing_installations "$BASE_DIR"))
+
+        if [ ${#existing_versions[@]} -gt 0 ]; then
+            bold_yellow "Found existing Cypht installations:"
+            for i in "${!existing_versions[@]}"; do
+                echo "$((i+1)). cypht-${existing_versions[$i]}"
+            done
+            echo
+            read -p "Do you want to upgrade an existing installation? (yes/no) [yes]: " upgrade_choice
+            upgrade_choice="${upgrade_choice:-yes}"
+            
+            if [[ "$upgrade_choice" == "yes" ]]; then
+                if [ ${#existing_versions[@]} -eq 1 ]; then
+                    selected_previous_version="${existing_versions[0]}"
+                    bold_blue "Upgrading the only existing installation: $selected_previous_version"
+                else
+                    read -p "Enter the number of the installation to upgrade: " upgrade_number
+                    if [[ "$upgrade_number" =~ ^[0-9]+$ ]] && [ "$upgrade_number" -le ${#existing_versions[@]} ]; then
+                        selected_previous_version="${existing_versions[$((upgrade_number-1))]}"
+                        bold_blue "Selected version for upgrade: $selected_previous_version"
+                    else
+                        bold_red "Invalid selection."
+                        exit 1
+                    fi
+                fi
+                
+                # Fetch available newer versions
+                bold_blue "Checking for available upgrades..."
+                available_versions=$(fetch_tags)
+                
+                # Filter versions newer than the current one
+                upgrade_candidates=()
+                while IFS= read -r version; do
+                    if version_gt "$version" "$selected_previous_version"; then
+                        upgrade_candidates+=("$version")
+                    fi
+                done <<< "$available_versions"
+                
+                if [ ${#upgrade_candidates[@]} -eq 0 ]; then
+                    bold_green "No newer versions available. Your installation is up to date."
+                    exit 0
+                fi
+                
+                echo
+                bold_yellow "Available upgrades for $selected_previous_version:"
+                for i in "${!upgrade_candidates[@]}"; do
+                    echo "$((i+1)). ${upgrade_candidates[$i]}"
+                done
+                
+                read -p "Enter the version number to upgrade to: " version_choice
+                if [[ "$version_choice" =~ ^[0-9]+$ ]] && [ "$version_choice" -le ${#upgrade_candidates[@]} ]; then
+                    new_version="${upgrade_candidates[$((version_choice-1))]}"
+                else
+                    bold_red "Invalid version choice."
+                    exit 1
+                fi
+                
+                # Perform upgrade
+                install_cypht "$new_version" "$selected_previous_version"
+                exit 0
+            fi
+        fi
+
+        # New installation
+        bold_blue "Proceeding with new installation..."
+
+        # Fetch available version tags (v2.x.y and above only)
+        available_versions=$(fetch_tags)
+
+        if [ -z "$available_versions" ]; then
+            bold_red "No version 2.x.y or above found available for installation."
+            exit 1
+        fi
+
+        # Display available versions
+        echo
+        bold_yellow "Available Cypht versions (v2.x.y and above):"
+        available_versions_array=($available_versions)
+        for i in "${!available_versions_array[@]}"; do
+            echo "$((i+1)). ${available_versions_array[$i]}"
+        done
+
+        # Prompt user to select a version
+        read -p "Enter the version number to install: " version_choice
+        if [[ "$version_choice" =~ ^[0-9]+$ ]] && [ "$version_choice" -le ${#available_versions_array[@]} ]; then
+            selected_version="${available_versions_array[$((version_choice-1))]}"
+        else
+            bold_red "Error: Invalid version choice. Please select a valid number from the list."
+            exit 1
+        fi
+
+        bold_blue "Installing version: $selected_version"
+        install_cypht "$selected_version" ""
+
+                            </pre>
+                        </div>
+                        <div class="tab-pane fade show" id="upgrade-windows" role="tabpanel" aria-labelledby="upgrade-windows-tab"></div>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" id="linux-tab" data-toggle="tab" href="#linux" role="tab" aria-controls="linux" aria-selected="true">Linux</a>
