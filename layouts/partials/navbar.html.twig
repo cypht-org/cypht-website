@@ -1,0 +1,207 @@
+{# Menu list #}
+{% set global_menus = {
+    main: [
+        { 
+            title: 'Home', 
+            href: '/', 
+            icon: 'bi-house',
+            description: 'Home page'
+        },
+        { 
+            title: 'Features', 
+            href: '/features', 
+            icon: 'bi-star',
+            description: 'Main features'
+        },
+        { 
+            title: 'Security', 
+            href: '/security', 
+            icon: 'bi-shield-check',
+            description: 'Security and protection'
+        }
+    ],
+    tools: [
+        { 
+            title: 'Modules', 
+            href: '/modules', 
+            icon: 'bi-puzzle',
+            description: 'Modules management'
+        },
+        { 
+            title: 'Config Generator', 
+            href: '/config-generator', 
+            icon: 'bi-gear',
+            description: 'Configuration generator'
+        },
+        { 
+            title: 'Installation', 
+            href: '/install', 
+            icon: 'bi-download',
+            description: 'Installation guide'
+        },
+        { 
+            title: 'Tests', 
+            href: '/tests', 
+            icon: 'bi-check-circle',
+            description: 'Tests and validation'
+        }
+    ],
+    docs: [
+        { 
+            title: 'App Doc', 
+            href: '/documentation', 
+            icon: 'bi-file-earmark-text',
+            description: 'Application documentation'
+        },
+        { 
+            title: 'License', 
+            href: '/license', 
+            icon: 'bi-file-earmark-check',
+            description: 'License information'
+        },
+        { 
+            title: 'Contributor', 
+            href: '/contribute', 
+            icon: 'bi-people',
+            description: 'How to contribute to the project'
+        }
+    ]
+} %}
+
+{# Template #}
+<nav class="" style="margin-bottom: 5rem;">
+	<div class="w-full d-flex justify-content-center pt-3 pb-1 d-flex flex-column items-center" id="mainNavbar">
+		<div
+			class="nav-container">
+			<!-- Logo Section -->
+			<div class="nav-brand">
+				<a href="#" class="brand-link">
+					<div class="logo-wrapper">
+						<img src="/img/logo.svg" alt="Cypht" class="logo-img">
+					</div>
+				</a>
+			</div>
+
+			<!-- Desktop Navigation -->
+			<div class="nav-menu desktop-nav">
+				<div class="nav-links">
+					{% for item in global_menus.main %}
+						{% set current = (item.href == '/' and page.path == 'index') or (item.href != '/' and page.path starts with item.href|trim('/')) %}
+						<a href="{{ item.href }}" class="nav-item {{ current ? 'active' : '' }}" {{ current ? 'aria-current="page"' : '' }}>
+							<span class="nav-text">{{ item.title }}</span>
+						</a>
+					{% endfor %}
+
+					<!-- Tools Dropdown -->
+					<div class="nav-dropdown" data-dropdown="tools">
+						<button class="nav-item dropdown-trigger" data-trigger="tools">
+							<span class="nav-text">Tools</span>
+							<i class="bi bi-chevron-down dropdown-arrow"></i>
+						</button>
+						<div class="dropdown-panel" data-panel="tools">
+							<div class="dropdown-content">
+								{% for item in global_menus.tools %}
+									<a href="{{ item.href }}" class="dropdown-item d-flex  gap-2">
+										<div class="drop-item-icon">
+											<i class="{{ item.icon }}"></i>
+										</div>
+										<div class="drop-item-content mt-1">
+											<span class="drop-item-title">{{ item.title }}</span>
+											<span class="drop-item-description">{{ item.description }}</span>
+										</div>
+									</a>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+
+					<!-- Documentation Dropdown -->
+					<div class="nav-dropdown" data-dropdown="docs">
+						<button class="nav-item dropdown-trigger" data-trigger="docs">
+							<span class="nav-text">Documentation</span>
+							<i class="bi bi-chevron-down dropdown-arrow"></i>
+						</button>
+						<div class="dropdown-panel" data-panel="docs">
+							<div class="dropdown-content">
+								{% for item in global_menus.docs %}
+									<a href="{{ item.href }}" class="dropdown-item d-flex gap-2">
+										<div class="drop-item-icon">
+											<i class="{{ item.icon }}"></i>
+										</div>
+										<div class="drop-item-content mt-1">
+											<span class="drop-item-title">{{ item.title }}</span>
+											<span class="drop-item-description">{{ item.description }}</span>
+										</div>
+									</a>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Actions Section -->
+			<div class="nav-actions">
+				<a href="https://github.com/cypht-org/cypht" target="_blank" rel="noopener" class="action-btn github-btn" title="View on GitHub">
+					<i class="bi bi-github"></i>
+					<span class="btn-text">GitHub</span>
+				</a>
+
+				<button id="theme-toggle" class="action-btn theme-toggle" aria-label="Toggle dark mode" title="Change theme">
+					<i id="theme-icon" class="bi bi-moon"></i>
+				</button>
+			</div>
+
+			<!-- Mobile Toggle -->
+			<button class="mobile-toggle" id="mobileToggle" aria-label="Mobile menu">
+				<span class="toggle-line"></span>
+				<span class="toggle-line"></span>
+				<span class="toggle-line"></span>
+			</button>
+
+			<!-- Mobile Navigation -->
+			<div class="mobile-nav" id="mobileNav">
+				<div class="mobile-nav-content">
+					<div
+						class="mobile-links">
+						{# Menu principal mobile #}
+						{% for item in global_menus.main %}
+							{% set current = (item.href == '/' and page.path == 'index') or (item.href != '/' and page.path starts with item.href|trim('/')) %}
+							<a href="{{ item.href }}" class="mobile-nav-item {{ current ? 'active' : '' }}">
+								<i class="{{ item.icon }} me-2"></i>
+								{{ item.title }}
+							</a>
+						{% endfor %}
+
+						<div class="mobile-section">
+							<h4 class="section-title">Tools</h4>
+							{% for item in global_menus.tools %}
+								<a href="{{ item.href }}" class="mobile-nav-item">
+									<i class="{{ item.icon }} me-2"></i>
+									{{ item.title }}
+								</a>
+							{% endfor %}
+						</div>
+
+						<div class="mobile-section">
+							<h4 class="section-title">Documentation</h4>
+							{% for item in global_menus.docs %}
+								<a href="{{ item.href }}" class="mobile-nav-item">
+									<i class="{{ item.icon }} me-2"></i>
+									{{ item.title }}
+								</a>
+							{% endfor %}
+						</div>
+
+						<div class="mobile-actions">
+							<a href="https://github.com/cypht-org/cypht" target="_blank" rel="noopener" class="mobile-nav-item">
+								<i class="bi bi-github me-2"></i>GitHub
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content-blur w-100"></div>
+	</div>
+</nav>

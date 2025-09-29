@@ -5,73 +5,38 @@ loadScriptAfter: /js/feature.js
 ---
 
 <div class="d-flex flex-column justify-content-center gap-4">
-
-<section class="ft-hero py-5">
-  <div class="container d-flex justify-content-center">
-    <div class="row align-items-center p-container ps-3">
-      <!-- left text -->
-      <div class="col-lg-6">
-        <div class="mb-2">
-             <span class="chip">🌟 A simplified email experience</span>
-          </div>
-        <h1 class="display-4 fw-bold">
-          Everything You Need for a Unified Email Workflow
-        </h1>
-        <p class="mt-3 text-muted">
-        Simplify, secure, and optimize your email workflow with seamless integration and powerful features—all in one place.
-        </p>
-        <a href="#messaging" class="btn btn-dark btn-lg mt-4">
-          Explore all features
-        </a>
-      </div>
-      <!-- Icônes -->
-      <div class="col-lg-6 mt-5 mt-lg-0">
-        <div class="icons-grid">
-          <div class="hline"></div>
-          <div class="hline2"></div>
-            <!--  -->
-          <div class="icon-box">
-          <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/mail.svg" alt="Mail">
-          </div>
-            <!--  -->
-          <div class="icon-box">
-         <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-check-icon lucide-search-check"><path d="m8 11 2 2 4-4"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          </div>
-<!--  -->
-          <div class="icon-box">
-         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brick-wall-shield-icon lucide-brick-wall-shield"><path d="M12 9v1.258"/><path d="M16 3v5.46"/><path d="M21 9.118V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5.75"/><path d="M22 17.5c0 2.499-1.75 3.749-3.83 4.474a.5.5 0 0 1-.335-.005c-2.085-.72-3.835-1.97-3.835-4.47V14a.5.5 0 0 1 .5-.499c1 0 2.25-.6 3.12-1.36a.6.6 0 0 1 .76-.001c.875.765 2.12 1.36 3.12 1.36a.5.5 0 0 1 .5.5z"/><path d="M3 15h7"/><path d="M3 9h12.142"/><path d="M8 15v6"/><path d="M8 3v6"/></svg>
-          </div>
-<!--  -->
-          <div class="icon-box">
-          <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/users.svg" alt="Users">
-          </div>
-<!--  -->
-          <div class="icon-box">
-          <!-- <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/settings.svg" alt="Settings"> -->
-          <img src="/img/logo_dark.svg" alt="Cypht">
-          </div>
-<!--  -->
-          <div class="icon-box">
-          <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/star.svg" alt="Star">
-          </div>
-<!--  -->
-          <div class="icon-box">  
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database" viewBox="0 0 24 24">
-            <ellipse cx="12" cy="5" rx="9" ry="3"/>
-            <path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/>
-            <path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/>
-            </svg>
+    <section class="ft-hero">
+        <div class="ft-hero-content text-center d-flex flex-column row-gap-4">
+            <div class="d-flex flex-column gap-3">
+                <div >
+                    <span class="chip">A simplified email experience</span>
+                </div>
+                <h1 class="ft-hero-title">
+                    Advanced features <br> for Cypht
+                </h1>
+                <p class="fc-hero-subtitle">
+                    Modern and high-performance interface with optimal security <br>
+                    for a unified and customizable email experience.
+                </p>
+            </div>    
+            <div class="d-flex justify-center">
+                <ul class="d-flex gap-2  flex-wrap">
+                    <li><a>Messaging</a></li>
+                    <li><a>Search</a></li>
+                    <li><a>Performance</a></li>
+                    <li><a>Security</a></li>
+                    <li><a>Development</a></li>
+                </ul>
+            </div>
         </div>
-          <div class="icon-box"><img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/lock.svg" alt="Lock"></div>
-          <div class="icon-box"><img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/activity.svg" alt="Activity"></div>
+        <div class="hero-buttons">
+            <a href="#messaging" class="btn btn-dark py-2">View features</a>
+            <a href="/download" class="btn btn-light py-2">Install Cypht</a>
         </div>
-      </div>
-    </div>
-  </div>
-  </section>
-  
-  <!--  -->
+    </section>
+<!--  -->
     <div class="d-flex flex-column align-items-center gap-8 w-full">
+        <!-- 1 -->
         <div id="messaging" class="fc-left ml-5">
             <div  class="fc-header">
                 <span class="chip">Messaging</span>
@@ -151,7 +116,7 @@ loadScriptAfter: /js/feature.js
                 </div>
             </div>
         </div>
-        
+        <!-- Performance -->
         <div id="performance" class="fc-right">
             <div class="fc-header  d-flex flex-column align-items-center">
                 <span class="chip">Performance</span>
@@ -191,7 +156,7 @@ loadScriptAfter: /js/feature.js
                 <span class="chip">Search</span>
                 <p class="fc-h-title fc-h-title-left">Advanced search across all your email accounts in one place.</p>
             </div>
-<!--  -->
+
             <div class="fsearch-grid">
                 <div class="fss-1 fss-card">
                     <div class="fss-card-body">
@@ -231,7 +196,7 @@ loadScriptAfter: /js/feature.js
                 <span class="chip">Security</span>
                 <p class="fc-h-title px-5">Cypht secures your emails and data with enterprise-grade protection.</p>
             </div>
-<!--  -->
+
             <div class="fs-grid">
                 <div class="fs-1 fs-card">
                     <div class="fp-feature-card-body">
@@ -259,7 +224,7 @@ loadScriptAfter: /js/feature.js
                 <span class="chip">Development</span>
                 <p class="fc-h-title">Cypht does not replace your existing accounts - it combines them into one.</p>
             </div>
-<!--  -->
+
             <div class="fd-grid">
               <div class="fd-1 fd-card">
                 <div class="fp-feature-card-body">

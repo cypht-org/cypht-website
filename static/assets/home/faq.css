@@ -1,0 +1,212 @@
+/* FAQ Section Styles */
+.faq-section {
+      padding: 5rem 0;
+}
+
+.faq-container {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+}
+
+/* Left side styles */
+.faq-left {
+      padding-right: 2rem;
+}
+
+.faq-title {
+      font-size: 2.25rem;
+      font-weight: 800;
+      /* color: #2F4858; */
+      margin-bottom: 1rem;
+      line-height: 1.2;
+}
+
+.faq-subtitle {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 3rem;
+}
+
+.faq-contact-box {
+      background-color: #f5f7fa;
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      gap: 1rem;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.faq-contact-icon {
+      background-color: #f0f7e6;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+}
+
+.faq-contact-box h4 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      /* color: #2F4858; */
+      margin: 0 0 0.75rem 0;
+}
+
+.faq-contact-box p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+}
+
+.contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: #81B441;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background-color 0.2s ease;
+}
+
+.contact-btn:hover {
+      background-color: #6a9a30;
+}
+
+/* Right side styles */
+.faq-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+}
+
+.faq-item {
+      border-bottom: 1px solid #e0e0e0;
+}
+
+.faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      /* color: #2F4858; */
+      transition: color 0.2s ease;
+}
+
+.faq-question:hover {
+      color: #81B441;
+}
+
+.faq-icon {
+      min-width: 24px;
+      height: 24px;
+}
+
+.faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding-right: 2rem;
+}
+
+.faq-answer p {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+      padding-bottom: 1.5rem;
+}
+
+.faq-item.active .faq-answer {
+      max-height: 300px;
+      /* Adjusted dynamically by JavaScript */
+}
+
+.faq-item.active .plus-icon {
+      d: path("M8 12h8");
+      /* Changes + to - */
+}
+
+/* Ajustement des icônes Bootstrap dans la FAQ */
+.faq-question .bi {
+      font-size: 1.25rem;
+      color: #81B441;
+      min-width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+}
+
+/* Style pour l'icône de cercle */
+.faq-question .bi-plus-circle {
+      background-color: #f0f7e6;
+      border-radius: 50%;
+      padding: 2px;
+}
+
+/* Animation de rotation lors de l'ouverture/fermeture */
+.faq-item.active .bi-plus-circle:before {
+      content: "\F4FB";
+}
+
+/* Autres ajustements pour l'alignement */
+.faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      /* color: #2F4858; */
+      transition: color 0.2s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+      .faq-container {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+      }
+
+      .faq-left {
+            padding-right: 0;
+      }
+}
+
+@media (max-width: 576px) {
+      .faq-title {
+            font-size: 1.75rem;
+      }
+
+      .faq-question {
+            font-size: 1rem;
+      }
+
+      .faq-contact-box {
+            flex-direction: column;
+            padding: 1.5rem;
+      }
+}
