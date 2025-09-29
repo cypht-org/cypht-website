@@ -408,7 +408,535 @@ exclude: true
 
                             </pre>
                         </div>
-                        <div class="tab-pane fade show" id="upgrade-windows" role="tabpanel" aria-labelledby="upgrade-windows-tab"></div>
+                        <div class="tab-pane fade show" id="upgrade-windows" role="tabpanel" aria-labelledby="upgrade-windows-tab">
+                            <h4>Download and prepare the code</h4>
+                            <p>
+                                For Windows, you need to have Two different files: <i>"install-cypht.bat"</i> and <i>"cypht-windows.ps1"</i>.<br />
+                                Once the code is in both files, to start the installation, you need to run "install-cypht.bat".
+                            </p>
+                            <h5>install-cypht.bat</h5>
+                            <pre>
+    @echo off
+
+    setlocal EnableDelayedExpansion
+
+    echo Cypht Installer for Windows
+    echo ==========================
+    echo.
+
+    REM Check if PowerShell is available
+    powershell -Command "Write-Host 'PowerShell is available'" >nul 2>&1
+    if %ERRORLEVEL% neq 0 (
+        echo ERROR: PowerShell is not available on this system.
+        echo Please install PowerShell or run the script manually.
+        pause
+        exit /b 1
+    )
+
+
+    REM Check if the PowerShell script exists
+    if not exist "cypht-windows.ps1" (
+        echo ERROR: cypht-windows.ps1 not found in current directory.
+        echo This batch file requires the PowerShell script to be present.
+        echo.
+        echo Please ensure both files are in the same directory:
+        echo   - install-cypht.bat
+        echo   - cypht-windows.ps1
+        echo.
+        pause
+        exit /b 1
+    )
+
+    echo Starting Cypht installer...
+    echo.
+
+    REM Execute the PowerShell script with parameters and proper console handling
+    if "%~1"=="" (
+        powershell -ExecutionPolicy Bypass -NoLogo -File "cypht-windows.ps1"
+    ) else (
+        powershell -ExecutionPolicy Bypass -NoLogo -File "cypht-windows.ps1" -BaseDir "%~1"
+    )
+
+    REM Check the exit code
+    if %ERRORLEVEL% equ 0 (
+        echo.
+        echo Installation completed successfully!
+    ) else (
+        echo.
+        echo Installation failed with error code: %ERRORLEVEL%
+    )
+
+    echo.
+    pause
+    exit /b %ERRORLEVEL%
+
+
+                            </pre>
+
+                            <h5>cypht-windows.ps1</h5>
+                            <pre>
+    param(
+        [string]$BaseDir = "",
+        [switch]$Help
+    )
+
+    if ($Help) {
+        Write-Host "Cypht Installer/Upgrader for Windows" -ForegroundColor Cyan
+        Write-Host "Usage: .\cypht-windows.ps1 [-BaseDir <path>] [-Help]" -ForegroundColor Yellow
+        Write-Host "  -BaseDir: Base directory for Cypht installation (optional - will prompt if not provided)"
+        Write-Host "  -Help: Show this help message"
+        Write-Host ""
+        Write-Host "Examples:" -ForegroundColor Cyan
+        Write-Host "  .\cypht-windows.ps1                    # Interactive mode - prompts for directory"
+        Write-Host "  .\cypht-windows.ps1 -BaseDir D:\web    # Use specific directory"
+        exit 0
+    }
+
+    # Color output functions
+    function Write-Success {
+        param([string]$Message)
+        Write-Host "[OK] $Message" -ForegroundColor Green
+    }
+
+    function Write-Error {
+        param([string]$Message)
+        Write-Host "[ERROR] $Message" -ForegroundColor Red
+    }
+
+    function Write-Info {
+        param([string]$Message)
+        Write-Host "[INFO] $Message" -ForegroundColor Blue
+    }
+
+    function Write-Warning {
+        param([string]$Message)
+        Write-Host "[WARNING] $Message" -ForegroundColor Yellow
+    }
+
+    # Function to check prerequisites
+    function Test-Prerequisites {
+        Write-Host "Checking prerequisites..." -ForegroundColor Cyan
+        Write-Host ""
+
+        # Check if PHP is installed
+        try {
+            $phpOutput = & php -v 2>&1
+            if ($LASTEXITCODE -ne 0) {
+                throw "PHP command failed"
+            }
+            Write-Success "PHP is installed"
+            Write-Host "  Version: $($phpOutput[0])" -ForegroundColor Gray
+        }
+        catch {
+            Write-Error "PHP is not installed or not in the system PATH"
+            Write-Error "Please install PHP before proceeding"
+            Write-Info "Download from: https://windows.php.net/download/"
+            return $false
+        }
+
+        # Check required PHP extensions
+        $requiredExtensions = @("openssl", "mbstring", "curl", "session", "dom", "fileinfo", "filter", "gd", "mysqli", "phar", "simplexml", "soap", "tokenizer", "xml", "xmlwriter", "zlib")
+        $missingExtensions = @()
+
+        try {
+            $phpModules = & php -m 2>&1 | Out-String
+            foreach ($ext in $requiredExtensions) {
+                if ($phpModules -notmatch [regex]::Escape($ext)) {
+                    $missingExtensions += $ext
+                }
+            }
+        }
+        catch {
+            Write-Error "Could not check PHP extensions"
+            return $false
+        }
+
+        if ($missingExtensions.Count -gt 0) {
+            Write-Error "Missing required PHP extensions: $($missingExtensions -join ', ')"
+            Write-Error "Please install the missing extensions before proceeding"
+            return $false
+        }
+        else {
+            Write-Success "All required PHP extensions are installed"
+        }
+
+        # Check if Composer is installed
+        try {
+            $composerOutput = & composer --version 2>&1
+            if ($LASTEXITCODE -ne 0) {
+                throw "Composer command failed"
+            }
+            Write-Success "Composer is installed"
+            Write-Host "  Version: $($composerOutput)" -ForegroundColor Gray
+        }
+        catch {
+            Write-Error "Composer is not installed or not in the system PATH"
+            Write-Error "Please install Composer before proceeding"
+            Write-Info "Download from: https://getcomposer.org/download/"
+            return $false
+        }
+
+        Write-Host ""
+        return $true
+    }
+
+    # Function to fetch available Cypht versions from GitHub
+    function Get-CyphtVersions {
+        Write-Info "Fetching latest versions from GitHub..."
+        
+        try {
+            $response = Invoke-RestMethod -Uri "https://api.github.com/repos/cypht-org/cypht/releases" -Method Get -TimeoutSec 30
+            $versions = $response | ForEach-Object { $_.tag_name } | Where-Object {
+                # Only include version 2.x.y and above
+                if ($_ -match '^v(\d+)\.') {
+                    [int]$matches[1] -ge 2
+                }
+            } | Sort-Object { 
+                # Sort by version number
+                $v = $_ -replace '^v', ''
+                try { [version]$v } catch { $v }
+            } -Descending | Select-Object -First 20
+            
+            return $versions
+        }
+        catch {
+            Write-Error "Failed to fetch versions from GitHub: $($_.Exception.Message)"
+            return @()
+        }
+    }
+
+    # Function to compare versions
+    function Test-VersionGreater {
+        param(
+            [string]$Version1,
+            [string]$Version2
+        )
+        
+        # Remove 'v' prefix for comparison
+        $v1 = $Version1 -replace '^v', ''
+        $v2 = $Version2 -replace '^v', ''
+        
+        try {
+            return [version]$v1 -gt [version]$v2
+        }
+        catch {
+            # Fallback to string comparison if version parsing fails
+            return $v1 -gt $v2
+        }
+    }
+
+    # Function to detect existing installations
+    function Get-ExistingInstallations {
+        param([string]$BaseDirectory)
+        
+        $existingInstalls = @()
+        
+        if (Test-Path $BaseDirectory) {
+            $cyphtDirs = Get-ChildItem -Path $BaseDirectory -Directory -Name "cypht-*" -ErrorAction SilentlyContinue
+            
+            # Ensure we have an array even with single element
+            if ($cyphtDirs) {
+                $cyphtDirs = @($cyphtDirs)  # Force array conversion
+                
+                foreach ($dir in $cyphtDirs) {
+                    $version = $dir -replace '^cypht-', ''
+                    
+                    # Ensure version is properly extracted
+                    if ($version -and $version -ne $dir) {
+                        $existingInstalls += $version
+                    }
+                }
+            }
+        }
+        
+        # Ensure we return an array
+        return @($existingInstalls)
+    }
+
+    # Function to install/upgrade Cypht
+    function Install-Cypht {
+        param(
+            [string]$Version,
+            [string]$PreviousVersion = "",
+            [string]$BaseDirectory
+        )
+        
+        $destination = Join-Path $BaseDirectory "cypht-$Version"
+        $previousDestination = if ($PreviousVersion) { Join-Path $BaseDirectory "cypht-$PreviousVersion" } else { "" }
+        
+        # Create a temporary directory
+        $tempDir = Join-Path $env:TEMP "cypht-install-$(Get-Random)"
+        New-Item -ItemType Directory -Path $tempDir -Force | Out-Null
+
+        try {
+            # Handle upgrade scenario - but don't remove old version yet
+            $isUpgrade = $false
+            if ($PreviousVersion -and (Test-Path $previousDestination)) {
+                Write-Warning "Upgrading from $PreviousVersion to $Version..."
+                $isUpgrade = $true
+                
+                # Just note the old version exists - we'll handle it after successful installation
+                Write-Info "Old version will be removed after successful installation"
+            }
+
+            # Create destination directory
+            Write-Info "Installing Cypht version $Version..."
+            New-Item -ItemType Directory -Path $destination -Force | Out-Null
+
+            # Download the selected version
+            Write-Info "Downloading version $Version..."
+            $downloadUrl = "https://github.com/cypht-org/cypht/archive/refs/tags/$Version.zip"
+            $zipFile = Join-Path $tempDir "$Version.zip"
+            
+            Invoke-WebRequest -Uri $downloadUrl -OutFile $zipFile -TimeoutSec 300
+            
+            if (-not (Test-Path $zipFile)) {
+                throw "Failed to download version $Version"
+            }
+
+            # Extract the archive
+            Write-Info "Extracting the archive..."
+            Expand-Archive -Path $zipFile -DestinationPath $tempDir -Force
+            
+            # Find the extracted folder
+            $extractedFolder = Join-Path $tempDir "cypht-$($Version.TrimStart('v'))"
+            if (-not (Test-Path $extractedFolder)) {
+                throw "Extracted folder not found: $extractedFolder"
+            }
+
+            # Run composer install
+            Write-Info "Installing dependencies with Composer..."
+            Push-Location $extractedFolder
+            try {
+                & composer install --no-dev --optimize-autoloader --no-interaction
+                if ($LASTEXITCODE -ne 0) {
+                    throw "Composer install failed"
+                }
+            }
+            finally {
+                Pop-Location
+            }
+
+            # Handle .env file
+            $envExample = Join-Path $extractedFolder ".env.example"
+            $envFile = Join-Path $extractedFolder ".env"
+            
+            if ($isUpgrade -and (Test-Path (Join-Path $previousDestination ".env"))) {
+                Write-Info "Copying .env file from previous version..."
+                Copy-Item (Join-Path $previousDestination ".env") $envFile -Force
+                Write-Success "Copied .env file from $PreviousVersion"
+            }
+            elseif (Test-Path $envExample) {
+                Write-Info "Creating .env from .env.example..."
+                Copy-Item $envExample $envFile -Force
+            }
+
+            # Set file permissions (Windows equivalent)
+            Write-Info "Setting file permissions..."
+            $currentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+            
+            # Use icacls to set permissions
+            & icacls $extractedFolder /setowner $currentUser /T /Q 2>$null
+            & icacls $extractedFolder /grant "${currentUser}:(OI)(CI)F" /T /Q 2>$null
+
+            # Copy files to destination
+            Write-Info "Copying files to $destination..."
+            Get-ChildItem -Path $extractedFolder -Force | ForEach-Object {
+                $destPath = Join-Path $destination $_.Name
+                if ($_.PSIsContainer) {
+                    Copy-Item $_.FullName $destPath -Recurse -Force
+                }
+                else {
+                    Copy-Item $_.FullName $destPath -Force
+                }
+            }
+
+            Write-Success "Cypht $Version installed successfully to $destination"
+            
+            # Remove old version after successful installation (upgrade only)
+            if ($isUpgrade -and (Test-Path $previousDestination)) {
+                Write-Info "Removing old version $PreviousVersion..."
+                try {
+                    Remove-Item $previousDestination -Recurse -Force -ErrorAction Stop
+                    Write-Success "Successfully removed old version $PreviousVersion"
+                }
+                catch {
+                    Write-Warning "Could not remove old version directory: $($_.Exception.Message)"
+                    Write-Warning "You may need to manually delete: $previousDestination"
+                }
+            }
+            
+            # Display completion message
+            Write-Host ""
+            Write-Success "Installation completed successfully!"
+            if ($isUpgrade) {
+                Write-Success "Upgrade from $PreviousVersion to $Version completed"
+                Write-Info "Old version has been removed - only the latest version remains"
+            }
+            else {
+                Write-Success "Cypht $Version has been installed successfully"
+            }
+            Write-Warning "Please check the Cypht documentation for configuration:"
+            Write-Info "https://www.cypht.org/install/"
+            
+            return $true
+        }
+        catch {
+            Write-Error "Installation failed: $($_.Exception.Message)"
+            return $false
+        }
+        finally {
+            # Clean up temporary directory
+            if (Test-Path $tempDir) {
+                Remove-Item $tempDir -Recurse -Force -ErrorAction SilentlyContinue
+            }
+        }
+    }
+
+    # Main script execution - only run if script is executed directly, not sourced
+    if ($MyInvocation.InvocationName -ne '.') {
+    Write-Host "Cypht Installer/Upgrader for Windows" -ForegroundColor Cyan
+    Write-Host "=====================================" -ForegroundColor Cyan
+    Write-Host ""
+
+    # Check prerequisites
+    if (-not (Test-Prerequisites)) {
+        Write-Error "Prerequisites check failed. Please resolve the issues above and try again."
+        exit 1
+    }
+
+    # Prompt for base directory if not provided via parameter
+    if ([string]::IsNullOrWhiteSpace($BaseDir)) {
+        $defaultBaseDir = "C:\Cypht"
+        $BaseDir = Read-Host "Enter the base directory for Cypht installation [$defaultBaseDir]"
+        if ([string]::IsNullOrWhiteSpace($BaseDir)) {
+            $BaseDir = $defaultBaseDir
+            Write-Info "Using default directory: $BaseDir"
+        }
+    }
+
+    # Ensure base directory exists
+    if (-not (Test-Path $BaseDir)) {
+        Write-Info "Creating base directory: $BaseDir"
+        New-Item -ItemType Directory -Path $BaseDir -Force | Out-Null
+    }
+
+    # Detect existing installations
+    $existingVersions = @(Get-ExistingInstallations -BaseDirectory $BaseDir)
+
+    if ($existingVersions.Count -gt 0) {
+        Write-Warning "Found existing Cypht installations:"
+        # Use a more reliable output method
+        $installationList = @()
+        for ($i = 0; $i -lt $existingVersions.Count; $i++) {
+            $number = $i + 1
+            $version = $existingVersions[$i]
+            $line = "  $number. cypht-$version"
+            $installationList += $line
+        }
+        # Output all at once to avoid buffering issues
+        $installationList | ForEach-Object { Write-Host $_ }
+        Write-Host ""
+        
+        $upgradeChoice = Read-Host "Do you want to upgrade an existing installation? (yes/no) [yes]"
+        if ([string]::IsNullOrWhiteSpace($upgradeChoice) -or $upgradeChoice -eq "yes") {
+            if ($existingVersions.Count -eq 1) {
+                $selectedPreviousVersion = $existingVersions[0]
+                Write-Info "Upgrading the only existing installation: $selectedPreviousVersion"
+            }
+            else {
+                do {
+                    $upgradeNumber = Read-Host "Enter the number of the installation to upgrade (1-$($existingVersions.Count))"
+                    $upgradeIndex = [int]$upgradeNumber - 1
+                } while ($upgradeIndex -lt 0 -or $upgradeIndex -ge $existingVersions.Count)
+                
+                $selectedPreviousVersion = $existingVersions[$upgradeIndex]
+                Write-Info "Selected version for upgrade: $selectedPreviousVersion"
+            }
+            
+            # Fetch available versions
+            Write-Info "Checking for available upgrades..."
+            $availableVersions = Get-CyphtVersions
+            
+            if ($availableVersions.Count -eq 0) {
+                Write-Error "Could not fetch available versions from GitHub"
+                exit 1
+            }
+            
+            # Filter versions newer than the current one
+            $upgradeCandidates = @()
+            foreach ($version in $availableVersions) {
+                if (Test-VersionGreater -Version1 $version -Version2 $selectedPreviousVersion) {
+                    $upgradeCandidates += $version
+                }
+            }
+            
+            if ($upgradeCandidates.Count -eq 0) {
+                Write-Success "No newer versions available. Your installation is up to date."
+                exit 0
+            }
+            
+            Write-Host ""
+            Write-Warning "Available upgrades for $selectedPreviousVersion"
+            for ($i = 0; $i -lt $upgradeCandidates.Count; $i++) {
+                Write-Host "  $($i + 1). $($upgradeCandidates[$i])"
+            }
+            
+            do {
+                $versionChoice = Read-Host "Enter the version number to upgrade to (1-$($upgradeCandidates.Count))"
+                $versionIndex = [int]$versionChoice - 1
+            } while ($versionIndex -lt 0 -or $versionIndex -ge $upgradeCandidates.Count)
+            
+            $newVersion = $upgradeCandidates[$versionIndex]
+            
+            # Perform upgrade
+            if (Install-Cypht -Version $newVersion -PreviousVersion $selectedPreviousVersion -BaseDirectory $BaseDir) {
+                exit 0
+            }
+            else {
+                exit 1
+            }
+        }
+    }
+
+    # New installation
+    Write-Info "Proceeding with new installation..."
+
+    # Fetch available versions
+    $availableVersions = Get-CyphtVersions
+
+    if ($availableVersions.Count -eq 0) {
+        Write-Error "No versions found available for installation"
+        exit 1
+    }
+
+    # Display available versions
+    Write-Host ""
+    Write-Warning "Available Cypht versions (v2.x.y and above):"
+    for ($i = 0; $i -lt $availableVersions.Count; $i++) {
+        Write-Host "  $($i + 1). $($availableVersions[$i])"
+    }
+
+    # Prompt user to select a version
+    do {
+        $versionChoice = Read-Host "Enter the version number to install (1-$($availableVersions.Count))"
+        $versionIndex = [int]$versionChoice - 1
+    } while ($versionIndex -lt 0 -or $versionIndex -ge $availableVersions.Count)
+
+    $selectedVersion = $availableVersions[$versionIndex]
+
+    Write-Info "Installing version: $selectedVersion"
+    if (Install-Cypht -Version $selectedVersion -BaseDirectory $BaseDir) {
+        exit 0
+    }
+    else {
+        exit 1
+    }
+
+    } # End of main execution block
+
+                            </pre>
+                        </div>
                     </div>
                     
                 </div>
