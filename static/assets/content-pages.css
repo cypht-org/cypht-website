@@ -1,0 +1,433 @@
+/* ==============================================
+   CONTENT PAGES - LICENSE, CONTRIBUTE, DOCUMENTATION
+   Modern UI/UX Design
+============================================== */
+
+/* ─── Shared Hero Section ──────────────────────────────────────────────────────────── */
+.content-hero {
+      padding: 6rem 2rem;
+      position: relative;
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      text-align: center;
+      color: white;
+}
+
+.content-hero-container {
+      max-width: var(--container-6xl);
+      margin: 0 auto;
+      padding: 0 1.8rem;
+      position: relative;
+      z-index: 1;
+}
+
+.content-hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+}
+
+.content-hero-chip {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: white;
+      backdrop-filter: blur(10px);
+      margin-bottom: 2rem;
+}
+
+.content-hero-title {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      margin: 0 0 1.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content-hero-subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.content-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.content-hero-cta:hover {
+      background: rgba(255, 255, 255, 0.25);
+      color: white;
+}
+
+/* ─── Content Section ──────────────────────────────────────────────────────────── */
+.content-section {
+      padding: 4rem 2rem;
+      background: #f8fafc;
+}
+
+.content-container {
+      max-width: var(--container-6xl);
+      margin: 0 auto;
+      padding: 0 1.8rem;
+}
+
+.content-card {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(17, 17, 17, 0.06);
+      margin-bottom: 2rem;
+}
+
+.content-card h2 {
+      font-weight: 700;
+      font-size: 2rem;
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+      border-bottom: 3px solid #3b82f6;
+      padding-bottom: 0.5rem;
+}
+
+.content-card h3 {
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #1e293b;
+      margin: 2rem 0 1rem;
+}
+
+.content-card p {
+      font-size: 1.1rem;
+      color: #64748b;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+}
+
+.content-card ul,
+.content-card ol {
+      font-size: 1.1rem;
+      color: #64748b;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+}
+
+.content-card li {
+      margin-bottom: 0.5rem;
+}
+
+.content-card a {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 500;
+}
+
+.content-card a:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+}
+
+/* ─── License Page Specific ──────────────────────────────────────────────────────────── */
+.license-info {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+      text-align: center;
+}
+
+.license-info h2 {
+      color: white;
+      border: none;
+      margin-bottom: 1rem;
+}
+
+.license-info a {
+      color: white;
+      font-weight: 600;
+      text-decoration: underline;
+}
+
+.license-info a:hover {
+      color: #f0fdf4;
+}
+
+.libraries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+}
+
+.library-card {
+      background: white;
+      border: 1px solid rgba(17, 17, 17, 0.06);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+}
+
+.library-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.library-name {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #1e293b;
+      margin-bottom: 0.5rem;
+}
+
+.library-url {
+      color: #3b82f6;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      display: block;
+}
+
+.library-url:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+}
+
+.library-description {
+      font-size: 0.95rem;
+      color: #64748b;
+      line-height: 1.5;
+}
+
+/* ─── Contribute Page Specific ──────────────────────────────────────────────────────────── */
+.contribute-nav {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.contribute-nav h2 {
+      color: #1e293b;
+      border: none;
+      margin-bottom: 1rem;
+}
+
+.contribute-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+}
+
+.contribute-nav li {
+      margin-bottom: 0.5rem;
+}
+
+.contribute-nav a {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      display: block;
+      transition: all 0.3s ease;
+}
+
+.contribute-nav a:hover {
+      background: #f1f5f9;
+      color: #1d4ed8;
+}
+
+.contribute-cta {
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      margin-top: 2rem;
+}
+
+.contribute-cta h2 {
+      color: white;
+      border: none;
+      margin-bottom: 1rem;
+}
+
+.contribute-cta p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+}
+
+.contribute-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+}
+
+.contribute-btn {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contribute-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      color: white;
+      transform: translateY(-2px);
+}
+
+/* ─── Documentation Page Specific ──────────────────────────────────────────────────────────── */
+.doc-section {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(17, 17, 17, 0.06);
+}
+
+.doc-section h1 {
+      font-weight: 800;
+      font-size: 2.5rem;
+      color: #1e293b;
+      margin-bottom: 1rem;
+      text-align: center;
+}
+
+.doc-section h2 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #1e293b;
+      margin: 2rem 0 1rem;
+      border-bottom: 3px solid #3b82f6;
+      padding-bottom: 0.5rem;
+}
+
+.doc-section p {
+      font-size: 1.1rem;
+      color: #64748b;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+}
+
+.doc-section pre {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      font-size: 0.9rem;
+      color: #1e293b;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+}
+
+.doc-section .text-center {
+      text-align: center;
+}
+
+.doc-image {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      margin: 1.5rem 0;
+}
+
+.doc-modal-link {
+      background: #3b82f6;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin: 1rem 0;
+      transition: all 0.3s ease;
+}
+
+.doc-modal-link:hover {
+      background: #1d4ed8;
+      color: white;
+      transform: translateY(-2px);
+}
+
+/* ─── Responsive Design ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+      .content-hero {
+            padding: 4rem 1rem;
+      }
+
+      .content-section {
+            padding: 2rem 1rem;
+      }
+
+      .content-container {
+            padding: 0 1rem;
+      }
+
+      .content-card,
+      .doc-section {
+            padding: 2rem 1.5rem;
+      }
+
+      .libraries-grid {
+            grid-template-columns: 1fr;
+      }
+
+      .contribute-buttons {
+            flex-direction: column;
+            align-items: center;
+      }
+
+      .contribute-btn {
+            width: 100%;
+            max-width: 300px;
+      }
+}
+
+@media (max-width: 480px) {
+      .content-hero-title {
+            font-size: 2rem;
+      }
+
+      .content-hero-subtitle {
+            font-size: 1rem;
+      }
+
+      .content-card h2,
+      .doc-section h2 {
+            font-size: 1.5rem;
+      }
+
+      .library-card {
+            padding: 1rem;
+      }
+}

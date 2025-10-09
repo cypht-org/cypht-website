@@ -31,7 +31,8 @@
 
 
 #mainNavbar {
-      background-color: #fafafa;
+      /* background-color: #fafafa; */
+      background-color: var(--color-bg);
       position: fixed;
       top: 0;
       z-index: 1000;
@@ -370,7 +371,7 @@
       align-items: center;
       justify-content: center;
       width: 44px;
-      height: 44px;
+      height: 40px;
       border-radius: 8px;
       border: 1px solid rgba(255, 255, 255, 0.1) !important;
       background: rgba(255, 255, 255, 0.05) !important;

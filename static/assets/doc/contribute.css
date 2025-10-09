@@ -1,0 +1,472 @@
+/* ─── Contribute Hero Section ──────────────────────────────────────────────────────────── */
+.contribute-hero {
+      margin: 0 auto;
+      height: 80dvh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+}
+
+.contribute-hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'> <path d='M32 0H0v32' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/> </svg>");
+      background-size: 32px 32px;
+      background-repeat: repeat;
+}
+
+.contribute-hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+}
+
+.contribute-header {
+      padding: 0 6rem;
+      width: 80%;
+      margin-bottom: 2rem;
+}
+
+.contribute-title {
+      font-weight: 700;
+      font-size: clamp(2rem, 3.8vw, 4rem);
+      margin-bottom: 1.5rem;
+}
+
+.contribute-subtitle {
+      font-size: 1.1rem;
+      color: #444;
+      max-width: 600px;
+      margin: 1.5rem auto 2rem;
+      line-height: 1.6;
+}
+
+.contribute-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+}
+
+.btn {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+}
+
+.btn-dark {
+      background: #000;
+      color: #fff;
+}
+
+.btn-dark:hover {
+      background: #222;
+}
+
+.btn-light {
+      background: #f4f4f4;
+      color: #333;
+}
+
+.btn-light:hover {
+      background: #e0e0e0;
+}
+
+/* ─── Contribute Content Section ──────────────────────────────────────────────────────────── */
+.contribute-content {
+      padding: 4rem 2rem;
+}
+
+.contribute-container {
+      max-width: var(--container-6xl);
+      margin: 0 auto;
+      padding: 0 1.8rem;
+}
+
+/* ─── Navigation Card ──────────────────────────────────────────────────────────── */
+
+.contribute-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+}
+
+.lc-header {
+      width: 45%;
+}
+
+.lc-header h2 {
+      color: #1e293b;
+      border: none;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      text-align: left;
+}
+
+.lc-header p {
+      font-size: 1.1rem;
+      color: #64748b;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      text-align: left;
+      padding-left: 0.5rem;
+}
+
+
+.contribute-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 0.5rem;
+      border-radius: 8px;
+      padding: 0.3rem 0.2rem;
+      background: rgba(31, 31, 31, 0.95)
+}
+
+.contribute-nav li {
+      /* margin-bottom: 0.5rem; */
+      padding: 0;
+      margin: 0;
+      font-size: 0.87rem;
+      display: inline-flex;
+}
+
+.contribute-nav a {
+      color: rgba(255, 255, 255, 0.8) !important;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid transparent;
+      gap: 0.8rem;
+
+}
+
+.contribute-nav a i {
+      font-size: .9rem;
+}
+
+.contribute-nav a:hover {
+      background-color: rgba(255, 255, 255, 0.05) !important;
+      color: rgba(255, 255, 255, 0.8) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* .contribute-nav a:hover i {
+      color: var(--color-primary) !important;
+} */
+
+.nav-active {
+      background-color: rgba(255, 255, 255, 0.05) !important;
+      color: white !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+      font-weight: 600 !important;
+}
+
+.nav-active i {
+      color: var(--color-primary) !important;
+}
+
+/* ─── Content Cards ──────────────────────────────────────────────────────────── */
+.content-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* justify-content: center; */
+      margin-top: 4rem;
+      /* gap: 2rem; */
+}
+
+/* 1. development workflow content */
+.dev-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 50dvh;
+      margin-bottom: 9rem !important;
+}
+
+.parent {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 8px;
+      height: 400px;
+      /* Hauteur fixe pour le grid */
+      width: 100%;
+      max-width: 800px;
+      /* Largeur maximale pour éviter que ce soit trop large */
+}
+
+.div1 {
+      grid-column: span 2 / span 2;
+      border-radius: 12px;
+      padding: 1.5rem;
+      /* color: white; */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+}
+
+.div2 {
+      grid-column: span 2 / span 2;
+      grid-row: span 3 / span 3;
+      grid-column-start: 1;
+      grid-row-start: 2;
+      border-radius: 12px;
+      padding: 1.5rem;
+      background-color: #F8F9FA;
+      border: 1px solid #E9ECEF;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.div3 {
+      grid-column: span 2 / span 2;
+      grid-row: span 2 / span 2;
+      grid-column-start: 3;
+      grid-row-start: 1;
+      background: #F8F9FA;
+      border: 1px solid #E9ECEF;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.div4 {
+      grid-column: span 2 / span 2;
+      grid-row: span 2 / span 2;
+      grid-column-start: 3;
+      grid-row-start: 3;
+      background: #F8F9FA;
+      border: 1px solid #E9ECEF;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design for Grid */
+@media (max-width: 768px) {
+      .parent {
+            height: 300px;
+            max-width: 100%;
+            gap: 6px;
+      }
+
+      .div1,
+      .div2,
+      .div3,
+      .div4 {
+            padding: 1rem;
+            font-size: 0.9rem;
+      }
+
+      .dev-content {
+            min-height: 40dvh;
+      }
+}
+
+
+/* 2. requirements content */
+.req-content {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      align-items: center;
+      min-height: 30dvh;
+      width: var(--container-4xl);
+      gap: 2rem;
+      margin: 3rem auto;
+}
+
+.req-header,
+.req-list,
+.req-list ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+}
+
+.req-header-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+}
+
+.req-header-chip-icon {
+      font-size: 1rem;
+      color: #64748b;
+      background-color: rgba(128, 125, 125, 0.063);
+      padding: .2rem .5rem;
+      border-radius: 8px;
+      color: var(--color-primary);
+      border: 1px solid rgba(31, 31, 31, 0.063);
+}
+
+.req-header-chip-text {
+      font-size: 1rem;
+      color: #64748b;
+      font-weight: 600;
+}
+
+.req-header h3 {
+      color: #1e293b;
+      margin-bottom: 1rem;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 600;
+}
+
+.req-list {
+      border-left: 1px solid rgba(31, 31, 31, 0.105);
+      height: 100%;
+      width: 80%;
+      padding: 2rem 0;
+      padding-left: 1.5rem !important;
+}
+
+.req-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 1.5rem;
+}
+
+.req-list li {
+      display: flex;
+      gap: 0.8rem;
+}
+
+.req-list-item-icon {
+      font-size: 1rem;
+      color: #64748b;
+      background-color: rgba(128, 125, 125, 0.063);
+      padding: .2rem .3rem;
+      border-radius: 8px;
+      color: var(--color-primary);
+      border: 1px solid rgba(31, 31, 31, 0.063);
+      font-weight: 700;
+      transition: all 0.3s ease;
+}
+
+.req-list li:hover .req-list-item-icon {
+      background-color: var(--color-primary);
+      color: white;
+}
+
+.req-list-item-text {
+      font-size: 1rem;
+}
+
+.req-list-item-text a {
+      color: unset;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      font-size: .85rem;
+      opacity: .8;
+      text-transform: capitalize;
+      text-decoration: underline;
+}
+
+.req-list-item-text a svg,
+.req-list-item-text a i {
+      margin-left: .3rem;
+      margin-right: .2rem;
+      font-size: .9rem !important;
+}
+
+.req-list-item-text a svg {
+      margin-top: -0.18rem;
+      height: 16px !important;
+      width: 16px !important;
+}
+
+.req-list-item-text a:hover {
+      color: var(--color-primary);
+      text-decoration: underline;
+      opacity: 1;
+      font-weight: 600;
+}
+
+/* Test utilisateur */
+/* .contribute-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      padding: 4rem 8%;
+      background: #f9fafb;
+      border-radius: 12px;
+}
+
+.contribute-image img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contribute-content {
+      max-width: 600px;
+}
+
+.contribute-content h2 {
+      font-size: 2rem;
+      color: #222;
+      margin-bottom: 1rem;
+}
+
+.contribute-content p {
+      color: #555;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+}
+
+.contribute-points {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 2rem;
+}
+
+.contribute-points li {
+      margin: 0.4rem 0;
+      font-size: 1rem;
+}
+
+.btn-contribute {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #24292e;
+      color: white;
+      padding: 0.8rem 1.4rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s ease;
+}
+
+.btn-contribute:hover {
+      background: #000;
+} */

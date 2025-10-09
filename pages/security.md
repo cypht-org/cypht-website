@@ -9,8 +9,9 @@ loadScriptAfter: /js/security.js
     <div class="hero-container">
       <!-- Texte à gauche -->
       <div class="hero-content">
-         <div >
-             <span class="chip">🔒 End-to-end Encryption</span>
+        <div >
+             <!-- <span class="chip">🔒 End-to-end Encryption</span> -->
+             <span class="chip">🔒 Any question about security ?</span>
           </div>
         <h1 class="hero-title">
           Maximum Security for Your Communications

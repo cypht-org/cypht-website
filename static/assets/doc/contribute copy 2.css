@@ -1,0 +1,162 @@
+/* ─── Contribute Hero Section ──────────────────────────────────────────────────────────── */
+.contribute-hero {
+      margin: 0 auto;
+      height: 80dvh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+}
+
+.contribute-hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'> <path d='M32 0H0v32' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/> </svg>");
+      background-size: 32px 32px;
+      background-repeat: repeat;
+}
+
+.contribute-hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+}
+
+.contribute-header {
+      padding: 0 6rem;
+      width: 80%;
+      margin-bottom: 2rem;
+}
+
+.contribute-title {
+      font-weight: 700;
+      font-size: clamp(2rem, 3.8vw, 4rem);
+      margin-bottom: 1.5rem;
+}
+
+.contribute-subtitle {
+      font-size: 1.1rem;
+      color: #444;
+      max-width: 600px;
+      margin: 1.5rem auto 2rem;
+      line-height: 1.6;
+}
+
+.contribute-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+}
+
+
+
+/* test */
+
+.parent {
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      gap: 10px;
+}
+
+.div1 {
+      grid-row: span 2 / span 2;
+      grid-column-start: 1;
+      grid-row-start: 2;
+}
+
+.div2 {
+      grid-row: span 2 / span 2;
+      grid-column-start: 1;
+      grid-row-start: 4;
+}
+
+.div3 {
+      grid-row: span 2 / span 2;
+      grid-column-start: 2;
+      grid-row-start: 1;
+}
+
+.div4 {
+      grid-row: span 2 / span 2;
+      grid-column-start: 2;
+      grid-row-start: 3;
+}
+
+.div5 {
+      grid-row: span 2 / span 2;
+      grid-column-start: 3;
+      grid-row-start: 2;
+}
+
+.div6 {
+      grid-row: span 2 / span 2;
+      grid-column-start: 4;
+      grid-row-start: 1;
+}
+
+.div7 {
+      grid-row: span 2 / span 2;
+      grid-column-start: 5;
+      grid-row-start: 2;
+}
+
+.div8 {
+      grid-row: span 2 / span 2;
+      grid-column-start: 6;
+      grid-row-start: 1;
+}
+
+.div9 {
+      grid-row: span 2 / span 2;
+      grid-column-start: 7;
+      grid-row-start: 2;
+}
+
+.div10 {
+      grid-row: span 2 / span 2;
+      grid-column-start: 8;
+      grid-row-start: 1;
+}
+
+.div11 {
+      grid-row: span 2 / span 2;
+      grid-column-start: 8;
+      grid-row-start: 3;
+}
+
+.div12 {
+      grid-row: span 2 / span 2;
+      grid-column-start: 9;
+      grid-row-start: 2;
+}
+
+.div13 {
+      grid-row: span 2 / span 2;
+      grid-column-start: 9;
+      grid-row-start: 4;
+}
+
+.contributor-card {
+      width: 130px;
+      height: 130px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contributor-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}

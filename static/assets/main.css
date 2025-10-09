@@ -5,8 +5,8 @@
 @import url('./home/index.css');
 @import url('./features.css');
 @import url('./security.css');
-@import url('./tools/module.css');
-@import url('./tools/install.css');
+@import url('./tools/index.css');
+@import url('./doc/index.css');
 @import url('./navbar.css');
 @import url('./footer.css');
 
@@ -33,6 +33,7 @@
 :root {
       /* Light theme (default) - Enhanced color system */
       --color-bg: #FAFAFA;
+      /* --color-bg: #FFFFFF; */
       --color-bg-secondary: #FFFFFF;
       --color-bg-tertiary: #F8F9FA;
       --color-text: #1A1A1A;

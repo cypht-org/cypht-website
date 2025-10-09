@@ -1,14 +1,403 @@
 /* ==========================================
-   INSTALL PAGE - MODERN STYLING
+   INSTALL PAGE - MODERN HERO STYLING
 ========================================== */
 
+.install-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin: 0 auto;
+}
+
+/* Hero Section */
+.install-hero-section {
+      height: 90vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 0;
+      width: 100%;
+}
+
+.install-hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><defs><pattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'><path d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
+      z-index: 1;
+      pointer-events: none;
+}
+
+.install-hero-container {
+      max-width: var(--container-6xl);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      padding: 0 1.4rem;
+}
+
+/* Background Effects */
+/* .hero-background-effects {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+}
+
+.floating-element {
+      position: absolute;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+}
+
+.floating-element-1 {
+      width: 200px;
+      height: 200px;
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+}
+
+.floating-element-2 {
+      width: 120px;
+      height: 120px;
+      top: 60%;
+      right: 20%;
+      animation-delay: 2s;
+}
+
+.floating-element-3 {
+      width: 80px;
+      height: 80px;
+      top: 30%;
+      right: 10%;
+      animation-delay: 4s;
+}
+
+@keyframes float {
+
+      0%,
+      100% {
+            transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+            transform: translateY(-20px) rotate(180deg);
+      }
+} */
+
+/* Hero Content */
+.install-hero-content {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+}
+
+.hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      background: rgba(128, 180, 65, 0.1);
+      border: 1px solid rgba(128, 180, 65, 0.2);
+      border-radius: 50px;
+      color: var(--color-primary);
+      font-weight: 600;
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
+      animation: fadeInUp 0.8s ease-out;
+}
+
+.install-hero-title {
+      font-weight: 700;
+      font-size: clamp(2rem, 3.8vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--color-text);
+      letter-spacing: -0.02em;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.text-gradient {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+}
+
+.install-hero-subtitle {
+      /* font-size: 1.25rem; */
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      margin-bottom: 2.5rem;
+      max-width: 90%;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+      font-size: 1.1rem;
+}
+
+/* Hero Stats */
+.install-hero-stats {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.stat-item {
+      text-align: center;
+}
+
+.stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1;
+}
+
+.stat-label {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+      margin-top: 0.25rem;
+}
+
+.stat-divider {
+      width: 1px;
+      height: 2rem;
+      background: var(--color-border);
+}
+
+/* Hero Actions */
+.install-hero-actions {
+      display: flex;
+      gap: 1rem;
+      animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+/* Hero buttons using same style as modules page */
+.btn-primary-hero {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600 !important;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+      background: #000;
+      color: #fff;
+}
+
+.btn-primary-hero:hover {
+      transform: translateY(-1px);
+      background: #222;
+      color: #fff;
+}
+
+.btn-secondary-hero {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600 !important;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+      background: #f4f4f4;
+      color: #333;
+}
+
+.btn-secondary-hero:hover {
+      transform: translateY(-1px);
+      background: #e2e2e2;
+      color: #333;
+}
+
+/* Hero Visual - Terminal */
+.install-hero-visual {
+      position: relative;
+      z-index: 3;
+      animation: fadeInRight 1s ease-out 0.4s both;
+}
+
+.terminal-window {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      box-shadow: var(--shadow-2xl);
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+}
+
+.terminal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      background: var(--color-bg-tertiary);
+      border-bottom: 1px solid var(--color-border);
+}
+
+.terminal-buttons {
+      display: flex;
+      gap: 0.5rem;
+}
+
+.terminal-btn {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+}
+
+.terminal-btn-red {
+      background: #ff5f57;
+}
+
+.terminal-btn-yellow {
+      background: #ffbd2e;
+}
+
+.terminal-btn-green {
+      background: #28ca42;
+}
+
+.terminal-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+}
+
+.terminal-body {
+      padding: 1.5rem;
+      font-family: var(--font-family-monospace);
+      font-size: 0.875rem;
+      line-height: 1.6;
+      min-height: 200px;
+}
+
+.terminal-line {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.5s ease;
+}
+
+.terminal-prompt {
+      color: var(--color-primary);
+      font-weight: 600;
+}
+
+.terminal-command {
+      color: var(--color-text);
+}
+
+.terminal-output {
+      margin-left: 1rem;
+}
+
+.terminal-success {
+      color: var(--color-success);
+}
+
+.terminal-info {
+      color: var(--color-accent);
+}
+
+.typing-animation {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid var(--color-primary);
+      animation: typing 4s steps(50, end) infinite, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+      0% {
+            width: 0;
+      }
+
+      50% {
+            width: 100%;
+      }
+
+      100% {
+            width: 100%;
+      }
+}
+
+@keyframes blink-caret {
+
+      from,
+      to {
+            border-color: transparent;
+      }
+
+      50% {
+            border-color: var(--color-primary);
+      }
+}
+
 /* Main container */
+
 .install-page {
       max-width: var(--container-6xl);
       margin: 0 auto;
       padding: 2rem 1.5rem;
       background: var(--color-bg);
       min-height: 100vh;
+}
+
+.in-content-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+}
+
+.content-header-title {
+      text-align: center;
+      width: 50%;
+}
+
+
+.in-methodes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+
 }
 
 /* Page header */
@@ -53,23 +442,358 @@
       font-weight: 400;
 }
 
+/* Installation Methods Section */
+.install-methods-section {
+      padding: 6rem 0;
+      background: var(--color-bg);
+      position: relative;
+}
+
+.section-header {
+      margin-bottom: 5rem;
+      position: relative;
+}
+
+.section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: rgba(128, 180, 65, 0.1);
+      border: 1px solid rgba(128, 180, 65, 0.2);
+      border-radius: 50px;
+      color: var(--color-primary);
+      font-weight: 600;
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
+      animation: fadeInUp 0.8s ease-out;
+}
+
+.section-title {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: var(--color-text);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.section-subtitle {
+      font-size: 1.25rem;
+      color: var(--color-text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
 /* Installation methods grid */
-.install-methods {
+.install-methods-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      margin-bottom: 4rem;
+      max-width: var(--container-7xl);
+      margin: 0 auto;
+      padding: 0 2rem;
+}
+
+@media (min-width: 1200px) {
+      .install-methods-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+      }
+}
+
+@media (min-width: 1400px) {
+      .install-methods-grid {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+      }
 }
 
 .install-method-card {
       background: var(--color-bg-secondary);
       border: 1px solid var(--color-border-light);
-      border-radius: 16px;
+      border-radius: 24px;
       padding: 2rem;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 400px;
+}
+
+.install-method-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, rgba(128, 180, 65, 0.05), rgba(248, 151, 63, 0.05));
+      border-radius: 50%;
+      z-index: 0;
+      transition: all 0.3s ease;
+}
+
+.install-method-card::after {
+      content: "";
+      position: absolute;
+      bottom: -40%;
+      left: -20%;
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, rgba(248, 151, 63, 0.03), rgba(128, 180, 65, 0.03));
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      z-index: 0;
+      transition: all 0.3s ease;
+}
+
+.featured-method {
+      border: 2px solid var(--color-primary);
+      transform: scale(1.02);
+      box-shadow: var(--shadow-xl);
+}
+
+.method-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
+}
+
+.method-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      color: white;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      z-index: 3;
+      transition: all 0.3s ease;
+}
+
+.method-number {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      width: 36px;
+      height: 36px;
+      background: var(--color-primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      box-shadow: var(--shadow-lg);
+      z-index: 4;
+      border: 3px solid var(--color-bg-secondary);
+      transition: all 0.3s ease;
+}
+
+/* Floating elements for each card type */
+.install-method-card .floating-element {
+      position: absolute;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      opacity: 0.1;
+      z-index: 1;
+      transition: all 0.3s ease;
+}
+
+.install-method-card:nth-child(1) .floating-element {
+      width: 40px;
+      height: 40px;
+      top: 20%;
+      right: 15%;
+      animation: float 4s ease-in-out infinite;
+}
+
+.install-method-card:nth-child(2) .floating-element {
+      width: 30px;
+      height: 30px;
+      top: 60%;
+      left: 10%;
+      animation: float 5s ease-in-out infinite 1s;
+}
+
+.install-method-card:nth-child(3) .floating-element {
+      width: 50px;
+      height: 50px;
+      top: 30%;
+      left: 20%;
+      animation: float 6s ease-in-out infinite 2s;
+}
+
+.install-method-card:nth-child(4) .floating-element {
+      width: 35px;
+      height: 35px;
+      top: 70%;
+      right: 20%;
+      animation: float 4.5s ease-in-out infinite 0.5s;
+}
+
+.docker-icon {
+      background: linear-gradient(135deg, #2496ED, #0066CC);
+}
+
+.manual-icon {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+}
+
+.tiki-icon {
+      background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+}
+
+.yunohost-icon {
+      background: linear-gradient(135deg, #8B5CF6, #A78BFA);
+}
+
+.method-badge {
+      background: var(--color-primary);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+}
+
+.method-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+      line-height: 1.3;
+}
+
+.method-description {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+      position: relative;
+      z-index: 2;
+      font-size: 0.95rem;
+}
+
+.method-features {
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
+}
+
+.feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-text-secondary);
+      font-size: 0.875rem;
+      padding: 0.5rem 0;
+      transition: all 0.2s ease;
+}
+
+.feature-item:hover {
+      color: var(--color-text);
+      transform: translateX(5px);
+}
+
+.feature-item i {
+      color: var(--color-success);
+      font-size: 1rem;
+      transition: all 0.2s ease;
+}
+
+.feature-item:hover i {
+      transform: scale(1.2);
+      color: var(--color-primary);
+}
+
+.method-code-preview {
+      background: var(--color-bg-tertiary);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      font-family: var(--font-family-monospace);
+      font-size: 0.875rem;
+      color: var(--color-text);
+      overflow-x: auto;
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
       box-shadow: var(--shadow-sm);
+}
+
+.method-code-preview:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-primary);
+}
+
+.method-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.5rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+      margin-top: auto;
+      position: relative;
+      z-index: 2;
+      border: 1px solid transparent;
+}
+
+.method-btn.btn-primary {
+      background: var(--color-primary);
+      color: white;
+      border: 1px solid var(--color-primary);
+      box-shadow: var(--shadow-md);
+}
+
+.method-btn.btn-primary:hover {
+      background: var(--color-primary-dark);
+      border-color: var(--color-primary-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-xl);
+      color: white;
+}
+
+.method-btn.btn-secondary {
+      background: var(--color-bg-tertiary);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+}
+
+.method-btn.btn-secondary:hover {
+      background: var(--color-bg-secondary);
+      border-color: var(--color-primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      color: var(--color-text);
 }
 
 .install-method-card::before {
@@ -91,9 +815,47 @@
 }
 
 .install-method-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-2xl);
       border-color: var(--color-primary);
+}
+
+.install-method-card:hover::before {
+      transform: scale(1.2) rotate(10deg);
+      opacity: 0.1;
+}
+
+.install-method-card:hover::after {
+      transform: scale(1.3) rotate(-15deg);
+      opacity: 0.08;
+}
+
+.install-method-card:hover .method-icon {
+      transform: scale(1.15) rotate(5deg);
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-xl);
+}
+
+.install-method-card:hover .method-number {
+      transform: scale(1.3) rotate(-5deg);
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-lg);
+}
+
+.install-method-card:hover .floating-element {
+      transform: scale(1.5) rotate(180deg);
+      opacity: 0.2;
+      transition: all 0.3s ease;
+}
+
+.featured-method:hover {
+      transform: scale(1.03) translateY(-12px);
+      box-shadow: var(--shadow-2xl);
+}
+
+.featured-method:hover .method-badge {
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
 }
 
 .method-icon {
@@ -294,9 +1056,191 @@
       border-color: var(--color-primary);
 }
 
+/* Quick Install Section */
+.quick-install-section {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-tertiary) 100%);
+      position: relative;
+}
+
+.quick-install-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><defs><pattern id='quickgrid' width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(128, 180, 65, 0.05)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23quickgrid)'/></svg>");
+      z-index: 1;
+      pointer-events: none;
+}
+
+.quick-install-content {
+      max-width: var(--container-6xl);
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+}
+
+.quick-install-header {
+      text-align: center;
+      margin-bottom: 4rem;
+}
+
+.quick-install-header h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+}
+
+.quick-install-header p {
+      font-size: 1.25rem;
+      color: var(--color-text-secondary);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.6;
+}
+
 /* Steps styling */
 .install-steps {
-      counter-reset: step-counter;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+}
+
+.step-item {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border-light);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+}
+
+.step-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-primary);
+}
+
+.step-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-md);
+}
+
+.step-content {
+      flex: 1;
+}
+
+.step-content h4 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+}
+
+.step-content p {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+}
+
+.code-block {
+      background: var(--color-bg-tertiary);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+}
+
+.code-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: var(--color-bg-secondary);
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+}
+
+.copy-btn {
+      background: transparent;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 0.25rem 0.5rem;
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.75rem;
+}
+
+.copy-btn:hover {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: white;
+}
+
+.code-block code {
+      display: block;
+      padding: 1rem;
+      font-family: var(--font-family-monospace);
+      font-size: 0.875rem;
+      color: var(--color-text);
+      background: none;
+      border: none;
+      line-height: 1.4;
+      overflow-x: auto;
+}
+
+.access-link {
+      margin-top: 1rem;
+}
+
+.btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--color-primary);
+      color: white;
+      border: 1px solid var(--color-primary);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+}
+
+.btn-link:hover {
+      background: var(--color-primary-dark);
+      border-color: var(--color-primary-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+      color: white;
 }
 
 .install-step {
@@ -402,32 +1346,250 @@
       color: var(--color-text-secondary);
 }
 
-/* Responsive design */
+/* Animation Keyframes */
+@keyframes fadeInUp {
+      from {
+            opacity: 0;
+            transform: translateY(30px);
+      }
+
+      to {
+            opacity: 1;
+            transform: translateY(0);
+      }
+}
+
+@keyframes fadeInRight {
+      from {
+            opacity: 0;
+            transform: translateX(30px);
+      }
+
+      to {
+            opacity: 1;
+            transform: translateX(0);
+      }
+}
+
+@keyframes fadeInLeft {
+      from {
+            opacity: 0;
+            transform: translateX(-30px);
+      }
+
+      to {
+            opacity: 1;
+            transform: translateX(0);
+      }
+}
+
+@keyframes slideInUp {
+      from {
+            opacity: 0;
+            transform: translateY(50px);
+      }
+
+      to {
+            opacity: 1;
+            transform: translateY(0);
+      }
+}
+
+/* Scroll Animations */
+.install-method-card {
+      animation: slideInUp 0.8s ease-out;
+      animation-fill-mode: both;
+}
+
+.install-method-card:nth-child(1) {
+      animation-delay: 0.1s;
+}
+
+.install-method-card:nth-child(2) {
+      animation-delay: 0.2s;
+}
+
+.install-method-card:nth-child(3) {
+      animation-delay: 0.3s;
+}
+
+.install-method-card:nth-child(4) {
+      animation-delay: 0.4s;
+}
+
+.step-item {
+      animation: fadeInLeft 0.8s ease-out;
+      animation-fill-mode: both;
+}
+
+.step-item:nth-child(1) {
+      animation-delay: 0.1s;
+}
+
+.step-item:nth-child(2) {
+      animation-delay: 0.3s;
+}
+
+.step-item:nth-child(3) {
+      animation-delay: 0.5s;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+      .install-hero-container {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            text-align: center;
+      }
+
+      .install-hero-visual {
+            order: -1;
+            max-width: 600px;
+            margin: 0 auto;
+      }
+
+      .install-methods-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+}
+
 @media (max-width: 768px) {
-      .install-page {
-            padding: 1rem;
+      .install-hero-section {
+            padding: 1rem 0;
+            min-height: auto;
       }
 
-      .install-header {
-            padding: 1.5rem;
-            margin-bottom: 2rem;
+      .install-hero-container {
+            padding: 0 1rem;
+            gap: 2rem;
       }
 
-      .install-methods {
+      .install-hero-title {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+      }
+
+      .install-hero-subtitle {
+            font-size: 1.125rem;
+            max-width: 100%;
+      }
+
+      .install-hero-stats {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+      }
+
+      .stat-divider {
+            display: none;
+      }
+
+      .install-hero-actions {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+      }
+
+      .btn-primary-hero,
+      .btn-secondary-hero {
+            width: 100%;
+            max-width: 320px;
+            justify-content: center;
+      }
+
+      .install-methods-section,
+      .quick-install-section {
+            padding: 4rem 0;
+      }
+
+      .install-methods-grid {
             grid-template-columns: 1fr;
             gap: 1.5rem;
+            padding: 0 1rem;
       }
 
-      .install-method-card,
-      .install-section {
+      .install-method-card {
+            padding: 2rem;
+      }
+
+      .featured-method {
+            transform: none;
+      }
+
+      .step-item {
+            flex-direction: column;
+            gap: 1.5rem;
             padding: 1.5rem;
+      }
+
+      .step-number {
+            align-self: center;
+      }
+
+      .terminal-window {
+            font-size: 0.75rem;
+      }
+
+      .terminal-body {
+            padding: 1rem;
+      }
+}
+
+@media (max-width: 480px) {
+      .install-hero-container {
+            padding: 0 1rem;
+      }
+
+      .install-hero-title {
+            font-size: clamp(2rem, 10vw, 3rem);
+      }
+
+      .install-hero-subtitle {
+            font-size: 1rem;
+      }
+
+      .hero-badge {
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+      }
+
+      .install-methods-grid,
+      .quick-install-content {
+            padding: 0 1rem;
+      }
+
+      .install-method-card {
+            padding: 1.5rem;
+      }
+
+      .method-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.25rem;
+      }
+
+      .method-title {
+            font-size: 1.25rem;
       }
 
       .section-title {
-            font-size: 1.75rem;
+            font-size: clamp(2rem, 6vw, 2.5rem);
       }
 
       .section-subtitle {
+            font-size: 1rem;
+      }
+
+      .step-item {
+            padding: 1rem;
+      }
+
+      .step-number {
+            width: 50px;
+            height: 50px;
+            font-size: 1.25rem;
+      }
+
+      .step-content h4 {
             font-size: 1.25rem;
       }
 }

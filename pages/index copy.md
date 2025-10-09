@@ -150,7 +150,69 @@ loadScriptAfter: /home-page.js
         </div>
     </section>
     <!-- About Variant A: Feature + Stats (2 columns) -->
-    
+    <section>
+        <div class="section-content px-4">
+            <div class="testimonials-header">
+            <div class="check-badge">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect width="24" height="24" rx="12" fill="#81B441"/>
+                <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>What users say about Cypht</span>
+            </div>
+            <h2 class="testimonials-title">
+                Trusted By 10k+ <span class="highlight">Email Users</span> <br>& Development Teams
+                <div class="arrow-decoration">
+                <svg width="120" height="80" viewBox="0 0 120 80" fill="none">
+                    <path d="M10 30C40 5 80 60 110 40" stroke="#81B441" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                </div>
+            </h2>
+            </div>
+            <div class="testimonials-grid">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    I've been using Cypht for my personal and work emails. The combined inbox feature saves me so much time every day.
+                </p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="User avatar" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Software Developer</h4>
+                        <p>Happy Cypht User</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    Our team switched to Cypht for its security features and module system. We've never looked back.
+                </p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="User avatar" class="author-avatar">
+                    <div class="author-info">
+                        <h4>IT Administrator</h4>
+                        <p>Happy Cypht User</p>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    The universal search in Cypht has transformed how we manage multiple email accounts and communications.
+                </p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1511485977113-f34c92461ad9?q=80&w=3778&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="User avatar" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Product Manager</h4>
+                        <p>Happy Cypht User</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
     <section class="faq-section">
         <div class="section-content px-4">
             <div class="faq-container">
