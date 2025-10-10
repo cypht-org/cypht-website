@@ -149,6 +149,32 @@ const git_guidelines = `
   </div>
 </div>`;
 
+async function load_contributors() {
+  const repoOwner = "cypht-org";
+  const repoName = "cypht";
+  const container = document.getElementById("contributors");
+
+  try {
+    const response = await fetch(
+      `https://api.github.com/repos/${repoOwner}/${repoName}/contributors?per_page=100`
+    );
+    const data = await response.json();
+
+    container.innerHTML = data
+      .map(
+        (user) => `
+        <a href="${user.html_url}" target="_blank" class="contributor" title="${user.login}">
+          <img src="${user.avatar_url}" alt="${user.login}" loading="lazy" />
+        </a>
+      `
+      )
+      .join("");
+  } catch (error) {
+    console.error("Failed to load contributors:", error);
+    container.innerHTML = "<p>Unable to load contributors</p>";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   //   const contributeNav = document.querySelector(".contribute-nav");
   const nav_items = document.querySelectorAll(".contribute-nav ul li a");
@@ -178,6 +204,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // showContent(tab_id);
     });
   });
+
+  load_contributors();
 
   // showContent("dev");
 });

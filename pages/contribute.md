@@ -73,43 +73,46 @@ loadScriptAfter: /js/contribute.js
               <div class="dev-header">
                 <div class="req-header-chip">
                   <span class="req-header-chip-icon">
-                    <i class="bi bi-braces-asterisk"></i>
+                    <i class="bi bi-collection-fill"></i>
                   </span>
                   <span class="req-header-chip-text">Development Workflow</span>
                 </div>
                  <h3>Our Development Approach</h3>
               </div>
            </div>
-           <div class="div2">
-              <h4>Backend</h4>
-              <ul>
-                <li>Pure PHP</li>
-                <li>No heavy frameworks</li>
-                <li>Lightweight & Fast</li>
-              </ul> 
-           </div>
-           <div class="div3">
-              <h4>Frontend</h4>
-              <ul>
-                <li>HTML & CSS</li>
-                <li>Semantic structure</li>
-             </ul> 
-           </div>
-           <div class="div4">
-              <h4>Framework</h4>
-              <ul>
-                <li>Bootstrap</li>
-                <li>Enhanced UI/UX</li>
-             </ul> 
-           </div>
-         </div>
-         <div>
-            <!--  -->
-
-            <div>
-              <img src="img/contribute.png"/>
+            <div class="div2 dev-flow-card">
+               <h4>Backend Development</h4>
+               <ul>
+                 <li>Pure PHP</li>
+                 <li>No heavy frameworks</li>
+                 <li>Lightweight & Fast</li>
+               </ul>
+               <p>Our backend is built with pure PHP, ensuring optimal performance without the overhead of heavy frameworks.</p>
+            </div>
+            <div class="div3 dev-flow-card">
+               <h4>Frontend Development</h4>
+               <ul>
+                 <li>HTML & CSS</li>
+                 <li>Semantic structure</li>
+              </ul>
+              <p>We use clean HTML and CSS with semantic structure to create modern, accessible user interfaces.</p>
+            </div>
+            <div class="div4 dev-flow-card">
+               <h4>Framework Integration</h4>
+               <ul>
+                 <li>Bootstrap</li>
+                 <li>Enhanced UI/UX</li>
+              </ul>
+              <p>Bootstrap framework integration enhances our UI/UX with responsive components and modern design patterns.</p>
             </div>
          </div>
+        <div class="dev-flow-label-card">
+            <img src="img/contribute.png" alt="Contribute illustration" />
+            <div class="dev-flow-text">
+              <h4>Want to Contribute?</h4>
+              <p>Join our open-source team and help us build next-gen mailing features 🚀</p>
+            </div>
+        </div>
       </div>
       <!-- Requirements Section -->
       <div id="req" class="req-content">
@@ -277,6 +280,26 @@ loadScriptAfter: /js/contribute.js
           </ul>
         </div>
       </div>
+    </div>  
+  </div>
+</section>
+
+<section class="contributors-section">
+  <div class="contributors-wrapper">
+   <div class="contributor-header mb-5">
+     <div class="req-header-chip">
+        <span class="req-header-chip-icon">
+          <i class="bi bi-people-fill"></i>
+        </span>
+        <span class="req-header-chip-text">Contributors</span>
+      </div>
+      <div class="contributor-header-text">
+        <h3>Meet the talented developers who make Cypht possible.</h3>
+      </div>
+    </div>
+
+    <div id="contributors" class="contributors-grid">
+      <!-- contributors will load here -->
     </div>
 
   </div>
