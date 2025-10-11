@@ -20,7 +20,7 @@ loadScriptAfter: /js/feature.js
         <p class="mt-3 text-muted">
         Simplify, secure, and optimize your email workflow with seamless integration and powerful features—all in one place.
         </p>
-        <a href="#messaging" class="btn btn-dark btn-lg mt-4">
+        <a href="#messaging" class="btn btn-dark btn-lg mt-4 d-inline-flex px-5">
           Explore all features
         </a>
       </div>
@@ -56,11 +56,7 @@ loadScriptAfter: /js/feature.js
           </div>
 <!--  -->
           <div class="icon-box">  
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database" viewBox="0 0 24 24">
-            <ellipse cx="12" cy="5" rx="9" ry="3"/>
-            <path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/>
-            <path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>
         </div>
           <div class="icon-box"><img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/lock.svg" alt="Lock"></div>
           <div class="icon-box"><img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/activity.svg" alt="Activity"></div>

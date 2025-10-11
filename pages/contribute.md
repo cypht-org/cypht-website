@@ -286,7 +286,7 @@ loadScriptAfter: /js/contribute.js
 
 <section class="contributors-section">
   <div class="contributors-wrapper">
-   <div class="contributor-header mb-5">
+   <div class="contributor-header">
      <div class="req-header-chip">
         <span class="req-header-chip-icon">
           <i class="bi bi-people-fill"></i>

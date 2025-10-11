@@ -253,6 +253,7 @@
 
 .dev-flow-card {
       background: #f8f9fa5e;
+      background-color: #F6F6F6;
       border: 1.7px dashed #E9ECEF;
       border-radius: 20px;
       padding: 1.5rem;
@@ -260,7 +261,6 @@
       flex-direction: column;
       gap: 1rem;
       transition: all 0.3s ease;
-      background-color: #F6F6F6;
 }
 
 .dev-flow-card:hover {
@@ -399,7 +399,7 @@
       flex-direction: column;
       align-items: center;
       gap: 1rem;
-      margin-bottom: 6rem;
+      margin-bottom: 4rem;
 }
 
 .contributor-header-text {

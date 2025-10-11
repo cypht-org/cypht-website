@@ -173,7 +173,7 @@
 .stat-number {
       font-size: 2rem;
       font-weight: 800;
-      color: var(--color-primary);
+      color: var(--color-primary) !important;
       line-height: 1;
 }
 

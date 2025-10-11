@@ -19,8 +19,8 @@ loadScriptAfter: /js/security.js
         <p class="hero-subtitle">
           Protect your emails with advanced encryption and guaranteed privacy.
         </p>
-        <div class="hero-buttons">
-          <a href="#security" class="btn btn-dark">
+        <div class="hero-buttons d-inline-flex">
+          <a href="#security" class="btn btn-dark px-5 py-2">
             Explore Security 
           </a>
         </div>
