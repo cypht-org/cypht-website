@@ -52,7 +52,7 @@ loadScriptAfter: /js/documentation-nav.js
   <!-- <div class="d-flex w-100"> -->
     <div class="doc-indicator d-flex align-items-center">
       <div class="doc-indicator-left">
-        <img src="img/logo_dark.svg"/>
+        <img src="/img/logo_dark.svg"/>
       </div>
       <div class="doc-indicator-right">
          <span>cypht version 1.0.2 🚀</span>
