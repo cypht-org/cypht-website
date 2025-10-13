@@ -1,0 +1,175 @@
+/* ─── What is Cypht Page Styles ──────────────────────────────────────────────────────────── */
+
+/* Highlight Box */
+.highlight-box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+}
+
+.highlight-box h2 {
+      color: white;
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 700;
+}
+
+/* Feature Grid */
+.feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+}
+
+.feature-card {
+      background: white;
+      border: 1px solid #e9ecef;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border-left: 4px solid #667eea;
+}
+
+.feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      border-left-color: #764ba2;
+}
+
+.feature-card h3 {
+      color: #333;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+}
+
+.feature-card ul {
+      list-style: none;
+      padding: 0;
+}
+
+.feature-card li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f8f9fa;
+      position: relative;
+      padding-left: 1.5rem;
+}
+
+.feature-card li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #28a745;
+      font-weight: bold;
+}
+
+.feature-card li:last-child {
+      border-bottom: none;
+}
+
+/* Protocol List */
+.protocol-list {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid #17a2b8;
+}
+
+.protocol-list ol {
+      margin: 0;
+      padding-left: 1.5rem;
+}
+
+.protocol-list li {
+      padding: 0.5rem 0;
+      font-weight: 500;
+}
+
+/* Use Case Sections */
+.use-case-section {
+      background: white;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      border-left: 4px solid #28a745;
+}
+
+.use-case-section h3 {
+      color: #28a745;
+      margin-top: 0;
+      font-size: 1.2rem;
+}
+
+/* CTA Section */
+.cta-section {
+      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      text-align: center;
+}
+
+.cta-section h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.cta-section ol {
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
+}
+
+/* Community Section */
+.community-section {
+      background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.community-section h3 {
+      color: white;
+      margin-top: 0;
+}
+
+/* Final Message */
+.final-message {
+      background: #f8f9fa;
+      border: 2px solid #667eea;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      margin: 2rem 0;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+      .feature-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+      }
+
+      .highlight-box,
+      .cta-section,
+      .community-section {
+            padding: 1.5rem;
+      }
+
+      .feature-card {
+            padding: 1.5rem;
+      }
+}

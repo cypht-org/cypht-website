@@ -1,0 +1,213 @@
+/* ─── Key Features Page Styles ──────────────────────────────────────────────────────────── */
+
+/* Core Features Section */
+.core-features {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.core-features h2 {
+      color: white;
+      margin-top: 0;
+}
+
+/* Feature Categories */
+.feature-category {
+      background: white;
+      border: 1px solid #e9ecef;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-left: 4px solid #17a2b8;
+}
+
+.feature-category h3 {
+      color: #17a2b8;
+      margin-top: 0;
+      font-size: 1.4rem;
+      font-weight: 600;
+}
+
+.feature-category h4 {
+      color: #333;
+      font-size: 1.2rem;
+      margin: 1.5rem 0 1rem 0;
+      font-weight: 600;
+}
+
+/* Feature Lists */
+.feature-list {
+      list-style: none;
+      padding: 0;
+}
+
+.feature-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #f8f9fa;
+      position: relative;
+      padding-left: 2rem;
+      font-weight: 500;
+}
+
+.feature-list li:before {
+      content: "✨";
+      position: absolute;
+      left: 0;
+      top: 0.75rem;
+      font-size: 1rem;
+}
+
+.feature-list li:last-child {
+      border-bottom: none;
+}
+
+/* Security & Privacy Section */
+.security-section {
+      background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.security-section h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.security-section .feature-list li:before {
+      content: "🔒";
+}
+
+/* Productivity Section */
+.productivity-section {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.productivity-section h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.productivity-section .feature-list li:before {
+      content: "⚡";
+}
+
+/* Customization Section */
+.customization-section {
+      background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.customization-section h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.customization-section .feature-list li:before {
+      content: "🎨";
+}
+
+/* Integration Section */
+.integration-section {
+      background: linear-gradient(135deg, #6f42c1 0%, #e83e8c 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.integration-section h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.integration-section .feature-list li:before {
+      content: "🔗";
+}
+
+/* Mobile & Accessibility */
+.mobile-section {
+      background: linear-gradient(135deg, #17a2b8 0%, #6c757d 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.mobile-section h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.mobile-section .feature-list li:before {
+      content: "📱";
+}
+
+/* Performance Section */
+.performance-section {
+      background: linear-gradient(135deg, #fd7e14 0%, #dc3545 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.performance-section h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.performance-section .feature-list li:before {
+      content: "🚀";
+}
+
+/* Feature Highlights */
+.feature-highlight {
+      background: #f8f9fa;
+      border: 2px solid #667eea;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      text-align: center;
+}
+
+.feature-highlight h4 {
+      color: #667eea;
+      margin-top: 0;
+      font-size: 1.3rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+      .core-features,
+      .security-section,
+      .productivity-section,
+      .customization-section,
+      .integration-section,
+      .mobile-section,
+      .performance-section {
+            padding: 1.5rem;
+      }
+
+      .feature-category {
+            padding: 1.5rem;
+      }
+
+      .feature-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+      }
+}
