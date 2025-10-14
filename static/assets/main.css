@@ -99,6 +99,8 @@
       /* 1152px */
       --container-7xl: 80rem;
       /* 1280px */
+      --container-8xl: 88rem;
+      /* 1344px */
 
       color-scheme: light;
 }

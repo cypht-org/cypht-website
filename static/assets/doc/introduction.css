@@ -1,0 +1,376 @@
+/* ─── Introduction Page Styles ──────────────────────────────────────────────────────────── */
+
+/* Hero Section */
+.intro-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      margin: 2rem 0;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3);
+}
+
+.intro-hero h1 {
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+}
+
+.intro-hero .subtitle {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+}
+
+/* Quick Start Section */
+.quick-start {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.quick-start h2 {
+      color: white;
+      margin-top: 0;
+      text-align: center;
+}
+
+.quick-start-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+}
+
+.quick-start-item {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+}
+
+.quick-start-item:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-4px);
+}
+
+.quick-start-item .icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+}
+
+.quick-start-item h3 {
+      color: white;
+      margin: 0 0 0.5rem 0;
+      font-size: 1.1rem;
+}
+
+.quick-start-item p {
+      margin: 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
+}
+
+/* What is Cypht Section */
+.what-is-section {
+      background: white;
+      border: 1px solid #e9ecef;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-left: 4px solid #17a2b8;
+}
+
+.what-is-section h2 {
+      color: #17a2b8;
+      margin-top: 0;
+}
+
+/* Key Benefits */
+.benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+}
+
+.benefit-card {
+      background: white;
+      border: 1px solid #e9ecef;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border-left: 4px solid #667eea;
+}
+
+.benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      border-left-color: #764ba2;
+}
+
+.benefit-card h3 {
+      color: #333;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+}
+
+.benefit-card ul {
+      list-style: none;
+      padding: 0;
+}
+
+.benefit-card li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f8f9fa;
+      position: relative;
+      padding-left: 1.5rem;
+}
+
+.benefit-card li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #28a745;
+      font-weight: bold;
+}
+
+.benefit-card li:last-child {
+      border-bottom: none;
+}
+
+/* Getting Started */
+.getting-started {
+      background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.getting-started h2 {
+      color: white;
+      margin-top: 0;
+      text-align: center;
+}
+
+.steps-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+}
+
+.step-item {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      text-align: center;
+}
+
+.step-item .step-number {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+}
+
+.step-item h3 {
+      color: white;
+      margin: 0 0 0.5rem 0;
+      font-size: 1.1rem;
+}
+
+.step-item p {
+      margin: 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
+}
+
+/* Why Choose Cypht */
+.why-choose {
+      background: linear-gradient(135deg, #6f42c1 0%, #e83e8c 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.why-choose h2 {
+      color: white;
+      margin-top: 0;
+      text-align: center;
+}
+
+.features-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+}
+
+.feature-item {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 1rem;
+      backdrop-filter: blur(10px);
+      text-align: center;
+}
+
+.feature-item .icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      display: block;
+}
+
+.feature-item h4 {
+      color: white;
+      margin: 0 0 0.5rem 0;
+      font-size: 1rem;
+}
+
+.feature-item p {
+      margin: 0;
+      font-size: 0.8rem;
+      opacity: 0.9;
+}
+
+/* Community Section */
+.community-section {
+      background: linear-gradient(135deg, #17a2b8 0%, #6c757d 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      text-align: center;
+}
+
+.community-section h2 {
+      color: white;
+      margin-top: 0;
+}
+
+.community-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+}
+
+.community-link {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      color: white;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+}
+
+.community-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      color: white;
+      text-decoration: none;
+}
+
+/* On This Page Navigation */
+.on-this-page {
+      position: sticky;
+      top: 100px;
+      background: white;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+}
+
+.on-this-page h4 {
+      color: #333;
+      margin: 0 0 1rem 0;
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+}
+
+.on-this-page ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+}
+
+.on-this-page li {
+      margin-bottom: 0.5rem;
+}
+
+.on-this-page a {
+      color: #666;
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.25rem 0;
+      display: block;
+      transition: all 0.2s ease;
+      border-left: 2px solid transparent;
+      padding-left: 0.5rem;
+}
+
+.on-this-page a:hover {
+      color: #667eea;
+      border-left-color: #667eea;
+      padding-left: 0.75rem;
+}
+
+.on-this-page a.active {
+      color: #667eea;
+      font-weight: 600;
+      border-left-color: #667eea;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+      .intro-hero {
+            padding: 2rem 1rem;
+      }
+
+      .quick-start-grid,
+      .benefits-grid,
+      .steps-list,
+      .features-list {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+      }
+
+      .community-links {
+            flex-direction: column;
+            align-items: center;
+      }
+
+      .on-this-page {
+            position: static;
+            margin-top: 2rem;
+      }
+}
