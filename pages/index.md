@@ -177,54 +177,80 @@ loadScriptAfter: /home-page.js
                 <!-- Question 1 -->
                 <div class="faq-item active">
                 <button class="faq-question">
-                    <span>How do I set up multiple email accounts?</span>
+                    <span>Can I access multiple email accounts with Cypht ?</span>
                     <svg class="faq-icon" viewBox="0 0 24 24" width="24" height="24">
                     <circle cx="12" cy="12" r="10" fill="none" stroke="#e0e0e0" stroke-width="2"/>
                     <path class="plus-icon" d="M12 8v8M8 12h8" stroke="#81B441" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </button>
                 <div class="faq-answer">
-                    <p>To add multiple email accounts in Cypht, go to the "Servers" section from the main menu. Click "Add Account" and select your email provider type (Gmail, Outlook, IMAP, etc.). Enter your credentials and follow the on-screen instructions. Repeat this process for each email account you want to add. All accounts will then appear in your combined inbox.</p>
+                    <p>Yes! Cypht is specifically designed to manage multiple email accounts simultaneously. You can add accounts from various providers (Gmail, Outlook, IMAP, JMAP, EWS) and access them all through a unified interface.</p>
                 </div>
                 </div>
                 <!-- Question 2 -->
                 <div class="faq-item">
                 <button class="faq-question">
-                    <span>How does the combined inbox work?</span>
+                    <span>Does Cypht support multiple users?</span>
                     <svg class="faq-icon" viewBox="0 0 24 24" width="24" height="24">
                     <circle cx="12" cy="12" r="10" fill="none" stroke="#e0e0e0" stroke-width="2"/>
                     <path class="plus-icon" d="M12 8v8M8 12h8" stroke="#81B441" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </button>
                 <div class="faq-answer">
-                    <p>Cypht's combined inbox aggregates emails from all your connected accounts into a single, unified view. You can see all incoming messages in chronological order, regardless of which account they were sent to. You can also use filters and labels to organize emails across accounts, and quickly switch between the combined view and individual account views.</p>
+                    <p>Yes, Cypht supports multiple users. Each user can have their own login and manage their collection of email accounts independently.</p>
                 </div>
                 </div>
                 <!-- Question 3 -->
                 <div class="faq-item">
                 <button class="faq-question">
-                    <span>Is Cypht secure?</span>
+                    <span>What is the Combined Inbox?</span>
                     <svg class="faq-icon" viewBox="0 0 24 24" width="24" height="24">
                     <circle cx="12" cy="12" r="10" fill="none" stroke="#e0e0e0" stroke-width="2"/>
                     <path class="plus-icon" d="M12 8v8M8 12h8" stroke="#81B441" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </button>
                 <div class="faq-answer">
-                    <p>Yes, security is a core principle of Cypht. We implement industry-standard encryption protocols for all communications. Your login credentials are securely stored and never shared with third parties. Cypht also supports two-factor authentication for additional security, and being open-source, our security practices are transparent and continuously reviewed by the community.</p>
+                    <p>The Combined Inbox displays emails from all your connected accounts in one unified view, allowing you to read, sort, and manage messages from different providers without switching between accounts.</p>
                 </div>
                 </div>
                 <!-- Question 4 -->
                 <div class="faq-item">
-                <button class="faq-question">
-                    <span>Can I extend Cypht with modules?</span>
-                    <svg class="faq-icon" viewBox="0 0 24 24" width="24" height="24">
-                    <circle cx="12" cy="12" r="10" fill="none" stroke="#e0e0e0" stroke-width="2"/>
-                    <path class="plus-icon" d="M12 8v8M8 12h8" stroke="#81B441" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Absolutely! Cypht has a flexible module system that allows you to extend its functionality. You can add modules for IMAP, SMTP, LDAP, WordPress, Github, and many more services. Check out the Modules page for a complete list of available extensions, or create your own custom modules using our developer documentation.</p>
+                    <button class="faq-question">
+                        <span>Can I create email filters?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" width="24" height="24">
+                        <circle cx="12" cy="12" r="10" fill="none" stroke="#e0e0e0" stroke-width="2"/>
+                        <path class="plus-icon" d="M12 8v8M8 12h8" stroke="#81B441" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, Cypht supports Sieve filters. Go to Settings > Sieve Filters, select your account, and create filters to automatically organize emails based on criteria like sender, subject, or keywords.</p>
+                    </div>
                 </div>
+                <!-- Question 4 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is there a contact management system?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" width="24" height="24">
+                        <circle cx="12" cy="12" r="10" fill="none" stroke="#e0e0e0" stroke-width="2"/>
+                        <path class="plus-icon" d="M12 8v8M8 12h8" stroke="#81B441" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, Cypht includes a contact book. You can add contacts manually from contacts page or quickly add senders by clicking the person icon in received messages.</p>
+                    </div>
+                </div>
+                <!-- Question 4 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I add new email accounts?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" width="24" height="24">
+                        <circle cx="12" cy="12" r="10" fill="none" stroke="#e0e0e0" stroke-width="2"/>
+                        <path class="plus-icon" d="M12 8v8M8 12h8" stroke="#81B441" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Click “Add” in the accounts section. For services like Gmail or Outlook, you may need to configure OAuth settings in your configuration file.</p>
+                    </div>
                 </div>
             </div>
             </div>

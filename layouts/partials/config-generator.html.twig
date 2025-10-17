@@ -1,60 +1,176 @@
-<form id="config-generator">
-    <h1>Cypht Config Generator</h1>
-    <blockquote>
-        Click any of the options below to configure Cypht!<br>
-        On the bottom of the page you can find a button to generate your .env
-    </blockquote>
-    {% for file in site.data.configFiles %}
-    <details>
-        <summary class="h4">
-            <h2 class="h4">{{file | replace({".php": ""})}}</h2>
-        </summary>
-        {% for option in site.data.configOptions[file] %}
-        {% set select = option.inputType == "select" %}
-        {% set inputId = option.key ~ "_CCGINPUT" %}
-        <fieldset id="{{option.key}}">
-            <legend>
-                <h3>{{option.key}}</h3>
-            </legend>
-            <label for="{{inputId}}">{{option.commentHtml}}</label>
-            {% if option.valueDefault %}<p>Default: {{option.valueDefault}}</p>{% endif %}
+{% set confg_menu =  [
+    {
+	  id:0,
+        title: 'App Config',
+        href: '#app-configuration'
+    },
+    {
+	  id:1,
+        title: 'Database',
+        href: '#database'
+    },
+    {
+	  id:2,
+        title: '2FA',
+        href: '#2fa'
+    },
+    {
+	  id:3,
+        title: 'dynamic login',
+        href: '#dynamic_login'
+    },
+    {
+	  id:4,
+        title: 'github',
+        href: '#github'
+    },
+    {
+	  id:5,
+        title: 'ldap',
+        href: '#ldap'
+    },
+    {
+	  id:6,
+        title: 'oauth2',
+        href: '#oauth2'
+    },
+    {
+	  id:7,
+        title: 'recaptcha',
+        href: '#recaptcha'
+    },
+    {
+	  id:8,
+        title: 'wordpress',
+        href: '#wordpress'
+    }
+] %}
 
-            {% if not select %}
-            <input id="{{inputId}}" type="{{option.inputType}}" name="{{option.key}}"
-                data-default="{{option.valueDefault}}" {% if option.valueDefault %} {% if option.inputType=="checkbox"
-                and option.valueDefault=="true" %} checked {% else %} value="{{option.valueDefault}}" {% endif %}
-                {% endif %} />
-            {% else %}
-            <select class="btn btn-light text-left" id="{{inputId}}" name="{{option.key}}" data-default="{{option.valueDefault}}">
-                {% for setValue in option.setValues %}
-                <option value="{{setValue.value}}">{{setValue.value}} - {{setValue.description}}</option>
-                {% endfor %}
-            </select>
-            {% endif %}
-            <button class="reset btn btn-light">Reset</button>
-        </fieldset>
-        {% endfor %}
-    </details>
-    <hr>
-    {% endfor %}
+{# Template #}
+<section>
+	<div class="config-gen-container">
+		<div class="config-content">
+			<div class="config-left">
+				<nav>
+					<div class="config-left-header">
+						<h5>Config menu</h5>
+						<p>Choose a config to generate</p>
+					</div>
+					<ul class="config-generator-list">
+						{% for item in confg_menu %}
+							<li class="position-relative">
+								<a href="{{item.href}}" class="config-generator-link text-capitalize {{item.id == 0 ? 'config-active' : ''}}" data-id="{{item.id}}">{{item.title}}</a>
+							</li>
+						{% endfor %}
+					</ul>
+					<div class="config-left-footer">
+						<button class="btn btn-primary">Preview your config</button>
+					</div>
+				</nav>
+			</div>
+			<div
+				class="config-right">
+				{# App config #}
+				<div class="config-content-item">
+					<div class="config-content-item-header">
+						<h5>App Config</h5>
+						<p>Generate your app config</p>
+					</div>
+					<div class="config-content-item-body"></div>
+					<div class="config-content-item-footer">
+						<button class="btn btn-primary">Generate Config</button>
+					</div>
+				</div>
+				{# Database config #}
+				<div class="config-content-item">
+					<div class="config-content-item-header">
+						<h5>Database Config</h5>
+						<p>Generate your database config</p>
+					</div>
+					<div class="config-content-item-body"></div>
+					<div class="config-content-item-footer">
+						<button class="btn btn-primary">Generate Config</button>
+					</div>
+				</div>
+				{# 2FA config #}
+				<div class="config-content-item">
+					<div class="config-content-item-header">
+						<h5>2FA Config</h5>
+						<p>Generate your 2FA config</p>
+					</div>
+					<div class="config-content-item-body"></div>
+					<div class="config-content-item-footer">
+						<button class="btn btn-primary">Generate Config</button>
+					</div>
+				</div>
+				{# Dynamic login config #}
+				<div class="config-content-item">
+					<div class="config-content-item-header">
+						<h5>Dynamic Login Config</h5>
+						<p>Generate your dynamic login config</p>
+					</div>
+					<div class="config-content-item-body"></div>
+					<div class="config-content-item-footer">
+						<button class="btn btn-primary">Generate Config</button>
+					</div>
+				</div>
+				{# Github config #}
+				<div class="config-content-item">
+					<div class="config-content-item-header">
+						<h5>Github Config</h5>
+						<p>Generate your github config</p>
+					</div>
+					<div class="config-content-item-body"></div>
+					<div class="config-content-item-footer">
+						<button class="btn btn-primary">Generate Config</button>
+					</div>
+				</div>
+				{# LDAP config #}
+				<div class="config-content-item">
+					<div class="config-content-item-header">
+						<h5>LDAP Config</h5>
+						<p>Generate your LDAP config</p>
+					</div>
+					<div class="config-content-item-body"></div>
+					<div class="config-content-item-footer">
+						<button class="btn btn-primary">Generate Config</button>
+					</div>
+				</div>
+				{# OAuth2 config #}
+				<div class="config-content-item">
+					<div class="config-content-item-header">
+						<h5>OAuth2 Config</h5>
+						<p>Generate your OAuth2 config</p>
+					</div>
+					<div class="config-content-item-body"></div>
+					<div class="config-content-item-footer">
+						<button class="btn btn-primary">Generate Config</button>
+					</div>
+				</div>
+				{# Recaptcha config #}
+				<div class="config-content-item">
+					<div class="config-content-item-header">
+						<h5>Recaptcha Config</h5>
+						<p>Generate your recaptcha config</p>
+					</div>
+					<div class="config-content-item-body"></div>
+					<div class="config-content-item-footer">
+						<button class="btn btn-primary">Generate Config</button>
+					</div>
+				</div>
+				{# Wordpress config #}
+				<div class="config-content-item">
+					<div class="config-content-item-header">
+						<h5>Wordpress Config</h5>
+						<p>Generate your wordpress config</p>
+					</div>
+					<div class="config-content-item-body"></div>
+					<div class="config-content-item-footer">
+						<button class="btn btn-primary">Generate Config</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <hr>
-
-    <button class="btn btn-success" id="generate">Generate .env file</button>
-    <button class="btn btn-light" id="reset-all">Reset all</button>
-    <p>
-        Please note that neither <code>allow_session_cache</code> &amp; <code>cache_class</code> are configurable
-        through here,
-        as it is not recommended and as such quite advanced usage.
-        Check <a href="https://github.com/cypht-org/cypht/blob/master/config/app.php">
-            app.php (@github:cypht-org/cypht)
-        </a> for more info
-    </p>
-    <textarea class="container" id="result"></textarea>
-    <hr>
-    <p>The 
-        <a href="https://github.com/cypht-org/cypht-website#cypht-config-generator-generator">
-            config-generator source code can be found on GitHub
-        </a>
-    </p>
-</form>
+</section>
