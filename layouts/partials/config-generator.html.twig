@@ -156,39 +156,38 @@
 							</select>
 						</div>
 					</div>
-					<ul class="config-generator-list">
-						{% for item in config_menu %}
+					<div class="config-generator-list-container">
+						<ul class="config-generator-list">
+							{% for item in config_menu %}
 
-							{% if item.children is defined and item.children|length > 1 %}
-								<li class="position-relative cg-menu-group">
-									<a href=" {{item.href}} " class=" config-generator-link text-capitalize " data-id=" {{item.id}} ">{{item.title}}
-									</a>
-									<div class="position-relative">
-										<div class="cc-line-top"></div>
-										<ul class="group-list">
-											{% for child in item.children %}
-												<li class="position-relative">
-													<a href="{{child.href}}" class=" {{child.id == 0 ? 'config-active' : ''}}" data-id="{{child.id}}">{{child.title}}</a>
-												</li>
-											{% endfor %}
-										</ul>
-										<div class="cc-line-bottom"></div>
-									</div>
-								</li>
-							{% else %}
-								<li class="position-relative cg-menu-alone">
-									<a href="{{item.href}}" class="config-generator-link text-capitalize {{item.id == 0 ? 'config-active' : ''}}" data-id="{{item.id}}">{{item.title}}</a>
-								</li>
-							{% endif %}
-						{% endfor %}
-					</ul>
-					<div class="config-left-footer">
-						<button class="btn btn-primary">Preview your config</button>
+								{% if item.children is defined and item.children|length > 1 %}
+									<li class="position-relative cg-menu-group">
+										<a href=" {{item.href}} " class=" config-generator-link text-capitalize " data-id=" {{item.id}} ">{{item.title}}
+										</a>
+										<div class="position-relative ">
+											<div class="cc-line-top"></div>
+											<ul class="group-list">
+												{% for child in item.children %}
+													<li class="position-relative">
+														<a href="{{child.href}}" class=" {{child.id == 0 ? 'config-active' : ''}}" data-id="{{child.id}}">{{child.title}}</a>
+													</li>
+												{% endfor %}
+											</ul>
+											<div class="cc-line-bottom"></div>
+										</div>
+									</li>
+								{% else %}
+									<li class="position-relative cg-menu-alone">
+										<a href="{{item.href}}" class="config-generator-link text-capitalize {{item.id == 0 ? 'config-active' : ''}}" data-id="{{item.id}}">{{item.title}}</a>
+									</li>
+								{% endif %}
+							{% endfor %}
+						</ul>
 					</div>
 				</nav>
 			</div>
 			<div
-				class="config-right">
+				class="config-center">
 				{# App config #}
 				<div class="config-content-item">
 					<div class="config-content-item-header">
@@ -1231,41 +1230,270 @@
 					</div>
 				</div>
 			</div>
+			{# Right card #}
+			<div class="config-right">
+				<div class="config-right-content">
+					<div class="config-right-header">
+						<button>
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor"><path d="M3.59 18.177a3 3 0 0 1-.418-.349C2 16.657 2 14.771 2 11s0-5.657 1.172-6.828S6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172S22 7.229 22 11s0 5.657-1.172 6.828q-.194.195-.418.349"/><path d="M8.686 16.926c-.864.527-3.131 1.602-1.75 2.947C7.61 20.53 8.36 21 9.306 21h5.389c.944 0 1.695-.47 2.37-1.127c1.38-1.345-.887-2.42-1.751-2.947a6.39 6.39 0 0 0-6.628 0M14.5 11a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0"/></g>
+							</svg>Reset All</button>
+						<button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.061 20.045C6.375 21 8.251 21 12 21s5.625 0 6.939-.955a5 5 0 0 0 1.106-1.106C21 17.625 21 15.749 21 12s0-5.625-.955-6.939a5 5 0 0 0-1.106-1.106C17.625 3 15.749 3 12 3s-5.625 0-6.939.955A5 5 0 0 0 3.955 5.06C3 6.375 3 8.251 3 12s0 5.625.955 6.939a5 5 0 0 0 1.106 1.106M17 18l1-1m-5 1l5-5m-9 5l9-9"/></svg>Preview</button>
+					</div>
+					<div class="config-right-notice">
+
+						<h5>
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 48 48">
+								<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><path d="M38.142 38.142c7.81-7.81 7.81-20.474 0-28.284s-20.474-7.81-28.284 0s-7.81 20.474 0 28.284s20.474 7.81 28.284 0m-5.657-22.627c4.687 4.686 4.687 12.284 0 16.97c-4.686 4.687-12.284 4.687-16.97 0c-4.687-4.686-4.687-12.284 0-16.97c4.686-4.687 12.284-4.687 16.97 0" clip-rule="evenodd"/><path d="m38.142 38.142l-5.657-5.657M9.858 38.142l5.657-5.657M9.858 9.858l5.657 5.657m22.627-5.657l-5.657 5.657m0 16.97c4.687-4.686 4.687-12.284 0-16.97c-4.686-4.687-12.284-4.687-16.97 0c-4.687 4.686-4.687 12.284 0 16.97c4.686 4.687 12.284 4.687 16.97 0"/></g>
+							</svg>Notice</h5>
+						<p>
+							Please note that neither
+							<span class="cc-right-span">allow_session_cache</span>
+							and
+							<span class="cc-right-span">cache_class</span>
+							are configurable through here, as it is not recommended and as such quite advanced usage. Check
+							<a href="https://github.com/cypht-org/cypht">app.php</a>
+							for more info.
+						</p>
+
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-</div></section><script>
-// Reset section functionality
-function resetSection(sectionId) {
-const section = document.getElementById(sectionId);
-if (! section) 
-return;
+</div></div><div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+<div class="offcanvas-header">
 
+	<div>
+		<h5 class="offcanvas-title" id="offcanvasRightLabel">Preview</h5>
+		<p class="text-muted mb-0 w-75" style="font-size: 0.8rem;">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+		</p>
+	</div>
 
+	<div class="d-flex align-items-center">
 
-// Reset all form inputs in the section
-const inputs = section.querySelectorAll('input, select, textarea');
-inputs.forEach(input => {
-if (input.type === 'checkbox') {
-input.checked = false;
-} else if (input.type === 'radio') {
-input.checked = false;
-} else {
-input.value = input.defaultValue || '';
-}
-});
+		<button type="button" class="btn btn-link text-secondary me-2" id="copyButton" title="Copy">
+			<i class="bi bi-clipboard"></i>
+		</button>
 
-// Show confirmation
-const btn = event.target.closest('.cc-header-reset-btn');
-const originalText = btn.innerHTML;
-btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Reset';
-btn.style.backgroundColor = '#10b981';
-btn.style.borderColor = '#10b981';
-btn.style.color = '#ffffff';
+		<button type="button" class="btn btn-link text-secondary me-2" id="downloadButton" title="Download">
+			<i class="bi bi-download"></i>
+		</button>
 
-setTimeout(() => {
-btn.innerHTML = originalText;
-btn.style.backgroundColor = '';
-btn.style.borderColor = '';
-btn.style.color = '';
-}, 1500);
-}</script>
+		<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	</div>
+</div>
+<div class="offcanvas-body">
+	<div class="env-container">
+		<pre>
+ADMIN_USERS=
+
+ALLOW_EXTERNAL_IMAGE_SOURCES=true
+ALLOW_LONG_SESSION=false
+ALLOW_SESSION_CACHE=false
+
+ALWAYS_MOBILE_UI=false
+
+APP_2FA_SECRET=
+APP_2FA_SIMPLE=false
+APP_NAME=Cypht
+
+ATTACHMENT_DIR=/var/lib/hm3/attachments
+
+AUTH_CLASS=
+AUTH_TYPE=DB
+
+AUTO_CREATE_PROFILE=false
+
+CACHE_CLASS=false
+
+CARD_DAV_SERVER=http://localhost:5232
+
+COOKIE_DOMAIN=
+COOKIE_PATH=
+
+CSS_COMPRESS=false
+
+CYPHT_MODULES=core,contacts,local_contacts,feeds,imap,smtp,account,idle_timer,calendar,themes,nux,developer,history,saved_searches,advanced_search,highlights,profiles,inline_message,imap_folders,keyboard_shortcuts,tags
+
+DB_CONNECTION_TYPE=host
+DB_DRIVER=mysql
+DB_HOST=127.0.0.1
+DB_NAME=cypht_db
+DB_PASS=
+DB_PORT=3306
+DB_SOCKET=/var/lib/mysqld/mysqld.sock
+DB_USER=root
+
+DEBUG_LOG=false
+
+DEFAULT_EMAIL_DOMAIN=
+DEFAULT_LANGUAGE=en
+DEFAULT_SETTING_ALL_EMAIL_PER_SOURCE=20
+DEFAULT_SETTING_ALL_EMAIL_SINCE=-1 week
+DEFAULT_SETTING_ALL_PER_SOURCE=20
+DEFAULT_SETTING_ALL_SINCE=-1 week
+DEFAULT_SETTING_DISABLE_DELETE_PROMPT=false
+DEFAULT_SETTING_DRAFT_PER_SOURCE=20
+DEFAULT_SETTING_DRAFT_SINCE=-1 week
+DEFAULT_SETTING_ENABLE_COLLECT_ADDRESS_ON_SEND=false
+DEFAULT_SETTING_ENABLE_KEYBOARD_SHORTCUTS=false
+DEFAULT_SETTING_ENABLE_SIEVE_FILTER=false
+DEFAULT_SETTING_ENABLE_SNOOZE=false
+DEFAULT_SETTING_FEED_LIMIT=20
+DEFAULT_SETTING_FEED_SINCE=-1 week
+DEFAULT_SETTING_FLAGGED_PER_SOURCE=20
+DEFAULT_SETTING_FLAGGED_SINCE=-1 week
+DEFAULT_SETTING_GITHUB_LIMIT=20
+DEFAULT_SETTING_GITHUB_SINCE=-1 week
+DEFAULT_SETTING_IMAP_PER_PAGE=20
+DEFAULT_SETTING_INLINE_MESSAGE=false
+DEFAULT_SETTING_INLINE_MESSAGE_STYLE=right
+DEFAULT_SETTING_JUNK_PER_SOURCE=20
+DEFAULT_SETTING_JUNK_SINCE=-1 week
+DEFAULT_SETTING_LANGUAGE=en
+DEFAULT_SETTING_LIST_STYLE=email_style
+DEFAULT_SETTING_MSG_PART_ICONS=true
+DEFAULT_SETTING_NO_FOLDER_ICONS=false
+DEFAULT_SETTING_NO_PASSWORD_SAVE=false
+DEFAULT_SETTING_PAGINATE_LINKS=true
+DEFAULT_SETTING_REVIEW_SENT_EMAIL=true
+DEFAULT_SETTING_SEARCH_SINCE=-1 week
+DEFAULT_SETTING_SENT_PER_SOURCE=20
+DEFAULT_SETTING_SENT_SINCE=-1 week
+DEFAULT_SETTING_SHOW_LIST_ICONS=true
+DEFAULT_SETTING_SIMPLE_MSG_PARTS=false
+DEFAULT_SETTING_SMTP_AUTO_BCC=false
+DEFAULT_SETTING_SMTP_COMPOSE_TYPE=
+DEFAULT_SETTING_SNOOZED_PER_SOURCE=20
+DEFAULT_SETTING_SNOOZED_SINCE=-1 week
+DEFAULT_SETTING_START_PAGE=none
+DEFAULT_SETTING_TAGS_PER_SOURCE=20
+DEFAULT_SETTING_TAGS_SINCE=-1 week
+DEFAULT_SETTING_TEXT_ONLY=false
+DEFAULT_SETTING_THEME=default
+DEFAULT_SETTING_TIMEZONE=UTC
+DEFAULT_SETTING_TRASH_PER_SOURCE=20
+DEFAULT_SETTING_TRASH_SINCE=-1 week
+DEFAULT_SETTING_UNREAD_EXCLUDE_FEEDS=false
+DEFAULT_SETTING_UNREAD_EXCLUDE_GITHUB=false
+DEFAULT_SETTING_UNREAD_EXCLUDE_WORDPRESS=false
+DEFAULT_SETTING_UNREAD_PER_SOURCE=20
+DEFAULT_SETTING_UNREAD_SINCE=-1 week
+DEFAULT_SETTING_WORDPRESS_SINCE=-1 week
+
+DEFAULT_SMTP_NAME=
+DEFAULT_SMTP_NO_AUTH=false
+DEFAULT_SMTP_PORT=
+DEFAULT_SMTP_SERVER=
+DEFAULT_SMTP_TLS=false
+
+DISABLE_EMPTY_SUPERGLOBALS=false
+DISABLE_FINGERPRINT=false
+DISABLE_INI_SETTINGS=false
+DISABLE_IP_CHECK=false
+DISABLE_OPEN_BASE_DIR=false
+DISABLE_ORIGIN_CHECK=false
+
+DYNAMIC_HOST=true
+DYNAMIC_HOST_SUBDOMAIN=false
+DYNAMIC_MAIL_SUBDOMAIN=false
+DYNAMIC_SMTP_SUBDOMAIN=false
+DYNAMIC_USER=false
+
+ENABLE_MEMCACHED=true
+ENABLE_REDIS=true
+
+ENCRYPT_AJAX_REQUESTS=false
+ENCRYPT_LOCAL_STORAGE=false
+
+FANCY_LOGIN=false
+
+GITHUB_AUTH_URL=https://github.com/login/oauth/authorize
+GITHUB_CLIENT_ID=false
+GITHUB_CLIENT_SECRET=
+GITHUB_REDIRECT_URI=http://localhost/?page=home
+GITHUB_TOKEN_URL=https://github.com/login/oauth/access_token
+
+GMAIL_AUTH_URI=https://accounts.google.com/o/oauth2/auth
+GMAIL_CLIENT_ID=
+GMAIL_CLIENT_SECRET=
+GMAIL_CLIENT_URI=http://localhost/?page=home
+GMAIL_REFRESH_URI=https://www.googleapis.com/oauth2/v3/token
+GMAIL_TOKEN_URI=https://www.googleapis.com/oauth2/v3/token
+
+IMAP_AUTH_NAME=Gandi
+IMAP_AUTH_PORT=993
+IMAP_AUTH_SERVER=mail.gandi.net
+IMAP_AUTH_SIEVE_CONF_HOST=false
+IMAP_AUTH_SIEVE_TLS_MODE=true
+IMAP_AUTH_TLS=true
+
+JS_COMPRESS=false
+JS_EXCLUDE_DEPS=false
+
+LDAP_AUTH=false
+LDAP_AUTH_BASE_DN=example,dc=com
+LDAP_AUTH_PORT=389
+LDAP_AUTH_SERVER=localhost
+LDAP_AUTH_TLS=false
+LDAP_AUTH_UID_ATTR=uid
+LDAP_BASE_DN=dc=example,dc=com
+LDAP_ENABLE_TLS=false
+LDAP_OBJECT_CLASS=top,person,organizationalperson,inetorgperson
+LDAP_PASS=
+LDAP_PORT=389
+LDAP_READ_WRITE=true
+LDAP_SEARCH_TERM=objectclass=inetOrgPerson
+LDAP_SERVER=localhost
+LDAP_UID_ATTR=uid
+LDAP_USER=
+
+LONG_SESSION_LIFETIME=30
+
+MEMCACHED_AUTH=false
+MEMCACHED_PASS=
+MEMCACHED_PORT=11211
+MEMCACHED_SERVER=127.0.0.1
+MEMCACHED_USER=
+
+OFFICE365_AUTH_URI=https://login.live.com/oauth20_authorize.srf
+OFFICE365_CLIENT_ID=
+OFFICE365_CLIENT_SECRET=
+OFFICE365_CLIENT_URI=http://localhost/?page=home
+OFFICE365_REFRESH_URI=https://login.live.com/oauth20_token.srf
+OFFICE365_TOKEN_URI=https://login.live.com/oauth20_token.srf
+
+OUTLOOK_AUTH_URI=https://login.live.com/oauth20_authorize.srf
+OUTLOOK_CLIENT_ID=
+OUTLOOK_CLIENT_SECRET=
+OUTLOOK_CLIENT_URI=http://localhost/?page=home
+OUTLOOK_REFRESH_URI=https://login.live.com/oauth20_token.srf
+OUTLOOK_TOKEN_URI=https://login.live.com/oauth20_token.srf
+
+RECAPTCHA_SECRET=
+RECAPTCHA_SITE_KEY=
+
+REDIRECT_AFTER_LOGIN=
+
+REDIS_INDEX=1
+REDIS_PASS=
+REDIS_PORT=6379
+REDIS_SERVER=127.0.0.1
+REDIS_SOCKET=/var/run/redis/redis-server.sock
+
+SESSION_CLASS=
+SESSION_TYPE=PHP
+
+SINGLE_SERVER_MODE=false
+
+USER_CONFIG_TYPE=file
+USER_SETTINGS_DIR=/var/lib/hm3/users
+
+WORDPRESS_CLIENT_ID=
+WORDPRESS_CLIENT_SECRET=
+WORDPRESS_CLIENT_URI=
+</pre>
+	</div>
+</div></section>

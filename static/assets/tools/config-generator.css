@@ -106,17 +106,17 @@
 
 .config-content {
       width: 100%;
-      max-width: var(--container-5xl);
+      max-width: var(--container-6xl);
       display: flex;
       flex-direction: row;
-      gap: 2rem;
-      padding: 0 1rem;
+      gap: 1.5rem;
+      padding: 0 1.8rem;
 }
 
 /* ─── Left Card ──────────────────────────────────────────────────────────── */
 
 .config-left {
-      width: 45%;
+      width: 35%;
 }
 
 .config-left nav {
@@ -136,7 +136,8 @@
       margin: 0 !important;
 }
 
-.config-left-header p {
+.config-left-header p,
+.cfh-version span {
       font-size: .8rem;
       opacity: .6;
 
@@ -148,16 +149,26 @@
       gap: .5rem;
 }
 
-.cfh-version span {
-      font-size: .8rem;
+.config-generator-list-container {
+      height: calc(90vh - 8rem);
+      overflow-y: auto;
+      padding-bottom: 1rem;
 }
 
-.cfh-version select {
-      width: 34%;
-      cursor: pointer;
-      font-size: .9rem;
+/* .cfh-version span {
+      font-size: .8rem;
+} */
+
+.cfh-version .form-select {
+      width: 80px !important;
+      /* cursor: pointer; */
+      font-size: .85rem !important;
+      border: .8px solid #d1d5db !important;
       /* height: 20px; */
-      /* padding: 0 .8rem !important; */
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem !important;
+      padding: 0 .8rem !important;
       font-weight: 600;
 }
 
@@ -181,6 +192,9 @@
       border-left: 1px solid #e9ecef;
       padding-top: 0.2rem;
       padding-bottom: 0.2rem;
+
+      /* height: calc(100vh - 50px);
+       */
 }
 
 .config-generator-list li a {
@@ -298,32 +312,14 @@
       margin-top: 1rem;
 }
 
-/* ─── Right Card ──────────────────────────────────────────────────────────── */
-.config-right {
+/* ─── Center Card ──────────────────────────────────────────────────────────── */
+.config-center {
       flex-grow: 1;
-      height: 100%;
       display: flex;
       flex-direction: column;
       gap: 2rem;
-}
 
-/* .config-content-item-header {
-      position: sticky;
-      top: 8rem;
-      background-color: var(--color-bg);
-      z-index: 100;
 }
-
-.config-content-item-header::before {
-      content: "";
-      position: absolute;
-      top: -3rem;
-      left: 0;
-      width: 100%;
-      height: 3rem;
-      background-color: var(--color-bg);
-      z-index: 5;
-} */
 
 .cc-item-top {
       border-bottom: 1px solid #e9ecef;
@@ -371,7 +367,8 @@
 
 .cc-body-header {
 
-      background-color: #ebeaead0;
+      /* background-color: #ebeaead0; */
+      background-color: #f2f2f2aa;
       padding: .5rem .8rem;
       display: flex;
       align-items: center;
@@ -658,6 +655,124 @@
       color: #94a3b8;
       cursor: not-allowed;
       opacity: 0.6;
+}
+
+/* ─── Right Card ──────────────────────────────────────────────────────────── */
+.config-right {
+      width: 40%;
+}
+
+.config-right-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      position: sticky;
+      top: 8rem;
+      min-height: 80vh;
+      height: calc(80vh - 8rem);
+      overflow-y: auto;
+}
+
+.config-right-header {
+      display: flex;
+      width: 100%;
+      gap: .8rem;
+}
+
+.config-right-header button {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .4rem .6rem;
+      border-radius: 6px;
+      border: none;
+      background-color: white;
+      color: var(--color-text);
+      border: .8px solid #d1d5db;
+      font-weight: 600;
+      font-size: .8rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.config-right-header button:hover {
+      color: rgba(255, 255, 255, 0.8) !important;
+      transform: translateY(-1px);
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      background: #2D2D2D;
+}
+
+.config-right-header button:active {
+      transform: translateY(0);
+}
+
+.config-right-header button svg {
+      height: 1.1rem !important;
+      width: 1.1rem !important;
+}
+
+.config-right-notice {
+      color: var(--color-text);
+      border-radius: 6px;
+}
+
+.config-right-notice h5 {
+      font-weight: 600;
+      font-size: .9rem;
+      opacity: .7;
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+}
+
+.config-right-notice h5 svg {
+      height: 1rem !important;
+      width: 1rem !important;
+}
+
+.config-right-notice p {
+      font-weight: 400;
+      font-size: .84rem;
+      opacity: .8;
+}
+
+.cc-right-span {
+      font-weight: 600;
+      font-size: .8rem;
+      color: #E83F8B;
+      opacity: 1 !important;
+      font-style: italic;
+      cursor: pointer;
+}
+
+.config-right-notice a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 600;
+      text-decoration: underline;
+}
+
+/* ─── Offcanvas Body ─────────────────────────────────────────────────────── */
+.offcanvas {
+      margin: .5rem;
+      width: 40% !important;
+      border-radius: 7px;
+      background-color: var(--color-bg) !important;
+}
+
+.env-container {
+      box-sizing: border-box;
+}
+
+.env-container pre {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 500;
+      white-space: pre;
+      overflow-x: auto;
 }
 
 /* Responsive Design */
