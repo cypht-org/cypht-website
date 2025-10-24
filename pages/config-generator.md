@@ -2,6 +2,7 @@
 title: Config generator
 weight: 21
 h1: false
+loadScriptAfter: /js/config-generator.js
 ---
 
 <!-- Hero Section -->

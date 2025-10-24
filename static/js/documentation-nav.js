@@ -1,14 +1,11 @@
 // ─── Fn Utils ────────────────────────────────────────────────────────────────
 
-function scroll_to_element(element, offset = 90) {
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-    window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-    });
-}
+const scroll_to_element = (el) => {
+  window.scrollTo({
+    top: el.offsetTop - 100, // marge du haut
+    behavior: "smooth"
+  });
+};
 
 const load_doc_shortcut = (nav_id) => {
     const nav = document.getElementById(nav_id);

@@ -6,14 +6,15 @@
 	  children:[
 	    {
 	      id:0,
-	      title: 'Auth',
-	      href: '#auth'
-	    },
-	    {
-	      id:1,
 	      title: 'Session',
 	      href: '#session'
 	    },
+	    {
+	      id:1,
+	      title: 'Auth',
+	      href: '#auth'
+	    },
+
 	    {
 	      id:2,
 	      title: 'User',
@@ -37,7 +38,7 @@
 	    {
 	      id:6,
 	      title: 'Redirection',
-	      href: '#redirection'
+	      href: '#redirect'
 	    }
 	  ]
     },
@@ -56,7 +57,7 @@
     {
 	  id:2,
         title: '2FA',
-        href: '#2fa',
+        href: '#twofa',
 	  children:[]
     },
     {
@@ -113,13 +114,13 @@
 	    },
 	    {
 	      id:1,
-	      title: 'Google Workspace',
-	      href: '#google_workspace'
+	 	      title: 'Outlook',
+	      href: '#outlook'
 	    },
 	    {
 	      id:2,
-	      title: 'Outlook',
-	      href: '#outlook'
+	      title: 'Office 365',
+	      href: '#office365'
 	    }
 	  ]
     },
@@ -157,19 +158,19 @@
 						</div>
 					</div>
 					<div class="config-generator-list-container">
-						<ul class="config-generator-list">
+						<ul class="config-generator-list ms-1">
 							{% for item in config_menu %}
 
 								{% if item.children is defined and item.children|length > 1 %}
 									<li class="position-relative cg-menu-group">
-										<a href=" {{item.href}} " class=" config-generator-link text-capitalize " data-id=" {{item.id}} ">{{item.title}}
-										</a>
+										<span href=" {{item.href}} " class=" text-capitalize" data-id=" {{item.id}} ">{{item.title}}
+										</span>
 										<div class="position-relative ">
 											<div class="cc-line-top"></div>
 											<ul class="group-list">
 												{% for child in item.children %}
 													<li class="position-relative">
-														<a href="{{child.href}}" class=" {{child.id == 0 ? 'config-active' : ''}}" data-id="{{child.id}}">{{child.title}}</a>
+														<a href="{{child.href}}" data-id="{{child.id}}">{{child.title}}</a>
 													</li>
 												{% endfor %}
 											</ul>
@@ -178,7 +179,7 @@
 									</li>
 								{% else %}
 									<li class="position-relative cg-menu-alone">
-										<a href="{{item.href}}" class="config-generator-link text-capitalize {{item.id == 0 ? 'config-active' : ''}}" data-id="{{item.id}}">{{item.title}}</a>
+										<a href="{{item.href}}" class="config-generator-link text-capitalize" data-id="{{item.id}}">{{item.title}}</a>
 									</li>
 								{% endif %}
 							{% endfor %}
@@ -207,21 +208,11 @@
 					<div class="config-content-item" id="session">
 						<div class="cc-body-header">
 							<div class="cc-body-header-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-width="1.5">
-										<path stroke-linejoin="round" d="M11.5 16h1a1 1 0 0 0 1-1v-1.401A2.999 2.999 0 0 0 12 8a3 3 0 0 0-1.5 5.599V15a1 1 0 0 0 1 1Z"/>
-										<path stroke-linecap="round" d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2c.811 0 1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 2.505-.837 4.437-2 5.913M3.193 14c.857 4.298 4.383 6.513 6.706 7.527c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473c.579-.252 1.231-.58 1.899-.994"/>
-									</g>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
 								<span>Session</span>
 							</div>
 							<button type="button" class="cc-header-reset-btn" onclick="resetSection('session')">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-									<path d="M21 3v5h-5"/>
-									<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-									<path d="M3 21v-5h5"/>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
 								Reset
 							</button>
 						</div>
@@ -244,21 +235,11 @@
 					<div class="config-content-item" id="auth">
 						<div class="cc-body-header">
 							<div class="cc-body-header-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-width="1.5">
-										<path stroke-linejoin="round" d="M11.5 16h1a1 1 0 0 0 1-1v-1.401A2.999 2.999 0 0 0 12 8a3 3 0 0 0-1.5 5.599V15a1 1 0 0 0 1 1Z"/>
-										<path stroke-linecap="round" d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2c.811 0 1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 2.505-.837 4.437-2 5.913M3.193 14c.857 4.298 4.383 6.513 6.706 7.527c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473c.579-.252 1.231-.58 1.899-.994"/>
-									</g>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
 								<span>Authentication</span>
 							</div>
 							<button type="button" class="cc-header-reset-btn" onclick="resetSection('auth')">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-									<path d="M21 3v5h-5"/>
-									<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-									<path d="M3 21v-5h5"/>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
 								Reset
 							</button>
 						</div>
@@ -325,21 +306,11 @@
 					<div class="config-content-item" id="user">
 						<div class="cc-body-header">
 							<div class="cc-body-header-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-width="1.5">
-										<path stroke-linejoin="round" d="M11.5 16h1a1 1 0 0 0 1-1v-1.401A2.999 2.999 0 0 0 12 8a3 3 0 0 0-1.5 5.599V15a1 1 0 0 0 1 1Z"/>
-										<path stroke-linecap="round" d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2c.811 0 1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 2.505-.837 4.437-2 5.913M3.193 14c.857 4.298 4.383 6.513 6.706 7.527c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473c.579-.252 1.231-.58 1.899-.994"/>
-									</g>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
 								<span>User</span>
 							</div>
 							<button type="button" class="cc-header-reset-btn" onclick="resetSection('user')">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-									<path d="M21 3v5h-5"/>
-									<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-									<path d="M3 21v-5h5"/>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
 								Reset
 							</button>
 						</div>
@@ -364,21 +335,11 @@
 					<div class="config-content-item" id="security">
 						<div class="cc-body-header">
 							<div class="cc-body-header-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-width="1.5">
-										<path stroke-linejoin="round" d="M11.5 16h1a1 1 0 0 0 1-1v-1.401A2.999 2.999 0 0 0 12 8a3 3 0 0 0-1.5 5.599V15a1 1 0 0 0 1 1Z"/>
-										<path stroke-linecap="round" d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2c.811 0 1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 2.505-.837 4.437-2 5.913M3.193 14c.857 4.298 4.383 6.513 6.706 7.527c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473c.579-.252 1.231-.58 1.899-.994"/>
-									</g>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
 								<span>Security</span>
 							</div>
 							<button type="button" class="cc-header-reset-btn" onclick="resetSection('security')">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-									<path d="M21 3v5h-5"/>
-									<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-									<path d="M3 21v-5h5"/>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
 								Reset
 							</button>
 						</div>
@@ -421,9 +382,141 @@
 							</div>
 						</div>
 					</div>
+
+					<!-- Cache -->
+					<div class="config-content-item" id="cache">
+						<div class="cc-body-header">
+							<div class="cc-body-header-icon">
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
+								<span>Cache</span>
+							</div>
+							<button type="button" class="cc-header-reset-btn" onclick="resetSection('security')">
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+								Reset
+							</button>
+						</div>
+						<div class="cc-body-content">
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="disable_origin_check" class="form-switch-label">Disable Origin Check</label>
+									<input name="DISABLE_ORIGIN_CHECK" class="form-check-input" type="checkbox" id="disable_origin_check">
+								</div>
+								<div class="form-field-description">Disable origin check for enhanced security (recommended)</div>
+							</div>
+
+							<div class="form-field-group">
+								<div class="form-field">
+									<label for="redis_server" class="form-field-label">Redis Server</label>
+									<input type="text" name="REDIS_SERVER" id="redis_server" class="form-input" placeholder="127.0.0.1">
+									<div class="form-field-description">Domain for application cache</div>
+								</div>
+								<div class="form-field">
+									<label for="redis_port" class="form-field-label">Redis Port</label>
+									<input type="text" name="REDIS_PORT" id="redis_port" class="form-input" placeholder="default: 6379">
+									<div class="form-field-description">Port for application cache</div>
+								</div>
+								<div class="form-field">
+									<label for="redis_index" class="form-field-label">Redis Index</label>
+									<input type="number" name="REDIS_INDEX" id="redis_index" class="form-input" placeholder="default: 1">
+									<div class="form-field-description">Index for application cache</div>
+								</div>
+								<div class="form-field">
+									<label for="redis_password" class="form-field-label">Redis Password</label>
+									<input type="password" name="REDIS_PASS" id="redis_password" class="form-input">
+									<div class="form-field-description">Password for application cache</div>
+								</div>
+								<div class="form-field">
+									<label for="redis_socket" class="form-field-label">Redis Socket</label>
+									<input type="password" name="REDIS_SOCKET" id="redis_socket" class="form-input">
+									<div class="form-field-description">Socket for application cache</div>
+								</div>
+
+							</div>
+
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="enable_memcached" class="form-switch-label">Enable Memcached</label>
+									<input class="form-check-input" type="checkbox" id="enable_memcached">
+								</div>
+								<div class="form-field-description">Enable Memcached for enhanced security</div>
+							</div>
+
+							<div class="form-field-group">
+								<div class="form-field">
+									<label for="memcached_server" class="form-field-label">Memcached Server</label>
+									<input type="text" name="MEMCACHED_SERVER" id="memcached_server" class="form-input" placeholder="127.0.0.1">
+									<div class="form-field-description">Domain for application cache</div>
+								</div>
+								<div class="form-field">
+									<label for="memcached_port" class="form-field-label">Memcached Port</label>
+									<input type="text" name="MEMCACHED_PORT" id="memcached_port" class="form-input" placeholder="default: 11211">
+									<div class="form-field-description">Port for application cache</div>
+								</div>
+								<div class="form-field">
+									<label for="memcached_user" class="form-field-label">Memcached User</label>
+									<input type="text" name="MEMCACHED_USER" id="memcached_user" class="form-input">
+									<div class="form-field-description">User for application cache</div>
+								</div>
+								<div class="form-field">
+									<label for="memcached_password" class="form-field-label">Memcached Password</label>
+									<input type="password" name="MEMCACHED_PASS" id="memcached_password" class="form-input">
+									<div class="form-field-description">Password for application cache</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- User interface -->
+					<div class="config-content-item" id="user_interface">
+						<div class="cc-body-header">
+							<div class="cc-body-header-icon">
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
+								<span>User Interface</span>
+							</div>
+							<button type="button" class="cc-header-reset-btn" onclick="resetSection('user')">
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+								Reset
+							</button>
+						</div>
+						<div class="cc-body-content">
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="js_compress" class="form-switch-label">JS Compress</label>
+									<input name="JS_COMPRESS" class="form-check-input" type="checkbox" id="js_compress">
+								</div>
+								<div class="form-field-description">Enable JS compression for enhanced security (recommended)</div>
+							</div>
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="css_compress" class="form-switch-label">CSS Compress</label>
+									<input name="CSS_COMPRESS" class="form-check-input" type="checkbox" id="css_compress">
+								</div>
+								<div class="form-field-description">Enable CSS compression for enhanced security (recommended)</div>
+							</div>
+						</div>
+					</div>
+					<!-- Redirection -->
+					<div class="config-content-item" id="redirect">
+						<div class="cc-body-header">
+							<div class="cc-body-header-icon">
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
+								<span>Redirect</span>
+							</div>
+							<button type="button" class="cc-header-reset-btn" onclick="resetSection('security')">
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+								Reset
+							</button>
+						</div>
+						<div class="cc-body-content">
+							<div class="form-field">
+								<label for="redirect_after_login" class="form-field-label">Redirect After Login</label>
+								<input type="text" name="REDIRECT_AFTER_LOGIN" id="redirect_after_login" class="form-input" placeholder="127.0.0.1">
+								<div class="form-field-description">Redirect after login</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				{# Database config #}
-				<div class="config-content-item">
+				<div class="config-content-item" id="database">
 					<div class="config-content-item-header">
 						<div class="cc-item-top">
 							<div class="cc-item-top-icon">
@@ -438,24 +531,14 @@
 						</div>
 					</div>
 
-					<div class="config-content-item" id="database">
+					<div class="config-content-item">
 						<div class="cc-body-header">
 							<div class="cc-body-header-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-width="1.5">
-										<path stroke-linejoin="round" d="M11.5 16h1a1 1 0 0 0 1-1v-1.401A2.999 2.999 0 0 0 12 8a3 3 0 0 0-1.5 5.599V15a1 1 0 0 0 1 1Z"/>
-										<path stroke-linecap="round" d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2c.811 0 1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 2.505-.837 4.437-2 5.913M3.193 14c.857 4.298 4.383 6.513 6.706 7.527c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473c.579-.252 1.231-.58 1.899-.994"/>
-									</g>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
 								<span>Database</span>
 							</div>
 							<button type="button" class="cc-header-reset-btn" onclick="resetSection('database')">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-									<path d="M21 3v5h-5"/>
-									<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-									<path d="M3 21v-5h5"/>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
 								Reset
 							</button>
 						</div>
@@ -531,12 +614,11 @@
 					</div>
 				</div>
 				{# 2FA config #}
-				<div class="config-content-item">
+				<div class="config-content-item" id="twofa">
 					<div class="config-content-item-header">
 						<div class="cc-item-top">
 							<div class="cc-item-top-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 12 2.84M21 5v3m0 4l-3 5h4l-3 5"/><path d="M3 12a9 3 0 0 0 11.59 2.87"/></g>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Tabler Icons by Paweł Kuna - https://github.com/tabler/tabler-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 21H7a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h10c.564 0 1.074.234 1.437.61"/><path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0-2 0m-3-5V7a4 4 0 1 1 8 0v4m1.001 8a2 2 0 1 0 4 0a2 2 0 1 0-4 0m2-3.5V17m0 4v1.5m3.031-5.25l-1.299.75m-3.463 2l-1.3.75m0-3.5l1.3.75m3.463 2l1.3.75"/></g>
 								</svg>
 							</div>
 							<div class="cc-item-top-text">
@@ -549,23 +631,13 @@
 					<div class="config-content-item-body">
 						<div class="cc-body-header">
 							<div class="cc-body-header-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-width="1.5">
-										<path stroke-linejoin="round" d="M11.5 16h1a1 1 0 0 0 1-1v-1.401A2.999 2.999 0 0 0 12 8a3 3 0 0 0-1.5 5.599V15a1 1 0 0 0 1 1Z"/>
-										<path stroke-linecap="round" d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2c.811 0 1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 2.505-.837 4.437-2 5.913M3.193 14c.857 4.298 4.383 6.513 6.706 7.527c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473c.579-.252 1.231-.58 1.899-.994"/>
-									</g>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
 								<span class="">
 									2FA
 								</span>
 							</div>
 							<button type="button" class="cc-header-reset-btn" onclick="resetSection('2fa')">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-									<path d="M21 3v5h-5"/>
-									<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-									<path d="M3 21v-5h5"/>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
 								Reset
 							</button>
 						</div>
@@ -586,13 +658,11 @@
 					</div>
 				</div>
 				{# Carddav config #}
-				<div class="config-content-item">
+				<div class="config-content-item" id="carddav">
 					<div class="config-content-item-header">
 						<div class="cc-item-top">
 							<div class="cc-item-top-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 12 2.84M21 5v3m0 4l-3 5h4l-3 5"/><path d="M3 12a9 3 0 0 0 11.59 2.87"/></g>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 5.5c0-1.65 0-2.475.513-2.987C3.525 2 4.35 2 6 2s2.475 0 2.987.513C9.5 3.025 9.5 3.85 9.5 5.5s0 2.475-.513 2.987C8.475 9 7.65 9 6 9s-2.475 0-2.987-.513C2.5 7.975 2.5 7.15 2.5 5.5m1.157 10.157C4.76 14.552 5.314 14 6 14s1.239.552 2.343 1.657C9.448 16.76 10 17.314 10 18s-.552 1.239-1.657 2.343C7.24 21.448 6.686 22 6 22s-1.239-.552-2.343-1.657C2.552 19.24 2 18.686 2 18s.552-1.239 1.657-2.343M6 9v5m4 4h5m0 0c0-1.65 0-2.475.513-2.987c.512-.513 1.337-.513 2.987-.513s2.475 0 2.987.513C22 15.525 22 16.35 22 18s0 2.475-.513 2.987c-.512.513-1.337.513-2.987.513s-2.475 0-2.987-.513C15 20.475 15 19.65 15 18" color="currentColor"/></svg>
 							</div>
 							<div class="cc-item-top-text">
 								<h5>Carddav Config</h5>
@@ -604,23 +674,13 @@
 					<div class="config-content-item-body">
 						<div class="cc-body-header">
 							<div class="cc-body-header-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-width="1.5">
-										<path stroke-linejoin="round" d="M11.5 16h1a1 1 0 0 0 1-1v-1.401A2.999 2.999 0 0 0 12 8a3 3 0 0 0-1.5 5.599V15a1 1 0 0 0 1 1Z"/>
-										<path stroke-linecap="round" d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2c.811 0 1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 2.505-.837 4.437-2 5.913M3.193 14c.857 4.298 4.383 6.513 6.706 7.527c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473c.579-.252 1.231-.58 1.899-.994"/>
-									</g>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
 								<span class="">
 									Carddav
 								</span>
 							</div>
 							<button type="button" class="cc-header-reset-btn" onclick="resetSection('carddav')">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-									<path d="M21 3v5h-5"/>
-									<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-									<path d="M3 21v-5h5"/>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
 								Reset
 							</button>
 						</div>
@@ -634,13 +694,11 @@
 					</div>
 				</div>
 				{# Dynamic login config #}
-				<div class="config-content-item">
+				<div class="config-content-item" id="dynamic_login">
 					<div class="config-content-item-header">
 						<div class="cc-item-top">
 							<div class="cc-item-top-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4m-5-4l5-5l-5-5m5 5H3"/>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M12 10a4 4 0 1 0 0-8a4 4 0 0 0 0 8m-4 2.25a4.124 4.124 0 0 0-4.095 3.642l-.65 5.52a.75.75 0 0 0 1.49.176l.65-5.52a2.624 2.624 0 0 1 1.855-2.209v4.193c0 .899 0 1.648.08 2.242c.084.628.27 1.195.726 1.65c.455.456 1.022.642 1.65.726c.594.08 1.344.08 2.242.08h.104c.899 0 1.648 0 2.243-.08c.627-.084 1.194-.27 1.65-.726c.455-.455.64-1.022.725-1.65c.08-.594.08-1.343.08-2.242v-4.193a2.624 2.624 0 0 1 1.856 2.208l.65 5.52a.75.75 0 1 0 1.489-.175l-.65-5.52A4.124 4.124 0 0 0 16 12.25z"/></svg>
 							</div>
 							<div class="cc-item-top-text">
 								<h5>Dynamic Login Config</h5>
@@ -651,23 +709,13 @@
 					<div class="config-content-item-body">
 						<div class="cc-body-header">
 							<div class="cc-body-header-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-width="1.5">
-										<path stroke-linejoin="round" d="M11.5 16h1a1 1 0 0 0 1-1v-1.401A2.999 2.999 0 0 0 12 8a3 3 0 0 0-1.5 5.599V15a1 1 0 0 0 1 1Z"/>
-										<path stroke-linecap="round" d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2c.811 0 1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 2.505-.837 4.437-2 5.913M3.193 14c.857 4.298 4.383 6.513 6.706 7.527c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473c.579-.252 1.231-.58 1.899-.994"/>
-									</g>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
 								<span class="">
 									Dynamic Login
 								</span>
 							</div>
-							<button type="button" class="cc-header-reset-btn" onclick="resetSection('auth')">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-									<path d="M21 3v5h-5"/>
-									<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-									<path d="M3 21v-5h5"/>
-								</svg>
+							<button type="button" class="cc-header-reset-btn" onclick="resetSection('dynamic_login')">
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
 								Reset
 							</button>
 						</div>
@@ -715,7 +763,7 @@
 					</div>
 				</div>
 				{# Github config #}
-				<div class="config-content-item">
+				<div class="config-content-item" id="github">
 					<div class="config-content-item-header">
 						<div class="cc-item-top">
 							<div class="cc-item-top-icon">
@@ -737,23 +785,13 @@
 					<div class="config-content-item-body">
 						<div class="cc-body-header">
 							<div class="cc-body-header-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-width="1.5">
-										<path stroke-linejoin="round" d="M11.5 16h1a1 1 0 0 0 1-1v-1.401A2.999 2.999 0 0 0 12 8a3 3 0 0 0-1.5 5.599V15a1 1 0 0 0 1 1Z"/>
-										<path stroke-linecap="round" d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2c.811 0 1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 2.505-.837 4.437-2 5.913M3.193 14c.857 4.298 4.383 6.513 6.706 7.527c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473c.579-.252 1.231-.58 1.899-.994"/>
-									</g>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
 								<span class="">
 									Github
 								</span>
 							</div>
 							<button type="button" class="cc-header-reset-btn" onclick="resetSection('github')">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-									<path d="M21 3v5h-5"/>
-									<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-									<path d="M3 21v-5h5"/>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
 								Reset
 							</button>
 						</div>
@@ -793,13 +831,11 @@
 					</div>
 				</div>
 				{# LDAP config #}
-				<div class="config-content-item">
+				<div class="config-content-item" id="ldap">
 					<div class="config-content-item-header">
 						<div class="cc-item-top">
 							<div class="cc-item-top-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M4.5 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-.5m-15 4H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-.5M6 6h.01M6 18h.01m9.69-4.6l-.9-.3m-5.6-2.2l-.9-.3m2.3 5.1l.3-.9m2.7.9l-.4-1m-2.4-5.4l-.4-1m-2.1 5.3l1-.4m5.4-2.4l1-.4m-2.3-2.1l-.3.9"/></g>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 512 512"><path fill="currentColor" fill-rule="evenodd" d="M405.333 42.666v32h48l2.171.146c7.1.963 12.72 6.583 13.683 13.683l.146 2.171l-.146 2.171c-.963 7.1-6.583 12.72-13.683 13.683l-2.171.146h-48v42.667h48l2.171.146c7.1.963 12.72 6.583 13.683 13.683l.146 2.171l-.146 2.171c-.963 7.099-6.583 12.719-13.683 13.683l-2.171.146h-48v32h-64l-4.259-.105c-37.866-1.861-69.243-28.404-78.381-63.879l-27.687-.016l-2.804.185a21.33 21.33 0 0 0-12.28 6.063c-7.691 7.69-8.282 19.791-1.775 28.16l1.775 2.01l72.579 72.579a128.7 128.7 0 0 0-30.17 30.17l-72.579-72.579l-2.88-3.072c-22.074-25.139-21.114-63.444 2.88-87.438a64 64 0 0 1 41.028-18.605l4.226-.14l27.681.005c9.12-35.444 40.441-61.977 78.255-63.894l4.391-.111zm-170.666 320c0 20.556 4.845 39.979 13.456 57.192c-12.984 27.998-40.701 47.773-73.197 49.37l-4.259.105h-64v-32h-48c-8.1 0-14.795-6.02-15.854-13.829l-.146-2.171c0-8.1 6.019-14.795 13.829-15.854l2.17-.146h48.001v-42.667h-48c-8.1 0-14.795-6.019-15.854-13.829l-.146-2.171c0-8.1 6.019-14.794 13.829-15.854l2.17-.146h48.001v-32h64c27.571 0 52.089 13.076 67.689 33.365a128.3 128.3 0 0 0-3.689 30.635m-64-21.333h-21.334v85.333h21.334l3.184-.117c20.973-1.547 37.73-18.256 39.353-39.208l.129-3.342l-.117-3.184c-1.547-20.973-18.255-37.73-39.207-39.353zm192-256h-21.334l-3.342.129c-19.787 1.533-35.79 16.565-38.811 35.898l-.396 3.455l-.117 3.184l.129 3.342c1.533 19.788 16.565 35.791 35.898 38.812l3.455.396l3.184.117h21.334zm-29.746 170.666h59.259v22.836a88.8 88.8 0 0 1 28.134 16.268l19.798-11.43l29.629 51.32l-19.784 11.422a89.4 89.4 0 0 1 1.482 16.251c0 5.551-.509 10.982-1.482 16.251l19.784 11.422l-29.63 51.32l-19.797-11.429a88.8 88.8 0 0 1-28.134 16.267v22.836h-59.259v-22.836a88.8 88.8 0 0 1-28.135-16.267l-19.797 11.429l-29.63-51.32l19.785-11.422a89.3 89.3 0 0 1-1.483-16.251c0-5.55.509-10.982 1.483-16.251l-19.785-11.422l29.63-51.32l19.797 11.43a88.8 88.8 0 0 1 28.135-16.268zm65.185 106.667c0 19.637-15.919 35.556-35.556 35.556s-35.555-15.919-35.555-35.556s15.918-35.556 35.555-35.556s35.556 15.919 35.556 35.556" clip-rule="evenodd"/></svg>
 							</div>
 							<div class="cc-item-top-text">
 								<h5>LDAP Config</h5>
@@ -811,23 +847,13 @@
 					<div class="config-content-item-body">
 						<div class="cc-body-header">
 							<div class="cc-body-header-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-width="1.5">
-										<path stroke-linejoin="round" d="M11.5 16h1a1 1 0 0 0 1-1v-1.401A2.999 2.999 0 0 0 12 8a3 3 0 0 0-1.5 5.599V15a1 1 0 0 0 1 1Z"/>
-										<path stroke-linecap="round" d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2c.811 0 1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 2.505-.837 4.437-2 5.913M3.193 14c.857 4.298 4.383 6.513 6.706 7.527c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473c.579-.252 1.231-.58 1.899-.994"/>
-									</g>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
 								<span class="">
 									LDAP
 								</span>
 							</div>
 							<button type="button" class="cc-header-reset-btn" onclick="resetSection('ldap')">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-									<path d="M21 3v5h-5"/>
-									<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-									<path d="M3 21v-5h5"/>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
 								Reset
 							</button>
 						</div>
@@ -922,26 +948,16 @@
 						<div></div>
 					</div>
 					{# Gmail #}
-					<div class="config-content-item">
+					<div class="config-content-item" id="gmail">
 						<div class="cc-body-header">
 							<div class="cc-body-header-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-width="1.5">
-										<path stroke-linejoin="round" d="M11.5 16h1a1 1 0 0 0 1-1v-1.401A2.999 2.999 0 0 0 12 8a3 3 0 0 0-1.5 5.599V15a1 1 0 0 0 1 1Z"/>
-										<path stroke-linecap="round" d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2c.811 0 1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 2.505-.837 4.437-2 5.913M3.193 14c.857 4.298 4.383 6.513 6.706 7.527c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473c.579-.252 1.231-.58 1.899-.994"/>
-									</g>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
 								<span class="">
 									Gmail
 								</span>
 							</div>
 							<button type="button" class="cc-header-reset-btn" onclick="resetSection('gmail')">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-									<path d="M21 3v5h-5"/>
-									<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-									<path d="M3 21v-5h5"/>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
 								Reset
 							</button>
 						</div>
@@ -986,26 +1002,16 @@
 						</div>
 					</div>
 					{# Outlook #}
-					<div class="config-content-item">
+					<div class="config-content-item" id="outlook">
 						<div class="cc-body-header">
 							<div class="cc-body-header-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-width="1.5">
-										<path stroke-linejoin="round" d="M11.5 16h1a1 1 0 0 0 1-1v-1.401A2.999 2.999 0 0 0 12 8a3 3 0 0 0-1.5 5.599V15a1 1 0 0 0 1 1Z"/>
-										<path stroke-linecap="round" d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2c.811 0 1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 2.505-.837 4.437-2 5.913M3.193 14c.857 4.298 4.383 6.513 6.706 7.527c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473c.579-.252 1.231-.58 1.899-.994"/>
-									</g>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
 								<span class="">
 									Outlook
 								</span>
 							</div>
 							<button type="button" class="cc-header-reset-btn" onclick="resetSection('outlook')">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-									<path d="M21 3v5h-5"/>
-									<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-									<path d="M3 21v-5h5"/>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
 								Reset
 							</button>
 						</div>
@@ -1050,26 +1056,16 @@
 						</div>
 					</div>
 					{# Office365 #}
-					<div class="config-content-item">
+					<div class="config-content-item" id="office365">
 						<div class="cc-body-header">
 							<div class="cc-body-header-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-width="1.5">
-										<path stroke-linejoin="round" d="M11.5 16h1a1 1 0 0 0 1-1v-1.401A2.999 2.999 0 0 0 12 8a3 3 0 0 0-1.5 5.599V15a1 1 0 0 0 1 1Z"/>
-										<path stroke-linecap="round" d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2c.811 0 1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 2.505-.837 4.437-2 5.913M3.193 14c.857 4.298 4.383 6.513 6.706 7.527c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473c.579-.252 1.231-.58 1.899-.994"/>
-									</g>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
 								<span class="">
 									Office 365
 								</span>
 							</div>
 							<button type="button" class="cc-header-reset-btn" onclick="resetSection('office365')">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-									<path d="M21 3v5h-5"/>
-									<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-									<path d="M3 21v-5h5"/>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
 								Reset
 							</button>
 						</div>
@@ -1115,7 +1111,7 @@
 					</div>
 				</div>
 				{# Recaptcha config #}
-				<div class="config-content-item">
+				<div class="config-content-item" id="recaptcha">
 					<div class="config-content-item-header">
 						<div class="cc-item-top">
 							<div class="cc-item-top-icon">
@@ -1137,23 +1133,13 @@
 					<div class="config-content-item-body">
 						<div class="cc-body-header">
 							<div class="cc-body-header-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-									<g fill="none" stroke="currentColor" stroke-width="1.5">
-										<path stroke-linejoin="round" d="M11.5 16h1a1 1 0 0 0 1-1v-1.401A2.999 2.999 0 0 0 12 8a3 3 0 0 0-1.5 5.599V15a1 1 0 0 0 1 1Z"/>
-										<path stroke-linecap="round" d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2c.811 0 1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 2.505-.837 4.437-2 5.913M3.193 14c.857 4.298 4.383 6.513 6.706 7.527c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473c.579-.252 1.231-.58 1.899-.994"/>
-									</g>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
 								<span class="">
 									Recaptcha
 								</span>
 							</div>
 							<button type="button" class="cc-header-reset-btn" onclick="resetSection('recaptcha')">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-									<path d="M21 3v5h-5"/>
-									<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-									<path d="M3 21v-5h5"/>
-								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
 								Reset
 							</button>
 						</div>
@@ -1174,7 +1160,7 @@
 					</div>
 				</div>
 				{# Wordpress config #}
-				<div class="config-content-item">
+				<div class="config-content-item" id="wordpress">
 					<div class="config-content-item-header">
 						<div class="cc-item-top">
 							<div class="cc-item-top-icon">
@@ -1188,12 +1174,7 @@
 					</div>
 					<div class="cc-body-header">
 						<div class="cc-body-header-icon">
-							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-								<g fill="none" stroke="currentColor" stroke-width="1.5">
-									<path stroke-linejoin="round" d="M11.5 16h1a1 1 0 0 0 1-1v-1.401A2.999 2.999 0 0 0 12 8a3 3 0 0 0-1.5 5.599V15a1 1 0 0 0 1 1Z"/>
-									<path stroke-linecap="round" d="M3 10.417c0-3.198 0-4.797.378-5.335c.377-.537 1.88-1.052 4.887-2.081l.573-.196C10.405 2.268 11.188 2 12 2c.811 0 1.595.268 3.162.805l.573.196c3.007 1.029 4.51 1.544 4.887 2.081C21 5.62 21 7.22 21 10.417v1.574c0 2.505-.837 4.437-2 5.913M3.193 14c.857 4.298 4.383 6.513 6.706 7.527c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473c.579-.252 1.231-.58 1.899-.994"/>
-								</g>
-							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
 							<span class="">
 								Wordpress
 							</span>
@@ -1234,9 +1215,10 @@
 			<div class="config-right">
 				<div class="config-right-content">
 					<div class="config-right-header">
-						<button>
+						<button type="button" id="liveToastBtn">
 							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor"><path d="M3.59 18.177a3 3 0 0 1-.418-.349C2 16.657 2 14.771 2 11s0-5.657 1.172-6.828S6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172S22 7.229 22 11s0 5.657-1.172 6.828q-.194.195-.418.349"/><path d="M8.686 16.926c-.864.527-3.131 1.602-1.75 2.947C7.61 20.53 8.36 21 9.306 21h5.389c.944 0 1.695-.47 2.37-1.127c1.38-1.345-.887-2.42-1.751-2.947a6.39 6.39 0 0 0-6.628 0M14.5 11a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0"/></g>
-							</svg>Reset All</button>
+							</svg>Reset All
+						</button>
 						<button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
 							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.061 20.045C6.375 21 8.251 21 12 21s5.625 0 6.939-.955a5 5 0 0 0 1.106-1.106C21 17.625 21 15.749 21 12s0-5.625-.955-6.939a5 5 0 0 0-1.106-1.106C17.625 3 15.749 3 12 3s-5.625 0-6.939.955A5 5 0 0 0 3.955 5.06C3 6.375 3 8.251 3 12s0 5.625.955 6.939a5 5 0 0 0 1.106 1.106M17 18l1-1m-5 1l5-5m-9 5l9-9"/></svg>Preview</button>
 					</div>
@@ -1261,32 +1243,37 @@
 			</div>
 		</div>
 	</div>
-</div></div><div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+</div></div>{# Preview Modal #}<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
 <div class="offcanvas-header">
 
-	<div>
+	<div class="offc-header-left">
 		<h5 class="offcanvas-title" id="offcanvasRightLabel">Preview</h5>
 		<p class="text-muted mb-0 w-75" style="font-size: 0.8rem;">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
 		</p>
 	</div>
 
-	<div class="d-flex align-items-center">
+	<div class="offc-header-right">
 
-		<button type="button" class="btn btn-link text-secondary me-2" id="copyButton" title="Copy">
-			<i class="bi bi-clipboard"></i>
+		<button type="button" class="me-2" id="copy_btn" title="Copy">
+			<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor"><path d="M9 15c0-2.828 0-4.243.879-5.121C10.757 9 12.172 9 15 9h1c2.828 0 4.243 0 5.121.879C22 10.757 22 12.172 22 15v1c0 2.828 0 4.243-.879 5.121C20.243 22 18.828 22 16 22h-1c-2.828 0-4.243 0-5.121-.879C9 20.243 9 18.828 9 16z"/><path d="M17 9c-.003-2.957-.047-4.489-.908-5.538a4 4 0 0 0-.554-.554C14.43 2 12.788 2 9.5 2c-3.287 0-4.931 0-6.038.908a4 4 0 0 0-.554.554C2 4.57 2 6.212 2 9.5c0 3.287 0 4.931.908 6.038a4 4 0 0 0 .554.554c1.05.86 2.58.906 5.538.908"/></g>
+			</svg>
 		</button>
 
-		<button type="button" class="btn btn-link text-secondary me-2" id="downloadButton" title="Download">
-			<i class="bi bi-download"></i>
+		<button type="button" class="me-2" id="download_btn" title="Download">
+			<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor"><path d="M12.5 2h.273c3.26 0 4.892 0 6.024.798c.324.228.612.5.855.805c.848 1.066.848 2.6.848 5.67v2.545c0 2.963 0 4.445-.469 5.628c-.754 1.903-2.348 3.403-4.37 4.113c-1.257.441-2.83.441-5.98.441c-1.798 0-2.698 0-3.416-.252c-1.155-.406-2.066-1.263-2.497-2.35c-.268-.676-.268-1.523-.268-3.216V12"/><path d="M20.5 12a3.333 3.333 0 0 1-3.333 3.333c-.666 0-1.451-.116-2.098.057a1.67 1.67 0 0 0-1.179 1.179c-.173.647-.057 1.432-.057 2.098A3.333 3.333 0 0 1 10.5 22m-6-14.5C4.992 8.006 6.3 10 7 10m2.5-2.5C9.008 8.006 7.7 10 7 10m0 0V2"/></g>
+			</svg>
 		</button>
 
-		<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		<button type="button" class="" data-bs-dismiss="offcanvas" aria-label="Close">
+			<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 5L5 19M5 5l14 14" color="currentColor"/></svg>
+		</button>
+		{# <span id="feedback" style="margin-left:10px; color:green; opacity:0; transition:opacity .3s;">✅ Copied!</span> #}
 	</div>
 </div>
 <div class="offcanvas-body">
 	<div class="env-container">
-		<pre>
+		<pre id="env_config">
 ADMIN_USERS=
 
 ALLOW_EXTERNAL_IMAGE_SOURCES=true
@@ -1495,5 +1482,28 @@ WORDPRESS_CLIENT_ID=
 WORDPRESS_CLIENT_SECRET=
 WORDPRESS_CLIENT_URI=
 </pre>
+	</div>
+</div>
+
+{# Toast #}
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+	<div id="simple_toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+		<div class="d-flex justify-content-between align-items-center">
+			<div class="toast-body"></div>
+			<button type="button" class="" data-bs-dismiss="toast" aria-label="Close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 5L5 19M5 5l14 14" color="currentColor"/></svg>
+			</button>
+		</div>
+	</div>
+</div>
+{# Download Toast #}
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+	<div id="download_toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+		<div class="d-flex justify-content-between align-items-center">
+			<div class="toast-body"></div>
+			<button type="button" class="" data-bs-dismiss="toast" aria-label="Close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 5L5 19M5 5l14 14" color="currentColor"/></svg>
+			</button>
+		</div>
 	</div>
 </div></section>
