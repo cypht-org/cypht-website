@@ -65,6 +65,14 @@
             icon: 'bi-people',
             description: 'How to contribute to the project'
         }
+    ],
+    integration: [
+        { 
+            title: 'Cypht in Tiki', 
+            href: '/tiki', 
+            icon: 'bi-file-earmark-text',
+            description: 'For more cypht features'
+        }
     ]
 } %}
 
@@ -137,6 +145,35 @@
 							</div>
 						</div>
 					</div>
+					{# Integration Dropdown #}
+					<div class="nav-dropdown" data-dropdown="integration">
+						<button class="nav-item dropdown-trigger" data-trigger="integration">
+							<span class="nav-text">Integration</span>
+							<i class="bi bi-chevron-down dropdown-arrow"></i>
+						</button>
+						<div class="dropdown-panel" data-panel="integration">
+							<div class="dropdown-content">
+								{% for item in global_menus.integration %}
+									<a href="{{ item.href }}" class="dropdown-item d-flex gap-2">
+										<div
+											class="drop-item-icon">
+
+											{# {% if item.img_link %} #}
+											<img
+											src="/img/tiki_logo.png" alt="{{ item.title }}">
+										{# {% else %}
+																																<i class="{{ item.icon }}"></i>
+																															{% endif %} #}
+										</div>
+										<div class="drop-item-content mt-1">
+											<span class="drop-item-title">{{ item.title }}</span>
+											<span class="drop-item-description">{{ item.description }}</span>
+										</div>
+									</a>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 
@@ -186,6 +223,16 @@
 						<div class="mobile-section">
 							<h4 class="section-title">Documentation</h4>
 							{% for item in global_menus.docs %}
+								<a href="{{ item.href }}" class="mobile-nav-item">
+									<i class="{{ item.icon }} me-2"></i>
+									{{ item.title }}
+								</a>
+							{% endfor %}
+						</div>
+
+						<div class="mobile-section">
+							<h4 class="section-title">Integration</h4>
+							{% for item in global_menus.integration %}
 								<a href="{{ item.href }}" class="mobile-nav-item">
 									<i class="{{ item.icon }} me-2"></i>
 									{{ item.title }}

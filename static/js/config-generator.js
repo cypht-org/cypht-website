@@ -63,7 +63,7 @@ function download_env_config(preOrSelector = 'pre', filename = '.env.config') {
   URL.revokeObjectURL(url);
 }
 
-//3. Feedback animation 
+//3. Feedback animation
 function animateButtonIcon(button, newSVG, duration = 1500) {
   const originalSVG = button.innerHTML;
   const wrapper = document.createElement('span');
@@ -157,19 +157,6 @@ const navigation_menu = (nav_id, active_class) => {
     allLinks.forEach(link => {
       const isActive = link.getAttribute("href") === current;
       link.classList.toggle(active_class, isActive);
-
-      if (isActive) {
-        // link.scrollIntoView({
-        //     behavior: "smooth",
-        //     block: "nearest", // garde un peu de marge visuelle
-        //     inline: "nearest"
-        //   });
-        // link.scrollIntoView({ block: "center", behavior: "smooth" });
-      //   const parentGroup = link.closest(".cg-menu-group");
-      //   if (parentGroup) {
-      //     const parentLink = parentGroup.querySelector(".config-generator-link");
-      //     if (parentLink) parentLink.classList.add(active_class);
-        }
     });
   };
 
@@ -182,7 +169,7 @@ const navigation_menu = (nav_id, active_class) => {
             e.preventDefault();
             const targetId = link.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 scroll_to_element(targetElement);
@@ -197,7 +184,7 @@ function showFeedback(btn_id, toast_id,message, type = 'success') {
     const toastTrigger = document.getElementById(btn_id);
     const toastLiveExample = document.getElementById(toast_id);
     const toastBody = document.querySelector('.toast-body');
-   
+
     if (toastTrigger && toastLiveExample) {
         // toastBootstrap.hide();
        toastBody.textContent = message;
@@ -205,9 +192,9 @@ function showFeedback(btn_id, toast_id,message, type = 'success') {
             autohide: true,
             delay: 3000
         });
-        
+
         toastTrigger.addEventListener('click', (e) => {
-            e.preventDefault(); 
+            e.preventDefault();
             toastBootstrap.show();
         });
     } else {
@@ -218,11 +205,236 @@ function showFeedback(btn_id, toast_id,message, type = 'success') {
 }
 
 
+// 8. Store default values for reset functionality
+const defaultValues = {};
+
+// 9. Initialize default values from form
+function initializeDefaultValues() {
+  const inputs = document.querySelectorAll('input[name], select[name]');
+
+  inputs.forEach(input => {
+    const name = input.getAttribute('name');
+    if (!name) return;
+
+    if (input.type === 'checkbox') {
+      defaultValues[name] = input.checked;
+    } else if (input.type === 'radio') {
+      if (input.checked) {
+        defaultValues[name] = input.value;
+      }
+    } else {
+      const defaultValue = input.getAttribute('value') || input.value || '';
+      defaultValues[name] = defaultValue;
+    }
+  });
+}
+
+// 10. Collect all form values and update preview
+function collectFormValues() {
+  const envConfig = {};
+
+  // Get all form inputs, selects, and checkboxes
+  const inputs = document.querySelectorAll('input[name], select[name]');
+
+  inputs.forEach(input => {
+    const name = input.getAttribute('name');
+    if (!name) return;
+
+    let value = '';
+
+    if (input.type === 'checkbox') {
+      value = input.checked ? 'true' : 'false';
+    } else if (input.type === 'radio') {
+      if (input.checked) {
+        value = input.value;
+      } else {
+        return; // Skip unchecked radio buttons
+      }
+    } else {
+      value = input.value || '';
+    }
+
+    envConfig[name] = value;
+  });
+
+  return envConfig;
+}
+
+// 11. Update preview with collected values
+function updatePreview() {
+  const values = collectFormValues();
+  const preElement = document.getElementById('env_config');
+
+  if (!preElement) return;
+
+  // Add default settings that aren't in the form
+  const defaultSettings = {
+    'DEFAULT_SETTING_NO_PASSWORD_SAVE': 'false',
+    'DEFAULT_SETTING_IMAP_PER_PAGE': '20',
+    'DEFAULT_SETTING_SIMPLE_MSG_PARTS': 'false',
+    'DEFAULT_SETTING_PAGINATE_LINKS': 'true',
+    'DEFAULT_SETTING_MSG_PART_ICONS': 'true',
+    'DEFAULT_SETTING_REVIEW_SENT_EMAIL': 'true',
+    'DEFAULT_SETTING_TEXT_ONLY': 'false',
+    'DEFAULT_SETTING_SENT_PER_SOURCE': '20',
+    'DEFAULT_SETTING_SENT_SINCE': '-1 week',
+    'DEFAULT_SETTING_JUNK_PER_SOURCE': '20',
+    'DEFAULT_SETTING_JUNK_SINCE': '-1 week',
+    'DEFAULT_SETTING_SNOOZED_PER_SOURCE': '20',
+    'DEFAULT_SETTING_SNOOZED_SINCE': '-1 week',
+    'DEFAULT_SETTING_ENABLE_SNOOZE': 'false',
+    'DEFAULT_SETTING_TAGS_PER_SOURCE': '20',
+    'DEFAULT_SETTING_TAGS_SINCE': '-1 week',
+    'DEFAULT_SETTING_TRASH_PER_SOURCE': '20',
+    'DEFAULT_SETTING_TRASH_SINCE': '-1 week',
+    'DEFAULT_SETTING_DRAFT_PER_SOURCE': '20',
+    'DEFAULT_SETTING_DRAFT_SINCE': '-1 week',
+    'DEFAULT_SETTING_SHOW_LIST_ICONS': 'true',
+    'DEFAULT_SETTING_START_PAGE': 'none',
+    'DEFAULT_SETTING_DISABLE_DELETE_PROMPT': 'false',
+    'DEFAULT_SETTING_FLAGGED_PER_SOURCE': '20',
+    'DEFAULT_SETTING_NO_FOLDER_ICONS': 'false',
+    'DEFAULT_SETTING_ALL_EMAIL_PER_SOURCE': '20',
+    'DEFAULT_SETTING_ALL_EMAIL_SINCE': '-1 week',
+    'DEFAULT_SETTING_ALL_SINCE': '-1 week',
+    'DEFAULT_SETTING_ALL_PER_SOURCE': '20',
+    'DEFAULT_SETTING_FLAGGED_SINCE': '-1 week',
+    'DEFAULT_SETTING_UNREAD_PER_SOURCE': '20',
+    'DEFAULT_SETTING_UNREAD_SINCE': '-1 week',
+    'DEFAULT_SETTING_SEARCH_SINCE': '-1 week',
+    'DEFAULT_SETTING_TIMEZONE': 'UTC',
+    'DEFAULT_SETTING_LIST_STYLE': 'email_style',
+    'DEFAULT_SETTING_LANGUAGE': 'en',
+    'DEFAULT_SETTING_UNREAD_EXCLUDE_FEEDS': 'false',
+    'DEFAULT_SETTING_FEED_LIMIT': '20',
+    'DEFAULT_SETTING_FEED_SINCE': '-1 week',
+    'DEFAULT_SETTING_SMTP_COMPOSE_TYPE': '0',
+    'DEFAULT_SETTING_SMTP_AUTO_BCC': 'false',
+    'DEFAULT_SETTING_THEME': 'default',
+    'DEFAULT_SETTING_UNREAD_EXCLUDE_WORDPRESS': 'false',
+    'DEFAULT_SETTING_WORDPRESS_SINCE': '-1 week',
+    'DEFAULT_SETTING_UNREAD_EXCLUDE_GITHUB': 'false',
+    'DEFAULT_SETTING_GITHUB_LIMIT': '20',
+    'DEFAULT_SETTING_GITHUB_SINCE': '-1 week',
+    'DEFAULT_SETTING_INLINE_MESSAGE': 'false',
+    'DEFAULT_SETTING_INLINE_MESSAGE_STYLE': 'right',
+    'DEFAULT_SETTING_ENABLE_KEYBOARD_SHORTCUTS': 'false',
+    'DEFAULT_SETTING_ENABLE_SIEVE_FILTER': 'false',
+    'DEFAULT_SETTING_ENABLE_COLLECT_ADDRESS_ON_SEND': 'false'
+  };
+
+  // Merge form values with default settings
+  const allValues = { ...defaultSettings, ...values };
+
+  // Build the config text
+  let configText = '';
+
+  // Sort keys alphabetically for better readability
+  const sortedKeys = Object.keys(allValues).sort();
+
+  sortedKeys.forEach(key => {
+    configText += `${key}=${allValues[key]}\n`;
+  });
+
+  preElement.textContent = configText;
+}
+
+// 12. Reset all form values to defaults
+function resetAllValues() {
+  // Reset all input fields
+  const inputs = document.querySelectorAll('input[name]');
+  inputs.forEach(input => {
+    const name = input.getAttribute('name');
+
+    if (input.type === 'checkbox') {
+      input.checked = defaultValues[name] || false;
+    } else if (input.type === 'radio') {
+      input.checked = false;
+    } else {
+      input.value = defaultValues[name] || '';
+    }
+  });
+
+  // Reset all select fields
+  const selects = document.querySelectorAll('select[name]');
+  selects.forEach(select => {
+    select.selectedIndex = 0;
+  });
+
+  // Update preview after reset
+  updatePreview();
+}
+
+// 13. Reset section values
+function resetSection(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (!section) {
+    console.error(`Section with id "${sectionId}" not found`);
+    return;
+  }
+
+  // Reset inputs in this section
+  const inputs = section.querySelectorAll('input[name]');
+  inputs.forEach(input => {
+    const name = input.getAttribute('name');
+
+    if (input.type === 'checkbox') {
+      input.checked = defaultValues[name] || false;
+    } else if (input.type === 'radio') {
+      input.checked = false;
+    } else {
+      input.value = defaultValues[name] || '';
+    }
+  });
+
+  // Reset selects in this section
+  const selects = section.querySelectorAll('select[name]');
+  selects.forEach(select => {
+    select.selectedIndex = 0;
+  });
+
+  // Update preview after reset
+  updatePreview();
+}
+
+// Make resetSection available globally
+window.resetSection = resetSection;
+
 // === Document ready ===
 document.addEventListener("DOMContentLoaded", () => {
+  // Initialize default values
+  initializeDefaultValues();
+
   navigation_menu(".config-generator-list", "config-active");
   showFeedback('copy_btn', 'simple_toast','Copied to clipboard', 'success');
   // showFeedback('download_btn', 'download_toast','Downloaded success', 'success');
+
+  // Update preview when any form field changes
+  const formElements = document.querySelectorAll('input[name], select[name]');
+  formElements.forEach(element => {
+    element.addEventListener('change', updatePreview);
+    element.addEventListener('input', updatePreview);
+  });
+
+  // Initialize preview with current values
+  updatePreview();
+
+  // Add event listener for Reset All button
+  const resetAllBtn = document.getElementById('liveToastBtn');
+  if (resetAllBtn) {
+    resetAllBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (confirm('Are you sure you want to reset all configuration values?')) {
+        resetAllValues();
+      }
+    });
+  }
+
+  // Update preview when offcanvas is opened
+  const offcanvas = document.getElementById('offcanvasRight');
+  if (offcanvas) {
+    offcanvas.addEventListener('show.bs.offcanvas', updatePreview);
+  }
 });
 
 // === Toast ===

@@ -279,9 +279,9 @@ img {
       height: auto;
 }
 
-img[alt=""] {
+/* img[alt=""] {
       border: 2px dashed var(--color-border);
-}
+} */
 
 /* Decorative images should have empty alt */
 img[role="presentation"] {

@@ -6,37 +6,42 @@
 	  children:[
 	    {
 	      id:0,
+	      title: 'General',
+	      href: '#general'
+	    },
+	    {
+	      id:1,
 	      title: 'Session',
 	      href: '#session'
 	    },
 	    {
-	      id:1,
+	      id:2,
 	      title: 'Auth',
 	      href: '#auth'
 	    },
 
 	    {
-	      id:2,
+	      id:3,
 	      title: 'User',
 	      href: '#user'
 	    },
 	    {
-	      id:3,
-	      title: 'Security',	
+	      id:4,
+	      title: 'Security',
 	      href: '#security'
 	    },
 	    {
-	      id:4,
+	      id:5,
 	      title: 'Cache',
 	      href: '#cache'
 	    },
 	    {
-	      id:5,
+	      id:6,
 	      title: 'User Interface',
 	      href: '#user_interface'
 	    },
 	    {
-	      id:6,
+	      id:7,
 	      title: 'Redirection',
 	      href: '#redirect'
 	    }
@@ -47,11 +52,6 @@
         title: 'Database',
         href: '#database',
 	  children:[
-	    {
-	      id:0,
-	      title: 'Database',
-	      href: '#database'
-	    }
 	  ]
     },
     {
@@ -71,11 +71,6 @@
         title: 'Dynamic login',
         href: '#dynamic_login',
 	  children:[
-	    {
-	      id:0,
-	      title: 'dynamic login',
-	      href: '#dynamic_login'
-	    }
 	  ]
     },
     {
@@ -83,11 +78,6 @@
         title: 'Github',
         href: '#github',
 	  children:[
-	    {
-	      id:0,
-	      title: 'github',
-	      href: '#github'
-	    }
 	  ]
     },
     {
@@ -95,11 +85,6 @@
         title: 'LDAP',
         href: '#ldap',
 	  children:[
-	    {
-	      id:0,
-	      title: 'ldap',
-	      href: '#ldap'
-	    }
 	  ]
     },
     {
@@ -141,7 +126,7 @@
 {# Template #}
 <section>
 	<div class="config-gen-container">
-		<div class="config-content">
+		<div class="config-content mb-5">
 			<div class="config-left">
 				<nav>
 					<div class="config-left-header">
@@ -188,7 +173,7 @@
 				</nav>
 			</div>
 			<div
-				class="config-center">
+				id="app_config" class="config-center">
 				{# App config #}
 				<div class="config-content-item">
 					<div class="config-content-item-header">
@@ -204,6 +189,80 @@
 							</div>
 						</div>
 					</div>
+					<!-- Section General -->
+					<div class="config-content-item" id="general">
+						<div class="cc-body-header">
+							<div class="cc-body-header-icon">
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
+								<span>General Settings</span>
+							</div>
+							<button type="button" class="cc-header-reset-btn" onclick="resetSection('general')">
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+								Reset
+							</button>
+						</div>
+						<div class="cc-body-content">
+							<div class="form-field">
+								<label for="app_name" class="form-field-label">Application Name</label>
+								<input type="text" name="APP_NAME" id="app_name" class="form-input" placeholder="Cypht" value="Cypht">
+								<div class="form-field-description">Name of your application</div>
+							</div>
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="debug_log" class="form-switch-label">Enable Debug Log</label>
+									<input name="DEBUG_LOG" class="form-check-input" type="checkbox" id="debug_log">
+								</div>
+								<div class="form-field-description">Enable debug logging for troubleshooting</div>
+							</div>
+							<div class="form-field">
+								<label for="admin_users" class="form-field-label">Admin Users</label>
+								<input type="text" name="ADMIN_USERS" id="admin_users" class="form-input" placeholder="admin@example.com">
+								<div class="form-field-description">Comma-separated list of admin user emails</div>
+							</div>
+							<div class="form-field">
+								<label for="default_language" class="form-field-label">Default Language</label>
+								<input type="text" name="DEFAULT_LANGUAGE" id="default_language" class="form-input" placeholder="en" value="en">
+								<div class="form-field-description">Default language code (e.g., en, fr, de)</div>
+							</div>
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="always_mobile_ui" class="form-switch-label">Always Use Mobile UI</label>
+									<input name="ALWAYS_MOBILE_UI" class="form-check-input" type="checkbox" id="always_mobile_ui">
+								</div>
+								<div class="form-field-description">Force mobile UI for all devices</div>
+							</div>
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="single_server_mode" class="form-switch-label">Single Server Mode</label>
+									<input name="SINGLE_SERVER_MODE" class="form-check-input" type="checkbox" id="single_server_mode">
+								</div>
+								<div class="form-field-description">Enable single server mode</div>
+							</div>
+							<div class="form-field">
+								<label for="cypht_modules" class="form-field-label">Cypht Modules</label>
+								<input type="text" name="CYPHT_MODULES" id="cypht_modules" class="form-input" placeholder="core,contacts,local_contacts,feeds,imap,smtp" value="core,contacts,local_contacts,feeds,imap,smtp,account,idle_timer,calendar,themes,nux,developer,history,saved_searches,advanced_search,highlights,profiles,inline_message,imap_folders,keyboard_shortcuts,tags">
+								<div class="form-field-description">Comma-separated list of enabled modules</div>
+							</div>
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="fancy_login" class="form-switch-label">Fancy Login Page</label>
+									<input name="FANCY_LOGIN" class="form-check-input" type="checkbox" id="fancy_login">
+								</div>
+								<div class="form-field-description">Enable fancy login page design</div>
+							</div>
+							<div class="form-field">
+								<label for="api_login_key" class="form-field-label">API Login Key</label>
+								<input type="text" name="API_LOGIN_KEY" id="api_login_key" class="form-input" placeholder="">
+								<div class="form-field-description">API login key for authentication</div>
+							</div>
+							<div class="form-field">
+								<label for="win_cacert_dir" class="form-field-label">Windows CA Certificate Directory</label>
+								<input type="text" name="WIN_CACERT_DIR" id="win_cacert_dir" class="form-input" placeholder="c:\php\extras\ssl\cacert.pem">
+								<div class="form-field-description">Path to CA certificates for Windows (get from https://curl.se/ca/cacert.pem)</div>
+							</div>
+						</div>
+					</div>
+
 					<!-- Section Session -->
 					<div class="config-content-item" id="session">
 						<div class="cc-body-header">
@@ -228,9 +287,32 @@
 								</select>
 								<div class="form-field-description">Choose how to handle user sessions</div>
 							</div>
+							<div class="form-field">
+								<label for="session_class" class="form-field-label">Session Class</label>
+								<input type="text" name="SESSION_CLASS" id="session_class" class="form-input" placeholder="">
+								<div class="form-field-description">Custom session class name (if using custom session type)</div>
+							</div>
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="allow_session_cache" class="form-switch-label">Allow Session Cache</label>
+									<input name="ALLOW_SESSION_CACHE" class="form-check-input" type="checkbox" id="allow_session_cache">
+								</div>
+								<div class="form-field-description">Enable session caching</div>
+							</div>
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="allow_long_session" class="form-switch-label">Allow Long Sessions</label>
+									<input name="ALLOW_LONG_SESSION" class="form-check-input" type="checkbox" id="allow_long_session">
+								</div>
+								<div class="form-field-description">Allow extended session lifetime</div>
+							</div>
+							<div class="form-field">
+								<label for="long_session_lifetime" class="form-field-label">Long Session Lifetime (days)</label>
+								<input type="number" name="LONG_SESSION_LIFETIME" id="long_session_lifetime" class="form-input" placeholder="30" value="30">
+								<div class="form-field-description">Lifetime for long sessions in days</div>
+							</div>
 						</div>
 					</div>
-
 					<!-- Section Authentification -->
 					<div class="config-content-item" id="auth">
 						<div class="cc-body-header">
@@ -256,6 +338,12 @@
 								<div class="form-field-description">Select the authentication method for your application</div>
 							</div>
 
+							<div class="form-field">
+								<label for="auth_class" class="form-field-label">Authentication Class</label>
+								<input type="text" name="AUTH_CLASS" id="auth_class" class="form-input" placeholder="">
+								<div class="form-field-description">Custom authentication class name (if using custom auth type)</div>
+							</div>
+
 							<!-- LDAP Configuration -->
 							<div class="form-field-group">
 								<div class="form-field">
@@ -273,12 +361,30 @@
 							<div class="form-field">
 								<div class="form-switch-container">
 									<label for="ldap_auth_tls" class="form-switch-label">Enable TLS for LDAP</label>
-									<input class="form-check-input" type="checkbox" id="ldap_auth_tls">
+									<input name="LDAP_AUTH_TLS" class="form-check-input" type="checkbox" id="ldap_auth_tls">
 								</div>
 								<div class="form-field-description">Enable secure connection to LDAP server</div>
 							</div>
 
+							<div class="form-field">
+								<label for="ldap_auth_base_dn" class="form-field-label">LDAP Base DN</label>
+								<input type="text" name="LDAP_AUTH_BASE_DN" id="ldap_auth_base_dn" class="form-input" placeholder="example,dc=com">
+								<div class="form-field-description">LDAP base distinguished name for authentication</div>
+							</div>
+
+							<div class="form-field">
+								<label for="ldap_auth_uid_attr" class="form-field-label">LDAP UID Attribute</label>
+								<input type="text" name="LDAP_AUTH_UID_ATTR" id="ldap_auth_uid_attr" class="form-input" placeholder="uid" value="uid">
+								<div class="form-field-description">LDAP attribute for user identification</div>
+							</div>
+
 							<!-- IMAP Configuration -->
+							<div class="form-field">
+								<label for="imap_auth_name" class="form-field-label">IMAP Auth Name</label>
+								<input type="text" name="IMAP_AUTH_NAME" id="imap_auth_name" class="form-input" placeholder="localhost">
+								<div class="form-field-description">IMAP authentication server name</div>
+							</div>
+
 							<div class="form-field-group">
 								<div class="form-field">
 									<label for="imap_auth_server" class="form-field-label">IMAP Server</label>
@@ -295,9 +401,23 @@
 							<div class="form-field">
 								<div class="form-switch-container">
 									<label for="imap_auth_tls" class="form-switch-label">Enable TLS for IMAP</label>
-									<input class="form-check-input" type="checkbox" id="imap_auth_tls">
+									<input name="IMAP_AUTH_TLS" class="form-check-input" type="checkbox" id="imap_auth_tls">
 								</div>
 								<div class="form-field-description">Enable secure connection to IMAP server</div>
+							</div>
+
+							<div class="form-field">
+								<label for="imap_auth_sieve_conf_host" class="form-field-label">IMAP Sieve Config Host</label>
+								<input type="text" name="IMAP_AUTH_SIEVE_CONF_HOST" id="imap_auth_sieve_conf_host" class="form-input" placeholder="">
+								<div class="form-field-description">Sieve configuration host for IMAP</div>
+							</div>
+
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="imap_auth_sieve_tls_mode" class="form-switch-label">IMAP Sieve TLS Mode</label>
+									<input name="IMAP_AUTH_SIEVE_TLS_MODE" class="form-check-input" type="checkbox" id="imap_auth_sieve_tls_mode" checked>
+								</div>
+								<div class="form-field-description">Enable TLS for Sieve connections</div>
 							</div>
 						</div>
 					</div>
@@ -326,8 +446,58 @@
 							</div>
 							<div class="form-field">
 								<label for="user_settings_dir" class="form-field-label">User Settings Directory</label>
-								<input type="text" name="USER_SETTINGS_DIR" id="user_settings_dir" class="form-input" placeholder="/path/to/settings">
+								<input type="text" name="USER_SETTINGS_DIR" id="user_settings_dir" class="form-input" placeholder="/var/lib/hm3/users">
 								<div class="form-field-description">Directory path for storing user settings (file mode only)</div>
+							</div>
+							<div class="form-field">
+								<label for="attachment_dir" class="form-field-label">Attachment Directory</label>
+								<input type="text" name="ATTACHMENT_DIR" id="attachment_dir" class="form-input" placeholder="/var/lib/hm3/attachments">
+								<div class="form-field-description">Directory path for storing email attachments</div>
+							</div>
+							<div class="form-field">
+								<label for="default_email_domain" class="form-field-label">Default Email Domain</label>
+								<input type="text" name="DEFAULT_EMAIL_DOMAIN" id="default_email_domain" class="form-input" placeholder="example.com">
+								<div class="form-field-description">Default domain for email addresses</div>
+							</div>
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="auto_create_profile" class="form-switch-label">Auto Create Profile</label>
+									<input name="AUTO_CREATE_PROFILE" class="form-check-input" type="checkbox" id="auto_create_profile">
+								</div>
+								<div class="form-field-description">Automatically create user profiles on first login</div>
+							</div>
+							<div class="form-field-group">
+								<div class="form-field">
+									<label for="default_smtp_name" class="form-field-label">Default SMTP Name</label>
+									<input type="text" name="DEFAULT_SMTP_NAME" id="default_smtp_name" class="form-input" placeholder="">
+									<div class="form-field-description">Default name for SMTP server</div>
+								</div>
+								<div class="form-field">
+									<label for="default_smtp_server" class="form-field-label">Default SMTP Server</label>
+									<input type="text" name="DEFAULT_SMTP_SERVER" id="default_smtp_server" class="form-input" placeholder="smtp.example.com">
+									<div class="form-field-description">Default SMTP server hostname</div>
+								</div>
+							</div>
+							<div class="form-field-group">
+								<div class="form-field">
+									<label for="default_smtp_port" class="form-field-label">Default SMTP Port</label>
+									<input type="number" name="DEFAULT_SMTP_PORT" id="default_smtp_port" class="form-input" placeholder="587">
+									<div class="form-field-description">Default SMTP server port</div>
+								</div>
+								<div class="form-field">
+									<div class="form-switch-container">
+										<label for="default_smtp_tls" class="form-switch-label">Default SMTP TLS</label>
+										<input name="DEFAULT_SMTP_TLS" class="form-check-input" type="checkbox" id="default_smtp_tls">
+									</div>
+									<div class="form-field-description">Enable TLS for default SMTP</div>
+								</div>
+							</div>
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="default_smtp_no_auth" class="form-switch-label">Default SMTP No Auth</label>
+									<input name="DEFAULT_SMTP_NO_AUTH" class="form-check-input" type="checkbox" id="default_smtp_no_auth">
+								</div>
+								<div class="form-field-description">Disable authentication for default SMTP</div>
 							</div>
 						</div>
 					</div>
@@ -347,9 +517,57 @@
 							<div class="form-field">
 								<div class="form-switch-container">
 									<label for="disable_origin_check" class="form-switch-label">Disable Origin Check</label>
-									<input class="form-check-input" type="checkbox" id="disable_origin_check">
+									<input name="DISABLE_ORIGIN_CHECK" class="form-check-input" type="checkbox" id="disable_origin_check">
 								</div>
 								<div class="form-field-description">Disable origin check for enhanced security (recommended)</div>
+							</div>
+
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="disable_ip_check" class="form-switch-label">Disable IP Check</label>
+									<input name="DISABLE_IP_CHECK" class="form-check-input" type="checkbox" id="disable_ip_check">
+								</div>
+								<div class="form-field-description">Disable IP address checking</div>
+							</div>
+
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="disable_fingerprint" class="form-switch-label">Disable Fingerprint</label>
+									<input name="DISABLE_FINGERPRINT" class="form-check-input" type="checkbox" id="disable_fingerprint">
+								</div>
+								<div class="form-field-description">Disable browser fingerprinting</div>
+							</div>
+
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="disable_empty_superglobals" class="form-switch-label">Disable Empty Superglobals</label>
+									<input name="DISABLE_EMPTY_SUPERGLOBALS" class="form-check-input" type="checkbox" id="disable_empty_superglobals">
+								</div>
+								<div class="form-field-description">Disable emptying PHP superglobal arrays</div>
+							</div>
+
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="disable_open_base_dir" class="form-switch-label">Disable Open Base Dir</label>
+									<input name="DISABLE_OPEN_BASE_DIR" class="form-check-input" type="checkbox" id="disable_open_base_dir">
+								</div>
+								<div class="form-field-description">Disable open_basedir PHP restriction</div>
+							</div>
+
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="disable_ini_settings" class="form-switch-label">Disable INI Settings</label>
+									<input name="DISABLE_INI_SETTINGS" class="form-check-input" type="checkbox" id="disable_ini_settings">
+								</div>
+								<div class="form-field-description">Disable custom PHP INI settings</div>
+							</div>
+
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="allow_external_image_sources" class="form-switch-label">Allow External Image Sources</label>
+									<input name="ALLOW_EXTERNAL_IMAGE_SOURCES" class="form-check-input" type="checkbox" id="allow_external_image_sources" checked>
+								</div>
+								<div class="form-field-description">Allow loading images from external sources</div>
 							</div>
 
 							<div class="form-field-group">
@@ -368,7 +586,7 @@
 							<div class="form-field">
 								<div class="form-switch-container">
 									<label for="encrypt_ajax_request" class="form-switch-label">Encrypt AJAX Requests</label>
-									<input class="form-check-input" type="checkbox" id="encrypt_ajax_request">
+									<input name="ENCRYPT_AJAX_REQUESTS" class="form-check-input" type="checkbox" id="encrypt_ajax_request">
 								</div>
 								<div class="form-field-description">Encrypt all AJAX requests for enhanced security</div>
 							</div>
@@ -376,7 +594,7 @@
 							<div class="form-field">
 								<div class="form-switch-container">
 									<label for="encrypt_local_storage" class="form-switch-label">Encrypt Local Storage</label>
-									<input class="form-check-input" type="checkbox" id="encrypt_local_storage">
+									<input name="ENCRYPT_LOCAL_STORAGE" class="form-check-input" type="checkbox" id="encrypt_local_storage">
 								</div>
 								<div class="form-field-description">Encrypt data stored in browser local storage</div>
 							</div>
@@ -397,70 +615,86 @@
 						</div>
 						<div class="cc-body-content">
 							<div class="form-field">
+								<label for="cache_class" class="form-field-label">Cache Class</label>
+								<input type="text" name="CACHE_CLASS" id="cache_class" class="form-input" placeholder="">
+								<div class="form-field-description">Custom cache class name (leave empty for default)</div>
+							</div>
+
+							<div class="form-field">
 								<div class="form-switch-container">
-									<label for="disable_origin_check" class="form-switch-label">Disable Origin Check</label>
-									<input name="DISABLE_ORIGIN_CHECK" class="form-check-input" type="checkbox" id="disable_origin_check">
+									<label for="enable_redis" class="form-switch-label">Enable Redis</label>
+									<input name="ENABLE_REDIS" class="form-check-input" type="checkbox" id="enable_redis" checked>
 								</div>
-								<div class="form-field-description">Disable origin check for enhanced security (recommended)</div>
+								<div class="form-field-description">Enable Redis caching</div>
 							</div>
 
 							<div class="form-field-group">
 								<div class="form-field">
 									<label for="redis_server" class="form-field-label">Redis Server</label>
-									<input type="text" name="REDIS_SERVER" id="redis_server" class="form-input" placeholder="127.0.0.1">
-									<div class="form-field-description">Domain for application cache</div>
+									<input type="text" name="REDIS_SERVER" id="redis_server" class="form-input" placeholder="127.0.0.1" value="127.0.0.1">
+									<div class="form-field-description">Redis server hostname or IP</div>
 								</div>
 								<div class="form-field">
 									<label for="redis_port" class="form-field-label">Redis Port</label>
-									<input type="text" name="REDIS_PORT" id="redis_port" class="form-input" placeholder="default: 6379">
-									<div class="form-field-description">Port for application cache</div>
+									<input type="text" name="REDIS_PORT" id="redis_port" class="form-input" placeholder="6379" value="6379">
+									<div class="form-field-description">Redis server port</div>
 								</div>
 								<div class="form-field">
 									<label for="redis_index" class="form-field-label">Redis Index</label>
-									<input type="number" name="REDIS_INDEX" id="redis_index" class="form-input" placeholder="default: 1">
-									<div class="form-field-description">Index for application cache</div>
+									<input type="number" name="REDIS_INDEX" id="redis_index" class="form-input" placeholder="1" value="1">
+									<div class="form-field-description">Redis database index</div>
 								</div>
 								<div class="form-field">
 									<label for="redis_password" class="form-field-label">Redis Password</label>
 									<input type="password" name="REDIS_PASS" id="redis_password" class="form-input">
-									<div class="form-field-description">Password for application cache</div>
+									<div class="form-field-description">Redis authentication password</div>
 								</div>
 								<div class="form-field">
 									<label for="redis_socket" class="form-field-label">Redis Socket</label>
-									<input type="password" name="REDIS_SOCKET" id="redis_socket" class="form-input">
-									<div class="form-field-description">Socket for application cache</div>
+									<input type="text" name="REDIS_SOCKET" id="redis_socket" class="form-input" placeholder="/var/run/redis/redis-server.sock">
+									<div class="form-field-description">Redis socket path (if using Unix socket)</div>
 								</div>
-
 							</div>
 
 							<div class="form-field">
 								<div class="form-switch-container">
 									<label for="enable_memcached" class="form-switch-label">Enable Memcached</label>
-									<input class="form-check-input" type="checkbox" id="enable_memcached">
+									<input name="ENABLE_MEMCACHED" class="form-check-input" type="checkbox" id="enable_memcached" checked>
 								</div>
-								<div class="form-field-description">Enable Memcached for enhanced security</div>
+								<div class="form-field-description">Enable Memcached caching</div>
 							</div>
 
 							<div class="form-field-group">
 								<div class="form-field">
 									<label for="memcached_server" class="form-field-label">Memcached Server</label>
-									<input type="text" name="MEMCACHED_SERVER" id="memcached_server" class="form-input" placeholder="127.0.0.1">
-									<div class="form-field-description">Domain for application cache</div>
+									<input type="text" name="MEMCACHED_SERVER" id="memcached_server" class="form-input" placeholder="127.0.0.1" value="127.0.0.1">
+									<div class="form-field-description">Memcached server hostname or IP</div>
 								</div>
 								<div class="form-field">
 									<label for="memcached_port" class="form-field-label">Memcached Port</label>
-									<input type="text" name="MEMCACHED_PORT" id="memcached_port" class="form-input" placeholder="default: 11211">
-									<div class="form-field-description">Port for application cache</div>
+									<input type="text" name="MEMCACHED_PORT" id="memcached_port" class="form-input" placeholder="11211" value="11211">
+									<div class="form-field-description">Memcached server port</div>
 								</div>
+							</div>
+
+							<div class="form-field">
+								<div class="form-switch-container">
+									<label for="memcached_auth" class="form-switch-label">Memcached Authentication</label>
+									<input name="MEMCACHED_AUTH" class="form-check-input" type="checkbox" id="memcached_auth">
+								</div>
+								<div class="form-field-description">Enable Memcached authentication</div>
+							</div>
+
+							<div class="form-field-group">
 								<div class="form-field">
 									<label for="memcached_user" class="form-field-label">Memcached User</label>
 									<input type="text" name="MEMCACHED_USER" id="memcached_user" class="form-input">
-									<div class="form-field-description">User for application cache</div>
+									<div class="form-field-description">Memcached authentication username</div>
 								</div>
 								<div class="form-field">
 									<label for="memcached_password" class="form-field-label">Memcached Password</label>
 									<input type="password" name="MEMCACHED_PASS" id="memcached_password" class="form-input">
-									<div class="form-field-description">Password for application cache</div>
+									<div class="form-field-description">Memcached authentication password</div>
 								</div>
 							</div>
 						</div>
@@ -491,6 +725,16 @@
 									<input name="CSS_COMPRESS" class="form-check-input" type="checkbox" id="css_compress">
 								</div>
 								<div class="form-field-description">Enable CSS compression for enhanced security (recommended)</div>
+							</div>
+							<div class="form-field">
+								<label for="js_exclude_deps" class="form-field-label">JS Exclude Dependencies</label>
+								<input type="text" name="JS_EXCLUDE_DEPS" id="js_exclude_deps" class="form-input" placeholder="">
+								<div class="form-field-description">Comma-separated list of JS dependencies to exclude</div>
+							</div>
+							<div class="form-field">
+								<label for="worker_custom_imports" class="form-field-label">Worker Custom Imports</label>
+								<input type="text" name="WORKER_CUSTOM_IMPORTS" id="worker_custom_imports" class="form-input" placeholder="">
+								<div class="form-field-description">Custom imports for web workers</div>
 							</div>
 						</div>
 					</div>
@@ -618,7 +862,8 @@
 					<div class="config-content-item-header">
 						<div class="cc-item-top">
 							<div class="cc-item-top-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Tabler Icons by Paweł Kuna - https://github.com/tabler/tabler-icons/blob/master/LICENSE --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 21H7a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h10c.564 0 1.074.234 1.437.61"/><path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0-2 0m-3-5V7a4 4 0 1 1 8 0v4m1.001 8a2 2 0 1 0 4 0a2 2 0 1 0-4 0m2-3.5V17m0 4v1.5m3.031-5.25l-1.299.75m-3.463 2l-1.3.75m0-3.5l1.3.75m3.463 2l1.3.75"/></g>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+									<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 21H7a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h10c.564 0 1.074.234 1.437.61"/><path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0-2 0m-3-5V7a4 4 0 1 1 8 0v4m1.001 8a2 2 0 1 0 4 0a2 2 0 1 0-4 0m2-3.5V17m0 4v1.5m3.031-5.25l-1.299.75m-3.463 2l-1.3.75m0-3.5l1.3.75m3.463 2l1.3.75"/></g>
 								</svg>
 							</div>
 							<div class="cc-item-top-text">
@@ -650,7 +895,7 @@
 							<div class="form-field">
 								<div class="form-switch-container">
 									<label for="app_2fa_simple" class="form-switch-label">Enable Simple 2FA</label>
-									<input class="form-check-input" type="checkbox" id="app_2fa_simple">
+									<input name="APP_2FA_SIMPLE" class="form-check-input" type="checkbox" id="app_2fa_simple">
 								</div>
 								<div class="form-field-description">Enable simplified two-factor authentication mode</div>
 							</div>
@@ -698,7 +943,7 @@
 					<div class="config-content-item-header">
 						<div class="cc-item-top">
 							<div class="cc-item-top-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M12 10a4 4 0 1 0 0-8a4 4 0 0 0 0 8m-4 2.25a4.124 4.124 0 0 0-4.095 3.642l-.65 5.52a.75.75 0 0 0 1.49.176l.65-5.52a2.624 2.624 0 0 1 1.855-2.209v4.193c0 .899 0 1.648.08 2.242c.084.628.27 1.195.726 1.65c.455.456 1.022.642 1.65.726c.594.08 1.344.08 2.242.08h.104c.899 0 1.648 0 2.243-.08c.627-.084 1.194-.27 1.65-.726c.455-.455.64-1.022.725-1.65c.08-.594.08-1.343.08-2.242v-4.193a2.624 2.624 0 0 1 1.856 2.208l.65 5.52a.75.75 0 1 0 1.489-.175l-.65-5.52A4.124 4.124 0 0 0 16 12.25z"/></svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><path fill="currentColor" d="M12 10a4 4 0 1 0 0-8a4 4 0 0 0 0 8m-4 2.25a4.124 4.124 0 0 0-4.095 3.642l-.65 5.52a.75.75 0 0 0 1.49.176l.65-5.52a2.624 2.624 0 0 1 1.855-2.209v4.193c0 .899 0 1.648.08 2.242c.084.628.27 1.195.726 1.65c.455.456 1.022.642 1.65.726c.594.08 1.344.08 2.242.08h.104c.899 0 1.648 0 2.243-.08c.627-.084 1.194-.27 1.65-.726c.455-.455.64-1.022.725-1.65c.08-.594.08-1.343.08-2.242v-4.193a2.624 2.624 0 0 1 1.856 2.208l.65 5.52a.75.75 0 1 0 1.489-.175l-.65-5.52A4.124 4.124 0 0 0 16 12.25z"/></svg>
 							</div>
 							<div class="cc-item-top-text">
 								<h5>Dynamic Login Config</h5>
@@ -723,7 +968,7 @@
 							<div class="form-field">
 								<div class="form-switch-container">
 									<label for="dynamic_host" class="form-switch-label">Dynamic Host</label>
-									<input class="form-check-input" type="checkbox" id="dynamic_host">
+									<input name="DYNAMIC_HOST" class="form-check-input" type="checkbox" id="dynamic_host">
 								</div>
 								<div class="form-field-description">Enable dynamic host configuration</div>
 							</div>
@@ -731,7 +976,7 @@
 							<div class="form-field">
 								<div class="form-switch-container">
 									<label for="dynamic_host_subdomain" class="form-switch-label">Dynamic Host Subdomain</label>
-									<input class="form-check-input" type="checkbox" id="dynamic_host_subdomain">
+									<input name="DYNAMIC_HOST_SUBDOMAIN" class="form-check-input" type="checkbox" id="dynamic_host_subdomain">
 								</div>
 								<div class="form-field-description">Enable dynamic host subdomain support</div>
 							</div>
@@ -739,7 +984,7 @@
 							<div class="form-field">
 								<div class="form-switch-container">
 									<label for="dynamic_user" class="form-switch-label">Dynamic User</label>
-									<input class="form-check-input" type="checkbox" id="dynamic_user">
+									<input name="DYNAMIC_USER" class="form-check-input" type="checkbox" id="dynamic_user">
 								</div>
 								<div class="form-field-description">Enable dynamic user configuration</div>
 							</div>
@@ -747,7 +992,7 @@
 							<div class="form-field">
 								<div class="form-switch-container">
 									<label for="dynamic_smtp_subdomain" class="form-switch-label">Dynamic SMTP Subdomain</label>
-									<input class="form-check-input" type="checkbox" id="dynamic_smtp_subdomain">
+									<input name="DYNAMIC_SMTP_SUBDOMAIN" class="form-check-input" type="checkbox" id="dynamic_smtp_subdomain">
 								</div>
 								<div class="form-field-description">Enable dynamic SMTP subdomain support</div>
 							</div>
@@ -755,7 +1000,7 @@
 							<div class="form-field">
 								<div class="form-switch-container">
 									<label for="dynamic_mail_subdomain" class="form-switch-label">Dynamic Mail Subdomain</label>
-									<input class="form-check-input" type="checkbox" id="dynamic_mail_subdomain">
+									<input name="DYNAMIC_MAIL_SUBDOMAIN" class="form-check-input" type="checkbox" id="dynamic_mail_subdomain">
 								</div>
 								<div class="form-field-description">Enable dynamic mail subdomain support</div>
 							</div>
@@ -835,7 +1080,7 @@
 					<div class="config-content-item-header">
 						<div class="cc-item-top">
 							<div class="cc-item-top-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 512 512"><path fill="currentColor" fill-rule="evenodd" d="M405.333 42.666v32h48l2.171.146c7.1.963 12.72 6.583 13.683 13.683l.146 2.171l-.146 2.171c-.963 7.1-6.583 12.72-13.683 13.683l-2.171.146h-48v42.667h48l2.171.146c7.1.963 12.72 6.583 13.683 13.683l.146 2.171l-.146 2.171c-.963 7.099-6.583 12.719-13.683 13.683l-2.171.146h-48v32h-64l-4.259-.105c-37.866-1.861-69.243-28.404-78.381-63.879l-27.687-.016l-2.804.185a21.33 21.33 0 0 0-12.28 6.063c-7.691 7.69-8.282 19.791-1.775 28.16l1.775 2.01l72.579 72.579a128.7 128.7 0 0 0-30.17 30.17l-72.579-72.579l-2.88-3.072c-22.074-25.139-21.114-63.444 2.88-87.438a64 64 0 0 1 41.028-18.605l4.226-.14l27.681.005c9.12-35.444 40.441-61.977 78.255-63.894l4.391-.111zm-170.666 320c0 20.556 4.845 39.979 13.456 57.192c-12.984 27.998-40.701 47.773-73.197 49.37l-4.259.105h-64v-32h-48c-8.1 0-14.795-6.02-15.854-13.829l-.146-2.171c0-8.1 6.019-14.795 13.829-15.854l2.17-.146h48.001v-42.667h-48c-8.1 0-14.795-6.019-15.854-13.829l-.146-2.171c0-8.1 6.019-14.794 13.829-15.854l2.17-.146h48.001v-32h64c27.571 0 52.089 13.076 67.689 33.365a128.3 128.3 0 0 0-3.689 30.635m-64-21.333h-21.334v85.333h21.334l3.184-.117c20.973-1.547 37.73-18.256 39.353-39.208l.129-3.342l-.117-3.184c-1.547-20.973-18.255-37.73-39.207-39.353zm192-256h-21.334l-3.342.129c-19.787 1.533-35.79 16.565-38.811 35.898l-.396 3.455l-.117 3.184l.129 3.342c1.533 19.788 16.565 35.791 35.898 38.812l3.455.396l3.184.117h21.334zm-29.746 170.666h59.259v22.836a88.8 88.8 0 0 1 28.134 16.268l19.798-11.43l29.629 51.32l-19.784 11.422a89.4 89.4 0 0 1 1.482 16.251c0 5.551-.509 10.982-1.482 16.251l19.784 11.422l-29.63 51.32l-19.797-11.429a88.8 88.8 0 0 1-28.134 16.267v22.836h-59.259v-22.836a88.8 88.8 0 0 1-28.135-16.267l-19.797 11.429l-29.63-51.32l19.785-11.422a89.3 89.3 0 0 1-1.483-16.251c0-5.55.509-10.982 1.483-16.251l-19.785-11.422l29.63-51.32l19.797 11.43a88.8 88.8 0 0 1 28.135-16.268zm65.185 106.667c0 19.637-15.919 35.556-35.556 35.556s-35.555-15.919-35.555-35.556s15.918-35.556 35.555-35.556s35.556 15.919 35.556 35.556" clip-rule="evenodd"/></svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M3 10v4c0 1.886 0 2.828.586 3.414C4.172 18 5.114 18 7 18h10c1.886 0 2.828 0 3.414-.586C21 16.828 21 15.886 21 14V9c0-2.828 0-4.243-.879-5.121C19.243 3 17.828 3 15 3H9c-2.828 0-4.243 0-5.121.879c-.49.49-.707 1.146-.803 2.121M22 21h-6M2 21h10m3-6H9"/></svg>
 							</div>
 							<div class="cc-item-top-text">
 								<h5>LDAP Config</h5>
@@ -874,7 +1119,7 @@
 							<div class="form-field">
 								<div class="form-switch-container">
 									<label for="ldap_enable_tls" class="form-switch-label">Enable TLS</label>
-									<input class="form-check-input" type="checkbox" id="ldap_enable_tls">
+									<input name="LDAP_ENABLE_TLS" class="form-check-input" type="checkbox" id="ldap_enable_tls">
 								</div>
 								<div class="form-field-description">Enable secure connection to LDAP server</div>
 							</div>
@@ -894,7 +1139,7 @@
 							<div class="form-field">
 								<div class="form-switch-container">
 									<label for="ldap_auth" class="form-switch-label">Enable LDAP Authentication</label>
-									<input class="form-check-input" type="checkbox" id="ldap_auth">
+									<input name="LDAP_AUTH" class="form-check-input" type="checkbox" id="ldap_auth">
 								</div>
 								<div class="form-field-description">Enable LDAP authentication for users</div>
 							</div>
@@ -919,9 +1164,15 @@
 							</div>
 
 							<div class="form-field">
+								<label for="ldap_uid_attr" class="form-field-label">UID Attribute</label>
+								<input type="text" name="LDAP_UID_ATTR" id="ldap_uid_attr" class="form-input" placeholder="uid" value="uid">
+								<div class="form-field-description">LDAP UID attribute name</div>
+							</div>
+
+							<div class="form-field">
 								<div class="form-switch-container">
 									<label for="ldap_read_write" class="form-switch-label">Read/Write Access</label>
-									<input class="form-check-input" type="checkbox" id="ldap_read_write">
+									<input name="LDAP_READ_WRITE" class="form-check-input" type="checkbox" id="ldap_read_write">
 								</div>
 								<div class="form-field-description">Enable read/write access to LDAP directory</div>
 							</div>
@@ -1220,24 +1471,46 @@
 							</svg>Reset All
 						</button>
 						<button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.061 20.045C6.375 21 8.251 21 12 21s5.625 0 6.939-.955a5 5 0 0 0 1.106-1.106C21 17.625 21 15.749 21 12s0-5.625-.955-6.939a5 5 0 0 0-1.106-1.106C17.625 3 15.749 3 12 3s-5.625 0-6.939.955A5 5 0 0 0 3.955 5.06C3 6.375 3 8.251 3 12s0 5.625.955 6.939a5 5 0 0 0 1.106 1.106M17 18l1-1m-5 1l5-5m-9 5l9-9"/></svg>Preview</button>
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.061 20.045C6.375 21 8.251 21 12 21s5.625 0 6.939-.955a5 5 0 0 0 1.106-1.106C21 17.625 21 15.749 21 12s0-5.625-.955-6.939a5 5 0 0 0-1.106-1.106C17.625 3 15.749 3 12 3s-5.625 0-6.939.955A5 5 0 0 0 3.955 5.06C3 6.375 3 8.251 3 12s0 5.625.955 6.939a5 5 0 0 0 1.106 1.106M17 18l1-1m-5 1l5-5m-9 5l9-9"/></svg>Preview
+						</button>
 					</div>
 					<div class="config-right-notice">
-
 						<h5>
 							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 48 48">
-								<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><path d="M38.142 38.142c7.81-7.81 7.81-20.474 0-28.284s-20.474-7.81-28.284 0s-7.81 20.474 0 28.284s20.474 7.81 28.284 0m-5.657-22.627c4.687 4.686 4.687 12.284 0 16.97c-4.686 4.687-12.284 4.687-16.97 0c-4.687-4.686-4.687-12.284 0-16.97c4.686-4.687 12.284-4.687 16.97 0" clip-rule="evenodd"/><path d="m38.142 38.142l-5.657-5.657M9.858 38.142l5.657-5.657M9.858 9.858l5.657 5.657m22.627-5.657l-5.657 5.657m0 16.97c4.687-4.686 4.687-12.284 0-16.97c-4.686-4.687-12.284-4.687-16.97 0c-4.687 4.686-4.687 12.284 0 16.97c4.686 4.687 12.284 4.687 16.97 0"/></g>
-							</svg>Notice</h5>
-						<p>
-							Please note that neither
-							<span class="cc-right-span">allow_session_cache</span>
-							and
-							<span class="cc-right-span">cache_class</span>
-							are configurable through here, as it is not recommended and as such quite advanced usage. Check
-							<a href="https://github.com/cypht-org/cypht">app.php</a>
-							for more info.
-						</p>
+								<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+									<path d="M24 4v8m0 24v8M4 24h8m24 0h8M10.93 10.93l5.66 5.66m14.82 14.82l5.66 5.66M10.93 37.07l5.66-5.66m14.82-14.82l5.66-5.66"/>
+								</g>
+							</svg>
+							Notice
+						</h5>
 
+						<div class="config-right-notice-text">
+							<span>
+								Please note that neither
+								<span class="cc-right-span">allow_session_cache</span>
+								&
+								<span class="cc-right-span">cache_class</span>
+								are configurable here, as this is not recommended and intended for advanced use only.
+							</span>
+
+							<span>
+								Check
+								<a href="https://github.com/cypht-org/cypht" target="_blank">
+									app.php
+									<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+										<path fill="currentColor" d="M13.5 3a.75.75 0 0 1 .75-.75H21a.75.75 0 0 1 .75.75v6.75a.75.75 0 0 1-1.5 0V4.81l-6.97 6.97a.75.75 0 1 1-1.06-1.06l6.97-6.97h-4.94A.75.75 0 0 1 13.5 3"/>
+									</svg>
+								</a>
+								for more info.
+							</span>
+						</div>
+
+						<div class="config-right-notice-footer mt-2">
+							<span>The config-generator source code can be found on
+								<a href="https://github.com/cypht-org/cypht-website#cypht-config-generator-generator" target="_blank">
+									<i class="bi bi-github"></i>GitHub</a>
+							</span>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -1483,10 +1756,7 @@ WORDPRESS_CLIENT_SECRET=
 WORDPRESS_CLIENT_URI=
 </pre>
 	</div>
-</div>
-
-{# Toast #}
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
+</div>{# Toast #}<div class="toast-container position-fixed bottom-0 end-0 p-3">
 	<div id="simple_toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
 		<div class="d-flex justify-content-between align-items-center">
 			<div class="toast-body"></div>
@@ -1495,9 +1765,7 @@ WORDPRESS_CLIENT_URI=
 			</button>
 		</div>
 	</div>
-</div>
-{# Download Toast #}
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
+</div>{# Download Toast #}<div class="toast-container position-fixed bottom-0 end-0 p-3">
 	<div id="download_toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
 		<div class="d-flex justify-content-between align-items-center">
 			<div class="toast-body"></div>
