@@ -112,163 +112,164 @@ loadScriptAfter: /js/install.js
             </div>
             <div id="i-methods-list">
                 <!-- manual install -->
-            <div id="manual" class="install-methods-content">
-                <div class="i-content-left">
-                    <div class="i-content-left-img">
-                        <img src="/img/i-manuel.png" alt="">
+                <div id="manual" class="install-methods-content">
+                    <div class="i-content-left">
+                        <div class="i-content-left-img">
+                            <img src="/img/i-manuel.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="i-content-right">
-                    <!-- header -->
-                    <div class="i-content-right-header">
-                        <h2>Manual Install</h2>
-                        <p>Contrôle total sur l'installation et la configuration de Cypht</p>
-                    </div>
-                    <!-- content -->
-                   <div class="features">
-                        <div class="feature">
-                            <i class="bi bi-check-circle"></i>
-                            <span>Personnalisation avancée</span>
+                    <div class="i-content-right">
+                        <!-- header -->
+                        <div class="i-content-right-header">
+                            <h2>Manual Install</h2>
+                            <p>Contrôle total sur l'installation et la configuration de Cypht</p>
                         </div>
-                        <div class="feature">
-                            <i class="bi bi-check-circle"></i>
-                            <span>Accès serveur direct</span>
-                        </div>
-                        <div class="feature">
-                            <i class="bi bi-check-circle"></i>
-                            <span>Performance optimale</span>
-                        </div>
-                        </div>
-                        <div class="card-actions">
-                        <a href="#manual-guide" class="btn primary-btn">Guide Complet</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Docker -->
-            <div id="docker" class="install-methods-content">
-                <div class="i-content-left">
-                    <div class="i-content-left-img">
-                        <img src="/img/docker.png" alt="">
-                    </div>
-                    <div class="i-type-details">
-                        <span>Docker is  lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                        <a href="#docker-guide" class="btn primary-btn">Learn more about Docker</a>
-                    </div>
-                </div>
-                <div class="i-content-right">
-                    <!-- header -->
-                    <div class="i-content-right-header">
-                        <h2>Docker Install</h2>
-                        <p>L'installation la plus simple avec conteneurisation. Parfait pour un démarrage rapide.</p>
-                    </div>
-                    <!-- content -->
-                   <div class="features">
-                        <div class="feature">
-                            <i class="bi bi-check-circle"></i>
-                            <span>Configuration minimale</span>
-                        </div>
-                        <div class="feature">
-                            <i class="bi bi-check-circle"></i>
-                            <span>Environnement isolé</span>
-                        </div>
-                        <div class="feature">
-                            <i class="bi bi-check-circle"></i>
-                            <span>Mises à jour simplifiées</span>
-                        </div>
-                        <div class="code-preview">
-                        <code>docker run -p 8080:80 cypht/cypht:latest</code>
-                        <button class="copy-btn" data-clipboard-text="docker run -p 8080:80 cypht/cypht:latest">
-                            <i class="bi bi-clipboard"></i>
-                        </button>
-                        </div>
-                        <div class="card-actions">
-                            <a href="#docker-guide" class="btn primary-btn">Guide Complet</a>
+                        <!-- content -->
+                    <div class="features">
+                            <div class="feature">
+                                <i class="bi bi-check-circle"></i>
+                                <span>Personnalisation avancée</span>
+                            </div>
+                            <div class="feature">
+                                <i class="bi bi-check-circle"></i>
+                                <span>Accès serveur direct</span>
+                            </div>
+                            <div class="feature">
+                                <i class="bi bi-check-circle"></i>
+                                <span>Performance optimale</span>
+                            </div>
+                            </div>
+                            <div class="card-actions">
+                            <a href="#manual-guide" class="btn primary-btn">Guide Complet</a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- YunoHost Card  -->
-            <div id="yunohost" class="install-methods-content">
-                <div class="i-content-left">
-                    <div class="i-content-left-img">
-                        <img src="/img/yuno_host.png" alt="">
-                    </div>
-                     <div class="i-type-details">
-                        <span>YunoHost is  lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                        <a href="#yunohost-guide" class="btn primary-btn">Learn more about YunoHost</a>
-                    </div>
-                </div>
-                <div class="i-content-right">
-                    <!-- header -->
-                    <div class="i-content-right-header">
-                        <h2>YunoHost Install</h2>
-                        <p>Installation de Cypht sur YunoHost.</p>
-                    </div>
-                    <!-- content -->
-                   <div class="features">
-                        <div class="feature">
-                            <i class="bi bi-check-circle"></i>
-                            <span>Configuration minimale</span>
+               <!-- Docker -->
+                <div id="docker" class="install-methods-content">
+                    <div class="i-content-left">
+                        <div class="i-content-left-img">
+                            <img src="/img/docker.png" alt="">
                         </div>
-                        <div class="feature">
-                            <i class="bi bi-check-circle"></i>
-                            <span>Environnement isolé</span>
-                        </div>
-                        <div class="feature">
-                            <i class="bi bi-check-circle"></i>
-                            <span>Mises à jour simplifiées</span>
-                        </div>
-                        <div class="code-preview">
-                        <code>docker run -p 8080:80 cypht/cypht:latest</code>
-                        <button class="copy-btn" data-clipboard-text="docker run -p 8080:80 cypht/cypht:latest">
-                            <i class="bi bi-clipboard"></i>
-                        </button>
-                        </div>
-                        <div class="card-actions">
-                            <a href="#docker-guide" class="btn primary-btn">Guide Complet</a>
+                        <div class="i-type-details">
+                            <span>Docker is  lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                            <a href="#docker-guide" class="btn primary-btn">Learn more about Docker</a>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- Tiki Integration Card  -->
-            <div id="tiki" class="install-methods-content">
-                <div class="i-content-left">
-                    <div class="i-content-left-img">
-                        <img src="/img/tiki_logo.png" alt="">
-                    </div>
-                     <div class="i-type-details">
-                        <span>Tiki is  lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                        <a href="#tiki-guide" class="btn primary-btn">Learn more about Tiki</a>
+                    <div class="i-content-right">
+                        <!-- header -->
+                        <div class="i-content-right-header">
+                            <h2>Docker Install</h2>
+                            <p>L'installation la plus simple avec conteneurisation. Parfait pour un démarrage rapide.</p>
+                        </div>
+                        <!-- content -->
+                    <div class="features">
+                            <div class="feature">
+                                <i class="bi bi-check-circle"></i>
+                                <span>Configuration minimale</span>
+                            </div>
+                            <div class="feature">
+                                <i class="bi bi-check-circle"></i>
+                                <span>Environnement isolé</span>
+                            </div>
+                            <div class="feature">
+                                <i class="bi bi-check-circle"></i>
+                                <span>Mises à jour simplifiées</span>
+                            </div>
+                            <div class="code-preview">
+                            <code>docker run -p 8080:80 cypht/cypht:latest</code>
+                            <button class="copy-btn" data-clipboard-text="docker run -p 8080:80 cypht/cypht:latest">
+                                <i class="bi bi-clipboard"></i>
+                            </button>
+                            </div>
+                            <div class="card-actions">
+                                <a href="#docker-guide" class="btn primary-btn">Guide Complet</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="i-content-right">
-                    <!-- header -->
-                    <div class="i-content-right-header">
-                        <h2>Tiki Integration</h2>
-                        <p>Intégration de Cypht dans TikiWiki.</p>
+                <!-- YunoHost Card  -->
+                <div id="yunohost" class="install-methods-content">
+                    <div class="i-content-left">
+                        <div class="i-content-left-img">
+                            <img src="/img/yuno_host.png" alt="">
+                        </div>
+                        <div class="i-type-details">
+                            <span>YunoHost is  lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                            <a href="#yunohost-guide" class="btn primary-btn">Learn more about YunoHost</a>
+                        </div>
                     </div>
-                    <!-- content -->
-                   <div class="features">
-                        <div class="feature">
-                            <i class="bi bi-check-circle"></i>
-                            <span>Configuration minimale</span>
+                    <div class="i-content-right">
+                        <!-- header -->
+                        <div class="i-content-right-header">
+                            <h2>YunoHost Install</h2>
+                            <p>Installation de Cypht sur YunoHost.</p>
                         </div>
-                        <div class="feature">
-                            <i class="bi bi-check-circle"></i>
-                            <span>Environnement isolé</span>
+                        <!-- content -->
+                    <div class="features">
+                            <div class="feature">
+                                <i class="bi bi-check-circle"></i>
+                                <span>Configuration minimale</span>
+                            </div>
+                            <div class="feature">
+                                <i class="bi bi-check-circle"></i>
+                                <span>Environnement isolé</span>
+                            </div>
+                            <div class="feature">
+                                <i class="bi bi-check-circle"></i>
+                                <span>Mises à jour simplifiées</span>
+                            </div>
+                            <div class="code-preview">
+                            <code>docker run -p 8080:80 cypht/cypht:latest</code>
+                            <button class="copy-btn" data-clipboard-text="docker run -p 8080:80 cypht/cypht:latest">
+                                <i class="bi bi-clipboard"></i>
+                            </button>
+                            </div>
+                            <div class="card-actions">
+                                <a href="#docker-guide" class="btn primary-btn">Guide Complet</a>
+                            </div>
                         </div>
-                        <div class="feature">
-                            <i class="bi bi-check-circle"></i>
-                            <span>Mises à jour simplifiées</span>
+                    </div>
+                </div>
+                 <!-- Tiki Integration Card  -->
+                <div id="tiki" class="install-methods-content">
+                    <div class="i-content-left">
+                        <div class="i-content-left-img">
+                            <img src="/img/tiki_logo.png" alt="">
                         </div>
-                        <div class="code-preview">
-                        <code>docker run -p 8080:80 cypht/cypht:latest</code>
-                        <button class="copy-btn" data-clipboard-text="docker run -p 8080:80 cypht/cypht:latest">
-                            <i class="bi bi-clipboard"></i>
-                        </button>
+                        <div class="i-type-details">
+                            <span>Tiki is  lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                            <a href="#tiki-guide" class="btn primary-btn">Learn more about Tiki</a>
                         </div>
-                        <div class="card-actions">
-                            <a href="#docker-guide" class="btn primary-btn">Guide Complet</a>
+                    </div>
+                    <div class="i-content-right">
+                        <!-- header -->
+                        <div class="i-content-right-header">
+                            <h2>Tiki Integration</h2>
+                            <p>Intégration de Cypht dans TikiWiki.</p>
+                        </div>
+                        <!-- content -->
+                    <div class="features">
+                            <div class="feature">
+                                <i class="bi bi-check-circle"></i>
+                                <span>Configuration minimale</span>
+                            </div>
+                            <div class="feature">
+                                <i class="bi bi-check-circle"></i>
+                                <span>Environnement isolé</span>
+                            </div>
+                            <div class="feature">
+                                <i class="bi bi-check-circle"></i>
+                                <span>Mises à jour simplifiées</span>
+                            </div>
+                            <div class="code-preview">
+                            <code>docker run -p 8080:80 cypht/cypht:latest</code>
+                            <button class="copy-btn" data-clipboard-text="docker run -p 8080:80 cypht/cypht:latest">
+                                <i class="bi bi-clipboard"></i>
+                            </button>
+                            </div>
+                            <div class="card-actions">
+                                <a href="#docker-guide" class="btn primary-btn">Guide Complet</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -279,22 +280,34 @@ loadScriptAfter: /js/install.js
     <section id="guide" class="guide-section">
         <div class="d-flex flex-row guide-container">
             <div class="guide-left">
-                  <ul id="guide_left_list">
-                    <li data-method="manual">
-                        <a href="#manual" class="">Manual Installation</a>
-                    </li>
-                    <li data-method="docker">
-                        <a href="#docker" class="">Docker Installation</a>
-                    </li>
-                    <li data-method="yuno">
-                        <a href="#yuno" class="">YunoHost Installation</a>
-                    </li>
-                    <li data-method="tiki">
-                        <a href="#tiki" class="">Tiki Integration</a>
-                    </li>
-                </ul>
+               <div class="guide-left-content">
+                    <div class="guide-left-header">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21c4.418 0 8-3.356 8-7.496c0-3.741-2.035-6.666-3.438-8.06c-.26-.258-.694-.144-.84.189c-.748 1.69-2.304 4.123-4.293 4.123c-1.232.165-3.112-.888-1.594-6.107c.137-.47-.365-.848-.749-.534C6.905 4.905 4 8.511 4 13.504C4 17.644 7.582 21 12 21"/></svg>
+                            <h5>Installation Guide</h5>
+                        </div>
+                        <div>
+
+                            <p>Choose the method that best fits your workflow</p>
+                        </div>
+                    </div>
+                    <ul id="guide_left_list">
+                        <li data-method="manual">
+                            <a href="#manual" class="guide-menu-active">Manual</a>
+                        </li>
+                        <li data-method="docker">
+                            <a href="#docker" class="">Docker</a>
+                        </li>
+                        <li data-method="yuno">
+                            <a href="#yuno" class="">YunoHost</a>
+                        </li>
+                        <li data-method="tiki">
+                            <a href="#tiki" class="">Tiki Integration</a>
+                        </li>
+                    </ul>
+               </div>
             </div>
-            <div id="guide-content" class="guide-right">
+            <div id="guide-content">
             </div>
         </div>
     </section>

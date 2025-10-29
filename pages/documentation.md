@@ -472,7 +472,6 @@ loadScriptAfter: /js/documentation-nav.js
 
 </div>
     </div>
-
     <div class="doc-content-right">
       <div class="dc-ctr-content">
         <div class="dc-ctr-header">
@@ -492,7 +491,7 @@ loadScriptAfter: /js/documentation-nav.js
           <li><a href="#why_choose">Why Choose Cypht?</a></li>
           <li><a href="#community">Join Our Community</a></li>
         </ul>
-      </nav>
+       </nav>
       </div>
     </div>
 

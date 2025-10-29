@@ -1,4 +1,4 @@
-<div class="guide-right">
+<div class="guide-content">
       <div class="guide-center">
             <h2>Install Cypht on a YunoHost server</h2>
             <p>

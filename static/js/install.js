@@ -127,10 +127,10 @@ document.addEventListener("DOMContentLoaded", function () {
       menuItems.forEach((menu) => {
         menu.addEventListener("click", () => {
           // Remove active class from other elements
-          menuItems.forEach((item) => item.classList.remove("active"));
+          menuItems.forEach((item) => item.classList.remove("guide-menu-active"));
 
           // Add active class to clicked element
-          menu.classList.add("active");
+          menu.classList.add("guide-menu-active");
 
           // Get data attributes
           //   const method = menu.getAttribute('href').replace('#', '');
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           // Load md file
           if (file) {
-            console.log(file);
+            // console.log(file);
             load_md_file(file);
           }
         });
@@ -225,10 +225,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         // Drop any extension accidentally provided
         normalized = normalized.replace(/\.md$/i, "");
-
-        // Build primary and fallback URLs
-        const primaryUrl = `/static/installation/${normalized}.md`;
-        const fallbackUrl = `/installation/${normalized}.md`;
+        const file_path = `/installation/${normalized}.md`;
 
         // Loading state
         guideContent.innerHTML = '<div class="loading">Loading…</div>';
@@ -239,11 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return;
         }
 
-        // Try primary then fallback
-        let response = await fetch(primaryUrl);
-        if (!response.ok) {
-          response = await fetch(fallbackUrl);
-        }
+        const response = await fetch(file_path);
         if (!response.ok) {
           throw new Error(
             `Unable to load: ${normalized} (status ${response.status})`
@@ -251,7 +244,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const html = await response.text();
-        // const html = markdownToHtml(markdown);
         mdCache.set(normalized, html);
         guideContent.innerHTML = html;
       } catch (error) {
@@ -278,7 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
     show_methods_list("manual");
 
     //3. load file
-    load_md_file("manual");
+    load_md_file("docker");
   });
 
   // });
