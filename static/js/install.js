@@ -270,7 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
     show_methods_list("manual");
 
     //3. load file
-    load_md_file("docker");
+    load_md_file("manual");
   });
 
   // });

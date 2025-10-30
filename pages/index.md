@@ -27,7 +27,8 @@ loadScriptAfter: /home-page.js
                 <p class="stat-text d-flex flex-column align-items-start mb-0"><span class="d-block">Trusted by 21,000+ happy</span>customers worldwide</p>
             </div>
             <div class="minimal-mockup">
-                <img src="https://cdn.inspira-ui.com/images/linear.webp" alt="App preview" />
+                <!-- <img src="https://cdn.inspira-ui.com/images/linear.webp" alt="App preview" /> -->
+                <img src="/img/app_overview_2.png" alt="App preview" />
             </div>
         </div>
     </section>
