@@ -93,9 +93,238 @@
               </li>
             </ul>
             <div class="tab-content" id="myTabCo  ntent">
-              <div class="tab-pane fade show active" id="linux-tab-pane" role="tabpanel" aria-labelledby="linux-tab" tabindex="0">Linux</div>
-              <div class="tab-pane fade" id="windows-tab-pane" role="tabpanel" aria-labelledby="windows-tab" tabindex="0">Windows</div>
-              <div class="tab-pane fade" id="cpanel-tab-pane" role="tabpanel" aria-labelledby="cpanel-tab" tabindex="0">Cpanel</div>
+              <div class="tab-pane fade show active" id="linux-tab-pane" role="tabpanel" aria-labelledby="linux-tab" tabindex="0">
+                <div class="gc-code-card">
+                  <!-- <pre class="line-numbers"> -->
+                  <code class="language-bash">
+                  #!/bin/bash
+
+                  bold_green() {
+                  echo -e "\033[1m\033[32m✓ $1\033[0m"
+                  }
+
+                  bold_red() {
+                  echo -e "\033[1m\033[31m$1\033[0m"
+                  }
+
+                  bold_blue() {
+                  echo -e "\033[1m\033[34m$1\033[0m"
+                  }
+
+                  bold_yellow() {
+                  echo -e "\033[1m\033[33m$1\033[0m"
+                  }
+
+                  # Function to check prerequisites
+                  check_prerequisites() {
+                      echo "Checking prerequisites..."
+
+                      # Check if jq is installed (needed for version parsing)
+                      if ! command -v jq &amp;&gt;/dev/null; then
+                          bold_red "Error: jq is not installed but required to fetch versions."
+                          bold_red "Please install it with:"
+                          bold_blue "  sudo apt update &amp;&amp; sudo apt install jq"
+                          exit 1
+                      fi
+
+                      # Check if PHP is installed
+                      if ! command -v php &amp;&gt;/dev/null; then
+                          bold_red "Error: PHP is not installed or not in the system PATH."
+                          bold_red "Please install PHP before proceeding."
+                          exit 1
+                      fi
+
+                      # Print the PHP version
+                      bold_green "PHP is installed."
+
+                      # List installed PHP extensions
+                      required_extensions=("openssl" "mbstring" "curl" "session" "dom" "fileinfo" "filter" "gd" "mysqli" "phar" "simplexml" "soap" "tokenizer" "xml" "xmlwriter" "zlib")
+                      missing_extensions=()
+
+                      for ext in "${required_extensions[@]}"; do
+                          if ! php -m | grep -iq "$ext"; then
+                              missing_extensions+=("$ext")
+                          fi
+                      done
+
+                      if [ ${#missing_extensions[@]} -gt 0 ]; then
+                          bold_red "Error: The following required PHP extensions are missing: ${missing_extensions[*]}"
+                          bold_red "Please install the missing extensions before proceeding."
+                          exit 1
+                      else
+                          bold_green "All required PHP extensions (OpenSSL, mbstring, cURL, session, dom, fileinfo, filter, gd, mysqli, phar, simplexml, soap, tokenizer, xml, xmlwriter, zlib) are installed."
+                      fi
+
+                      # Check if Composer is installed
+                      if ! command -v composer &amp;&gt;/dev/null; then
+                          bold_red "Error: Composer is not installed or not in the system PATH."
+                          bold_red "Please install Composer before proceeding: https://getcomposer.org/download/"
+                          exit 1
+                      fi
+
+                      # Print the Composer version
+                      bold_green "Composer is installed.\n"
+
+                  }
+
+                  # Function to fetch the list of valid tags from the GitHub repository
+                  fetch_tags() {
+                      echo "Fetching latest versions from GitHub..." &gt;&amp;2  # Print to stderr to avoid mixing with output
+                      curl -s https://api.github.com/repos/cypht-org/cypht/releases | \
+                      jq -r '.[] | select(.created_at &gt; "2018-11-13T03:58:48Z") | .tag_name' | sort -V | \
+                      awk -F. '
+                      {
+                          major = substr($1, 2)  # Extract major version number (e.g., "1" from "v1.x.y")
+                          latest[major] = $0     # Always update the latest version for this major version
+                      }
+                      END {
+                          # Print the latest version for each major version
+                          for (major in latest) {
+                              print latest[major]
+                          }
+                      }' | sort -V  # Sort the final output by version
+                  }
+
+                  # Function to install Cypht for a given version
+                  install_cypht() {
+                      local version=$1
+                      local destination="$BASE_DIR/cypht-$version"
+
+                      # Check if the destination directory already exists
+                      if [ -d "$destination" ]; then
+                          bold_yellow "Cypht version $version already exists at $destination."
+                          read -p "Do you want to overwrite it? (yes/no) [yes]: " overwrite
+                          overwrite="${overwrite:-yes}"  # Default to 'yes' if no input is provided
+                          if [[ "$overwrite" != "yes" ]]; then
+                              bold_red "Installation aborted."
+                              exit 0
+                          else
+                              bold_blue "Overwriting existing installation..."
+                              sudo rm -rf "$destination"
+                          fi
+                      fi
+
+                      # Create destination directory
+                      bold_blue "Creating directory for version $version: $destination\n\n"
+                      sudo mkdir -p "$destination"
+
+                      # Create temporary working directory
+                      temp_dir=$(mktemp -d)
+                      cd "$temp_dir" || exit 1
+
+                      # Download the selected version of Cypht
+                      if [ "$version" == "master" ]; then
+                          bold_blue "Downloading the latest development version (master branch)..."
+                          wget "https://github.com/cypht-org/cypht/archive/refs/heads/master.zip" -O "master.zip"
+                          archive_name="master.zip"
+                          extracted_folder="cypht-master"
+                      else
+                          bold_blue "Downloading version $version..."
+                          wget "https://github.com/cypht-org/cypht/archive/refs/tags/$version.zip" -O "$version.zip"
+                          archive_name="$version.zip"
+                          extracted_folder="cypht-${version#v}"
+                      fi
+
+                      if [ $? -ne 0 ]; then
+                          bold_red "Error downloading version $version."
+                          exit 1
+                      fi
+
+                      # Unpack the archive
+                      bold_blue "Unpacking the archive...\n"
+                      unzip "$archive_name"
+
+                      if [ $? -ne 0 ]; then
+                          bold_red "Error unpacking the archive."
+                          exit 1
+                      fi
+
+                      # Run composer
+                      cd "$extracted_folder" || exit 1
+                      bold_blue "Installing dependencies with composer...\n"
+                      composer install
+
+                      # Handle configuration file creation
+
+                      if [[ "$selected_version" =~ ^v1 ]]; then
+                          bold_blue "Creating hm3.ini from hm3.sample.ini\n"
+                          cp hm3.sample.ini hm3.ini
+                      else
+                          bold_blue "Creating .env from .env.example....\n"
+                          cp .env.example .env
+                      fi
+
+                      # Fix permissions and ownership
+                      bold_blue "Fixing permissions...\n"
+                      find . -type d -exec chmod 755 {} \;
+                      find . -type f -exec chmod 644 {} \;
+
+                      # Ask for group (root is default for other systems, or user for macOS)
+                      read -p "Enter the group to own the files [root]: " group
+                      group="${group:-root}"
+
+                      sudo chown -R root:"$group" .
+
+                      # Move files to the destination folder
+                      bold_blue "Copying files to $destination...\n"
+                      sudo mv ./* ./.[!.]* "$destination"
+
+                      # Clean up temporary directory
+                      cd ..
+                      sudo rm -rf "$temp_dir"
+
+                      if [ $? -ne 0 ]; then
+                          echo "Error moving files to $destination."
+                          exit 1
+                      fi
+                      bold_green "Cypht $version installed successfully to $destination"
+                  }
+
+                  # Main script execution
+
+                  # Check prerequisites
+                  check_prerequisites
+
+                  # Fetch available version tags
+                  available_versions=$(fetch_tags)
+                  available_versions=$(echo -e "$available_versions\nmaster")  # Add master branch to the list
+
+                  # Display available versions
+                  echo "$available_versions" | nl -s '. '
+
+                  # Prompt user to select a version
+                  read -p "Enter the version number (e.g. 1 for $(echo "$available_versions" | head -n 1)) [master]: " version_choice
+                  version_choice="${version_choice:-$(echo "$available_versions" | grep -n "master" | cut -d: -f1)}"
+
+                  # Get the version based on the user’s choice
+                  selected_version=$(echo "$available_versions" | sed -n "${version_choice}p")
+
+                  if [ -z "$selected_version" ]; then
+                      bold_red "Error: Invalid version choice. Please select a valid number from the list."
+                      exit 1
+                  fi
+
+                  # Prompt user for BASE_DIR
+                  read -p "Enter the base directory for Cypht installation [/usr/local/share/cypht]: " BASE_DIR
+                  BASE_DIR="${BASE_DIR:-/usr/local/share/cypht}"
+
+                  bold_blue "Installation of version: $selected_version"
+                  install_cypht "$selected_version"
+                  </code>
+                  <!-- </pre> -->
+
+                </div>
+              </div>
+              <div class="tab-pane fade" id="windows-tab-pane" role="tabpanel" aria-labelledby="windows-tab" tabindex="0">
+                <div class="gc-code-card">
+
+                </div>
+              </div>
+              <div class="tab-pane fade" id="cpanel-tab-pane" role="tabpanel" aria-labelledby="cpanel-tab" tabindex="0">
+                <div class="gc-code-card">
+
+                </div>
+              </div>
             </div>
         </div>
       </div>
@@ -256,7 +485,6 @@
            Debug mode is not as efficient as the normal version, and it is NOT designed to be secure. <strong>DO NOT RUN DEBUG MODE IN PRODUCTION.</strong> You have been warned! Debug mode outputs lots of information to the PHP error log that can be useful for trouble-shooting problems. The location of the error log varies based on your php.ini settings and web-server software.
         </p>
       </div>
-
     </div>
 
 
@@ -264,7 +492,6 @@
     <div id="other" class="g-page-card">
       <div class="g-card-header">
           <h5>Other INI files</h5>
-           <p class="guide-page-subtitle">For Nginx users, add these security rules to your server configuration :</p>
       </div>
 
       <div class="g-card-body">

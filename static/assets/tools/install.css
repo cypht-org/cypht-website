@@ -712,7 +712,13 @@
       padding: 1rem !important;
       color: whitesmoke;
       overflow-x: auto;
-      font-size: .85rem;
+      font-size: .88rem;
+}
+
+.gc-code-card pre {
+      background-color: transparent !important;
+      padding: 0 !important;
+      margin: 0 !important;
 }
 
 /* Tabs */
@@ -744,7 +750,7 @@
 }
 
 /* Code blocks */
-.guide-center pre {
+/* .guide-center pre {
       background: var(--color-bg-tertiary);
       border: 1px solid var(--color-border);
       border-radius: 10px;
@@ -755,7 +761,7 @@
       line-height: 1.6;
       box-shadow: var(--shadow-xs);
       max-width: 700px;
-}
+} */
 
 .guide-center code {
       background-color: #f4f4f4;

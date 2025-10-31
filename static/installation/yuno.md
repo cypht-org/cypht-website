@@ -21,7 +21,7 @@
             </ul>
       </div>
       <div class="guide-actions">
-            <a href="#yuno-guide" class="">Yuno Installation</a>
+            <!-- <a href="#yuno-guide" class="">Yuno Installation</a> -->
       </div>
 
 </div>
