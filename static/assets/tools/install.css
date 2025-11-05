@@ -463,7 +463,7 @@
       text-decoration: none;
       color: var(--color-text);
       transition: all .2s ease-in-out;
-      font-size: .83rem;
+      font-size: .845rem;
       font-weight: 500;
       min-height: inherit !important;
       text-transform: capitalize;
@@ -608,7 +608,7 @@
       color: var(--color-text-secondary);
       line-height: 1.7;
       margin: .3rem 0 .8rem 0;
-      font-size: .94rem;
+      font-size: .96rem;
       font-weight: 400;
 }
 
@@ -638,7 +638,7 @@
 }
 
 .gpc-body-title {
-      font-size: 1.05rem;
+      font-size: 1.25rem;
       font-weight: 600 !important;
       display: block;
       margin-bottom: .7rem;
@@ -659,6 +659,13 @@
       font-size: .9rem;
 }
 
+.g-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: .8rem;
+}
+
 .gc-terminal {
       display: flex;
       flex-direction: column;
@@ -669,6 +676,7 @@
       width: 95%;
       margin: .6rem 0;
       opacity: 1 !important;
+      box-shadow: var(--shadow-md);
 }
 
 .terminal-prompt {
@@ -706,43 +714,229 @@
       display: flex;
       flex-direction: column;
       background-color: #444444;
-      padding: .8rem .6rem;
-      border-radius: 5px;
-      border: 1px solid var(--color-border);
-      padding: 1rem !important;
-      color: whitesmoke;
-      overflow-x: auto;
-      font-size: .88rem;
+      padding: 0;
+      border-radius: 6px;
+      border: 1px solid #3a3a3a;
+      color: #d4d4d4;
+      overflow: hidden;
+      font-size: 0.875rem;
+      line-height: 1.7;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      position: relative;
+      /* Terminal-like appearance */
+      background-image:
+            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 20px 20px;
+}
+
+/* Terminal header bar effect (optional) */
+.gc-code-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #3a3a3a, #2d2d2d, #3a3a3a);
+      z-index: 1;
 }
 
 .gc-code-card pre {
       background-color: transparent !important;
+      padding: 1.25rem 1.5rem 1.25rem 2rem !important;
+      margin: 0 !important;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: pre;
+      word-wrap: normal;
+      font-family: 'Inconsolata', 'SF Mono', 'Monaco', 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+      tab-size: 4;
+      -moz-tab-size: 4;
+}
+
+.gc-code-card code {
+      background-color: transparent !important;
       padding: 0 !important;
       margin: 0 !important;
+      color: inherit;
+      font-family: inherit;
+      font-size: 0.6rem !important;
+      border-radius: 0;
+      display: block;
+      padding-left: 0 !important;
+}
+
+.gc-code-card pre code {
+      border: none !important;
+      padding-left: 0 !important;
+}
+
+/* PrismJS token styles - Vim/Nano inspired color scheme */
+.gc-code-card .token.comment,
+.gc-code-card .token.prolog,
+.gc-code-card .token.doctype,
+.gc-code-card .token.cdata {
+      color: #6a9955;
+      font-style: italic;
+}
+
+.gc-code-card .token.punctuation {
+      color: #d4d4d4;
+}
+
+.gc-code-card .token.property,
+.gc-code-card .token.tag,
+.gc-code-card .token.boolean,
+.gc-code-card .token.number,
+.gc-code-card .token.constant,
+.gc-code-card .token.symbol,
+.gc-code-card .token.deleted {
+      color: #b5cea8;
+}
+
+.gc-code-card .token.selector,
+.gc-code-card .token.attr-name,
+.gc-code-card .token.string,
+.gc-code-card .token.char,
+.gc-code-card .token.builtin,
+.gc-code-card .token.inserted {
+      color: #ce9178;
+}
+
+.gc-code-card .token.operator,
+.gc-code-card .token.entity,
+.gc-code-card .token.url,
+.gc-code-card .language-css .token.string,
+.gc-code-card .style .token.string {
+      color: #d4d4d4;
+}
+
+.gc-code-card .token.atrule,
+.gc-code-card .token.attr-value,
+.gc-code-card .token.keyword {
+      color: #569cd6;
+}
+
+.gc-code-card .token.function,
+.gc-code-card .token.class-name {
+      color: #4ec9b0;
+}
+
+.gc-code-card .token.regex,
+.gc-code-card .token.important,
+.gc-code-card .token.variable {
+      color: #9cdcfe;
+}
+
+/* Bash/Shell specific colors */
+.gc-code-card .language-bash .token.function,
+.gc-code-card .language-bash .token.builtin {
+      color: #4ec9b0;
+}
+
+.gc-code-card .language-bash .token.string {
+      color: #ce9178;
+}
+
+.gc-code-card .language-bash .token.comment {
+      color: #6a9955;
+}
+
+.gc-code-card .language-bash .token.keyword {
+      color: #569cd6;
+}
+
+/* Batch/Windows specific colors */
+.gc-code-card .language-batch .token.keyword {
+      color: #569cd6;
+}
+
+.gc-code-card .language-batch .token.string {
+      color: #ce9178;
+}
+
+.gc-code-card .language-batch .token.comment {
+      color: #6a9955;
+}
+
+/* Scrollbar styling for terminal-like appearance */
+.gc-code-card pre::-webkit-scrollbar {
+      height: 8px;
+}
+
+.gc-code-card pre::-webkit-scrollbar-track {
+      background: #1e1e1e;
+      border-radius: 4px;
+}
+
+.gc-code-card pre::-webkit-scrollbar-thumb {
+      background: #424242;
+      border-radius: 4px;
+      border: 1px solid #1e1e1e;
+}
+
+.gc-code-card pre::-webkit-scrollbar-thumb:hover {
+      background: #4e4e4e;
 }
 
 /* Tabs */
-.guide-center .nav-tabs {
-      border: 1px solid var(--color-border);
-      background: #fff;
-      border-radius: 10px;
-      padding: .35rem;
-      display: inline-flex;
-      gap: .35rem;
+.guide-center .system-tabs {
+      border-bottom: 1px solid var(--color-border);
+      gap: .5rem;
+      margin-top: 2rem;
 }
 
-.guide-center .nav-tabs .nav-link {
-      border: 1px solid transparent;
-      border-radius: 8px;
-      padding: .45rem .8rem;
-      color: var(--color-text);
-      font-weight: 500;
+.system-tabs .tab-item {
+      padding: 0 !important;
+      position: relative;
 }
 
-.guide-center .nav-tabs .nav-link.active {
-      background: var(--color-bg-secondary);
-      border-color: var(--color-border);
-      color: var(--color-primary);
+.system-tabs li a {
+      color: var(--color-text) !important;
+      border: none !important;
+      background-color: transparent !important;
+      opacity: .7;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      gap: .4rem;
+      font-size: .88rem !important;
+      font-weight: 600 !important;
+      transition: all ease 1s;
+}
+
+.system-tabs li a svg {
+      height: 26px !important;
+      width: 26px !important;
+}
+
+.system-tabs li a:hover {
+      text-decoration: none !important;
+      opacity: 1 !important;
+      font-weight: 700 !important;
+}
+
+
+.system-tabs .tab-link.active {
+      opacity: 1 !important;
+      font-weight: 700 !important;
+      background-color: transparent;
+}
+
+.system-tabs .tab-link.active::before {
+      content: "";
+      position: absolute;
+      bottom: -6.75px;
+      left: 4px;
+      right: 4px;
+      border-radius: 4px;
+      height: 4px;
+      background-color: var(--color-primary);
+
 }
 
 .guide-center .tab-content {
@@ -768,7 +962,7 @@
       color: #d63384;
       padding: 2px 4px;
       border-radius: 4px;
-      font-family: Consolas, "Courier New", monospace;
+      font-family: 'Inconsolata', 'SF Mono', 'Monaco', 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
       font-size: 1.03rem !important;
 }
 
@@ -829,6 +1023,58 @@
       transform: translateY(-1px);
       background: var(--color-bg-secondary);
 }
+
+.sub-iten-list {
+      list-style: none;
+      padding: 0 0 0 .7rem;
+      margin: 0;
+      border-left: 1.2px solid #e2e2e2;
+}
+
+.sub-iten-list a {
+      text-decoration: none;
+}
+
+.item-group::before {
+      content: "";
+      position: absolute;
+      background-color: var(--color-bg);
+      /* background-color: red; */
+      width: 2px;
+      /* height: 100%; */
+      top: 1.8rem;
+      bottom: -.5rem;
+      left: -.88rem;
+}
+
+.sub-iten-list .guide-page-menu-active::before {
+      left: -.87rem !important;
+      z-index: 100;
+      /* left: -.956rem; */
+}
+
+.g-warning-card {
+      background-color: #FFE696;
+      padding: .6rem;
+      box-shadow: var(--shadow-md);
+      width: 95%;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-bottom: .6rem;
+}
+
+.g-warning-card-icon i {
+      font-size: 1.2rem;
+}
+
+.g-warning-card-text {
+      font-size: .87rem;
+      font-weight: 500;
+}
+
+
 
 /* ─── Tiki Page ────────────────────────────────────────────────────────── */
 

@@ -26,18 +26,29 @@
         </div>
         <div class="g-card-body">
           <ol>
-            <li>Create a Project Directory
-              <pre>mkdir cypht-docker
-              cd cypht-docker</pre>
+            <li>
+               Create a Project Directory
+               <div class="gc-terminal">
+                  <p class="terminal-prompt"> <span class="terminal-command">mkdir </span><span class="terminal-text">cypht-docker</span></p>
+                  <p class="terminal-prompt"> <span class="terminal-command">cd </span><span class="terminal-text">cypht-docker</span></p>
+                </div>
             </li>
             <li>Create a file named <code>docker-compose.yaml</code> in the directory you just created.</li>
             <li>Copy and paste the content from <a href="https://github.com/cypht-org/cypht/blob/master/docker/docker-compose.yaml">the official compose file</a>.</li>
             <li>
-              Run containers:
-              <pre>docker compose up -d</pre>
+              Run containers
               If you use the legacy standalone tool:
-              <pre>docker-compose up -d</pre>
-              <b>Note</b>: The legacy docker-compose can be incompatible with newer Docker Engine versions. Prefer the modern Docker Compose plugin.
+                <div class="gc-terminal">
+                  <p class="terminal-prompt"> <span class="terminal-command">docker compose  </span><span class="terminal-text">up  -d</span></p>
+                </div>
+              <div class="g-warning-card">
+              <div class="g-warning-card-icon">
+                 <i class="bi bi-info-circle"></i>
+              </div>
+                <span class="g-warning-card-text">
+                  <b>Note</b>: The legacy docker-compose can be incompatible with newer Docker Engine versions. Prefer the modern Docker Compose plugin.
+                </span>
+              </div>
             </li>
             <li>Access Cypht at <code>http://localhost:80</code> (or your server IP) unless you changed the mapped port.</li>
           </ol>
@@ -69,8 +80,8 @@
       <nav>
         <ul id="ga-content-nav">
           <li><a href="#meet_cypht" class="guide-page-menu-active">Requirement</a></li>
-          <li><a href="#why_cypht">Step</a></li>
-          <li><a href="#security_privacy">Other INI files</a></li>
+          <li><a href="#why_cypht">Quick start</a></li>
+          <li><a href="#security_privacy">Persisting data</a></li>
         </ul>
       </nav>
     </div>

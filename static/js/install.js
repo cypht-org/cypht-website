@@ -127,7 +127,9 @@ document.addEventListener("DOMContentLoaded", function () {
       menuItems.forEach((menu) => {
         menu.addEventListener("click", () => {
           // Remove active class from other elements
-          menuItems.forEach((item) => item.classList.remove("guide-menu-active"));
+          menuItems.forEach((item) =>
+            item.classList.remove("guide-menu-active")
+          );
 
           // Add active class to clicked element
           menu.classList.add("guide-menu-active");
@@ -209,6 +211,40 @@ document.addEventListener("DOMContentLoaded", function () {
     const mdCache = new Map();
 
     /**
+     * Normalize indentation in code blocks by removing common leading whitespace
+     * @param {HTMLElement} container Container element to search for code blocks
+     */
+    function normalizeCodeIndentation(container) {
+      const codeBlocks = container.querySelectorAll("pre code");
+      codeBlocks.forEach((codeElement) => {
+        const text = codeElement.textContent || codeElement.innerText;
+        const lines = text.split("\n");
+
+        // Find the minimum indentation (excluding empty lines)
+        let minIndent = Infinity;
+        for (const line of lines) {
+          if (line.trim().length === 0) continue; // Skip empty lines
+          const indent = line.match(/^\s*/)[0].length;
+          if (indent < minIndent) {
+            minIndent = indent;
+          }
+        }
+
+        // If we found indentation, remove it from all lines
+        if (minIndent > 0 && minIndent < Infinity) {
+          const normalizedLines = lines.map((line) => {
+            if (line.trim().length === 0) return line; // Keep empty lines as-is
+            return line.substring(minIndent);
+          });
+
+          // Update the text content
+          const normalizedText = normalizedLines.join("\n");
+          codeElement.textContent = normalizedText;
+        }
+      });
+    }
+
+    /**
      * Load md file from the @installation/ subfolder.
      * Accepts values like: "manuel", "docker", or "@installation/manuel".
      * Renders basic markdown to HTML and injects into guideContent.
@@ -233,6 +269,12 @@ document.addEventListener("DOMContentLoaded", function () {
         // Cache hit
         if (mdCache.has(normalized)) {
           guideContent.innerHTML = mdCache.get(normalized);
+          // Normalize code indentation before highlighting
+          normalizeCodeIndentation(guideContent);
+          // Highlight code blocks with PrismJS
+          if (typeof Prism !== "undefined") {
+            Prism.highlightAllUnder(guideContent);
+          }
           return;
         }
 
@@ -246,6 +288,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const html = await response.text();
         mdCache.set(normalized, html);
         guideContent.innerHTML = html;
+
+        // Normalize code indentation before highlighting
+        normalizeCodeIndentation(guideContent);
+
+        // Highlight code blocks with PrismJS after content is loaded
+        if (typeof Prism !== "undefined") {
+          Prism.highlightAllUnder(guideContent);
+        }
       } catch (error) {
         console.error("Erreur détaillée :", {
           message: error.message,
@@ -271,6 +321,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //3. load file
     load_md_file("manual");
+
+    // Highlight code when tabs are shown (Bootstrap tab events)
+    const tabList = document.querySelectorAll('[data-bs-toggle="tab"]');
+    tabList.forEach((tab) => {
+      tab.addEventListener("shown.bs.tab", function (event) {
+        // Re-highlight code in the newly shown tab
+        const targetPane = document.querySelector(
+          event.target.getAttribute("data-bs-target")
+        );
+        if (targetPane) {
+          // Normalize code indentation first
+          normalizeCodeIndentation(targetPane);
+          // Then highlight with PrismJS
+          if (typeof Prism !== "undefined") {
+            Prism.highlightAllUnder(targetPane);
+          }
+        }
+      });
+    });
   });
 
   // });
