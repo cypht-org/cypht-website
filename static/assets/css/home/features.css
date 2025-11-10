@@ -409,77 +409,210 @@
 /* ==============================================
    7. MEDIA QUERIES FOR RESPONSIVENESS
 ============================================== */
-@media (max-width: 992px) {
-      .mosaic-grid {
-            grid-template-columns: repeat(6, 1fr);
+
+/* Desktop (> 1028px) - Keep current 8-column mosaic layout */
+/* No media query needed - desktop styles are default */
+
+/* Tablet breakpoint (640px - 1028px) */
+@media (max-width: 1028px) and (min-width: 640px) {
+      .features-section {
+            padding: 4rem 0;
       }
 
+      .features-title {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+      }
+
+      .features-subtitle {
+            font-size: 1rem;
+            max-width: 100%;
+      }
+
+      .mosaic-grid {
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: minmax(200px, auto);
+      }
+
+      /* Reorganize card placement for 2-column grid */
       .m-hero {
-            grid-column: 1 / 7;
-            grid-row: 1 / 3;
+            grid-column: 1 / 3;
+            grid-row: 1 / 2;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+      }
+
+      .m-hero-col {
+            order: 1;
+      }
+
+      .m-hero-col.m-hero-illus {
+            order: 0;
+            margin-bottom: 1rem;
       }
 
       .m-left {
-            grid-column: 1 / 4;
-            grid-row: 3 / 4;
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
       }
 
       .m-right {
-            grid-column: 4 / 7;
-            grid-row: 3 / 4;
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
       }
 
       .m-yellow {
-            grid-column: 1 / 4;
-            grid-row: 4 / 5;
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
       }
 
       .m-cyan {
-            grid-column: 4 / 7;
-            grid-row: 4 / 5;
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
       }
 
       .m-cta {
-            grid-column: 1 / 7;
-            grid-row: 5 / 6;
+            grid-column: 1 / 3;
+            grid-row: 4 / 5;
+      }
+
+      /* Adjust card heights for tablet */
+      .f-card:not(.m-hero) {
+            min-height: 240px;
+            max-height: none;
+      }
+
+      .f-card.m-yellow,
+      .f-card.m-cyan,
+      .f-card.m-cta {
+            height: auto !important;
+            min-height: 240px !important;
+            max-height: none !important;
+      }
+
+      /* Adjust phone-mock images */
+      .f-card.f-soft .f-illus {
+            max-height: 120px;
+      }
+
+      /* Adjust app icons grid */
+      .f-apps .apps {
+            grid-template-columns: repeat(5, minmax(28px, 1fr));
+            gap: 0.4rem;
       }
 }
 
-@media (max-width: 768px) {
+/* Mobile breakpoint (< 640px) */
+@media (max-width: 640px) {
       .features-section {
             padding: 3rem 0;
       }
 
+      .features-wide {
+            padding: 0 1rem;
+      }
+
       .features-title {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 6vw, 2rem);
+            line-height: 1.3;
+      }
+
+      .features-subtitle {
+            font-size: 0.95rem;
+            max-width: 100%;
       }
 
       .mosaic-grid {
             grid-template-columns: 1fr;
+            grid-auto-rows: auto;
       }
 
+      /* All cards stack vertically */
       .f-card {
             grid-column: 1 / 2 !important;
             grid-row: auto !important;
+            width: 100%;
       }
 
       .f-card.m-hero {
             grid-template-columns: 1fr;
-            gap: 1rem;
+            gap: 1.5rem;
+            padding: 1.5rem;
+      }
+
+      .m-hero-col {
+            order: 1;
+      }
+
+      .m-hero-col.m-hero-illus {
+            order: 0;
+            margin-bottom: 1rem;
       }
 
       .f-card:not(.m-hero) {
             max-height: none;
-            /* Allow expansion on mobile */
+            min-height: auto;
+            padding: 1.5rem;
       }
 
-      /* Increase height for bottom cards */
+      /* Remove fixed heights on mobile */
       .f-card.m-yellow,
       .f-card.m-cyan,
       .f-card.m-cta {
+            height: auto !important;
+            min-height: auto !important;
+            max-height: none !important;
+            padding: 1.5rem;
+      }
+
+      /* Adjust card content */
+      .f-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+      }
+
+      .f-card p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+      }
+
+      /* Make phone-mock images responsive */
+      .phone-mock {
+            max-width: 100%;
             height: auto;
-            min-height: 250px;
-            /* Minimum height on mobile */
+            display: block;
+      }
+
+      .f-card.f-soft .f-illus {
+            max-height: 140px;
+            width: 100%;
+            margin-bottom: 1rem;
+      }
+
+      /* Optimize app icons grid */
+      .f-apps .apps {
+            grid-template-columns: repeat(5, minmax(32px, 1fr));
+            gap: 0.5rem;
+            margin-top: 1rem;
+      }
+
+      .f-apps .apps i {
+            width: 36px;
+            height: 36px;
+            font-size: 1.1rem;
+      }
+
+      /* Adjust CTA card */
+      .f-card.m-cta h3 {
+            font-size: 1.25rem;
+      }
+
+      .f-card.m-cta p {
+            font-size: 0.95rem;
+      }
+
+      .cta-btn {
+            width: 100%;
+            justify-content: center;
       }
 }
 
@@ -626,22 +759,7 @@
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* Mobile optimizations */
-@media (max-width: 768px) {
-      .f-card.m-hero {
-            display: flex;
-            flex-direction: column;
-      }
-
-      .m-hero-col.m-hero-illus {
-            order: -1;
-            margin-bottom: 1rem;
-      }
-
-      .f-card.f-soft .f-illus {
-            max-height: 140px;
-      }
-}
+/* Additional mobile optimizations are handled in the main media query above */
 
 /* Force bottom cards to have exactly the same height */
 

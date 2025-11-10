@@ -105,14 +105,14 @@
 } %}
 
 <footer
-	class="modern-footer">
+	class="footer-content">
 	<!-- Main footer section -->
 	<div class="footer-main">
 		<div
-			class="footer-container d-lg-flex mb-2">
+			class="footer-container mb-2">
 			<!-- Branding and newsletter -->
 			<div class="footer-brand">
-				<div class="d-flex flex-column">
+				<div class="d-flex flex-column brand-header">
 					<div class="logo-wrapper">
 						<img src="/img/logo_dark.svg" alt="Cypht" class="footer-logo">
 					</div>
@@ -131,7 +131,7 @@
 			</div>
 
 			<!-- Organized links -->
-			<div class="footer-links flex-1 pt-lg-4 d-flex justify-content-end">
+			<div class="footer-links flex-1 pt-lg-4">
 				{% for link in footer_links.links %}
 					<div class="link-column">
 						<h4 class="link-title text-capitalize">{{ link.title }}</h4>
