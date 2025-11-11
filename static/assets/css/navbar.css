@@ -40,7 +40,6 @@
 }
 
 /* Toogle mobile */
-
 .mobile-toggle {
       background-color: transparent !important;
       border: none !important;
@@ -99,7 +98,6 @@
 }
 
 /*  offcanvas body */
-
 .offcanvas-body {
       display: flex;
       flex-direction: column;

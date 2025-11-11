@@ -20,46 +20,49 @@ loadScriptAfter: /js/security.js
           Protect your emails with advanced encryption and guaranteed privacy.
         </p>
         <div class="hero-buttons d-inline-flex">
-          <a href="#browser" class="btn btn-dark px-4 px-md-5 py-2">
+          <a href="#security" class="btn btn-dark px-5 py-2">
             Explore Security 
           </a>
         </div>
       </div>
-      <!-- Image on Right -->
+
+      <!-- Image à droite -->
       <div class="sec-hero-image">
         <img src="/img/security/hero_i1.png" alt="Mail security illustration" loading="eager" decoding="async" />
       </div>
     </div>
+
   </section>
   <!-- List -->
   <div class="mt-5">
-    <!-- tabs menu -->
-    <div class="sec-tabs-container">
-      <div class="d-flex justify-content-center sec-tabs-menu pt-2">
-        <ul>
-          <li>
-            <a href="#browser" class="sec-active">
-              <i class="bi bi-browser-chrome me-2"></i>Browser
-            </a>
-          </li>
-          <li>
-            <a href="#server">
-              <i class="bi bi-server me-2"></i>Server
-            </a>
-          </li>
-          <li>
-            <a href="#development">
-              <i class="bi bi-code-square me-2"></i>Development
-            </a>
-          </li>
-        </ul>
-      </div>
+  <!-- tabs menu -->
+  <div class="sec-tabs-container">
+    <div class="d-flex justify-content-center sec-tabs-menu pt-2">
+      <ul>
+        <li>
+          <a href="#browser" class="sec-active">
+            <i class="bi bi-browser-chrome me-2"></i>Browser
+          </a>
+        </li>
+        <li>
+          <a href="#server">
+            <i class="bi bi-server me-2"></i>Server
+          </a>
+        </li>
+        <li>
+          <a href="#development">
+            <i class="bi bi-code-square me-2"></i>Development
+          </a>
+        </li>
+      </ul>
     </div>
+  </div>
+
     <!-- tabs content -->
     <div class="sec-list-content d-flex flex-column gap-5 px-4">
         <!-- 1 -->
         <div id="browser" class="sec-tab-content column mt-4">
-          <div class="sec-tab-details col-12 col-lg-5 relative">
+          <div class="sec-tab-details col-5 relative">
              <div class="sec-tab-line">
                 <div class="sec-tab-d-one">
                   <h2>Browser Security</h2>
@@ -67,13 +70,13 @@ loadScriptAfter: /js/security.js
                 </div>
              </div>
           </div>
-          <!--  -->
-          <div class="sec-tab-list col-12 col-lg-7">
+
+          <div class="sec-tab-list col-7">
             <ul class="security-features">
               <li class="security-item" data-category="browser">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/world.svg" alt="Cookie security illustration" loading="eager" decoding="async" />
+                        <img src="/svg/world.svg" alt="Cookie security illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -84,7 +87,7 @@ loadScriptAfter: /js/security.js
               <li class="security-item" data-category="browser">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/world.svg" alt="Request Protection illustration" loading="eager" decoding="async" />
+                        <img src="/svg/world.svg" alt="Request Protection illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -95,7 +98,7 @@ loadScriptAfter: /js/security.js
               <li class="security-item" data-category="browser">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/world.svg" alt="Security Headers illustration" loading="eager" decoding="async" />
+                        <img src="/svg/world.svg" alt="Security Headers illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -106,7 +109,7 @@ loadScriptAfter: /js/security.js
               <li class="security-item" data-category="browser">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/world.svg" alt="Resource Integrity illustration" loading="eager" decoding="async" />
+                        <img src="/svg/world.svg" alt="Resource Integrity illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -117,7 +120,7 @@ loadScriptAfter: /js/security.js
               <li class="security-item" data-category="browser">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/world.svg" alt="Session Management illustration" loading="eager" decoding="async" />
+                        <img src="/svg/world.svg" alt="Session Management illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -128,7 +131,7 @@ loadScriptAfter: /js/security.js
               <li class="security-item" data-category="browser">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/world.svg" alt="Two-Factor Authentication illustration" loading="eager" decoding="async" />
+                        <img src="/svg/world.svg" alt="Two-Factor Authentication illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -139,7 +142,7 @@ loadScriptAfter: /js/security.js
               <li class="security-item" data-category="browser">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/world.svg" alt="Encrypted Communication illustration" loading="eager" decoding="async" />
+                        <img src="/svg/world.svg" alt="Encrypted Communication illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -150,7 +153,7 @@ loadScriptAfter: /js/security.js
               <li class="security-item" data-category="browser">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/world.svg" alt="Bot Protection illustration" loading="eager" decoding="async" />
+                        <img src="/svg/world.svg" alt="Bot Protection illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -160,10 +163,12 @@ loadScriptAfter: /js/security.js
               </li>
             </ul>
           </div>
+
         </div>
         <!-- 2 -->
         <div id="server" class="sec-tab-content column">
-            <div class="sec-tab-details col-12 col-lg-5">
+
+            <div class="sec-tab-details col-5">
               <div class="sec-tab-line">
                 <div class="sec-tab-d-two">
                   <h2>Server Security</h2>
@@ -172,12 +177,12 @@ loadScriptAfter: /js/security.js
               </div>
             </div>
 
-            <div class="sec-tab-list col-12 col-lg-7">
+            <div class="sec-tab-list col-7">
               <ul class="security-features">
                 <li class="security-item" data-category="server">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/lock.svg" alt="Secure Connections illustration" loading="eager" decoding="async" />
+                        <img src="/svg/lock.svg" alt="Secure Connections illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -188,7 +193,7 @@ loadScriptAfter: /js/security.js
                 <li class="security-item" data-category="server">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/lock.svg" alt="Data Encryption illustration" loading="eager" decoding="async" />
+                        <img src="/svg/lock.svg" alt="Data Encryption illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -199,7 +204,7 @@ loadScriptAfter: /js/security.js
                 <li class="security-item" data-category="server">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/lock.svg" alt="Encryption Standards illustration" loading="eager" decoding="async" />
+                        <img src="/svg/lock.svg" alt="Encryption Standards illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -210,7 +215,7 @@ loadScriptAfter: /js/security.js
                 <li class="security-item" data-category="server">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/lock.svg" alt="Server Hardening illustration" loading="eager" decoding="async" />
+                        <img src="/svg/lock.svg" alt="Server Hardening illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -221,7 +226,7 @@ loadScriptAfter: /js/security.js
                 <li class="security-item" data-category="server">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/lock.svg" alt="Authentication illustration" loading="eager" decoding="async" />
+                        <img src="/svg/lock.svg" alt="Authentication illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -232,7 +237,7 @@ loadScriptAfter: /js/security.js
                 <li class="security-item" data-category="server">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/lock.svg" alt="Email Security illustration" loading="eager" decoding="async" />
+                        <img src="/svg/lock.svg" alt="Email Security illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -246,7 +251,7 @@ loadScriptAfter: /js/security.js
         </div>
         <!-- 3 -->
         <div id="development"  class="sec-tab-content column">
-          <div class="sec-tab-details col-12 col-lg-5">
+          <div class="sec-tab-details col-5">
             <div class="sec-tab-line">
               <div class="sec-tab-d-three">
                 <h2>Development Security</h2>
@@ -255,12 +260,12 @@ loadScriptAfter: /js/security.js
             </div>
           </div>
 
-          <div class="sec-tab-list col-12 col-lg-7">
+          <div class="sec-tab-list col-7">
               <ul class="security-features">
                 <li class="security-item" data-category="development">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/shield.svg" alt="Secure Coding Practices illustration" loading="eager" decoding="async" />
+                        <img src="/svg/shield.svg" alt="Secure Coding Practices illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -271,7 +276,7 @@ loadScriptAfter: /js/security.js
                 <li class="security-item" data-category="development">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/shield.svg" alt="Secure Architecture illustration" loading="eager" decoding="async" />
+                        <img src="/svg/shield.svg" alt="Secure Architecture illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -282,7 +287,7 @@ loadScriptAfter: /js/security.js
                 <li class="security-item" data-category="development">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/shield.svg" alt="Input Validation illustration" loading="eager" decoding="async" />
+                        <img src="/svg/shield.svg" alt="Input Validation illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -293,7 +298,7 @@ loadScriptAfter: /js/security.js
                 <li class="security-item" data-category="development">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/shield.svg" alt="Comprehensive Testing illustration" loading="eager" decoding="async" />
+                        <img src="/svg/shield.svg" alt="Comprehensive Testing illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">
@@ -304,7 +309,7 @@ loadScriptAfter: /js/security.js
                 <li class="security-item" data-category="development">
                   <div>
                      <div class="security-item-icon">
-                        <img src="/svg/shield.svg" alt="Continuous Integration illustration" loading="eager" decoding="async" />
+                        <img src="/svg/shield.svg" alt="Continuous Integration illustration" loading="eager" decoding="async" style="object-fit: contain;"/>
                      </div>
                   </div>
                   <div class="security-item-content">

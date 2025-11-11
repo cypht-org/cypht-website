@@ -362,3 +362,22 @@ li {
             color: var(--color-text-secondary);
       }
 }
+
+/* Hero section styles */
+
+/* Title */
+.hero-section-title {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      font-size: clamp(2rem, 3.8vw, 4rem);
+      margin: .4rem auto .4rem;
+}
+
+/* Subtitle */
+.hero-section-subtitle {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 500px;
+      line-height: 1.6;
+}
