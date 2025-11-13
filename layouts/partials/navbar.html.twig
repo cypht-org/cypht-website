@@ -222,7 +222,7 @@
 				<div class="offcanvas-body">
 					<div
 						class="mobile-links">
-						{# Menu principal mobile #}
+						{# Mobile primary menu #}
 						{% for item in global_menus.main %}
 							{% set current = (item.href == '/' and page.path == 'index') or (item.href != '/' and page.path starts with item.href|trim('/')) %}
 							<a href="{{ item.href }}" class="mobile-nav-item {{ current ? 'active' : '' }}">
@@ -230,7 +230,7 @@
 							</a>
 						{% endfor %}
 
-						{# Accordion pour les menus déroulants #}
+						{# Accordion used for dropdown sections #}
 						<div
 							class="accordion accordion-flush mobile-accordion" id="mobileNavAccordion">
 							{# Tools Dropdown #}

@@ -15,7 +15,7 @@ loadScriptAfter: /home-page.js
     		<p class="minimal-subtitle">Cypht (pronounced "sift") is like a news reader, but for E-mail. Cypht does not replace your existing accounts - it combines them into one. It's also a news reader.</p>
     		<div class="minimal-ctas mt-4 mb-12">
     			<a class="btn btn-dark py-2" href="/install">Get Started</a>
-    			<a class="btn btn-light py-2" href="/waitlist">See How it works</a>
+    			<a class="btn btn-light py-2" href="/documentation">See How it works</a>
     		</div>
             <div class="mini-stat d-flex align-items-center">
                 <div class="avatar-group">

@@ -70,16 +70,16 @@ function animateButtonIcon(button, newSVG, duration = 1500) {
   wrapper.classList.add('icon-anim');
   wrapper.innerHTML = newSVG;
 
-  // Étape 1 : animation de sortie de l’ancien SVG
+  // Step 1: animate the outgoing original SVG
   button.firstElementChild?.classList?.add('fade-out');
   setTimeout(() => {
-    // Étape 2 : remplacement par le nouveau SVG animé
+    // Step 2: replace it with the new animated SVG
     button.innerHTML = '';
     button.appendChild(wrapper);
-    wrapper.classList.add('pop'); // petit effet "pop"
+    wrapper.classList.add('pop'); // small "pop" effect
   }, 200);
 
-  // Étape 3 : retour à l’original avec effet doux
+  // Step 3: revert to the original with a smooth effect
   setTimeout(() => {
     wrapper.classList.add('fade-out');
     setTimeout(() => {

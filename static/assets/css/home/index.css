@@ -8,13 +8,14 @@
       align-items: center;
       justify-content: center;
       gap: .4rem;
-      padding: .65rem 1.25rem;
+      padding: .65rem 1.25rem !important;
       border-radius: 5px;
       text-decoration: none;
       font-weight: 600 !important;
-      font-size: .95rem;
+      font-size: clamp(.88rem, 1.2vw, .92rem);
       border: 1px solid transparent;
       transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
+      min-height: 0 !important;
 
 }
 
@@ -411,7 +412,7 @@
             flex-direction: column;
       }
 
-      /* Réduire la hauteur de l'image et augmenter l'espace pour le texte */
+      /* Reduce image height and increase space available for text */
       .card-illustration {
             min-height: 0;
             height: 12rem;
@@ -679,14 +680,14 @@
             margin: 1rem 0 2rem;
       }
 
-      .btn {
+      /* .btn {
             width: 100%;
             max-width: 100%;
             min-width: 280px;
             justify-content: center;
             padding: 0.75rem 1.5rem;
             font-size: 1rem;
-      }
+      } */
 
       .minimal-ctas .btn {
             width: 100%;

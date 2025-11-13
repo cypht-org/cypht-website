@@ -7,7 +7,7 @@ loadScriptAfter: /js/security.js
 <div class="d-flex flex-column justify-content-center gap-4"> 
   <section class="hero-security">
     <div class="hero-container">
-      <!-- Texte à gauche -->
+      <!-- Text on the left -->
       <div class="hero-content">
         <div >
              <!-- <span class="chip">🔒 End-to-end Encryption</span> -->

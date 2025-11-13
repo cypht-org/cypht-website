@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Fonction pour charger les types de modules
+    // Load module categories
     function loadModuleTypes() {
         const typeList = document.getElementById('md-type-items');
         
-        // Vider la liste actuelle
+        // Reset the current list
         typeList.innerHTML = '';
         
-        // Parcourir chaque type de module
+        // Iterate through every module category
         typeModules.forEach(type => {
-            // Créer l'élément de liste
+            // Create the list element
             const li = document.createElement('li');
             li.className = 'module-type-item';
             li.setAttribute('data-type-id', type.id);
             
-            // Ajouter le contenu
+            // Inject the content
             li.innerHTML = `
                 <div class="d-flex justify-content-between align-items-center">
                     <span>${type.name}</span>
@@ -21,13 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `;
             
-            // Ajouter un gestionnaire d'événement
+            // Register click handler
             li.addEventListener('click', () => loadModulesByType(type.id));
             
-            // Ajouter à la liste
+            // Append to the list
             typeList.appendChild(li);
             
-            // Sélectionner le premier type par défaut
+            // Select the first category by default
             if (type.id === 1) {
                 li.classList.add('active');
                 loadModulesByType(1);
@@ -35,22 +35,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Fonction pour charger les modules par type
+    // Render modules for the selected category
     function loadModulesByType(typeId) {
         const moduleList = document.getElementById('md-items');
         
-        // Mettre à jour la sélection du type
+        // Sync active state for the category list
         document.querySelectorAll('.module-type-item').forEach(item => {
             item.classList.toggle('active', parseInt(item.getAttribute('data-type-id')) === typeId);
         });
         
-        // Filtrer les modules par type
+        // Filter modules by category
         const filteredModules = modules.filter(module => module.type_id === typeId);
         
-        // Vider la liste actuelle
+        // Clear the existing list
         moduleList.innerHTML = '';
         
-        // Ajouter chaque module à la liste
+        // Append each module item
         filteredModules.forEach(module => {
             const li = document.createElement('li');
             li.className = 'module-item';
@@ -71,6 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Initialiser le chargement
+    // Kick things off
     loadModuleTypes();
 });

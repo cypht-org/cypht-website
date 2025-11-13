@@ -15,5 +15,5 @@
       </div>
       <div class="guide-actions">
            <!-- <a href="#tiki-guide" class="">Tiki Installation</a> -->
-      </div>          
+      </div>
 </div>

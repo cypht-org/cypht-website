@@ -50,7 +50,7 @@ loadScriptAfter: /js/documentation-nav.js
 
 <section class="mb-5">
   <!-- <div class="d-flex w-100"> -->
-    <div class="doc-indicator d-flex align-items-center justify-content-between">
+    <div id="getting-started" class="doc-indicator d-flex align-items-center justify-content-between">
       <div class="doc-indicator-left">
         <img src="/img/logo_dark.svg"/>
       </div>
@@ -183,7 +183,7 @@ loadScriptAfter: /js/documentation-nav.js
     </aside>
 
 <!--  -->
-   <main class="doc-content flex-1">
+   <main  class="doc-content flex-1">
     <div class="doc-content-left">
       <div class="doc-page-header">
           <h3>Introduction</h3>

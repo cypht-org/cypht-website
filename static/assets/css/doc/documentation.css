@@ -449,7 +449,7 @@
       color: #555;
 }
 
-/* Grille des fonctionnalités */
+/* Feature grid */
 .doc-section-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
     content_card.classList.add("fade-out");
     setTimeout(() => {
       content_card.innerHTML =
-        tab_pages[tab_key] || `<p>Contenu non trouvé.</p>`;
+        tab_pages[tab_key] || `<p>Content not found.</p>`;
       content_card.classList.remove("fade-out");
     }, 200);
   }

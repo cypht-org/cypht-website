@@ -16,21 +16,13 @@ loadScriptAfter: /js/module.js
                     Discover all <span class="text-primary">Cypht</span> modules<br>to personalize your email experience
                     </h1>
                 </div>
-                <!-- <div class="module-cards">
-                <div class="module-card"><img src="/svg/block-1.svg" /></div>
-                <div class="module-card"><img src="/svg/block-1.svg" /></div>
-                <div class="module-card"><img src="/svg/block-1.svg" /></div>
-                <div class="module-card"><img src="/svg/block-1.svg" /></div>
-                <div class="module-card"><img src="/svg/block-1.svg" /></div>
-                <div class="module-card"><img src="/svg/block-1.svg" /></div>
-                </div> -->
                 <p class="module-subtitle">
                 Artists can finely craft components built with React, Tailwind, and Shadcn UI.
                 Developers can copy and paste them.
                 </p>
                 <div class="module-buttons">
                     <a href="#modules" class="btn btn-dark">Discover our modules</a>
-                    <a href="https://github.com" target="_blank" class="btn btn-light">View on Github</a>
+                    <a href="https://github.com/cypht-org/cypht" target="_blank" class="btn btn-light">View on Github</a>
                 </div>
             </div>  
         </div>

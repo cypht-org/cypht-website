@@ -1,38 +1,38 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Attendre que tout soit complètement chargé
+  // Wait until everything is fully loaded
   setTimeout(function() {
     initSidebar();
   }, 100);
   
   function initSidebar() {
-    // Sélectionnez toutes les sections et les liens de la sidebar
+    // Grab all sections and sidebar links
     const sections = document.querySelectorAll('main h3[id]');
     const sidebarLinks = document.querySelectorAll('.sidebar-link-simple');
     
-    // Vérification de débogage
-    console.log('Sections trouvées:', sections.length);
-    console.log('Liens sidebar trouvés:', sidebarLinks.length);
+    // Debug information
+    console.log('Sections found:', sections.length);
+    console.log('Sidebar links found:', sidebarLinks.length);
     
     if (sections.length === 0 || sidebarLinks.length === 0) {
-      console.error('Éléments non trouvés. Vérifiez les sélecteurs ou la structure HTML.');
+      console.error('Elements not found. Check selectors or the HTML structure.');
       return;
     }
     
-    // Fonction pour déterminer quelle section est visible
+    // Helper to determine which section is visible
     function setActiveSection() {
-      // Position de défilement actuelle + une marge pour déclencher le changement plus tôt
+      // Current scroll position plus margin so the change triggers earlier
       const scrollPosition = window.scrollY + 200;
       
-      console.log('Position de défilement actuelle:', scrollPosition);
+      console.log('Current scroll position:', scrollPosition);
       
-      // Trouver la section visible
+      // Find the visible section
       let currentSection = '';
       
       for (let i = 0; i < sectionPositions.length; i++) {
         const section = sectionPositions[i];
         const nextSection = sectionPositions[i + 1];
         
-        // Si c'est la dernière section ou si nous sommes entre cette section et la suivante
+        // If this is the last section or we are between this section and the next
         if (
           !nextSection && scrollPosition >= section.top ||
           scrollPosition >= section.top && scrollPosition < nextSection?.top
@@ -42,66 +42,66 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
       
-      console.log('Section actuelle détectée:', currentSection);
+      console.log('Current section detected:', currentSection);
       
-      // Mettre à jour la classe active dans la sidebar
+      // Update the active class in the sidebar
       sidebarLinks.forEach((link) => {
-        // Supprime la classe active de tous les liens
+        // Remove the active class from every link
         link.classList.remove('active');
         
-        // Ajoute la classe active au lien correspondant à la section visible
+        // Add the active class to the link that matches the visible section
         const href = link.getAttribute('href').substring(1);
         if (href === currentSection) {
           link.classList.add('active');
-          console.log('Lien actif mis à jour:', href);
+          console.log('Active link updated:', href);
         }
       });
     }
     
-    // Utiliser throttle pour limiter le nombre d'appels pendant le défilement
+    // Use a throttle-like approach to limit calls during scroll
     let isScrolling;
     window.addEventListener('scroll', function() {
-      // Effacer le timeout précédent
+      // Clear any previous timeout
       window.clearTimeout(isScrolling);
       
-      // Définir un timeout pour appeler la fonction après que le défilement s'arrête
+      // Set a timeout so the handler fires when scrolling stops
       isScrolling = setTimeout(function() {
         setActiveSection();
       }, 50);
     });
     
-    // Exécuter une fois au chargement initial
+    // Run once on initial load
     setActiveSection();
     
-    // Gestion du clic sur les liens de la sidebar
+    // Handle sidebar link click
     sidebarLinks.forEach((link) => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
         
-        // Récupérer l'ID de la section ciblée
+        // Retrieve the target section ID
         const targetId = this.getAttribute('href').substring(1);
         const targetSection = document.getElementById(targetId);
         
         if (!targetSection) {
-          console.error('Section cible non trouvée:', targetId);
+          console.error('Target section not found:', targetId);
           return;
         }
         
-        // Faire défiler jusqu'à la section avec une animation douce
+        // Smoothly scroll to the section
         window.scrollTo({
           top: targetSection.offsetTop - 100,
           behavior: 'smooth'
         });
         
-        // Mettre à jour manuellement la classe active
+        // Manually update the active class
         sidebarLinks.forEach((l) => l.classList.remove('active'));
         this.classList.add('active');
         
-        console.log('Clic sur lien, navigation vers:', targetId);
+        console.log('Sidebar link click, navigating to:', targetId);
       });
     });
     
-    // Recalculer les positions des sections lors du redimensionnement de la fenêtre
+    // Recalculate section positions on resize if needed
     // window.addEventListener('resize', function() {
     //   sectionPositions.forEach((section, index) => {
     //     const elem = sections[index];
@@ -127,9 +127,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Première animation après 1.2s
+    // Trigger the first animation after 1.2s
     setTimeout(animateRandomCard, 1200);
 
-    // Puis toutes les 4 secondes
+    // Then repeat every 4 seconds
     setInterval(animateRandomCard, 4000);
 });

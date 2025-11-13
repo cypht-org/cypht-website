@@ -303,7 +303,7 @@
       transition: all 0.3s ease;
 }
 
-/* Couleurs de fond par catégorie */
+/* Background colors per category */
 .security-item[data-category="browser"] .security-item-icon {
       background-color: #eef2ff;
       border-color: #c7d2fe;

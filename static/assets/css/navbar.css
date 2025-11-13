@@ -362,7 +362,7 @@
       position: relative;
 }
 
-/* S'assurer que l'icône est toujours bien positionnée et centrée */
+/* Ensure the icon always stays properly positioned and centered */
 .theme-toggle i {
       display: flex;
       align-items: center;
@@ -536,7 +536,7 @@
             will-change: transform, opacity;
       }
 
-      /* Effet de bordure supérieure subtile */
+      /* Subtle top border effect */
       .dropdown-panel::before {
             content: '';
             position: absolute;
@@ -567,7 +567,7 @@
             border-radius: inherit;
       }
 
-      /* Le dropdown reste toujours avec un fond sombre, même en mode light */
+      /* Keep the dropdown on a dark background, even in light mode */
 
       .nav-dropdown:hover .dropdown-panel {
             opacity: 1;
@@ -611,7 +611,7 @@
             animation: dropdownItemFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       }
 
-      /* Délais d'animation en cascade pour chaque item */
+      /* Staggered animation delays for each item */
       .dropdown-item:nth-child(1) {
             animation-delay: 0.05s;
       }
@@ -643,7 +643,7 @@
             }
       }
 
-      /* Désactiver l'animation si l'utilisateur préfère le mouvement réduit */
+      /* Disable animation when the user prefers reduced motion */
       @media (prefers-reduced-motion: reduce) {
             .dropdown-item {
                   animation: none;
@@ -681,7 +681,7 @@
                   0 2px 4px rgba(0, 0, 0, 0.1);
       }
 
-      /* Les items restent avec des couleurs claires sur fond sombre, même en mode light */
+      /* Keep items in light colors over dark background, even in light mode */
 
       /* Dropdown item elements */
       .drop-item-icon {

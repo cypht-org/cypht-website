@@ -29,207 +29,100 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-}
-
-.license-header {
-      padding: 0 6rem;
-      width: 80%;
-      margin-bottom: 2rem;
+      gap: 1.3rem;
 }
 
 .license-title {
       font-weight: 700;
-      font-size: clamp(2rem, 3.8vw, 4rem);
-      margin-bottom: 1.5rem;
 }
 
 .license-subtitle {
       font-size: 1.1rem;
       color: #444;
       max-width: 600px;
-      margin: 1.5rem auto 2rem;
       line-height: 1.6;
 }
 
 .license-buttons {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
       gap: 1rem;
+      margin: 0 3rem;
+
 }
 
-.btn {
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      display: flex !important;
-      font-size: .88rem !important;
-}
-
-
-.btn-dark:hover {
-      background: #222;
-}
-
-.btn-light {
-      background: #f4f4f4;
-      color: #333;
-}
-
-.btn-light:hover {
-      background: #e0e0e0;
-}
-
-/* ─── License Content Section ──────────────────────────────────────────────────────────── */
-.license-content {
-      padding: 4rem 2rem;
-      /* background: #f8fafc; */
-      max-width: var(--container-6xl);
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 1.8rem;
+.license-subtitle {
+      width: 85%;
 }
 
 .license-container {
-      margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
-      align-items: center;
+      gap: 3rem;
 }
 
-
-/* Info style 1 - Enhanced UI/UX */
+/* Info cards */
 .license-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 1rem;
       background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
       color: white;
-      padding: 4rem 3rem;
+      padding: 3rem 1.4rem;
       border-radius: 24px;
-      margin-bottom: 4rem;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow:
-            0 20px 40px rgba(128, 180, 65, 0.3),
-            0 8px 16px rgba(128, 180, 65, 0.2);
-      max-width: var(--container-5xl);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.license-info::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-      pointer-events: none;
-}
-
-.license-info::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-      pointer-events: none;
 }
 
 .license-info h2 {
-      color: white;
       border: none;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: .92rem;
+      font-weight: 800;
       line-height: 1.2;
       position: relative;
       z-index: 1;
 }
 
 .license-info p {
-      color: rgba(255, 255, 255, 0.9);
-      border: none;
-      margin-bottom: 3rem;
-      font-size: 1.1rem;
-      line-height: 1.7;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-      z-index: 1;
+      color: white;
+      font-weight: 500;
 }
 
-/* License Statistics Container */
 .license-stats-container {
       display: flex;
       justify-content: center;
-      gap: 3rem;
+      align-items: center;
+      gap: .5rem;
       margin-top: 2rem;
       position: relative;
       z-index: 1;
+      padding: 0 .2rem;
 }
 
-.stat-card {
-      background: rgba(255, 255, 255, 0.15);
+.license-stats-container .stat-card {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 20px;
-      padding: 2rem 2.5rem;
-      text-align: center;
+      padding: 1rem 1.5rem;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       min-width: 160px;
-      position: relative;
-      overflow: hidden;
 }
 
-.stat-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-      border-radius: 20px;
-      z-index: -1;
+.license-stats-container .stat-card span {
+      color: white !important;
 }
 
-.stat-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      background: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-}
-
-.stat-card .stat-number {
-      font-size: 3rem;
-      font-weight: 800;
-      color: white;
-      margin-bottom: 0.5rem;
-      line-height: 1;
-      /* text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); */
-}
-
-.stat-card .stat-label {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.9);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin: 0;
+.license-stats-container .stat-card .stat-label {
+      font-weight: 600 !important;
+      font-size: .72rem !important;
 }
 
 
-/* content style 2 */
+/* Libraries Section */
 .lc-list {
-      /* max-width: var(--container-4xl); */
-      /* background-color: red; */
       width: 100%;
       padding: 0;
       margin: 0;
@@ -243,62 +136,22 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      padding: 0 5rem;
-      margin: 4rem 0;
+      padding: 0 2rem;
+      margin-bottom: 2rem;
 }
 
 .ls-item-header-card {
-      height: 45px;
-      width: 45px;
+      height: 37px;
+      width: 37px;
 }
-
 
 .ls-item-header-card img {
       width: 100%;
       object-fit: contain;
 }
 
-.ls-item-sm-img {
-      height: 120px;
-      width: 120px;
-}
-
-.ls-item-header h3 {
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
-      font-weight: 600;
-      color: #1f2937;
-}
-
-.ls-item-header span {
-      font-size: 1.2rem;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-      text-align: left;
-      color: #6b7280;
-}
-
-/* Library Statistics */
-.library-stats {
-      margin: 0.5rem 0 1rem 0;
-}
-
-.stat-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
-      color: white;
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      box-shadow: 0 2px 4px rgba(128, 180, 65, 0.2);
-      transition: all 0.3s ease;
-}
-
-.stat-badge:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 8px rgba(128, 180, 65, 0.3);
+.ls-item-header-text h3 {
+      font-weight: 700;
 }
 
 /* line top indicator */
@@ -320,11 +173,11 @@
 }
 
 .line-top-indicator::before {
-      left: 4rem;
+      left: 2rem;
 }
 
 .line-top-indicator::after {
-      right: 4rem;
+      right: 2rem;
 }
 
 .line-bottom-indicator::before,
@@ -337,27 +190,21 @@
 }
 
 .line-bottom-indicator::before {
-      left: 4rem;
+      left: 2rem;
 }
 
 .line-bottom-indicator::after {
-      right: 4rem;
-}
-
-
-/* -> item content */
-.lc-item-content {
-      padding: 0 5rem;
+      right: 2rem;
 }
 
 /* ─── Libraries Grid ──────────────────────────────────────────────────────────── */
 .libraries-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       padding: 0 .1rem;
       position: relative;
       height: 100%;
-      margin: 0 4rem;
+      margin: 0 2rem;
       background-color: rgba(226, 232, 240, 0.6);
       gap: 1px;
 }
@@ -372,6 +219,7 @@
       flex-direction: column;
       min-height: 220px;
       overflow: hidden;
+      width: 100%;
       cursor: pointer;
 }
 
@@ -379,6 +227,26 @@
       /* background: #e4ebf2a5; */
       background-color: #edf1e7ab;
       border-radius: 4px;
+}
+
+.library-card:hover .library-description {
+      padding: 0 .5rem;
+      -webkit-transform: scale(1.5);
+      transform: scale(1.1);
+      font-size: 0.85rem;
+      /* font-weight: 500; */
+}
+
+.library-description {
+      /* -webkit-transform: scale(1.5); */
+      /* transform: scale(1.5); */
+      -webkit-transition: .3s ease-out;
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.6;
+      margin: 0.5rem 0 1.5rem 0;
+      flex: 1;
+      transition: .3s ease-in-out;
 }
 
 /* Card header with icon and metadata */
@@ -396,20 +264,17 @@
       margin: 0 0 0.5rem 0;
       line-height: 1.3;
       letter-spacing: -0.025em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
 }
 
 .library-name i {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       margin-right: 0.5rem;
 }
 
-.library-description {
-      font-size: 0.9rem;
-      color: #475569;
-      line-height: 1.6;
-      margin: 0.5rem 0 1.5rem 0;
-      flex: 1;
-}
+
 
 .library-footer {
       margin-top: auto;
@@ -417,7 +282,7 @@
       border-top: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-/* JavaScript animations and effects */
+/* ?? CSS for libraries grid */
 .library-card {
       transition: all 0.3s ease;
 }
@@ -469,7 +334,8 @@
       top: 0;
 }
 
-/* Modern button for library links */
+/* Button style */
+
 .library-btn {
       display: inline-flex;
       align-items: center;
@@ -490,7 +356,6 @@
       box-shadow:
             0 4px 6px rgba(156, 203, 90, 0.113),
             0 1px 3px rgba(156, 203, 90, 0.066);
-      /* width: 100%; */
       opacity: .7;
       letter-spacing: 0.025em;
       text-transform: none;
@@ -538,147 +403,76 @@
       transform: translate(2px, -2px);
 }
 
-/* All buttons use the same style with light shade by default */
-.library-btn.secondary,
-.library-btn.outline {
-      background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
-      color: white;
-      border: none;
-      box-shadow:
-            0 4px 6px rgba(155, 203, 90, 0.2),
-            0 1px 3px rgba(155, 203, 90, 0.1);
-}
-
-.library-btn.secondary:hover,
-.library-btn.outline:hover {
-      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-      color: white;
-      box-shadow:
-            0 8px 15px rgba(128, 180, 65, 0.3),
-            0 3px 6px rgba(128, 180, 65, 0.2);
-}
-
-.library-category {
-      display: inline-block;
-      background: rgba(59, 130, 246, 0.1);
-      color: #3b82f6;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.25rem 0.5rem;
-      border-radius: 6px;
-      margin-bottom: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-}
-
-/* ─── Responsive Design ──────────────────────────────────────────────────────────── */
-@media (max-width: 768px) {
-      .license-hero {
-            height: 60dvh;
-      }
-
-      .license-header {
-            padding: 0 2rem;
-            width: 90%;
-      }
-
-      .license-content {
-            padding: 2rem 1rem;
-      }
-
-      .license-container {
-            padding: 0 1rem;
-      }
-
-      .libraries-grid {
-            grid-template-columns: 1fr;
-      }
-
-      .content-card {
-            padding: 2rem 1.5rem;
-      }
-
+@media (min-width: 480px) {
       .license-info {
-            padding: 3rem 2rem;
-            margin-bottom: 3rem;
-      }
-
-      .license-info h2 {
-            font-size: 1.8rem;
-      }
-
-      .license-info p {
-            font-size: 1rem;
+            padding: 3rem 3rem;
       }
 
       .license-stats-container {
-            flex-direction: column;
-            gap: 1.5rem;
-            align-items: center;
+            gap: 1.4rem;
       }
 
-      .stat-card {
-            padding: 1.5rem 2rem;
-            min-width: 140px;
-      }
-
-      .stat-number {
-            font-size: 2.5rem;
-      }
-
-      .libraries-grid {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            padding: 0 2rem;
-            border-left: none;
-            border-right: none;
-      }
-
-      .library-card {
-            min-height: auto;
-            padding: 1.5rem;
-      }
-
-      .library-header {
-            gap: 0.75rem;
-      }
-
-      .library-icon {
-            width: 48px;
-            height: 48px;
-            font-size: 1.2rem;
+      .license-stats-container .stat-card {
+            width: 3.5rem;
       }
 }
 
-@media (max-width: 480px) {
-      .license-title {
-            font-size: 1.8rem;
-      }
-
-      .license-subtitle {
-            font-size: 1rem;
-      }
+@media (min-width: 768px) {
 
       .license-buttons {
-            flex-direction: column;
-            align-items: center;
+            flex-direction: row;
       }
 
-      .btn {
-            width: 100%;
-            max-width: 300px;
+      .license-container {
+            /* background-color: red; */
+            max-width: var(--container-2xl);
+            margin: 0 auto;
+      }
+
+      .libraries-grid {
+            grid-template-columns: repeat(2, 1fr);
+      }
+}
+
+@media (min-width: 1020px) {
+
+
+      .license-container {
+            max-width: calc(var(--container-5xl) - 4rem);
+      }
+
+
+      .license-info {
+            /* background: blue !important; */
+            padding: 2.5rem 2rem;
+            max-width: calc(var(--container-4xl) - 4rem);
+            margin: 0 auto;
+      }
+
+      .license-info h2,
+      .license-info p {
+            width: 70% !important;
+      }
+
+      .libraries-grid {
+            grid-template-columns: repeat(3, 1fr);
+      }
+
+
+}
+
+@media (min-width: 1280px) {
+
+      .license-hero {
+            height: 70dvh;
+      }
+
+      .license-container {
+            /* background-color: green; */
+            max-width: var(--container-5xl);
       }
 
       .license-info {
-            padding: 1.5rem 1rem;
-      }
-
-      .license-info h2 {
-            font-size: 1.5rem;
-      }
-
-      .license-info a {
-            padding: 0.6rem 1.2rem;
-            font-size: 0.9rem;
+            /* background: green !important; */
       }
 }

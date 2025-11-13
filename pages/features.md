@@ -24,7 +24,7 @@ loadScriptAfter: /js/feature.js
             Explore all features
             </a>
         </div>
-      <!-- Icônes -->
+      <!-- Icons -->
       <div class="col-12 col-lg-6 mt-4 mt-lg-0 d-none d-lg-flex hero-section-right ">
         <div class="icons-grid">
           <div class="hline"></div>

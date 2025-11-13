@@ -297,17 +297,17 @@ document.addEventListener("DOMContentLoaded", function () {
           Prism.highlightAllUnder(guideContent);
         }
       } catch (error) {
-        console.error("Erreur détaillée :", {
+        console.error("Detailed error:", {
           message: error.message,
           name: error.name,
           stack: error.stack,
         });
         guideContent.innerHTML = `
-      <div class="alert alert-danger">
-        <h4>Erreur de chargement</h4>
-        <p>${error.message}</p>
-      </div>
-    `;
+          <div class="alert alert-danger">
+            <h4>Failed to load content</h4>
+            <p>${error.message}</p>
+          </div>
+    `.trim();
       }
     }
 

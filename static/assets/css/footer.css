@@ -309,5 +309,26 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
+      }
+}
+
+@media (min-width: 992px) {
+
+      .footer-container {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2.5rem;
+      }
+
+      .footer-brand {
+            flex-direction: column;
+            align-items: start;
+      }
+
+      .footer-links {
+            justify-content: end;
+            gap: 4rem;
       }
 }

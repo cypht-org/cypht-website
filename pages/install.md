@@ -38,7 +38,7 @@ loadScriptAfter: /js/install.js
                     </div>
                 </div>
                 <div class="install-hero-actions">
-                    <a href="#quick-install" class="btn-primary-hero">
+                    <a href="#guide-content" class="btn-primary-hero">
                     <i class="bi bi-rocket-takeoff"></i>
                     Quick Install
                     </a>
@@ -122,25 +122,25 @@ loadScriptAfter: /js/install.js
                         <!-- header -->
                         <div class="i-content-right-header">
                             <h2>Manual Install</h2>
-                            <p>Contrôle total sur l'installation et la configuration de Cypht</p>
+                            <p>Full control over installing and configuring Cypht.</p>
                         </div>
                         <!-- content -->
                     <div class="features">
                             <div class="feature">
                                 <i class="bi bi-check-circle"></i>
-                                <span>Personnalisation avancée</span>
+                                <span>Advanced customization</span>
                             </div>
                             <div class="feature">
                                 <i class="bi bi-check-circle"></i>
-                                <span>Accès serveur direct</span>
+                                <span>Direct server access</span>
                             </div>
                             <div class="feature">
                                 <i class="bi bi-check-circle"></i>
-                                <span>Performance optimale</span>
+                                <span>Optimal performance</span>
                             </div>
                             </div>
                             <div class="card-actions">
-                            <a href="#manual-guide" class="btn primary-btn">Guide Complet</a>
+                            <a href="#manual-guide" class="btn primary-btn">Full Guide</a>
                         </div>
                     </div>
                 </div>
@@ -159,21 +159,21 @@ loadScriptAfter: /js/install.js
                         <!-- header -->
                         <div class="i-content-right-header">
                             <h2>Docker Install</h2>
-                            <p>L'installation la plus simple avec conteneurisation. Parfait pour un démarrage rapide.</p>
+                            <p>The simplest installation with containerization. Perfect for a quick start.</p>
                         </div>
                         <!-- content -->
                     <div class="features">
                             <div class="feature">
                                 <i class="bi bi-check-circle"></i>
-                                <span>Configuration minimale</span>
+                                <span>Minimal configuration</span>
                             </div>
                             <div class="feature">
                                 <i class="bi bi-check-circle"></i>
-                                <span>Environnement isolé</span>
+                                <span>Isolated environment</span>
                             </div>
                             <div class="feature">
                                 <i class="bi bi-check-circle"></i>
-                                <span>Mises à jour simplifiées</span>
+                                <span>Simplified updates</span>
                             </div>
                             <div class="code-preview">
                             <code>docker run -p 8080:80 cypht/cypht:latest</code>
@@ -182,7 +182,7 @@ loadScriptAfter: /js/install.js
                             </button>
                             </div>
                             <div class="card-actions">
-                                <a href="#docker-guide" class="btn primary-btn">Guide Complet</a>
+                                <a href="#docker-guide" class="btn primary-btn">Full Guide</a>
                             </div>
                         </div>
                     </div>
@@ -202,21 +202,21 @@ loadScriptAfter: /js/install.js
                         <!-- header -->
                         <div class="i-content-right-header">
                             <h2>YunoHost Install</h2>
-                            <p>Installation de Cypht sur YunoHost.</p>
+                            <p>Install Cypht on YunoHost.</p>
                         </div>
                         <!-- content -->
                     <div class="features">
                             <div class="feature">
                                 <i class="bi bi-check-circle"></i>
-                                <span>Configuration minimale</span>
+                                <span>Minimal configuration</span>
                             </div>
                             <div class="feature">
                                 <i class="bi bi-check-circle"></i>
-                                <span>Environnement isolé</span>
+                                <span>Isolated environment</span>
                             </div>
                             <div class="feature">
                                 <i class="bi bi-check-circle"></i>
-                                <span>Mises à jour simplifiées</span>
+                                <span>Simplified updates</span>
                             </div>
                             <div class="code-preview">
                             <code>docker run -p 8080:80 cypht/cypht:latest</code>
@@ -225,7 +225,7 @@ loadScriptAfter: /js/install.js
                             </button>
                             </div>
                             <div class="card-actions">
-                                <a href="#docker-guide" class="btn primary-btn">Guide Complet</a>
+                                <a href="#docker-guide" class="btn primary-btn">Full Guide</a>
                             </div>
                         </div>
                     </div>
@@ -245,21 +245,21 @@ loadScriptAfter: /js/install.js
                         <!-- header -->
                         <div class="i-content-right-header">
                             <h2>Tiki Integration</h2>
-                            <p>Intégration de Cypht dans TikiWiki.</p>
+                            <p>Integrate Cypht with TikiWiki.</p>
                         </div>
                         <!-- content -->
                     <div class="features">
                             <div class="feature">
                                 <i class="bi bi-check-circle"></i>
-                                <span>Configuration minimale</span>
+                                <span>Minimal configuration</span>
                             </div>
                             <div class="feature">
                                 <i class="bi bi-check-circle"></i>
-                                <span>Environnement isolé</span>
+                                <span>Isolated environment</span>
                             </div>
                             <div class="feature">
                                 <i class="bi bi-check-circle"></i>
-                                <span>Mises à jour simplifiées</span>
+                                <span>Simplified updates</span>
                             </div>
                             <div class="code-preview">
                             <code>docker run -p 8080:80 cypht/cypht:latest</code>
@@ -268,7 +268,7 @@ loadScriptAfter: /js/install.js
                             </button>
                             </div>
                             <div class="card-actions">
-                                <a href="#docker-guide" class="btn primary-btn">Guide Complet</a>
+                                <a href="#docker-guide" class="btn primary-btn">Full Guide</a>
                             </div>
                         </div>
                     </div>
