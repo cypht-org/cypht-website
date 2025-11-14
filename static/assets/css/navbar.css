@@ -2,6 +2,11 @@
 #mainNavbar {
       /* background-color: red; */
       width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--color-bg);
+
 }
 
 .nav-container {
@@ -11,12 +16,12 @@
       padding: 0 1rem;
       background: rgba(31, 31, 31, 0.9);
       width: 100%;
-      height: 4.2rem;
+      min-height: 4.2rem;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      position: sticky;
-      top: 0;
+
       z-index: 1000;
       transition: all 0.3s ease;
+      margin: 0 auto;
 }
 
 /*  */

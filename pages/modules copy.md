@@ -93,22 +93,18 @@ loadScriptAfter: /js/module.js
                                     Explore reusable building blocks to tailor your email experience.
                                     </span>
                                  </div>
-                                <div class="filter-content">
-                                    <button class="md-type-toggle btn  d-lg-none" type="button" aria-expanded="false" aria-controls="md-type-items" data-open-text="Afficher les catégories" data-close-text="Masquer les catégories">
-                                    <i class="bi bi-funnel-fill md-type-toggle-icon" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                 <!-- <div class="header-meta d-flex flex-column flex-sm-row align-items-sm-center gap-2"> -->
-                                    <!-- <span class="header-count badge rounded-pill text-bg-light">
+                                 <div class="header-meta d-flex flex-column flex-sm-row align-items-sm-center gap-2">
+                                    <span class="header-count badge rounded-pill text-bg-light">
                                         Showing <span id="md-items-count">0</span> modules
                                     </span>
                                     <span class="header-active-filter badge rounded-pill text-bg-primary-subtle text-primary-emphasis" id="md-active-filter" data-label="All categories">
                                         All categories
-                                    </span> -->
-                                    <!-- <button class="md-type-toggle btn d-lg-none" type="button" aria-expanded="false" aria-controls="md-type-items" data-open-text="Show categories" data-close-text="Hide categories">
+                                    </span>
+                                    <button class="md-type-toggle btn d-lg-none" type="button" aria-expanded="false" aria-controls="md-type-items" data-open-text="Show categories" data-close-text="Hide categories">
                                         <i class="bi bi-funnel-fill md-type-toggle-icon" aria-hidden="true"></i>
+                                        <span class="md-type-toggle-label">Show categories</span>
                                     </button>
-                                 </div> -->
+                                 </div>
                             </div>
                         </div>
                         <div class="md-items-separator"></div>
