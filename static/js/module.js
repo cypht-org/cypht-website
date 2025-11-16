@@ -475,6 +475,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const typeBody = document.querySelector(".md-type-body");
   const typeToggleLabel = document.querySelector(".md-type-toggle-label");
   const typeClose = document.querySelector(".md-type-close");
+  const itemsCountDisplay = document.getElementById("md-items-count");
 
   const prefersDesktop = () => window.innerWidth >= 992;
 
@@ -482,14 +483,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!typeToggle || !typeBody) return;
 
     const isDesktop = prefersDesktop();
-    const shouldBeOpen = isDesktop ? true : Boolean(isOpen);
+    const shouldBeOpen = Boolean(isOpen);
 
     typeBody.classList.toggle("is-open", shouldBeOpen);
     typeBody.setAttribute("aria-hidden", String(!shouldBeOpen));
 
-    if (isDesktop) {
-      document.body.classList.remove("md-type-open");
-    } else {
+    if (!isDesktop) {
       document.body.classList.toggle("md-type-open", shouldBeOpen);
     }
 
@@ -507,32 +506,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  const collapseCategoriesOnMobile = () => {
-    if (!prefersDesktop()) {
-      updateTypeToggleState(false);
-    }
+  const setPopoverState = (open) => {
+    updateTypeToggleState(open);
   };
 
   if (typeToggle && typeBody) {
-    updateTypeToggleState(prefersDesktop());
+    setPopoverState(false);
 
     typeToggle.addEventListener("click", (event) => {
       event.preventDefault();
       const willOpen = !typeBody.classList.contains("is-open");
-      updateTypeToggleState(willOpen);
+      setPopoverState(willOpen);
     });
 
     window.addEventListener("resize", () => {
       if (prefersDesktop()) {
-        updateTypeToggleState(true);
-      } else if (!typeBody.classList.contains("is-open")) {
-        updateTypeToggleState(false);
+        setPopoverState(false);
       }
     });
 
     typeBody.addEventListener("click", (event) => {
       if (event.target === typeBody && !prefersDesktop()) {
-        updateTypeToggleState(false);
+        setPopoverState(false);
       }
     });
   }
@@ -540,18 +535,17 @@ document.addEventListener("DOMContentLoaded", function () {
   if (typeClose) {
     typeClose.addEventListener("click", (event) => {
       event.preventDefault();
-      updateTypeToggleState(false);
+      setPopoverState(false);
     });
   }
 
   document.addEventListener("keydown", (event) => {
     if (
       event.key === "Escape" &&
-      !prefersDesktop() &&
       typeBody &&
       typeBody.classList.contains("is-open")
     ) {
-      updateTypeToggleState(false);
+      setPopoverState(false);
     }
   });
 
@@ -587,7 +581,7 @@ document.addEventListener("DOMContentLoaded", function () {
     init_li.addEventListener("click", () => {
       setActiveType(0);
       load_modules();
-      collapseCategoriesOnMobile();
+      setPopoverState(false);
     });
     typeList.appendChild(init_li);
 
@@ -616,7 +610,7 @@ document.addEventListener("DOMContentLoaded", function () {
       li.addEventListener("click", () => {
         setActiveType(type.id);
         load_modules(type.id);
-        collapseCategoriesOnMobile();
+        setPopoverState(false);
       });
 
       // Set initial active state
@@ -695,6 +689,10 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
       moduleList.appendChild(li);
     });
+
+    if (itemsCountDisplay) {
+      itemsCountDisplay.textContent = String(filteredModules.length);
+    }
   }
 
   // 4. Initialize module types and load modules

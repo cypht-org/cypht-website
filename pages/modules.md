@@ -60,12 +60,14 @@ loadScriptAfter: /js/module.js
             </div>
             <!--  -->
             <div class="ov-content column">
-                <div class="row g-3 g-lg-1 w-100">
-                    <div class="col-lg-3 md-type-content mb-4 mb-lg-0">
+                <div class="row w-100">
+                    <div class="col-lg-3 md-type-content mb-4">
                         <div class="md-type-header">
-                            <div class="header-title d-none">
-                                <h5 class="mb-0">Categories</h5>
-                                <span class="">
+                            <div class="type-header-title header-title d-none d-lg-flex">
+                                <h5 class="mb-0">
+                                <!-- <i class="bi bi-filter-square-fill me-2"></i> -->
+                                Categories</h5>
+                                <span class="header-subtitle">
                                 we can filter by category
                                 </span>
                             </div>
@@ -84,34 +86,29 @@ loadScriptAfter: /js/module.js
                             </div>
                         </div>
                     </div>
-                   <div class="col-lg-9 position-relative md-list-content">
+                   <div class="col-lg-9  md-list-content">
                         <div class="md-items-header mb-sm-4 mb-lg-1">
-                            <div class="header-title d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                            <div class="header-title d-flex flex-column flex-md-row  justify-content-between gap-3">
                                  <div class="header-copy d-flex flex-column gap-1">
-                                    <h5 class="mb-0">Modules</h5>
+                                    <h5 class="mb-0">
+                                    <!-- <img src="/static/svg/puzzle.svg"/> -->
+                                    Modules</h5>
                                     <span class="header-subtitle">
                                     Explore reusable building blocks to tailor your email experience.
                                     </span>
                                  </div>
-                                <div class="filter-content">
-                                    <button class="md-type-toggle btn  d-lg-none" type="button" aria-expanded="false" aria-controls="md-type-items" data-open-text="Afficher les catégories" data-close-text="Masquer les catégories">
-                                    <i class="bi bi-funnel-fill md-type-toggle-icon" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                 <!-- <div class="header-meta d-flex flex-column flex-sm-row align-items-sm-center gap-2"> -->
-                                    <!-- <span class="header-count badge rounded-pill text-bg-light">
+                                 <div class="header-meta d-flex flex-column flex-sm-row align-items-sm-center gap-2">
+                                    <span class="header-count">
                                         Showing <span id="md-items-count">0</span> modules
                                     </span>
-                                    <span class="header-active-filter badge rounded-pill text-bg-primary-subtle text-primary-emphasis" id="md-active-filter" data-label="All categories">
-                                        All categories
-                                    </span> -->
-                                    <!-- <button class="md-type-toggle btn d-lg-none" type="button" aria-expanded="false" aria-controls="md-type-items" data-open-text="Show categories" data-close-text="Hide categories">
-                                        <i class="bi bi-funnel-fill md-type-toggle-icon" aria-hidden="true"></i>
-                                    </button>
-                                 </div> -->
+                                 </div>
                             </div>
                         </div>
-                        <div class="md-items-separator"></div>
+                        <div class="d-flex justify-content-end float-content">
+                                <button class="md-type-toggle btn" type="button" aria-expanded="false" aria-controls="md-type-items" data-open-text="Afficher les catégories" data-close-text="Masquer les catégories">
+                                <i class="bi bi-funnel-fill md-type-toggle-icon" aria-hidden="true"></i>
+                                </button>
+                        </div>
                         <div class="md-items-content">
                             <ul id="md-items"></ul>
                         </div>
@@ -120,4 +117,5 @@ loadScriptAfter: /js/module.js
             </div>
         </div>
     </div>
+
 </div>
