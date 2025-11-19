@@ -393,6 +393,181 @@ pre code {
       border: none;
 }
 
+/* Custom select */
+.custom-select {
+      position: relative;
+      /* min-width: clamp(14rem, 22vw, 17.5rem); */
+      font-family: inherit;
+      color: var(--color-text);
+}
+
+.select-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.35rem .7rem;
+      border-radius: 12px;
+      border: 1px solid var(--color-border-light, rgba(15, 23, 42, 0.12));
+      background-color: transparent;
+      /* background: linear-gradient(180deg, var(--color-bg, #ffffff) 0%, var(--color-bg-tertiary, #f8fafc) 100%); */
+      color: inherit;
+      cursor: pointer;
+      /* box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08); */
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, transform 0.18s ease;
+}
+
+.select-btn:hover {
+      border-color: var(--color-primary);
+      /* background: linear-gradient(180deg, rgba(5, 122, 187, 0.06) 0%, var(--color-bg, #ffffff) 100%);
+      box-shadow: 0 12px 30px rgba(5, 122, 187, 0.15); */
+      transform: translateY(-1px);
+}
+
+.select-btn:focus-visible {
+      /* outline: 3px solid rgba(5, 122, 187, 0.25); */
+      outline-offset: 2px;
+}
+
+.select-btn.active {
+      border-color: var(--color-primary);
+      /* background: linear-gradient(180deg, rgba(5, 122, 187, 0.08) 0%, var(--color-bg, #ffffff) 100%); */
+      /* box-shadow: 0 16px 38px rgba(5, 122, 187, 0.22); */
+}
+
+.select-btn .selected-text {
+      flex: 1 1 auto;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+      color: inherit;
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+}
+
+.select-btn .selected-placeholder {
+      color: var(--color-text-muted, #6b7280);
+      font-weight: 500;
+}
+
+.arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.9rem;
+      height: 1.9rem;
+      border-radius: 5px;
+      background: rgba(81, 83, 83, 0.057);
+      color: var(--color-primary);
+      font-size: 1rem;
+      transition: transform 0.28s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.select-btn.active .arrow {
+      transform: rotate(180deg);
+      background: var(--color-primary);
+      color: #fff;
+}
+
+.select-menu {
+      position: absolute;
+      inset-inline-start: 0;
+      top: calc(100% + 0.5rem);
+      left: 0;
+      width: max-content;
+      /* largeur selon le contenu */
+      min-width: 220px;
+      /* largeur minimale souhaitée */
+      max-width: 320px;
+      /* optionnel : ne pas dépasser X */
+      z-index: 40;
+      list-style: none;
+      padding: 0.35rem;
+      margin: 0;
+      /* width: ; */
+      overflow-y: auto;
+      right: auto;
+      /* border-radius: 14px;
+      border: 1px solid var(--color-border-light, rgba(15, 23, 42, 0.12)); */
+      background: var(--color-bg, #ffffff);
+      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.18);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-8px) scale(0.98);
+      transform-origin: top center;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.select-menu.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+}
+
+.select-menu::-webkit-scrollbar {
+      width: 0.4rem;
+}
+
+.select-menu::-webkit-scrollbar-thumb {
+      background: rgba(5, 122, 187, 0.35);
+      border-radius: 999px;
+}
+
+.select-menu::-webkit-scrollbar-track {
+      background: transparent;
+}
+
+.select-menu li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.55rem 0.65rem;
+      border-radius: 10px;
+      color: var(--color-text);
+      cursor: pointer;
+      transition: background-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+      position: relative;
+}
+
+.select-menu li+li {
+      margin-top: 0.25rem;
+}
+
+.select-menu li:hover,
+.select-menu li:focus-visible {
+      background: rgba(5, 122, 187, 0.12);
+      color: var(--color-primary);
+}
+
+.select-menu li.selected {
+      background: rgba(166, 165, 165, 0.15);
+      color: var(--color-primary);
+      font-weight: 600;
+}
+
+.select-menu li.selected::after {
+      content: "✓";
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-left: auto;
+}
+
+@media (max-width: 576px) {
+      .custom-select {
+            width: 100%;
+            min-width: 0;
+      }
+
+      .select-menu {
+            width: 100%;
+            min-width: 0;
+      }
+}
+
 /* Print styles for accessibility */
 @media print {
       * {

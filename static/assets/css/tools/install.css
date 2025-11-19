@@ -513,6 +513,7 @@
 .guide-actions {
       padding: 0 .5rem;
       width: 15%;
+      display: none;
 }
 
 .guide-center {
@@ -1081,7 +1082,7 @@
 /* ─── Yuno Page ────────────────────────────────────────────────────────── */
 
 /* Responsive for guides */
-@media (max-width: 992px) {
+@media (min-width: 992px) {
       /* .guide-right {
             flex-direction: column;
       }
@@ -1092,8 +1093,9 @@
             min-height: unset;
       }
 
+      */
+
       .guide-actions {
-            width: 100%;
-            padding: .5rem 0 0 0;
-      } */
+            display: block !important;
+      }
 }

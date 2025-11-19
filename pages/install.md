@@ -279,7 +279,7 @@ loadScriptAfter: /js/install.js
 
     <section id="guide" class="guide-section">
         <div class="d-flex flex-row guide-container">
-            <div class="guide-left">
+            <div class="guide-left d-none d-md-block">
                <div class="guide-left-content">
                     <div class="guide-left-header">
                         <div>

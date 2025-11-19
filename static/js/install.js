@@ -152,61 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    /**
-     * Very small markdown -> HTML converter for the guide (headings, lists, code, emphasis)
-     * This is intentionally limited to keep footprint small.
-     */
-    function markdownToHtml(markdown) {
-      const escapeHtml = (str) =>
-        str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-
-      // Handle fenced code blocks ```
-      let html = markdown.replace(/```([\s\S]*?)```/g, (m, code) => {
-        return `<pre><code>${escapeHtml(code).trim()}</code></pre>`;
-      });
-
-      // Inline code `code`
-      html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
-
-      // Headings # to ######
-      html = html
-        .replace(/^######\s+(.*)$/gm, "<h6>$1</h6>")
-        .replace(/^#####\s+(.*)$/gm, "<h5>$1</h5>")
-        .replace(/^####\s+(.*)$/gm, "<h4>$1</h4>")
-        .replace(/^###\s+(.*)$/gm, "<h3>$1</h3>")
-        .replace(/^##\s+(.*)$/gm, "<h2>$1</h2>")
-        .replace(/^#\s+(.*)$/gm, "<h1>$1</h1>");
-
-      // Bold and italic
-      html = html
-        .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-        .replace(/\*([^*]+)\*/g, "<em>$1</em>");
-
-      // Lists
-      html = html.replace(
-        /^(?:- |\* )(.*)(?:\n(?:(?:- |\* ).*)+)*/gm,
-        (block) => {
-          const items = block
-            .split(/\n/)
-            .map((line) => line.replace(/^(?:- |\* )/, "").trim());
-          return `<ul>${items.map((i) => `<li>${i}</li>`).join("")}</ul>`;
-        }
-      );
-
-      // Paragraphs (naive): wrap remaining lines that aren't block tags
-      html = html
-        .split(/\n{2,}/)
-        .map((chunk) => {
-          const isBlock = /<(h\d|ul|pre|blockquote|table|p)/.test(chunk.trim());
-          if (isBlock) return chunk;
-          const lines = chunk.split(/\n/).filter(Boolean);
-          return lines.map((line) => `<p>${line}</p>`).join("");
-        })
-        .join("");
-
-      return html;
-    }
-
     // Simple in-memory cache to avoid re-fetching the same docs
     const mdCache = new Map();
 

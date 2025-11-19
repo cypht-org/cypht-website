@@ -1,157 +1,436 @@
+import { UtilsFn } from "./utils_fn.js";
+
+const menus = [
+  {
+    title: "Overview",
+    children: [
+      {
+        title: "Introduction",
+        href: "#introduction",
+      },
+      {
+        title: "Key Features",
+        href: "#key-features",
+      },
+      {
+        title: "Requirements",
+        href: "#requirements",
+      },
+      {
+        title: "Version History",
+        href: "#version-history",
+      },
+    ],
+  },
+  {
+    title: "Getting Started",
+    children: [
+      {
+        title: "Installation & Setup",
+        href: "#installation",
+      },
+      {
+        title: "First Login",
+        href: "#first-login",
+      },
+      {
+        title: "Interface Overview",
+        href: "#interface-overview",
+      },
+      {
+        title: "Adding Email Accounts",
+        href: "#adding-email-accounts",
+      },
+      {
+        title: "Basic Settings",
+        href: "#basic-settings",
+      },
+    ],
+  },
+  {
+    title: "Core Features",
+    children: [
+      {
+        title: "Unified Inbox",
+        href: "#unified-inbox",
+      },
+      {
+        title: "Compose & Send Emails",
+        href: "#compose-send-emails",
+      },
+      {
+        title: "Search & Filters",
+        href: "#search-filters",
+      },
+      {
+        title: "Labels & Folders",
+        href: "#labels-folders",
+      },
+      {
+        title: "Contact Book",
+        href: "#contact-book",
+      },
+      {
+        title: "Calendar",
+        href: "#calendar",
+      },
+    ],
+  },
+  {
+    title: "Advanced Features",
+    children: [
+      {
+        title: "Sieve Filters",
+        href: "#sieve-filters",
+      },
+      {
+        title: "Block List",
+        href: "#block-list",
+      },
+      {
+        title: "Snooze",
+        href: "#snooze",
+      },
+      {
+        title: "Archive",
+        href: "#archive",
+      },
+      {
+        title: "Email Scheduling",
+        href: "#email-scheduling",
+      },
+      {
+        title: "Email Encryption",
+        href: "#email-encryption",
+      },
+    ],
+  },
+  {
+    title: "Configuration",
+    children: [
+      {
+        title: "Server Setup",
+        href: "#server-setup",
+      },
+      {
+        title: "Exchange / Office 365",
+        href: "#exchange-office-365",
+      },
+      {
+        title: "User Profiles",
+        href: "#user-profiles",
+      },
+      {
+        title: "Notifications",
+        href: "#notifications",
+      },
+      {
+        title: "Themes & Customization",
+        href: "#themes-customization",
+      },
+      {
+        title: "Developer Options",
+        href: "#developer-options",
+      },
+    ],
+  },
+  {
+    title: "Security & Privacy",
+    children: [
+      {
+        title: "Encryption & Certificates",
+        href: "#encryption-certificates",
+      },
+      {
+        title: "Password & 2FA",
+        href: "#password-2fa",
+      },
+      {
+        title: "Session Management",
+        href: "#session-management",
+      },
+      {
+        title: "Privacy Policy",
+        href: "#privacy-policy",
+      },
+    ],
+  },
+  {
+    title: "Troubleshooting",
+    children: [
+      {
+        title: "Common Issues",
+        href: "#common-issues",
+      },
+      {
+        title: "Connection Problems",
+        href: "#connection-problems",
+      },
+      {
+        title: "Sync Errors",
+        href: "#sync-errors",
+      },
+      {
+        title: "Reporting Bugs",
+        href: "#reporting-bugs",
+      },
+    ],
+  },
+  {
+    title: "Developer Guide",
+    children: [
+      {
+        title: "Local Development Setup",
+        href: "#local-development-setup",
+      },
+      {
+        title: "Architecture Overview",
+        href: "#architecture-overview",
+      },
+      {
+        title: "API Reference",
+        href: "#api-reference",
+      },
+      {
+        title: "Contributing",
+        href: "#contributing",
+      },
+    ],
+  },
+  {
+    title: "Community & Support",
+    children: [
+      {
+        title: "Join the Community",
+        href: "#join-the-community",
+      },
+      {
+        title: "Get Help",
+        href: "#get-help",
+      },
+      {
+        title: "Submit Feedback",
+        href: "#submit-feedback",
+      },
+      {
+        title: "Contact Team",
+        href: "#contact-team",
+      },
+    ],
+  },
+  {
+    title: "Legal & Misc",
+    children: [
+      {
+        title: "License",
+        href: "#license",
+      },
+      {
+        title: "Attributions",
+        href: "#attributions",
+      },
+      {
+        title: "Brand Guidelines",
+        href: "#brand-guidelines",
+      },
+
+      {
+        title: "Credits",
+        href: "#credits",
+      },
+    ],
+  },
+];
+
+// load menu
+const load_doc_menu = (nav_id) => {
+  const menu = document.getElementById(nav_id);
+  if (!menu) return;
+  const menu_items = menus
+    .map((item) => {
+      return `<div class="toc-section"><h5>${item.title}</h5><ul>${item.children
+        .map((child) => `<li><a href="${child.href}">${child.title}</a></li>`)
+        .join("")}</ul></div>`;
+    })
+    .join("");
+  menu.innerHTML = menu_items;
+
+  // load markdown menu list
+  const docContent = document.querySelector(".doc-content");
+  UtilsFn.markdown_menu_list(menu, docContent, "/docs", "active");
+};
+
 // Documentation Page Enhancements
 document.addEventListener("DOMContentLoaded", () => {
-  // Smooth scrolling for anchor links
-  const anchorLinks = document.querySelectorAll('a[href^="#"]');
-  anchorLinks.forEach((link) => {
+  // ============================
+  // 1. Smooth scrolling for anchor links
+  // ============================
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href");
+      if (!href || href === "#") return;
+
       e.preventDefault();
-      const targetId = link.getAttribute("href").substring(1);
-      const targetElement = document.getElementById(targetId);
+      const target = document.getElementById(href.substring(1));
+      if (!target) return;
 
-      if (targetElement) {
-        const offsetTop = targetElement.offsetTop - 100; // Account for fixed header
-        window.scrollTo({
-          top: offsetTop,
-          behavior: "smooth",
-        });
-      }
+      const offsetTop = target.offsetTop - 100;
+      window.scrollTo({ top: offsetTop, behavior: "smooth" });
     });
   });
 
-  // Animate elements on scroll
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px",
-  };
+  // load md pages from /static/docs
+  const tocNav = document.querySelector(".toc-nav");
+  const docContent = document.querySelector(".doc-content");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("animate-in");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
+  load_doc_menu("doc_menu");
 
-  // Observe all doc sections
-  document.querySelectorAll(".doc-section").forEach((section) => {
-    observer.observe(section);
-  });
+  const docMenu = document.getElementById("doc_menu");
+  const desktopWrapper = document.getElementById("doc_menu_desktop_wrapper");
+  const mobileWrapper = document.getElementById("doc_menu_mobile_wrapper");
+  const offcanvasEl = document.getElementById("docNav");
 
-  // Observe TOC categories
-  document.querySelectorAll(".toc-category").forEach((category) => {
-    observer.observe(category);
-  });
-
-  // Animate hero elements on load
-  const heroElements = document.querySelectorAll(
-    ".doc-badge, .hero-title, .hero-subtitle, .hero-description, .doc-stats, .hero-cta, .feature-preview"
-  );
-
-  heroElements.forEach((element, index) => {
-    element.style.opacity = "0";
-    element.style.transform = "translateY(30px)";
-    element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-
-    setTimeout(() => {
-      element.style.opacity = "1";
-      element.style.transform = "translateY(0)";
-    }, 100 * index);
-  });
-
-  // Add hover effects to images
-  const docImages = document.querySelectorAll(".doc-image");
-  docImages.forEach((img) => {
-    img.addEventListener("mouseenter", () => {
-      img.style.transform = "scale(1.02)";
+  if (offcanvasEl && docMenu && desktopWrapper && mobileWrapper) {
+    offcanvasEl.addEventListener("show.bs.offcanvas", () => {
+      mobileWrapper.appendChild(docMenu);
+      docMenu.classList.add("ps-4");
     });
 
-    img.addEventListener("mouseleave", () => {
-      img.style.transform = "scale(1)";
+    offcanvasEl.addEventListener("hidden.bs.offcanvas", () => {
+      desktopWrapper.appendChild(docMenu);
+      docMenu.classList.remove("ps-4");
     });
-  });
+  }
 
-  // Add click effects to feature buttons
-  const featureButtons = document.querySelectorAll(".feature-button");
-  featureButtons.forEach((button) => {
+  UtilsFn.custom_select(".select-btn", ".select-menu", true);
+
+  // // ============================
+  // // 2. Intersection Observer for animations
+  // // ============================
+  // const observer = new IntersectionObserver(
+  //   (entries) => {
+  //     entries.forEach((entry) => {
+  //       if (entry.isIntersecting) {
+  //         entry.target.classList.add("animate-in");
+  //         observer.unobserve(entry.target);
+  //       }
+  //     });
+  //   },
+  //   { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+  // );
+
+  // // Observe doc sections + TOC categories
+  // [...document.querySelectorAll(".doc-section, .toc-category")].forEach((el) =>
+  //   observer.observe(el)
+  // );
+
+  // ============================
+  // 3. Hero animations on load
+  // ============================
+  document
+    .querySelectorAll(
+      ".doc-badge, .hero-title, .hero-subtitle, .hero-description, .doc-stats, .hero-cta, .feature-preview"
+    )
+    .forEach((el, i) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(30px)";
+      el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+
+      setTimeout(() => {
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+      }, 100 * i);
+    });
+
+  // // ============================
+  // // 4. Image hover zoom
+  // // ============================
+  // document.querySelectorAll(".doc-image").forEach((img) => {
+  //   img.addEventListener(
+  //     "mouseenter",
+  //     () => (img.style.transform = "scale(1.02)")
+  //   );
+  //   img.addEventListener(
+  //     "mouseleave",
+  //     () => (img.style.transform = "scale(1)")
+  //   );
+  // });
+
+  // ============================
+  // 5. Ripple effect on buttons
+  // ============================
+  document.querySelectorAll(".feature-button").forEach((button) => {
     button.addEventListener("click", (e) => {
-      // Create ripple effect
       const ripple = document.createElement("span");
       const rect = button.getBoundingClientRect();
       const size = Math.max(rect.width, rect.height);
       const x = e.clientX - rect.left - size / 2;
       const y = e.clientY - rect.top - size / 2;
 
-      ripple.style.width = ripple.style.height = size + "px";
-      ripple.style.left = x + "px";
-      ripple.style.top = y + "px";
+      ripple.style.width = ripple.style.height = `${size}px`;
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
       ripple.classList.add("ripple");
 
       button.appendChild(ripple);
-
-      setTimeout(() => {
-        ripple.remove();
-      }, 600);
+      setTimeout(() => ripple.remove(), 600);
     });
   });
 
-  // Add progress indicator for reading
-  const progressBar = document.createElement("div");
-  progressBar.className = "reading-progress";
-  progressBar.innerHTML = '<div class="progress-fill"></div>';
-  document.body.appendChild(progressBar);
+  // // ============================
+  // // 6. Reading progress bar
+  // // ============================
+  // const progressBar = document.createElement("div");
+  // progressBar.className = "reading-progress";
+  // progressBar.innerHTML = '<div class="progress-fill"></div>';
+  // document.body.appendChild(progressBar);
 
-  // Update progress on scroll
-  window.addEventListener("scroll", () => {
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-    const height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
+  // window.addEventListener("scroll", () => {
+  //   const scrollTop =
+  //     document.documentElement.scrollTop || document.body.scrollTop;
+  //   const height =
+  //     document.documentElement.scrollHeight -
+  //     document.documentElement.clientHeight;
 
-    const progressFill = document.querySelector(".progress-fill");
-    if (progressFill) {
-      progressFill.style.width = scrolled + "%";
-    }
-  });
+  //   const scrolled = (scrollTop / height) * 100;
+  //   document.querySelector(".progress-fill").style.width = `${scrolled}%`;
+  // });
 
-  // Add search functionality for TOC
-  const tocLinks = document.querySelectorAll(".toc-category a");
-  const searchInput = document.createElement("input");
-  searchInput.type = "text";
-  searchInput.placeholder = "Search documentation...";
-  searchInput.className = "toc-search";
+  // // ============================
+  // // 7. TOC Search filter
+  // // ============================
+  // const tocTitle = document.querySelector(".toc-title");
+  // if (tocTitle) {
+  //   const searchInput = document.createElement("input");
+  //   searchInput.type = "text";
+  //   searchInput.placeholder = "Search documentation...";
+  //   searchInput.className = "toc-search";
 
-  const tocTitle = document.querySelector(".toc-title");
-  if (tocTitle) {
-    tocTitle.parentNode.insertBefore(searchInput, tocTitle.nextSibling);
-  }
+  //   tocTitle.insertAdjacentElement("afterend", searchInput);
 
-  searchInput.addEventListener("input", (e) => {
-    const searchTerm = e.target.value.toLowerCase();
+  //   const tocLinks = document.querySelectorAll(".toc-category a");
 
-    tocLinks.forEach((link) => {
-      const text = link.textContent.toLowerCase();
-      const category = link.closest(".toc-category");
+  //   searchInput.addEventListener("input", (e) => {
+  //     const term = e.target.value.toLowerCase();
 
-      if (text.includes(searchTerm) || searchTerm === "") {
-        link.style.display = "flex";
-        if (category) category.style.display = "block";
-      } else {
-        link.style.display = "none";
-        // Hide category if no visible links
-        const visibleLinks = category.querySelectorAll('a[style*="flex"]');
-        if (visibleLinks.length === 0) {
-          category.style.display = "none";
-        }
-      }
-    });
-  });
+  //     document.querySelectorAll(".toc-category").forEach((category) => {
+  //       let hasVisible = false;
 
-  // Add copy to clipboard for code blocks
-  const codeBlocks = document.querySelectorAll("pre");
-  codeBlocks.forEach((block) => {
+  //       category.querySelectorAll("a").forEach((link) => {
+  //         const visible = link.textContent.toLowerCase().includes(term);
+  //         link.style.display = visible ? "flex" : "none";
+  //         if (visible) hasVisible = true;
+  //       });
+
+  //       category.style.display = hasVisible ? "block" : "none";
+  //     });
+  //   });
+  // }
+
+  // ============================
+  // 8. Copy-to-clipboard on code blocks
+  // ============================
+  document.querySelectorAll("pre").forEach((block) => {
     const copyButton = document.createElement("button");
     copyButton.className = "copy-button";
     copyButton.innerHTML = "📋";
@@ -161,122 +440,10 @@ document.addEventListener("DOMContentLoaded", () => {
     block.appendChild(copyButton);
 
     copyButton.addEventListener("click", () => {
-      const text = block.textContent;
-      navigator.clipboard.writeText(text).then(() => {
+      navigator.clipboard.writeText(block.textContent).then(() => {
         copyButton.innerHTML = "✅";
-        setTimeout(() => {
-          copyButton.innerHTML = "📋";
-        }, 2000);
+        setTimeout(() => (copyButton.innerHTML = "📋"), 2000);
       });
     });
   });
 });
-
-// Add CSS for animations and effects
-const style = document.createElement("style");
-style.textContent = `
-  .animate-in {
-    animation: slideInUp 0.6s ease forwards;
-  }
-  
-  @keyframes slideInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.6);
-    transform: scale(0);
-    animation: ripple 0.6s linear;
-    pointer-events: none;
-  }
-  
-  @keyframes ripple {
-    to {
-      transform: scale(4);
-      opacity: 0;
-    }
-  }
-  
-  .reading-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-  
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #667eea, #764ba2);
-    width: 0%;
-    transition: width 0.1s ease;
-  }
-  
-  .toc-search {
-    width: 100%;
-    max-width: 400px;
-    padding: 1rem;
-    border: 2px solid #e2e8f0;
-    border-radius: 12px;
-    font-size: 1rem;
-    margin: 2rem auto;
-    display: block;
-    background: white;
-    transition: all 0.3s ease;
-  }
-  
-  .toc-search:focus {
-    outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-  }
-  
-  .copy-button {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(0, 0, 0, 0.1);
-    border: none;
-    border-radius: 6px;
-    padding: 0.5rem;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-  }
-  
-  .copy-button:hover {
-    background: rgba(0, 0, 0, 0.2);
-    transform: scale(1.1);
-  }
-  
-  .feature-button {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  @media (prefers-reduced-motion: reduce) {
-    .animate-in {
-      animation: none;
-    }
-    
-    .ripple {
-      display: none;
-    }
-    
-    .progress-fill {
-      transition: none;
-    }
-  }
-`;
-document.head.appendChild(style);
