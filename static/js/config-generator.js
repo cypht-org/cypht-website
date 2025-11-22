@@ -1,14 +1,15 @@
 //1. Copy env config
-async function copy_env_config(preOrSelector = 'pre') {
-  const pre = (typeof preOrSelector === 'string')
-    ? document.querySelector(preOrSelector)
-    : preOrSelector;
+async function copy_env_config(preOrSelector = "pre") {
+  const pre =
+    typeof preOrSelector === "string"
+      ? document.querySelector(preOrSelector)
+      : preOrSelector;
 
   if (!pre) {
-    throw new Error('Element <pre> not found.');
+    throw new Error("Element <pre> not found.");
   }
 
-  const text = pre.innerText ?? pre.textContent ?? '';
+  const text = pre.innerText ?? pre.textContent ?? "";
 
   // Use Clipboard API if available
   if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -17,41 +18,42 @@ async function copy_env_config(preOrSelector = 'pre') {
       return; // success
     } catch (err) {
       // fallback to old method
-      console.warn('navigator.clipboard failed, using fallback', err);
+      console.warn("navigator.clipboard failed, using fallback", err);
     }
   }
 
   // Fallback (for older browsers)
-  const textarea = document.createElement('textarea');
+  const textarea = document.createElement("textarea");
   textarea.value = text;
   // avoid showing the textarea on screen
-  textarea.style.position = 'fixed';
-  textarea.style.left = '-99999px';
+  textarea.style.position = "fixed";
+  textarea.style.left = "-99999px";
   document.body.appendChild(textarea);
   textarea.select();
 
   try {
-    document.execCommand('copy');
+    document.execCommand("copy");
   } finally {
     textarea.remove();
   }
 }
 
 //2. Download env config
-function download_env_config(preOrSelector = 'pre', filename = '.env.config') {
-  const pre = (typeof preOrSelector === 'string')
-    ? document.querySelector(preOrSelector)
-    : preOrSelector;
+function download_env_config(preOrSelector = "pre", filename = ".env.config") {
+  const pre =
+    typeof preOrSelector === "string"
+      ? document.querySelector(preOrSelector)
+      : preOrSelector;
 
   if (!pre) {
-    throw new Error('Element <pre> not found.');
+    throw new Error("Element <pre> not found.");
   }
 
-  const text = pre.innerText ?? pre.textContent ?? '';
-  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+  const text = pre.innerText ?? pre.textContent ?? "";
+  const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
   const url = URL.createObjectURL(blob);
 
-  const a = document.createElement('a');
+  const a = document.createElement("a");
   a.href = url;
   a.download = filename;
   // some browsers require the anchor to be in the DOM
@@ -66,27 +68,27 @@ function download_env_config(preOrSelector = 'pre', filename = '.env.config') {
 //3. Feedback animation
 function animateButtonIcon(button, newSVG, duration = 1500) {
   const originalSVG = button.innerHTML;
-  const wrapper = document.createElement('span');
-  wrapper.classList.add('icon-anim');
+  const wrapper = document.createElement("span");
+  wrapper.classList.add("icon-anim");
   wrapper.innerHTML = newSVG;
 
   // Step 1: animate the outgoing original SVG
-  button.firstElementChild?.classList?.add('fade-out');
+  button.firstElementChild?.classList?.add("fade-out");
   setTimeout(() => {
     // Step 2: replace it with the new animated SVG
-    button.innerHTML = '';
+    button.innerHTML = "";
     button.appendChild(wrapper);
-    wrapper.classList.add('pop'); // small "pop" effect
+    wrapper.classList.add("pop"); // small "pop" effect
   }, 200);
 
   // Step 3: revert to the original with a smooth effect
   setTimeout(() => {
-    wrapper.classList.add('fade-out');
+    wrapper.classList.add("fade-out");
     setTimeout(() => {
       button.innerHTML = originalSVG;
-      button.firstElementChild?.classList.add('fade-in');
+      button.firstElementChild?.classList.add("fade-in");
       setTimeout(() => {
-        button.firstElementChild?.classList.remove('fade-in');
+        button.firstElementChild?.classList.remove("fade-in");
       }, 250);
     }, 200);
   }, duration);
@@ -96,32 +98,49 @@ function animateButtonIcon(button, newSVG, duration = 1500) {
 const checkSVG = `
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor"><path d="M21.448 8.2c.052 1.05.052 2.3.052 3.8c0 4.478 0 6.718-1.391 8.109S16.479 21.5 12 21.5c-4.478 0-6.718 0-8.109-1.391S2.5 16.479 2.5 12c0-4.478 0-6.718 1.391-8.109S7.521 2.5 12 2.5c1.072 0 2.016 0 2.85.02"/><path d="M8 11.5s1.5 0 3.5 3.5c0 0 5.059-9.167 10-11"/></g></svg>`;
 
-document.getElementById('copy_btn')?.addEventListener('click', async () => {
+// Copy button handler
+const handleCopyClick = async (buttonId) => {
   try {
-    await copy_env_config('#env_config');
-    animateButtonIcon(document.getElementById('copy_btn'), checkSVG);
+    await copy_env_config("#env_config");
+    animateButtonIcon(document.getElementById(buttonId), checkSVG);
   } catch (err) {
     console.error(err);
   }
-});
+};
+
+document
+  .getElementById("copy_btn")
+  ?.addEventListener("click", () => handleCopyClick("copy_btn"));
+document
+  .getElementById("copy_btn_lg")
+  ?.addEventListener("click", () => handleCopyClick("copy_btn_lg"));
 
 //5. Download button icon
 const downloadCheckSVG = `
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m19.352 7.617l-3.96-3.563c-1.127-1.015-1.69-1.523-2.383-1.788L13 5c0 2.357 0 3.536.732 4.268C14.464 10 15.643 10 18 10h3.58c-.362-.704-1.012-1.288-2.228-2.383"/><path fill="currentColor" fill-rule="evenodd" d="M10 22h4c3.771 0 5.657 0 6.828-1.172C22 19.657 22 17.771 22 14v-.437c0-.873 0-1.529-.043-2.063h-4.052c-1.097 0-2.067 0-2.848-.105c-.847-.114-1.694-.375-2.385-1.066c-.692-.692-.953-1.539-1.067-2.386c-.105-.781-.105-1.75-.105-2.848l.01-2.834c0-.083.007-.164.02-.244C11.121 2 10.636 2 10.03 2C6.239 2 4.343 2 3.172 3.172C2 4.343 2 6.229 2 10v4c0 3.771 0 5.657 1.172 6.828C4.343 22 6.229 22 10 22m-2.013-2.953a.75.75 0 0 0 1.026 0l2-1.875a.75.75 0 0 0-1.026-1.094l-.737.69V13.5a.75.75 0 0 0-1.5 0v3.269l-.737-.691a.75.75 0 0 0-1.026 1.094z" clip-rule="evenodd"/></svg>`;
-document.getElementById('download_btn')?.addEventListener('click', () => {
+
+// Download button handler
+const handleDownloadClick = (buttonId) => {
   try {
-    download_env_config('#env_config', '.env.config');
-    animateButtonIcon(document.getElementById('download_btn'), downloadCheckSVG);
+    download_env_config("#env_config", ".env.config");
+    animateButtonIcon(document.getElementById(buttonId), downloadCheckSVG);
   } catch (err) {
     console.error(err);
   }
-});
+};
+
+document
+  .getElementById("download_btn")
+  ?.addEventListener("click", () => handleDownloadClick("download_btn"));
+document
+  .getElementById("download_btn_lg")
+  ?.addEventListener("click", () => handleDownloadClick("download_btn_lg"));
 
 //6. Scroll to element
 const scroll_to_element = (el) => {
   window.scrollTo({
     top: el.offsetTop - 100, // marge du haut
-    behavior: "smooth"
+    behavior: "smooth",
   });
 };
 
@@ -138,7 +157,7 @@ const navigation_menu = (nav_id, active_class) => {
 
   // Get all sections linked (those referenced by href)
   const sections = Array.from(allLinks)
-    .map(link => {
+    .map((link) => {
       const id = link.getAttribute("href");
       return id && id.startsWith("#") ? document.querySelector(id) : null;
     })
@@ -147,14 +166,14 @@ const navigation_menu = (nav_id, active_class) => {
   // Function to update the active link based on scroll
   const update_active_link = () => {
     let current = "";
-    sections.forEach(section => {
+    sections.forEach((section) => {
       const sectionTop = section.offsetTop;
       if (window.pageYOffset >= sectionTop - 150) {
         current = `#${section.getAttribute("id")}`;
       }
     });
 
-    allLinks.forEach(link => {
+    allLinks.forEach((link) => {
       const isActive = link.getAttribute("href") === current;
       link.classList.toggle(active_class, isActive);
     });
@@ -164,66 +183,67 @@ const navigation_menu = (nav_id, active_class) => {
   window.addEventListener("scroll", update_active_link);
   window.addEventListener("load", update_active_link);
 
-  allLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            if (targetId === '#') return;
+  allLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href");
+      if (targetId === "#") return;
 
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                scroll_to_element(targetElement);
-            }
-        });
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        scroll_to_element(targetElement);
+      }
     });
+  });
 };
 
-
 // show toast
-function showFeedback(btn_id, toast_id,message, type = 'success') {
-    const toastTrigger = document.getElementById(btn_id);
-    const toastLiveExample = document.getElementById(toast_id);
-    const toastBody = document.querySelector('.toast-body');
+function showFeedback(btn_id, toast_id, message, type = "success") {
+  const toastTrigger = document.getElementById(btn_id);
+  const toastLiveExample = document.getElementById(toast_id);
+  const toastBody = document.querySelector(".toast-body");
 
-    if (toastTrigger && toastLiveExample) {
-        // toastBootstrap.hide();
-       toastBody.textContent = message;
-        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample, {
-            autohide: true,
-            delay: 3000
-        });
+  if (toastTrigger && toastLiveExample) {
+    // toastBootstrap.hide();
+    toastBody.textContent = message;
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(
+      toastLiveExample,
+      {
+        autohide: true,
+        delay: 3000,
+      }
+    );
 
-        toastTrigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            toastBootstrap.show();
-        });
-    } else {
-        console.error('Toast elements not found!');
-        console.log('toastTrigger:', toastTrigger);
-        console.log('toastLiveExample:', toastLiveExample);
-    }
+    toastTrigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      toastBootstrap.show();
+    });
+  } else {
+    console.error("Toast elements not found!");
+    console.log("toastTrigger:", toastTrigger);
+    console.log("toastLiveExample:", toastLiveExample);
+  }
 }
-
 
 // 8. Store default values for reset functionality
 const defaultValues = {};
 
 // 9. Initialize default values from form
 function initializeDefaultValues() {
-  const inputs = document.querySelectorAll('input[name], select[name]');
+  const inputs = document.querySelectorAll("input[name], select[name]");
 
-  inputs.forEach(input => {
-    const name = input.getAttribute('name');
+  inputs.forEach((input) => {
+    const name = input.getAttribute("name");
     if (!name) return;
 
-    if (input.type === 'checkbox') {
+    if (input.type === "checkbox") {
       defaultValues[name] = input.checked;
-    } else if (input.type === 'radio') {
+    } else if (input.type === "radio") {
       if (input.checked) {
         defaultValues[name] = input.value;
       }
     } else {
-      const defaultValue = input.getAttribute('value') || input.value || '';
+      const defaultValue = input.getAttribute("value") || input.value || "";
       defaultValues[name] = defaultValue;
     }
   });
@@ -234,24 +254,24 @@ function collectFormValues() {
   const envConfig = {};
 
   // Get all form inputs, selects, and checkboxes
-  const inputs = document.querySelectorAll('input[name], select[name]');
+  const inputs = document.querySelectorAll("input[name], select[name]");
 
-  inputs.forEach(input => {
-    const name = input.getAttribute('name');
+  inputs.forEach((input) => {
+    const name = input.getAttribute("name");
     if (!name) return;
 
-    let value = '';
+    let value = "";
 
-    if (input.type === 'checkbox') {
-      value = input.checked ? 'true' : 'false';
-    } else if (input.type === 'radio') {
+    if (input.type === "checkbox") {
+      value = input.checked ? "true" : "false";
+    } else if (input.type === "radio") {
       if (input.checked) {
         value = input.value;
       } else {
         return; // Skip unchecked radio buttons
       }
     } else {
-      value = input.value || '';
+      value = input.value || "";
     }
 
     envConfig[name] = value;
@@ -263,76 +283,76 @@ function collectFormValues() {
 // 11. Update preview with collected values
 function updatePreview() {
   const values = collectFormValues();
-  const preElement = document.getElementById('env_config');
+  const preElement = document.getElementById("env_config");
 
   if (!preElement) return;
 
   // Add default settings that aren't in the form
   const defaultSettings = {
-    'DEFAULT_SETTING_NO_PASSWORD_SAVE': 'false',
-    'DEFAULT_SETTING_IMAP_PER_PAGE': '20',
-    'DEFAULT_SETTING_SIMPLE_MSG_PARTS': 'false',
-    'DEFAULT_SETTING_PAGINATE_LINKS': 'true',
-    'DEFAULT_SETTING_MSG_PART_ICONS': 'true',
-    'DEFAULT_SETTING_REVIEW_SENT_EMAIL': 'true',
-    'DEFAULT_SETTING_TEXT_ONLY': 'false',
-    'DEFAULT_SETTING_SENT_PER_SOURCE': '20',
-    'DEFAULT_SETTING_SENT_SINCE': '-1 week',
-    'DEFAULT_SETTING_JUNK_PER_SOURCE': '20',
-    'DEFAULT_SETTING_JUNK_SINCE': '-1 week',
-    'DEFAULT_SETTING_SNOOZED_PER_SOURCE': '20',
-    'DEFAULT_SETTING_SNOOZED_SINCE': '-1 week',
-    'DEFAULT_SETTING_ENABLE_SNOOZE': 'false',
-    'DEFAULT_SETTING_TAGS_PER_SOURCE': '20',
-    'DEFAULT_SETTING_TAGS_SINCE': '-1 week',
-    'DEFAULT_SETTING_TRASH_PER_SOURCE': '20',
-    'DEFAULT_SETTING_TRASH_SINCE': '-1 week',
-    'DEFAULT_SETTING_DRAFT_PER_SOURCE': '20',
-    'DEFAULT_SETTING_DRAFT_SINCE': '-1 week',
-    'DEFAULT_SETTING_SHOW_LIST_ICONS': 'true',
-    'DEFAULT_SETTING_START_PAGE': 'none',
-    'DEFAULT_SETTING_DISABLE_DELETE_PROMPT': 'false',
-    'DEFAULT_SETTING_FLAGGED_PER_SOURCE': '20',
-    'DEFAULT_SETTING_NO_FOLDER_ICONS': 'false',
-    'DEFAULT_SETTING_ALL_EMAIL_PER_SOURCE': '20',
-    'DEFAULT_SETTING_ALL_EMAIL_SINCE': '-1 week',
-    'DEFAULT_SETTING_ALL_SINCE': '-1 week',
-    'DEFAULT_SETTING_ALL_PER_SOURCE': '20',
-    'DEFAULT_SETTING_FLAGGED_SINCE': '-1 week',
-    'DEFAULT_SETTING_UNREAD_PER_SOURCE': '20',
-    'DEFAULT_SETTING_UNREAD_SINCE': '-1 week',
-    'DEFAULT_SETTING_SEARCH_SINCE': '-1 week',
-    'DEFAULT_SETTING_TIMEZONE': 'UTC',
-    'DEFAULT_SETTING_LIST_STYLE': 'email_style',
-    'DEFAULT_SETTING_LANGUAGE': 'en',
-    'DEFAULT_SETTING_UNREAD_EXCLUDE_FEEDS': 'false',
-    'DEFAULT_SETTING_FEED_LIMIT': '20',
-    'DEFAULT_SETTING_FEED_SINCE': '-1 week',
-    'DEFAULT_SETTING_SMTP_COMPOSE_TYPE': '0',
-    'DEFAULT_SETTING_SMTP_AUTO_BCC': 'false',
-    'DEFAULT_SETTING_THEME': 'default',
-    'DEFAULT_SETTING_UNREAD_EXCLUDE_WORDPRESS': 'false',
-    'DEFAULT_SETTING_WORDPRESS_SINCE': '-1 week',
-    'DEFAULT_SETTING_UNREAD_EXCLUDE_GITHUB': 'false',
-    'DEFAULT_SETTING_GITHUB_LIMIT': '20',
-    'DEFAULT_SETTING_GITHUB_SINCE': '-1 week',
-    'DEFAULT_SETTING_INLINE_MESSAGE': 'false',
-    'DEFAULT_SETTING_INLINE_MESSAGE_STYLE': 'right',
-    'DEFAULT_SETTING_ENABLE_KEYBOARD_SHORTCUTS': 'false',
-    'DEFAULT_SETTING_ENABLE_SIEVE_FILTER': 'false',
-    'DEFAULT_SETTING_ENABLE_COLLECT_ADDRESS_ON_SEND': 'false'
+    DEFAULT_SETTING_NO_PASSWORD_SAVE: "false",
+    DEFAULT_SETTING_IMAP_PER_PAGE: "20",
+    DEFAULT_SETTING_SIMPLE_MSG_PARTS: "false",
+    DEFAULT_SETTING_PAGINATE_LINKS: "true",
+    DEFAULT_SETTING_MSG_PART_ICONS: "true",
+    DEFAULT_SETTING_REVIEW_SENT_EMAIL: "true",
+    DEFAULT_SETTING_TEXT_ONLY: "false",
+    DEFAULT_SETTING_SENT_PER_SOURCE: "20",
+    DEFAULT_SETTING_SENT_SINCE: "-1 week",
+    DEFAULT_SETTING_JUNK_PER_SOURCE: "20",
+    DEFAULT_SETTING_JUNK_SINCE: "-1 week",
+    DEFAULT_SETTING_SNOOZED_PER_SOURCE: "20",
+    DEFAULT_SETTING_SNOOZED_SINCE: "-1 week",
+    DEFAULT_SETTING_ENABLE_SNOOZE: "false",
+    DEFAULT_SETTING_TAGS_PER_SOURCE: "20",
+    DEFAULT_SETTING_TAGS_SINCE: "-1 week",
+    DEFAULT_SETTING_TRASH_PER_SOURCE: "20",
+    DEFAULT_SETTING_TRASH_SINCE: "-1 week",
+    DEFAULT_SETTING_DRAFT_PER_SOURCE: "20",
+    DEFAULT_SETTING_DRAFT_SINCE: "-1 week",
+    DEFAULT_SETTING_SHOW_LIST_ICONS: "true",
+    DEFAULT_SETTING_START_PAGE: "none",
+    DEFAULT_SETTING_DISABLE_DELETE_PROMPT: "false",
+    DEFAULT_SETTING_FLAGGED_PER_SOURCE: "20",
+    DEFAULT_SETTING_NO_FOLDER_ICONS: "false",
+    DEFAULT_SETTING_ALL_EMAIL_PER_SOURCE: "20",
+    DEFAULT_SETTING_ALL_EMAIL_SINCE: "-1 week",
+    DEFAULT_SETTING_ALL_SINCE: "-1 week",
+    DEFAULT_SETTING_ALL_PER_SOURCE: "20",
+    DEFAULT_SETTING_FLAGGED_SINCE: "-1 week",
+    DEFAULT_SETTING_UNREAD_PER_SOURCE: "20",
+    DEFAULT_SETTING_UNREAD_SINCE: "-1 week",
+    DEFAULT_SETTING_SEARCH_SINCE: "-1 week",
+    DEFAULT_SETTING_TIMEZONE: "UTC",
+    DEFAULT_SETTING_LIST_STYLE: "email_style",
+    DEFAULT_SETTING_LANGUAGE: "en",
+    DEFAULT_SETTING_UNREAD_EXCLUDE_FEEDS: "false",
+    DEFAULT_SETTING_FEED_LIMIT: "20",
+    DEFAULT_SETTING_FEED_SINCE: "-1 week",
+    DEFAULT_SETTING_SMTP_COMPOSE_TYPE: "0",
+    DEFAULT_SETTING_SMTP_AUTO_BCC: "false",
+    DEFAULT_SETTING_THEME: "default",
+    DEFAULT_SETTING_UNREAD_EXCLUDE_WORDPRESS: "false",
+    DEFAULT_SETTING_WORDPRESS_SINCE: "-1 week",
+    DEFAULT_SETTING_UNREAD_EXCLUDE_GITHUB: "false",
+    DEFAULT_SETTING_GITHUB_LIMIT: "20",
+    DEFAULT_SETTING_GITHUB_SINCE: "-1 week",
+    DEFAULT_SETTING_INLINE_MESSAGE: "false",
+    DEFAULT_SETTING_INLINE_MESSAGE_STYLE: "right",
+    DEFAULT_SETTING_ENABLE_KEYBOARD_SHORTCUTS: "false",
+    DEFAULT_SETTING_ENABLE_SIEVE_FILTER: "false",
+    DEFAULT_SETTING_ENABLE_COLLECT_ADDRESS_ON_SEND: "false",
   };
 
   // Merge form values with default settings
   const allValues = { ...defaultSettings, ...values };
 
   // Build the config text
-  let configText = '';
+  let configText = "";
 
   // Sort keys alphabetically for better readability
   const sortedKeys = Object.keys(allValues).sort();
 
-  sortedKeys.forEach(key => {
+  sortedKeys.forEach((key) => {
     configText += `${key}=${allValues[key]}\n`;
   });
 
@@ -342,22 +362,22 @@ function updatePreview() {
 // 12. Reset all form values to defaults
 function resetAllValues() {
   // Reset all input fields
-  const inputs = document.querySelectorAll('input[name]');
-  inputs.forEach(input => {
-    const name = input.getAttribute('name');
+  const inputs = document.querySelectorAll("input[name]");
+  inputs.forEach((input) => {
+    const name = input.getAttribute("name");
 
-    if (input.type === 'checkbox') {
+    if (input.type === "checkbox") {
       input.checked = defaultValues[name] || false;
-    } else if (input.type === 'radio') {
+    } else if (input.type === "radio") {
       input.checked = false;
     } else {
-      input.value = defaultValues[name] || '';
+      input.value = defaultValues[name] || "";
     }
   });
 
   // Reset all select fields
-  const selects = document.querySelectorAll('select[name]');
-  selects.forEach(select => {
+  const selects = document.querySelectorAll("select[name]");
+  selects.forEach((select) => {
     select.selectedIndex = 0;
   });
 
@@ -374,22 +394,22 @@ function resetSection(sectionId) {
   }
 
   // Reset inputs in this section
-  const inputs = section.querySelectorAll('input[name]');
-  inputs.forEach(input => {
-    const name = input.getAttribute('name');
+  const inputs = section.querySelectorAll("input[name]");
+  inputs.forEach((input) => {
+    const name = input.getAttribute("name");
 
-    if (input.type === 'checkbox') {
+    if (input.type === "checkbox") {
       input.checked = defaultValues[name] || false;
-    } else if (input.type === 'radio') {
+    } else if (input.type === "radio") {
       input.checked = false;
     } else {
-      input.value = defaultValues[name] || '';
+      input.value = defaultValues[name] || "";
     }
   });
 
   // Reset selects in this section
-  const selects = section.querySelectorAll('select[name]');
-  selects.forEach(select => {
+  const selects = section.querySelectorAll("select[name]");
+  selects.forEach((select) => {
     select.selectedIndex = 0;
   });
 
@@ -406,34 +426,34 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeDefaultValues();
 
   navigation_menu(".config-generator-list", "config-active");
-  showFeedback('copy_btn', 'simple_toast','Copied to clipboard', 'success');
+  showFeedback("copy_btn", "simple_toast", "Copied to clipboard", "success");
   // showFeedback('download_btn', 'download_toast','Downloaded success', 'success');
 
   // Update preview when any form field changes
-  const formElements = document.querySelectorAll('input[name], select[name]');
-  formElements.forEach(element => {
-    element.addEventListener('change', updatePreview);
-    element.addEventListener('input', updatePreview);
+  const formElements = document.querySelectorAll("input[name], select[name]");
+  formElements.forEach((element) => {
+    element.addEventListener("change", updatePreview);
+    element.addEventListener("input", updatePreview);
   });
 
   // Initialize preview with current values
   updatePreview();
 
   // Add event listener for Reset All button
-  const resetAllBtn = document.getElementById('liveToastBtn');
+  const resetAllBtn = document.getElementById("liveToastBtn");
   if (resetAllBtn) {
-    resetAllBtn.addEventListener('click', (e) => {
+    resetAllBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      if (confirm('Are you sure you want to reset all configuration values?')) {
+      if (confirm("Are you sure you want to reset all configuration values?")) {
         resetAllValues();
       }
     });
   }
 
   // Update preview when offcanvas is opened
-  const offcanvas = document.getElementById('offcanvasRight');
+  const offcanvas = document.getElementById("offcanvasRight");
   if (offcanvas) {
-    offcanvas.addEventListener('show.bs.offcanvas', updatePreview);
+    offcanvas.addEventListener("show.bs.offcanvas", updatePreview);
   }
 });
 

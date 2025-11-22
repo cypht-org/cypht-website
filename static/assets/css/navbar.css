@@ -70,7 +70,7 @@
 ========================================== */
 
 /* Offcanvas styling */
-.offcanvas {
+.nav-container .offcanvas {
       width: 360px !important;
       max-width: 95vw !important;
       margin: .3rem 0;
@@ -453,7 +453,7 @@
 @media (min-width: 992px) {
       .nav-container {
             height: 4rem;
-            margin-top: .7rem;
+            margin-top: .3rem !important;
       }
 
       /* Logo wrapper */

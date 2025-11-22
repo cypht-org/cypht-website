@@ -50,8 +50,6 @@ h1: false
   <div>
     <!-- top menu -->
     <div id="getting-started" class="doc-top-nav">
-      <!-- <div class="doc-top-nav-left d-lg-none">
-      </div> -->
       <div class="doc-top-nav-center">
         <img src="/img/logo_dark.svg"/>
       </div>
@@ -78,26 +76,33 @@ h1: false
       </div>
     </div>
     <!-- doc-container -->
-    <div class="doc-container d-flex w-100 px-1 gap-4">
-     <!-- on desk -->
-      <div id="doc_menu_desktop_wrapper" class="doc-toc flex-shrink-0 d-none d-lg-block">
-        <nav id="doc_menu" class="toc-nav mt-5"></nav>
+    <div class="doc-container">
+      <div class="row p-2">
+          <div class="col-lg-3 col-xl-2">
+            <!-- on desk -->
+            <div id="doc_menu_desktop_wrapper" class="doc-toc flex-shrink-0 d-none d-lg-block h-full">
+              <nav id="doc_menu" class="toc-nav my-lg-5 accordion">
+              </nav>
+            </div>
+            <!-- on mobile -->
+            <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="docNav" aria-labelledby="staticBackdropLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasRightLabel">
+                    Menu
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <div id="doc_menu_mobile_wrapper" class="toc-nav-container"></div>
+                </div>
+          </div>
+          </div>
+        <!-- Right -->
+          <div class="col">
+            <div class="row doc-content">
+            </div>
+          </div>
       </div>
-        <!-- on mobile -->
-        <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="docNav" aria-labelledby="staticBackdropLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasRightLabel">
-                Menu
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <div id="doc_menu_mobile_wrapper" class="toc-nav-container"></div>
-            </div>
-        </div>
-      <!-- </div> -->
-            <!-- Right -->
-      <div class="doc-content"></div>
     </div>
 
   </div>
