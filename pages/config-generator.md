@@ -15,7 +15,7 @@ loadScriptAfter: /js/config-generator.js
                 <span>Configuration Generator</span>
             </div>
             <h1 class="hs-title">
-                Configure Your <span class="config-hero-highlight">Cypht Instance</span> <br />in Minutes
+                Configure Your <span class="config-hero-highlight">Cypht Instance in Minutes</span>
             </h1>
             <div class="cfh-features-list">
                 <div class="cfh-feature">

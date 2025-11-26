@@ -302,7 +302,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  UtilsFn.custom_select(".select-btn", ".select-menu", true);
+  // Only initialize custom_select if elements exist
+  const selectBtn = document.querySelector(".select-btn");
+  const selectMenu = document.querySelector(".select-menu");
+  if (selectBtn && selectMenu) {
+    UtilsFn.custom_select(".select-btn", ".select-menu", true);
+  }
 
   // // ============================
   // // 2. Intersection Observer for animations

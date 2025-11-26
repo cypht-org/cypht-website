@@ -1,5 +1,4 @@
-<div class="guide-content">
-  <div class="guide-center">
+<div class="guide-left px-2 col col-xl-9">
     <div class="guide-page-header">
        <h3>Install Cypht using Docker</h3>
        <p class="guide-page-subtitle">Using Docker is one of the easiest ways to install Cypht as the image bundles the necessary steps from the manual installation.</p>
@@ -69,8 +68,8 @@
   </div>
 
    <!-- guide actions -->
-  <div class="guide-actions">
-    <div class="ga-content">
+  <div class="guide-actions col-xl-2">
+    <div class="g-short-nav">
       <div class="ga-content-header">
         <p class="ga-content-header-title">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"/></svg>
@@ -85,5 +84,4 @@
         </ul>
       </nav>
     </div>
-  </div>      
-</div>
+  </div>

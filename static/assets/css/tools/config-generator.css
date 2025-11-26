@@ -1131,8 +1131,8 @@
 
       .config-hero-container .hs-content {
             width: 100%;
-            max-width: var(--container-4xl);
-            flex-direction: row;
+            /* max-width: var(--container-5xl);
+            flex-direction: row; */
       }
 
       .cfh-features-list {

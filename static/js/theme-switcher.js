@@ -5,7 +5,13 @@ class ThemeSwitcher {
     constructor() {
         this.themeToggle = document.getElementById('theme-toggle');
         this.themeIcon = document.getElementById('theme-icon');
-        this.theme = localStorage.getItem('theme') || 'light';
+        // Safe localStorage access with fallback
+        try {
+            this.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+            // If localStorage is blocked, use default
+            this.theme = 'light';
+        }
         this.init();
     }
 
@@ -21,7 +27,12 @@ class ThemeSwitcher {
         // Listen for system color scheme changes
         const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
         prefersDarkScheme.addEventListener('change', (e) => {
-            if (!localStorage.getItem('theme')) {
+            try {
+                if (!localStorage.getItem('theme')) {
+                    this.setTheme(e.matches ? 'dark' : 'light');
+                }
+            } catch (e) {
+                // If localStorage is blocked, just set theme without storing
                 this.setTheme(e.matches ? 'dark' : 'light');
             }
         });
@@ -30,7 +41,13 @@ class ThemeSwitcher {
     toggleTheme() {
         const newTheme = this.theme === 'dark' ? 'light' : 'dark';
         this.setTheme(newTheme);
-        localStorage.setItem('theme', newTheme);
+        // Safe localStorage access
+        try {
+            localStorage.setItem('theme', newTheme);
+        } catch (e) {
+            // If localStorage is blocked, theme still works but won't persist
+            console.warn('Theme preference cannot be saved due to privacy settings');
+        }
     }
 
     setTheme(theme) {

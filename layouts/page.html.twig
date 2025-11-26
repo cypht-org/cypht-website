@@ -38,7 +38,11 @@
 		<script type="module" src="/js/documentation.js"></script>
 
 		{% if page.loadScriptAfter is defined %}
-			<script src="{{page.loadScriptAfter}}"></script>
+			{% if page.loadScriptAfter|slice(-3) == '.js' and page.loadScriptAfter|slice(0, 4) == '/js/' %}
+				<script type="module" src="{{page.loadScriptAfter}}"></script>
+			{% else %}
+				<script src="{{page.loadScriptAfter}}"></script>
+			{% endif %}
 		{% endif %}
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
