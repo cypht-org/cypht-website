@@ -404,6 +404,28 @@ a:hover {
       box-shadow: var(--shadow-md);
 }
 
+.dark-action-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.38rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.89rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+      color: var(--color-text-light);
+      backdrop-filter: blur(10px);
+      background: #1e1e1ee6 !important;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      white-space: nowrap;
+      height: 42px !important;
+}
+
 /* Specific buttons */
 .login-btn {
       background: none;
@@ -749,14 +771,16 @@ a:hover {
             max-width: var(--container-6xl);
       }
 
-      .hs-actions-content {
-            /* background-color: blue; */
-      }
 }
 
 /* Theme */
 [data-theme="dark"] {
       .hs-chip {
             background-color: var(--clr-dark-card-second);
+      }
+
+
+      .dark-action-btn {
+            background: var(--clr-card-bg);
       }
 }

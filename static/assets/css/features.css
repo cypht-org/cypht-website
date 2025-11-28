@@ -36,6 +36,11 @@
       gap: .8rem;
 }
 
+.hero-section-content .dark-action-btn {
+      width: clamp(170px, 100%, 200px);
+}
+
+
 /* ─── Icons Grid ──────────────────────────────────────────────────────────── */
 .icons-grid {
       display: grid;
@@ -171,23 +176,6 @@
 }
 
 /* ─── Features Content ──────────────────────────────────────────────────────────── */
-/* .features-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3rem;
-      min-height: 30dvh;
-}
-
-.fc-left,
-.fc-right {
-      width: 100%;
-      max-width: 100%;
-      padding: 0 1rem;
-      margin-bottom: 4rem;
-      margin-left: 0;
-      margin-right: 0;
-} */
 
 .fc-header {
       text-align: center;
@@ -226,7 +214,7 @@
       flex-direction: column;
       border: 1px solid rgba(17, 17, 17, 0.06);
       border-radius: 12px;
-      background: #fff;
+      background-color: #fff;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
       min-height: 50dvh;
       height: auto;
@@ -269,7 +257,7 @@
       flex-direction: column;
       justify-content: space-between;
       flex: 1;
-      background: #fff;
+      /* background: #fff; */
       position: relative;
       z-index: 2;
 }
@@ -1418,4 +1406,27 @@
       .fc-right {
             max-width: var(--container-6xl);
       }
+}
+
+
+/* Theme */
+[data-theme="dark"] {
+
+      .fc-card,
+      .fp-feature-card,
+      .fss-card,
+      .fs-card,
+      .fd-card {
+            background-color: var(--clr-card-bg) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .fc-card-header,
+      .fp-feature-card-header,
+      .fss-card-header,
+      .fs-card-header,
+      .fd-card-header {
+            background: var(--clr-dark-card-second) !important;
+      }
+
 }

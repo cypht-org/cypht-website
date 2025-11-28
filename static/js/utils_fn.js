@@ -151,7 +151,7 @@ export class UtilsFn {
       // Drop any extension accidentally provided
       let normalized = (file_name || "").trim();
       normalized = normalized.replace(/\.md$/i, "");
-      const file_path = `${folder_path}/${normalized}.md`;
+      const file_path = `/${folder_path}/${normalized}.md`;
 
       // Loading state
       content.innerHTML = '<div class="loading">Loading…</div>';
