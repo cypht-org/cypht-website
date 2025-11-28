@@ -133,7 +133,7 @@
 [data-theme="dark"] {
       --color-bg: #121212b3;
       --color-bg-strong: #121212fb;
-      --color-bg-secondary: #1E293B;
+      --color-bg-secondary: #121212d7;
       --color-bg-tertiary: #334155;
       --color-text: rgba(255, 255, 255, 0.858);
       --color-text-secondary: #CBD5E1;
@@ -413,7 +413,7 @@ a:hover {
       border-radius: 5px;
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.89rem;
+      font-size: 0.92rem;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       white-space: nowrap;
@@ -424,6 +424,10 @@ a:hover {
       border: 1px solid rgba(255, 255, 255, 0.1);
       white-space: nowrap;
       height: 42px !important;
+}
+
+.dark-action-btn {
+      width: clamp(170px, 100%, 250px);
 }
 
 /* Specific buttons */

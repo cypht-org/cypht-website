@@ -101,7 +101,7 @@
 /* ─── Tabs Menu ──────────────────────────────────────────────────────────── */
 .sec-tabs-container {
       position: sticky;
-      top: 0;
+      top: .4rem;
       z-index: 1000;
       width: 100%;
       background-color: var(--color-bg);
@@ -111,10 +111,6 @@
       backdrop-filter: blur(10px);
 }
 
-[data-theme="dark"] .sec-tabs-container {
-      background: rgba(15, 23, 42, 0.98);
-      border-bottom-color: #1e293b;
-}
 
 .sec-tabs-menu {
       display: flex;
@@ -131,7 +127,7 @@
       list-style: none;
       justify-content: center;
       border: 1px solid #e5e7eba5;
-      background: rgba(255, 255, 255, 0.8);
+      background: var(--color-bg-strong);
       flex-wrap: wrap;
       max-width: 100%;
       overflow-x: auto;
@@ -156,7 +152,7 @@
       text-decoration: none;
       border-radius: 6px;
       font-weight: 500;
-      font-size: 0.875rem;
+      font-size: 0.875rem !important;
       transition: all 0.2s ease;
       white-space: nowrap;
 }
@@ -167,10 +163,15 @@
 }
 
 .sec-tabs-menu ul li .sec-active {
-      background: #80B441;
+      background-color: var(--color-primary);
       color: white !important;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       font-weight: 600;
+
+      &:hover {
+            background-color: var(--color-primary);
+            color: white !important;
+      }
 }
 
 .sec-tabs-menu i {
@@ -682,4 +683,44 @@
       .sec-list-content {
             max-width: var(--container-6xl);
       }
+}
+
+/* Theme */
+[data-theme="dark"] {
+      .sec-tabs-container {
+            border-bottom: .8px solid rgba(255, 255, 255, 0.1);
+            background: var(--color-bg-secondary);
+      }
+
+      .sec-tabs-menu ul {
+            border: .8px solid rgba(255, 255, 255, 0.1);
+            background: var(--clr-card-bg);
+      }
+
+      .sec-tabs-menu ul li a:hover {
+            background-color: var(--clr-dark-card-second);
+            color: white;
+      }
+
+      .sec-tabs-menu ul li .sec-active {
+            background: linear-gradient(135deg, rgba(129, 180, 65, 0.15) 0%, rgba(129, 180, 65, 0.25) 100%);
+            border: .8px solid var(--color-primary);
+            color: white !important;
+      }
+
+      .security-item {
+            background-color: var(--clr-card-bg);
+      }
+
+      .security-item-icon {
+            background-color: var(--clr-dark-card-second) !important;
+            border: .8px solid rgba(255, 255, 255, 0.1);
+            fill: white !important;
+      }
+
+      .sec-tab-line::before {
+            /* background-color: var(--clr-dark-card-second);
+            z-index: 50; */
+      }
+
 }
