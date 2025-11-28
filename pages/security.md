@@ -6,24 +6,23 @@ loadScriptAfter: /js/security.js
 
 <div class="d-flex flex-column justify-content-center gap-4"> 
   <section class="hero-security">
-    <div class="hero-container">
+    <div class="hero-container col-10">
       <!-- Text on the left -->
       <div class="hero-content">
         <div >
-             <!-- <span class="chip">🔒 End-to-end Encryption</span> -->
-             <span class="chip">🔒 Any question about security ?</span>
+             <span class="hs-chip">🔒 Any question about security ?</span>
           </div>
-        <h1 class="hero-title">
+        <h1 class="display-5 fw-bold pe-lg-3">
           Maximum Security for Your Communications
         </h1>
-        <p class="hero-subtitle">
+        <p class="home-hs-subtitle">
           Protect your emails with advanced encryption and guaranteed privacy.
         </p>
-        <div class="hero-buttons d-inline-flex">
-          <a href="#browser" class="btn btn-dark px-4 px-md-5 py-2">
+        <!-- <div class="hero-buttons d-inline-flex"> -->
+          <a href="#browser" class="dark-action-btn">
             Explore Security 
           </a>
-        </div>
+        <!-- </div> -->
       </div>
       <!-- Image on Right -->
       <div class="sec-hero-image">

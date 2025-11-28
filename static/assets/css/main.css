@@ -133,7 +133,7 @@
 [data-theme="dark"] {
       --color-bg: #121212b3;
       --color-bg-strong: #121212fb;
-      --color-bg-secondary: #1E293B;
+      --color-bg-secondary: #121212d7;
       --color-bg-tertiary: #334155;
       --color-text: rgba(255, 255, 255, 0.858);
       --color-text-secondary: #CBD5E1;
@@ -402,6 +402,32 @@ a:hover {
       color: var(--nav-item-hover-color);
       transform: translateY(-1px);
       box-shadow: var(--shadow-md);
+}
+
+.dark-action-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.38rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+      color: var(--color-text-light);
+      backdrop-filter: blur(10px);
+      background: #1e1e1ee6 !important;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      white-space: nowrap;
+      height: 42px !important;
+}
+
+.dark-action-btn {
+      width: clamp(170px, 100%, 250px);
 }
 
 /* Specific buttons */
@@ -749,14 +775,16 @@ a:hover {
             max-width: var(--container-6xl);
       }
 
-      .hs-actions-content {
-            /* background-color: blue; */
-      }
 }
 
 /* Theme */
 [data-theme="dark"] {
       .hs-chip {
             background-color: var(--clr-dark-card-second);
+      }
+
+
+      .dark-action-btn {
+            background: var(--clr-card-bg);
       }
 }

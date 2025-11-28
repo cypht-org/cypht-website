@@ -14,13 +14,16 @@ loadScriptAfter: /js/feature.js
             <div class="mb-2">
                 <span class="hs-chip">🌟 A simplified email experience</span>
             </div>
-            <h1 class="display-4 fw-bold">
+            <h1 class="display-5 fw-bold">
             Everything You Need for a Unified Email Workflow
             </h1>
-            <p class="text-muted">
+            <p class="home-hs-subtitle">
             Simplify, secure, and optimize your email workflow with seamless integration and powerful features—all in one place.
             </p>
-            <a href="#messaging" class="btn btn-dark btn-lg mt-4 d-inline-flex px-4 px-md-5">
+            <!-- <a href="#messaging" class="btn btn-dark btn-lg mt-4 d-inline-flex px-4 px-md-5">
+            Explore all features
+            </a> -->
+            <a href="#messaging" class="dark-action-btn">
             Explore all features
             </a>
         </div>
