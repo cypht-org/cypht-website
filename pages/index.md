@@ -7,16 +7,18 @@ loadScriptAfter: /home-page.js
 ---
 
 <div>
-    <!-- Minimal hero variant -->
+    <!-- hero -->
     <section id="hero_minimal">
-    	<div class="section-content hero-minimal">
-    		<span class="chip">✨ Supports IMAP/SMTP, JMAP and EWS</span>
-    		<h2 class="minimal-title">All your E-mail, from all your accounts, in one place</h2>
-    		<p class="minimal-subtitle">Cypht (pronounced "sift") is like a news reader, but for E-mail. Cypht does not replace your existing accounts - it combines them into one. It's also a news reader.</p>
-    		<div class="minimal-ctas mt-4 mb-12">
-    			<a class="btn btn-dark py-2" href="/install">Get Started</a>
-    			<a class="btn btn-light py-2" href="/documentation">See How it works</a>
-    		</div>
+    	<div class="section-content home-hero">
+    		<div class="home-hs-text-content">
+                <span class="hs-chip">✨ Supports IMAP/SMTP, JMAP and EWS</span>
+                <h2 class="hs-title">All your E-mail, from all your accounts, in one place</h2>
+                <p class="home-hs-subtitle">Cypht (pronounced "sift") is like a news reader, but for E-mail. Cypht does not replace your existing accounts - it combines them into one. It's also a news reader.</p>
+                <div class="home-hero-actions">
+                    <a class="action-btn cypht-primary-btn" href="/install">Get Started</a>
+                    <a class="action-btn cypht-secondary-btn" href="/documentation">See How it works</a>
+                </div>
+            </div>
             <div class="mini-stat d-flex align-items-center">
                 <div class="avatar-group">
                     <img src="https://avatars.githubusercontent.com/u/3793556?v=4" alt="Customer avatar" class="avatar" />
@@ -33,10 +35,10 @@ loadScriptAfter: /home-page.js
     </section>
     <section>
     	<div class="section-content about-section">
-                <div>
-                    <p class="about-overline">What is Cypht?</p>
-                    <h2 class="about-heading">About Cypht</h2>
-                    <p class="about-subtitle about-subtitle-center">Cypht (pronounced "sift") is like a news reader, but for E-mail. Cypht does not replace your existing accounts - it combines them into one. It's also a news reader.</p>
+                <div class="about-section-header">
+                    <p class="home-overline">What is Cypht?</p>
+                    <h1 class="section-card-title">About Cypht</h1>
+                    <p class="section-card-subtitle subtitle-center">Cypht (pronounced "sift") is like a news reader, but for E-mail. Cypht does not replace your existing accounts.</p>
                 </div>
                 <div class="about-grid-3">
                     <div>
@@ -84,10 +86,11 @@ loadScriptAfter: /home-page.js
     <section class="features-section" id="features">
         <div class="section-content features-wide px-4">
             <div class="w-full">
-                <span class="about-overline">Key Features</span>
-                <h2 class="features-title">How to use <span class="accent">Cypht</span> to simplify <br> your communications</h2>
+                <span class="home-overline">Key Features</span>
+                <h1 class="section-card-title">How to use <span class="accent">Cypht</span> to simplify <br> your communications</h1>
                 <p class="features-subtitle">Cypht combines all your email accounts into a single, secure interface, offering you a unified and seamless communication experience.</p>
             </div>
+            <!--  -->
             <div class="features-grid mosaic-grid">
                 <div class="f-card m-hero">
                     <div class="m-hero-col">
@@ -159,21 +162,22 @@ loadScriptAfter: /home-page.js
     <section class="faq-section">
         <div class="section-content px-4">
             <div class="faq-container">
-                <div class="faq-left">
-                    <h2 class="faq-title">Frequently Asked Questions</h2>
-                    <p class="faq-subtitle">Trusted by users in more than 50 countries and thousands of developers worldwide.</p>
-                    <div class="faq-contact-box">
-                    <div class="faq-contact-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#81B441"stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </div>
-                    <div>
-                        <h4>You have a suggestion or different questions ?</h4>
-                        <p>Our team will answer all your questions, we ensure a quick response.</p>
-                        <a href="https://matrix.to/#/#cypht-org_community:gitter.im" class="action-btn contact-btn cypht-primary-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M12 10a4 4 0 1 0 0-8a4 4 0 0 0 0 8m-4 2.25a4.124 4.124 0 0 0-4.095 3.642l-.65 5.52a.75.75 0 0 0 1.49.176l.65-5.52a2.624 2.624 0 0 1 1.855-2.209v4.193c0 .899 0 1.648.08 2.242c.084.628.27 1.195.726 1.65c.455.456 1.022.642 1.65.726c.594.08 1.344.08 2.242.08h.104c.899 0 1.648 0 2.243-.08c.627-.084 1.194-.27 1.65-.726c.455-.455.64-1.022.725-1.65c.08-.594.08-1.343.08-2.242v-4.193a2.624 2.624 0 0 1 1.856 2.208l.65 5.52a.75.75 0 1 0 1.489-.175l-.65-5.52A4.124 4.124 0 0 0 16 12.25z"/></svg>
-                            Contact Our Team
-                        </a>
-                    </div>
+                <div class="faq-left section-card-header">
+                 <span class="home-overline">faq</span>
+                    <h1 class="section-card-title">Frequently Asked Questions</h1>
+                    <p class="section-card-subtitle">Trusted by users in more than 50 countries and thousands of developers worldwide.</p>
+                    <div class="faq-contact-box mt-3">
+                        <div class="faq-contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#81B441"stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div>
+                            <h4>You have a suggestion or different questions ?</h4>
+                            <p class="simple-description">Our team will answer all your questions, we ensure a quick response.</p>
+                            <a href="https://matrix.to/#/#cypht-org_community:gitter.im" class="action-btn contact-btn cypht-primary-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M12 10a4 4 0 1 0 0-8a4 4 0 0 0 0 8m-4 2.25a4.124 4.124 0 0 0-4.095 3.642l-.65 5.52a.75.75 0 0 0 1.49.176l.65-5.52a2.624 2.624 0 0 1 1.855-2.209v4.193c0 .899 0 1.648.08 2.242c.084.628.27 1.195.726 1.65c.455.456 1.022.642 1.65.726c.594.08 1.344.08 2.242.08h.104c.899 0 1.648 0 2.243-.08c.627-.084 1.194-.27 1.65-.726c.455-.455.64-1.022.725-1.65c.08-.594.08-1.343.08-2.242v-4.193a2.624 2.624 0 0 1 1.856 2.208l.65 5.52a.75.75 0 1 0 1.489-.175l-.65-5.52A4.124 4.124 0 0 0 16 12.25z"/></svg>
+                                Contact Our Team
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="faq-right">

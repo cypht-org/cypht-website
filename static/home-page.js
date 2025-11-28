@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const currentCard = btn.closest(".about-card");
       const currentDesc = currentCard.querySelector(".card-desc");
 
-      // --- 1. FERMER les autres cartes ---
+      //1. Close other cards
       document.querySelectorAll(".about-card").forEach((card) => {
         if (card !== currentCard) {
           const desc = card.querySelector(".card-desc");
@@ -20,19 +20,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // --- 2. GÉRER la carte cliquée ---
+      //2. Handle the clicked card
       if (currentDesc.style.maxHeight) {
-        // Fermer
         currentDesc.style.maxHeight = null;
         btn.textContent = "Read more";
         btn.setAttribute("aria-expanded", "false");
         currentCard.classList.remove("expanded");
+        currentDesc.classList.remove("is-clamped");
       } else {
-        // Ouvrir
         currentDesc.style.maxHeight = currentDesc.scrollHeight + "px";
-        // currentDesc.style.lineClamp = null;
-        // currentDesc.style.webkitLineClamp = null;
-        // currentDesc.style.overflow = null;
+        currentDesc.classList.add("is-clamped");
         btn.textContent = "Read less";
         btn.setAttribute("aria-expanded", "true");
         currentCard.classList.add("expanded");

@@ -375,3 +375,19 @@ li {
       max-width: 500px;
       line-height: 1.6;
 }
+
+
+.simple-description {
+      color: var(--color-text-secondary);
+      font-size: 1.1rem;
+      max-width: 500px;
+      line-height: 1.6;
+}
+
+/* theme */
+[data-theme="dark"] {
+      .simple-description {
+            color: var(--color-text);
+            opacity: .8;
+      }
+}

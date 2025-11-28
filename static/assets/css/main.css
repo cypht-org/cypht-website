@@ -185,7 +185,6 @@
 ========================================== */
 body {
       background-color: var(--color-bg);
-      /* background-color: #ffffff4e; */
       color: var(--color-text);
       font-family: var(--font-sans);
       line-height: 1.6;
@@ -386,8 +385,7 @@ a:hover {
       border-radius: 5px;
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.875rem;
-      /* border: 1px solid transparent; */
+      font-size: 0.89rem;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       white-space: nowrap;
@@ -506,7 +504,6 @@ a:hover {
       justify-content: center;
       padding: 2rem 0;
       width: 100%;
-      /* background-color: #10B981 !important; */
 }
 
 .hs-container::before {
@@ -525,7 +522,6 @@ a:hover {
       display: flex;
       gap: 1.5rem;
       width: 100%;
-
 }
 
 .hs-text-content {
@@ -559,14 +555,8 @@ a:hover {
 
 /* +- Hero Section Text */
 .hs-title {
-      /* font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-      font-size: clamp(2rem, 3.8vw, 4rem);
-      margin: .4rem auto .4rem; */
-
       font-weight: 700;
-      font-size: clamp(2rem, 3.8vw, 4rem);
+      font-size: clamp(2rem, 3.6vw, 3.3rem);
       line-height: 1.1;
       margin-bottom: 1.5rem;
       color: var(--color-text);
@@ -590,7 +580,6 @@ a:hover {
       gap: 1rem;
       margin-bottom: 2.5rem;
       animation: fadeInUp 0.8s ease-out 0.6s both;
-      /* background-color: gray; */
       justify-content: center;
 }
 
@@ -617,8 +606,6 @@ a:hover {
       height: 2rem;
       background: var(--color-border);
 }
-
-
 
 /* +- Hero Section Actions */
 .hs-actions-content {
@@ -653,7 +640,6 @@ a:hover {
       color: #fff;
 }
 
-
 .hs-btn-primary:hover {
       transform: translateY(-1px);
       background: #222;
@@ -675,7 +661,6 @@ a:hover {
 }
 
 /* Responsive */
-
 @media screen and (min-width: 630px) {
       .hs-subtitle {
             width: 70%;
@@ -766,5 +751,12 @@ a:hover {
 
       .hs-actions-content {
             /* background-color: blue; */
+      }
+}
+
+/* Theme */
+[data-theme="dark"] {
+      .hs-chip {
+            background-color: var(--clr-dark-card-second);
       }
 }

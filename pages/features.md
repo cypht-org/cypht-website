@@ -12,7 +12,7 @@ loadScriptAfter: /js/feature.js
       <!-- left text -->
         <div class="col-12 col-lg-6 hero-section-content">
             <div class="mb-2">
-                <span class="chip">🌟 A simplified email experience</span>
+                <span class="hs-chip">🌟 A simplified email experience</span>
             </div>
             <h1 class="display-4 fw-bold">
             Everything You Need for a Unified Email Workflow

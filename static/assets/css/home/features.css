@@ -31,7 +31,6 @@
       font-size: 2.5rem;
       line-height: 1.2;
       margin: 0.75rem 0;
-      /* color: #2F4858; */
 }
 
 .features-title .accent {
@@ -777,7 +776,7 @@
 }
 
 /* Tablet breakpoint (640px - 1028px) */
-@media (max-width: 1028px) {
+@media (max-width: 1028px) and (min-width: 640px) {
       .features-section {
             padding: 4rem 0;
       }

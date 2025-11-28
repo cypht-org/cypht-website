@@ -3,8 +3,11 @@
 
 class ThemeSwitcher {
     constructor() {
-        this.themeToggle = document.getElementById('theme-toggle');
-        this.themeIcon = document.getElementById('theme-icon');
+        // Get all theme toggle buttons (there can be multiple in navbar and offcanvas)
+        // Use both ID selector and class selector to catch all instances
+        this.themeToggles = document.querySelectorAll('#theme-toggle, .theme-toggle');
+        // Get all theme icons (there can be multiple)
+        this.themeIcons = document.querySelectorAll('#theme-icon, .theme-icon');
         // Safe localStorage access with fallback
         try {
             this.theme = localStorage.getItem('theme') || 'light';
@@ -19,10 +22,10 @@ class ThemeSwitcher {
         // Set initial theme
         this.setTheme(this.theme);
 
-        // Add event listener if toggle button exists
-        if (this.themeToggle) {
-            this.themeToggle.addEventListener('click', () => this.toggleTheme());
-        }
+        // Add event listener to all toggle buttons
+        this.themeToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => this.toggleTheme());
+        });
 
         // Listen for system color scheme changes
         const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
@@ -54,15 +57,15 @@ class ThemeSwitcher {
         this.theme = theme;
         document.documentElement.setAttribute('data-theme', theme);
         
-        // Update icon if it exists
-        if (this.themeIcon) {
-            this.themeIcon.className = theme === 'dark' ? 'bi bi-sun' : 'bi bi-moon';
-        }
+        // Update all icons if they exist
+        this.themeIcons.forEach(icon => {
+            icon.className = theme === 'dark' ? 'bi bi-sun' : 'bi bi-moon';
+        });
         
-        // Update toggle button aria-label
-        if (this.themeToggle) {
-            this.themeToggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
-        }
+        // Update all toggle buttons aria-label
+        this.themeToggles.forEach(toggle => {
+            toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+        });
     }
 }
 
