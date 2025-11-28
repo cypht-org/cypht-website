@@ -1,12 +1,10 @@
 /* Mobile first */
 #mainNavbar {
-      /* background-color: red; */
       width: 100%;
       position: sticky;
       top: 0;
-      z-index: 1000;
-      background-color: var(--color-bg);
-
+      z-index: 150;
+      background-color: var(--color-bg-strong);
 }
 
 .nav-container {
@@ -16,9 +14,8 @@
       padding: 0 1rem;
       background: rgba(31, 31, 31, 0.9);
       width: 100%;
-      min-height: 4.2rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-
+      min-height: 4rem;
+      border: .8px solid rgba(255, 255, 255, 0.1);
       z-index: 1000;
       transition: all 0.3s ease;
       margin: 0 auto;
@@ -288,26 +285,16 @@
 }
 
 /* GitHub button styling */
-.github-btn {
-      display: flex !important;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.875rem;
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      white-space: nowrap;
-      background: rgba(255, 255, 255, 0.05) !important;
+.github-btn,
+.theme-toggle {
+      background: var(--clr-dark-card-second) !important;
       color: var(--color-text-light) !important;
       backdrop-filter: blur(10px);
-      min-width: 44px;
-      min-height: 40px;
-      position: relative;
+      min-height: 35px;
+
+      & i {
+            font-size: 1.05rem;
+      }
 }
 
 .github-btn i {
@@ -318,7 +305,8 @@
       margin: 0;
 }
 
-.github-btn:hover {
+.github-btn:hover,
+.theme-toggle:hover {
       background: rgba(255, 255, 255, 0.1) !important;
       color: var(--color-text-light) !important;
       transform: translateY(-1px);
@@ -344,51 +332,33 @@
 
 /* Theme toggle button styling */
 .theme-toggle {
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-      padding: 0.5rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.875rem;
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      white-space: nowrap;
-      background: rgba(255, 255, 255, 0.05) !important;
-      color: var(--color-text-light) !important;
-      backdrop-filter: blur(10px);
-      min-width: 44px;
-      min-height: 40px;
-      width: 44px;
-      height: 40px;
+      width: 35px;
+      height: 35px;
       position: relative;
 }
 
 /* Ensure the icon always stays properly positioned and centered */
-.theme-toggle i {
+/* .theme-toggle i {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
       margin: 0;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       transition: transform 0.3s ease;
-}
+} */
 
 .theme-toggle:hover i {
       transform: rotate(180deg);
 }
 
-.theme-toggle:hover {
+/* .theme-toggle:hover {
       background: rgba(255, 255, 255, 0.1) !important;
       color: var(--color-text-light) !important;
       transform: translateY(-1px);
       border-color: rgba(255, 255, 255, 0.2) !important;
       box-shadow: var(--shadow-md);
-}
+} */
 
 .footer-text {
       font-size: 0.84rem;
@@ -469,20 +439,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.25rem;
+            gap: 0.45rem;
       }
 
       .nav-item {
             position: relative;
             display: flex;
             align-items: center;
-            gap: 0.7rem;
-            padding: 0.2rem 1rem !important;
+            gap: 0.25rem;
+            padding: 0.2rem .8rem !important;
             border-radius: 4px;
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--nav-item-color);
             font-weight: 600;
-            font-size: 0.91rem;
+            font-size: 0.87rem;
             border: none;
             background: none;
             cursor: pointer;
@@ -600,7 +570,7 @@
             gap: 0.875rem;
             padding: 1rem 1.125rem !important;
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.85);
+            color: var(--nav-item-color);
             font-size: 0.875rem;
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             border-radius: 12px !important;
@@ -805,7 +775,7 @@
       .mobile-actions .github-btn {
             justify-content: flex-start;
             gap: 0.5rem;
-            padding: 0.5rem 1rem;
+            /* padding: 0.5rem 1rem; */
       }
 
       .mobile-actions .github-btn .btn-text {

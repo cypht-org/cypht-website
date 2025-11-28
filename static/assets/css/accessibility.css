@@ -110,12 +110,30 @@
 /* Improved button accessibility */
 button,
 .btn {
-      min-height: 44px;
-      min-width: 44px;
+      min-height: 42px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
+}
+
+.cypht-primary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600 !important;
+      background: linear-gradient(135deg, rgba(129, 180, 65, 0.15) 0%, rgba(129, 180, 65, 0.25) 100%) !important;
+      border: .8px solid var(--color-primary) !important;
+      padding: 0.4rem 1.2rem !important;
+      box-shadow: var(--shadow-md) !important;
+      color: var(--color-primary-dark) !important;
+      backdrop-filter: blur(10px) !important;
+      height: 42px !important;
+}
+
+.cypht-primary-btn svg {
+      width: 1.2rem !important;
+      height: 1.2rem !important;
 }
 
 /* Ensure interactive elements are large enough for touch */
@@ -585,19 +603,6 @@ pre code {
       }
 }
 
-/* Dark mode accessibility improvements */
-[data-theme="dark"] {
-      /* Ensure proper contrast in dark mode */
-      --color-text: #F8FAFC;
-      --color-text-secondary: #CBD5E1;
-      --color-text-muted: #94A3B8;
-      --color-bg: #0F172A;
-      --color-bg-secondary: #1E293B;
-      --color-bg-tertiary: #334155;
-      --color-border: #334155;
-      --color-border-light: #475569;
-      --color-border-dark: #1E293B;
-}
 
 /* Mobile accessibility improvements */
 @media (max-width: 768px) {
@@ -622,4 +627,23 @@ pre code {
             font-size: 16px;
             /* Prevent zoom on iOS */
       }
+}
+
+/* Theme */
+
+/* [data-theme="light"] {
+      
+} */
+
+[data-theme="dark"] {
+      /* Ensure proper contrast in dark mode */
+      --color-text: #F8FAFC;
+      --color-text-secondary: #CBD5E1;
+      --color-text-muted: #94A3B8;
+      --color-bg: #0F172A;
+      --color-bg-secondary: #1E293B;
+      --color-bg-tertiary: #334155;
+      --color-border: #334155;
+      --color-border-light: #475569;
+      --color-border-dark: #1E293B;
 }

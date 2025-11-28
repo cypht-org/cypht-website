@@ -2,7 +2,6 @@
    1. VARIABLES AND CONFIGURATION
 ============================================== */
 :root {
-      --feature-border-radius: 16px;
       --feature-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
       --card-padding: 1.75rem;
       --card-gap: 1rem;
@@ -86,7 +85,7 @@
       grid-row: 3 / 4;
 }
 
-.m-cta {
+.f-others {
       grid-column: 6 / 9;
       grid-row: 3 / 4;
 }
@@ -96,14 +95,14 @@
 ============================================== */
 .f-card {
       background: white;
-      border-radius: var(--feature-border-radius);
+      border-radius: var(--size-radius-md);
       padding: var(--card-padding);
       box-shadow: var(--feature-shadow);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       border: 1px solid rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease;
+      transition: all 0.7s ease;
       cursor: pointer;
 }
 
@@ -126,9 +125,19 @@
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
+
+
+
+
 /* ==============================================
    5. SPECIFIC CARD STYLES
 ============================================== */
+
+.f-card p {
+      font-weight: 500 !important;
+      font-size: .87rem !important;
+}
+
 /* Hero card */
 .f-card.m-hero {
       background: var(--accent-light);
@@ -145,6 +154,10 @@
       justify-content: center;
 }
 
+/* .m-hero-col p {
+      color: var(--color-text-secondary);
+} */
+
 .m-hero-illus {
       display: flex;
       align-items: center;
@@ -155,15 +168,11 @@
       max-width: 100%;
       height: auto;
       background-color: transparent;
-      /* 
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); */
 }
 
 
 /* Soft background card */
 .f-card.f-soft {
-      /* background: rgba(129, 180, 65, 0.08); */
-      /* Lighter Cypht green version */
       border: 1px solid rgba(129, 180, 65, 0.15);
       box-shadow: 0 8px 20px rgba(129, 180, 65, 0.05);
       /* Subtle tinted shadow */
@@ -172,7 +181,6 @@
 /* Hover effect for soft cards */
 .f-card.f-soft:hover {
       background: transparent;
-      /* border-color: rgba(129, 180, 65, 0.25); */
       transform: translateY(-3px);
 }
 
@@ -226,14 +234,30 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 
-.f-apps span {
-      font-size: .82rem;
+.f-apps p {
+      color: var(--color-text);
+}
+
+.f-apps a {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-weight: 700 !important;
+}
+
+.f-apps a i {
+      rotate: -50deg;
+      font-size: 1rem;
 }
 
 /* Cyan card (synchronization) */
 .f-card.m-cyan {
       background: rgba(184, 241, 255, 0.3);
       border: 1px solid rgba(100, 200, 255, 0.15);
+}
+
+.f-sync p {
+      color: var(--color-text-secondary);
 }
 
 .f-sync .stack-illus {
@@ -261,8 +285,8 @@
 }
 
 /* CTA card */
-.f-card.m-cta {
-      background: linear-gradient(180deg, #81B441, #68a124);
+.f-others {
+      /* background: linear-gradient(180deg, #81B441, #68a124); */
       color: white;
       border: none;
       display: flex;
@@ -270,12 +294,12 @@
       justify-content: space-between;
 }
 
-.f-card.m-cta h3 {
+.f-others h3 {
       color: white;
       font-size: 1.5rem;
 }
 
-.f-card.m-cta p {
+.f-others p {
       color: rgba(255, 255, 255, 0.9);
       font-size: 1rem;
 }
@@ -363,23 +387,23 @@
 }
 
 /* Adjustment for CTA card */
-.f-card.m-cta:not(.m-hero) {
+.f-others:not(.m-hero) {
       min-height: 200px;
       padding-bottom: 1rem;
 }
 
-.f-card.m-cta:not(.m-hero) .cta-badge {
+.f-others:not(.m-hero) .cta-badge {
       width: 35px;
       height: 35px;
       font-size: 0.9rem;
 }
 
-.f-card.m-cta:not(.m-hero) h3 {
+.f-others:not(.m-hero) h3 {
       font-size: 1.15rem;
       margin-bottom: 0.4rem;
 }
 
-.f-card.m-cta:not(.m-hero) .cta-btn {
+.f-others:not(.m-hero) .cta-btn {
       margin-top: 0.5rem;
       padding: 0.5rem 1rem;
 }
@@ -406,6 +430,228 @@
       font-size: 0.7rem;
 }
 
+
+/* Improvements for cards with images */
+
+/* General style for images in cards - without box-shadow */
+.f-card img.phone-mock {
+      border-radius: 10px;
+      transition: transform 0.4s ease;
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+      box-shadow: none;
+      /* Remove box-shadow */
+}
+
+/* Hover animation for images - without box-shadow */
+.f-card:hover img.phone-mock {
+      transform: translateY(-5px) scale(1.02);
+}
+
+/* Remove shadow effect for f-soft cards */
+.f-card.f-soft .f-illus {
+      width: 100%;
+      height: auto;
+      max-height: 120px;
+      margin-bottom: 0.75rem;
+      border-radius: 8px;
+      overflow: hidden;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+}
+
+/* Also remove hover shadow effects */
+.f-card.f-soft:hover .f-illus {
+      box-shadow: none;
+}
+
+/* Improve contrast for readability */
+.f-card.f-soft {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(129, 180, 65, 0.2);
+}
+
+.f-card.f-soft h3 {
+      margin-top: 0.5rem;
+      font-weight: 600;
+}
+
+.f-card.f-soft p {
+      color: var(--color-text-secondary);
+      opacity: .8;
+}
+
+/* Adjust proportions and spacing */
+.f-card:not(.m-hero) {
+      height: auto;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+}
+
+/* Add a grid structure for card content */
+.f-card.f-soft {
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      gap: 0.5rem;
+}
+
+/* Increased depth effect on hover */
+.f-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      will-change: transform, box-shadow;
+}
+
+.f-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Additional mobile optimizations are handled in the main media query above */
+
+/* Force bottom cards to have exactly the same height */
+
+/* Force the same height for the three bottom cards */
+.f-card.m-yellow,
+.f-card.m-cyan,
+.f-others {
+      height: 280px !important;
+      min-height: 280px !important;
+      max-height: 280px !important;
+      box-sizing: border-box;
+      padding: 1.5rem;
+      margin: 0;
+      overflow: hidden;
+}
+
+/* Content style for yellow card */
+.f-card.m-yellow .f-apps {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+}
+
+.f-card.m-yellow h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+}
+
+.f-card.m-yellow .apps {
+      margin-top: auto;
+      margin-bottom: 1rem;
+}
+
+.f-card.m-yellow .see-all-link {
+      margin-top: auto;
+}
+
+/* Content style for cyan card */
+.f-card.m-cyan .f-sync {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+}
+
+.f-card.m-cyan h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+}
+
+.f-card.m-cyan p {
+      margin-bottom: auto;
+}
+
+.f-card.m-cyan .stack-illus {
+      margin-top: auto;
+      padding-top: 1rem;
+}
+
+/* Content style for CTA card */
+.f-others>div {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+}
+
+.f-others h3 {
+      margin-top: 0.5rem;
+      margin-bottom: 0.75rem;
+}
+
+.f-others .cta-badge {
+      margin-bottom: 0.5rem;
+}
+
+.f-others .cta-btn {
+      margin-top: auto;
+}
+
+/* Remove Margins that Could Cause Differences */
+.f-card.m-yellow *,
+.f-card.m-cyan *,
+.f-others * {
+      max-width: 100%;
+}
+
+/* Ensure Buttons and Links Do Not Affect Height */
+.f-card .btn,
+.f-card .see-all-link {
+      white-space: nowrap;
+}
+
+/* ==============================================
+    ANIMATIONS AND SPECIAL EFFECTS
+============================================== */
+.animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+}
+
+/* Delay for cascading cards */
+.f-card:nth-child(1).animate-on-scroll {
+      transition-delay: 0.1s;
+}
+
+.f-card:nth-child(2).animate-on-scroll {
+      transition-delay: 0.2s;
+}
+
+.f-card:nth-child(3).animate-on-scroll {
+      transition-delay: 0.3s;
+}
+
+.f-card:nth-child(4).animate-on-scroll {
+      transition-delay: 0.4s;
+}
+
+.f-card:nth-child(5).animate-on-scroll {
+      transition-delay: 0.5s;
+}
+
+.f-card:nth-child(6).animate-on-scroll {
+      transition-delay: 0.6s;
+}
+
+/* Card entrance animation */
+.f-card {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.f-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+}
+
 /* ==============================================
    7. MEDIA QUERIES FOR RESPONSIVENESS
 ============================================== */
@@ -413,93 +659,7 @@
 /* Desktop (> 1028px) - Keep current 8-column mosaic layout */
 /* No media query needed - desktop styles are default */
 
-/* Tablet breakpoint (640px - 1028px) */
-@media (max-width: 1028px) and (min-width: 640px) {
-      .features-section {
-            padding: 4rem 0;
-      }
 
-      .features-title {
-            font-size: clamp(1.75rem, 4vw, 2.25rem);
-      }
-
-      .features-subtitle {
-            font-size: 1rem;
-            max-width: 100%;
-      }
-
-      .mosaic-grid {
-            grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: minmax(200px, auto);
-      }
-
-      /* Reorganize card placement for 2-column grid */
-      .m-hero {
-            grid-column: 1 / 3;
-            grid-row: 1 / 2;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-      }
-
-      .m-hero-col {
-            order: 1;
-      }
-
-      .m-hero-col.m-hero-illus {
-            order: 0;
-            margin-bottom: 1rem;
-      }
-
-      .m-left {
-            grid-column: 1 / 2;
-            grid-row: 2 / 3;
-      }
-
-      .m-right {
-            grid-column: 2 / 3;
-            grid-row: 2 / 3;
-      }
-
-      .m-yellow {
-            grid-column: 1 / 2;
-            grid-row: 3 / 4;
-      }
-
-      .m-cyan {
-            grid-column: 2 / 3;
-            grid-row: 3 / 4;
-      }
-
-      .m-cta {
-            grid-column: 1 / 3;
-            grid-row: 4 / 5;
-      }
-
-      /* Adjust card heights for tablet */
-      .f-card:not(.m-hero) {
-            min-height: 240px;
-            max-height: none;
-      }
-
-      .f-card.m-yellow,
-      .f-card.m-cyan,
-      .f-card.m-cta {
-            height: auto !important;
-            min-height: 240px !important;
-            max-height: none !important;
-      }
-
-      /* Adjust phone-mock images */
-      .f-card.f-soft .f-illus {
-            max-height: 120px;
-      }
-
-      /* Adjust app icons grid */
-      .f-apps .apps {
-            grid-template-columns: repeat(5, minmax(28px, 1fr));
-            gap: 0.4rem;
-      }
-}
 
 /* Mobile breakpoint (< 640px) */
 @media (max-width: 640px) {
@@ -557,7 +717,7 @@
       /* Remove fixed heights on mobile */
       .f-card.m-yellow,
       .f-card.m-cyan,
-      .f-card.m-cta {
+      .f-others {
             height: auto !important;
             min-height: auto !important;
             max-height: none !important;
@@ -602,11 +762,11 @@
       }
 
       /* Adjust CTA card */
-      .f-card.m-cta h3 {
+      .f-others h3 {
             font-size: 1.25rem;
       }
 
-      .f-card.m-cta p {
+      .f-others p {
             font-size: 0.95rem;
       }
 
@@ -616,55 +776,92 @@
       }
 }
 
-/* ==============================================
-   8. ANIMATIONS AND SPECIAL EFFECTS
-============================================== */
-.animate-on-scroll {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-}
+/* Tablet breakpoint (640px - 1028px) */
+@media (max-width: 1028px) {
+      .features-section {
+            padding: 4rem 0;
+      }
 
-.animate-on-scroll.visible {
-      opacity: 1;
-      transform: translateY(0);
-}
+      .features-title {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+      }
 
-/* Delay for cascading cards */
-.f-card:nth-child(1).animate-on-scroll {
-      transition-delay: 0.1s;
-}
+      .features-subtitle {
+            font-size: 1rem;
+            max-width: 100%;
+      }
 
-.f-card:nth-child(2).animate-on-scroll {
-      transition-delay: 0.2s;
-}
+      .mosaic-grid {
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: minmax(200px, auto);
+      }
 
-.f-card:nth-child(3).animate-on-scroll {
-      transition-delay: 0.3s;
-}
+      /* Reorganize card placement for 2-column grid */
+      .m-hero {
+            grid-column: 1 / 3;
+            grid-row: 1 / 2;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+      }
 
-.f-card:nth-child(4).animate-on-scroll {
-      transition-delay: 0.4s;
-}
+      .m-hero-col {
+            order: 1;
+      }
 
-.f-card:nth-child(5).animate-on-scroll {
-      transition-delay: 0.5s;
-}
+      .m-hero-col.m-hero-illus {
+            order: 0;
+            margin-bottom: 1rem;
+      }
 
-.f-card:nth-child(6).animate-on-scroll {
-      transition-delay: 0.6s;
-}
+      .m-left {
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+      }
 
-/* Card entrance animation */
-.f-card {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-}
+      .m-right {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+      }
 
-.f-card.visible {
-      opacity: 1;
-      transform: translateY(0);
+      .m-yellow {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+      }
+
+      .m-cyan {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+      }
+
+      .f-others {
+            grid-column: 1 / 3;
+            grid-row: 4 / 5;
+      }
+
+      /* Adjust card heights for tablet */
+      .f-card:not(.m-hero) {
+            min-height: 240px;
+            max-height: none;
+      }
+
+      .f-card.m-yellow,
+      .f-card.m-cyan,
+      .f-others {
+            height: auto !important;
+            min-height: 240px !important;
+            max-height: none !important;
+      }
+
+      /* Adjust phone-mock images */
+      .f-card.f-soft .f-illus {
+            max-height: 120px;
+      }
+
+      /* Adjust app icons grid */
+      .f-apps .apps {
+            grid-template-columns: repeat(5, minmax(28px, 1fr));
+            gap: 0.4rem;
+      }
 }
 
 /* Disable effects for users who prefer reduced motion */
@@ -681,177 +878,30 @@
       }
 }
 
-/* Improvements for cards with images */
+/* Theme */
 
-/* General style for images in cards - without box-shadow */
-.f-card img.phone-mock {
-      border-radius: 10px;
-      transition: transform 0.4s ease;
-      max-width: 100%;
-      height: auto;
-      object-fit: cover;
-      box-shadow: none;
-      /* Remove box-shadow */
-}
+[data-theme="dark"] {
 
-/* Hover animation for images - without box-shadow */
-.f-card:hover img.phone-mock {
-      transform: translateY(-5px) scale(1.02);
-}
+      .m-hero p {
+            color: var(--color-text);
+            opacity: .8;
+      }
 
-/* Remove shadow effect for f-soft cards */
-.f-card.f-soft .f-illus {
-      width: 100%;
-      height: auto;
-      max-height: 120px;
-      margin-bottom: 0.75rem;
-      border-radius: 8px;
-      overflow: hidden;
-      padding: 0;
-      background: transparent;
-      box-shadow: none;
-}
+      .f-soft {
+            background: var(--clr-card-bg);
+            border-color: var(--color-border) !important;
+            box-shadow: inherit;
+      }
 
-/* Also remove hover shadow effects */
-.f-card.f-soft:hover .f-illus {
-      box-shadow: none;
-}
+      .f-soft p {
+            opacity: 1 !important;
+      }
 
-/* Improve contrast for readability */
-.f-card.f-soft {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(129, 180, 65, 0.2);
-}
+      .f-apps a {
+            opacity: 1 !important;
+      }
 
-.f-card.f-soft h3 {
-      margin-top: 0.5rem;
-      /* color: #2F4858; */
-      font-weight: 600;
-}
-
-.f-card.f-soft p {
-      color: #555;
-}
-
-/* Adjust proportions and spacing */
-.f-card:not(.m-hero) {
-      height: auto;
-      min-height: 280px;
-      display: flex;
-      flex-direction: column;
-}
-
-/* Add a grid structure for card content */
-.f-card.f-soft {
-      display: grid;
-      grid-template-rows: auto auto 1fr;
-      gap: 0.5rem;
-}
-
-/* Increased depth effect on hover */
-.f-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      will-change: transform, box-shadow;
-}
-
-.f-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-/* Additional mobile optimizations are handled in the main media query above */
-
-/* Force bottom cards to have exactly the same height */
-
-/* Force the same height for the three bottom cards */
-.f-card.m-yellow,
-.f-card.m-cyan,
-.f-card.m-cta {
-      height: 280px !important;
-      /* Use !important to enforce */
-      min-height: 280px !important;
-      max-height: 280px !important;
-      box-sizing: border-box;
-      /* Ensure padding and border are included in the height */
-      padding: 1.5rem;
-      /* Uniform padding */
-      margin: 0;
-      /* Remove margins */
-      overflow: hidden;
-      /* Prevent overflow */
-}
-
-/* Content style for yellow card */
-.f-card.m-yellow .f-apps {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-}
-
-.f-card.m-yellow h3 {
-      margin-top: 0;
-      margin-bottom: 1rem;
-}
-
-.f-card.m-yellow .apps {
-      margin-top: auto;
-      margin-bottom: 1rem;
-}
-
-.f-card.m-yellow .see-all-link {
-      margin-top: auto;
-}
-
-/* Content style for cyan card */
-.f-card.m-cyan .f-sync {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-}
-
-.f-card.m-cyan h3 {
-      margin-top: 0;
-      margin-bottom: 1rem;
-}
-
-.f-card.m-cyan p {
-      margin-bottom: auto;
-}
-
-.f-card.m-cyan .stack-illus {
-      margin-top: auto;
-      padding-top: 1rem;
-}
-
-/* Content style for CTA card */
-.f-card.m-cta>div {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-}
-
-.f-card.m-cta h3 {
-      margin-top: 0.5rem;
-      margin-bottom: 0.75rem;
-}
-
-.f-card.m-cta .cta-badge {
-      margin-bottom: 0.5rem;
-}
-
-.f-card.m-cta .cta-btn {
-      margin-top: auto;
-}
-
-/* Remove Margins that Could Cause Differences */
-.f-card.m-yellow *,
-.f-card.m-cyan *,
-.f-card.m-cta * {
-      max-width: 100%;
-}
-
-/* Ensure Buttons and Links Do Not Affect Height */
-.f-card .btn,
-.f-card .see-all-link {
-      white-space: nowrap;
+      .f-others {
+            background: var(--clr-dark-card-second);
+      }
 }
