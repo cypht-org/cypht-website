@@ -136,6 +136,9 @@ button,
       height: 1.2rem !important;
 }
 
+
+
+
 /* Ensure interactive elements are large enough for touch */
 a,
 button,
@@ -631,9 +634,11 @@ pre code {
 
 /* Theme */
 
-/* [data-theme="light"] {
-      
-} */
+[data-theme="light"] {
+      .cypht-secondary-btn {
+            border: 1px solid var(--color-border) !important;
+      }
+}
 
 [data-theme="dark"] {
       /* Ensure proper contrast in dark mode */
