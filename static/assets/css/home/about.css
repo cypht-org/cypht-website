@@ -1,0 +1,144 @@
+/*
+|--------------------------------------------------------------------------
+| ABOUT SECTION
+|--------------------------------------------------------------------------
+*/
+
+.about-section {
+      padding: 4rem 1.25rem;
+}
+
+/* About reference-style heading block */
+.about-overline {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 700;
+      font-size: .8rem;
+      color: rgba(17, 17, 17, .6);
+      text-align: center;
+      margin: 0 0 .5rem;
+}
+
+.about-heading {
+      text-align: center;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      font-size: clamp(1.8rem, 4.8vw, 2.6rem);
+      margin: 0 0 .5rem;
+}
+
+.about-subtitle-center {
+      text-align: center;
+      max-width: 70ch;
+      margin: 0 auto 2rem;
+      opacity: .8;
+}
+
+/* Three-card grid - Desktop-first: default is 3 columns */
+.about-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+}
+
+/*
+|--------------------------------------------------------------------------
+| ABOUT CARD STYLE
+|--------------------------------------------------------------------------
+*/
+.about-card {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      /* box-shadow: var(--shadow-lg); */
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      height: auto !important;
+      overflow: visible;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
+}
+
+.card-illustration {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: .5rem;
+      /* padding: 1.1rem; */
+      border-radius: 16px;
+      border: 1px solid var(--color-border-light);
+      background: var(--color-bg-tertiary);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: .9rem;
+      height: 16rem;
+      transition: all 0.3s ease;
+}
+
+.about-card:hover .card-illustration {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-md);
+}
+
+.card-illustration img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
+      display: block;
+      max-width: 100%;
+      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, .08));
+}
+
+/* Ensure all images are responsive */
+.about-card img,
+.card-illustration img {
+      max-width: 100%;
+      height: auto;
+}
+
+
+.about-card h3 {
+      margin: .5rem 0 .25rem;
+      font-weight: 600;
+      font-size: 1rem;
+}
+
+.card-desc {
+      font-size: .85rem;
+      transition: max-height 0.3s ease;
+      max-height: 5rem;
+      overflow: hidden;
+      text-align: justify;
+}
+
+.card-toggle {
+      color: white;
+      border-radius: 8px;
+      padding: 0.3rem .6rem;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+      width: 40%;
+      height: 34px !important;
+      font-size: .83rem !important;
+}
+
+/*
+|--------------------------------------------------------------------------
+| DARK THEME
+|--------------------------------------------------------------------------
+*/
+[data-theme="dark"] {
+      .about-card {
+            border: 1px solid var(--color-border);
+            background-color: var(--clr-card-bg);
+            /* box-shadow: var(--shadow-lg); */
+      }
+
+      .card-illustration {
+            background-color: var(--clr-dark-card-second);
+            border: .8px solid var(--color-border);
+      }
+}

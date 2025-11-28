@@ -9,7 +9,6 @@
    FOOTER - MAIN SECTION
 ========================================== */
 .footer-main {
-      /* background: var(--color-bg); */
       border-top: 0.5px solid var(--color-border);
       padding: 3rem 0;
 }
@@ -56,8 +55,9 @@
 .footer-bottom-content a {
       color: var(--color-text);
       text-decoration: none;
-      opacity: 0.6;
+      opacity: 0.8;
       font-size: .76rem;
+      font-weight: 500;
 }
 
 .footer-bottom-content a:hover {
@@ -70,8 +70,9 @@
 .copyright {
       font-size: 0.78rem;
       color: var(--color-text);
-      opacity: 0.6;
+      opacity: 0.7;
       margin: 0;
+      font-weight: 500;
 }
 
 /* ==========================================
@@ -91,14 +92,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
-      background: var(--color-bg-tertiary);
+      width: 40px;
+      height: 40px;
+      background: var(--clr-card-bg);
       color: var(--color-text-secondary);
       border-radius: 12px;
       text-decoration: none;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 1px solid var(--color-border-light);
+      border: .8px solid var(--color-border);
       box-shadow: var(--shadow-sm);
 }
 
@@ -142,7 +143,7 @@
 .footer-brand .logo-wrapper {
       display: flex;
       align-items: center;
-      width: 120px;
+      width: 100px;
       height: auto;
       margin-bottom: 12px;
 }
@@ -153,9 +154,6 @@
       height: 100%;
 }
 
-/* [data-theme="light"] .footer-logo {
-      filter: brightness(0);
-} */
 
 .brand-name {
       font-size: 1.5rem;
@@ -164,12 +162,14 @@
 }
 
 .brand-description {
+      width: 80% !important;
       color: var(--color-text);
-      opacity: 0.7;
+      opacity: 0.6;
       line-height: 1.6;
       max-width: 400px;
-      font-size: 0.87rem;
+      font-size: 0.85rem;
       width: 400px;
+      font-weight: 500;
 }
 
 /* Newsletter */
@@ -260,27 +260,26 @@
       font-size: .93rem;
       font-weight: 600;
       color: var(--color-text);
-      /* margin-bottom: 0.2rem; */
+      opacity: .95;
 }
 
 .link-item {
       color: var(--color-text-secondary);
       text-decoration: none;
-      font-size: 0.875rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 0.8rem;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       padding: 0.3rem 0;
       border-radius: 6px;
       display: inline-block;
       width: fit-content;
       min-height: inherit !important;
+      font-weight: 500;
+      opacity: .75 !important;
 }
 
 .link-item:hover {
       color: var(--color-primary);
-      font-weight: 500;
-      transform: translateX(4px);
-      background: var(--color-bg-tertiary);
-      padding: 0.3rem 0.5rem;
+      font-weight: 700;
 }
 
 /* ==========================================
@@ -330,5 +329,26 @@
       .footer-links {
             justify-content: end;
             gap: 4rem;
+      }
+}
+
+/* Theme*/
+/* +- Light Theme */
+[data-theme="light"] {
+
+      #footer_logo {
+            content: url("/img/logo_dark.svg");
+      }
+
+}
+
+/* +- Dark Theme */
+[data-theme="dark"] {
+      #footer_logo {
+            content: url("/img/logo.svg");
+      }
+
+      .brand-description {
+            opacity: 0.8;
       }
 }

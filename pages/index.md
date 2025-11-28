@@ -10,7 +10,7 @@ loadScriptAfter: /home-page.js
     <!-- Minimal hero variant -->
     <section id="hero_minimal">
     	<div class="section-content hero-minimal">
-    		<span class="chip">New ✨ Powerful APIs for everything</span>
+    		<span class="chip">✨ Supports IMAP/SMTP, JMAP and EWS</span>
     		<h2 class="minimal-title">All your E-mail, from all your accounts, in one place</h2>
     		<p class="minimal-subtitle">Cypht (pronounced "sift") is like a news reader, but for E-mail. Cypht does not replace your existing accounts - it combines them into one. It's also a news reader.</p>
     		<div class="minimal-ctas mt-4 mb-12">
@@ -19,15 +19,14 @@ loadScriptAfter: /home-page.js
     		</div>
             <div class="mini-stat d-flex align-items-center">
                 <div class="avatar-group">
-                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Customer avatar" class="avatar" />
-                    <img src="https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Customer avatar" class="avatar" />
-                    <img src="https://images.unsplash.com/photo-1511485977113-f34c92461ad9?q=80&w=3778&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Customer avatar" class="avatar" />
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Customer avatar" class="avatar" />
+                    <img src="https://avatars.githubusercontent.com/u/3793556?v=4" alt="Customer avatar" class="avatar" />
+                    <img src="https://avatars.githubusercontent.com/u/81784141?v=4" alt="Customer avatar" class="avatar" />
+                    <img src="https://avatars.githubusercontent.com/u/28566468?v=4" alt="Customer avatar" class="avatar" />
+                    <img src="https://avatars.githubusercontent.com/u/62720246?v=4" alt="Customer avatar" class="avatar" />
                 </div>
                 <p class="stat-text d-flex flex-column align-items-start mb-0"><span class="d-block">Trusted by 21,000+ happy</span>customers worldwide</p>
             </div>
             <div class="minimal-mockup">
-                <!-- <img src="https://cdn.inspira-ui.com/images/linear.webp" alt="App preview" /> -->
                 <img src="/img/app_overview_2.png" alt="App preview" />
             </div>
         </div>
@@ -40,37 +39,43 @@ loadScriptAfter: /home-page.js
                     <p class="about-subtitle about-subtitle-center">Cypht (pronounced "sift") is like a news reader, but for E-mail. Cypht does not replace your existing accounts - it combines them into one. It's also a news reader.</p>
                 </div>
                 <div class="about-grid-3">
-                    <div class="about-card">
-                        <div class="card-illustration">
-                            <img src="https://deepnote.com/_next/static/media/illustration-collaboration-1.ede7b8e7.png" alt="Mail icon" loading="eager" decoding="async" />
-                        </div>
-                        <div class="card-content">
-                            <h3>A standard E-mail client</h3>
-                            <p class="card-desc is-clamped">The driving force behind Cypht development is to provide combined views for multiple accounts, but it's also a standard E-mail client that lets you browse and manage IMAP folders and send outbound messages with SMTP.</p>
-                        </div>
-                        <button class="card-toggle" type="button" aria-expanded="false">Read more</button>
+                    <div>
+                        <div class="about-card">
+                            <div class="card-illustration">
+                                <img src="https://deepnote.com/_next/static/media/illustration-collaboration-1.ede7b8e7.png" alt="Mail icon" loading="eager" decoding="async" />
+                            </div>
+                            <div class="card-content">
+                                <h3>A standard E-mail client</h3>
+                                <p class="card-desc">The driving force behind Cypht development is to provide combined views for multiple accounts, but it's also a standard E-mail client that lets you browse and manage IMAP folders and send outbound messages with SMTP.</p>
+                            </div>
+                            <button class="card-toggle action-btn cypht-primary-btn" type="button" aria-expanded="false">Read more</button>
+                         </div>
                     </div>
                     <!-- 2 -->
-                    <div class="about-card">
-                        <div class="card-illustration">
-                            <img src="https://deepnote.com/_next/static/media/illustration-collaboration-2.5c94f9f9.png" alt="Module system illustration" loading="eager" decoding="async" />
+                    <div>
+                        <div class="about-card">
+                            <div class="card-illustration">
+                                <img src="https://deepnote.com/_next/static/media/illustration-collaboration-2.5c94f9f9.png" alt="Module system illustration" loading="eager" decoding="async" />
+                            </div>
+                            <div class="card-content">
+                                <h3>A set of plugins</h3>
+                                <p class="card-desc">Cypht is an application built entirely of plugins, or as we call them, module sets (which is obviously way cooler sounding than plugins), that are executed by the framework. Modules provide a flexible way to add new features or customize the program without hacking the code.</p>
+                            </div>
+                            <button class="card-toggle action-btn cypht-primary-btn" type="button" aria-expanded="false">Read more</button>
                         </div>
-                        <div class="card-content">
-                            <h3>A set of plugins</h3>
-                            <p class="card-desc is-clamped">Cypht is an application built entirely of plugins, or as we call them, module sets (which is obviously way cooler sounding than plugins), that are executed by the framework. Modules provide a flexible way to add new features or customize the program without hacking the code.</p>
-                        </div>
-                        <button class="card-toggle" type="button" aria-expanded="false">Read more</button>
                     </div>
                     <!-- 3 -->
-                    <div class="about-card">
-                        <div class="card-illustration">
-                            <img src="https://deepnote.com/_next/static/media/illustration-collaboration-3.ebdb92d5.png" alt="Privacy illustration" loading="eager" decoding="async" />
+                    <div>
+                        <div class="about-card">
+                            <div class="card-illustration">
+                                <img src="https://deepnote.com/_next/static/media/illustration-collaboration-3.ebdb92d5.png" alt="Privacy illustration" loading="eager" decoding="async" />
+                            </div>
+                            <div class="card-content">
+                                <h3>Privacy‑first</h3>
+                                <p class="card-desc">Cypht is Open Source (LGPL V2), and written in PHP and JavaScript. If you are looking for a lightweight webmail solution for an ISP, school, business, or just personal use, I hope that Cypht can help!</p>
+                            </div>
+                            <button class="card-toggle action-btn cypht-primary-btn" type="button" aria-expanded="false">Read more</button>
                         </div>
-                        <div class="card-content">
-                            <h3>Privacy‑first</h3>
-                            <p class="card-desc is-clamped">Cypht is Open Source (LGPL V2), and written in PHP and JavaScript. If you are looking for a lightweight webmail solution for an ISP, school, business, or just personal use, I hope that Cypht can help!</p>
-                        </div>
-                        <button class="card-toggle" type="button" aria-expanded="false">Read more</button>
                     </div>
              </div>
     	</div>
@@ -78,7 +83,7 @@ loadScriptAfter: /home-page.js
     <!-- features -->
     <section class="features-section" id="features">
         <div class="section-content features-wide px-4">
-            <div class=" w-full">
+            <div class="w-full">
                 <span class="about-overline">Key Features</span>
                 <h2 class="features-title">How to use <span class="accent">Cypht</span> to simplify <br> your communications</h2>
                 <p class="features-subtitle">Cypht combines all your email accounts into a single, secure interface, offering you a unified and seamless communication experience.</p>
@@ -114,7 +119,7 @@ loadScriptAfter: /home-page.js
                 <div class="f-card m-yellow">
                     <div class="f-apps">
                         <h3>Extensive Module System</h3>
-                        <span>Expand functionality with modules for IMAP, SMTP, LDAP, WordPress, Github, and more.</span>
+                        <p>Expand functionality with modules for IMAP, SMTP, LDAP, WordPress, Github, and more.</p>
                         <div class="apps">
                             <i class="bi bi-google"></i>
                             <i class="bi bi-microsoft"></i>
@@ -137,7 +142,7 @@ loadScriptAfter: /home-page.js
                     </div>
                 </div>
                 <!-- CTA card -->
-                <div class="f-card m-cta">
+                <div class="f-card f-others cypht-card-bg">
                     <div>
                         <div class="cta-badge">
                             <i class="bi bi-rocket"></i>
@@ -150,110 +155,97 @@ loadScriptAfter: /home-page.js
             </div>
         </div>
     </section>
-    <!-- About Variant A: Feature + Stats (2 columns) -->
-    
+    <!-- -->
     <section class="faq-section">
         <div class="section-content px-4">
             <div class="faq-container">
-            <div class="faq-left">
-                <h2 class="faq-title">Frequently Asked Questions</h2>
-                <p class="faq-subtitle">Trusted by users in more than 50 countries and thousands of developers worldwide.</p>
-                <div class="faq-contact-box">
-                <div class="faq-contact-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#81B441" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div>
-                    <h4>You have a suggestion or different questions ?</h4>
-                    <p>Our team will answer all your questions, we ensure a quick response.</p>
-                    <a href="https://github.com/jasonmunro/cypht/issues" class="contact-btn">
-                  <i class="bi bi-flag" style="width=18; height=18"></i>
-                    Contact Our Team
-                    </a>
-                </div>
-                </div>
-            </div>
-            <div class="faq-right">
-                <!-- Question 1 -->
-                <div class="faq-item active">
-                <button class="faq-question">
-                    <span>Can I access multiple email accounts with Cypht ?</span>
-                    <svg class="faq-icon" viewBox="0 0 24 24" width="24" height="24">
-                    <circle cx="12" cy="12" r="10" fill="none" stroke="#e0e0e0" stroke-width="2"/>
-                    <path class="plus-icon" d="M12 8v8M8 12h8" stroke="#81B441" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Yes! Cypht is specifically designed to manage multiple email accounts simultaneously. You can add accounts from various providers (Gmail, Outlook, IMAP, JMAP, EWS) and access them all through a unified interface.</p>
-                </div>
-                </div>
-                <!-- Question 2 -->
-                <div class="faq-item">
-                <button class="faq-question">
-                    <span>Does Cypht support multiple users?</span>
-                    <svg class="faq-icon" viewBox="0 0 24 24" width="24" height="24">
-                    <circle cx="12" cy="12" r="10" fill="none" stroke="#e0e0e0" stroke-width="2"/>
-                    <path class="plus-icon" d="M12 8v8M8 12h8" stroke="#81B441" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Yes, Cypht supports multiple users. Each user can have their own login and manage their collection of email accounts independently.</p>
-                </div>
-                </div>
-                <!-- Question 3 -->
-                <div class="faq-item">
-                <button class="faq-question">
-                    <span>What is the Combined Inbox?</span>
-                    <svg class="faq-icon" viewBox="0 0 24 24" width="24" height="24">
-                    <circle cx="12" cy="12" r="10" fill="none" stroke="#e0e0e0" stroke-width="2"/>
-                    <path class="plus-icon" d="M12 8v8M8 12h8" stroke="#81B441" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </button>
-                <div class="faq-answer">
-                    <p>The Combined Inbox displays emails from all your connected accounts in one unified view, allowing you to read, sort, and manage messages from different providers without switching between accounts.</p>
-                </div>
-                </div>
-                <!-- Question 4 -->
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Can I create email filters?</span>
-                        <svg class="faq-icon" viewBox="0 0 24 24" width="24" height="24">
-                        <circle cx="12" cy="12" r="10" fill="none" stroke="#e0e0e0" stroke-width="2"/>
-                        <path class="plus-icon" d="M12 8v8M8 12h8" stroke="#81B441" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes, Cypht supports Sieve filters. Go to Settings > Sieve Filters, select your account, and create filters to automatically organize emails based on criteria like sender, subject, or keywords.</p>
+                <div class="faq-left">
+                    <h2 class="faq-title">Frequently Asked Questions</h2>
+                    <p class="faq-subtitle">Trusted by users in more than 50 countries and thousands of developers worldwide.</p>
+                    <div class="faq-contact-box">
+                    <div class="faq-contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#81B441"stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div>
+                        <h4>You have a suggestion or different questions ?</h4>
+                        <p>Our team will answer all your questions, we ensure a quick response.</p>
+                        <a href="https://matrix.to/#/#cypht-org_community:gitter.im" class="action-btn contact-btn cypht-primary-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M12 10a4 4 0 1 0 0-8a4 4 0 0 0 0 8m-4 2.25a4.124 4.124 0 0 0-4.095 3.642l-.65 5.52a.75.75 0 0 0 1.49.176l.65-5.52a2.624 2.624 0 0 1 1.855-2.209v4.193c0 .899 0 1.648.08 2.242c.084.628.27 1.195.726 1.65c.455.456 1.022.642 1.65.726c.594.08 1.344.08 2.242.08h.104c.899 0 1.648 0 2.243-.08c.627-.084 1.194-.27 1.65-.726c.455-.455.64-1.022.725-1.65c.08-.594.08-1.343.08-2.242v-4.193a2.624 2.624 0 0 1 1.856 2.208l.65 5.52a.75.75 0 1 0 1.489-.175l-.65-5.52A4.124 4.124 0 0 0 16 12.25z"/></svg>
+                            Contact Our Team
+                        </a>
+                    </div>
                     </div>
                 </div>
-                <!-- Question 4 -->
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Is there a contact management system?</span>
-                        <svg class="faq-icon" viewBox="0 0 24 24" width="24" height="24">
-                        <circle cx="12" cy="12" r="10" fill="none" stroke="#e0e0e0" stroke-width="2"/>
-                        <path class="plus-icon" d="M12 8v8M8 12h8" stroke="#81B441" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes, Cypht includes a contact book. You can add contacts manually from contacts page or quickly add senders by clicking the person icon in received messages.</p>
+                <div class="faq-right">
+                    <div class="accordion accordion-flush faq-accordion" id="accordion_flush_faq">
+                        <!-- 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                Can I access multiple email accounts with Cypht ?
+                            </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordion_flush_faq">
+                            <div class="accordion-body">Yes! Cypht is specifically designed to manage multiple email accounts simultaneously. You can add accounts from various providers (Gmail, Outlook, IMAP, JMAP, EWS) and access them all through a unified interface.</div>
+                            </div>
+                        </div>
+                        <!-- 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-2" aria-expanded="false" aria-controls="flush-collapse-2">
+                                Does Cypht support multiple users ?
+                            </button>
+                            </h2>
+                            <div id="flush-collapse-2" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
+                            <div class="accordion-body">Yes, Cypht supports multiple users. Each user can have their own login and manage their collection of email accounts independently.</div>
+                            </div>
+                        </div>
+                        <!-- 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-3" aria-expanded="false" aria-controls="flush-collapse-3">
+                                What is the Combined Inbox ?
+                            </button>
+                            </h2>
+                            <div id="flush-collapse-3" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
+                            <div class="accordion-body">The Combined Inbox displays emails from all your connected accounts in one unified view, allowing you to read, sort, and manage messages from different providers without switching between accounts.</div>
+                            </div>
+                        </div>
+                        <!-- 4 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-4" aria-expanded="false" aria-controls="flush-collapse-4">
+                               Can I create email filters ?
+                            </button>
+                            </h2>
+                            <div id="flush-collapse-4" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
+                            <div class="accordion-body">Yes, Cypht supports Sieve filters. Go to Settings > Sieve Filters, select your account, and create filters to automatically organize emails based on criteria like sender, subject, or keywords.</div>
+                            </div>
+                        </div>
+                        <!-- 5 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-5" aria-expanded="false" aria-controls="flush-collapse-5">
+                               Is there a contact management system ?
+                            </button>
+                            </h2>
+                            <div id="flush-collapse-5" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
+                            <div class="accordion-body">Yes, Cypht includes a contact book. You can add contacts manually from contacts page or quickly add senders by clicking the person icon in received messages.</div>
+                            </div>
+                        </div>
+                        <!-- 6 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-6" aria-expanded="false" aria-controls="flush-collapse-6">
+                               How do I add new email accounts ?
+                            </button>
+                            </h2>
+                            <div id="flush-collapse-6" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
+                            <div class="accordion-body">Click “Add” in the accounts section. For services like Gmail or Outlook, you may need to configure OAuth settings in your configuration file.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Question 4 -->
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>How do I add new email accounts?</span>
-                        <svg class="faq-icon" viewBox="0 0 24 24" width="24" height="24">
-                        <circle cx="12" cy="12" r="10" fill="none" stroke="#e0e0e0" stroke-width="2"/>
-                        <path class="plus-icon" d="M12 8v8M8 12h8" stroke="#81B441" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Click “Add” in the accounts section. For services like Gmail or Outlook, you may need to configure OAuth settings in your configuration file.</p>
-                    </div>
-                </div>
-            </div>
             </div>
         </div>
     </section>
