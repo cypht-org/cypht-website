@@ -36,11 +36,6 @@
       gap: .8rem;
 }
 
-/* .hero-section-content .dark-action-btn {
-      width: clamp(170px, 100%, 200px);
-} */
-
-
 /* ─── Icons Grid ──────────────────────────────────────────────────────────── */
 .icons-grid {
       display: grid;
@@ -187,25 +182,31 @@
       gap: 1rem;
 }
 
-.fc-header .fc-h-title {
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      margin: 0 0 .5rem;
-      padding: 0.5rem 0;
-      margin-bottom: 1rem;
-      text-align: center;
-}
-
-.fc-h-title-left {
-      text-align: center;
-      width: 100%;
-}
-
+.fc-h-title-left,
 .fc-h-title-center {
       text-align: center;
       width: 100%;
+}
+
+.fc-title {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      font-size: clamp(.9rem, 2vw, 1.5rem);
+      /* margin: 0 0 .5rem; */
+      /* padding: 0.5rem 0; */
+      text-align: center;
+      background-color: blue;
+}
+
+.fc-description {
+      font-size: 0.875rem;
+      color: #4a5568;
+      line-height: 1.5;
+      margin: 0;
+      transition: all 0.35s ease;
+      opacity: 0.9;
+      background-color: red;
 }
 
 /* ─── Feature Cards (Messaging) ──────────────────────────────────────────────────────────── */
@@ -225,7 +226,7 @@
       will-change: transform, box-shadow;
 }
 
-.fc-card-header {
+.fc-b-header {
       background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ed 100%);
       position: relative;
       border-radius: 12px 12px 0 0;
@@ -239,7 +240,7 @@
       transition: all 0.35s ease;
 }
 
-.fc-card-header img {
+.fc-b-header img {
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -250,18 +251,20 @@
       margin: 0 auto;
 }
 
-.fc-card-body {
-      padding: 1.25rem;
+.fc-body {
+      /* padding: 1.25rem; */
       text-align: left;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      /* justify-content: space-between; */
       flex: 1;
       /* background: #fff; */
       position: relative;
-      z-index: 2;
+      /* z-index: 2; */
+      background-color: green;
 }
 
+/* 
 .feature-title {
       font-weight: 700;
       font-size: 1.1rem;
@@ -269,16 +272,7 @@
       color: #1a202c;
       transition: all 0.35s ease;
       line-height: 1.3;
-}
-
-.feature-description {
-      font-size: 0.875rem;
-      color: #4a5568;
-      line-height: 1.5;
-      margin: 0;
-      transition: all 0.35s ease;
-      opacity: 0.9;
-}
+} */
 
 /* Hover Effects */
 .fc-card::before {
@@ -288,7 +282,6 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(135deg, rgba(127, 180, 65, 0.1) 0%, rgba(34, 197, 94, 0.1) 100%);
       opacity: 0;
       transition: opacity 0.35s ease;
       z-index: 1;
@@ -298,28 +291,19 @@
       transform: translateY(-4px);
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
       border-color: rgba(127, 180, 65, 0.3);
-}
 
-.fc-card:hover::before {
-      opacity: 1;
-}
+      & .feature-description {
+            color: #2d3748;
+            opacity: 1;
+      }
 
-.fc-card:hover .fc-card-header {
-      background: linear-gradient(135deg, #eef2f7 0%, #dbe2ed 100%);
-}
+      & .fc-header img {
+            transform: scale(1.06);
+      }
 
-.fc-card:hover .feature-title {
-      color: #1a365d;
-}
-
-.fc-card:hover .feature-description {
-      color: #2d3748;
-      opacity: 1;
-}
-
-.fc-card:hover .fc-card-header img {
-      transform: scale(1.06);
-      filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.15));
+      & ::before {
+            opacity: 1;
+      }
 }
 
 /* ─── Performance Grid ──────────────────────────────────────────────────────────── */
@@ -415,19 +399,12 @@
       color: #333;
 }
 
-.fp-feature-title {
+/* .fp-feature-title {
       font-size: 1.1rem;
       font-weight: 600;
       margin: 0;
       color: #333;
-}
-
-.fp-feature-description {
-      font-size: 0.875rem;
-      color: #666;
-      margin: 0;
-      line-height: 1.5;
-}
+} */
 
 /* ─── Search Grid ──────────────────────────────────────────────────────────── */
 .fsearch-grid {
@@ -506,19 +483,12 @@
       flex: 1;
 }
 
-.fss-title {
+/* .fss-title {
       font-size: 1.1rem;
       font-weight: 600;
       margin: 0;
       color: #333;
-}
-
-.fss-description {
-      font-size: 0.875rem;
-      color: #666;
-      margin: 0;
-      line-height: 1.5;
-}
+} */
 
 /* ─── Security Grid ──────────────────────────────────────────────────────────── */
 .fs-content {
@@ -593,41 +563,27 @@
 .fs-card-body {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      /* gap: 0.75rem;
       height: 100%;
       padding: 1.5rem;
-      flex: 1;
+      flex: 1; */
 }
 
-.fs-title {
+/* .fs-title {
       font-weight: 600;
       font-size: 1.1rem;
       margin: 0 0 0.5rem 0;
       color: #1a202c;
       transition: all 0.35s ease;
       line-height: 1.3;
-}
+} */
 
-.fs-description {
-      font-size: 0.875rem;
-      color: #666;
-      margin: 0;
-      line-height: 1.5;
-}
-
-.fd-feature-title {
+/* .fd-feature-title {
       font-size: 1.1rem;
       font-weight: 600;
       margin: 0;
       color: #333;
-}
-
-.fd-feature-description {
-      font-size: 0.875rem;
-      color: #666;
-      margin: 0;
-      line-height: 1.5;
-}
+} */
 
 /* ─── Development Grid ──────────────────────────────────────────────────────────── */
 .fd-grid {
@@ -878,21 +834,9 @@
             min-height: 18rem;
       }
 
-      .fc-card-header {
-            min-height: 120px;
-            padding: 0.75rem;
-      }
 
       .fc-card-body {
             padding: 1rem;
-      }
-
-      .feature-title {
-            font-size: 1rem;
-      }
-
-      .feature-description {
-            font-size: 0.8125rem;
       }
 
       .fp-feature-card,
@@ -902,17 +846,6 @@
             min-height: 14rem;
       }
 
-      .fp-feature-title,
-      .fss-title,
-      .fs-title {
-            font-size: 1rem;
-      }
-
-      .fp-feature-description,
-      .fss-description,
-      .fs-description {
-            font-size: 0.8125rem;
-      }
 }
 
 /* ==========================================
@@ -988,30 +921,11 @@
             font-size: clamp(1.75rem, 4.5vw, 2.25rem);
       }
 
-      .fc-h-title-center {
-            text-align: center;
-      }
-
       .fc-card {
             min-height: 22rem;
       }
 
-      .fc-card-header {
-            min-height: 160px;
-      }
 
-      .fc-card-header img {
-            max-height: 220px;
-            max-width: 220px;
-      }
-
-      .feature-title {
-            font-size: 1.15rem;
-      }
-
-      .feature-description {
-            font-size: 0.9rem;
-      }
 
       .fp-grid {
             grid-template-columns: repeat(2, 1fr);
@@ -1193,19 +1107,18 @@
       }
 
       .fc-left .fc-header {
-            text-align: left !important;
+            text-align: left;
             justify-content: start;
             align-items: start;
       }
 
       .fc-header .fc-h-title {
-            /* font-size: clamp(1.6rem, 4.6vw, 2.4rem); */
             padding: 0.8rem 0;
             margin-bottom: 1.5rem;
       }
 
       .fc-h-title-left {
-            text-align: left !important;
+            text-align: left;
             width: 65%;
       }
 
@@ -1215,34 +1128,10 @@
 
       .fc-h-title-center {
             width: 70%;
-            text-align: center;
       }
 
       .fc-card {
             height: 24rem;
-      }
-
-      .fc-card-header {
-            height: 60%;
-            padding: 1.5rem;
-      }
-
-      .fc-card-header img {
-            max-height: 260px;
-            max-width: 260px;
-      }
-
-      .fc-card-body {
-            padding: 1.5rem;
-      }
-
-      .feature-title {
-            font-size: 1.2rem;
-            margin-bottom: 0.75rem;
-      }
-
-      .feature-description {
-            font-size: 0.95rem;
       }
 
       .fp-grid {
@@ -1275,14 +1164,6 @@
       .fp-feature-card {
             height: 22rem;
             padding: 2rem;
-      }
-
-      .fp-feature-title {
-            font-size: 1.25rem;
-      }
-
-      .fp-feature-description {
-            font-size: 0.95rem;
       }
 
       .fsearch-grid {
@@ -1352,15 +1233,6 @@
             grid-row-start: 2;
       }
 
-      .fs-title {
-            font-size: 1.2rem;
-            margin-bottom: 0.75rem;
-      }
-
-      .fs-description {
-            font-size: 0.95rem;
-      }
-
       .fd-grid {
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(2, 1fr);
@@ -1418,15 +1290,20 @@
       .fs-card,
       .fd-card {
             background-color: var(--clr-card-bg) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--color-border);
       }
 
-      .fc-card-header,
+      .fc-b-header,
       .fp-feature-card-header,
       .fss-card-header,
       .fs-card-header,
       .fd-card-header {
             background: var(--clr-dark-card-second) !important;
+      }
+
+
+      .fc-card:hover {
+            border-color: var(--color-border);
       }
 
 }

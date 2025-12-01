@@ -10,21 +10,21 @@ loadScriptAfter: /js/contribute.js
 <div class="contribute-page">
   <section class="contribute-hero">
     <div class="contribute-hero-content">
-      <div class="mb-2">
-          <span class="chip">🤝 Open Source Community</span>
+      <div class="">
+          <span class="hs-chip">🤝 Open Source Community</span>
       </div>
-      <h1 class="contribute-title">
+      <h1 class="display-5 fw-bold mb-0">
           Contributing to Cypht
       </h1>
-      <p class="contribute-subtitle">
+      <p class="contribute-subtitle home-hs-subtitle">
         Join our open source community and help make Cypht better! Whether you're a developer, designer, 
         or documentation writer, there are many ways to contribute to the project.
       </p>
-      <div class="contribute-buttons">
-        <a href="#contributing" class="btn btn-dark">
+      <div class="contribute-buttons mt-3">
+        <a href="#contributing" class="action-btn cypht-primary-btn">
           Get Started
         </a>
-        <a href="https://github.com/cypht-org/cypht" class="btn btn-light" target="_blank" rel="noopener">
+        <a href="https://github.com/cypht-org/cypht" class="action-btn cypht-secondary-btn" target="_blank" rel="noopener">
           View on GitHub
         </a>
       </div>
@@ -175,6 +175,9 @@ loadScriptAfter: /js/contribute.js
               <span class="req-header-chip-text">Git Guidelines</span>
             </div>
             <h3>Follow these steps to contribute to the project</h3>
+            <!-- <div class="me-2 req-header-cover">
+              <img src="/img/git.png"/>
+            </div> -->
           </div>
           <div class="req-list">
             <ul>

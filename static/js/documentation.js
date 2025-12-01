@@ -257,7 +257,7 @@ const load_doc_menu = (nav_id) => {
 
   // load markdown menu list
   const docContent = document.querySelector(".doc-content");
-  UtilsFn.markdown_menu_list(menu, docContent, "/docs", "active");
+  UtilsFn.markdown_menu_list(menu, docContent, "docs", "active");
 };
 
 // Documentation Page Enhancements
