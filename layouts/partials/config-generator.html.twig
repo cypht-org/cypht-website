@@ -140,17 +140,28 @@
 				<div class="config-left d-none d-md-block col-md-3 col-xl-2">
 					<nav>
 						<div class="config-left-header">
-							<div class="">
-								<h5>Config menu</h5>
-								<p>Choose a config to generate</p>
+							<div
+								class="">
+								{# <h5>Config menu</h5> #}
+								<div class="d-flex gap-2 align-items-center cfh-version">
+									<span class="version-label">Vesion</span>
+									<div class="custom-select">
+										<button class="select-btn">
+											<span id="selected_text" class="selected-text"></span>
+											<span class="arrow">
+												<i class="bi bi-chevron-down dropdown-arrow"></i>
+											</span>
+										</button>
+										<ul class="select-menu">
+											<li data-value="Version 1.0.1">V1.x</li>
+											<li data-value="Version 1.0.1">V2.x</li>
+										</ul>
+									</div>
+								</div>
+								{# <p>Choose a config to generate</p> #}
 							</div>
-							<div class="cfh-version">
-								<span>Version</span>
-								<select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-									<option value="0">v1.4.x</option>
-									<option value="1">v2.x.x</option>
-								</select>
-							</div>
+
+
 						</div>
 						<div class="config-generator-list-container pb-5">
 							<ul class="config-generator-list ms-1">
@@ -158,7 +169,7 @@
 
 									{% if item.children is defined and item.children|length > 1 %}
 										<li class="position-relative cg-menu-group">
-											<span href=" {{item.href}} " class=" text-capitalize" data-id=" {{item.id}} ">{{item.title}}
+											<span href=" {{item.href}} " class=" text-capitalize cg-menu-group-title" data-id=" {{item.id}} ">{{item.title}}
 											</span>
 											<div class="position-relative">
 												<div class="cc-line-top"></div>

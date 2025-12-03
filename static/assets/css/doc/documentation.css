@@ -107,11 +107,11 @@
       opacity: 1;
 }
 
-.version-content .custom-select .select-btn {
+.custom-select .select-btn {
       min-height: inherit;
 }
 
-.version-content .custom-select .select-btn .arrow {
+.custom-select .select-btn .arrow {
       font-size: .8rem;
 }
 
@@ -121,8 +121,8 @@
       color: var(--color-text);
 }
 
-.doc-container .selected-text,
-.doc-container .select-menu li {
+.custom-select .selected-text,
+.custom-select .select-menu li {
       font-size: .72rem !important;
 }
 

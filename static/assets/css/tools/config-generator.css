@@ -11,6 +11,45 @@
       padding: 0 .5rem;
 }
 
+.cfh-features-list li {
+      list-style: none;
+      display: inline-flex;
+      justify-content: center;
+      padding: .2rem .8rem;
+      margin: 0 !important;
+      cursor: pointer;
+      background-color: white;
+      border: 1px solid rgba(120, 119, 198, 0.15);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+}
+
+
+.cfh-features-list li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--color-text);
+      font-weight: 500;
+      font-size: .8rem;
+      min-height: 0;
+      gap: .5rem;
+}
+
+.cfh-features-list li svg {
+      height: 1rem !important;
+      width: 1rem !important;
+}
+
+.cfh-features-list li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(120, 119, 198, 0.15);
+      color: var(--color-primary) !important;
+      font-weight: 600 !important;
+}
+
+/* to delete ??? */
 .cfh-feature {
       display: inline-flex;
       justify-content: center;
@@ -66,7 +105,6 @@
       padding: 0 1rem !important;
       display: flex;
       justify-content: flex-end;
-      background-color: red;
 }
 
 .floating-btn-content button {
@@ -103,15 +141,11 @@
       flex-direction: row;
       gap: .6rem;
       padding: 0 1rem;
-      /* background-color: blue; */
 }
 
 /* ─── Left Card ──────────────────────────────────────────────────────────── */
 
 .config-left {
-      /* width: 45%; */
-      /* background-color: red; */
-      /* padding-left: 1rem; */
       display: block;
 }
 
@@ -151,37 +185,12 @@
       padding-bottom: 1rem;
 }
 
-/* .cfh-version span {
-      font-size: .8rem;
-} */
-
-.cfh-version .form-select {
-      width: 80px !important;
-      /* cursor: pointer; */
-      font-size: .85rem !important;
-      border: .8px solid #d1d5db !important;
-      /* height: 20px; */
-      display: inline-flex;
-      align-items: center;
-      gap: .8rem !important;
-      padding: 0 .8rem !important;
-      font-weight: 600;
-}
-
-.cfh-version select:focus {
-      outline: none !important;
-      box-shadow: none !important;
-      border-color: #DFE1E5 !important;
-}
-
 /* list */
 .config-generator-list,
 .group-list {
       list-style: none;
       padding-left: 0;
       padding-left: .8rem;
-
-
 }
 
 .config-generator-list {
@@ -197,7 +206,6 @@
       font-weight: 500;
 }
 
-
 /* Group list */
 .group-list {
       margin: .7rem 0;
@@ -208,12 +216,11 @@
 .group-list::before {
       content: "";
       position: absolute;
-      top: -.6rem;
+      top: -.9rem;
       bottom: -.7rem;
       left: -.9rem;
       width: 2px;
-      background-color: var(--color-bg);
-
+      background-color: var(--color-bg-strong);
 }
 
 .cg-menu-group span {
@@ -222,43 +229,44 @@
       opacity: .4;
 }
 
-
 /* lines */
 .cc-line-top,
 .cc-line-bottom {
       position: absolute;
-      width: .7rem;
-      z-index: 10;
+      z-index: 300;
 }
 
 .cc-line-top {
-      top: -.5rem;
+      width: .7rem;
+      top: -.59rem;
       border-radius: 0 5px 0 0;
       border-right: 1px solid #e9ecef;
       border-top: 1px solid #e9ecef;
-      left: -.6389rem;
-
-      height: 18px;
+      left: -.62rem;
+      z-index: 50;
+      height: 9.5px;
 }
 
 .cc-line-top::before {
       content: "";
       position: absolute;
-      top: -.32rem;
-      left: -.22rem;
-      width: .24rem;
-      height: 5px;
+      top: -.4rem;
+      left: -.247rem;
+      width: .248rem;
+      height: 6px;
       border-left: 1px solid #e9ecef;
       border-bottom: 1px solid #e9ecef;
       border-radius: 0 0 0 5px;
-      z-index: 15;
+      z-index: 32;
       padding: .1rem 0;
+      overflow: hidden;
 }
 
 .cc-line-bottom {
-      height: 10px;
+      width: .6rem;
+      height: 6.5px;
       left: -.86rem;
-      bottom: -.8rem;
+      bottom: -.64rem;
       border-radius: 5px 0 5px 0;
       border-top: 1px solid #e9ecef;
       border-left: 1px solid #e9ecef;
@@ -267,10 +275,10 @@
 .cc-line-bottom::before {
       content: "";
       position: absolute;
-      top: -.52rem;
-      right: -.2rem;
-      width: .24rem;
-      height: 8px;
+      top: -.42rem;
+      right: -.34rem;
+      width: .34rem;
+      height: 7px;
       border-right: 1px solid #e9ecef;
       border-bottom: 1px solid #e9ecef;
       border-radius: 5px 0 5px 0;
@@ -301,7 +309,7 @@
       content: "";
       position: absolute;
       top: 25%;
-      left: -15.3px;
+      left: -15.5px;
       padding: .4rem 2px;
       border-radius: 4px;
       height: 5px;
@@ -316,12 +324,9 @@
 
 /* ─── Center Card ──────────────────────────────────────────────────────────── */
 .config-center {
-      /* flex-grow: 1; */
-      /* width: 70%; */
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      /* background-color: green; */
 
 }
 
@@ -367,7 +372,6 @@
       font-size: .85rem;
       opacity: .9;
       font-weight: 500;
-      /* width: 80%; */
 }
 
 /* ─── Item Card ──────────────────────────────────────────────────────────── */
@@ -375,7 +379,6 @@
       display: flex;
       flex-direction: column;
       flex-grow: 1;
-      /* padding: 0 1rem; */
 }
 
 .cc-body-header {
@@ -387,14 +390,6 @@
       align-items: center;
       justify-content: space-between;
       border-radius: 7px 7px 0 0;
-
-
-      /* background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-      padding: 1rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content   : space-between;
-      border-radius: 8px 8px 0 0; */
       border-top: .8px solid #e2e8f0;
       border-left: .8px solid #e2e8f0;
       border-right: .8px solid #e2e8f0;
@@ -508,7 +503,7 @@
       padding: 0.75rem 1rem;
       border: .8px solid #d1d5db !important;
       border-radius: 6px;
-      font-size: 0.9rem;
+      font-size: 0.9rem !important;
       font-weight: 500;
       color: var(--color-text);
       background-color: transparent;
@@ -585,7 +580,7 @@
 .form-check-input[type="checkbox"] {
       position: relative;
       width: 3rem;
-      height: .6rem;
+      height: .4rem;
       background-color: #e2e8f0;
       border: none;
       border-radius: 9999px !important;
@@ -910,14 +905,6 @@
       font-weight: 700 !important;
 }
 
-/* .offc-header-content {
-      height: 4rem;
-      background-color: red;
-      position: sticky;
-      top: 15rem;
-      z-index: 1000;
-} */
-
 /* ─── Close Button ─────────────────────────────────────────────────────────── */
 .offc-close-btn-wrapper {
       display: flex;
@@ -994,7 +981,6 @@
 /* +- Footer */
 
 .offc-footer-actions {
-      /* background-color: red; */
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -1131,16 +1117,11 @@
 
       .config-hero-container .hs-content {
             width: 100%;
-            /* max-width: var(--container-5xl);
-            flex-direction: row; */
       }
 
       .cfh-features-list {
             justify-content: start !important;
-      }
-
-      .config-hero-card {
-            max-width: 350px;
+            padding: 0;
       }
 
       /* ─── Hero Visual ──────────────────────────────────────────────────────────── */
@@ -1153,19 +1134,10 @@
       }
 
       .config-hero-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%);
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1),
-                  0 0 0 1px rgba(255, 255, 255, 0.2),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            border: .8px solid #DBDBDB;
+            width: 430px;
             overflow: hidden;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            max-width: 420px;
-            width: 100%;
-            /* animation: float 6s ease-in-out infinite, glow 3s ease-in-out infinite alternate; */
-            position: relative;
-            transform-style: preserve-3d;
       }
 
       @keyframes float {
@@ -1196,19 +1168,9 @@
             }
       }
 
-      .config-hero-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-            z-index: 1;
-      }
 
       .config-hero-card-header {
-            background: #F8F9FA;
+            background: #c8c9ca43;
             padding: 0.75rem 1.25rem;
             display: flex;
             align-items: center;
@@ -1218,16 +1180,6 @@
             backdrop-filter: blur(10px);
             color: #6C7280;
       }
-
-      /* .config-hero-card-header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(226, 232, 240, 0.6), transparent);
-} */
 
       .config-hero-card-dots {
             display: flex;
@@ -1277,9 +1229,9 @@
       }
 
       .config-hero-card-title {
-            font-weight: 600;
+            font-weight: 5600;
             color: #6C7280;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             letter-spacing: 0.025em;
             /* text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); */
       }
@@ -1287,21 +1239,12 @@
       .config-hero-card-content {
             padding: 1.75rem;
             font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             line-height: 1.7;
             background: linear-gradient(135deg, rgba(248, 250, 252, 0.5) 0%, rgba(255, 255, 255, 0.8) 100%);
             position: relative;
       }
 
-      .config-hero-card-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(226, 232, 240, 0.6), transparent);
-      }
 
       .config-hero-code-line {
             display: flex;
@@ -1409,4 +1352,112 @@
       .cfg-offcanvas {
             width: 550px !important;
       }
+}
+
+/* Theme */
+[data-theme="dark"] {
+      .cfh-features-list li {
+            background-color: var(--clr-card-bg);
+            border: 1px solid var(--color-border);
+      }
+
+      .config-hero-card {
+            border: 1px solid var(--color-border);
+            /* border: .8px solid red; */
+      }
+
+      .config-hero-card-header {
+            background-color: var(--clr-card-bg);
+      }
+
+      .config-hero-card-content {
+            background: var(--clr-card-bg);
+      }
+
+
+
+      /*  */
+      .config-generator-list,
+      .group-list,
+      .cc-line-top,
+      .cc-line-top::before,
+      .cc-line-bottom,
+      .cc-line-bottom::before {
+            border-color: #e9ecef21;
+      }
+
+      .cc-item-top-icon,
+      .config-active::after {
+            background: linear-gradient(135deg, rgba(128, 180, 65, 0.532) 0%, rgba(128, 180, 65, 0.532) 100%);
+            border: .8px solid var(--color-primary);
+      }
+
+      .cg-menu-group-title {
+            opacity: .7;
+      }
+
+      .config-right-header button {
+            background: var(--clr-card-bg);
+            border: 1px solid var(--color-border);
+      }
+
+      .config-right-header button:hover {
+            background: var(--clr-dark-card-second);
+      }
+
+      .config-right-notice h5 {
+            color: var(--color-text);
+            opacity: .8;
+      }
+
+      .config-right-notice-text,
+      .cc-body-header {
+            background: var(--clr-card-bg);
+      }
+
+
+      /*  */
+
+
+      .cc-header-reset-btn {
+            border: 1px solid var(--color-border);
+            background: var(--clr-dark-card-second);
+            color: var(--color-text);
+      }
+
+      .cc-item-top,
+      .cc-body-content,
+      .cc-body-header {
+            border-color: var(--color-border);
+      }
+
+      .form-input,
+      .form-select,
+      .form-input:focus,
+      .form-select:focus,
+      .form-input:hover,
+      .form-select:hover,
+      .form-switch-container {
+            border: 1px solid var(--color-border) !important;
+      }
+
+      .form-switch-container:hover {
+            background-color: var(--clr-dark-card-second);
+      }
+
+      .form-select {
+            color: var(--color-text);
+            background-color: var(--clr-dark-card-second);
+      }
+
+      .form-check-input[type="checkbox"] {
+            background: var(--clr-dark-card-second);
+            border: .8px solid var(--color-border);
+      }
+
+      .form-check-input[type="checkbox"]:checked {
+            background: linear-gradient(135deg, rgba(128, 180, 65, 0.532) 0%, rgba(128, 180, 65, 0.532) 100%) !important;
+            border: .8px solid var(--color-primary);
+      }
+
 }

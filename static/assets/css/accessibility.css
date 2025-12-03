@@ -117,21 +117,25 @@ button,
       gap: 0.5rem;
 }
 
-.cypht-primary-btn {
+.cypht-primary-btn,
+.cypht-secondary-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       font-weight: 600 !important;
+      height: 38px !important;
+}
+
+.cypht-primary-btn {
       background: linear-gradient(135deg, rgba(129, 180, 65, 0.15) 0%, rgba(129, 180, 65, 0.25) 100%) !important;
       border: .8px solid var(--color-primary) !important;
-      padding: 0.4rem 1.2rem !important;
       box-shadow: var(--shadow-md) !important;
       color: var(--color-primary-dark) !important;
       backdrop-filter: blur(10px) !important;
-      height: 42px !important;
 }
 
-.cypht-primary-btn svg {
+.cypht-primary-btn svg,
+.cypht-secondary-btn svg {
       width: 1.2rem !important;
       height: 1.2rem !important;
 }
