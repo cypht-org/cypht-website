@@ -42,7 +42,8 @@
       color: var(--color-text-secondary);
       max-width: 90%;
       animation: fadeInUp 0.8s ease-out 0.4s both;
-      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      /* font-size: clamp(1rem, 1.2vw, 1.1rem); */
+      font-size: clamp(1rem, 1.2vw, 1.1rem);
 }
 
 .home-hero-actions {

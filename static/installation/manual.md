@@ -1,4 +1,4 @@
-<div class="guide-left px-2 col col-xl-9">
+<div class="guide-left col col-xl-9">
    <div class="guide-page-header">
       <h3>Manual installation</h3>
       <p class="guide-page-subtitle">Manual installation is the most flexible option, but it requires more setup and configuration.</p>
@@ -25,7 +25,7 @@
       <div class="g-card-header">
         <h4>Steps</h5>
       </div>
-      <div class="g-card-body ms-3">
+      <div id="check-in" class="g-card-body ms-3">
       <!-- <div> -->
          <span class="gpc-body-title">1. Check minimum requirements</span>
             <!-- step 1 -->
@@ -60,7 +60,7 @@
                </li>
          </ul>
             <!-- 2 Step  -->
-         <div>
+         <div id="prepare-code">
             <span class="gpc-body-title">2. Download and prepare the code</span>
             <p>
                It's important to consider where you place the Cypht source. The web server will need read-only access to it, and moving it from one place to
@@ -665,7 +665,7 @@
             </div>
          </div>
          <!-- setp 3 -->
-         <div>
+         <div id="config-the-program">
             <span class="gpc-body-title">3. Configure the program</span>
             <p>
                To configure Cypht for your environment, you must first edit the <code>hm3.ini</code> (for Cypht 1.4.x) or <code>.env</code> (for Cypht 2.x.x) file to your liking, .env content can be generated using the Cypht Config Generator, then run the <a href="/config-generator">config-generator</a> script to generate the optimized configuration file and assets used at run-time.
@@ -682,7 +682,7 @@
             </p>
          </div>
          <!-- step 4 -->
-         <div>
+         <div id="run-time-config">
             <span class="gpc-body-title">4. Generate the run-time configuration</span>
             <p>
                Cypht uses a build process to create an optimized configuration, and to combine and minimize page assets.Once you have edited your <code>hm3.ini</code> or <code>.env</code> file, generate the configuration with:
@@ -695,7 +695,7 @@
             </p>
          </div>
          <!-- step 5 -->
-         <div>
+         <div id="web-server">
             <span class="gpc-body-title">5. Enable the program in your web-server</span>
             <p>
                The easiest way to serve Cypht is to symlink it to the web-server document root. You can also copy the generated files to your web-server location, but then you will need to re-copy them anytime the config_gen script is run. If the source is located at /usr/local/share/cypht, and the web-server document root is at /var/www/html, the following command will make Cypht available under the "mail" path of the web-server
@@ -759,7 +759,7 @@
             </div>
          </div>
          <!-- step 6  -->
-         <div>
+         <div id="users">
             <span class="gpc-body-title">6. Users</span>
             <p>
                Setting up users depends on what type of authentication you configure in the <code>hm3.ini</code> file. If you are using the local database configuration for users, there are scripts in the <code>scripts/</code> directory to help manage them:
@@ -795,7 +795,7 @@
             </p>
          </div>
          <!-- step 7  -->
-         <div>
+         <div id="debug-mode">
             <span class="gpc-body-title">7. Debug mode</span>
             <p>
                Cypht has a debug or developer mode that can be used to troubleshoot problems or enable faster development of modules. To enable the debug version of Cypht, just sym-link the entire source directory instead of the site sub-directory
@@ -877,19 +877,19 @@
       </div>
       <nav>
          <ul id="ga-content-nav">
-            <li><a href="#requirement" class="">Requirement</a></li>
+            <li><a href="#requirement" class="guide-page-menu-active">Requirement</a></li>
             <li class="item-group">
-               <a href="#step" class="">Step</a>
+               <a href="#step" class="item-gr-title">Step</a>
                <div class="position-relative ">
-               <div class="cc-line-top"></div>
+                  <div class="cc-line-top"></div>
                   <ul class="sub-iten-list mt-3 mb-2">
-                     <li><a href="#" class="guide-page-menu-active">Check-in</a></li>
-                     <li><a href="#" class="">Prepare code</a></li>
-                     <li><a href="#" class="">Config the program</a></li>
-                     <li><a href="#" class="">Run-time config</a></li>
-                     <li><a href="#" class="">web-server</a></li>
-                     <li><a href="#" class="">Users</a></li>
-                     <li><a href="#" class="">Debug mode</a></li>
+                     <li><a href="#check-in" class="">Check-in</a></li>
+                     <li><a href="#prepare-code" class="">Prepare code</a></li>
+                     <li><a href="#config-the-program" class="">Config the program</a></li>
+                     <li><a href="#run-time-config" class="">Run-time config</a></li>
+                     <li><a href="#web-server" class="">web-server</a></li>
+                     <li><a href="#users" class="">Users</a></li>
+                     <li><a href="#debug-mode" class="">Debug mode</a></li>
                   </ul>
                   <div class="cc-line-bottom"></div>
                </div>

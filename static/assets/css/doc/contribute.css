@@ -35,20 +35,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      gap: 1.5rem;
-}
-
-.contribute-title {
-      font-weight: 700;
-      font-size: clamp(2rem, 3.8vw, 4rem);
-      padding: 0 0.5rem;
-}
-
-.contribute-subtitle {
-      color: #444;
-      max-width: 600px;
-      line-height: 1.6;
-      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      gap: 1.3rem;
 }
 
 .contribute-buttons {
@@ -111,6 +98,14 @@
       border-radius: 8px;
       color: var(--color-primary);
       border: 1px solid rgba(31, 31, 31, 0.063);
+}
+
+.req-header-cover img {
+      opacity: 0.3;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: blur(2px);
 }
 
 /* 1. development workflow content */
@@ -177,14 +172,14 @@
 .dev-flow-card h4 {
       font-size: 1.15rem;
       font-weight: 600;
-      color: #1a202c;
+      color: var(--color-text);
       margin: 0 0 0.5rem 0;
       line-height: 1.3;
 }
 
 .dev-flow-card p {
       font-size: 0.92rem;
-      color: #6b7280;
+      color: var(--color-text-secondary);
       line-height: 1.5;
       margin: 0.5rem 0 0 0;
       font-style: italic;
@@ -202,7 +197,7 @@
 .dev-flow-card ul li {
       font-size: 0.9rem;
       font-weight: 500;
-      color: #2d3748;
+      color: var(--color-text);
       position: relative;
       padding-left: 1.2rem;
 }
@@ -695,4 +690,48 @@
       .contribute-hero-content {
             width: 40%;
       }
+}
+
+
+/* Theme */
+[data-theme="dark"] {
+      .contribute-nav ul {
+            border: .8px solid var(--color-border);
+      }
+
+      .req-header h3,
+      .dev-content h3,
+      .contributor-header-text h3 {
+            color: var(--color-text);
+      }
+
+      .dev-flow-card {
+            background-color: var(--clr-card-bg);
+            border: .8px solid var(--color-border);
+      }
+
+      .dev-flow-label-card {
+            background: linear-gradient(135deg, rgba(129, 180, 65, 0.15) 0%, rgba(129, 180, 65, 0.25) 100%);
+            border: .5px solid var(--color-primary);
+      }
+
+      .req-header-chip-icon,
+      .req-list-item-index {
+            background-color: var(--clr-dark-card-second);
+            border: .8px solid var(--color-border);
+      }
+
+      .req-header-chip-text {
+            color: var(--color-text);
+      }
+
+      .req-list ul {
+            border-left: 1px solid var(--color-border);
+      }
+
+      .req-list li:hover .req-list-item-index {
+            background: linear-gradient(135deg, rgba(129, 180, 65, 0.15) 0%, rgba(129, 180, 65, 0.25) 100%);
+            border: .5px solid var(--color-primary);
+      }
+
 }

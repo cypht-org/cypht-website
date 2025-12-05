@@ -20,9 +20,6 @@ loadScriptAfter: /js/feature.js
             <p class="home-hs-subtitle">
             Simplify, secure, and optimize your email workflow with seamless integration and powerful features—all in one place.
             </p>
-            <!-- <a href="#messaging" class="btn btn-dark btn-lg mt-4 d-inline-flex px-4 px-md-5">
-            Explore all features
-            </a> -->
             <a href="#messaging" class="dark-action-btn">
             Explore all features
             </a>
@@ -72,78 +69,78 @@ loadScriptAfter: /js/feature.js
     <div class="d-flex flex-column align-items-center w-full features-content">
         <div id="messaging" class="fc-left">
             <div  class="fc-header">
-                <span class="chip">Messaging</span>
+                <span class="f-chip">Messaging</span>
                 <h3 class="fc-h-title fc-h-title-left">Unified email experience for all your accounts in one place.</h3>
             </div>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 g-md-4 mb-4 mb-md-5 p-2">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 g-md-4 mb-4 mb-md-5 p-3 p-lg-2">
                 <div class="col">
                     <div class="fc-card">
-                        <div class="fc-card-header">
+                        <div class="fc-b-header">
                             <img src="/img/fc_1.png" alt="IMAP">
                         </div>
-                        <div class="fc-card-body">
-                            <h5 class="feature-title">Unified Inbox</h5>
-                            <p class="feature-description">Inbox, sent, flagged, and RSS views combined across all accounts.</p>
+                        <div class="fc-body">
+                            <h5 class="fc-title">Unified Inbox</h5>
+                            <p class="fc-description ">Inbox, sent, flagged, and RSS views combined across all accounts.</p>
                         </div>
                     </div>
                 </div>
                 <!--  -->
                 <div class="col">
                     <div class="fc-card">
-                        <div class="fc-card-header">
+                        <div class="fc-b-header">
                             <img src="/img/fc_8.png" alt="IMAP">
                         </div>
-                        <div class="fc-card-body">
-                            <h5 class="feature-title">Flexible Profiles</h5>
-                            <p class="feature-description">Combine IMAP & SMTP accounts, manage signatures and reply-to details.</p>
+                        <div class="fc-body">
+                            <h5 class="fc-title">Flexible Profiles</h5>
+                            <p class="fc-description ">Combine IMAP & SMTP accounts, manage signatures and reply-to details.</p>
                         </div>
                     </div>
                 </div>
                 <!--  -->
                 <div class="col">
                     <div class="fc-card">
-                        <div class="fc-card-header">
+                        <div class="fc-b-header">
                             <img src="/img/fc_4.png" alt="IMAP">
                         </div>
-                        <div class="fc-card-body">
-                            <h5 class="feature-title">Move & Copy</h5>
-                            <p class="feature-description">Easily move or copy emails between different accounts.</p>
+                        <div class="fc-body">
+                            <h5 class="fc-title">Move & Copy</h5>
+                            <p class="fc-description ">Easily move or copy emails between different accounts.</p>
                         </div>
                     </div>
                 </div>
                 <!--  -->
                 <div class="col">
                     <div class="fc-card">
-                        <div class="fc-card-header">
+                        <div class="fc-b-header">
                             <img src="/img/fc_3.png" alt="IMAP">
                         </div>
-                        <div class="fc-card-body">
-                            <h5 class="feature-title">Smart Filters</h5>
-                            <p class="feature-description">Automatic rules (Sieve) to move, copy, or delete messages.</p>
+                        <div class="fc-body">
+                            <h5 class="fc-title">Smart Filters</h5>
+                            <p class="fc-description ">Automatic rules (Sieve) to move, copy, or delete messages.</p>
                         </div>
                     </div>
                 </div>
                 <!--  -->
                 <div class="col">
                     <div class="fc-card">
-                        <div class="fc-card-header">
+                        <div class="fc-b-header">
                             <img src="/img/fc_5.png" alt="IMAP">
                         </div>
-                        <div class="fc-card-body">
-                            <h5 class="feature-title">Tags & Labels</h5>
-                            <p class="feature-description">Organize and categorize emails with labels for quick access.</p>
+                        <div class="fc-body">
+                            <h5 class="fc-title">Tags & Labels</h5>
+                            <p class="fc-description ">Organize and categorize emails with labels for quick access.</p>
                         </div>
                     </div>
                 </div>
                 <!--  -->
                 <div class="col">
                     <div class="fc-card">
-                        <div class="fc-card-header">
+                        <div class="fc-b-header">
                             <img src="/img/fc_7.png" alt="IMAP">
                         </div>
-                        <div class="fc-card-body">
-                            <h5 class="feature-title">IMAP Folder Sharing</h5>
-                            <p class="feature-description">Collaborate by sharing IMAP folders with other accounts.</p>
+                        <div class="fc-body">
+                            <h5 class="fc-title">IMAP Folder Sharing</h5>
+                            <p class="fc-description ">Collaborate by sharing IMAP folders with other accounts.</p>
                         </div>
                     </div>
                 </div>
@@ -158,39 +155,39 @@ loadScriptAfter: /js/feature.js
             </div>
             <div class="fp-grid">
                 <div class="fp-feature-card fp-1">
-                    <div class="fp-feature-card-header">
+                    <div class="fc-b-header">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
                     </div>
-                    <div class="fp-feature-card-body">
-                        <h5 class="fp-feature-title">Lightweight Pages</h5>
-                        <p class="fp-feature-description">Only 3 HTTP requests (~50KB gzipped), fast and efficient</p>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Lightweight Pages</h5>
+                        <p class="fc-description ">Only 3 HTTP requests (~50KB gzipped), fast and efficient</p>
                     </div>
                 </div>
                 <div class="fp-feature-card fp-2">
-                    <div class="fp-feature-card-header">
+                    <div class="fc-b-header">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>
                     </div>
-                    <div class="fp-feature-card-body">
-                        <h5 class="fp-feature-title">Smart Caching</h5>
-                        <p class="fp-feature-description">Parallel AJAX + local storage for faster reloads.</p>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Smart Caching</h5>
+                        <p class="fc-description ">Parallel AJAX + local storage for faster reloads.</p>
                     </div>
                 </div>
                 <div class="fp-feature-card fp-3">
-                    <div class="fp-feature-card-header">
+                    <div class="fc-b-header">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-accessibility"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 5.5"/><path d="M12.67 13.67A6 6 0 0 1 9 12a5.68 5.68 0 0 1 3.67-1.33"/><circle cx="12" cy="12" r="10"/></svg>
                     </div>
-                    <div class="fp-feature-card-body">
-                        <h5 class="fp-feature-title">Accessibility</h5>
-                        <p class="fp-feature-description">Semantic HTML5 with RTL language support.</p>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Accessibility</h5>
+                        <p class="fc-description ">Semantic HTML5 with RTL language support.</p>
                     </div>
                 </div>
                 <div class="fp-feature-card fp-4">
-                    <div class="fp-feature-card-header">
+                    <div class="fc-b-header">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
                     </div>
-                    <div class="fp-feature-card-body">
-                        <h5 class="fp-feature-title">JMAP Sync</h5>
-                        <p class="fp-feature-description">Faster synchronization with JMAP protocol.</p>
+                    <div class="fc-body">
+                        <h5 class="fc-title">JMAP Sync</h5>
+                        <p class="fc-description ">Faster synchronization with JMAP protocol.</p>
                     </div>
                 </div>
             </div>
@@ -204,48 +201,48 @@ loadScriptAfter: /js/feature.js
 <!--  -->
             <div class="fsearch-grid">
                 <div class="fss-1 fss-card">
-                    <div class="fss-card-header">
+                    <div class="fc-b-header">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                     </div>
-                    <div class="fss-card-body">
-                        <h5 class="fss-title">Advanced Search</h5>
-                        <p class="fss-description">Search across all accounts with powerful filters and boolean operators for precise results.</p>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Advanced Search</h5>
+                        <p class="fc-description">Search across all accounts with powerful filters and boolean operators for precise results.</p>
                     </div>
                 </div>
                 <div class="fss-2 fss-card">
-                    <div class="fss-card-header">
+                    <div class="fc-b-header">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bookmark"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
                     </div>
-                    <div class="fss-card-body">
-                        <h5 class="fss-title">Saved Searches</h5>
-                        <p class="fss-description">Save your frequent searches for quick access and stay updated with automatic notifications.</p>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Saved Searches</h5>
+                        <p class="fc-description">Save your frequent searches for quick access and stay updated with automatic notifications.</p>
                     </div>
                 </div>
                 <div class="fss-3 fss-card">
-                    <div class="fss-card-header">
+                    <div class="fc-b-header">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
                     </div>
-                    <div class="fss-card-body">
-                        <h5 class="fss-title">Smart Filters</h5>
-                        <p class="fss-description">Filter emails by sender, subject, date, and more with advanced search operators.</p>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Smart Filters</h5>
+                        <p class="fc-description">Filter emails by sender, subject, date, and more with advanced search operators.</p>
                     </div>
                 </div>
                 <div class="fss-4 fss-card">
-                    <div class="fss-card-header">
+                    <div class="fc-b-header">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
                     </div>
-                    <div class="fss-card-body">
-                        <h5 class="fss-title">Search Alerts</h5>
-                        <p class="fss-description">Get notified when new emails match your saved search criteria.</p>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Search Alerts</h5>
+                        <p class="fc-description">Get notified when new emails match your saved search criteria.</p>
                     </div>
                 </div>
                 <div class="fss-5 fss-card">
-                    <div class="fss-card-header">
+                    <div class="fc-b-header">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-history"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
                     </div>
-                    <div class="fss-card-body">
-                        <h5 class="fss-title">Search History</h5>
-                        <p class="fss-description">Quick access to your recent searches for faster email discovery.</p>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Search History</h5>
+                        <p class="fc-description">Quick access to your recent searches for faster email discovery.</p>
                     </div>
                 </div>
             </div>
@@ -260,30 +257,30 @@ loadScriptAfter: /js/feature.js
 <!--  -->
             <div class="fs-grid">
                 <div class="fs-1 fs-card">
-                    <div class="fs-card-header">
+                    <div class="fc-b-header">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.62 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
                     </div>
-                    <div class="fs-card-body">
-                        <h5 class="fs-title">Advanced Encryption</h5>
-                        <p class="fs-description">End-to-end encryption for all communications with support for PGP/GPG, ensuring your emails remain private and secure from unauthorized access.</p>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Advanced Encryption</h5>
+                        <p class="fc-description">End-to-end encryption for all communications with support for PGP/GPG, ensuring your emails remain private and secure from unauthorized access.</p>
                     </div>
                 </div>
                 <div class="fs-2 fs-card">
-                    <div class="fs-card-header">
+                    <div class="fc-b-header">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key"><circle cx="8" cy="15" r="3"/><path d="M17.5 19a2.5 2.5 0 0 0 2.5-2.5v-1.5a1 1 0 0 0-1-1h-4l-4-7H4v-3a1 1 0 0 1 1-1h7l4 7"/></svg>
                     </div>
-                    <div class="fs-card-body">
-                        <h5 class="fs-title">Flexible Authentication</h5>
-                        <p class="fs-description">Supports IMAP, LDAP, database, or custom auth methods with 2FA integration.</p>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Flexible Authentication</h5>
+                        <p class="fc-description">Supports IMAP, LDAP, database, or custom auth methods with 2FA integration.</p>
                     </div>
                 </div>
                 <div class="fs-3 fs-card">
-                    <div class="fs-card-header">
+                    <div class="fc-b-header">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                     </div>
-                    <div class="fs-card-body">
-                        <h5 class="fs-title">Secure Storage</h5>
-                        <p class="fs-description">Sessions stored in PDO databases or encrypted flat files with configurable security policies.</p>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Secure Storage</h5>
+                        <p class="fc-description">Sessions stored in PDO databases or encrypted flat files with configurable security policies.</p>
                     </div>
                 </div>
             </div>
@@ -297,30 +294,30 @@ loadScriptAfter: /js/feature.js
             <!--  -->
             <div class="fd-grid">
               <div class="fd-1 fd-card  fd-ews-card">
-                <div class="fd-card-header">
+                <div class="fc-b-header">
                     <img src="/img/ews.png" alt="EWS Support">
                 </div>
-                <div class="fd-card-body">
-                        <h5 class="fd-feature-title">EWS Support</h5>
-                        <p class="fd-feature-description">Exchange Web Services (EWS) support for Exchange Server integration.</p>
+                <div class="fc-body">
+                        <h5 class="fc-title">EWS Support</h5>
+                        <p class="fc-description ">Exchange Web Services (EWS) support for Exchange Server integration.</p>
                     </div>
               </div>
               <div class="fd-2 fd-card">
-                <div class="fd-card-header">
+                <div class="fc-b-header">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
                 </div>
-                <div class="fd-card-body">
-                        <h5 class="fd-feature-title">Build Process</h5>
-                        <p class="fd-feature-description">Pre-calculated assets, developer mode for easy debugging.</p>
+                <div class="fc-body">
+                        <h5 class="fc-title">Build Process</h5>
+                        <p class="fc-description ">Pre-calculated assets, developer mode for easy debugging.</p>
                     </div>
               </div>
               <div class="fd-3 fd-card">
-                <div class="fd-card-header">
+                <div class="fc-b-header">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-boxes"><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 1.94 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-1.94 0l-3 1.8z"/><path d="M7 8v2"/><path d="M7 16v2"/><path d="M17 7v2"/><path d="M17 15v2"/><path d="M12 3v2"/><path d="M12 19v2"/></svg>
                 </div>
-                <div class="fd-card-body">
-                    <h5 class="fd-feature-title">Modules</h5>
-                    <p class="fd-feature-description">IMAP, SMTP, LDAP, WordPress, GitHub and more modules available.</p>
+                <div class="fc-body">
+                    <h5 class="fc-title">Modules</h5>
+                    <p class="fc-description ">IMAP, SMTP, LDAP, WordPress, GitHub and more modules available.</p>
                 </div>
               </div>
             </div>

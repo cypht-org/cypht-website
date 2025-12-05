@@ -65,6 +65,7 @@ loadScriptAfter: /js/module.js
                         <div class="md-type-header">
                             <div class="type-header-title header-title d-none d-lg-flex">
                                 <h5 class="mb-0">
+                                <!-- <i class="bi bi-filter-square-fill me-2"></i> -->
                                 Categories</h5>
                                 <span class="header-subtitle">
                                 we can filter by category
@@ -85,11 +86,12 @@ loadScriptAfter: /js/module.js
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-9  md-list-content">
-                        <!-- <div class="md-items-header mb-sm-4 mb-lg-1">
+                   <div class="col-lg-9  md-list-content">
+                        <div class="md-items-header mb-sm-4 mb-lg-1">
                             <div class="header-title d-flex flex-column flex-md-row  justify-content-between gap-3">
                                  <div class="header-copy d-flex flex-column gap-1">
                                     <h5 class="mb-0">
+                                    <!-- <img src="/static/svg/puzzle.svg"/> -->
                                     Modules</h5>
                                     <span class="header-subtitle">
                                     Explore reusable building blocks to tailor your email experience.
@@ -101,7 +103,7 @@ loadScriptAfter: /js/module.js
                                     </span>
                                  </div>
                             </div>
-                        </div> -->
+                        </div>
                         <div class="d-flex justify-content-end float-content">
                                 <button class="md-type-toggle btn" type="button" aria-expanded="false" aria-controls="md-type-items" data-open-text="Afficher les catégories" data-close-text="Masquer les catégories">
                                 <i class="bi bi-funnel-fill md-type-toggle-icon" aria-hidden="true"></i>
