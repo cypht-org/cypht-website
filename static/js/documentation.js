@@ -309,26 +309,6 @@ document.addEventListener("DOMContentLoaded", () => {
     UtilsFn.custom_select(".select-btn", ".select-menu", true);
   }
 
-  // // ============================
-  // // 2. Intersection Observer for animations
-  // // ============================
-  // const observer = new IntersectionObserver(
-  //   (entries) => {
-  //     entries.forEach((entry) => {
-  //       if (entry.isIntersecting) {
-  //         entry.target.classList.add("animate-in");
-  //         observer.unobserve(entry.target);
-  //       }
-  //     });
-  //   },
-  //   { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
-  // );
-
-  // // Observe doc sections + TOC categories
-  // [...document.querySelectorAll(".doc-section, .toc-category")].forEach((el) =>
-  //   observer.observe(el)
-  // );
-
   // ============================
   // 3. Hero animations on load
   // ============================
@@ -346,20 +326,6 @@ document.addEventListener("DOMContentLoaded", () => {
         el.style.transform = "translateY(0)";
       }, 100 * i);
     });
-
-  // // ============================
-  // // 4. Image hover zoom
-  // // ============================
-  // document.querySelectorAll(".doc-image").forEach((img) => {
-  //   img.addEventListener(
-  //     "mouseenter",
-  //     () => (img.style.transform = "scale(1.02)")
-  //   );
-  //   img.addEventListener(
-  //     "mouseleave",
-  //     () => (img.style.transform = "scale(1)")
-  //   );
-  // });
 
   // ============================
   // 5. Ripple effect on buttons
@@ -381,56 +347,6 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => ripple.remove(), 600);
     });
   });
-
-  // // ============================
-  // // 6. Reading progress bar
-  // // ============================
-  // const progressBar = document.createElement("div");
-  // progressBar.className = "reading-progress";
-  // progressBar.innerHTML = '<div class="progress-fill"></div>';
-  // document.body.appendChild(progressBar);
-
-  // window.addEventListener("scroll", () => {
-  //   const scrollTop =
-  //     document.documentElement.scrollTop || document.body.scrollTop;
-  //   const height =
-  //     document.documentElement.scrollHeight -
-  //     document.documentElement.clientHeight;
-
-  //   const scrolled = (scrollTop / height) * 100;
-  //   document.querySelector(".progress-fill").style.width = `${scrolled}%`;
-  // });
-
-  // // ============================
-  // // 7. TOC Search filter
-  // // ============================
-  // const tocTitle = document.querySelector(".toc-title");
-  // if (tocTitle) {
-  //   const searchInput = document.createElement("input");
-  //   searchInput.type = "text";
-  //   searchInput.placeholder = "Search documentation...";
-  //   searchInput.className = "toc-search";
-
-  //   tocTitle.insertAdjacentElement("afterend", searchInput);
-
-  //   const tocLinks = document.querySelectorAll(".toc-category a");
-
-  //   searchInput.addEventListener("input", (e) => {
-  //     const term = e.target.value.toLowerCase();
-
-  //     document.querySelectorAll(".toc-category").forEach((category) => {
-  //       let hasVisible = false;
-
-  //       category.querySelectorAll("a").forEach((link) => {
-  //         const visible = link.textContent.toLowerCase().includes(term);
-  //         link.style.display = visible ? "flex" : "none";
-  //         if (visible) hasVisible = true;
-  //       });
-
-  //       category.style.display = hasVisible ? "block" : "none";
-  //     });
-  //   });
-  // }
 
   // ============================
   // 8. Copy-to-clipboard on code blocks
