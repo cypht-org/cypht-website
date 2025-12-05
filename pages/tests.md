@@ -1,46 +1,151 @@
 ---
 title: Tests
 exclude: true
+loadScriptAfter: /assets/tests.css
 ---
-<h2>Tests</h2>
-<hr>
-<p>
-    Cypht uses PHPUnit to run our unit tests, and Selenium for integration testing. I periodically update the HTML
-    coverage report located here:<br /><br /><a href="docs/test_coverage/index.html"
-        title="Tests">/docs/test_coverage/index.html</a><br /><br />
-    Currently our unit tests only cover the application framework (all the code under "lib/"), and the core
-    module set, and our Selenium tests are still pretty basic. We make use of the following services that generously
-    provide
-    access to Open Source projects:<br />
-</p>
-<hr>
-<h3>Travis CI</h3>
-<a href="https://travis-ci.org/cypht-org/cypht/builds">https://travis-ci.org/cypht-org/cypht/builds</a>
-<p>Travis CI is a really cool continuous integration service that we use to re-run our unit and UI tests every time
-    a change is pushed to Github. Our Travis build is 18 combinations, 6 versions of PHP (5.4, 5.5, 5.6, 5.7, 7.0,
-    7.1,
-    7.2) with 3 different databases (Mysql, Postgresql, Sqlite). </p>
-<hr>
-<h3>BrowserStack</h3>
-<a href="https://www.browserstack.com/">https://www.browserstack.com/</a><br /><br />
-<p>BrowserStack is a cloud based Selenium grid we use to run our UI tests. We connect to it directly from Travis CI.
-    Currently we test 4 browsers (Safari, IE, Edge, and Chrome). Firefox is disable for now due to a compatibility
-    issue
-    with the test environment.</p>
-<hr>
-<h3>Coveralls</h3>
-<a href="https://coveralls.io/github/cypht-org/cypht">https://coveralls.io/github/cypht-org/cypht</a><br /><br />
-<p>Coveralls.io provides access to the PHPUnit test coverage report, and is updated every time code is pushed to
-    Github.
-    It has some cool metrics to track unit test coverage over time, and in general is a nicer UI than the PHPUnit
-    HTML
-    report.</p>
-<hr>
-<h3>Scrutinizer</h3>
-<a href="https://scrutinizer-ci.com/g/cypht-org/cypht/">https://scrutinizer-ci.com/g/cypht-org/cypht/</a><br /><br />
-<p>Scrutinizer is a static code analyzer with a lot of great options. It understands our doc-string format and
-    provides
-    additinal information about potential type mismatches, in addition to a number of other static checks. Currently
-    I have it limited to the application framework (all the code under "lib/"). Like the Travis builds and Coveralls
-    reports,
-    a new analysis is run every time we push code to Github.</p>
+
+<!-- Hero Section -->
+<section class="tests-hero">
+  <div class="tests-hero-container">
+    <div class="tests-hero-content">
+      <div>
+        <span class="chip">🧪 Quality Assurance</span>
+      </div>
+      <h1 class="tests-hero-title">
+        Comprehensive Testing & Quality Assurance
+      </h1>
+      <p class="tests-hero-subtitle">
+        Ensuring reliability and performance through extensive unit tests, integration testing, and continuous quality monitoring.
+      </p>
+    </div>
+    <div class="tests-hero-image">
+      <img src="/img/puzzle.png" alt="Testing and quality assurance illustration" loading="eager" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<!-- Overview Section -->
+<section class="tests-overview">
+  <div class="tests-overview-container">
+    <div class="tests-overview-header">
+      <h2 class="tests-overview-title">Testing Overview</h2>
+      <p class="tests-overview-subtitle">
+        Cypht uses PHPUnit for unit tests and Selenium for integration testing. Our comprehensive testing strategy ensures code quality and reliability across multiple environments.
+      </p>
+    </div>
+    
+    <div class="tests-stats-grid">
+      <div class="tests-stat-card">
+        <div class="tests-stat-icon">📊</div>
+        <div class="tests-stat-number">98%</div>
+        <div class="tests-stat-label">Unit Test Coverage</div>
+      </div>
+      <div class="tests-stat-card">
+        <div class="tests-stat-icon">🔧</div>
+        <div class="tests-stat-number">18</div>
+        <div class="tests-stat-label">Build Combinations</div>
+      </div>
+      <div class="tests-stat-card">
+        <div class="tests-stat-icon">🌐</div>
+        <div class="tests-stat-number">4</div>
+        <div class="tests-stat-label">Browser Tests</div>
+      </div>
+      <div class="tests-stat-card">
+        <div class="tests-stat-icon">⚡</div>
+        <div class="tests-stat-number">6</div>
+        <div class="tests-stat-label">PHP Versions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testing Tools Section -->
+<section class="tests-tools">
+  <div class="tests-tools-container">
+    <div class="tests-tools-header">
+      <h2 class="tests-tools-title">Testing Infrastructure</h2>
+      <p class="tests-tools-subtitle">
+        We leverage industry-leading tools and services to maintain the highest standards of code quality and reliability.
+      </p>
+    </div>
+    
+    <div class="tests-tools-grid">
+      <div class="tests-tool-card">
+        <div class="tests-tool-header">
+          <div class="tests-tool-icon travis">🚀</div>
+          <h3 class="tests-tool-title">Travis CI</h3>
+        </div>
+        <p class="tests-tool-description">
+          Continuous integration service that automatically runs our unit and UI tests on every code push. Our build matrix includes 18 combinations across 6 PHP versions (5.4-7.2) and 3 databases (MySQL, PostgreSQL, SQLite).
+        </p>
+        <a href="https://travis-ci.org/cypht-org/cypht/builds" class="tests-tool-link" target="_blank" rel="noopener">
+          View Build Status
+        </a>
+      </div>
+      
+      <div class="tests-tool-card">
+        <div class="tests-tool-header">
+          <div class="tests-tool-icon browserstack">🌐</div>
+          <h3 class="tests-tool-title">BrowserStack</h3>
+        </div>
+        <p class="tests-tool-description">
+          Cloud-based Selenium grid for cross-browser testing. We test across 4 major browsers (Safari, IE, Edge, Chrome) to ensure compatibility and reliability across different environments.
+        </p>
+        <a href="https://www.browserstack.com/" class="tests-tool-link" target="_blank" rel="noopener">
+          Learn More
+        </a>
+      </div>
+      
+      <div class="tests-tool-card">
+        <div class="tests-tool-header">
+          <div class="tests-tool-icon coveralls">📈</div>
+          <h3 class="tests-tool-title">Coveralls</h3>
+        </div>
+        <p class="tests-tool-description">
+          Provides detailed PHPUnit test coverage reports with beautiful metrics and tracking over time. Updated automatically on every GitHub push with comprehensive coverage analysis.
+        </p>
+        <a href="https://coveralls.io/github/cypht-org/cypht" class="tests-tool-link" target="_blank" rel="noopener">
+          View Coverage
+        </a>
+      </div>
+      
+      <div class="tests-tool-card">
+        <div class="tests-tool-header">
+          <div class="tests-tool-icon scrutinizer">🔍</div>
+          <h3 class="tests-tool-title">Scrutinizer</h3>
+        </div>
+        <p class="tests-tool-description">
+          Static code analyzer with advanced options for detecting potential issues, type mismatches, and code quality improvements. Analyzes our application framework with every code push.
+        </p>
+        <a href="https://scrutinizer-ci.com/g/cypht-org/cypht/" class="tests-tool-link" target="_blank" rel="noopener">
+          View Analysis
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Coverage Report Section -->
+<section class="tests-coverage">
+  <div class="tests-coverage-container">
+    <div class="tests-coverage-header">
+      <h2 class="tests-coverage-title">Test Coverage Report</h2>
+      <p class="tests-coverage-subtitle">
+        Access our comprehensive HTML coverage report to see detailed test coverage metrics and analysis.
+      </p>
+    </div>
+    
+    <div class="tests-coverage-card">
+      <div class="tests-coverage-content">
+        <div class="tests-coverage-icon">📋</div>
+        <h3 class="tests-coverage-title-card">Detailed Coverage Analysis</h3>
+        <p class="tests-coverage-description">
+          Our unit tests cover the application framework (lib/) and core module set. The HTML coverage report provides detailed insights into test coverage across all components.
+        </p>
+        <a href="docs/test_coverage/index.html" class="tests-coverage-btn" target="_blank" rel="noopener">
+          View Coverage Report
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

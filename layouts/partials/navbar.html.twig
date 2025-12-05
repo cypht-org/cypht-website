@@ -5,19 +5,22 @@
             title: 'Home', 
             href: '/', 
             icon: 'bi-house',
-            description: 'Accueil du site'
+		svg: null,
+            description: 'Home page'
         },
         { 
             title: 'Features', 
             href: '/features', 
             icon: 'bi-star',
-            description: 'Fonctionnalités principales'
+		svg: null,
+            description: 'Main features'
         },
         { 
             title: 'Security', 
             href: '/security', 
             icon: 'bi-shield-check',
-            description: 'Sécurité et protection'
+		svg: null,
+            description: 'Security and protection'
         }
     ],
     tools: [
@@ -25,25 +28,22 @@
             title: 'Modules', 
             href: '/modules', 
             icon: 'bi-puzzle',
-            description: 'Gestion des modules'
+		svg: '/svg/puzzle.svg',
+            description: 'Modules management'
         },
         { 
             title: 'Config Generator', 
             href: '/config-generator', 
             icon: 'bi-gear',
-            description: 'Générateur de configuration'
+		svg: '/svg/settings.svg',
+            description: 'Configuration generator'
         },
         { 
             title: 'Installation', 
             href: '/install', 
             icon: 'bi-download',
-            description: 'Guide d\'installation'
-        },
-        { 
-            title: 'Tests', 
-            href: '/tests', 
-            icon: 'bi-check-circle',
-            description: 'Tests et validation'
+		svg: '/svg/install.svg',
+            description: 'Installation guide'
         }
     ],
     docs: [
@@ -51,160 +51,261 @@
             title: 'App Doc', 
             href: '/documentation', 
             icon: 'bi-file-earmark-text',
-            description: 'Documentation de l\'application'
+		svg: '/svg/doc.svg',
+            description: 'Application documentation'
         },
         { 
-            title: 'Blog', 
-            href: '/blog', 
-            icon: 'bi bi-file-break-fill',	
-            description: 'Articles et nouvelles'
-        },
-        { 
-            title: 'Licence', 
+            title: 'License', 
             href: '/license', 
             icon: 'bi-file-earmark-check',
-            description: 'Informations sur la licence'
+		svg: '/svg/plugin.svg',
+            description: 'License information'
         },
         { 
-            title: 'Contribuer', 
+            title: 'Contributor', 
             href: '/contribute', 
             icon: 'bi-people',
-            description: 'Comment contribuer au projet'
+		svg: '/svg/contributor.svg',
+            description: 'How to contribute to the project'
+        },
+	  { 
+            title: 'Events', 
+            href: '/events', 
+            icon: 'bi-calendar',
+		svg: '/svg/event.svg',
+            description: 'Events and updates'
+        }
+    ],
+    integration: [
+        { 
+            title: 'Cypht in Tiki', 
+            href: '/tiki-webmail', 
+            icon: 'bi-file-earmark-text',
+		svg: null,
+            description: 'For more cypht features'
         }
     ]
 } %}
 
 {# Template #}
-<nav class="" style="margin-bottom: 5.9rem;">
-  <div class="w-full d-flex justify-content-center pt-3 pb-1 d-flex flex-column items-center" id="mainNavbar">
-	<div class="nav-container">
+<nav class="pt-lg-3 pb-1 " id="mainNavbar">
+	<div
+		class="nav-container">
 		<!-- Logo Section -->
 		<div class="nav-brand">
-			<a href="#" class="brand-link">
-			<div class="logo-wrapper">
-				<img src="/img/logo.svg" alt="Cypht" class="logo-img">
-			</div>
+			<a href="/" class="">
+				<div class="logo-wrapper">
+					<img src="/img/logo.svg" alt="Cypht" class="logo-img ">
+				</div>
 			</a>
 		</div>
 
 		<!-- Desktop Navigation -->
-		<div class="nav-menu desktop-nav">
-			<div class="nav-links">
-			{% for item in global_menus.main %}
-				{% set current = (item.href == '/' and page.path == 'index') or (item.href != '/' and page.path starts with item.href|trim('/')) %}
-				<a href="{{ item.href }}" class="nav-item {{ current ? 'active' : '' }}" {{ current ? 'aria-current="page"' : '' }}>
-					<span class="nav-text">{{ item.title }}</span>
+		<div class="d-none d-lg-flex desktop-nav flex-1 ms-4 justify-content-between gap-4">
+			<div class="nav-menu desktop-nav flex-1 ">
+				<div class="nav-links w-100">
+					{% for item in global_menus.main %}
+						{% set current = (item.href == '/' and page.path == 'index') or (item.href != '/' and page.path starts with item.href|trim('/')) %}
+						<a href="{{ item.href }}" class="nav-item {{ current ? 'active' : '' }}" {{ current ? 'aria-current="page"' : '' }}>
+							<span class="nav-text">{{ item.title }}</span>
+						</a>
+					{% endfor %}
+
+					<!-- Tools Dropdown -->
+					<div class="nav-dropdown" data-dropdown="tools">
+						<button class="nav-item dropdown-trigger" data-trigger="tools">
+							<span class="nav-text">Tools</span>
+							<i class="bi bi-chevron-down dropdown-arrow"></i>
+						</button>
+						<div class="dropdown-panel" data-panel="tools">
+							<div class="dropdown-content">
+								{% for item in global_menus.tools %}
+									<a href="{{ item.href }}" class="dropdown-item d-flex  gap-2">
+										<div class="drop-item-icon">
+											{% if item.svg %}
+												<img src="{{ item.svg }}" alt="{{ item.title }}">
+											{% else %}
+												<i class="{{ item.icon }}"></i>
+											{% endif %}
+										</div>
+										<div class="drop-item-content mt-1">
+											<span class="drop-item-title">{{ item.title }}</span>
+											<span class="drop-item-description">{{ item.description }}</span>
+										</div>
+									</a>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+
+					<!-- Documentation Dropdown -->
+					<div class="nav-dropdown" data-dropdown="docs">
+						<button class="nav-item dropdown-trigger" data-trigger="docs">
+							<span class="nav-text">Documentation</span>
+							<i class="bi bi-chevron-down dropdown-arrow"></i>
+						</button>
+						<div class="dropdown-panel" data-panel="docs">
+							<div class="dropdown-content">
+								{% for item in global_menus.docs %}
+									<a href="{{ item.href }}" class="dropdown-item d-flex gap-2">
+										<div class="drop-item-icon">
+											{% if item.svg %}
+												<img src="{{ item.svg }}" alt="{{ item.title }}">
+											{% else %}
+												<i class="{{ item.icon }}"></i>
+											{% endif %}
+										</div>
+										<div class="drop-item-content mt-1">
+											<span class="drop-item-title">{{ item.title }}</span>
+											<span class="drop-item-description">{{ item.description }}</span>
+										</div>
+									</a>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+					{# Integration Dropdown #}
+					<div class="nav-dropdown" data-dropdown="integration">
+						<button class="nav-item dropdown-trigger" data-trigger="integration">
+							<span class="nav-text">Integration</span>
+							<i class="bi bi-chevron-down dropdown-arrow"></i>
+						</button>
+						<div class="dropdown-panel" data-panel="integration">
+							<div class="dropdown-content">
+								{% for item in global_menus.integration %}
+									<a href="{{ item.href }}" class="dropdown-item d-flex gap-2">
+										<div class="drop-item-icon">
+											<img src="/img/tiki_logo.png" alt="{{ item.title }}">
+										</div>
+										<div class="drop-item-content mt-1">
+											<span class="drop-item-title">{{ item.title }}</span>
+											<span class="drop-item-description">{{ item.description }}</span>
+										</div>
+									</a>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Mobile Toggle Button -->
+		<div class="mobile-actions-container d-flex justify-content-between align-items-center gap-3">
+
+			<div class="mobile-actions d-none d-md-flex align-items-center justify-content-center gap-3">
+				<a href="https://github.com/cypht-org/cypht" target="_blank" rel="noopener" class="action-btn github-btn" title="View on GitHub">
+					<i class="bi bi-github"></i>
+					<span class="btn-text d-flex d-lg-none d-xl-flex">GitHub</span>
 				</a>
-			{% endfor %}
 
-			<!-- Tools Dropdown -->
-			<div class="nav-dropdown" data-dropdown="tools">
-				<button class="nav-item dropdown-trigger" data-trigger="tools">
-					<span class="nav-text">Outils</span>
-					<i class="bi bi-chevron-down dropdown-arrow"></i>
+				<button id="theme-toggle" class="action-btn theme-toggle" aria-label="Toggle dark mode" title="Change theme">
+					<i id="theme-icon" class="bi bi-moon"></i>
 				</button>
-				<div class="dropdown-panel" data-panel="tools">
-					<div class="dropdown-content">
-					{% for item in global_menus.tools %}
-						<a href="{{ item.href }}" class="dropdown-item">
-							<div class="drop-item-icon">
-							<i class="{{ item.icon }}"></i>
-							</div>
-							<div class="drop-item-content">
-							<span class="drop-item-title">{{ item.title }}</span>
-							<span class="drop-item-description">{{ item.description }}</span>
-							</div>
-						</a>
-					{% endfor %}
-					</div>
-				</div>
 			</div>
 
-			<!-- Documentation Dropdown -->
-			<div class="nav-dropdown" data-dropdown="docs">
-				<button class="nav-item dropdown-trigger" data-trigger="docs">
-					<span class="nav-text">Documentation</span>
-					<i class="bi bi-chevron-down dropdown-arrow"></i>
-				</button>
-				<div class="dropdown-panel" data-panel="docs">
-					<div class="dropdown-content">
-					{% for item in global_menus.docs %}
-						<a href="{{ item.href }}" class="dropdown-item">
-							<div class="drop-item-icon">
-								<i class="{{ item.icon }}"></i>
-							</div>
-							<div class="drop-item-content">
-							<span class="drop-item-title">{{ item.title }}</span>
-							<span class="drop-item-description">{{ item.description }}</span>
-							</div>
-						</a>
-					{% endfor %}
-					</div>
-				</div>
-			</div>
-			</div>
-		</div>
-
-		<!-- Actions Section -->
-		<div class="nav-actions">
-			<a href="https://github.com/cypht-org/cypht" target="_blank" rel="noopener" class="action-btn github-btn" title="Voir sur GitHub">
-			<i class="bi bi-github"></i>
-			<span class="btn-text">GitHub</span>
-			</a>
-			
-			<button class="action-btn theme-toggle" id="themeToggle" title="Changer de thème">
-			<i class="bi bi-sun-fill theme-icon light-icon"></i>
-			{# <i class="bi bi-moon-fill theme-icon dark-icon"></i> #}
+			<button class="mobile-toggle d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavOffcanvas" aria-controls="mobileNavOffcanvas" aria-label="Toggle navigation menu" aria-expanded="false">
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M4 7h3m13 0h-9m9 10h-3M4 17h9m-9-5h16"/></svg>
 			</button>
+
 		</div>
 
-		<!-- Mobile Toggle -->
-		<button class="mobile-toggle" id="mobileToggle" aria-label="Menu mobile">
-			<span class="toggle-line"></span>
-			<span class="toggle-line"></span>
-			<span class="toggle-line"></span>
-		</button>
-
-		<!-- Mobile Navigation -->
-		<div class="mobile-nav" id="mobileNav">
-			<div class="mobile-nav-content">
-			<div class="mobile-links">
-				{# Menu principal mobile #}
-				{% for item in global_menus.main %}
-					{% set current = (item.href == '/' and page.path == 'index') or (item.href != '/' and page.path starts with item.href|trim('/')) %}
-					<a href="{{ item.href }}" class="mobile-nav-item {{ current ? 'active' : '' }}">
-					<i class="{{ item.icon }} me-2"></i>{{ item.title }}
-					</a>
-				{% endfor %}
-
-				<div class="mobile-section">
-					<h4 class="section-title">Outils</h4>
-					{% for item in global_menus.tools %}
-					<a href="{{ item.href }}" class="mobile-nav-item">
-						<i class="{{ item.icon }} me-2"></i>{{ item.title }}
-					</a>
-					{% endfor %}
+		<!-- Mobile Navigation Offcanvas -->
+		<div class="offcanvas offcanvas-end px-1" tabindex="-1" id="mobileNavOffcanvas" aria-labelledby="mobileNavOffcanvasLabel">
+			<div class="offcanvas-header">
+				<div class="logo-wrapper">
+					<img src="/img/logo.svg" alt="Cypht" class="logo-img ">
 				</div>
-
-				<div class="mobile-section">
-					<h4 class="section-title">Documentation</h4>
-					{% for item in global_menus.docs %}
-					<a href="{{ item.href }}" class="mobile-nav-item">
-						<i class="{{ item.icon }} me-2"></i>{{ item.title }}
-					</a>
-					{% endfor %}
-				</div>
-
-				<div class="mobile-actions">
-					<a href="https://github.com/cypht-org/cypht" target="_blank" rel="noopener" class="mobile-nav-item">
-					<i class="bi bi-github me-2"></i>GitHub
-					</a>
-				</div>
+				<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
+			<div class="offcanvas-body">
+				<div
+					class="mobile-links">
+					{# Mobile primary menu #}
+					{% for item in global_menus.main %}
+						{% set current = (item.href == '/' and page.path == 'index') or (item.href != '/' and page.path starts with item.href|trim('/')) %}
+						<a href="{{ item.href }}" class="mobile-nav-item {{ current ? 'active' : '' }}">
+							{{ item.title }}
+						</a>
+					{% endfor %}
+
+					{# Accordion used for dropdown sections #}
+					<div
+						class="accordion accordion-flush mobile-accordion" id="mobileNavAccordion">
+						{# Tools Dropdown #}
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTools" aria-expanded="false" aria-controls="collapseTools">
+									Tools
+								</button>
+							</h2>
+							<div id="collapseTools" class="accordion-collapse collapse" data-bs-parent="#mobileNavAccordion">
+								<div class="accordion-body">
+									{% for item in global_menus.tools %}
+										<a href="{{ item.href }}" class="mobile-nav-item mobile-nav-subitem">
+											{{ item.title }}
+										</a>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+
+						{# Documentation Dropdown #}
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDocs" aria-expanded="false" aria-controls="collapseDocs">
+									Documentation
+								</button>
+							</h2>
+							<div id="collapseDocs" class="accordion-collapse collapse" data-bs-parent="#mobileNavAccordion">
+								<div class="accordion-body">
+									{% for item in global_menus.docs %}
+										<a href="{{ item.href }}" class="mobile-nav-item mobile-nav-subitem">
+											{{ item.title }}
+										</a>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+
+						{# Integration Dropdown #}
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIntegration" aria-expanded="false" aria-controls="collapseIntegration">
+									Integration
+								</button>
+							</h2>
+							<div id="collapseIntegration" class="accordion-collapse collapse" data-bs-parent="#mobileNavAccordion">
+								<div class="accordion-body">
+									{% for item in global_menus.integration %}
+										<a href="{{ item.href }}" class="mobile-nav-item mobile-nav-subitem">
+											{{ item.title }}
+										</a>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{# Offcanvas footer #}
+				<div class="offcanvas-footer">
+					<div class="offcanvas-actions mb-2 gap-3">
+						<a href="https://github.com/cypht-org/cypht" target="_blank" rel="noopener" class="action-btn github-btn" title="View on GitHub">
+							<i class="bi bi-github"></i>
+							<span class="btn-text">GitHub</span>
+						</a>
+						<button class="action-btn theme-toggle" aria-label="Toggle dark mode" title="Change theme">
+							<i class="theme-icon bi bi-moon"></i>
+						</button>
+					</div>
+					<div class="footer-content">
+						<p class="footer-text">
+							<span class="footer-text-bold">Cypht</span>
+							is a free and open-source project.
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="content-blur w-100 py-1">
-	</div>
-  </div>
 </nav>

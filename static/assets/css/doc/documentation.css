@@ -1,0 +1,800 @@
+/* ─── Enhanced Documentation Hero Section ──────────────────────────────────────────────────────────── */
+.documentation-hero {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #333;
+}
+
+.documentation-hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'> <path d='M32 0H0v32' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/> </svg>");
+      background-size: 32px 32px;
+      background-repeat: repeat;
+}
+
+.documentation-hero-content {
+      min-height: 90dvh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+}
+
+.doc-hero-subtitle {
+      width: 100%;
+      margin: 0 auto;
+}
+
+.hero-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 70%;
+}
+
+/* ─── Doc Section ────────────────────────────────────────────────────────── */
+/* 1. T O P - N A V */
+
+.menu-content {
+      height: 3.8rem;
+      position: sticky;
+      top: 4.3rem;
+      background: var(--color-bg);
+      opacity: 1;
+      z-index: 50;
+      padding: 0 .7rem !important;
+}
+
+.doc-top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 auto;
+      border-bottom: .8px solid #e9ecef;
+      height: 3.8rem;
+}
+
+.menu-content .offcanvas {
+      width: 20rem !important;
+}
+
+
+.doc-top-nav .top-nav-icon {
+      color: #555;
+      background-color: transparent;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.213);
+      height: 1.8rem;
+      width: 1.8rem;
+      border-radius: 5px;
+      font-size: .8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+.doc-top-nav .mobi-nav-btn {
+      font-size: 1.2rem;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      position: relative;
+      min-width: 0;
+      min-height: 0;
+      border-radius: 5px;
+      font-size: .9rem;
+      font-weight: 600;
+      opacity: .8;
+      transition: all 0.2s ease;
+}
+
+.doc-top-nav .mobi-nav-btn:hover {
+      opacity: 1;
+}
+
+.custom-select .select-btn {
+      min-height: inherit;
+}
+
+.custom-select .select-btn .arrow {
+      font-size: .8rem;
+}
+
+.version-label {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--color-text);
+}
+
+.custom-select .selected-text,
+.custom-select .select-menu li {
+      font-size: .72rem !important;
+}
+
+/* 3. D O C - C O N T A I N E R */
+.doc-container .row,
+.doc-content .row {
+      --bs-gutter-x: 0;
+}
+
+.doc-content {
+      padding: 2.5rem 0;
+      width: 100%;
+}
+
+/* Toc Section (menu list container)*/
+.toc-section {
+      background-color: transparent !important;
+      border: inherit !important;
+      border-radius: inherit !important;
+}
+
+.toc-section ul {
+      margin: .7rem !important;
+}
+
+/* 
+.toc-section .accordion-header {
+      background-color: inherit !important;
+} */
+
+.toc-section h5,
+.dc-ctr-header-title {
+      font-size: 0.92rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+      font-weight: 600;
+}
+
+.toc-section h5 {
+      font-size: 0.84rem;
+}
+
+.toc-section ul,
+.dc-ctr-content ul {
+      list-style: none;
+      padding-left: 0;
+      border-left: 1px solid #cbced19a;
+      padding-left: .75rem;
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
+      margin-left: 1rem;
+}
+
+.toc-section li,
+.dc-ctr-content ul li {
+      margin-bottom: 0.2rem;
+      position: relative !important;
+}
+
+.toc-section a {
+      text-decoration: none;
+      color: var(--color-text);
+      font-size: 0.86rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      opacity: .4;
+}
+
+.toc-section a:hover {
+      font-weight: 600;
+      opacity: 1;
+      padding-left: 0.2rem;
+      color: var(--color-primary);
+}
+
+.toc-section a.active,
+.dc-ctr-content ul li a.active {
+      color: var(--color-primary);
+      font-weight: 600;
+      color: #555555d6;
+      opacity: 1;
+}
+
+.toc-section a.active::before,
+.dc-ctr-content ul li a.active::before {
+      content: "";
+      position: absolute;
+      top: 25%;
+      padding: .4rem 2px;
+      border-radius: 4px;
+      height: 5px;
+      background: var(--color-primary);
+}
+
+.toc-section a.active::before {
+      left: -15px;
+}
+
+.dc-ctr-content ul li a.active::before {
+      left: -14.5px;
+}
+
+
+/* ⭐️ Doc Content Left ⭐️ */
+
+.doc-content-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      /* background-color: red; */
+      padding: 0 .8rem !important;
+
+}
+
+.doc-section {
+      padding-top: 1rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+}
+
+.doc-section::before {
+      content: "";
+      position: absolute;
+      top: -1rem;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #cccccc47;
+}
+
+.doc-page-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin: 1rem 0;
+}
+
+.doc-page-header h3,
+.doc-section-header a {
+      font-size: clamp(1.1rem, 1.4vw, 1.7rem);
+      font-weight: 600;
+      /* color: red; */
+      color: var(--color-text);
+}
+
+.doc-section-header a {
+      /* font-size: clamp(1.1rem, 1.8vw, 1.5rem); */
+      text-decoration: none;
+      position: relative;
+}
+
+.doc-section-header a:hover::before {
+      content: "#";
+      position: absolute;
+      bottom: -0.23rem;
+      left: -1.4rem;
+      font-size: 1.3rem;
+      color: var(--color-primary);
+      transition: all 0.2s ease;
+}
+
+.doc-section-text,
+.doc-section p,
+.doc-section ul li {
+      /* font-size: clamp(.95rem, .95vw, .8rem); */
+      font-size: .9rem !important;
+      color: #555;
+      font-weight: 400;
+}
+
+.doc-section-text strong {
+      font-weight: 500;
+      color: var(--color-primary) !important;
+}
+
+/* ─── Ul Style 2 ─────────────────────────────────────────────────────────── */
+.doc-section-ul-2 {
+      border-left: 1px solid #7c7c7c34;
+      list-style: none;
+      padding-left: .75rem;
+      padding-top: .9rem;
+      padding-bottom: .5rem;
+      margin-left: 1.5rem;
+}
+
+.doc-section-ul-2 li {
+      position: relative;
+      margin: 0 !important;
+}
+
+.doc-section-ul-2 li::before {
+      content: "";
+      position: absolute;
+      top: .5rem;
+      left: -15.5px;
+      border-radius: 50%;
+      height: 6px;
+      width: 6px;
+      background: var(--color-primary);
+}
+
+.doc-section-ul-2 li h5 {
+      font-size: .95rem;
+      font-weight: 600;
+      color: #333;
+}
+
+.doc-section-ul-2 li p {
+      font-size: .9rem;
+      color: #555;
+}
+
+/* ─── Features grid ─────────────────────────────────────────────────────────── */
+.doc-section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+}
+
+.doc-section-card {
+      /* text-align: center; */
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+      cursor: pointer;
+}
+
+.doc-section-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.doc-section-card .doc-section-icon {
+      display: inline-block;
+      background-color: #c6c6c762;
+      padding: .4rem;
+      border-radius: 5px;
+      margin-bottom: .5rem;
+}
+
+.doc-section-card .doc-section-icon img {
+      height: 32px !important;
+      width: 32px !important;
+      color: whitesmoke !important;
+}
+
+.doc-section-card h5,
+.step-content h5 {
+      margin: 0 0 0.5rem 0;
+      color: #2d3748;
+      font-size: 1rem;
+}
+
+.doc-section-card p {
+      margin: 0;
+      color: #555;
+      font-size: 0.88rem;
+}
+
+/* Customization Section */
+.customization-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+}
+
+.customization-preview {
+      height: 120px;
+      margin: 0 auto 1rem;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+}
+
+.theme-preview {
+      display: flex;
+}
+
+.theme-light,
+.theme-dark {
+      flex: 1;
+      height: 100%;
+}
+
+.theme-light {
+      background: #ffffff;
+}
+
+.theme-dark {
+      background: #1a202c;
+}
+
+.layout-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+.layout-preview-inner {
+      width: 80%;
+      height: 80%;
+      border: 2px dashed #cbd5e0;
+      border-radius: 4px;
+      position: relative;
+}
+
+.plugin-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+.plugin-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 7px;
+      background: var(--color-primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+}
+
+
+/* Idea card */
+.tip-card {
+      display: flex;
+      gap: .5rem;
+      padding: .8rem;
+      margin-top: .5rem;
+
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+}
+
+/* Tip Card */
+
+.tip-card-icon svg,
+.tip-card-icon img {
+      height: 1.4rem !important;
+      width: 1.4rem !important;
+      color: var(--color-primary) !important;
+}
+
+.tip-card a {
+      color: var(--color-primary) !important;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: .2rem;
+      transition: all .2s ease;
+      font-size: .86rem;
+      min-height: inherit !important;
+}
+
+.tip-card a i {
+      font-size: .8rem;
+      margin-right: .2rem;
+}
+
+.tip-card a:hover {
+      text-decoration: underline;
+      transform: translateY(-2px);
+}
+
+.tip-idea {
+      border: .8px solid #80b44158;
+}
+
+
+/* Step container */
+.steps-container {
+      margin-top: 2rem;
+}
+
+/* Step item */
+.step {
+      display: flex;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-left: 2.8rem;
+}
+
+.step:last-child {
+      margin-bottom: 0;
+}
+
+.step-content h5,
+.doc-section-card h5 {
+      font-weight: 600;
+}
+
+.step-number {
+      position: absolute;
+      left: 0;
+      width: 2rem;
+      height: 2rem;
+      background: var(--color-primary);
+      color: white;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .92rem;
+      font-weight: 600;
+}
+
+.step-content::before {
+      content: "";
+      position: absolute;
+      bottom: -.8rem;
+      left: .9rem;
+      width: 2rem;
+      height: 80%;
+      border-left: 1px solid var(--color-primary);
+}
+
+.step-content {
+      padding-top: 0.25rem;
+}
+
+.step-content p {
+      margin: 0;
+      color: #555;
+      font-size: 0.88rem;
+}
+
+/* Benefits grid */
+.benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+}
+
+.benefits-grid .doc-section-card {
+
+      text-align: left;
+}
+
+.benefit-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.benefits-grid .doc-section-icon svg {
+      height: 1.5rem !important;
+      width: 1.5rem !important;
+}
+
+/* Dc Content */
+.dc-ctr-header-title {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+}
+
+.dc-ctr-header-title svg {
+      height: 1.2rem !important;
+}
+
+.dc-ctr-content ul {
+      margin-left: .3rem !important;
+}
+
+.dc-ctr-content ul li a {
+      font-size: .82rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #555555c5;
+      transition: all 0.2s ease;
+      opacity: .5;
+
+}
+
+.dc-ctr-content ul li a:hover {
+      font-weight: 600;
+      opacity: 1;
+      padding-left: 0.2rem;
+}
+
+.dc-ctr-content ul li a.active::before {
+      left: -15px !important;
+}
+
+
+/* Responsive */
+@media (min-width: 544px) {
+
+      .doc-hero-subtitle {
+            max-width: 25rem;
+      }
+
+      .documentation-hero-content {
+            min-height: 80dvh;
+      }
+
+      .documentation-hero-content {
+            gap: 2rem !important;
+      }
+
+
+      .hero-cta {
+            flex-direction: row;
+      }
+
+}
+
+@media (min-width: 765px) {
+      .menu-content {
+            top: 5rem;
+      }
+}
+
+@media (min-width: 992px) {
+
+      .doc-hero-subtitle {
+            max-width: 28rem;
+      }
+
+      .doc-container {
+            flex-direction: row;
+            max-width: var(--container-6xl) !important;
+            margin: 0 auto;
+      }
+
+      .menu-content {
+            top: 7.8rem;
+            height: fit-content;
+      }
+
+      .doc-toc {
+            padding-left: 1.5rem !important;
+      }
+
+      .toc-nav {
+            height: fit-content;
+            max-height: calc(100vh - 12rem);
+            overflow-y: auto;
+      }
+
+      .doc-content {
+            max-width: inherit !important;
+      }
+
+      .hero-heading .module-subtitle {
+            width: 80%;
+      }
+}
+
+@media (min-width: 1200px) {
+
+      .doc-hero-subtitle {
+            max-width: 32rem;
+      }
+
+
+      .doc-content-left {
+            flex: 1;
+      }
+
+      .doc-content-right {
+            justify-content: end;
+            padding: 1.5rem;
+      }
+
+      .dc-ctr-content {
+            position: sticky;
+            top: 7.8rem;
+            height: fit-content;
+            max-height: calc(100vh - 7.8rem);
+            overflow-y: auto;
+      }
+}
+
+/* Theme */
+[data-theme="dark"] {
+
+      .menu-content {
+            background: var(--color-bg-strong);
+      }
+
+      .doc-top-nav {
+            border-bottom: 1px solid var(--color-border);
+      }
+
+      .toc-section ul,
+      .dc-ctr-content ul,
+      .doc-section-ul-2 {
+            border-color: rgba(255, 255, 255, 0.305);
+      }
+
+      .toc-section a.active::before,
+      .dc-ctr-content ul li a.active::before {
+            background: linear-gradient(135deg, rgba(128, 180, 65, 0.532) 0%, rgba(128, 180, 65, 0.532) 100%);
+            border: .8px solid var(--color-primary);
+      }
+
+      .toc-section h5,
+      .doc-section-card h5,
+      .step-content h5 {
+            color: var(--color-text);
+      }
+
+      .toc-section ul li a,
+      .dc-ctr-content ul li a {
+            color: var(--color-text);
+            opacity: .6;
+      }
+
+      .toc-section a.active,
+      .dc-ctr-content ul li a.active {
+            opacity: 1;
+      }
+
+      .doc-section-text,
+      .doc-section-tip p {
+            color: var(--color-text);
+      }
+
+      .doc-section-ul-2 li h5 {
+            color: var(--color-text);
+      }
+
+      .doc-section-ul-2 li p {
+            color: var(--color-text);
+      }
+
+      .doc-section-icon {
+            background-color: var(--clr-dark-card-second);
+            border: .8px solid var(--color-border);
+            color: var(--color-text);
+            fill: var(--color-text) !important;
+      }
+
+      .doc-section-text,
+      .doc-section p,
+      .doc-section ul li {
+            color: var(--color-text);
+            opacity: .9;
+      }
+
+      .doc-section-ul-2 li::before {
+
+            background: linear-gradient(135deg, rgba(128, 180, 65, 0.532) 0%, rgba(128, 180, 65, 0.532) 100%);
+            border: .8px solid var(--color-primary);
+      }
+
+      .doc-section-card {
+            background: var(--clr-card-bg);
+            border: .8px solid var(--color-border);
+      }
+
+      .tip-card {
+            background: var(--clr-card-bg);
+      }
+
+      .offcanvas {
+            background: var(--clr-card-bg);
+            border: .8px solid var(--color-border);
+      }
+}

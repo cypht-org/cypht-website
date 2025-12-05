@@ -1,0 +1,294 @@
+/* ─── Requirements Page Styles ──────────────────────────────────────────────────────────── */
+
+/* Server Requirements Section */
+.server-requirements {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.server-requirements h2 {
+      color: white;
+      margin-top: 0;
+}
+
+/* Requirements Grid */
+.requirements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+}
+
+.requirement-card {
+      background: white;
+      border: 1px solid #e9ecef;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border-left: 4px solid #17a2b8;
+}
+
+.requirement-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      border-left-color: #28a745;
+}
+
+.requirement-card h3 {
+      color: #17a2b8;
+      margin-top: 0;
+      font-size: 1.3rem;
+      font-weight: 600;
+}
+
+.requirement-card h4 {
+      color: #333;
+      font-size: 1.1rem;
+      margin: 1.5rem 0 1rem 0;
+      font-weight: 600;
+}
+
+/* Requirement Lists */
+.requirement-list {
+      list-style: none;
+      padding: 0;
+}
+
+.requirement-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f8f9fa;
+      position: relative;
+      padding-left: 1.5rem;
+      font-weight: 500;
+}
+
+.requirement-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #28a745;
+      font-weight: bold;
+}
+
+.requirement-list li:last-child {
+      border-bottom: none;
+}
+
+/* PHP Extensions */
+.php-extensions {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.php-extensions h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.php-extensions .requirement-list li:before {
+      content: "🔧";
+}
+
+/* Database Requirements */
+.database-section {
+      background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.database-section h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.database-section .requirement-list li:before {
+      content: "🗄️";
+}
+
+/* Email Server Compatibility */
+.email-compatibility {
+      background: linear-gradient(135deg, #17a2b8 0%, #6c757d 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.email-compatibility h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.email-compatibility .requirement-list li:before {
+      content: "📧";
+}
+
+/* Security Requirements */
+.security-requirements {
+      background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.security-requirements h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.security-requirements .requirement-list li:before {
+      content: "🔒";
+}
+
+/* Browser Compatibility */
+.browser-compatibility {
+      background: linear-gradient(135deg, #6f42c1 0%, #e83e8c 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.browser-compatibility h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.browser-compatibility .requirement-list li:before {
+      content: "🌐";
+}
+
+/* Performance Considerations */
+.performance-considerations {
+      background: linear-gradient(135deg, #fd7e14 0%, #dc3545 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.performance-considerations h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.performance-considerations .requirement-list li:before {
+      content: "⚡";
+}
+
+/* Installation Requirements */
+.installation-requirements {
+      background: #f8f9fa;
+      border: 2px solid #6c757d;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+}
+
+.installation-requirements h3 {
+      color: #6c757d;
+      margin-top: 0;
+}
+
+/* Network Requirements */
+.network-requirements {
+      background: linear-gradient(135deg, #20c997 0%, #17a2b8 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.network-requirements h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.network-requirements .requirement-list li:before {
+      content: "🌐";
+}
+
+/* Monitoring & Maintenance */
+.monitoring-section {
+      background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.monitoring-section h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.monitoring-section .requirement-list li:before {
+      content: "📊";
+}
+
+/* Troubleshooting */
+.troubleshooting-section {
+      background: #f8f9fa;
+      border: 2px solid #dc3545;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+}
+
+.troubleshooting-section h3 {
+      color: #dc3545;
+      margin-top: 0;
+}
+
+/* Upgrade Requirements */
+.upgrade-requirements {
+      background: linear-gradient(135deg, #e83e8c 0%, #6f42c1 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.upgrade-requirements h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.upgrade-requirements .requirement-list li:before {
+      content: "⬆️";
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+      .requirements-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+      }
+
+      .server-requirements,
+      .php-extensions,
+      .database-section,
+      .email-compatibility,
+      .security-requirements,
+      .browser-compatibility,
+      .performance-considerations,
+      .network-requirements,
+      .monitoring-section,
+      .upgrade-requirements {
+            padding: 1.5rem;
+      }
+
+      .requirement-card {
+            padding: 1.5rem;
+      }
+}

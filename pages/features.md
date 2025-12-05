@@ -1,119 +1,326 @@
 ---
 title: Features
 weight: 10
+loadScriptAfter: /js/feature.js
 ---
-<h2>List of Features</h2>
-<hr>
-<ul class="line-between">
-    <li>
-        Combined inbox, unread, sent, and flagged message views for all your E-mail accounts (and
-        RSS feeds), as well as standard E-mail client folder navigation
-    </li>
-    <li>
-        Flexible profiles to combine IMAP accounts with SMTP accounts and setup signatures and
-        reply-to details
-    </li>
-    <li>
-        Search all your E-mail accounts and RSS feeds at once with a simple form., or do complex searches across
-        your accounts with the advanced search module set
-    </li>
-    <li>
-        Move or copy emails from one account to another
-    </li>
-    <li>
-        Compose messages in plain text, HTML, or Markdown
-    </li>
-    <li>
-        Pages are comprised of only 3 HTTP requests totaling ~50KB (gzipped). Data to
-        populate a page from different sources is collected with parallel AJAX
-        requests. Output is validated HTML5 and local storage (session only) is used to
-        cache content for speedier reloads. All the little interface icons use
-        data-urls so they are served inline (and they can all be disabled). With
-        standard browser caching, pages tend to transfer 10 to 20 KB
-    </li>
-    <li>
-        Simple interface translation system that does not use gettext or .po files, just
-        arrays of translated strings defined in PHP. Right to left languages are supported.
-    </li>
-    <li>
-        Module sets for IMAP, SMTP, LDAP or local contacts, WordPress, Github,
-        and lots more! Check out the <a href="/modules">Modules</a> page for a
-        complete list
-    </li>
-    <li>
-        Sessions and user data can be stored in any PDO compatible database or flat
-        files on the server
-    </li>
-    <li>
-        Authentication is flexible and currently supports IMAP, LDAP, an included
-        database schema, dynamic authentication using popular E-mail providers,
-        auto-discovery based on the user's E-mail domain, or you can roll your own with
-        the site module set
-    </li>
-    <li>
-        Sessions and Authentication can be customized without breaking any modules using
-        the site module set
-    </li>
-    <li>
-        On the server, page request processing peaks at around 4-5MB of memory. The module system only includes PHP
-        files required to process the
-        current request, so time is not wasted parsing unused code paths
-    </li>
-    <li>
-        All the work of processing a request and providing a response is done with
-        module sets. The application framework manages module assignment and provides a
-        controlled execution environment, but modules are where the actual work is done
-    </li>
-    <li>
-        There is a build process that pre-calculates module assignments and combines
-        and compresses page assets, making the production version of your site as fast
-        as possible. There is also a developer mode in which individual components are
-        included directly for easy debugging and module development
-    </li>
-    <li>
-        The HTML5 Page structure is semantic and simple, with attention paid to
-        accessibility best-practices
-    </li>
-    <li>
-        Save the parameters of a search so that you can quickly access them later from
-        the menu without having to enter them again. This is particularly useful for parameters of
-        searches that are used frequently. Saved search parameters can also be deleted later.
-    </li>
-    <li>
-        Sieve filters can be created to automatically move, copy, or delete messages based on specific criteria such as sender, subject, keywords, or recipient. This allows for efficient organization and management of incoming emails, saving time and improving productivity. Sieve filters can be easily edited or deleted as needed. For more information on how to create and manage Sieve filters, see <a href="/email-filters">Email filters</a>.
-    </li>
-    <li>
-        JMAP (JSON Meta Application Protocol) support for faster, more efficient synchronization of emails across devices.
-    </li>
-    <li>
-        Snooze feature to temporarily hide emails and bring them back at a more convenient time.
-    </li>
-    <li>
-        Screen emails to help manage unwanted or irrelevant communications by filtering or prioritizing certain types of messages.
-    </li>
-    <li>
-        IMAP capabilities for sharing folders to allow collaboration by sharing email folders between accounts.
-    </li>
-    <li>
-        Delivery receipt to get confirmation when your emails are delivered to the recipient's inbox.
-    </li>
-    <li>
-        Support for setting and managing environment variables to customize server-side configurations.
-    </li>
-    <li>
-        IMAP folder subscriptions for managing which folders you want to subscribe to and view in your mail client.
-    </li>
-    <li>
-        Collected Recipients and Trusted Senders feature to track commonly contacted people and trusted email addresses for enhanced security and efficiency.
-    </li>
-    <li>
-        A simpler way to show the source of an email for better understanding of its origin and security analysis.
-    </li>
-    <li>
-        Tags/Labels support to organize and categorize emails easily for better management and quick access to relevant content.
-    </li>
-    <li>
-        Exchange Web Services (EWS) support is in development. For more details and updates, check out the progress <a href="https://github.com/cypht-org/cypht/pull/1278">here</a>.
-    </li>
-</ul>
-<hr>
+
+<div class="d-flex flex-column justify-content-center gap-4">
+
+<section class="ft-hero py-5">
+  <div class="container d-flex justify-content-center">
+    <div class="row align-items-center p-container px-3 px-md-4 px-lg-2 px-xl-5">
+      <!-- left text -->
+        <div class="col-12 col-lg-6 hero-section-content">
+            <div class="mb-2">
+                <span class="hs-chip">🌟 A simplified email experience</span>
+            </div>
+            <h1 class="display-5 fw-bold">
+            Everything You Need for a Unified Email Workflow
+            </h1>
+            <p class="home-hs-subtitle">
+            Simplify, secure, and optimize your email workflow with seamless integration and powerful features—all in one place.
+            </p>
+            <a href="#messaging" class="dark-action-btn">
+            Explore all features
+            </a>
+        </div>
+      <!-- Icons -->
+      <div class="col-12 col-lg-6 mt-4 mt-lg-0 d-none d-lg-flex hero-section-right ">
+        <div class="icons-grid">
+          <div class="hline"></div>
+          <div class="hline2"></div>
+            <!--  -->
+          <div class="icon-box">
+          <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/mail.svg" alt="Mail">
+          </div>
+            <!--  -->
+          <div class="icon-box">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-check-icon lucide-search-check"><path d="m8 11 2 2 4-4"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </div>
+        <!--  -->
+          <div class="icon-box">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brick-wall-shield-icon lucide-brick-wall-shield"><path d="M12 9v1.258"/><path d="M16 3v5.46"/><path d="M21 9.118V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5.75"/><path d="M22 17.5c0 2.499-1.75 3.749-3.83 4.474a.5.5 0 0 1-.335-.005c-2.085-.72-3.835-1.97-3.835-4.47V14a.5.5 0 0 1 .5-.499c1 0 2.25-.6 3.12-1.36a.6.6 0 0 1 .76-.001c.875.765 2.12 1.36 3.12 1.36a.5.5 0 0 1 .5.5z"/><path d="M3 15h7"/><path d="M3 9h12.142"/><path d="M8 15v6"/><path d="M8 3v6"/></svg>
+          </div>
+        <!--  -->
+          <div class="icon-box">
+          <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/users.svg" alt="Users">
+          </div>
+          <!--  -->
+          <div class="icon-box">
+          <!-- <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/settings.svg" alt="Settings"> -->
+          <img src="/img/logo_dark.svg" alt="Cypht">
+          </div>
+          <!--  -->
+          <div class="icon-box">
+          <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/star.svg" alt="Star">
+          </div>
+          <!--  -->
+          <div class="icon-box">  
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>
+        </div>
+          <div class="icon-box"><img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/lock.svg" alt="Lock"></div>
+          <div class="icon-box"><img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/activity.svg" alt="Activity"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  <!--  -->
+    <div class="d-flex flex-column align-items-center w-full features-content">
+        <div id="messaging" class="fc-left">
+            <div  class="fc-header">
+                <span class="f-chip">Messaging</span>
+                <h3 class="fc-h-title fc-h-title-left">Unified email experience for all your accounts in one place.</h3>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 g-md-4 mb-4 mb-md-5 p-3 p-lg-2">
+                <div class="col">
+                    <div class="fc-card">
+                        <div class="fc-b-header">
+                            <img src="/img/fc_1.png" alt="IMAP">
+                        </div>
+                        <div class="fc-body">
+                            <h5 class="fc-title">Unified Inbox</h5>
+                            <p class="fc-description ">Inbox, sent, flagged, and RSS views combined across all accounts.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="col">
+                    <div class="fc-card">
+                        <div class="fc-b-header">
+                            <img src="/img/fc_8.png" alt="IMAP">
+                        </div>
+                        <div class="fc-body">
+                            <h5 class="fc-title">Flexible Profiles</h5>
+                            <p class="fc-description ">Combine IMAP & SMTP accounts, manage signatures and reply-to details.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="col">
+                    <div class="fc-card">
+                        <div class="fc-b-header">
+                            <img src="/img/fc_4.png" alt="IMAP">
+                        </div>
+                        <div class="fc-body">
+                            <h5 class="fc-title">Move & Copy</h5>
+                            <p class="fc-description ">Easily move or copy emails between different accounts.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="col">
+                    <div class="fc-card">
+                        <div class="fc-b-header">
+                            <img src="/img/fc_3.png" alt="IMAP">
+                        </div>
+                        <div class="fc-body">
+                            <h5 class="fc-title">Smart Filters</h5>
+                            <p class="fc-description ">Automatic rules (Sieve) to move, copy, or delete messages.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="col">
+                    <div class="fc-card">
+                        <div class="fc-b-header">
+                            <img src="/img/fc_5.png" alt="IMAP">
+                        </div>
+                        <div class="fc-body">
+                            <h5 class="fc-title">Tags & Labels</h5>
+                            <p class="fc-description ">Organize and categorize emails with labels for quick access.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="col">
+                    <div class="fc-card">
+                        <div class="fc-b-header">
+                            <img src="/img/fc_7.png" alt="IMAP">
+                        </div>
+                        <div class="fc-body">
+                            <h5 class="fc-title">IMAP Folder Sharing</h5>
+                            <p class="fc-description ">Collaborate by sharing IMAP folders with other accounts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div id="performance" class="fc-right">
+            <div class="fc-header d-flex flex-column align-items-center">
+                <span class="chip">Performance</span>
+                <h3 class="fc-h-title fc-h-title-center">Cypht (pronounced "sift") is like a news reader, but for E-mail.
+                </h3>
+            </div>
+            <div class="fp-grid">
+                <div class="fp-feature-card fp-1">
+                    <div class="fc-b-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                    </div>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Lightweight Pages</h5>
+                        <p class="fc-description ">Only 3 HTTP requests (~50KB gzipped), fast and efficient</p>
+                    </div>
+                </div>
+                <div class="fp-feature-card fp-2">
+                    <div class="fc-b-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>
+                    </div>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Smart Caching</h5>
+                        <p class="fc-description ">Parallel AJAX + local storage for faster reloads.</p>
+                    </div>
+                </div>
+                <div class="fp-feature-card fp-3">
+                    <div class="fc-b-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-accessibility"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 5.5"/><path d="M12.67 13.67A6 6 0 0 1 9 12a5.68 5.68 0 0 1 3.67-1.33"/><circle cx="12" cy="12" r="10"/></svg>
+                    </div>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Accessibility</h5>
+                        <p class="fc-description ">Semantic HTML5 with RTL language support.</p>
+                    </div>
+                </div>
+                <div class="fp-feature-card fp-4">
+                    <div class="fc-b-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+                    </div>
+                    <div class="fc-body">
+                        <h5 class="fc-title">JMAP Sync</h5>
+                        <p class="fc-description ">Faster synchronization with JMAP protocol.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 2 -->
+        <div id="search" class="fc-left">
+            <div class="fc-header ps-lg-4">
+                <span class="chip">Search</span>
+                <h3 class="fc-h-title fc-h-title-left">Advanced search across all your email accounts in one place.<h3p>
+            </div>
+<!--  -->
+            <div class="fsearch-grid">
+                <div class="fss-1 fss-card">
+                    <div class="fc-b-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </div>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Advanced Search</h5>
+                        <p class="fc-description">Search across all accounts with powerful filters and boolean operators for precise results.</p>
+                    </div>
+                </div>
+                <div class="fss-2 fss-card">
+                    <div class="fc-b-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bookmark"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
+                    </div>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Saved Searches</h5>
+                        <p class="fc-description">Save your frequent searches for quick access and stay updated with automatic notifications.</p>
+                    </div>
+                </div>
+                <div class="fss-3 fss-card">
+                    <div class="fc-b-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                    </div>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Smart Filters</h5>
+                        <p class="fc-description">Filter emails by sender, subject, date, and more with advanced search operators.</p>
+                    </div>
+                </div>
+                <div class="fss-4 fss-card">
+                    <div class="fc-b-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    </div>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Search Alerts</h5>
+                        <p class="fc-description">Get notified when new emails match your saved search criteria.</p>
+                    </div>
+                </div>
+                <div class="fss-5 fss-card">
+                    <div class="fc-b-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-history"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+                    </div>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Search History</h5>
+                        <p class="fc-description">Quick access to your recent searches for faster email discovery.</p>
+                    </div>
+                </div>
+            </div>
+         </div>
+        <!-- 4 - Security -->
+        <div id="security" class="fc-right">
+             <div class="fc-header text-center d-flex flex-column align-items-center">
+                <span class="chip">Performance</span>
+                <h3 class="fc-h-title fc-h-title-center">Cypht (pronounced "sift") is like a news reader, but for E-mail.
+                </h3>
+            </div>
+<!--  -->
+            <div class="fs-grid">
+                <div class="fs-1 fs-card">
+                    <div class="fc-b-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.62 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Advanced Encryption</h5>
+                        <p class="fc-description">End-to-end encryption for all communications with support for PGP/GPG, ensuring your emails remain private and secure from unauthorized access.</p>
+                    </div>
+                </div>
+                <div class="fs-2 fs-card">
+                    <div class="fc-b-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key"><circle cx="8" cy="15" r="3"/><path d="M17.5 19a2.5 2.5 0 0 0 2.5-2.5v-1.5a1 1 0 0 0-1-1h-4l-4-7H4v-3a1 1 0 0 1 1-1h7l4 7"/></svg>
+                    </div>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Flexible Authentication</h5>
+                        <p class="fc-description">Supports IMAP, LDAP, database, or custom auth methods with 2FA integration.</p>
+                    </div>
+                </div>
+                <div class="fs-3 fs-card">
+                    <div class="fc-b-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <div class="fc-body">
+                        <h5 class="fc-title">Secure Storage</h5>
+                        <p class="fc-description">Sessions stored in PDO databases or encrypted flat files with configurable security policies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 5 -->
+        <div id="development" class="fc-left">
+            <div class="fc-header fc-h-title-left ps-lg-4">
+                <span class="chip">Development</span>
+                <h3 class="fc-h-title fc-h-title-left fc-h-long-tilte">Cypht does not replace your existing accounts - it combines them into one.</h3>
+            </div>
+            <!--  -->
+            <div class="fd-grid">
+              <div class="fd-1 fd-card  fd-ews-card">
+                <div class="fc-b-header">
+                    <img src="/img/ews.png" alt="EWS Support">
+                </div>
+                <div class="fc-body">
+                        <h5 class="fc-title">EWS Support</h5>
+                        <p class="fc-description ">Exchange Web Services (EWS) support for Exchange Server integration.</p>
+                    </div>
+              </div>
+              <div class="fd-2 fd-card">
+                <div class="fc-b-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="fc-body">
+                        <h5 class="fc-title">Build Process</h5>
+                        <p class="fc-description ">Pre-calculated assets, developer mode for easy debugging.</p>
+                    </div>
+              </div>
+              <div class="fd-3 fd-card">
+                <div class="fc-b-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-boxes"><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 1.94 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-1.94 0l-3 1.8z"/><path d="M7 8v2"/><path d="M7 16v2"/><path d="M17 7v2"/><path d="M17 15v2"/><path d="M12 3v2"/><path d="M12 19v2"/></svg>
+                </div>
+                <div class="fc-body">
+                    <h5 class="fc-title">Modules</h5>
+                    <p class="fc-description ">IMAP, SMTP, LDAP, WordPress, GitHub and more modules available.</p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

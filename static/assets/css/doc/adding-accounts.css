@@ -1,0 +1,194 @@
+/* ─── Adding Accounts Page Styles ──────────────────────────────────────────────────────────── */
+
+/* Supported Providers Section */
+.providers-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.providers-section h2 {
+      color: white;
+      margin-top: 0;
+}
+
+/* Provider Cards */
+.provider-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+}
+
+.provider-card {
+      background: white;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border-left: 4px solid #17a2b8;
+}
+
+.provider-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-left-color: #28a745;
+}
+
+.provider-card h4 {
+      color: #17a2b8;
+      margin-top: 0;
+      font-size: 1.1rem;
+}
+
+/* Step-by-Step Process */
+.steps-section {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-left: 4px solid #ffc107;
+}
+
+.steps-section h3 {
+      color: #ffc107;
+      margin-top: 0;
+}
+
+.step-item {
+      background: white;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      border-left: 4px solid #28a745;
+}
+
+.step-item h4 {
+      color: #28a745;
+      margin-top: 0;
+      font-size: 1.1rem;
+}
+
+/* OAuth Integration */
+.oauth-section {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.oauth-section h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.oauth-provider {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      backdrop-filter: blur(10px);
+}
+
+.oauth-provider h4 {
+      color: white;
+      margin-top: 0;
+}
+
+/* Advanced Configuration */
+.advanced-section {
+      background: white;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-left: 4px solid #6f42c1;
+}
+
+.advanced-section h3 {
+      color: #6f42c1;
+      margin-top: 0;
+}
+
+.config-item {
+      background: #f8f9fa;
+      border-radius: 6px;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-left: 3px solid #6f42c1;
+}
+
+.config-item h4 {
+      color: #6f42c1;
+      margin: 0 0 0.5rem 0;
+      font-size: 1rem;
+}
+
+/* Troubleshooting */
+.troubleshooting-section {
+      background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+}
+
+.troubleshooting-section h3 {
+      color: white;
+      margin-top: 0;
+}
+
+.issue-item {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      backdrop-filter: blur(10px);
+}
+
+.issue-item h4 {
+      color: white;
+      margin: 0 0 0.5rem 0;
+      font-size: 1rem;
+}
+
+/* Help Section */
+.help-section {
+      background: #f8f9fa;
+      border: 2px solid #17a2b8;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      text-align: center;
+}
+
+.help-section h3 {
+      color: #17a2b8;
+      margin-top: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+      .provider-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+      }
+
+      .providers-section,
+      .oauth-section,
+      .troubleshooting-section {
+            padding: 1.5rem;
+      }
+
+      .provider-card,
+      .step-item,
+      .config-item,
+      .issue-item {
+            padding: 1rem;
+      }
+}
