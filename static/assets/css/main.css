@@ -165,7 +165,7 @@
 
       .cypht-card-bg {
             background: linear-gradient(135deg, rgba(129, 180, 65, 0.15) 0%, rgba(129, 180, 65, 0.25) 100%) !important;
-            border: .8px solid var(--color-primary) !important;
+            border: .5px solid #44542C;
       }
 
       /* Enhanced shadows for dark theme */
