@@ -158,7 +158,6 @@ loadScriptAfter: /home-page.js
             </div>
         </div>
     </section>
-    <!-- -->
     <section class="faq-section">
         <div class="section-content px-4">
             <div class="faq-container">
@@ -253,5 +252,4 @@ loadScriptAfter: /home-page.js
             </div>
         </div>
     </section>
-
 </div>
