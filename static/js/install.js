@@ -208,6 +208,122 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  //+- 6 Load documentation
+  function updateActiveMenu() {
+    const menuItems = document.querySelectorAll("#ga-content-nav a");
+
+    if (menuItems.length === 0) {
+      return;
+    }
+
+    // Récupérer tous les IDs des liens du menu
+    const sectionIds = Array.from(menuItems)
+      .map((item) => {
+        const href = item.getAttribute("href");
+        return href && href.startsWith("#") ? href.substring(1) : null;
+      })
+      .filter((id) => id !== null);
+
+    if (sectionIds.length === 0) {
+      return;
+    }
+
+    // Trouver tous les éléments correspondants (div, h3, h4, etc. avec ces IDs)
+    const sections = sectionIds
+      .map((id) => {
+        // Chercher dans .guide-left pour les sections principales et sous-sections
+        return (
+          document.querySelector(`.guide-left #${id}`) ||
+          document.querySelector(`.guide-left [id="${id}"]`)
+        );
+      })
+      .filter((el) => el !== null);
+
+    if (sections.length === 0) {
+      return;
+    }
+
+    // Offset pour le calcul de la position (prendre en compte le header/navbar)
+    const offset = 150;
+    let currentSection = "";
+    let minDistance = Infinity;
+
+    // Trouver la section la plus proche du haut de la fenêtre
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      const sectionTop = rect.top;
+      const sectionId = section.getAttribute("id");
+
+      if (!sectionId) return;
+
+      // Si la section est visible dans la fenêtre ou juste au-dessus
+      if (sectionTop <= offset + 100) {
+        const distance = Math.abs(sectionTop - offset);
+        if (distance < minDistance) {
+          minDistance = distance;
+          currentSection = "#" + sectionId;
+        }
+      }
+    });
+
+    // Si aucune section n'est trouvée et qu'on est en haut de la page, utiliser la première
+    if (!currentSection && window.scrollY < 200) {
+      const firstSection = sections[0];
+      if (firstSection) {
+        const firstSectionId = firstSection.getAttribute("id");
+        if (firstSectionId) {
+          currentSection = "#" + firstSectionId;
+        }
+      }
+    }
+
+    // Si toujours aucune section, trouver celle qui est la plus proche du haut
+    if (!currentSection && sections.length > 0) {
+      let closestSection = null;
+      let closestDistance = Infinity;
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const distance = Math.abs(rect.top - offset);
+        if (distance < closestDistance && rect.top < window.innerHeight) {
+          closestDistance = distance;
+          closestSection = section;
+        }
+      });
+
+      if (closestSection) {
+        const sectionId = closestSection.getAttribute("id");
+        if (sectionId) {
+          currentSection = "#" + sectionId;
+        }
+      }
+    }
+
+    // Mettre à jour les classes actives
+    menuItems.forEach((item) => {
+      const href = item.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        item.classList.remove("guide-page-menu-active");
+        if (href === currentSection) {
+          item.classList.add("guide-page-menu-active");
+        }
+      }
+    });
+  }
+
+  //+- 7 Load installation list menu
+  const mobi_menu_list = document.getElementById("inst_list_menu");
+  mobi_menu_list.addEventListener("click", function (e) {
+    if (e.target && e.target.nodeName === "LI") {
+      const selected_value = e.target.dataset.value;
+      UtilsFn.load_md_file(
+        "installation",
+        selected_value,
+        document.querySelector("#guide_content")
+      );
+    }
+  });
+
   // Cleanup on page unload
   window.addEventListener("beforeunload", cleanup);
 
@@ -256,9 +372,45 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Initialiser le menu actif au chargement initial
+  updateActiveMenu();
+
+  // Charger le contenu initial
   UtilsFn.load_md_file(
     "installation",
     "manual",
     document.querySelector("#guide_content")
-  );
+  ).then(() => {
+    // Initialiser le menu actif après le chargement du contenu
+    setTimeout(() => {
+      updateActiveMenu();
+    }, 300);
+  });
+
+  // Observer pour détecter les changements de contenu
+  const contentObserver = new MutationObserver(() => {
+    setTimeout(() => {
+      updateActiveMenu();
+    }, 200);
+  });
+
+  const guideContent = document.querySelector("#guide_content");
+  if (guideContent) {
+    contentObserver.observe(guideContent, {
+      childList: true,
+      subtree: true,
+    });
+  }
+
+  // Throttle pour optimiser les performances du scroll
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateActiveMenu();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
 });

@@ -1,4 +1,6 @@
-<div class="guide-left px-2 col col-xl-9">
+<div class="guide-left px-2 col col-xl-9 scroll"
+data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0"
+>
     <div class="guide-page-header">
        <h3>Install Cypht using Docker</h3>
        <p class="guide-page-subtitle">Using Docker is one of the easiest ways to install Cypht as the image bundles the necessary steps from the manual installation.</p>
@@ -8,9 +10,9 @@
        </p>
     </div>
 
-    <div class="g-page-card">
+    <div  class="g-page-card">
         <div class="guide-card-header">
-          <h5>Requirements</h5>
+          <h4 id="requirement">Requirements</h4>
         </div>
         <div class="g-card-body">
           <ul>
@@ -21,7 +23,7 @@
     </div>
     <div class="g-page-card">
         <div class="guide-card-header">
-          <h5>Quick Start</h5>
+          <h4 id="quick_start">Quick Start</h4>
         </div>
         <div class="g-card-body">
           <ol>
@@ -41,12 +43,12 @@
                   <p class="terminal-prompt"> <span class="terminal-command">docker compose  </span><span class="terminal-text">up  -d</span></p>
                 </div>
               <div class="g-warning-card">
-              <div class="g-warning-card-icon">
-                 <i class="bi bi-info-circle"></i>
-              </div>
-                <span class="g-warning-card-text">
-                  <b>Note</b>: The legacy docker-compose can be incompatible with newer Docker Engine versions. Prefer the modern Docker Compose plugin.
-                </span>
+                  <div class="g-warning-card-icon">
+                    <i class="bi bi-info-circle"></i>
+                  </div>
+                  <span class="g-warning-card-text">
+                    <b>Note</b>: The legacy docker-compose can be incompatible with newer Docker Engine versions. Prefer the modern Docker Compose plugin.
+                  </span>
               </div>
             </li>
             <li>Access Cypht at <code>http://localhost:80</code> (or your server IP) unless you changed the mapped port.</li>
@@ -55,7 +57,7 @@
     </div>
     <div class="g-page-card">
         <div class="guide-card-header">
-          <h5>Persisting Application Data</h5>
+          <h4 id="persisting_data">Persisting Application Data</h4>
         </div>
         <div class="g-card-body">
           <ol>
@@ -76,11 +78,11 @@
               On this page
         </p>
       </div>
-      <nav>
-        <ul id="ga-content-nav">
-          <li><a href="#meet_cypht" class="guide-page-menu-active">Requirement</a></li>
-          <li><a href="#why_cypht">Quick start</a></li>
-          <li><a href="#security_privacy">Persisting data</a></li>
+      <nav id="navbar-example2" class="">
+        <ul id="ga-content-nav" class="">
+          <li class=""><a class="" href="#requirement" class="guide-page-menu-active">Requirement</a></li>
+          <li class=""><a class="" href="#quick_start">Quick start</a></li>
+          <li class=""><a class="" href="#persisting_data">Persisting data</a></li>
         </ul>
       </nav>
     </div>

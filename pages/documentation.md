@@ -99,11 +99,9 @@ h1: false
           </div>
         <!-- Right -->
           <div class="col">
-            <div class="row doc-content">
-            </div>
+            <div class="row doc-content"></div>
           </div>
       </div>
     </div>
-
   </div>
 </section>

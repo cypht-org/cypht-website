@@ -12,7 +12,7 @@ loadScriptAfter: /js/install.js
                     <i class="bi bi-download"></i>
                     <span>Installation Guide</span>
                 </div>
-                <h1 class="hs-title">
+                <h1 class="display-5 fw-bold">
                     Install <span class="text-primary">Cypht</span> 
                     <br>in Minutes
                 </h1>
@@ -36,11 +36,11 @@ loadScriptAfter: /js/install.js
                     </div>
                 </div>
                 <div class="hs-actions-content">
-                    <a href="#guide-content" class="hs-btn-primary">
+                    <a href="#guide-content" class="action-btn cypht-primary-btn">
                     <i class="bi bi-rocket-takeoff"></i>
                     Quick Install
                     </a>
-                    <a href="#installation-methods" class="hs-btn-secondary">
+                    <a href="#installation-methods" class="action-btn cypht-secondary-btn">
                     <i class="bi bi-list-ul"></i>
                     View All Methods
                     </a>
@@ -93,12 +93,13 @@ loadScriptAfter: /js/install.js
     <section >
         <div class="imth-container">
            <div class="imth-header">
-                <span class="chip">
-                    <i class="bi bi-download"></i>
-                    <span>Methods</span>
+                <span class="home-overline">
+                    Methods
                 </span>
+                <div>
                     <h1>Choose installation method</h1>
-                 <p class="install-methods-subtitle text-center">Choose the installation path that aligns with your experience and technical environment.</p>
+                    <p class="install-methods-subtitle text-center">Choose the installation path that aligns with your experience and technical environment.</p>
+                </div>
             </div>
             <div class="imth-content">
                 <div class="imth-card">
@@ -150,7 +151,27 @@ loadScriptAfter: /js/install.js
     </section>
 <!--  -->
     <section id="guide" class="guide-section mt-4">
-        <div class="guide-container row  w-100">
+        <div class="mobi-nav-content d-lg-none">
+            <span class="mobi-nav-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M3 10v4c0 1.886 0 2.828.586 3.414C4.172 18 5.114 18 7 18h10c1.886 0 2.828 0 3.414-.586C21 16.828 21 15.886 21 14V9c0-2.828 0-4.243-.879-5.121C19.243 3 17.828 3 15 3H9c-2.828 0-4.243 0-5.121.879c-.49.49-.707 1.146-.803 2.121M22 21h-6M2 21h10m3-6H9"/></svg>
+                    Installation Type
+            </span>
+            <div class="custom-select">
+                <button class="select-btn">
+                    <span id="selected_text" class="selected-text"></span>
+                    <span class="arrow">
+                       <i class="bi bi-chevron-down dropdown-arrow"></i>
+                    </span>
+                </button>
+                <ul id="inst_list_menu" class="select-menu">
+                    <li data-value="manual">Manual Install</li>
+                    <li data-value="docker">using Docker</li>
+                    <li data-value="yuno">Yuno Server</li>
+                    <li data-value="tiki">within Tiki</li>
+                </ul>
+            </div>
+        </div>
+        <div class="guide-container row">
             <div class="guide-nav d-none d-lg-block col-lg-2">
                <div class="guide-nav-content">
                     <div class="guide-nav-header">
@@ -178,7 +199,7 @@ loadScriptAfter: /js/install.js
                     </ul>
                </div>
             </div>
-            <div id="guide_content" class="col col-lg-10 guide-content row">
+            <div id="guide_content" class="col col-lg-10 guide-content px-1 row">
             </div>
         </div>
     </section>
