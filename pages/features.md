@@ -127,6 +127,18 @@ loadScriptAfter: /js/feature.js
                             <img src="/img/fc_5.png" alt="IMAP">
                         </div>
                         <div class="fc-body">
+                            <h5 class="fc-title">Screen Email</h5>
+                            <p class="fc-description "></p>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="col">
+                    <div class="fc-card">
+                        <div class="fc-b-header">
+                            <img src="/img/fc_5.png" alt="IMAP">
+                        </div>
+                        <div class="fc-body">
                             <h5 class="fc-title">Tags & Labels</h5>
                             <p class="fc-description ">Organize and categorize emails with labels for quick access.</p>
                         </div>
@@ -250,7 +262,7 @@ loadScriptAfter: /js/feature.js
         <!-- 4 - Security -->
         <div id="security" class="fc-right">
              <div class="fc-header text-center d-flex flex-column align-items-center">
-                <span class="chip">Performance</span>
+                <span class="chip">security</span>
                 <h3 class="fc-h-title fc-h-title-center">Cypht (pronounced "sift") is like a news reader, but for E-mail.
                 </h3>
             </div>

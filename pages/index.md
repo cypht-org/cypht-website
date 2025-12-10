@@ -158,7 +158,7 @@ loadScriptAfter: /home-page.js
             </div>
         </div>
     </section>
-    <section class="faq-section">
+    <section id="faq" class="faq-section">
         <div class="section-content px-4">
             <div class="faq-container">
                 <div class="faq-left section-card-header">

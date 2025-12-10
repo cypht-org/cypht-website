@@ -154,7 +154,7 @@ loadScriptAfter: /js/security.js
                   </div>
                   <div class="security-item-content">
                     <h4>Bot Protection</h4>
-                    <p>reCAPTCHA support for the login form</p>
+                    <p><a href="https://www.google.com/recaptcha/intro/index.html">reCAPTCHA</a> support for the login form</p>
                   </div>
               </li>
             </ul>
@@ -170,7 +170,7 @@ loadScriptAfter: /js/security.js
                 </div>
               </div>
             </div>
-
+<!--  -->
             <div class="sec-tab-list col-12 col-lg-7">
               <ul class="security-features">
                 <li class="security-item" data-category="server">
@@ -236,12 +236,11 @@ loadScriptAfter: /js/security.js
                   </div>
                   <div class="security-item-content">
                     <h4>Email Security</h4>
-                    <p>HTML formatted E-Mail is filtered through HTMLPurifier with all external resources removed before rendering. Achieves perfect score from the "Email Privacy Tester".</p>
+                    <p>HTML formatted E-Mail is filtered through HTMLPurifier with all external resources removed before rendering. Achieves perfect score from the <a href="https://emailprivacytester.com/">"Email Privacy Tester"</a>.</p>
                   </div>
                 </li>
               </ul>
             </div>
-
         </div>
         <!-- 3 -->
         <div id="development"  class="sec-tab-content column">
@@ -253,7 +252,6 @@ loadScriptAfter: /js/security.js
               </div>
             </div>
           </div>
-
           <div class="sec-tab-list col-12 col-lg-7">
               <ul class="security-features">
                 <li class="security-item" data-category="development">
@@ -297,7 +295,7 @@ loadScriptAfter: /js/security.js
                   </div>
                   <div class="security-item-content">
                     <h4>Comprehensive Testing</h4>
-                    <p>~98% unit test coverage with PHPUnit for the framework and core modules. UI tests using Selenium with Python bindings ensure interface reliability.</p>
+                    <p>~98% unit <a href="https://coveralls.io/github/cypht-org/cypht?branch=master">test coverage</a> with PHPUnit for the framework and core modules. UI tests using Selenium with Python bindings ensure interface reliability.</p>
                   </div>
                 </li>
                 <li class="security-item" data-category="development">
@@ -316,6 +314,5 @@ loadScriptAfter: /js/security.js
         </div>
       </div>
     </div>
-
   </div>
 </div>
