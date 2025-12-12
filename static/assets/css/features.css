@@ -208,7 +208,330 @@
       opacity: 0.85;
 }
 
+/* Init */
+
+.features-content {
+      display: flex;
+      flex-direction: column;
+      gap: 6rem;
+}
+
+/* I. Messaging Section ──────────────────────────────────────────────────────────── */
+
+.ft-section {
+      max-width: var(--container-5xl);
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+      gap: 2rem;
+}
+
+.ft-section-header {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+      gap: .9rem;
+      text-align: left;
+}
+
+.ft-section-header h3 {
+      max-width: 40rem;
+}
+
+.parent_test {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 16px;
+      /* background-color: red; */
+      width: 100%;
+}
+
+.t-div {
+      /* background-color: #f0f0f0; */
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: rem;
+      align-items: start;
+      min-height: 12rem;
+}
+
+.t-div1 {
+      grid-column: span 3 / span 3;
+}
+
+.t-div2 {
+      grid-column: span 3 / span 3;
+      grid-column-start: 4;
+}
+
+.t-div3 {
+      grid-column: span 2 / span 2;
+      grid-row-start: 2;
+}
+
+.t-div4 {
+      grid-column: span 2 / span 2;
+      grid-column-start: 3;
+      grid-row-start: 2;
+}
+
+.t-div5 {
+      grid-column: span 2 / span 2;
+      grid-column-start: 5;
+      grid-row-start: 2;
+}
+
+.t-div6 {
+      grid-column: span 3 / span 3;
+      grid-row-start: 3;
+}
+
+.t-div7 {
+      grid-column: span 3 / span 3;
+      grid-column-start: 4;
+      grid-row-start: 3;
+}
+
+/* header */
+.t-div-header {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.35s ease;
+      line-height: 1.3;
+}
+
+.t-div-header svg {
+      width: 24px;
+      height: 24px;
+}
+
+/* II. Performance Cards ──────────────────────────────────────────────────────────── */
+
+.feature-section {
+      max-width: var(--container-5xl);
+      /* padding: 0 1.5rem; */
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+}
+
+.feature-section-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .9rem;
+      text-align: center;
+}
+
+.feature-section-header h3 {
+      text-align: center;
+}
+
+.perf-parent {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+      width: 100%;
+}
+
+.perf-div1 {
+      grid-column: span 2 / span 2;
+}
+
+.perf-div2 {
+      grid-column: span 3 / span 3;
+      grid-column-start: 3;
+}
+
+.perf-div3 {
+      grid-column: span 3 / span 3;
+      grid-row-start: 2;
+}
+
+.perf-div4 {
+      grid-column: span 2 / span 2;
+      grid-column-start: 4;
+      grid-row-start: 2;
+}
+
+.feature-card {
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: rem;
+      align-items: start;
+      min-height: 25rem;
+}
+
+.feat-card-header {
+      display: flex;
+      flex-direction: column;
+      /* align-items: start; */
+      gap: .7rem;
+}
+
+.feat-card-long {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: 1rem;
+}
+
+.feat-card-img-content {
+      position: relative;
+}
+
+.feat-card-img-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      /* border-radius: 12px; */
+      /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); */
+      inset: 0;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 12px;
+      /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); */
+}
+
+/* III. Search Section ──────────────────────────────────────────────────────────── */
+
+.search-parent {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 8px;
+
+      & .feature-card {
+            min-height: 12rem;
+      }
+}
+
+.search-section-header h3 {
+      max-width: 45rem;
+}
+
+.search-div1 {
+      grid-column: span 2 / span 2;
+}
+
+.search-div2 {
+      grid-column: span 2 / span 2;
+      grid-column-start: 3;
+}
+
+.search-div3 {
+      grid-column: span 2 / span 2;
+      grid-column-start: 5;
+}
+
+.search-div4 {
+      grid-column: span 3 / span 3;
+      grid-row-start: 2;
+}
+
+.search-div5 {
+      grid-column: span 3 / span 3;
+      grid-column-start: 4;
+      grid-row-start: 2;
+}
+
+.search-card-long {
+      display: flex;
+      flex-direction: row;
+      /* align-items: center; */
+      justify-content: space-between;
+      gap: 1rem;
+}
+
+/* IV. Development Section ──────────────────────────────────────────────────────────── */
+.dev-parent {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+      width: 100%;
+}
+
+.dev-parent .feature-card {
+      min-height: 15rem;
+}
+
+.dev-div1 {
+      grid-row: span 2 / span 2;
+}
+
+
+.dev-div3 {
+      grid-column-start: 2;
+      grid-row-start: 2;
+}
+
+
+/* V. Security Section ──────────────────────────────────────────────────────────── */
+.security-parent {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      width: 100%;
+      /* background-color: rebeccapurple; */
+}
+
+.security-card {
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      /* justify-content: space-between; */
+      gap: rem;
+      align-items: start;
+      height: 25rem;
+}
+
+.sec-img-content {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* .sec-img-content img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+} */
+
+
 /* ─── Feature Cards (Messaging) ──────────────────────────────────────────────────────────── */
+/*  */
 .fc-card {
       display: flex;
       flex-direction: column;
@@ -1032,11 +1355,6 @@
             text-align: left;
       }
 
-      .fc-header .fc-h-title {
-            font-weight: 600;
-            font-size: clamp(1.75rem, 4.5vw, 2.25rem);
-      }
-
       .fc-card {
             min-height: 22rem;
       }
@@ -1404,8 +1722,12 @@
       .fp-feature-card,
       .fss-card,
       .fs-card,
-      .fd-card {
-            background: linear-gradient(135deg, var(--clr-card-bg) 0%, var(--clr-dark-card-second) 100%) !important;
+      .fd-card,
+      .t-div,
+      .feature-card,
+      .security-card {
+            /* background: linear-gradient(135deg, var(--clr-card-bg) 0%, var(--clr-dark-card-second) 100%) !important; */
+            background: var(--clr-card-bg);
             border: 1px solid var(--color-border);
       }
 
