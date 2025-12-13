@@ -44,7 +44,7 @@ loadScriptAfter: /home-page.js
                     <div>
                         <div class="about-card">
                             <div class="card-illustration">
-                                <img src="https://deepnote.com/_next/static/media/illustration-collaboration-1.ede7b8e7.png" alt="Mail icon" loading="eager" decoding="async" />
+                                <img src="/img/home/_client.png" alt="Mail icon" loading="eager" decoding="async" />
                             </div>
                             <div class="card-content">
                                 <h3>A standard E-mail client</h3>
@@ -57,7 +57,7 @@ loadScriptAfter: /home-page.js
                     <div>
                         <div class="about-card">
                             <div class="card-illustration">
-                                <img src="https://deepnote.com/_next/static/media/illustration-collaboration-2.5c94f9f9.png" alt="Module system illustration" loading="eager" decoding="async" />
+                                <img src="/img/home/_plugins.png" alt="Module system illustration" loading="eager" decoding="async" />
                             </div>
                             <div class="card-content">
                                 <h3>A set of plugins</h3>
@@ -70,7 +70,7 @@ loadScriptAfter: /home-page.js
                     <div>
                         <div class="about-card">
                             <div class="card-illustration">
-                                <img src="https://deepnote.com/_next/static/media/illustration-collaboration-3.ebdb92d5.png" alt="Privacy illustration" loading="eager" decoding="async" />
+                                <img src="/img/home/_privacy.png" alt="Privacy illustration" loading="eager" decoding="async" />
                             </div>
                             <div class="card-content">
                                 <h3>Privacy‑first</h3>
