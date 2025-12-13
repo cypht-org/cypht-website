@@ -69,7 +69,7 @@ loadScriptAfter: /js/feature.js
         <!-- <div class="indicator-div">
 
         </div> -->
-    <section>
+    <section id="#messaging">
       <div class="ft-section">
             <div class="ft-section-left-header">
                 <span class="hs-chip">Messaging</span>
@@ -110,7 +110,7 @@ loadScriptAfter: /js/feature.js
 
   <!--  -->
 
-    <section>
+    <section id="performance">
         <div class="ft-section">
             <div class="ft-section-center-header">
                 <span class="hs-chip">Performance</span>
@@ -164,7 +164,7 @@ loadScriptAfter: /js/feature.js
 
   <!--  -->
 
-    <section>
+    <section id="#search">
         <div class="ft-section">
             <div class="ft-section-left-header">
                 <span class="hs-chip">Search</span>
@@ -208,7 +208,7 @@ loadScriptAfter: /js/feature.js
 
   <!--  -->
 
-    <section>
+    <section id="security">
         <div class="ft-section">
             <div class="ft-section-center-header">
                 <span class="hs-chip">Development</span>
@@ -252,7 +252,7 @@ loadScriptAfter: /js/feature.js
 
   <!--  -->
 
-    <section>
+    <section id="development">
         <div class="ft-section">
             <div class="ft-section-left-header">
                 <span class="hs-chip">security</span>
