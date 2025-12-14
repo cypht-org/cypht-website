@@ -414,3 +414,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+//  terminal highlight code
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    // Highlight all code blocks
+    document.querySelectorAll("pre code").forEach(function (block) {
+      hljs.highlightElement(block);
+    });
+  }, 100);
+});

@@ -27,45 +27,50 @@ data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smo
         </div>
         <div class="g-card-body">
           <ol>
-            <li>
-               Create a Project Directory
-               <div class="gc-terminal">
-                  <p class="terminal-prompt"> <span class="terminal-command">mkdir </span><span class="terminal-text">cypht-docker</span></p>
-                  <p class="terminal-prompt"> <span class="terminal-command">cd </span><span class="terminal-text">cypht-docker</span></p>
-                </div>
-            </li>
-            <li>Create a file named <code>docker-compose.yaml</code> in the directory you just created.</li>
-            <li>Copy and paste the content from <a href="https://github.com/cypht-org/cypht/blob/master/docker/docker-compose.yaml">the official compose file</a>.</li>
-            <li>
-              Run containers
-              If you use the legacy standalone tool:
-                <div class="gc-terminal">
-                  <p class="terminal-prompt"> <span class="terminal-command">docker compose  </span><span class="terminal-text">up  -d</span></p>
-                </div>
-              <div class="g-warning-card">
-                  <div class="g-warning-card-icon">
-                    <i class="bi bi-info-circle"></i>
-                  </div>
-                  <span class="g-warning-card-text">
-                    <b>Note</b>: The legacy docker-compose can be incompatible with newer Docker Engine versions. Prefer the modern Docker Compose plugin.
-                  </span>
-              </div>
-            </li>
-            <li>Access Cypht at <code>http://localhost:80</code> (or your server IP) unless you changed the mapped port.</li>
-          </ol>
-        </div>
-    </div>
-    <div class="g-page-card">
-        <div class="guide-card-header">
-          <h4 id="persisting_data">Persisting Application Data</h4>
-        </div>
-        <div class="g-card-body">
-          <ol>
-            <li><b>Docker Engine</b>: Ensure Docker is installed on your system. <a href="https://docs.docker.com/get-started/get-docker/">Get Docker</a></li>
-            <li><b>Docker Compose</b>: Install Docker Compose (often included with Docker Desktop). <a href="https://docs.docker.com/compose/install/">Install Docker Compose</a></li>
-          </ol>
-        </div>
-    </div>
+
+  <li>
+   <span class="terminal-comment">Create a Project Directory</span>
+     <div class="code-preview-content gc-terminal mt-1">
+          <pre><code class="language-bash">
+mkdir cypht-docker
+cd cypht-docker
+</code>
+</pre>
+</div>
+</li>
+
+<li>Create a file named <code>docker-compose.yaml</code> in the directory you just created.</li>
+<li>Copy and paste the content from <a href="https://github.com/cypht-org/cypht/blob/master/docker/docker-compose.yaml">the official compose file</a>.</li>
+<li>
+Run containers
+If you use the legacy standalone tool:
+<div class="gc-terminal">
+<p class="terminal-prompt"> <span class="terminal-command">docker compose </span><span class="terminal-text">up -d</span></p>
+</div>
+<div class="g-warning-card">
+<div class="g-warning-card-icon">
+<i class="bi bi-info-circle"></i>
+</div>
+<span class="g-warning-card-text">
+<b>Note</b>: The legacy docker-compose can be incompatible with newer Docker Engine versions. Prefer the modern Docker Compose plugin.
+</span>
+</div>
+</li>
+<li>Access Cypht at <code>http://localhost:80</code> (or your server IP) unless you changed the mapped port.</li>
+</ol>
+</div>
+</div>
+<div class="g-page-card">
+<div class="guide-card-header">
+<h4 id="persisting_data">Persisting Application Data</h4>
+</div>
+<div class="g-card-body">
+<ol>
+<li><b>Docker Engine</b>: Ensure Docker is installed on your system. <a href="https://docs.docker.com/get-started/get-docker/">Get Docker</a></li>
+<li><b>Docker Compose</b>: Install Docker Compose (often included with Docker Desktop). <a href="https://docs.docker.com/compose/install/">Install Docker Compose</a></li>
+</ol>
+</div>
+</div>
 
   </div>
 
