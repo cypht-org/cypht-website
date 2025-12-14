@@ -218,7 +218,10 @@ loadScriptAfter: /js/feature.js
                 <div class="dev-div1 feature-card">
                     <div class="feat-card-header">
                          <span class="mss-div-header"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="m15 9l4-4M5 19l4-4m0-6L5 5m14 14l-4-4"/><path stroke-linecap="round" d="M9.412 2.339a9.954 9.954 0 0 1 5.176.002c5.335 1.43 8.5 6.913 7.071 12.247c-1.43 5.335-6.912 8.5-12.247 7.071c-5.335-1.43-8.5-6.912-7.071-12.247a9.954 9.954 0 0 1 2.586-4.484"/></g></svg>EWS Support</span>
-                   <span>Easily move or copy emails between different accounts and folders for better organization.</span>
+                        <div>
+                             <span>Easily move or copy emails between different accounts and folders for better organization. check out the progress</span>
+                             <a href="https://github.com/cypht-org/cypht/pull/1278"  target="_blank" class="text-link-card">Here</a>
+                        </div>
                     </div>
                     <div class="position-relative">
                         <img draggable="false" alt="Supabase Authentication user db rows" decoding="async" data-nimg="fill" class="hidden dark:block absolute inset-0 object-cover object-center xl:object-bottom" src="https://supabase.com/images/index/products/auth.svg">
@@ -226,11 +229,14 @@ loadScriptAfter: /js/feature.js
                 </div>
                 <div class="dev-div2 feature-card search-card-long">
                     <div class="">
-                         <span class="mss-div-header">
+                        <span class="mss-div-header">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="m9.564 8.73l.515 1.863c.485 1.755.727 2.633 1.44 3.032c.713.4 1.618.164 3.428-.306l1.92-.5c1.81-.47 2.715-.705 3.127-1.396c.412-.692.17-1.57-.316-3.325l-.514-1.862c-.485-1.756-.728-2.634-1.44-3.033c-.714-.4-1.619-.164-3.429.307l-1.92.498c-1.81.47-2.715.706-3.126 1.398c-.412.691-.17 1.569.315 3.324"/><path fill="currentColor" d="M2.277 5.247a.75.75 0 0 1 .924-.522l1.703.472A2.707 2.707 0 0 1 6.8 7.075l2.151 7.786l.158.547a2.96 2.96 0 0 1 1.522 1.267l.31-.096l8.87-2.305a.75.75 0 1 1 .378 1.452l-8.837 2.296l-.33.102c-.006 1.27-.883 2.432-2.21 2.776c-1.59.414-3.225-.502-3.651-2.044c-.426-1.543.518-3.129 2.108-3.542a3.35 3.35 0 0 1 .237-.052L5.354 7.474a1.207 1.207 0 0 0-.85-.831L2.8 6.17a.75.75 0 0 1-.523-.923"/></svg>Modules
                         </span>
-                        <span class="ft-description">IMAP, SMTP, LDAP, WordPress, GitHub and more modules available
-                        </span>
+                        <div>
+                            <span class="ft-description">IMAP, SMTP, LDAP, WordPress, GitHub and more modules available
+                            </span>
+                            <a href="/modules" class="text-link-card">Show more</a>
+                        </div>
                     </div>
                     <div class="feat-card-img-content">
                         <img draggable="false" alt="Lightweight Pages" decoding="async" data-nimg="fill" class="hidden dark:block absolute inset-0 object-cover object-center xl:object-bottom" src="https://supabase.com/images/index/products/edge-functions-dark.svg">

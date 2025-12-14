@@ -10,10 +10,10 @@
 		<link rel="icon" type="image/png" href="/img/icon.ico">
 		<link rel="stylesheet" href="/assets/css/main.css">
 		<link rel="canonical" href="{{site.baseurl}}{{page.path}}">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
-		{# <link href="/assets/css/prism.css" rel="stylesheet"/> #}
+		<link
+		rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+		{# <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.11.1/styles/monokai.min.css"> #}
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 	</head>
 	<body>
 
@@ -33,9 +33,6 @@
 		{% include 'partials/footer_label.html.twig' %}
 		{% include 'partials/footer.html.twig' %}
 
-		<script src="/jquery.slim.min.js"></script>
-		<script src="/js/theme-switcher.js"></script>
-		<script type="module" src="/js/documentation.js"></script>
 
 		{% if page.loadScriptAfter is defined %}
 			{% if page.loadScriptAfter|slice(-3) == '.js' and page.loadScriptAfter|slice(0, 4) == '/js/' %}
@@ -44,8 +41,15 @@
 				<script src="{{page.loadScriptAfter}}"></script>
 			{% endif %}
 		{% endif %}
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-batch.min.js"></script>
+
+		<script src="/js/theme-switcher.js"></script>
+		<script src="/js/code-copy.js"></script>
+		<script type="module" src="/js/documentation.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+		<!-- Highlight.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+		<script>
+			hljs.highlightAll();
+		</script>
 	</body>
 </html>

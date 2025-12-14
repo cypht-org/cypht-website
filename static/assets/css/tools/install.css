@@ -382,10 +382,10 @@
       z-index: 1;
 }
 
-.imth-header h1 {
+.imth-header h3 {
       color: var(--color-text);
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 700;
+      /* font-size: clamp(1.75rem, 4vw, 2.5rem); */
+      font-weight: 600;
       margin-top: .3rem;
       line-height: 1.2;
 }
@@ -412,7 +412,7 @@
 .imth-card {
       background: var(--color-bg);
       border-radius: 16px;
-      border: 1px solid var(--color-border);
+      border: .8px solid var(--color-border);
       box-shadow: var(--shadow-sm);
       padding: 1.5rem;
       display: flex;
@@ -461,17 +461,23 @@
 }
 
 .imth-card-header-icon {
-      width: 48px;
-      height: 48px;
+      padding: .6rem .7rem;
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      color: #ffffff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      font-size: 1.3rem;
+      color: var(--color-text);
+      background-color: #FCFCFC;
+      border: 1px solid var(--color-border);
       transition: all 0.3s ease;
+
+      & svg {
+            width: 22px;
+            height: 22px;
+      }
 }
+
 
 .imth-card:hover .imth-card-header-icon {
       transform: scale(1.05) rotate(3deg);
@@ -479,7 +485,7 @@
 }
 
 /* Icon colors matching the image style */
-.imth-icon-manual {
+/* .imth-icon-manual {
       background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
 }
 
@@ -493,7 +499,7 @@
 
 .imth-icon-tiki {
       background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-}
+} */
 
 .imth-card-body {
       display: flex;
@@ -503,7 +509,7 @@
 }
 
 .imth-card-title {
-      font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+      font-size: clamp(.97rem, 2vw, 1.1rem);
       font-weight: 700;
       color: var(--color-text);
       margin: 0;
@@ -627,7 +633,7 @@
 }
 
 
-/* Manuel Style Doc */
+/* Manual Style Doc */
 .guide-left {
       display: flex;
       flex-direction: column;
@@ -721,7 +727,7 @@
 
 
 .gpc-body-title {
-      font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+      font-size: clamp(.97rem, 2vw, 1.1rem);
       font-weight: 600 !important;
       display: block;
       margin-bottom: .7rem;
@@ -743,26 +749,6 @@
 }
 
 /* +- code card */
-.gc-code-card {
-      display: flex;
-      flex-direction: column;
-      background-color: #444444;
-      padding: 0;
-      border-radius: 6px;
-      border: 1px solid #3a3a3a;
-      color: #d4d4d4;
-      overflow: hidden;
-      font-size: 0.875rem;
-      line-height: 1.7;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-      position: relative;
-      /* Terminal-like appearance */
-      background-image:
-            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 20px 20px;
-}
-
 .guide-left code {
       background-color: #f4f4f4;
       color: #d63384;
@@ -774,156 +760,245 @@
 }
 
 /* Terminal header bar effect (optional) */
-.gc-code-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #3a3a3a, #2d2d2d, #3a3a3a);
-      z-index: 1;
+
+.code-preview-content {
+      /* margin: 0 auto; */
+      overflow: visible;
+      position: relative;
 }
 
-.gc-code-card pre {
-      background-color: transparent !important;
-      padding: 1.25rem 1.5rem 1.25rem 2rem !important;
+.code-preview-content pre {
+      position: relative;
       margin: 0 !important;
-      overflow-x: auto;
-      overflow-y: hidden;
-      white-space: pre;
-      word-wrap: normal;
-      font-family: 'Inconsolata', 'SF Mono', 'Monaco', 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+      padding: 0 !important;
+      border: none !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      overflow: visible;
+}
 
-      line-height: 1.7;
-      letter-spacing: 0.01em;
+/* When code is wrapped in copy button container */
+.code-copy-btn-container {
+      position: relative;
+      display: block;
+      width: 100%;
+}
+
+.code-preview-content pre code {
+      display: block !important;
+      margin: 0 !important;
+      padding: 16px 20px !important;
+      background: #343434 !important;
+      border: 1px solid var(--color-border) !important;
+      border-radius: 4px !important;
+      font-family: 'Consolas', 'Monaco', 'Courier New', 'SF Mono', 'Menlo', 'Liberation Mono', monospace !important;
+      /* font-size: 14px !important; */
+      line-height: 1.6 !important;
+      white-space: pre !important;
+      word-wrap: normal;
+      overflow-wrap: normal;
       tab-size: 4;
       -moz-tab-size: 4;
+      text-align: left !important;
+      direction: ltr;
+      overflow-x: auto;
+      overflow-y: visible;
+      max-width: 100%;
+      box-sizing: border-box;
+      visibility: visible !important;
+      opacity: 1 !important;
+      text-indent: 0 !important;
 }
 
-.gc-code-card code {
-      background-color: transparent !important;
-      padding: 0 !important;
+.code-preview-content pre.hljs {
       margin: 0 !important;
-      color: inherit;
-      font-family: inherit;
-      font-size: 0.6rem !important;
-      border-radius: 0;
-      display: block;
-      padding-left: 0 !important;
-}
-
-.gc-code-card pre code {
+      padding: 0 !important;
       border: none !important;
-      padding-left: 0 !important;
+      background: transparent !important;
+      overflow: visible;
 }
 
-/* PrismJS token styles - Vim/Nano inspired color scheme */
-.gc-code-card .token.comment,
-.gc-code-card .token.prolog,
-.gc-code-card .token.doctype,
-.gc-code-card .token.cdata {
-      color: #6a9955;
-      font-style: italic;
+.code-preview-content pre.hljs code {
+      padding: 16px 20px !important;
+      background: #343434 !important;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      display: block !important;
+      white-space: pre !important;
+      overflow-x: auto;
+      overflow-y: visible;
+      font-family: 'Consolas', 'Monaco', 'Courier New', 'SF Mono', 'Menlo', 'Liberation Mono', monospace !important;
+      /* font-size: 14px !important; */
+      line-height: 1.6 !important;
+      visibility: visible !important;
+      opacity: 1 !important;
 }
 
-.gc-code-card .token.punctuation {
-      color: #d4d4d4;
+/* Terminal code blocks */
+.gc-terminal pre code,
+.code-preview-content.gc-terminal pre code {
+      display: block;
+      margin: 0 !important;
+      padding: 12px 16px !important;
+      background: #343434 !important;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', 'Courier New', 'SF Mono', 'Menlo', 'Liberation Mono', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      white-space: pre;
+      word-wrap: normal;
+      overflow-wrap: normal;
+      tab-size: 4;
+      -moz-tab-size: 4;
+      text-align: left;
+      direction: ltr;
+      overflow-x: auto;
+      overflow-y: hidden;
 }
 
-.gc-code-card .token.property,
-.gc-code-card .token.tag,
-.gc-code-card .token.boolean,
-.gc-code-card .token.number,
-.gc-code-card .token.constant,
-.gc-code-card .token.symbol,
-.gc-code-card .token.deleted {
-      color: #b5cea8;
+/* terminal comment */
+
+.terminal-comment {
+      text-transform: capitalize;
+      font-weight: 600;
+      font-size: .9rem;
 }
 
-.gc-code-card .token.selector,
-.gc-code-card .token.attr-name,
-.gc-code-card .token.string,
-.gc-code-card .token.char,
-.gc-code-card .token.builtin,
-.gc-code-card .token.inserted {
-      color: #ce9178;
+/* Ensure code text is properly displayed */
+.code-preview-content pre code *,
+.gc-terminal pre code * {
+      font-family: inherit !important;
+      font-size: inherit !important;
+      line-height: inherit !important;
 }
 
-.gc-code-card .token.operator,
-.gc-code-card .token.entity,
-.gc-code-card .token.url,
-.gc-code-card .language-css .token.string,
-.gc-code-card .style .token.string {
-      color: #d4d4d4;
+/*  */
+.code-preview-content pre code,
+.gc-terminal pre code {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      letter-spacing: 0.01em;
 }
 
-.gc-code-card .token.atrule,
-.gc-code-card .token.attr-value,
-.gc-code-card .token.keyword {
-      color: #569cd6;
+/*  */
+.code-preview-content pre code,
+.code-preview-content pre.hljs code {
+      min-height: 1em;
+      width: 100%;
+      box-sizing: border-box;
 }
 
-.gc-code-card .token.function,
-.gc-code-card .token.class-name {
-      color: #4ec9b0;
+/* Ensure text is visible and properly formatted */
+.code-preview-content pre code span,
+.code-preview-content pre.hljs code span,
+.code-preview-content pre code .hljs-keyword,
+.code-preview-content pre code .hljs-string,
+.code-preview-content pre code .hljs-comment,
+.code-preview-content pre code .hljs-number,
+.code-preview-content pre code .hljs-function {
+      display: inline !important;
+      white-space: pre !important;
+      font-family: inherit !important;
+      visibility: visible !important;
+      opacity: 1 !important;
 }
 
-.gc-code-card .token.regex,
-.gc-code-card .token.important,
-.gc-code-card .token.variable {
-      color: #9cdcfe;
-}
-
-/* Bash/Shell specific colors */
-.gc-code-card .language-bash .token.function,
-.gc-code-card .language-bash .token.builtin {
-      color: #4ec9b0;
-}
-
-.gc-code-card .language-bash .token.string {
-      color: #ce9178;
-}
-
-.gc-code-card .language-bash .token.comment {
-      color: #6a9955;
-}
-
-.gc-code-card .language-bash .token.keyword {
-      color: #569cd6;
-}
-
-/* Batch/Windows specific colors */
-.gc-code-card .language-batch .token.keyword {
-      color: #569cd6;
-}
-
-.gc-code-card .language-batch .token.string {
-      color: #ce9178;
-}
-
-.gc-code-card .language-batch .token.comment {
-      color: #6a9955;
-}
 
 /* Scrollbar styling for terminal-like appearance */
-.gc-code-card pre::-webkit-scrollbar {
+.code-preview-content pre::-webkit-scrollbar {
       height: 8px;
 }
 
-.gc-code-card pre::-webkit-scrollbar-track {
+.code-preview-content pre::-webkit-scrollbar-track {
       background: #1e1e1e;
       border-radius: 4px;
 }
 
-.gc-code-card pre::-webkit-scrollbar-thumb {
+.code-preview-content pre::-webkit-scrollbar-thumb {
       background: #424242;
       border-radius: 4px;
       border: 1px solid #1e1e1e;
 }
 
-.gc-code-card pre::-webkit-scrollbar-thumb:hover {
+.code-preview-content pre::-webkit-scrollbar-thumb:hover {
       background: #4e4e4e;
+}
+
+/* Code Copy Button Styles */
+.code-copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      color: var(--color-text);
+      cursor: pointer;
+      padding: 6px 10px;
+      font-size: 14px;
+      z-index: 10;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      box-sizing: border-box;
+      max-width: calc(100% - 16px);
+      overflow: hidden;
+}
+
+.code-preview-content:hover .code-copy-btn,
+.gc-terminal:hover .code-copy-btn,
+.gc-code-card:hover .code-copy-btn,
+pre:hover .code-copy-btn {
+      opacity: 1;
+      pointer-events: auto;
+}
+
+.code-copy-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+}
+
+.code-copy-btn:active {
+      transform: scale(0.95);
+}
+
+.code-copy-btn.copied {
+      background: rgba(76, 175, 80, 0.8);
+      border-color: rgba(76, 175, 80, 1);
+      opacity: 1;
+}
+
+.code-copy-btn.error {
+      background: rgba(244, 67, 54, 0.8);
+      border-color: rgba(244, 67, 54, 1);
+      opacity: 1;
+}
+
+.code-copy-btn i {
+      font-size: 16px;
+      line-height: 1;
+}
+
+/* Ensure parent containers are positioned for absolute button */
+.code-preview-content,
+.gc-terminal,
+.gc-code-card {
+      position: relative;
+}
+
+/* Ensure copy button stays within bounds */
+.code-copy-btn-container .code-copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      margin: 0;
+      z-index: 10;
 }
 
 
@@ -1283,6 +1358,11 @@
 
 [data-theme="dark"] {
 
+      .imth-card-header-icon {
+            background-color: var(--clr-card-bg);
+            border: .8px solid var(--color-border);
+      }
+
       /*Terminal*/
       .terminal-header {
             background: var(--clr-card-bg);
@@ -1308,6 +1388,11 @@
       .imth-card:hover {
             opacity: .8;
             border: .7px solid var(--color-primary);
+      }
+
+      .code-preview-content pre code {
+            background-color: #1B1B1B ! important;
+            border: 1px solid var(--color-border);
       }
 
       /* Doc Content */
