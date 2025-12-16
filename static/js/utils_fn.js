@@ -167,10 +167,19 @@ export class UtilsFn {
       // this.mdCache.set(normalized, html);
       content.innerHTML = html;
 
-      // Highlight code blocks with PrismJS after content is loaded
-      if (typeof Prism !== "undefined") {
-        Prism.highlightAllUnder(content);
-      }
+      // Highlight code blocks with highlight.js after content is loaded
+      // Use a small delay to ensure DOM is fully updated
+      setTimeout(() => {
+        if (typeof hljs !== "undefined") {
+          content.querySelectorAll("pre code").forEach((block) => {
+            try {
+              hljs.highlightElement(block);
+            } catch (e) {
+              console.warn("Failed to highlight code block:", e);
+            }
+          });
+        }
+      }, 10);
     } catch (error) {
       content.innerHTML = `
       <div class="alert alert-danger">
@@ -297,5 +306,27 @@ export class UtilsFn {
         btn.setAttribute("aria-expanded", "false");
       }
     });
+  }
+
+  /**
+   * Get current date and time in Unix date format: "Sun Dec 14 23:03:01 2025"
+   * @returns {string} Formatted date string
+   */
+  static get_current_datetime() {
+    const now = new Date();
+    
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    
+    const day = days[now.getDay()];
+    const month = months[now.getMonth()];
+    const date = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const year = now.getFullYear();
+    
+    return `${day} ${month} ${date} ${hours}:${minutes}:${seconds} ${year}`;
   }
 }

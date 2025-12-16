@@ -1,5 +1,5 @@
 /* ─── Enhanced Documentation Hero Section ──────────────────────────────────────────────────────────── */
-.documentation-hero {
+/* .documentation-hero {
       position: relative;
       overflow: hidden;
       display: flex;
@@ -7,9 +7,9 @@
       align-items: center;
       text-align: center;
       color: #333;
-}
+} */
 
-.documentation-hero:before {
+/* .documentation-hero:before {
       content: "";
       position: absolute;
       inset: 0;
@@ -18,10 +18,10 @@
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'> <path d='M32 0H0v32' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/> </svg>");
       background-size: 32px 32px;
       background-repeat: repeat;
-}
+} */
 
 .documentation-hero-content {
-      min-height: 90dvh;
+      /* min-height: 90dvh; */
       position: relative;
       display: flex;
       flex-direction: column;

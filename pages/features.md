@@ -5,70 +5,67 @@ loadScriptAfter: /js/feature.js
 ---
 
 <div class="d-flex flex-column justify-content-center gap-4">
-
-<section class="ft-hero py-5">
-  <div class="container d-flex justify-content-center">
-    <div class="row align-items-center p-container px-3 px-md-4 px-lg-2 px-xl-5">
-      <!-- left text -->
-        <div class="col-12 col-lg-6 hero-section-content">
-            <div class="mb-2">
-                <span class="hs-chip">🌟 A simplified email experience</span>
+    <section class="ft-hero d-flex justify-content-center">
+        <!-- <div class="ft-container d-flex justify-content-center"> -->
+            <div class="row align-items-center p-container px-3 px-md-4 px-lg-2 px-xl-5">
+            <!-- left text -->
+                <div class="col-12 col-lg-6 hero-section-content ">
+                    <div class="mb-2">
+                        <span class="hs-chip">🌟 A simplified email experience</span>
+                    </div>
+                    <h1 class="display-6 fw-bold">
+                    Everything You Need for a Unified Email Workflow
+                    </h1>
+                    <p class="home-hs-subtitle">
+                    Simplify, secure, and optimize your email workflow with seamless integration and powerful features—all in one place.
+                    </p>
+                    <a href="#messaging" class="dark-action-btn">
+                    Explore all features
+                    </a>
+                </div>
+            <!-- Icons -->
+                <div class="col-12 col-lg-6 mt-4 mt-lg-0 d-none d-lg-flex hero-section-right ">
+                    <div class="icons-grid">
+                        <div class="hline"></div>
+                        <div class="hline2"></div>
+                            <!--  -->
+                        <div class="icon-box">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/mail.svg" alt="Mail">
+                    </div>
+                        <!--  -->
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-check-icon lucide-search-check"><path d="m8 11 2 2 4-4"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </div>
+                    <!--  -->
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brick-wall-shield-icon lucide-brick-wall-shield"><path d="M12 9v1.258"/><path d="M16 3v5.46"/><path d="M21 9.118V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5.75"/><path d="M22 17.5c0 2.499-1.75 3.749-3.83 4.474a.5.5 0 0 1-.335-.005c-2.085-.72-3.835-1.97-3.835-4.47V14a.5.5 0 0 1 .5-.499c1 0 2.25-.6 3.12-1.36a.6.6 0 0 1 .76-.001c.875.765 2.12 1.36 3.12 1.36a.5.5 0 0 1 .5.5z"/><path d="M3 15h7"/><path d="M3 9h12.142"/><path d="M8 15v6"/><path d="M8 3v6"/></svg>
+                    </div>
+                    <!--  -->
+                    <div class="icon-box">
+                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/users.svg" alt="Users">
+                    </div>
+                    <!--  -->
+                    <div class="icon-box">
+                    <!-- <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/settings.svg" alt="Settings"> -->
+                    <img src="/img/logo_dark.svg" alt="Cypht">
+                    </div>
+                    <!--  -->
+                    <div class="icon-box">
+                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/star.svg" alt="Star">
+                    </div>
+                    <!--  -->
+                    <div class="icon-box">  
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>
+                    </div>
+                    <div class="icon-box"><img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/lock.svg" alt="Lock"></div>
+                    <div class="icon-box"><img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/activity.svg" alt="Activity"></div>
+                    </div>
+                </div>
             </div>
-            <h1 class="display-6 fw-bold">
-            Everything You Need for a Unified Email Workflow
-            </h1>
-            <p class="home-hs-subtitle">
-            Simplify, secure, and optimize your email workflow with seamless integration and powerful features—all in one place.
-            </p>
-            <a href="#messaging" class="dark-action-btn">
-            Explore all features
-            </a>
-        </div>
-      <!-- Icons -->
-      <div class="col-12 col-lg-6 mt-4 mt-lg-0 d-none d-lg-flex hero-section-right ">
-        <div class="icons-grid">
-          <div class="hline"></div>
-          <div class="hline2"></div>
-            <!--  -->
-          <div class="icon-box">
-          <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/mail.svg" alt="Mail">
-          </div>
-            <!--  -->
-          <div class="icon-box">
-         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-check-icon lucide-search-check"><path d="m8 11 2 2 4-4"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          </div>
-        <!--  -->
-          <div class="icon-box">
-         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brick-wall-shield-icon lucide-brick-wall-shield"><path d="M12 9v1.258"/><path d="M16 3v5.46"/><path d="M21 9.118V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5.75"/><path d="M22 17.5c0 2.499-1.75 3.749-3.83 4.474a.5.5 0 0 1-.335-.005c-2.085-.72-3.835-1.97-3.835-4.47V14a.5.5 0 0 1 .5-.499c1 0 2.25-.6 3.12-1.36a.6.6 0 0 1 .76-.001c.875.765 2.12 1.36 3.12 1.36a.5.5 0 0 1 .5.5z"/><path d="M3 15h7"/><path d="M3 9h12.142"/><path d="M8 15v6"/><path d="M8 3v6"/></svg>
-          </div>
-        <!--  -->
-          <div class="icon-box">
-          <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/users.svg" alt="Users">
-          </div>
-          <!--  -->
-          <div class="icon-box">
-          <!-- <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/settings.svg" alt="Settings"> -->
-          <img src="/img/logo_dark.svg" alt="Cypht">
-          </div>
-          <!--  -->
-          <div class="icon-box">
-          <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/star.svg" alt="Star">
-          </div>
-          <!--  -->
-          <div class="icon-box">  
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>
-        </div>
-          <div class="icon-box"><img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/lock.svg" alt="Lock"></div>
-          <div class="icon-box"><img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/activity.svg" alt="Activity"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </section>
+        <!-- </div> -->
+    </section>
+    <!--  -->
     <div class="features-content">
-        <!-- <div class="indicator-div">
-
-        </div> -->
     <section id="#messaging">
       <div class="ft-section">
             <div class="ft-section-left-header">

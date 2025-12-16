@@ -7,7 +7,7 @@ h1: false
 
 <!-- Enhanced Hero Section -->
 <section class="documentation-hero">
-  <div class="documentation-hero-content">
+  <div class="hs-container documentation-hero-content">
     <!-- Badge -->
     <div>
       <span class="hs-chip">📚 Complete Guide</span>
