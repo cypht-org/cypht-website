@@ -56,40 +56,50 @@ loadScriptAfter: /js/install.js
                         </div>
                         <div class="terminal-title">cypht-install</div>
                     </div>
-                <div class="terminal-body">
-                    <!-- Commande 1 -->
-                    <div class="terminal-line line-step-1">
-                        <span class="terminal-prompt">$</span>
-                        <span class="cmd step-1">git clone https://github.com/jasonmunro/cypht.git</span>
-                    </div>
-                    <!-- Output 1 -->
-                    <div class="terminal-line output line-step-1-out step-1-out">
-                        <span class="terminal-success">✓ Cloning into 'cypht'...</span>
-                    </div>
-                    <!-- Commande 2 -->
-                    <div class="terminal-line line-step-2">
-                        <span class="terminal-prompt">$</span>
-                        <span class="cmd step-2">cd cypht && ./install.sh</span>
-                    </div>
-                    <!-- Output 2 -->
-                    <div class="terminal-line output line-step-2-out step-2-out">
-                        <span class="terminal-success">✓ Installation completed successfully!</span>
-                    </div>
-                    <!-- Commande 3 -->
-                    <div class="terminal-line line-step-3">
-                        <span class="terminal-prompt">$</span>
-                        <span class="cmd step-3">docker run -p 8080:80 cypht/cypht:latest</span>
-                    </div>
-                    <!-- Output 3 -->
-                    <div class="terminal-line output line-step-3-out step-3-out">
-                        <span class="terminal-info">🚀 Cypht is running on http://localhost:8080</span>
+                    <div class="terminal-body">
+                        <!-- Commande 1 -->
+                        <div class="terminal-line line-step-1">
+                            <span class="terminal-prompt">$</span>
+                            <span class="cmd step-1">git clone https://github.com/cypht-org/cypht</span>
+                        </div>
+                        <!-- Output 1 -->
+                        <div class="terminal-line output line-step-1-out step-1-out">
+                            <span class="terminal-success">✓ Cloning into 'cypht'...</span>
+                        </div>
+                        <!-- Commande 2 -->
+                        <div class="terminal-line line-step-2">
+                            <span class="terminal-prompt">$</span>
+                            <span class="cmd step-2">cd cypht</span>
+                        </div>
+                        <!-- Commande 3 -->
+                        <div class="terminal-line line-step-3">
+                            <span class="terminal-prompt">$</span>
+                            <span class="cmd step-3">cp .env.example .env</span>
+                        </div>
+                        <!-- Output 2 -->
+                        <div class="terminal-line output line-step-3-out step-3-out">
+                            <span class="terminal-success">✓ Installation completed successfully!</span>
+                        </div>
+                        <!-- Commande 4 -->
+                        <div class="terminal-line line-step-4">
+                            <span class="terminal-prompt">$</span>
+                            <span class="cmd step-4">php -S localhost:7777</span>
+                        </div>
+                        <!-- Output 4 -->
+                        <div class="terminal-line output line-step-4-out step-4-out">
+                            <span class="terminal-info-server">[<span id="sec-today"></span>] PHP 8.3.9 Development Server (http://localhost:7777) started</span>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <!-- <div class="">
+                        <span class="terminal-info-today">[<span id="sec-today"></span>] PHP 8.3.9 Development Server (http://localhost:7777) started</span>
+                    </div> -->
             </div>
         </div>
     </section>
+
 <!--  -->
+
     <section >
         <div class="imth-container">
            <div class="imth-header">
@@ -149,7 +159,9 @@ loadScriptAfter: /js/install.js
             </div>
         </div>
     </section>
+
 <!--  -->
+
     <section id="guide" class="guide-section mt-4">
         <div class="mobi-nav-content d-lg-none">
             <span class="mobi-nav-icon">

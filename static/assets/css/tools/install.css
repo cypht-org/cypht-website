@@ -94,7 +94,7 @@
 .terminal-body {
       padding: 1.5rem;
       font-family: var(--font-family-monospace);
-      font-size: 0.875rem;
+      font-size: 0.78rem;
       line-height: 1.6;
       min-height: 200px;
       height: calc(100% - 60px);
@@ -267,6 +267,14 @@
       animation-delay: inherit;
 }
 
+.terminal-info-server {
+      color: var(--color-accent);
+      font-size: .78rem;
+      font-weight: 500;
+      animation: infoGlow 0.6s ease-out;
+      animation-delay: inherit;
+}
+
 @keyframes successPulse {
       0% {
             transform: scale(0.95);
@@ -327,7 +335,7 @@
       animation-delay: 3s;
 }
 
-/* Step 2 - Second command and output */
+/* Step 2 - Second command (cd cypht) */
 .line-step-2 {
       animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
       animation-delay: 4.3s;
@@ -337,32 +345,48 @@
       animation-delay: 4.5s;
 }
 
-.line-step-2-out {
-      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      animation-delay: 6.8s;
-}
-
-.step-2-out {
-      animation-delay: 7s;
-}
-
-/* Step 3 - Third command and output */
+/* Step 3 - Third command (cp .env.example .env) and output */
 .line-step-3 {
       animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      animation-delay: 8.3s;
+      animation-delay: 6.3s;
 }
 
 .step-3 {
-      animation-delay: 8.5s;
+      animation-delay: 6.5s;
 }
 
 .line-step-3-out {
       animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      animation-delay: 10.8s;
+      animation-delay: 8.8s;
 }
 
 .step-3-out {
-      animation-delay: 11s;
+      animation-delay: 9s;
+}
+
+/* Step 4 - Fourth command (php -S localhost:7777) and output */
+.line-step-4 {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 10.3s;
+}
+
+.step-4 {
+      animation-delay: 10.5s;
+}
+
+.line-step-4-out {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 12.8s;
+}
+
+/* Override output animation for step-4-out to ensure it displays */
+.line-step-4-out.output {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+      animation-delay: 12.8s !important;
+}
+
+.step-4-out {
+      animation-delay: 13s;
 }
 
 /* ─── Installation Methods ───────────────────────────────────────────────── */
@@ -828,7 +852,6 @@
       overflow-x: auto;
       overflow-y: visible;
       font-family: 'Consolas', 'Monaco', 'Courier New', 'SF Mono', 'Menlo', 'Liberation Mono', monospace !important;
-      /* font-size: 14px !important; */
       line-height: 1.6 !important;
       visibility: visible !important;
       opacity: 1 !important;

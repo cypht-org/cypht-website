@@ -9,8 +9,6 @@
 @import url('./doc/index.css');
 @import url('./navbar.css');
 @import url('./footer.css');
-@import url('./prism.css');
-@import url('./event.css');
 @import url('./tiki-webmail.css');
 
 
@@ -525,7 +523,7 @@ a:hover {
 
 /* +- Container */
 .hs-container {
-      height: 85vh;
+      min-height: 90dvh;
       position: relative;
       overflow: hidden;
       display: flex;

@@ -9,14 +9,14 @@ loadScriptAfter: /js/event.js
     <div class="next-event-container">
       <div class="next-event-content">
         <div class="nec-header">
-          <h2>Events</h2>
-          <span>Join us at the following upcoming events</span>
+          <h2 class="page-title">Events</h2>
+          <span class="page-subtitle">Join us at the following upcoming events</span>
         </div>
         <div class="nec-details-content">
           <div class="">
             <div class="nec-cover">
               <!--  -->
-              <img src="https://i.pinimg.com/1200x/7a/f0/55/7af055d5a9287d1335d38f28ad42aa59.jpg" alt="Cypht Community Event"/>
+              <img src="https://picsum.photos/seed/event-0.6332654670036725/600/400" alt="Cypht Community Event"/>
             </div>
           </div>
           <div class="nec-details">
@@ -42,7 +42,7 @@ loadScriptAfter: /js/event.js
             </div>
             <!--  -->
             <span class="text-description">
-                Join the Cypht Community Conference 2025, the premier event for email management enthusiasts. Discover the latest features, learn advanced configuration techniques, and connect with the open-source community. Explore unified inbox solutions, security best practices, module development, and integration strategies. Features live demos, hands-on workshops, networking sessions, and keynote presentations from the Cypht development team.
+                Join the Cypht Community Conference 2025, the premier event for email management enthusiasts. Discover the latest features, learn advanced configuration techniques, and connect with the open-source community. Explore unified inbox solutions, security best practices, module development, and integration strategies. <br/> Features live demos, hands-on workshops, networking sessions, and keynote presentations from the Cypht development team.
             </span>
           </div>
         </div>
@@ -52,15 +52,14 @@ loadScriptAfter: /js/event.js
          <!-- filter -->
         <div class="">
           <div class="event-filter-content">
-            <div class="event-filter-header mb-4">
+            <div class="event-filter-header">
               <h2>Upcoming Events</h2>
-                <span>Discover and join our upcoming events and activities</span>
+                <span class="page-subtitle">Discover and join our upcoming events and activities</span>
             </div>
             <div class="event-filter-body">
-              <!-- <span>Filter</span> -->
-              <div id="event_filter" class="event-filter">
+              <div id="event_filter" class="event-filter"></div>
             </div>
-           </div>
+            <span class="page-subtitle next-event-description">Missed an event ? You can catch up <br/>on all past events <a href="/events/old">here</a>.</span>
           </div>
         </div>
          <!-- events list -->
@@ -69,6 +68,7 @@ loadScriptAfter: /js/event.js
          </div>
       </div>
     </div>
+
   </div>
 </div>
 

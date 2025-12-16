@@ -36,15 +36,15 @@ const events = [
     hours: "14:00 - 17:30",
     location: "Online (Zoom Link)",
     status: true,
-    type_key: 2, // Workshop
-    owner: [
+    type_key: 2,
+    organizer: [
       {
-        name: "Cypht Team",
-        avatar: "https://picsum.photos/seed/cypht-team/100",
-        github_link: "https://github.com/cypht-org",
-        x: "https://x.com/cypht",
-      },
-    ],
+        name: "Alex Martin",
+        profile_url: "https://randomuser.me/api/portraits/men/32.jpg",
+        github_link: "https://github.com/alexmartin",
+        x: "https://x.com/alexmartin_dev"
+      }
+    ]
   },
   {
     title: "Cypht Community Meetup",
@@ -54,15 +54,15 @@ const events = [
     hours: "15:00 - 18:00",
     location: "Online (Zoom Link)",
     status: true,
-    type_key: 1, // Meetup
-    owner: [
+    type_key: 1,
+    organizer: [
       {
-        name: "Cypht Community",
-        avatar: "https://picsum.photos/seed/cypht-community/100",
-        github_link: "https://github.com/cypht-org/cypht",
-        x: "https://x.com/cypht",
-      },
-    ],
+        name: "Sophie Bernard",
+        profile_url: "https://randomuser.me/api/portraits/women/44.jpg",
+        github_link: "https://github.com/sophiebernard",
+        x: "https://x.com/sophie_codes"
+      }
+    ]
   },
   {
     title: "Advanced Cypht Configuration",
@@ -72,15 +72,15 @@ const events = [
     hours: "09:00 - 16:00",
     location: "Online (Zoom Link)",
     status: true,
-    type_key: 2, // Workshop
-    owner: [
+    type_key: 2,
+    organizer: [
       {
-        name: "Cypht Developers",
-        avatar: "https://picsum.photos/seed/cypht-dev/100",
-        github_link: "https://github.com/cypht-org",
-        x: "https://x.com/cypht",
-      },
-    ],
+        name: "Marco Rossi",
+        profile_url: "https://randomuser.me/api/portraits/men/65.jpg",
+        github_link: "https://github.com/marcrossi",
+        x: "https://x.com/marco_dev"
+      }
+    ]
   },
   {
     title: "Cypht Security & Encryption",
@@ -91,15 +91,15 @@ const events = [
     hours: "08:30 - 12:00",
     location: "Online (Zoom Link)",
     status: true,
-    type_key: 2, // Workshop
-    owner: [
+    type_key: 2,
+    organizer: [
       {
-        name: "Cypht Security Team",
-        avatar: "https://picsum.photos/seed/cypht-security-team/100",
-        github_link: "https://github.com/cypht-org/cypht",
-        x: "https://x.com/cypht",
-      },
-    ],
+        name: "Nadia El Amrani",
+        profile_url: "https://randomuser.me/api/portraits/women/19.jpg",
+        github_link: "https://github.com/nadia-sec",
+        x: "https://x.com/nadia_security"
+      }
+    ]
   },
   {
     title: "Getting Started with Cypht",
@@ -110,15 +110,15 @@ const events = [
     hours: "On demand",
     location: "https://doc.cypht.org/getting-started",
     status: true,
-    type_key: 3, // On Demand
-    owner: [
+    type_key: 3,
+    organizer: [
       {
-        name: "Cypht Documentation",
-        avatar: "https://picsum.photos/seed/cypht-docs/100",
-        github_link: "https://github.com/cypht-org/cypht",
-        x: "https://x.com/cypht",
-      },
-    ],
+        name: "Lucas Meyer",
+        profile_url: "https://randomuser.me/api/portraits/men/11.jpg",
+        github_link: "https://github.com/lucasmeyer",
+        x: "https://x.com/lucas_docs"
+      }
+    ]
   },
   {
     title: "Cypht Modules Deep Dive",
@@ -128,15 +128,15 @@ const events = [
     hours: "On demand",
     location: "https://doc.cypht.org/modules",
     status: true,
-    type_key: 3, // On Demand
-    owner: [
+    type_key: 3,
+    organizer: [
       {
-        name: "Cypht Team",
-        avatar: "https://picsum.photos/seed/cypht-modules-team/100",
-        github_link: "https://github.com/cypht-org/cypht",
-        x: "https://x.com/cypht",
-      },
-    ],
+        name: "Emily Johnson",
+        profile_url: "https://randomuser.me/api/portraits/women/52.jpg",
+        github_link: "https://github.com/emilyjohnson",
+        x: "https://x.com/emily_ui"
+      }
+    ]
   },
   {
     title: "Cypht Integration Hackathon",
@@ -146,15 +146,15 @@ const events = [
     hours: "48h non-stop",
     location: "Online",
     status: true,
-    type_key: 4, // Other
-    owner: [
+    type_key: 4,
+    organizer: [
       {
-        name: "Cypht Community",
-        avatar: "https://picsum.photos/seed/cypht-hack/100",
-        github_link: "https://github.com/cypht-org",
-        x: "https://x.com/cypht",
-      },
-    ],
+        name: "David Nguyen",
+        profile_url: "https://randomuser.me/api/portraits/men/83.jpg",
+        github_link: "https://github.com/davidnguyen",
+        x: "https://x.com/david_hacks"
+      }
+    ]
   },
   {
     title: "The Future of Email with Cypht",
@@ -164,16 +164,63 @@ const events = [
     hours: "10:00 - 13:00",
     location: "Online (Zoom Link)",
     status: true,
-    type_key: 5, // Conference / Talk
-    owner: [
+    type_key: 5,
+    organizer: [
       {
-        name: "Cypht Foundation",
-        avatar: "https://picsum.photos/seed/cypht-foundation/100",
-        github_link: "https://github.com/cypht-org/cypht",
-        x: "https://x.com/cypht",
-      },
-    ],
+        name: "Claire Dubois",
+        profile_url: "https://randomuser.me/api/portraits/women/7.jpg",
+        github_link: "https://github.com/clairedubois",
+        x: "https://x.com/claire_open"
+      }
+    ]
+  }
+];
+
+
+// old events
+const old_events = [
+  {
+    title: "Getting Started with Cypht",
+    description:
+      "An introductory session covering Cypht basics, installation steps, and initial configuration for new users.",
+    date: "2025-01-18",
+    hours: "14:00 - 15:30",
+    type: "remote",
+    address: "Online | Zoom | Remote session",
+    organizer: {
+      name: "Cypht Team",
+      profile_url: "https://randomuser.me/api/portraits/men/12.jpg"
+    },
+    video_url: "https://www.youtube.com/watch?v=rfscVS0vtbw"
   },
+  {
+    title: "Securing Your Cypht Installation",
+    description:
+      "Best practices for securing Cypht, including server hardening and authentication strategies.",
+    date: "2025-02-05",
+    hours: "16:00 - 17:00",
+    type: "remote",
+    address: "Online | Google Meet | Remote session",
+    organizer: {
+      name: "Cypht Security",
+      profile_url: "https://randomuser.me/api/portraits/women/45.jpg"
+    },
+    video_url: "https://www.youtube.com/watch?v=2l-AOB8dFzE"
+  },
+  {
+    title: "Cypht Webmail Deep Dive",
+    description:
+      "Deep dive into Cypht Webmail features and customization.",
+    date: "2025-02-20",
+    hours: "10:00 - 12:00",
+    type: "in-person",
+    address: "France | Metz | CHR Metz-Thionville",
+    organizer: {
+      name: "Baraka M.",
+      profile_url: "https://randomuser.me/api/portraits/men/76.jpg"
+    },
+    video_url: "https://www.youtube.com/watch?v=HluANRwPyNo"
+  }
 ];
 
 // get filter item
@@ -210,22 +257,27 @@ function load_events(type_key) {
       //
       const event_item = document.createElement("a");
       event_item.classList.add("event-item");
+      event_item.href = event.url || '#';
       event_item.innerHTML = `
         <div class="event-item-content">
           <div class="event-item-date">
-            <span>${formatted_date}</span>
+            <span class="event-day">${new Date(event.date).getDate()}</span>
+            <span class="event-month">${new Date(event.date).toLocaleString('en-US', { month: 'short' })}</span>
           </div>
-          <div class="event-item-details"> 
+          <div class="event-item-details">
             <div class="event-item-details-header">
-               <h3>${event.title}</h3>
-               <span class="event-type">${
-                 get_filter_item(event.type_key).name
-               }</span>
+              <h3>${event.title}</h3>
+              <span class="event-type ${event.type_key}">${get_filter_item(event.type_key).name}</span>
+            </div>
+            <div class="event-meta">
+              <span class="event-time">${event.hours || 'Time TBD'}</span>
+              <span class="event-location">${event.type === 'remote' ? '🌐' : '📍'} ${event.address || 'Location TBD'}</span>
             </div>
             <div class="event-item-footer">
-               <div class="event-item-footer-logo"><img src="/img/logo.svg" alt="Cypht" /></div>
-               <span class="event-item-footer-text">
-               Hosted by Cypht Community</span>
+              <div class="event-host">
+                <img src="${event.organizer[0]?.profile_url || '/img/logo.svg'}" alt="${event.organizer[0]?.name || 'Cypht'}" class="organizer-avatar" />
+                <span>${event.organizer[0]?.name || 'Cypht Community'}</span>
+              </div>
             </div>
           </div>
         </div>

@@ -130,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "step-1": 500, // 300ms (line appear) + 200ms delay
         "step-2": 4500, // 4300ms (line appear) + 200ms delay
         "step-3": 8500, // 8300ms (line appear) + 200ms delay
+        "step-4": 12500, // 12300ms (line appear) + 200ms delay
       };
       return delays[step] || 0;
     }
@@ -423,4 +424,12 @@ document.addEventListener("DOMContentLoaded", function () {
       hljs.highlightElement(block);
     });
   }, 100);
+});
+
+// Update current date and time in the terminal
+document.addEventListener("DOMContentLoaded", function () {
+  const secToday = document.getElementById("sec-today");
+  if (secToday) {
+    secToday.textContent = UtilsFn.get_current_datetime();
+  }
 });
