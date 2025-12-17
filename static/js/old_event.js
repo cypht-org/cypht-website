@@ -201,8 +201,8 @@ function createEventCard(event) {
   const article = document.createElement("article");
   article.className = "old-event-item";
 
-  // const thumbnailUrl = resolveThumbnailUrl(event);
-  const thumbnailUrl = `https://picsum.photos/seed/event-${Math.random()}/600/400`;
+  const thumbnailUrl = resolveThumbnailUrl(event);
+  // const thumbnailUrl = `https://picsum.photos/seed/event-${Math.random()}/600/400`;
   const formatted_date =  format_date(event.date)
 
   article.innerHTML = `
