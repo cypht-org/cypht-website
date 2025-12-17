@@ -21,7 +21,7 @@ loadScriptAfter: /js/old_event.js
                   </div>
             </div>
             <div class="old-event-content">
-                  <div id="old-events-container" class="events-grid">
+                  <div id="old-events-container" class="events-grid ">
                         <!--  -->
                   </div>
                   <div class="old-events-pagination">

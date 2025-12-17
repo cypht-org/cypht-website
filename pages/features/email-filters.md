@@ -2,6 +2,7 @@
 title: Email filters
 exclude: true
 ---
+
 <h2>Email filters</h2>
 <p>Cypht now supports Sieve, a powerful email filtering language that gives you complete control over your inbox. With
     Sieve, you can create complex filters to sort, move, delete, and flag your emails automatically. You can also use
@@ -76,13 +77,15 @@ Cypht interface. You can create new filters, edit existing filters, and delete f
 <pre>require ["fileinto", "imap4flags", "notify"];
 
 # Set variables
+
 set "boss_email" "boss@example.com";
 
 # Rule to match emails from your boss
-if address :is "from" "${boss_email}" {
-    # Notify you of the new email
-    notify :message "You have a new email from your boss!" :options ["Important"] :method "mailto:your-email@example.com";
+
+if address :is "from" "${boss_email}" { # Notify you of the new email
+notify :message "You have a new email from your boss!" :options ["Important"] :method "mailto:your-email@example.com";
 }</pre>
+
 <h3>Some examples of Sieve filters:
 </h3>
 <p>The following are some examples of Sieve filters that you can use in Cypht:</p>
@@ -91,9 +94,11 @@ if address :is "from" "${boss_email}" {
 require ["fileinto"];
 
 # Move all emails from the sender "spam@example.com" to the "Spam" folder
+
 if address :from "spam@example.com" {
-    fileinto "Spam";
+fileinto "Spam";
 }
+
 </pre>
 <pre>
 # Organize your inbox automatically
