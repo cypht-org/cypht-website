@@ -10,10 +10,10 @@ class ThemeSwitcher {
         this.themeIcons = document.querySelectorAll('#theme-icon, .theme-icon');
         // Safe localStorage access with fallback
         try {
-            this.theme = localStorage.getItem('theme') || 'light';
+            this.theme = localStorage.getItem('theme') || 'dark';
         } catch (e) {
-            // If localStorage is blocked, use default
-            this.theme = 'light';
+            // If localStorage is blocked, use dark as default
+            this.theme = 'dark';
         }
         this.init();
     }
@@ -32,7 +32,7 @@ class ThemeSwitcher {
         prefersDarkScheme.addEventListener('change', (e) => {
             try {
                 if (!localStorage.getItem('theme')) {
-                    this.setTheme(e.matches ? 'dark' : 'light');
+                    this.setTheme(e.matches ? 'dark' : 'dark');
                 }
             } catch (e) {
                 // If localStorage is blocked, just set theme without storing
@@ -42,7 +42,7 @@ class ThemeSwitcher {
     }
 
     toggleTheme() {
-        const newTheme = this.theme === 'dark' ? 'light' : 'dark';
+        const newTheme = this.theme === 'light' ? 'dark' : 'light';
         this.setTheme(newTheme);
         // Safe localStorage access
         try {

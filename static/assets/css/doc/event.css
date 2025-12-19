@@ -242,7 +242,7 @@
       padding: 1rem 1.25rem;
       display: flex;
       gap: 1rem;
-      border-bottom: 1px solid var(--color-border-light);
+      border-bottom: 1px solid var(--color-border);
 }
 
 .event-type {
