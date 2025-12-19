@@ -5,7 +5,7 @@ const event_types = [
     value: undefined,
   },
   {
-    name: "Meetup",
+    name: "Community Meeting",
     value: 1,
   },
   {
@@ -29,78 +29,86 @@ const event_types = [
 // events
 const events = [
   {
-    title: "Cypht Installation & Setup Workshop — Live Hands-on Session",
+    title: "Cypht Community Event #02 – 2K26 Edition",
     subtitle:
       "A practical, step-by-step live workshop covering Cypht installation, initial configuration, server requirements, and common setup pitfalls, with real-time Q&A.",
     cover_url: `https://picsum.photos/seed/event-0.15679512620868552/600/400`,
-    date: "2025-01-25",
-    hours: "14:00 - 17:30",
+    date: "2026-02-13",
+    hours: "14:00 - 15:00",
     location: "Online",
+    meet_link: "https://meet.example.com/cypht-event-02",
     status: true,
-    type_key: 2,
+    type_key: 1,
     organizer: [
       {
-        name: "Alex Martin",
-        profile_url: "https://randomuser.me/api/portraits/men/32.jpg",
+        name: "Baraka Kinywa",
+        profile_url:
+          "https://videos.evoludata.com/lazy-static/avatars/966a08a6-f4be-4db8-9bb6-918ef6b71ebd.png",
         github_link: "https://github.com/alexmartin",
         x: "https://x.com/alexmartin_dev"
       }
     ]
   },
   {
-    title: "Cypht Community Meetup — Best Practices & Real Use Cases",
+    title: "Cypht Community Event #03 – 2K26 Edition",
     subtitle:
       "An interactive community meetup focused on real-world Cypht use cases, productivity tips, performance optimization, and open discussions with experienced users.",
     cover_url: `https://picsum.photos/seed/event-0.7204123755084528/600/400`,
-    date: "2025-03-02",
-    hours: "15:00 - 18:00",
+    date: "2026-03-13",
+    hours: "14:00 - 15:00",
     location: "Online",
+    meet_link: "https://meet.example.com/cypht-event-03",
     status: true,
     type_key: 1,
     organizer: [
       {
-        name: "Sophie Bernard",
-        profile_url: "https://randomuser.me/api/portraits/women/44.jpg",
-        github_link: "https://github.com/sophiebernard",
-        x: "https://x.com/sophie_codes"
+        name: "Baraka Kinywa",
+        profile_url:
+          "https://videos.evoludata.com/lazy-static/avatars/966a08a6-f4be-4db8-9bb6-918ef6b71ebd.png",
+        github_link: "https://github.com/alexmartin",
+        x: "https://x.com/alexmartin_dev"
       }
     ]
   },
   {
-    title: "Advanced Cypht Configuration — Expert-Level Workshop",
+    title: "Cypht Community Event #04 – 2K26 Edition",
     subtitle:
       "A deep technical session covering advanced IMAP and SMTP configurations, multiple profiles, custom modules, performance tuning, and production-ready setups.",
     cover_url: `https://picsum.photos/seed/event-0.1956990521109031/600/400`,
-    date: "2025-02-10",
-    hours: "09:00 - 16:00",
+    date: "2026-04-10",
+    hours: "14:00 - 15:00",
     location: "Online",
+    meet_link: "https://meet.example.com/cypht-event-04",
     status: true,
-    type_key: 2,
+    type_key: 1,
     organizer: [
       {
-        name: "Marco Rossi",
-        profile_url: "https://randomuser.me/api/portraits/men/65.jpg",
-        github_link: "https://github.com/marcrossi",
-        x: "https://x.com/marco_dev"
+        name: "Baraka Kinywa",
+        profile_url:
+          "https://videos.evoludata.com/lazy-static/avatars/966a08a6-f4be-4db8-9bb6-918ef6b71ebd.png",
+        github_link: "https://github.com/alexmartin",
+        x: "https://x.com/alexmartin_dev"
       }
     ]
   },
   {
-    title: "Cypht Security & Encryption — Privacy-Focused Live Session",
+    title: "Cypht Community Event #5 – 2K26 Edition",
     subtitle:
       "An in-depth security session covering PGP/GPG encryption, secure authentication methods, privacy best practices, and how to harden your Cypht installation.",
     cover_url: `https://picsum.photos/seed/event-0.2696668875814928/600/400`,
-    date: "2025-04-05",
-    hours: "08:30 - 12:00",
+    date: "2026-05-08",
+    hours: "14:00 - 15:00",
     location: "Online",
+    meet_link: "https://meet.example.com/cypht-event-05",
     status: true,
-    type_key: 2,
+    type_key: 1,
     organizer: [
       {
-        name: "Nadia El Amrani",
-        profile_url: "https://randomuser.me/api/portraits/women/19.jpg",
-        github_link: "https://github.com/nadia-sec",
-        x: "https://x.com/nadia_security"
+        name: "Baraka Kinywa",
+        profile_url:
+          "https://videos.evoludata.com/lazy-static/avatars/966a08a6-f4be-4db8-9bb6-918ef6b71ebd.png",
+        github_link: "https://github.com/alexmartin",
+        x: "https://x.com/alexmartin_dev"
       }
     ]
   },
@@ -112,14 +120,16 @@ const events = [
     date: null,
     hours: "On demand",
     location: "Online",
+    meet_link: "https://videos.example.com/cypht-beginner-guide",
     status: true,
     type_key: 3,
     organizer: [
       {
-        name: "Lucas Meyer",
-        profile_url: "https://randomuser.me/api/portraits/men/11.jpg",
-        github_link: "https://github.com/lucasmeyer",
-        x: "https://x.com/lucas_docs"
+        name: "Baraka Kinywa",
+        profile_url:
+          "https://videos.evoludata.com/lazy-static/avatars/966a08a6-f4be-4db8-9bb6-918ef6b71ebd.png",
+        github_link: "https://github.com/alexmartin",
+        x: "https://x.com/alexmartin_dev"
       }
     ]
   },
@@ -131,14 +141,16 @@ const events = [
     date: null,
     hours: "On demand",
     location: "Online",
+    meet_link: "https://videos.example.com/cypht-modules-deep-dive",
     status: true,
     type_key: 3,
     organizer: [
       {
-        name: "Emily Johnson",
-        profile_url: "https://randomuser.me/api/portraits/women/52.jpg",
-        github_link: "https://github.com/emilyjohnson",
-        x: "https://x.com/emily_ui"
+        name: "Baraka Kinywa",
+        profile_url:
+          "https://videos.evoludata.com/lazy-static/avatars/966a08a6-f4be-4db8-9bb6-918ef6b71ebd.png",
+        github_link: "https://github.com/alexmartin",
+        x: "https://x.com/alexmartin_dev"
       }
     ]
   },
@@ -147,36 +159,40 @@ const events = [
     subtitle:
       "A 48-hour online hackathon where developers collaborate to build integrations, plugins, and extensions that enhance the Cypht email ecosystem.",
     cover_url: `https://picsum.photos/seed/event-0.7995822454348985/600/400`,
-    date: "2025-05-17",
-    hours: "48h non-stop",
+    date: "2026-06-12",
+    hours: "14:00 - 15:00",
     location: "Online",
+    meet_link: "https://meet.example.com/cypht-hackathon",
     status: true,
-    type_key: 4,
+    type_key: 1,
     organizer: [
       {
-        name: "David Nguyen",
-        profile_url: "https://randomuser.me/api/portraits/men/83.jpg",
-        github_link: "https://github.com/davidnguyen",
-        x: "https://x.com/david_hacks"
+        name: "Baraka Kinywa",
+        profile_url:
+          "https://videos.evoludata.com/lazy-static/avatars/966a08a6-f4be-4db8-9bb6-918ef6b71ebd.png",
+        github_link: "https://github.com/alexmartin",
+        x: "https://x.com/alexmartin_dev"
       }
     ]
   },
   {
-    title: "The Future of Email with Cypht — Open Source Conference Talk",
+    title: "Cypht Community Event #6 – 2K26 Edition",
     subtitle:
       "A forward-looking talk exploring the future of open-source email, unified inbox solutions, community-driven development, and the Cypht roadmap.",
     cover_url: `https://picsum.photos/seed/event-0.4050603503046897/600/400`,
-    date: "2025-08-20",
+    date: "2026-07-10",
     hours: "10:00 - 13:00",
     location: "Online",
+    meet_link: "https://meet.example.com/cypht-event-06",
     status: true,
-    type_key: 5,
+    type_key: 1,
     organizer: [
       {
-        name: "Claire Dubois",
-        profile_url: "https://randomuser.me/api/portraits/women/7.jpg",
-        github_link: "https://github.com/clairedubois",
-        x: "https://x.com/claire_open"
+        name: "Baraka Kinywa",
+        profile_url:
+          "https://videos.evoludata.com/lazy-static/avatars/966a08a6-f4be-4db8-9bb6-918ef6b71ebd.png",
+        github_link: "https://github.com/alexmartin",
+        x: "https://x.com/alexmartin_dev"
       }
     ]
   }
@@ -196,7 +212,7 @@ function format_date(_date) {
     day: date.getDate(),
     year: date.getFullYear(),
     full: date.toLocaleDateString("en-US", {
-      weekday: "long",
+      // weekday: "long",
       month: "short",
       day: "numeric",
       year: "numeric"
@@ -260,11 +276,13 @@ function create_event_item(event) {
          </div> 
        </div>
         <div class="event-header-content">
-          <span class="event-type ${event.type_key}">
+          <div>
+              <span class="event-type ${event.type_key}">
             ${get_filter_item(event.type_key).name}
           </span>
+          </div>
           <h3>${event.title}</h3>
-          ${event.subtitle ? `<div class="event-subtitle">${event.subtitle}</div>` : ""}
+          ${event.subtitle ? `<span class="event-subtitle">${event.subtitle}</span>` : ""}
         </div>
       </div>
 
@@ -343,6 +361,18 @@ function openEventOffcanvas(event, triggerEl) {
   );
   offcanvas.show();
 
+  // Update copy button with event link
+  if (event.meet_link) {
+    const copyBtn = document.getElementById('event_copy_btn');
+    if (copyBtn) {
+      // Remove previous event listeners
+      const newCopyBtn = copyBtn.cloneNode(true);
+      copyBtn.parentNode.replaceChild(newCopyBtn, copyBtn);
+      // Add click event with current event link
+      newCopyBtn.addEventListener('click', () => copyEventLink(event.meet_link));
+    }
+  }
+
   // Focus management (a11y)
   setTimeout(() => {
     document.getElementById("event-detail-title")?.focus();
@@ -417,7 +447,36 @@ function load_event_filter() {
   });
 }
 
+// Function to copy event link to clipboard
+function copyEventLink(link) {
+  navigator.clipboard.writeText(link).then(() => {
+    const copyBtn = document.getElementById('event_copy_btn');
+    if (copyBtn) {
+      const originalText = copyBtn.innerHTML;
+      copyBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.17L5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"/></svg> Link copied!';
+      
+      // Reset button text after 2 seconds
+      setTimeout(() => {
+        copyBtn.innerHTML = originalText;
+      }, 2000);
+    }
+  }).catch(err => {
+    console.error('Could not copy text: ', err);
+  });
+}
+
+// Add click event listener to copy button
+function setupCopyButton(link) {
+  const copyBtn = document.getElementById('event_copy_btn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => copyEventLink(link));
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   load_event_filter();
   load_events();
+  
+  // Initialize copy button with empty link (will be updated when event is opened)
+  setupCopyButton('');
 });

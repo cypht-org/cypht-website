@@ -7,11 +7,14 @@ loadScriptAfter: /js/event.js
 <div class="event-content">
   <div class="event-content-line">
     <div class="next-event-container">
+      <div class="nec-header">
+        <h2 class="page-title">Events</h2>
+        <span class="page-subtitle">Join us at the following upcoming events</span>
+      </div>
+      <!--  -->
+      <div class="event-separator"></div>
+      <!--  -->
       <div class="next-event-content">
-        <div class="nec-header">
-          <h2 class="page-title">Events</h2>
-          <span class="page-subtitle">Join us at the following upcoming events</span>
-        </div>
         <div class="nec-details-content">
           <div class="">
             <div class="nec-cover">
@@ -22,11 +25,11 @@ loadScriptAfter: /js/event.js
           <div class="nec-details">
             <div class="nec-detail-header">
               <div class="nec-dh-text">
-                <h2>Cypht Community Conference 2025</h2>
+                <h2>The Cypht Monthly Community Meetings</h2>
                 <span>Cypht Community</span>
               </div>
-              <div class="nec-dh-actions">
-                <button class="action-btn cypht-primary-btn">Register</button>
+              <div class="nec-dh-actions d-md-flex d-none">
+                <button class="action-btn cypht-primary-btn">Participate</button>
               </div>
             </div>
             <div class="nec-date-content">
@@ -36,40 +39,46 @@ loadScriptAfter: /js/event.js
                </span>
               </div>
               <div class="nec-timer">
-                  <span>Tuesday, Dec 2</span>
-                  <span>3:00 AM - 5:00 AM</span>
+                  <span>Friday, Jan 30</span>
+                  <span>02:00 PN - 3:00 PM</span>
                 </div>
             </div>
             <!--  -->
             <span class="text-description">
-                Join the Cypht Community Conference 2025, the premier event for email management enthusiasts. Discover the latest features, learn advanced configuration techniques, and connect with the open-source community. Explore unified inbox solutions, security best practices, module development, and integration strategies. <br/> Features live demos, hands-on workshops, networking sessions, and keynote presentations from the Cypht development team.
+               The Cypht Monthly Community Meetings are a recurring space for the global Cypht community to connect, collaborate, and stay aligned on the project’s evolution. Each session brings together contributors, users, and enthusiasts to share updates, exchange ideas, and discuss ongoing and upcoming initiatives.</br>
+               Designed as an inclusive and open forum, these meetings span multiple time zones—from Los Angeles to Tokyo—ensuring broad participation across our worldwide community.
             </span>
+          </div>
+          <div class="nec-dh-actions d-md-none">
+            <button class="action-btn cypht-primary-btn">Participate</button>
           </div>
         </div>
       </div>
       <!--  -->
+      <div class="event-separator"></div>
+      <!--  -->
       <div class="events">
          <!-- filter -->
-        <div class="">
+        <div class="event-filter">
           <div class="event-filter-content">
             <div class="event-filter-header">
               <h2>Upcoming Events</h2>
-                <span class="page-subtitle">Discover and join our upcoming events and activities</span>
+                <span class="page-subtitle next-event-description">Discover and join our upcoming events and activities</span>
             </div>
             <div class="event-filter-body">
               <div id="event_filter" class="event-filter"></div>
             </div>
-            <span class="page-subtitle next-event-description">Missed an event ? You can catch up <br/>on all past events <a href="/events/old">here</a>.</span>
+            <span class="page-subtitle next-event-description hold-event-text">Missed an event ? You can catch up on all past events <a href="/events/old">here</a>.</span>
           </div>
         </div>
          <!-- events list -->
          <div class="event-list-content">
             <ul id="event_list"></ul>
+            <span class="page-subtitle next-event-description hold-event-text-list">Missed an event ? You can catch up on all past events <a href="/events/old">here</a>.</span>
          </div>
       </div>
     </div>
   </div>
-</div>
 
 <!-- Detail  -->
 <div class="offcanvas offcanvas-end event-offcanvas" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -78,7 +87,7 @@ loadScriptAfter: /js/event.js
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11 19l6-7l-1.5-1.75M11 5l2 2.333M7 5l6 7l-1.5 1.75M7 19l2-2.333"/></svg>
     </button>
     <button id="event_copy_btn" type="button" class="event-copy-btn">
-     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/480/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M20.998 10c-.012-2.175-.108-3.353-.877-4.121C19.243 5 17.828 5 15 5h-3c-2.828 0-4.243 0-5.121.879C6 6.757 6 8.172 6 11v5c0 2.828 0 4.243.879 5.121C7.757 22 9.172 22 12 22h3c2.828 0 4.243 0 5.121-.879C21 20.243 21 18.828 21 16v-1"/><path d="M3 10v6a3 3 0 0 0 3 3M18 5a3 3 0 0 0-3-3h-4C7.229 2 5.343 2 4.172 3.172C3.518 3.825 3.229 4.7 3.102 6"/></g></svg>copy the link 
+     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/480/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M20.998 10c-.012-2.175-.108-3.353-.877-4.121C19.243 5 17.828 5 15 5h-3c-2.828 0-4.243 0-5.121.879C6 6.757 6 8.172 6 11v5c0 2.828 0 4.243.879 5.121C7.757 22 9.172 22 12 22h3c2.828 0 4.243 0 5.121-.879C21 20.243 21 18.828 21 16v-1"/><path d="M3 10v6a3 3 0 0 0 3 3M18 5a3 3 0 0 0-3-3h-4C7.229 2 5.343 2 4.172 3.172C3.518 3.825 3.229 4.7 3.102 6"/></g></svg>Copy the link 
     </button>
   </div>
   <div class="offcanvas-body">
@@ -114,8 +123,10 @@ loadScriptAfter: /js/event.js
         </div>
         <div class="ed-footer-content">
           <span id="ed_description" class="ed-description"></span>
-        </div>
+      </div>
       </div>
 
   </div>
+</div>
+
 </div>
