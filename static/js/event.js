@@ -31,12 +31,12 @@ const events = [
   {
     title: "Cypht Community Event #02 – 2K26 Edition",
     subtitle:
-      "A practical, step-by-step live workshop covering Cypht installation, initial configuration, server requirements, and common setup pitfalls, with real-time Q&A.",
+      "A recurring community meeting bringing together Cypht users, contributors, and enthusiasts to connect, collaborate, and stay aligned on the project’s evolution.",
     cover_url: `https://picsum.photos/seed/event-0.15679512620868552/600/400`,
     date: "2026-02-13",
     hours: "14:00 - 15:00",
     location: "Online",
-    meet_link: "https://meet.example.com/cypht-event-02",
+    meet_link: "https://meet.evoludata.com/rooms/5ih-sxu-osg-dvg/join",
     status: true,
     type_key: 1,
     organizer: [
@@ -52,12 +52,12 @@ const events = [
   {
     title: "Cypht Community Event #03 – 2K26 Edition",
     subtitle:
-      "An interactive community meetup focused on real-world Cypht use cases, productivity tips, performance optimization, and open discussions with experienced users.",
+      "A global Cypht community session focused on sharing updates, exchanging ideas, and discussing ongoing and upcoming initiatives.",
     cover_url: `https://picsum.photos/seed/event-0.7204123755084528/600/400`,
     date: "2026-03-13",
     hours: "14:00 - 15:00",
     location: "Online",
-    meet_link: "https://meet.example.com/cypht-event-03",
+    meet_link: "https://meet.evoludata.com/rooms/5ih-sxu-osg-dvg/join",
     status: true,
     type_key: 1,
     organizer: [
@@ -73,12 +73,12 @@ const events = [
   {
     title: "Cypht Community Event #04 – 2K26 Edition",
     subtitle:
-      "A deep technical session covering advanced IMAP and SMTP configurations, multiple profiles, custom modules, performance tuning, and production-ready setups.",
+      "An open and recurring forum for the Cypht community to connect, collaborate, and stay informed about the project’s direction and progress.",
     cover_url: `https://picsum.photos/seed/event-0.1956990521109031/600/400`,
     date: "2026-04-10",
     hours: "14:00 - 15:00",
     location: "Online",
-    meet_link: "https://meet.example.com/cypht-event-04",
+    meet_link: "https://meet.evoludata.com/rooms/5ih-sxu-osg-dvg/join",
     status: true,
     type_key: 1,
     organizer: [
@@ -94,12 +94,12 @@ const events = [
   {
     title: "Cypht Community Event #5 – 2K26 Edition",
     subtitle:
-      "An in-depth security session covering PGP/GPG encryption, secure authentication methods, privacy best practices, and how to harden your Cypht installation.",
+      "A recurring global meetup where the Cypht community comes together to share insights, exchange ideas, and contribute to the project’s evolution.",
     cover_url: `https://picsum.photos/seed/event-0.2696668875814928/600/400`,
     date: "2026-05-08",
     hours: "14:00 - 15:00",
     location: "Online",
-    meet_link: "https://meet.example.com/cypht-event-05",
+    meet_link: "https://meet.evoludata.com/rooms/5ih-sxu-osg-dvg/join",
     status: true,
     type_key: 1,
     organizer: [
@@ -115,12 +115,12 @@ const events = [
   {
     title: "Getting Started with Cypht — Complete Beginner Guide (On Demand)",
     subtitle:
-      "A comprehensive on-demand guide introducing Cypht from installation to daily usage, including account setup, inbox management, and essential features.",
+      "An on-demand introduction to the Cypht ecosystem, helping users understand the project, its goals, and how to get involved with the community.",
     cover_url: `https://picsum.photos/seed/event-${Math.random()}/600/400`,
     date: null,
     hours: "On demand",
     location: "Online",
-    meet_link: "https://videos.example.com/cypht-beginner-guide",
+    meet_link: "https://meet.evoludata.com/rooms/5ih-sxu-osg-dvg/join",
     status: true,
     type_key: 3,
     organizer: [
@@ -136,12 +136,12 @@ const events = [
   {
     title: "Cypht Modules Deep Dive — Customization & Extensibility",
     subtitle:
-      "A focused on-demand session explaining Cypht’s modular architecture, how modules work, and how to customize or extend them for specific workflows.",
+      "An on-demand community session exploring Cypht’s modular architecture and how contributors can extend and customize the platform.",
     cover_url: `https://picsum.photos/seed/event-0.8348528803120625/600/400`,
     date: null,
     hours: "On demand",
     location: "Online",
-    meet_link: "https://videos.example.com/cypht-modules-deep-dive",
+    meet_link: "https://meet.evoludata.com/rooms/5ih-sxu-osg-dvg/join",
     status: true,
     type_key: 3,
     organizer: [
@@ -157,12 +157,12 @@ const events = [
   {
     title: "Cypht Integration Hackathon — Build & Extend in 48h",
     subtitle:
-      "A 48-hour online hackathon where developers collaborate to build integrations, plugins, and extensions that enhance the Cypht email ecosystem.",
+      "A community-driven event where contributors collaborate, exchange ideas, and work together to extend the Cypht ecosystem.",
     cover_url: `https://picsum.photos/seed/event-0.7995822454348985/600/400`,
     date: "2026-06-12",
     hours: "14:00 - 15:00",
     location: "Online",
-    meet_link: "https://meet.example.com/cypht-hackathon",
+    meet_link: "https://meet.evoludata.com/rooms/5ih-sxu-osg-dvg/join",
     status: true,
     type_key: 1,
     organizer: [
@@ -178,12 +178,12 @@ const events = [
   {
     title: "Cypht Community Event #6 – 2K26 Edition",
     subtitle:
-      "A forward-looking talk exploring the future of open-source email, unified inbox solutions, community-driven development, and the Cypht roadmap.",
+      "A recurring monthly gathering for the global Cypht community to connect, collaborate, and discuss the future of the project.",
     cover_url: `https://picsum.photos/seed/event-0.4050603503046897/600/400`,
     date: "2026-07-10",
     hours: "10:00 - 13:00",
     location: "Online",
-    meet_link: "https://meet.example.com/cypht-event-06",
+    meet_link: "https://meet.evoludata.com/rooms/5ih-sxu-osg-dvg/join",
     status: true,
     type_key: 1,
     organizer: [

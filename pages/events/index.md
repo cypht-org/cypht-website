@@ -29,7 +29,7 @@ loadScriptAfter: /js/event.js
                 <span>Cypht Community</span>
               </div>
               <div class="nec-dh-actions d-md-flex d-none">
-                <button class="action-btn cypht-primary-btn">Participate</button>
+                <a href="https://meet.evoludata.com/rooms/5ih-sxu-osg-dvg/join" target="_blank" class="action-btn cypht-primary-btn">Participate</a>
               </div>
             </div>
             <div class="nec-date-content">
@@ -50,7 +50,7 @@ loadScriptAfter: /js/event.js
             </span>
           </div>
           <div class="nec-dh-actions d-md-none">
-            <button class="action-btn cypht-primary-btn">Participate</button>
+            <a href="https://meet.evoludata.com/rooms/5ih-sxu-osg-dvg/join" target="_blank" class="action-btn cypht-primary-btn">Participate</a>
           </div>
         </div>
       </div>

@@ -341,7 +341,7 @@ loadScriptAfter: /js/feature.js
                                 <div class="demo-circle"></div>
                             </div>
                             <div class="key-tab-demo-body">
-                              <video src="/videos/features_one.mp4" aria-label="feature demo" loop muted playsinline></video>
+                              <img src="/videos/feat_1.gif" aria-label="feature demo" loop muted playsinline></img>
                             </div>
                         </div>
                     </div>
@@ -362,7 +362,7 @@ loadScriptAfter: /js/feature.js
                                 <div class="demo-circle"></div>
                             </div>
                             <div class="key-tab-demo-body">
-                              <video src="/videos/features_one.mp4" aria-label="feature demo" loop muted playsinline></video>
+                              <img src="/videos/feat_2.gif" aria-label="feature demo" loop muted playsinline></img>
                             </div>
                         </div>
                     </div>
@@ -383,7 +383,7 @@ loadScriptAfter: /js/feature.js
                                 <div class="demo-circle"></div>
                             </div>
                             <div class="key-tab-demo-body">
-                              <video src="/videos/features_one.mp4" aria-label="feature demo" loop muted playsinline></video>
+                              <img src="/videos/feat_1.gif" aria-label="feature demo" loop muted playsinline></img>
                             </div>
                         </div>
                     </div>
@@ -404,7 +404,7 @@ loadScriptAfter: /js/feature.js
                                 <div class="demo-circle"></div>
                             </div>
                             <div class="key-tab-demo-body">
-                              <video src="/videos/features_one.mp4" aria-label="feature demo" loop muted playsinline></video>
+                              <img src="/videos/feat_2.gif" aria-label="feature demo" loop muted playsinline></img>
                             </div>
                         </div>
                     </div>
