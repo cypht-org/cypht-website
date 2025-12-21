@@ -142,53 +142,48 @@ export class UtilsFn {
    * @param {string} file_name - The file name
    * @param {HTMLElement} content - The content element
    */
-  static async load_md_file(folder_path, file_name, content) {
-    try {
-      if (!content) {
-        return;
-      }
+ static async load_md_file(folder_path, file_name, container) {
+  if (!container || !file_name) return;
 
-      // Drop any extension accidentally provided
-      let normalized = (file_name || "").trim();
-      normalized = normalized.replace(/\.md$/i, "");
-      const file_path = `/${folder_path}/${normalized}.md`;
+  try {
+    // Normalize filename (remove .md if present)
+    const normalized = file_name.trim().replace(/\.md$/i, "");
+    const file_path = `/${folder_path}/${normalized}.md`;
 
-      // Loading state
-      content.innerHTML = '<div class="loading">Loading…</div>';
+    // Loading state
+    container.innerHTML = `<div class="loading">Loading…</div>`;
 
-      const response = await fetch(file_path);
-      if (!response.ok) {
-        throw new Error(
-          `Unable to load: ${file_path} (status ${response.status})`
-        );
-      }
+    const response = await fetch(file_path);
+    if (!response.ok) {
+      throw new Error(`Unable to load ${normalized}.md (${response.status})`);
+    }
 
-      const html = await response.text();
-      // this.mdCache.set(normalized, html);
-      content.innerHTML = html;
+    const markdown = await response.text();
 
-      // Highlight code blocks with highlight.js after content is loaded
-      // Use a small delay to ensure DOM is fully updated
-      setTimeout(() => {
-        if (typeof hljs !== "undefined") {
-          content.querySelectorAll("pre code").forEach((block) => {
-            try {
-              hljs.highlightElement(block);
-            } catch (e) {
-              console.warn("Failed to highlight code block:", e);
-            }
-          });
-        }
-      }, 10);
-    } catch (error) {
-      content.innerHTML = `
+    // Convert Markdown → HTML
+    const html = marked.parse(markdown, {
+      mangle: false,
+      headerIds: true
+    });
+
+    container.innerHTML = html;
+
+    // Highlight code blocks
+    if (typeof hljs !== "undefined") {
+      container.querySelectorAll("pre code").forEach((block) => {
+        hljs.highlightElement(block);
+      });
+    }
+  } catch (error) {
+    container.innerHTML = `
       <div class="alert alert-danger">
         <h4>Failed to load content</h4>
         <p>${error.message}</p>
       </div>
-      `.trim();
-    }
+    `;
+    console.error(error);
   }
+}
 
   static custom_select(select_btn, select_menu, select_default = false) {
     const btn = document.querySelector(select_btn);
