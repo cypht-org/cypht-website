@@ -1,5 +1,80 @@
 import { UtilsFn } from "./utils_fn.js";
 
+/* ========================================================================== */
+/*                              SCROLL SPY                                    */
+/* ========================================================================== */
+
+/**
+ * Initializes scroll spy for "On this page" navigation.
+ * Adds the `active` class to the nav link matching
+ * the currently visible section inside `.doc-content-left`.
+ */
+function initDocScrollSpy() {
+  const content = document.querySelector(".doc-content-left");
+  const navLinks = document.querySelectorAll("#dc-ctr-nav a");
+
+  if (!content || !navLinks.length) return;
+
+  // Map section id -> nav link
+  const linkMap = new Map();
+  navLinks.forEach((link) => {
+    const id = link.getAttribute("href")?.replace("#", "");
+    if (id) linkMap.set(id, link);
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const activeLink = linkMap.get(entry.target.id);
+        if (!activeLink) return;
+
+        navLinks.forEach((l) => l.classList.remove("active"));
+        activeLink.classList.add("active");
+      });
+    },
+    {
+      rootMargin: "-30% 0px -60% 0px",
+      threshold: 0
+    }
+  );
+
+  content
+    .querySelectorAll("h2[id], h3[id]")
+    .forEach((section) => observer.observe(section));
+}
+
+/* ========================================================================== */
+/*                           SMOOTH SCROLLING                                  */
+/* ========================================================================== */
+
+/**
+ * Enables smooth scrolling for internal anchor links.
+ */
+function initSmoothScrolling() {
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href");
+      if (!href || href === "#") return;
+
+      const target = document.getElementById(href.substring(1));
+      if (!target) return;
+
+      e.preventDefault();
+
+      window.scrollTo({
+        top: target.offsetTop - 100,
+        behavior: "smooth"
+      });
+    });
+  });
+}
+
+/* ========================================================================== */
+/*                         DOCUMENTATION MENU                                  */
+/* ========================================================================== */
+
 const menus = [
   {
     title: "Overview",
@@ -18,7 +93,7 @@ const menus = [
       },
       {
         title: "Version History",
-        href: "#version-history",
+        href: "#versions",
       },
     ],
   },
@@ -52,11 +127,11 @@ const menus = [
     children: [
       {
         title: "Unified Inbox",
-        href: "#unified-inbox",
+        href: "#inbox",
       },
       {
         title: "Compose & Send Emails",
-        href: "#compose-send-emails",
+        href: "#compose-email",
       },
       {
         title: "Search & Filters",
@@ -64,7 +139,7 @@ const menus = [
       },
       {
         title: "Labels & Folders",
-        href: "#labels-folders",
+        href: "#labels",
       },
       {
         title: "Contact Book",
@@ -242,81 +317,49 @@ const menus = [
   },
 ];
 
-// load menu
-const load_doc_menu = (nav_id) => {
-  const menu = document.getElementById(nav_id);
+/**
+ * Renders the documentation navigation menu.
+ * @param {string} navId
+ */
+function loadDocMenu(navId) {
+  const menu = document.getElementById(navId);
   if (!menu) return;
-  const menu_items = menus
-    .map((item) => {
-      return `<div class="toc-section"><h5>${item.title}</h5><ul>${item.children
-        .map((child) => `<li><a href="${child.href}">${child.title}</a></li>`)
-        .join("")}</ul></div>`;
-    })
-    .join("");
-  menu.innerHTML = menu_items;
 
-  // load markdown menu list
+  menu.innerHTML = menus
+    .map(
+      (section) => `
+        <div class="toc-section">
+          <h5>${section.title}</h5>
+          <ul>
+            ${section.children
+              .map(
+                (item) =>
+                  `<li><a href="${item.href}">${item.title}</a></li>`
+              )
+              .join("")}
+          </ul>
+        </div>
+      `
+    )
+    .join("");
+
   const docContent = document.querySelector(".doc-content");
   UtilsFn.markdown_menu_list(menu, docContent, "docs", "active");
-};
+}
 
-// Documentation Page Enhancements
-document.addEventListener("DOMContentLoaded", () => {
-  // ============================
-  // 1. Smooth scrolling for anchor links
-  // ============================
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (e) => {
-      const href = link.getAttribute("href");
-      if (!href || href === "#") return;
+/* ========================================================================== */
+/*                           UI ENHANCEMENTS                                   */
+/* ========================================================================== */
 
-      e.preventDefault();
-      const target = document.getElementById(href.substring(1));
-      if (!target) return;
-
-      const offsetTop = target.offsetTop - 100;
-      window.scrollTo({ top: offsetTop, behavior: "smooth" });
-    });
-  });
-
-  // load md pages from /static/docs
-  const tocNav = document.querySelector(".toc-nav");
-  const docContent = document.querySelector(".doc-content");
-
-  load_doc_menu("doc_menu");
-
-  const docMenu = document.getElementById("doc_menu");
-  const desktopWrapper = document.getElementById("doc_menu_desktop_wrapper");
-  const mobileWrapper = document.getElementById("doc_menu_mobile_wrapper");
-  const offcanvasEl = document.getElementById("docNav");
-
-  if (offcanvasEl && docMenu && desktopWrapper && mobileWrapper) {
-    offcanvasEl.addEventListener("show.bs.offcanvas", () => {
-      mobileWrapper.appendChild(docMenu);
-      docMenu.classList.add("ps-4");
-    });
-
-    offcanvasEl.addEventListener("hidden.bs.offcanvas", () => {
-      desktopWrapper.appendChild(docMenu);
-      docMenu.classList.remove("ps-4");
-    });
-  }
-
-  // Only initialize custom_select if elements exist
-  const selectBtn = document.querySelector(".select-btn");
-  const selectMenu = document.querySelector(".select-menu");
-  if (selectBtn && selectMenu) {
-    UtilsFn.custom_select(".select-btn", ".select-menu", true);
-  }
-
-  // ============================
-  // 3. Hero animations on load
-  // ============================
+/**
+ * Runs entrance animations for hero elements.
+ */
+function initHeroAnimations() {
   document
     .querySelectorAll(
       ".doc-badge, .hero-title, .hero-subtitle, .hero-description, .doc-stats, .hero-cta, .feature-preview"
     )
-    .forEach((el, i) => {
+    .forEach((el, index) => {
       el.style.opacity = "0";
       el.style.transform = "translateY(30px)";
       el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
@@ -324,47 +367,48 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         el.style.opacity = "1";
         el.style.transform = "translateY(0)";
-      }, 100 * i);
+      }, 100 * index);
     });
+}
 
-  // ============================
-  // 5. Ripple effect on buttons
-  // ============================
-  document.querySelectorAll(".feature-button").forEach((button) => {
-    button.addEventListener("click", (e) => {
-      const ripple = document.createElement("span");
-      const rect = button.getBoundingClientRect();
-      const size = Math.max(rect.width, rect.height);
-      const x = e.clientX - rect.left - size / 2;
-      const y = e.clientY - rect.top - size / 2;
-
-      ripple.style.width = ripple.style.height = `${size}px`;
-      ripple.style.left = `${x}px`;
-      ripple.style.top = `${y}px`;
-      ripple.classList.add("ripple");
-
-      button.appendChild(ripple);
-      setTimeout(() => ripple.remove(), 600);
-    });
-  });
-
-  // ============================
-  // 8. Copy-to-clipboard on code blocks
-  // ============================
+/**
+ * Adds copy-to-clipboard buttons to code blocks.
+ */
+function initCodeCopy() {
   document.querySelectorAll("pre").forEach((block) => {
-    const copyButton = document.createElement("button");
-    copyButton.className = "copy-button";
-    copyButton.innerHTML = "📋";
-    copyButton.title = "Copy to clipboard";
+    const btn = document.createElement("button");
+    btn.className = "copy-button";
+    btn.innerHTML = "📋";
+    btn.title = "Copy to clipboard";
 
     block.style.position = "relative";
-    block.appendChild(copyButton);
+    block.appendChild(btn);
 
-    copyButton.addEventListener("click", () => {
+    btn.addEventListener("click", () => {
       navigator.clipboard.writeText(block.textContent).then(() => {
-        copyButton.innerHTML = "✅";
-        setTimeout(() => (copyButton.innerHTML = "📋"), 2000);
+        btn.innerHTML = "✅";
+        setTimeout(() => (btn.innerHTML = "📋"), 2000);
       });
     });
   });
+}
+
+/* ========================================================================== */
+/*                          PAGE INITIALIZATION                                */
+/* ========================================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadDocMenu("doc_menu");
+  initSmoothScrolling();
+  initDocScrollSpy();
+  initHeroAnimations();
+  initCodeCopy();
+
+  // Custom select (optional)
+  if (
+    document.querySelector(".select-btn") &&
+    document.querySelector(".select-menu")
+  ) {
+    UtilsFn.custom_select(".select-btn", ".select-menu", true);
+  }
 });

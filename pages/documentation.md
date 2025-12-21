@@ -81,7 +81,7 @@ h1: false
             </div>
             <!-- on desk -->
             <div id="doc_menu_desktop_wrapper" class="doc-toc flex-shrink-0 d-none d-lg-block h-full">
-              <nav id="doc_menu" class="toc-nav mb-lg-5 mt-lg-4">
+              <nav id="doc_menu" class="toc-nav mb-lg-5 mt-lg-3">
               </nav>
             </div>
             <!-- on mobile -->

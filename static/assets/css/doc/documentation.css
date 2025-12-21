@@ -1,27 +1,5 @@
-/* ─── Enhanced Documentation Hero Section ──────────────────────────────────────────────────────────── */
-/* .documentation-hero {
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #333;
-} */
-
-/* .documentation-hero:before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'> <path d='M32 0H0v32' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/> </svg>");
-      background-size: 32px 32px;
-      background-repeat: repeat;
-} */
-
+/* ───  Hero Section ──────────────────────────────────────────────────────────── */
 .documentation-hero-content {
-      /* min-height: 90dvh; */
       position: relative;
       display: flex;
       flex-direction: column;
@@ -59,12 +37,13 @@
 }
 
 .doc-top-nav {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: space-between;
       margin: 0 auto;
       border-bottom: .8px solid #e9ecef;
       height: 3.8rem;
+      width: 100%;
 }
 
 .menu-content .offcanvas {
@@ -671,8 +650,13 @@
             padding-left: 1.5rem !important;
       }
 
+      .doc-top-nav {
+            width: 70%;
+      }
+
       .toc-nav {
             height: fit-content;
+            padding-bottom: 2rem;
             max-height: calc(100vh - 12rem);
             overflow-y: auto;
       }
