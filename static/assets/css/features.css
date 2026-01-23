@@ -95,19 +95,16 @@
 }
 
 .ft-card-img-content {
-      /* background-color: red; */
       height: 15rem;
       width: 100%;
-      position: relative !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
 
       & img {
-            /* position: absolute;
-            top: 0;
-            left: 0;
-            right: 0; */
-            bottom: 0;
-            width: 100%;
-            height: 100%;
+            width: 75%;
+            height: auto;
             object-fit: cover;
       }
 }
@@ -155,7 +152,22 @@
       width: 100%;
 }
 
-/* III. Key Features Section ──────────────────────────────────────────────────────────── */
+/* III. Security Section ──────────────────────────────────────────────────────────── */
+
+/* .sec-img-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      & img {
+            width: 75%;
+            height: auto;
+            object-fit: cover;
+      }
+} */
+
+/* IV. Key Features Section ──────────────────────────────────────────────────────────── */
 .key-feature-content {
       width: 100%;
       display: flex;
@@ -323,6 +335,31 @@
 
 
 /* Responsive */
+@media (min-width: 435px) {
+
+      .ft-card-img-content {
+
+            & img {
+                  width: calc(100% - 10rem);
+            }
+      }
+}
+
+@media (min-width: 500px) {
+
+      /* #search, */
+
+      #search .ft-section,
+      #development .ft-section,
+      #security .ft-section,
+      #performance .ft-section,
+      #messaging .ft-section {
+            transition: all .3s ease;
+            width: calc(100% - 10rem);
+      }
+
+}
+
 @media (min-width: 570px) {
 
       .ft-section-left-header h3,
@@ -354,6 +391,45 @@
       }
 }
 
+@media (min-width: 600px) {
+
+      #search .ft-section,
+      #development .ft-section,
+      #security .ft-section,
+      #performance .ft-section,
+      #messaging .ft-section {
+            transition: all .3s ease;
+            width: calc(100% - 8rem);
+      }
+
+      .ft-card-img-content {
+
+            & img {
+                  width: calc(100% - 10rem);
+            }
+      }
+}
+
+@media (min-width: 650px) {
+
+      .ft-card-img-content {
+
+            & img {
+                  width: calc(100% - 13rem);
+            }
+      }
+}
+
+@media (min-width: 690px) {
+
+      .ft-card-img-content {
+
+            & img {
+                  width: calc(100% - 15rem);
+            }
+      }
+}
+
 @media (min-width: 768px) {
 
       .ft-hero .home-hs-subtitle {
@@ -368,6 +444,11 @@
       /*  */
       .ft-card-img-content {
             height: 13rem;
+            padding-top: .4rem;
+
+            & img {
+                  width: 80%;
+            }
       }
 
       .mss-parent,
@@ -375,8 +456,16 @@
             grid-template-columns: repeat(2, 1fr);
       }
 
-      /* en media: */
+      #search .ft-section,
+      #development .ft-section,
+      #security .ft-section,
+      #performance .ft-section,
+      #messaging .ft-section {
+            width: 100%;
+      }
 
+
+      /* en media: */
       .search-parent {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -445,6 +534,42 @@
 
 }
 
+
+@media (min-width: 830px) {
+
+      .ft-card-img-content {
+
+            & img {
+                  width: calc(100% - 8rem);
+            }
+      }
+}
+
+@media (min-width: 900px) {
+
+      #search .ft-section,
+      #development .ft-section,
+      #security .ft-section,
+      #performance .ft-section,
+      #messaging .ft-section {
+            transition: all .3s ease;
+            width: calc(100% - 8rem);
+      }
+
+      .ft-card-img-content {
+            & img {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  height: 100%;
+                  width: calc(100% - 9rem);
+                  object-fit: cover;
+            }
+      }
+}
+
+
 @media (min-width: 992px) {
 
       .ft-section-left-header h3 {
@@ -475,6 +600,26 @@
             justify-content: center;
             align-items: center;
 
+      }
+
+
+      #search .ft-section,
+      #development .ft-section,
+      #security .ft-section,
+      #performance .ft-section,
+      #messaging .ft-section {
+            width: 100%;
+      }
+
+      .ft-card-img-content {
+
+            padding-top: 0;
+
+            & img {
+
+                  height: auto;
+                  width: 100%;
+            }
       }
 
       /* I. Messaging Section ──────────────────────────────────────────────────────────── */

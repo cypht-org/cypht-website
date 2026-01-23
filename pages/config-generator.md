@@ -5,15 +5,13 @@ h1: false
 loadScriptAfter: /js/config-generator.js
 ---
 
-<!-- Hero Section -->
-<!-- Hero Section -->
 <section class="hs-container config-hero-container">
     <div class="hs-content row">
         <div class="hs-text-content col">
             <div>
                 <span class="hs-chip">⚙️ Configuration Generator</span>
             </div>
-            <h1 class="display-5 fw-bold">
+            <h1 class="display-6 fw-bold">
                 Configure Your <span class="config-hero-highlight">Cypht </span> Instance in Minutes
             </h1>
             <ul class="cfh-features-list">

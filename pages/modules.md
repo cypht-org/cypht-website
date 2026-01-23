@@ -12,7 +12,7 @@ loadScriptAfter: /js/module.js
                    <div class="mb-2">
                     <span class="hs-chip"> 〽️ A simplified email experience</span>
                    </div> 
-                    <h1 class="display-5 fw-bold">
+                    <h1 class="display-6 fw-bold">
                     Discover all <span class="text-primary">Cypht</span> modules<br>to personalize your email experience
                     </h1>
                 </div>
@@ -30,7 +30,7 @@ loadScriptAfter: /js/module.js
     <div class="module-overview">
         <div class="d-flex flex-column module-overview-content">  
             <div class="w-100 px-lg-1 d-flex flex-column flex-lg-row justify-content-between align-items-center align-items-lg-start gap-4 gap-lg-5 text-center text-lg-start ov-text-content">
-                <div class="ov-header" id="modules">
+                <div class="ov-header">
                     <div><span class="home-overline">Overview</span></div>
                     <h2>
                     <span class="text-primary">Cypht's</span> Modular design centers on a core module with fully customizable components
@@ -59,15 +59,15 @@ loadScriptAfter: /js/module.js
                 </div>
             </div>
             <!--  -->
-            <div class="ov-content column">
+            <div id="modules" class="ov-content column">
                 <div class="row w-100">
                     <div class="col-lg-3 md-type-content mb-4">
                         <div class="md-type-header">
                             <div class="type-header-title header-title d-none d-lg-flex">
                                 <h5 class="mb-0">
-                                Categories</h5>
-                                <span class="header-subtitle">
-                                we can filter by category
+                                Module Categories</h5>
+                                <span class="">
+                                Filter modules by category
                                 </span>
                             </div>
                             <div class="md-type-body" role="dialog" aria-modal="true" aria-labelledby="md-type-popover-title">

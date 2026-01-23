@@ -459,9 +459,9 @@
       transition: opacity 0.3s ease;
 }
 
-.imth-card {
+/* .imth-card {
       cursor: pointer;
-}
+} */
 
 .imth-card:hover {
       transform: translateY(-4px);
@@ -1384,6 +1384,10 @@ pre:hover .code-copy-btn {
       .imth-card-header-icon {
             background-color: var(--clr-card-bg);
             border: .8px solid var(--color-border);
+      }
+
+      #ga-content-nav .item-group::before {
+            background-color: var(--color-bg);
       }
 
       /*Terminal*/

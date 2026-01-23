@@ -4,7 +4,7 @@ weight: 15
 ---
 
 <!-- Hero Section -->
-<section class="tiki-hero">
+<!-- <section class="tiki-hero">
   <div class="license-hero-content">
     <span class="hs-chip">Integration</span>
     <h1 class="display-5 fw-bold">
@@ -22,7 +22,7 @@ weight: 15
       </a>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- Main Content -->
 <div class="tiki-webmail-content">

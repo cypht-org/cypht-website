@@ -84,14 +84,6 @@ const menus = [
         href: "#introduction",
       },
       {
-        title: "Key Features",
-        href: "#key-features",
-      },
-      {
-        title: "Requirements",
-        href: "#requirements",
-      },
-      {
         title: "Version History",
         href: "#versions",
       },
@@ -105,21 +97,13 @@ const menus = [
         href: "#installation",
       },
       {
-        title: "First Login",
-        href: "#first-login",
-      },
-      {
         title: "Interface Overview",
         href: "#interface-overview",
       },
       {
         title: "Adding Email Accounts",
         href: "#adding-email-accounts",
-      },
-      {
-        title: "Basic Settings",
-        href: "#basic-settings",
-      },
+      }
     ],
   },
   {
@@ -151,66 +135,66 @@ const menus = [
       },
     ],
   },
+  // {
+  //   title: "Advanced Features",
+  //   children: [
+  //     {
+  //       title: "Sieve Filters",
+  //       href: "#sieve-filters",
+  //     },
+  //     {
+  //       title: "Block List",
+  //       href: "#block-list",
+  //     },
+  //     {
+  //       title: "Snooze",
+  //       href: "#snooze",
+  //     },
+  //     {
+  //       title: "Archive",
+  //       href: "#archive",
+  //     },
+  //     {
+  //       title: "Email Scheduling",
+  //       href: "#email-scheduling",
+  //     },
+  //     {
+  //       title: "Email Encryption",
+  //       href: "#email-encryption",
+  //     },
+  //   ],
+  // },
+  // {
+  //   title: "Configuration",
+  //   children: [
+  //     {
+  //       title: "Server Setup",
+  //       href: "#server-setup",
+  //     },
+  //     {
+  //       title: "Exchange / Office 365",
+  //       href: "#exchange-office-365",
+  //     },
+  //     {
+  //       title: "User Profiles",
+  //       href: "#user-profiles",
+  //     },
+  //     {
+  //       title: "Notifications",
+  //       href: "#notifications",
+  //     },
+  //     {
+  //       title: "Themes & Customization",
+  //       href: "#themes-customization",
+  //     },
+  //     {
+  //       title: "Developer Options",
+  //       href: "#developer-options",
+  //     },
+  //   ],
+  // },
   {
-    title: "Advanced Features",
-    children: [
-      {
-        title: "Sieve Filters",
-        href: "#sieve-filters",
-      },
-      {
-        title: "Block List",
-        href: "#block-list",
-      },
-      {
-        title: "Snooze",
-        href: "#snooze",
-      },
-      {
-        title: "Archive",
-        href: "#archive",
-      },
-      {
-        title: "Email Scheduling",
-        href: "#email-scheduling",
-      },
-      {
-        title: "Email Encryption",
-        href: "#email-encryption",
-      },
-    ],
-  },
-  {
-    title: "Configuration",
-    children: [
-      {
-        title: "Server Setup",
-        href: "#server-setup",
-      },
-      {
-        title: "Exchange / Office 365",
-        href: "#exchange-office-365",
-      },
-      {
-        title: "User Profiles",
-        href: "#user-profiles",
-      },
-      {
-        title: "Notifications",
-        href: "#notifications",
-      },
-      {
-        title: "Themes & Customization",
-        href: "#themes-customization",
-      },
-      {
-        title: "Developer Options",
-        href: "#developer-options",
-      },
-    ],
-  },
-  {
-    title: "Security & Privacy",
+    title: "Security",
     children: [
       {
         title: "Encryption & Certificates",
@@ -234,18 +218,6 @@ const menus = [
     title: "Troubleshooting",
     children: [
       {
-        title: "Common Issues",
-        href: "#common-issues",
-      },
-      {
-        title: "Connection Problems",
-        href: "#connection-problems",
-      },
-      {
-        title: "Sync Errors",
-        href: "#sync-errors",
-      },
-      {
         title: "Reporting Bugs",
         href: "#reporting-bugs",
       },
@@ -255,16 +227,8 @@ const menus = [
     title: "Developer Guide",
     children: [
       {
-        title: "Local Development Setup",
-        href: "#local-development-setup",
-      },
-      {
-        title: "Architecture Overview",
-        href: "#architecture-overview",
-      },
-      {
-        title: "API Reference",
-        href: "#api-reference",
+        title: "Dev Docs",
+        href: "#dev-docs",
       },
       {
         title: "Contributing",
@@ -277,20 +241,12 @@ const menus = [
     children: [
       {
         title: "Join the Community",
-        href: "#join-the-community",
+        href: "#join-community",
       },
       {
         title: "Get Help",
-        href: "#get-help",
-      },
-      {
-        title: "Submit Feedback",
-        href: "#submit-feedback",
-      },
-      {
-        title: "Contact Team",
-        href: "#contact-team",
-      },
+        href: "#help",
+      }
     ],
   },
   {
@@ -301,18 +257,10 @@ const menus = [
         href: "#license",
       },
       {
-        title: "Attributions",
-        href: "#attributions",
-      },
-      {
         title: "Brand Guidelines",
         href: "#brand-guidelines",
       },
 
-      {
-        title: "Credits",
-        href: "#credits",
-      },
     ],
   },
 ];

@@ -41,7 +41,7 @@
 .home-hs-subtitle {
       line-height: 1.6;
       color: var(--color-text-secondary);
-      max-width: 90%;
+      width: 80%;
       animation: fadeInUp 0.8s ease-out 0.4s both;
       /* font-size: clamp(1rem, 1.2vw, 1.1rem); */
       font-size: clamp(1rem, 1.2vw, 1.1rem);
@@ -61,7 +61,7 @@
 /*  */
 .section-card-title {
       color: var(--color-text);
-      font-size: clamp(1.75rem, 3.8vw, 2.3rem);
+      font-size: clamp(1.75rem, 3.6vw, 2rem);
       font-weight: 700;
       margin: 1rem 0;
       line-height: 1.2;
@@ -261,53 +261,50 @@
 
 
 @media (min-width: 620px) {
-      .home-hero {
-            /* background-color: red; */
-      }
 
       .home-hs-text-content {
-            /* background-color: blue; */
             width: 80%;
       }
 }
 
 @media (min-width: 768px) {
-      .home-hero {
-            /* background-color: blue; */
-      }
 
       .home-hs-text-content {
-            /* background-color: purple; */
-            width: 65%;
+            width: 75%;
+
+            & .home-hs-subtitle {
+                  max-width: 65%;
+            }
       }
 }
 
 @media (min-width: 992px) {
-      .home-hero {
-            /* background-color: green; */
+      .home-hs-text-content {
+            width: 60%;
+
+            & .home-hs-subtitle {
+                  max-width: calc(100% - 14rem);
+                  /* background-color: blue; */
+            }
       }
 
-      .home-hs-text-content {
-            /* background-color: orange; */
-            width: 60%;
-      }
 }
 
 @media (min-width: 1200px) {
-      .home-hero {
-            /* background-color: yellow; */
-      }
-
       .home-hs-text-content {
-            /* background-color: pink; */
             width: 67%;
+
+            & .home-hs-subtitle {
+                  max-width: calc(100% - 17rem);
+                  /* background-color: green; */
+            }
       }
 }
 
 /* Theme */
-[data-theme="dark"] {
-      /* #hero_minimal::before {
+/* [data-theme="dark"] { */
+/* #hero_minimal::before {
 
             background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'> <path d='M32 0H0v32' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1'/> </svg>");
       } */
-}
+/* } */

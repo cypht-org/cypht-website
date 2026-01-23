@@ -158,10 +158,6 @@
       min-height: inherit;
       height: inherit;
       font-weight: 500;
-
-      /* 
-      transition: all 0.2s ease;
-      white-space: nowrap; */
 }
 
 .sec-tabs-menu ul li a:hover {
@@ -251,6 +247,11 @@
       line-height: 1.6;
       max-width: 100%;
       margin: 0;
+}
+
+#browser {
+      scroll-margin-top: 80px !important;
+      /* hauteur du header */
 }
 
 /* ─── Security Features List ────────────────────────────────────────────────── */
@@ -696,7 +697,8 @@
 [data-theme="dark"] {
       .sec-tabs-container {
             border-bottom: .8px solid rgba(255, 255, 255, 0.1);
-            background: var(--color-bg-secondary);
+            background: var(--color-bg);
+            /* background: #1a1a1d7c; */
       }
 
       .sec-tabs-menu ul {

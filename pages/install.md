@@ -36,11 +36,11 @@ loadScriptAfter: /js/install.js
                     </div>
                 </div>
                 <div class="hs-actions-content">
-                    <a href="#guide-content" class="action-btn cypht-primary-btn">
+                    <a href="#guide_content" class="action-btn cypht-primary-btn">
                     <i class="bi bi-rocket-takeoff"></i>
                     Quick Install
                     </a>
-                    <a href="#installation-methods" class="action-btn cypht-secondary-btn">
+                    <a href="#installation_methods" class="action-btn cypht-secondary-btn">
                     <i class="bi bi-list-ul"></i>
                     View All Methods
                     </a>
@@ -101,7 +101,7 @@ loadScriptAfter: /js/install.js
 <!--  -->
 
     <section >
-        <div class="imth-container">
+        <div id="installation_methods" class="imth-container">
            <div class="imth-header">
                 <span class="home-overline">
                     Methods

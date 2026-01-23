@@ -12,8 +12,8 @@ loadScriptAfter: /home-page.js
     	<div class="section-content home-hero">
     		<div class="home-hs-text-content">
                 <span class="hs-chip">✨ Supports IMAP/SMTP, JMAP and EWS</span>
-                <h2 class="display-5 fw-bold">All your E-mail, from all your accounts, in one place</h2>
-                <p class="home-hs-subtitle">Cypht (pronounced "sift") is like a news reader, but for E-mail. Cypht does not replace your existing accounts - it combines them into one. It's also a news reader.</p>
+                <h2 class="display-6 fw-bold">All your E-mail, from all your accounts, in one place</h2>
+                <p class="home-hs-subtitle">Cypht brings together your email accounts, RSS feeds, and messages into one clean and distraction-free experience.</p>
                 <div class="home-hero-actions">
                     <a class="action-btn cypht-primary-btn" href="/install">Get Started</a>
                     <a class="action-btn cypht-secondary-btn" href="/documentation">See How it works</a>
@@ -38,7 +38,7 @@ loadScriptAfter: /home-page.js
                 <div class="about-section-header">
                     <p class="home-overline">What is Cypht?</p>
                     <h1 class="section-card-title">About Cypht</h1>
-                    <p class="section-card-subtitle subtitle-center">Cypht (pronounced "sift") is like a news reader, but for E-mail. Cypht does not replace your existing accounts.</p>
+                  <p class="section-card-subtitle subtitle-center">Cypht unifies your emails and RSS feeds in a simple, clear interface for easy message management.</p>
                 </div>
                 <div class="about-grid-3">
                     <div>
@@ -87,8 +87,8 @@ loadScriptAfter: /home-page.js
         <div class="section-content features-wide px-4">
             <div class="w-full">
                 <span class="home-overline">Key Features</span>
-                <h1 class="section-card-title">How to use <span class="accent">Cypht</span> to simplify <br> your communications</h1>
-                <p class="features-subtitle">Cypht combines all your email accounts into a single, secure interface, offering you a unified and seamless communication experience.</p>
+                <h1 class="section-card-title">A new way to manage your emails</h1>
+                <p class="features-subtitle">No more switching tabs. Cypht gives you a clear and centralized view of all your communications.</p>
             </div>
             <!--  -->
             <div class="features-grid mosaic-grid">
@@ -116,13 +116,13 @@ loadScriptAfter: /home-page.js
                               <img src="/img/u4.png" alt="Cypht Unified Interface" class="phone-mock">
                     </div>
                     <h3>Universal Search</h3>
-                    <p>Search all your email accounts and RSS feeds simultaneously with a powerful yet simple search interface.</p>
+                    <p>Instantly search across all your email accounts and RSS feeds with a powerful search engine.</p>
                 </div>
                 <!-- yellow card -->
                 <div class="f-card m-yellow">
                     <div class="f-apps">
                         <h3>Extensive Module System</h3>
-                        <p>Expand functionality with modules for IMAP, SMTP, LDAP, WordPress, Github, and more.</p>
+                        <p>Easily extend functionality with a flexible and scalable module system.</p>
                         <div class="apps">
                             <i class="bi bi-google"></i>
                             <i class="bi bi-microsoft"></i>

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const menuLinks = document.querySelectorAll(".sec-tabs-menu ul li a");
-  const sections = document.querySelectorAll(".sec-tab-content");
+  // const sections = document.querySelectorAll(".sec-tab-content");
 
   // reset
   function clearActive() {
@@ -24,24 +24,24 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // onScroll
-  window.addEventListener("scroll", function () {
-    let currentId = "";
+  // window.addEventListener("scroll", function () {
+  //   let currentId = "";
 
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 180;
-      const sectionHeight = section.clientHeight;
+  //   sections.forEach(section => {
+  //     const sectionTop = section.offsetTop - 180;
+  //     const sectionHeight = section.clientHeight;
 
-      if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-        currentId = section.getAttribute("id");
-      }
-    });
+  //     if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+  //       currentId = section.getAttribute("id");
+  //     }
+  //   });
 
-    if (currentId) {
-      clearActive();
-      const activeLink = document.querySelector(`.sec-tabs-menu a[href="#${currentId}"]`);
-      if (activeLink) {
-        activeLink.classList.add("sec-active");
-      }
-    }
-  });
+  //   if (currentId) {
+  //     clearActive();
+  //     const activeLink = document.querySelector(`.sec-tabs-menu a[href="#${currentId}"]`);
+  //     if (activeLink) {
+  //       activeLink.classList.add("sec-active");
+  //     }
+  //   }
+  // });
 });

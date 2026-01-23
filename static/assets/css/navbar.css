@@ -4,7 +4,7 @@
       position: sticky;
       top: 0;
       z-index: 150;
-      background-color: var(--color-bg-strong);
+      background-color: var(--color-bg);
 }
 
 .nav-container {
@@ -14,7 +14,7 @@
       padding: 0 1rem;
       background: rgba(31, 31, 31, 0.9);
       width: 100%;
-      min-height: 4.2rem;
+      height: 4rem;
       border: .8px solid rgba(255, 255, 255, 0.1);
       z-index: 1000;
       transition: all 0.3s ease;
@@ -403,7 +403,7 @@
 /* Desktop breakpoint */
 @media (min-width: 992px) {
       .nav-container {
-            height: 4rem;
+            height: 3.6rem;
             margin-top: .3rem !important;
       }
 

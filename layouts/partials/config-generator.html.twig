@@ -140,25 +140,24 @@
 				<div class="config-left d-none d-md-block col-md-3 col-xl-2">
 					<nav>
 						<div class="config-left-header">
-							<div
-								class="">
-								{# <h5>Config menu</h5> #}
-								<div class="d-flex gap-2 align-items-center cfh-version">
-									<span class="version-label">Vesion</span>
-									<div class="custom-select">
-										<button class="select-btn">
-											<span id="selected_text" class="selected-text"></span>
-											<span class="arrow">
-												<i class="bi bi-chevron-down dropdown-arrow"></i>
-											</span>
-										</button>
-										<ul class="select-menu">
-											<li data-value="Version 1.0.1">V1.x</li>
-											<li data-value="Version 1.0.1">V2.x</li>
-										</ul>
-									</div>
-								</div>
-								{# <p>Choose a config to generate</p> #}
+							<div class="">
+								<h6>Config menu</h6>
+								<p>Choose a config to generate</p>
+								{# <div class="d-flex gap-2 align-items-center cfh-version">
+																																																									<span class="version-label">Vesion</span>
+																																																									<div class="custom-select">
+																																																										<button class="select-btn">
+																																																											<span id="selected_text" class="selected-text"></span>
+																																																											<span class="arrow">
+																																																												<i class="bi bi-chevron-down dropdown-arrow"></i>
+																																																											</span>
+																																																										</button>
+																																																										<ul class="select-menu">
+																																																											<li data-value="Version 1.0.1">V1.x</li>
+																																																											<li data-value="Version 1.0.1">V2.x</li>
+																																																										</ul>
+																																																									</div>
+																																																								</div> #}
 							</div>
 
 
@@ -1417,12 +1416,12 @@
 							</div>
 							<div class="cc-body-content">
 								<div class="form-field-group">
-									<div class="form-field">
+									<div class="form-field bg-warning">
 										<label for="recaptcha_secret" class="form-field-label">Secret Key</label>
 										<input type="password" name="RECAPTCHA_SECRET" id="recaptcha_secret" class="form-input" placeholder="Enter reCAPTCHA Secret Key">
 										<div class="form-field-description">reCAPTCHA secret key for server-side verification</div>
 									</div>
-									<div class="form-field">
+									<div class="form-field bg-danger">
 										<label for="recaptcha_site_key" class="form-field-label">Site Key</label>
 										<input type="text" name="RECAPTCHA_SITE_KEY" id="recaptcha_site_key" class="form-input" placeholder="Enter reCAPTCHA Site Key">
 										<div class="form-field-description">reCAPTCHA site key for client-side integration</div>

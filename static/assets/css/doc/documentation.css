@@ -644,6 +644,7 @@
       .menu-content {
             top: 7.8rem;
             height: fit-content;
+            background-color: transparent !important;
       }
 
       .doc-toc {

@@ -31,8 +31,8 @@ loadScriptAfter: /js/security.js
   <!-- List -->
   <div class="mt-5">
     <!-- tabs menu -->
-    <div class="sec-tabs-container">
-      <div class="d-flex justify-content-center sec-tabs-menu pt-2">
+    <div  class="sec-tabs-container">
+      <div  class="d-flex justify-content-center sec-tabs-menu pt-2">
         <ul>
           <li>
             <a href="#browser" class="sec-active">
@@ -52,10 +52,11 @@ loadScriptAfter: /js/security.js
         </ul>
       </div>
     </div>
+    <div id="browser" class="pt-5"></div>
     <!-- tabs content -->
-    <div class="sec-list-content d-flex flex-column gap-5 px-4">
+    <div  class="sec-list-content d-flex flex-column gap-5 px-4">
         <!-- 1 -->
-        <div id="browser" class="sec-tab-content column mt-4">
+        <div class="sec-tab-content column mt-4">
           <div class="sec-tab-details col-12 col-lg-5 relative">
              <div class="sec-tab-line">
                 <div class="sec-tab-d-one">
@@ -160,7 +161,9 @@ loadScriptAfter: /js/security.js
           </div>
         </div>
         <!-- 2 -->
-        <div id="server" class="sec-tab-content column">
+
+        <div id="server" class="pt-5"></div>
+        <div class="sec-tab-content column">
             <div class="sec-tab-details col-12 col-lg-5">
               <div class="sec-tab-line">
                 <div class="sec-tab-d-two">
@@ -169,7 +172,9 @@ loadScriptAfter: /js/security.js
                 </div>
               </div>
             </div>
+
 <!--  -->
+
             <div class="sec-tab-list col-12 col-lg-7">
               <ul class="security-features">
                 <li class="security-item" data-category="server">
@@ -242,7 +247,8 @@ loadScriptAfter: /js/security.js
             </div>
         </div>
         <!-- 3 -->
-        <div id="development"  class="sec-tab-content column">
+        <div id="development" class="pt-5"></div>
+        <div class="sec-tab-content column">
           <div class="sec-tab-details col-12 col-lg-5">
             <div class="sec-tab-line">
               <div class="sec-tab-d-three">
@@ -313,5 +319,6 @@ loadScriptAfter: /js/security.js
         </div>
       </div>
     </div>
+
   </div>
 </div>

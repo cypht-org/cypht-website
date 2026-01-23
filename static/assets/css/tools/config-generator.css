@@ -1,6 +1,11 @@
 /* ─── Hero Section ──────────────────────────────────────────────────────────── */
 /* cfh = config hero section */
 
+.config-hero-container {
+      padding-top: 7.5rem !important;
+      padding-bottom: 7.5rem !important;
+}
+
 .cfh-features-list {
       display: flex;
       flex-wrap: wrap;
@@ -159,9 +164,9 @@
       margin-bottom: 1rem;
 }
 
-.config-left-header h5 {
+.config-left-header h6 {
       font-weight: 600;
-      font-size: 1rem;
+      font-size: .9rem;
       padding: 0 !important;
       margin: 0 !important;
 }
@@ -585,7 +590,7 @@
 .form-check-input[type="checkbox"] {
       position: relative;
       width: 3rem;
-      height: .4rem;
+      height: .8rem;
       background-color: #e2e8f0;
       border: none;
       border-radius: 9999px !important;
@@ -593,12 +598,13 @@
       transition: all 0.2s ease;
       appearance: none;
       outline: none;
+      min-height: inherit !important;
 }
 
 .form-check-input[type="checkbox"]:before {
       content: '';
       position: absolute;
-      top: 4.5px;
+      top: 2px;
       left: 2px;
       width: 1.2rem;
       height: 1.2rem;
@@ -1336,7 +1342,8 @@
             grid-template-columns: 1fr 1fr;
             gap: 1rem;
             margin-bottom: 1.5rem;
-            align-items: end;
+            align-items: start;
+
       }
 }
 
@@ -1391,6 +1398,11 @@
       .cc-line-bottom,
       .cc-line-bottom::before {
             border-color: #e9ecef21;
+      }
+
+
+      .group-list::before {
+            background-color: var(--color-bg);
       }
 
       .cc-item-top-icon,
@@ -1468,9 +1480,6 @@
       }
 
       .cfg-offcanvas {
-            /* margin: .5rem 0;
-            width: 360px !important;
-            border-radius: 7px; */
             border: 1px solid var(--color-border);
             background-color: var(--color-bg-strong);
       }

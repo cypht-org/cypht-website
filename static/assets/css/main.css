@@ -132,7 +132,9 @@
 
 /* Dark theme - Enhanced */
 [data-theme="dark"] {
-      --color-bg: #121212b3;
+      /* --color-bg: #121212b3; */
+      /* --color-bg: #161617; */
+      --color-bg: #171717;
       --color-bg-strong: #121212fb;
       --color-bg-secondary: #121212d7;
       --color-bg-tertiary: #334155;
