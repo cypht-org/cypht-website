@@ -24,35 +24,7 @@ loadScriptAfter: /js/feature.js
             </div>
             <!-- Icons -->
             <div class="hero-section-right">
-
-            <img src="/img/feat-cover.png" alt="Cypht"/>
-                <!-- <div class="icons-grid">
-                    <div class="hline"></div>
-                        <div class="hline2"></div>
-                        <div class="icon-box">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/mail.svg" alt="Mail">
-                    </div>
-                    <div class="icon-box">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-check-icon lucide-search-check"><path d="m8 11 2 2 4-4"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                    </div>
-                    <div class="icon-box">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brick-wall-shield-icon lucide-brick-wall-shield"><path d="M12 9v1.258"/><path d="M16 3v5.46"/><path d="M21 9.118V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5.75"/><path d="M22 17.5c0 2.499-1.75 3.749-3.83 4.474a.5.5 0 0 1-.335-.005c-2.085-.72-3.835-1.97-3.835-4.47V14a.5.5 0 0 1 .5-.499c1 0 2.25-.6 3.12-1.36a.6.6 0 0 1 .76-.001c.875.765 2.12 1.36 3.12 1.36a.5.5 0 0 1 .5.5z"/><path d="M3 15h7"/><path d="M3 9h12.142"/><path d="M8 15v6"/><path d="M8 3v6"/></svg>
-                    </div>
-                    <div class="icon-box">
-                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/users.svg" alt="Users">
-                    </div>
-                    <div class="icon-box">
-                    <img src="/img/logo_dark.svg" alt="Cypht">
-                    </div>
-                    <div class="icon-box">
-                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/star.svg" alt="Star">
-                    </div>
-                    <div class="icon-box">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>
-                    </div>
-                    <div class="icon-box"><img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/lock.svg" alt="Lock"></div>
-                    <div class="icon-box"><img src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons/activity.svg" alt="Activity"></div>
-                </div> -->
+                <img src="/img/feat-cover.png" alt="Cypht"/>
             </div>
         </div>
     </section>
@@ -110,8 +82,11 @@ loadScriptAfter: /js/feature.js
                 <div class="perf-parent">
                     <div class="perf-div1 feature-card">
                     <div>
-                            <span class="mss-div-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>Lightweight Pages</span>
-                            <span class="ft-description">Easily move or copy emails between different accounts and folders for better organization.</span>
+                            <span class="mss-div-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>Caching Mechanisms</span></span>
+
+                            <span class="ft-description">
+                                Cypht caches your folder layout and message lists in your active session, turning what are normally repeated server waits into instant client-side retrievals.
+                            </span>
                     </div>
                         <!--  -->
                     <div class="ft-card-img-content">
@@ -122,10 +97,10 @@ loadScriptAfter: /js/feature.js
                         <div class="d-flex flex-column h-100">
                             <span class="mss-div-header">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M19 9v5.934c0 .66-.353 1.268-.925 1.595a12.244 12.244 0 0 1-12.15 0A1.837 1.837 0 0 1 5 14.934V9c0-2.809 0-4.213.674-5.222a4 4 0 0 1 1.104-1.104C7.787 2 9.19 2 12 2c2.809 0 4.213 0 5.222.674a4 4 0 0 1 1.104 1.104C19 4.787 19 6.19 19 9M9 4.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/><path d="M3.627 14.534a.75.75 0 0 1-.122 1.054c-.573.454-.755.855-.755 1.162c0 .267.134.6.547.984c.414.385 1.053.766 1.907 1.102c1.21.477 2.775.833 4.546.998v-.459a.75.75 0 0 1 1.244-.564l1.5 1.312a.75.75 0 0 1 0 1.129l-1.5 1.312A.75.75 0 0 1 9.75 22v-.66c-1.944-.17-3.7-.558-5.096-1.108c-.956-.377-1.781-.843-2.38-1.4c-.598-.558-1.024-1.261-1.024-2.082c0-.95.567-1.738 1.324-2.338a.75.75 0 0 1 1.053.122m16.746 0a.75.75 0 0 1 1.053-.122c.757.6 1.324 1.388 1.324 2.338c0 1.378-1.168 2.41-2.547 3.101c-1.441.723-3.412 1.234-5.627 1.459a.75.75 0 1 1-.152-1.493c2.098-.212 3.877-.69 5.107-1.307c1.294-.648 1.719-1.303 1.719-1.76c0-.307-.182-.708-.755-1.162a.75.75 0 0 1-.122-1.054"/></g></svg>
-                            Smart Caching</span>
+                            Basic & AJAX Page</span>
                             <div class="d-flex flex-column gap-3 flex-1">
-                                <span class="ft-description">Easily move or copy emails between different accounts and folders for better organization.</span> </br>
-                                <span class="ft-description">Second description  move or copy emails between different accounts and folders for better organization.</span>
+                                <span class="ft-description">Basic pages, served as direct HTML, load quickly on any device or browser with minimal client-side processing, making them ideal for slower connections or one-time access.</span> </br>
+                                <span class="ft-description">In contrast, AJAX pages load the interface once and then fetch only new data asynchronously, eliminating full page reloads.</span>
                             </div>
                         </div>
                         <div class="ft-card-img-content">
@@ -134,10 +109,10 @@ loadScriptAfter: /js/feature.js
                     </div>
                     <div class="perf-div3 feature-card feat-card-long">
                     <div class="">
-                            <span class="mss-div-header"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.172 19.828C4.343 21 6.229 21 10 21h3.89a5.474 5.474 0 0 1-.89-3c0-.301.024-.597.07-.885a.75.75 0 0 1 .41-1.365a5.515 5.515 0 0 1 3.376-3H2V13c0 3.771 0 5.657 1.172 6.828M6 18.25a.75.75 0 0 1-.75-.75v-2a.75.75 0 0 1 1.5 0v2a.75.75 0 0 1-.75.75m3 0a.75.75 0 0 1-.75-.75v-2a.75.75 0 0 1 1.5 0v2a.75.75 0 0 1-.75.75M3.172 4.172C2 5.343 2 7.229 2 11v.25h20V11c0-3.771 0-5.657-1.172-6.828C19.657 3 17.771 3 14 3h-4C6.229 3 4.343 3 3.172 4.172M9 9.25a.75.75 0 0 1-.75-.75v-2a.75.75 0 0 1 1.5 0v2a.75.75 0 0 1-.75.75M5.25 8.5a.75.75 0 0 0 1.5 0v-2a.75.75 0 0 0-1.5 0zm7.5-1a.75.75 0 0 1 .75-.75H18a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75"/><path d="M14.929 16.753c.389-1.497 1.924-2.503 3.576-2.503c1.277 0 2.44.58 3.106 1.515a.75.75 0 1 1-1.222.87c-.36-.505-1.048-.885-1.884-.885c-.967 0-1.687.482-2 1.08a.75.75 0 0 1 .15 1.24l-.583.5a.75.75 0 0 1-.976 0l-.584-.5a.75.75 0 0 1 .417-1.317m6 .677a.75.75 0 0 1 .975 0l.584.5a.75.75 0 0 1-.417 1.317c-.389 1.497-1.924 2.503-3.576 2.503c-1.277 0-2.44-.58-3.106-1.515a.75.75 0 1 1 1.222-.87c.36.505 1.048.885 1.884.885c.967 0 1.687-.482 2-1.08a.75.75 0 0 1-.151-1.24z"/></g></svg>JMAP Sync</span>
+                            <span class="mss-div-header"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M3.172 19.828C4.343 21 6.229 21 10 21h3.89a5.474 5.474 0 0 1-.89-3c0-.301.024-.597.07-.885a.75.75 0 0 1 .41-1.365a5.515 5.515 0 0 1 3.376-3H2V13c0 3.771 0 5.657 1.172 6.828M6 18.25a.75.75 0 0 1-.75-.75v-2a.75.75 0 0 1 1.5 0v2a.75.75 0 0 1-.75.75m3 0a.75.75 0 0 1-.75-.75v-2a.75.75 0 0 1 1.5 0v2a.75.75 0 0 1-.75.75M3.172 4.172C2 5.343 2 7.229 2 11v.25h20V11c0-3.771 0-5.657-1.172-6.828C19.657 3 17.771 3 14 3h-4C6.229 3 4.343 3 3.172 4.172M9 9.25a.75.75 0 0 1-.75-.75v-2a.75.75 0 0 1 1.5 0v2a.75.75 0 0 1-.75.75M5.25 8.5a.75.75 0 0 0 1.5 0v-2a.75.75 0 0 0-1.5 0zm7.5-1a.75.75 0 0 1 .75-.75H18a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75"/><path d="M14.929 16.753c.389-1.497 1.924-2.503 3.576-2.503c1.277 0 2.44.58 3.106 1.515a.75.75 0 1 1-1.222.87c-.36-.505-1.048-.885-1.884-.885c-.967 0-1.687.482-2 1.08a.75.75 0 0 1 .15 1.24l-.583.5a.75.75 0 0 1-.976 0l-.584-.5a.75.75 0 0 1 .417-1.317m6 .677a.75.75 0 0 1 .975 0l.584.5a.75.75 0 0 1-.417 1.317c-.389 1.497-1.924 2.503-3.576 2.503c-1.277 0-2.44-.58-3.106-1.515a.75.75 0 1 1 1.222-.87c.36.505 1.048.885 1.884.885c.967 0 1.687-.482 2-1.08a.75.75 0 0 1-.151-1.24z"/></g></svg>Multi-protocol Support</span>
                            <div class="d-flex flex-column gap-3 flex-1">
-                                <span class="ft-description">Easily move or copy emails between different accounts and folders for better organization.</span>
-                                <span class="ft-description">Second description  move or copy emails between different accounts and folders for better organization.</span>
+                                <span class="ft-description">Cypht provides a seamless, unified inbox by natively integrating the core protocols of modern email.</span>
+                                <span class="ft-description">It efficiently connects to IMAP, EWS, and JMAP servers for reading mail, and uses SMTP for sending, all through a single, consistent interface.</span>
                            </div>
                         </div>
                         <div class="ft-card-img-content">
@@ -146,8 +121,8 @@ loadScriptAfter: /js/feature.js
                     </div>
                     <div class="perf-div4 feature-card">
                         <div class="feat-card-header">
-                            <span class="mss-div-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-accessibility"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 5.5"/><path d="M12.67 13.67A6 6 0 0 1 9 12a5.68 5.68 0 0 1 3.67-1.33"/><circle cx="12" cy="12" r="10"/></svg>Accessibility</span>
-                            <span class="ft-description">Easily move or copy emails between different accounts and folders for better organization.</span>
+                            <span class="mss-div-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-accessibility"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 5.5"/><path d="M12.67 13.67A6 6 0 0 1 9 12a5.68 5.68 0 0 1 3.67-1.33"/><circle cx="12" cy="12" r="10"/></svg>Configurable Keyboard Navigation</span>
+                            <span class="ft-description">The keyboard_shortcuts module transforms Cypht into a power-user environment by enabling fully configurable keyboard shortcuts for all core actions.</span>
                         </div>
                         <div class="ft-card-img-content">
                             <img draggable="false" alt="Cypht feat" decoding="async" data-nimg="fill" class="" src="https://supabase.com/images/index/products/auth.svg">

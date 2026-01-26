@@ -13,7 +13,7 @@ loadScriptAfter: /home-page.js
     		<div class="home-hs-text-content">
                 <span class="hs-chip">✨ Supports IMAP/SMTP, JMAP and EWS</span>
                 <h2 class="display-6 fw-bold">All your E-mail, from all your accounts, in one place</h2>
-                <p class="home-hs-subtitle">Cypht brings together your email accounts, RSS feeds, and messages into one clean and distraction-free experience.</p>
+                <p class="home-hs-subtitle">Cypht (pronounced "sift") is like a news reader, but for email. It doesn't replace your existing accounts, it combines them into a single, streamlined inbox.</p>
                 <div class="home-hero-actions">
                     <a class="action-btn cypht-primary-btn" href="/install">Get Started</a>
                     <a class="action-btn cypht-secondary-btn" href="/documentation">See How it works</a>

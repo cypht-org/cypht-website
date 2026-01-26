@@ -42,7 +42,7 @@
       position: relative;
       height: auto !important;
       overflow: visible;
-      /* cursor: pointer; */
+      cursor: inherit !important;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       backdrop-filter: blur(10px);
 }
