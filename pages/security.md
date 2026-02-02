@@ -267,7 +267,7 @@ loadScriptAfter: /js/security.js
                   </div>
                   <div class="security-item-content">
                     <h4>Secure Coding Practices</h4>
-                    <p>Easy output escaping inside modules for potentially dangerous content. Development is done with PHP's "E_ALL" and "E_STRICT" error reporting for maximum code quality.</p>
+                    <p>Cypht is built with a foundational focus on security. All user input is strictly validated and sanitized, and robust access control governs every request. Internally, it employs safe array access and output encoding to neutralize threats.</p>
                   </div>
                 </li>
                 <li class="security-item" data-category="development">

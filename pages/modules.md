@@ -17,8 +17,7 @@ loadScriptAfter: /js/module.js
                     </h1>
                 </div>
                 <p class="module-subtitle home-hs-subtitle">
-                    Artists can finely craft components built with React, Tailwind, and Shadcn UI.
-                    Developers can copy and paste them.
+                    Cypht uses module sets to separate functionality in the program. Module sets can be enabled and disabled independently.
                 </p>
                 <div class="module-buttons">
                     <a href="#modules" class="action-btn cypht-primary-btn">Discover our modules</a>

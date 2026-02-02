@@ -90,17 +90,20 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 
       & .event-image-container {
-            transition: height 0.3s ease;
-            height: 140px !important;
+            transition: height 0.4s ease;
+            height: 45% !important;
       }
 
       & .event-body {
             padding-bottom: .5rem !important;
+            /* background-color: rebeccapurple; */
       }
 }
 
 .old-event-item:hover .event-description {
-      -webkit-line-clamp: 5;
+      height: 100% !important;
+      -webkit-line-clamp: inherit !important;
+      /* 
       overflow-y: auto;
       text-overflow: clip;
       scrollbar-width: none;
@@ -108,7 +111,7 @@
 
       &::-webkit-scrollbar {
             display: none;
-      }
+      } */
 
 }
 
