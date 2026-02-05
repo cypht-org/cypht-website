@@ -282,6 +282,78 @@
       font-weight: 700;
 }
 
+
+/* Nav Pagination */
+
+.doc-pagination-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 3rem;
+      font-family: sans-serif;
+}
+
+.nav-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .8rem;
+      border: .5px solid var(--color-border);
+      border-radius: 12px;
+      text-decoration: none;
+      background-color: transparent;
+      transition: border-color 0.2s ease;
+
+      &:hover {
+            border-radius: 12px;
+      }
+}
+
+.nav-content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+}
+
+.prev .nav-content {
+      text-align: right;
+      margin-left: 1rem;
+}
+
+.next .nav-content {
+      text-align: left;
+      margin-right: 1rem;
+}
+
+.nav-subtitle {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-bottom: 4px;
+}
+
+.nav-title {
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--color-text);
+}
+
+.nav-icon {
+      width: .9rem !important;
+      height: .9rem !important;
+      color: var(--color-text-muted);
+}
+
+/* 
+
+
+
+
+
+.nav-icon {
+      font-size: 1.5rem;
+      color: var(--text-main);
+} */
+
 /* ==========================================
    FOOTER RESPONSIVE BREAKPOINTS
 ========================================== */
@@ -310,6 +382,18 @@
             align-items: center;
             width: 100%;
       }
+
+      /* Nav Pagination */
+      .doc-pagination-container {
+            gap: 2rem;
+            display: flex;
+            justify-content: space-between;
+      }
+
+      .nav-card {
+            max-width: 200px;
+            width: 100%;
+      }
 }
 
 @media (min-width: 992px) {
@@ -329,6 +413,10 @@
       .footer-links {
             justify-content: end;
             gap: 4rem;
+      }
+
+      .nav-card {
+            max-width: 240px;
       }
 }
 

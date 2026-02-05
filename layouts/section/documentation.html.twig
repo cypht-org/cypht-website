@@ -1,0 +1,14 @@
+{% extends 'page.html.twig' %}
+
+{% block content_area %}
+	<div class="doc-container">
+		<div class="row p-2">
+			{% include 'partials/doc_menu.html.twig' %}
+			<div class="col">
+				<div class="row doc-content">
+					{{ page.content }}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

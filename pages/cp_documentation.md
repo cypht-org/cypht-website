@@ -48,13 +48,13 @@ h1: false
   </div>
 </section>
 <!-- Table of Contents -->
-<scetion>
+<section>
   <div>
     <!-- doc-container -->
     <div class="doc-container">
       <div class="row p-2">
           <div class="col-lg-3 menu-content">
-            <!-- <div class="doc-top-nav">
+            <div class="doc-top-nav">
               <div class="d-lg-none">
                 <button 
                   type="button" data-bs-toggle="offcanvas" data-bs-target="#docNav" aria-controls="offcanvasRight"
@@ -78,7 +78,7 @@ h1: false
                     </ul>
                   </div>
                 </div>
-            </div> -->
+            </div>
             <!-- on desk -->
             <div id="doc_menu_desktop_wrapper" class="doc-toc flex-shrink-0 d-none d-lg-block h-full">
               <nav id="doc_menu" class="toc-nav mb-lg-5 mt-lg-3">

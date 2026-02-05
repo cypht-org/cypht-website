@@ -447,7 +447,7 @@ const modules = [
     name: "Idle Session Timer",
     description: "Automatic logout after period of inactivity",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/idle_timer",
+      "https://github.com/cypht-org/cypht/blob/master/modules/idle_timer/README.md",
     cover: "/svg/timer.svg",
     type_id: 7,
   },

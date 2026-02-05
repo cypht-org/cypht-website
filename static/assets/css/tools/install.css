@@ -1439,7 +1439,8 @@ pre:hover .code-copy-btn {
       }
 
       .g-warning-card {
-            background-color: #ae9e69;
+            /* background-color: #ae9e69; */
+            background-color: rgba(233, 182, 13, 0.527);
             border: 1px solid var(--color-border);
       }
 

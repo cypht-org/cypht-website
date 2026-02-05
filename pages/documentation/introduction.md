@@ -1,3 +1,9 @@
+---
+id: 0
+title: Introduction
+layout: section/documentation
+---
+
 <div class="doc-content-left col mx-xl-3">
     <div class="doc-page-header">
         <!-- <div class="doc-page-header-indicator">
@@ -17,9 +23,9 @@
             <a href="#meet_cypht">Meet Cypht</a>
         </div>
         <span class="doc-section-text">
-            Cypht is a <strong>modern, open-source webmail client</strong> that brings together multiple email accounts into one secure, unified dashboard. Designed for speed, privacy, and flexibility — Cypht lets you take full control of your email experience.
+            Cypht is a <strong>modern, open-source webmail client</strong> that brings together multiple email accounts into one secure, unified dashboard. Designed for speed, privacy, and flexibility. Cypht lets you take full control of your email experience.
         </span>
-        </div>
+    </div>
       <!--  -->
       <div id="why_cypht"  class="doc-section">
         <div class="doc-section-header">
@@ -80,9 +86,9 @@
                 </li>
                 <!--  -->
                 <li>
-                    <div>
-                        <h5>Two-Factor Authentication</h5>
-                        <p>An additional layer of security to protect your access.</p>
+                    <div class="tip-text">
+                        <h5>Authentication Options</h5>
+                        <p>Support for multiple authentication methods to ensure secure access. <a target="_blank" href="https://github.com/cypht-org/cypht/wiki/Authentication-Options">learn more</a></p>
                     </div>
                 </li>
             </ul>
@@ -274,7 +280,7 @@
             </div>
             <div class="doc-section-content">
                 <p class="doc-section-text">
-                    Be part of a vibrant community of developers and users shaping the future of email. Cypht thrives on community contributions, whether you're a developer, designer, translator, or just passionate about privacy-focused software.  or contribute code - every contribution helps make Cypht better for everyone.
+                    Be part of a vibrant community of developers and users shaping the future of email. Cypht thrives on community contributions, whether you're a developer, designer, translator, or just passionate about privacy-focused software. Every contribution helps make Cypht better for everyone.
                 </p>
                 <div class="tip-card tip-idea">
                     <div class="tip-card-icon">
@@ -286,7 +292,13 @@
                 </div>
             </div>
         </div>
+
+        <nav-pagination
+        next-label="Version History"
+        next-url="/documentation/releases">
+    </nav-pagination>
     </div>
+
 <div class="doc-content-right d-none d-xl-flex col-xl-2">
     <div class="dc-ctr-content">
         <div class="dc-ctr-header">
@@ -304,7 +316,7 @@
             <li><a href="#customization">Customization</a></li>
             <li><a href="#getting_started">Getting Started</a></li>
             <li><a href="#why_choose">Why Choose Cypht?</a></li>
-            <li><a href="#community">Join Our Community</a></li>
+            <li><a href="#community">Join Community</a></li>
             </ul>
         </nav>
     </div>
