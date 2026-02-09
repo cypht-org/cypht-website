@@ -6,21 +6,97 @@ layout: section/documentation
 
 <div class="doc-content-left col mx-xl-3">
     <div class="doc-page-header">
-        <!-- <div class="doc-page-header-indicator">
-            <i class="bi bi-house"></i>
-            <span class="ph-indicator-parent">
-                Overview
-            </span>
-            <span class="ph-indicator-children">
-                  Tags & Folders
-            </span>
-        </div> -->
         <h3>Tags & Folders</h3>
     </div>
+
+    <div id="overview" class="doc-section">
+        <div class="doc-section-header">
+            <a href="#overview">Email Organization</a>
+        </div>
+        <span class="doc-section-text">
+            Cypht provides tags and labels to help you organize and categorize your emails for better management and quick access to relevant content.
+        </span>
+
+        <div class="feature-card text-center">
+            <h6><i class="bi bi-tags"></i> Smart Organization</h6>
+            <p>Organize and categorize emails easily for better management and quick access to relevant content</p>
+        </div>
+    </div>
+
+    <div id="tags_labels" class="doc-section">
+        <div class="doc-section-header">
+            <a href="#tags_labels">Tags/Labels Support</a>
+        </div>
+        <span class="doc-section-text">
+            Use tags and labels to categorize your emails in a flexible and intuitive way.
+        </span>
+
+        <div class="feature-card">
+            <h6><i class="bi bi-tag"></i> Email Categorization</h6>
+            <p>Tags/Labels support to organize and categorize emails easily for better management and quick access to relevant content.</p>
+        </div>
+    </div>
+
+    <div id="folder_management" class="doc-section">
+        <div class="doc-section-header">
+            <a href="#folder_management">Folder Structure</a>
+        </div>
+        <span class="doc-section-text">
+            Cypht includes standard folder management for organizing your emails across accounts.
+        </span>
+
+        <div class="doc-subsection-header">
+            <a href="#main_folders">Main Folders</a>
+        </div>
+        <div class="feature-card">
+            <h6><i class="bi bi-folder"></i> Standard Email Folders</h6>
+            <p>Cypht features main folders such as Drafts, Everything, Flagged, Junk, Sent, Snoozed, Trash, and Unread for organizing your emails.</p>
+        </div>
+
+        <div class="doc-subsection-header">
+            <a href="#folder_integration">Folder Integration</a>
+        </div>
+        <div class="feature-card">
+            <h6><i class="bi bi-layers"></i> Combined Folder View</h6>
+            <p>To ensure that email messages from your accounts appear in these folders, you can add them by accessing the respective folder and clicking the "Add this folder to combined pages" icon. This integrates the folder into the combined view for easier management across all your accounts.</p>
+        </div>
+    </div>
+
+    <div id="organization_benefits" class="doc-section">
+        <div class="doc-section-header">
+            <a href="#organization_benefits">Organization Benefits</a>
+        </div>
+        <span class="doc-section-text">
+            Discover how tags and folders improve your email management experience.
+        </span>
+
+        <p>Tags and labels provide quick access to relevant content through organized categorization. This systematic approach to email organization allows for better management of your messages, making it easier to find and prioritize important communications when you need them.</p>
+    </div>
+
     <nav-pagination
         prev-label="Search & Filters"
         prev-url="/documentation/search-filters"
         next-label="Contact Book"
         next-url="/documentation/contact-book">
     </nav-pagination>
+
+</div>
+
+<div class="doc-content-right d-none d-xl-flex col-xl-2">
+    <div class="dc-ctr-content">
+        <div class="dc-ctr-header">
+            <p class="dc-ctr-header-title">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"/></svg>
+                On this page
+            </p>
+        </div>
+        <nav>
+            <ul id="dc-ctr-nav">
+                <li><a href="#overview" class="active">Overview</a></li>
+                <li><a href="#tags_labels">Tags/Labels</a></li>
+                <li><a href="#folder_management">Folder Management</a></li>
+                <li><a href="#organization_benefits">Benefits</a></li>
+            </ul>
+        </nav>
+    </div>
 </div>

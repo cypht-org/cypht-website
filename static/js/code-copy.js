@@ -11,7 +11,7 @@
       "pre code, .code-preview-content pre code, .gc-terminal pre code",
     textSelectors: ".copyable-text",
     buttonClass: "code-copy-btn",
-    buttonIcon: '<i class="bi bi-clipboard"></i>',
+    buttonIcon: '<i class="bi bi-copy"></i>',
     feedbackDuration: 2000,
     observerConfig: {
       childList: true,

@@ -959,7 +959,7 @@
       border-radius: 4px;
       color: var(--color-text);
       cursor: pointer;
-      padding: 6px 10px;
+      padding: 6px 8px;
       font-size: 14px;
       z-index: 10;
       transition: all 0.2s ease;
@@ -971,6 +971,7 @@
       box-sizing: border-box;
       max-width: calc(100% - 16px);
       overflow: hidden;
+      min-width: inherit;
 }
 
 .code-preview-content:hover .code-copy-btn,

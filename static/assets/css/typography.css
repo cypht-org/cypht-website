@@ -270,15 +270,6 @@ code {
       color: var(--color-text);
 }
 
-/* pre {
-      font-family: var(--font-family-monospace);
-      background: var(--color-bg-tertiary);
-      padding: 1rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      border: 1px solid var(--color-border);
-} */
-
 
 /* Blockquote styles */
 blockquote {
