@@ -6,7 +6,16 @@
 			{% include 'partials/doc_menu.html.twig' %}
 			<div class="col">
 				<div class="row doc-content">
-					{{ page.content }}
+					{% if page.redirect is defined %}
+						{% set redirect_page = site.pages[page.redirect] %}
+						{% if redirect_page %}
+							{{ redirect_page.content }}
+						{% else %}
+							{{ page.content }}
+						{% endif %}
+					{% else %}
+						{{ page.content }}
+					{% endif %}
 				</div>
 			</div>
 		</div>

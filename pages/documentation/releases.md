@@ -18,7 +18,8 @@ layout: section/documentation
         </span>
 
         <ul>
-            <li><strong>Versioning:</strong> Semantic versioning approach <a target="_blank" href="https://semver.org/">learn more</a>.</li>
+            <li><strong>Versioning:</strong> Semantic versioning approach <a target="_blank" href="https://semver.org/" class=
+            "text-link">learn more</a>.</li>
             <li><strong>Stability:</strong> 1.4.x branch recommended for critical environments.</li>
             <li><strong>Evolution:</strong> 2.x branch introduces EWS, Sieve filters, smooth navigation.</li>
         </ul>

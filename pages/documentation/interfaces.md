@@ -50,7 +50,7 @@ layout: section/documentation
             </div>
             <div class="col-md-6 mb-3">
                 <div class="feature-card h-100">
-                    <h6><i class="bi bi-gear"></i> Settings Bar</h6>
+                    <h6><i class="bi bi-gear"></i> Settings Tab</h6>
                     <p>Top navigation with account management, module configuration, theme selection, and user preferences. Always accessible for quick adjustments.</p>
                 </div>
             </div>
@@ -62,23 +62,24 @@ layout: section/documentation
             <a href="#combined_views">Combined Views</a>
         </div>
         <span class="doc-section-text">
-            One of Cypht's most powerful features is the ability to view messages from multiple accounts in unified streams, eliminating the need to switch between different inboxes.
-        </span>
+            Cypht, your email client that allows you to access multiple email accounts simultaneously, features main folders such as Drafts, Everything, Flagged, Junk, Sent, Snoozed, Trash, and Unread.
+         </span>
+         <span class="doc-section-text">
+             To ensure that email messages from your accounts appear in these folders, you need to add them by accessing the respective folder and clicking the "Add this folder to combined pages" icon located in the header of your folder view. This action integrates the folder into the combined view, making it easier to manage emails across all your accounts in one place. Refer to the provided image for visual guidance.
+         </span>
+    </div>
 
-        <div class="doc-subsection-header">
+    <div id="unified_inbox" class="doc-section">
+        <div class="doc-section-header">
             <a href="#unified_inbox">Unified Inbox</a>
         </div>
-        <p>See all new messages from every connected account in a single chronological feed. Messages are clearly labeled with their source account for easy identification.</p>
+        <span class="doc-section-text">The advanced and most efficient service of Cypht enables users to access multiple email accounts at the same time. Users can view inboxes of different email providers and can send, receive, and manage email messages from the interactive webmail. </span>
+        <span class="doc-section-text">The webmail also provides functionality to search, sort, and filter emails across all connected accounts.</span>
 
-        <div class="doc-subsection-header">
-            <a href="#smart_folders">Smart Folders</a>
-        </div>
-        <p>Automatically aggregated views for unread messages, sent items, flagged emails, and important conversations across all accounts and RSS feeds.</p>
-
-        <div class="tip-card tip-info mt-3">
+        <!-- <div class="tip-card tip-info mt-3">
             <span class="tip-info-text"><i class="bi bi-lightbulb"></i> Pro Tip</span>
-            <p class="mb-0">Use keyboard shortcuts (press '?' to see all) to quickly navigate between combined views and individual accounts without touching your mouse.</p>
-        </div>
+            <span class="doc-section-text">Use keyboard shortcuts (press '?' to see all) to quickly navigate between combined views and individual accounts without touching your mouse.</span>
+        </div> -->
     </div>
 
     <div id="message_management" class="doc-section">
@@ -121,7 +122,6 @@ layout: section/documentation
 
         <ul>
             <li><strong>Theme System:</strong> Multiple built-in themes including light, dark, and high-contrast options with custom CSS support</li>
-            <li><strong>Layout Options:</strong> Choose between vertical and horizontal layouts, adjustable pane sizes, and collapsible sections</li>
             <li><strong>Message Density:</strong> Compact, comfortable, or spacious display modes for different screen sizes and preferences</li>
             <li><strong>Language Support:</strong> Right-to-left language support and easy translation system for international users</li>
         </ul>
@@ -150,7 +150,7 @@ layout: section/documentation
             <div class="col-md-6 mb-3">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-universal-access"></i> Accessibility Features</h6>
-                    <p>Screen reader compatibility, keyboard navigation, high contrast modes, and semantic HTML for inclusive access.</p>
+                    <p>Screen reader compatibility, high contrast modes, and semantic HTML for inclusive access.</p>
                 </div>
             </div>
         </div>
@@ -178,6 +178,7 @@ layout: section/documentation
                 <li><a href="#overview" class="active">Interface Overview</a></li>
                 <li><a href="#main_layout">Main Layout</a></li>
                 <li><a href="#combined_views">Combined Views</a></li>
+                <li><a href="#unified_inbox">Unified Inbox</a></li>
                 <li><a href="#message_management">Message Management</a></li>
                 <li><a href="#customization">Customization</a></li>
                 <li><a href="#accessibility">Accessibility</a></li>

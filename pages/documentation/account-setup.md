@@ -21,10 +21,10 @@ layout: section/documentation
             <span class="tip-warning-text"><i class="bi bi-exclamation-triangle"></i> Complete These First</span>
             <ul class="mb-2">
                 <li><strong>Installation:</strong> Cypht must be deployed on your web server with proper PHP configuration</li>
-                <li><strong>Initial Configuration:</strong> Database connectivity and basic settings must be configured</li>
-                <li><strong>Profile Creation:</strong> You must have created your local Cypht profile with encryption password</li>
+                <!-- <li><strong>Initial Configuration:</strong> Database connectivity and basic settings must be configured</li>
+                <li><strong>Profile Creation:</strong> You must have created your local Cypht profile with encryption password</li> -->
             </ul>
-            <p class="mb-0"><strong>Need help?</strong> Return to <a href="/documentation/getting-started">Getting Started</a> or <a href="/install">Installation Guide</a></p>
+            <p class="mb-0"><strong>Need help?</strong> Go to <a href="/install">Installation Guide</a></p>
         </div>
     </div>
 
@@ -57,7 +57,7 @@ layout: section/documentation
             </div>
             <div class="col-md-6 mb-3">
                 <div class="feature-card h-100">
-                    <h6><i class="bi bi-people"></i> LDAP/Contacts</h6>
+                    <h6><i class="bi bi-people"></i> LDAP/Server</h6>
                     <p>Corporate directory services and local contact databases for integrated address book functionality.</p>
                 </div>
             </div>

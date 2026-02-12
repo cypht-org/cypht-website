@@ -88,7 +88,7 @@ layout: section/documentation
                 <li>
                     <div class="tip-text">
                         <h5>Authentication Options</h5>
-                        <p>Support for multiple authentication methods to ensure secure access. <a target="_blank" href="https://github.com/cypht-org/cypht/wiki/Authentication-Options">learn more</a></p>
+                        <p>Support for multiple authentication methods to ensure secure access. <a target="_blank" href="https://github.com/cypht-org/cypht/wiki/Authentication-Options" class="text-link">learn more</a></p>
                     </div>
                 </li>
             </ul>

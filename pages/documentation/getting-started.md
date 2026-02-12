@@ -17,7 +17,7 @@ layout: section/documentation
             Welcome to the <strong>Cypht</strong> ecosystem. If you're reading this, you've chosen to reclaim control over your data. Unlike traditional email clients (Outlook, Thunderbird) or centralized webmails (Gmail), Cypht was designed as a <strong>server-side modular aggregator</strong>.
         </span>
         <span class="doc-section-text">
-            This means Cypht doesn't just "read" your emails; it synthesizes, organizes, and presents them in a unified interface—without permanently storing your messages on its own server (unless configured otherwise). It's an ultra-lightweight gateway between you and your multiple digital identities.
+            This means Cypht doesn't just "read" your emails; it synthesizes, organizes, and presents them in a unified interface without permanently storing your messages on its own server (unless configured otherwise). It's an ultra-lightweight gateway between you and your multiple digital identities.
         </span>
     </div>
 
@@ -31,19 +31,6 @@ layout: section/documentation
         <div class="tip-card tip-warning">
             <span class="tip-warning-text"><i class="bi bi-exclamation-triangle"></i> Haven't installed Cypht yet?</span>
             <p class="mb-2">Don't attempt to configure your accounts now. Follow our step-by-step installation protocol first: <a href="/install" class="text-link">Access Technical Installation Guide</a></p>
-        </div>
-    </div>
-
-    <div id="concepts" class="doc-section">
-        <div class="doc-section-header">
-            <a href="#concepts">Understanding Fundamental Concepts</a>
-        </div>
-        <span class="doc-section-text">
-            It's crucial to understand the distinction between your local profile and remote accounts.
-        </span>
-        <div class="feature-card">
-            <h6>Local Profile vs Remote Accounts</h6>
-            <p>Your <strong>Cypht Profile</strong> contains your preferences and encryption keys. Your <strong>Remote Accounts</strong> are the data sources Cypht queries in real-time.</p>
         </div>
     </div>
 
@@ -68,28 +55,31 @@ layout: section/documentation
         <div class="row">
             <div class="col-md-4 mb-3">
                 <div class="feature-card">
-                    <h6><i class="bi bi-envelope"></i> IMAP (Email)</h6>
+                    <h6><i class="bi bi-envelope"></i> SMPT/IMAP/JMAP (Servers)</h6>
                     <p class="small">Standard protocol. Requires server address, port (usually 993 with SSL), and credentials.</p>
                 </div>
             </div>
             <div class="col-md-4 mb-3">
                 <div class="feature-card">
-                    <h6><i class="bi bi-rss"></i> RSS/Atom</h6>
+                    <h6><i class="bi bi-rss"></i> Feed RSS</h6>
                     <p class="small">Enter feed URL to transform articles into readable messages in your inbox.</p>
                 </div>
             </div>
             <div class="col-md-4 mb-3">
                 <div class="feature-card">
-                    <h6><i class="bi bi-cloud"></i> Cloud Services</h6>
+                    <h6><i class="bi bi-cloud"></i> EWS Server</h6>
                     <p class="small">Link external contact or calendar services via activated modules.</p>
                 </div>
             </div>
         </div>
 
-        <div class="tip-card tip-info mt-3">
-            <span class="tip-info-text"><i class="bi bi-info-circle"></i> Google/Microsoft Security</span>
-            <p class="mb-0">These providers often block direct password connections. You'll need to generate an "App Password" in your Google or Microsoft account settings to allow Cypht to connect.</p>
-        </div>
+        <p>For some service providers (Gmail, Outlook, Office365), specific information is required in your configuration file (.env for Cypht 2.x.x or hm3.ini for Cypht 1.4.x). How to get them page missing..</p>
+
+        <ul class="mb-0 mt-2">
+            <li><code class="me-2">SERVICE_CLIENT_ID</code> <span>Your application client ID</span</li>
+            <li><code class="me-2">SERVICE_CLIENT_SECRET</code> <span>Your application client secret</span</li>
+            <li><code class="me-2">SERVICE_CLIENT_URI</code> <span>Your application redirect URI</span</li>
+        </ul>
     </div>
 
     <div id="workflow" class="doc-section">
@@ -103,13 +93,13 @@ layout: section/documentation
         <div class="row">
             <div class="col-md-6 mb-3">
                 <div class="feature-card">
-                    <h6><i class="bi bi-funnel"></i> Custom Views</h6>
+                    <h6><i class="bi bi-funnel"></i> Filters</h6>
                     <p>Create filters to group "Urgent" emails or social media notifications from all accounts.</p>
                 </div>
             </div>
             <div class="col-md-6 mb-3">
                 <div class="feature-card">
-                    <h6><i class="bi bi-search"></i> Global Search</h6>
+                    <h6><i class="bi bi-search"></i> Search & Advanced Search</h6>
                     <p>Single search across work account, personal account, and local archives simultaneously.</p>
                 </div>
             </div>
@@ -118,10 +108,10 @@ layout: section/documentation
 
     <div id="modules" class="doc-section">
         <div class="doc-section-header">
-            <a href="#modules">The Module Ecosystem</a>
+            <a href="#modules" class="text-link">The Module Ecosystem</a>
         </div>
         <span class="doc-section-text">
-            Cypht is "Lean" by default—minimalist. To extend it, explore the <strong>Modules</strong> tab. You can activate various modules to enhance functionality.
+            Cypht is "Lean" by default minimalist. To extend it, explore the <a href="/modules">modules</a> tab. You can activate various modules to enhance functionality in your <code>.env</code> file.
         </span>
 
         <ul>
