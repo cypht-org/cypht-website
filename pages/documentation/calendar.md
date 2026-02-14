@@ -19,7 +19,7 @@ layout: section/documentation
 
         <div class="feature-card text-center">
             <h6><i class="bi bi-calendar"></i> Stay Organized</h6>
-            <p>Create events and reminders to keep track of special occasions</p>
+            <span class="doc-section-text mb-0">Create events and reminders to keep track of special occasions</span>
         </div>
     </div>
 
@@ -33,7 +33,7 @@ layout: section/documentation
 
         <div class="feature-card">
             <h6><i class="bi bi-plus-circle"></i> Add New Events</h6>
-            <p>The calendar feature allows user to create different events by clicking the "+" icon on top-right corner.</p>
+            <span class="doc-section-text mb-0">The calendar feature allows user to create different events by clicking the "+" icon on top-right corner.</span>
         </div>
     </div>
 
@@ -47,7 +47,7 @@ layout: section/documentation
 
         <div class="feature-card">
             <h6><i class="bi bi-calendar-check"></i> Calendar Display</h6>
-            <p>The created reminders and events will be shown in the calendar making it easier for user to keep track of the special events.</p>
+            <span class="doc-section-text mb-0">The created reminders and events will be shown in the calendar making it easier for user to keep track of the special events.</span>
         </div>
     </div>
 
@@ -59,7 +59,7 @@ layout: section/documentation
             Discover how the calendar feature helps you stay organized.
         </span>
 
-        <p>The integrated calendar provides a convenient way to manage your schedule without leaving your email client. By creating events and reminders directly in Cypht, you can keep track of important dates, appointments, and special occasions while managing your emails, making it easier to stay organized and never miss important events.</p>
+        <span class="doc-section-text mb-0">The integrated calendar provides a convenient way to manage your schedule without leaving your email client. By creating events and reminders directly in Cypht, you can keep track of important dates, appointments, and special occasions while managing your emails, making it easier to stay organized and never miss important events.</span>
     </div>
 
     <nav-pagination

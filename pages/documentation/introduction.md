@@ -185,9 +185,9 @@ layout: section/documentation
             </div>
         </div>
       <!--  -->
-        <div id="getting_started" class="doc-section">
+        <div id="quick_start" class="doc-section">
             <div class="doc-section-header">
-                <a href="#getting_started">Quick Start</a>
+                <a href="#quick_start">Quick Start</a>
             </div>
             <div class="doc-section-content">
                     <p class="doc-section-text">
@@ -274,9 +274,9 @@ layout: section/documentation
                 </div>
             </div>
         </div>
-        <div id="community" class="doc-section">
+        <div id="contribute_to_cypht" class="doc-section">
             <div class="doc-section-header">
-                <a href="#community">Join Our Community</a>
+                <a href="#contribute_to_cypht">Contribute to Cypht</a>
             </div>
             <div class="doc-section-content">
                 <p class="doc-section-text">
@@ -314,9 +314,9 @@ layout: section/documentation
             <li><a href="#security_privacy">Security & Privacy</a></li>
             <li><a href="#performance">Performance & Features</a></li>
             <li><a href="#customization">Customization</a></li>
-            <li><a href="#getting_started">Getting Started</a></li>
+            <li><a href="#quick_start">Quick Start</a></li>
             <li><a href="#why_choose">Why Choose Cypht?</a></li>
-            <li><a href="#community">Join Community</a></li>
+            <li><a href="#contribute_to_cypht">Contribute to Cypht</a></li>
             </ul>
         </nav>
     </div>

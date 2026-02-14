@@ -701,8 +701,8 @@ The easiest way to serve Cypht is to symlink it to the web-server document root.
 <!-- <p class="terminal-prompt"> <span class="terminal-command">sudo ln -s </span><span class="terminal-text">/usr/local/share/cypht /var/www/html/mail</span></p> -->
 
 <div class="code-preview-content gc-terminal">
-<pre>
-   <code class="language-bash">
+<pre class="py-0">
+   <code class="language-bash p-0">
    sudo ln -s   /usr/local/share/cypht /var/www/html/mail
    </code>
 </pre>

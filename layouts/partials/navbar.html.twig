@@ -105,15 +105,28 @@
 			<div class="nav-menu desktop-nav flex-1 ">
 				<div class="nav-links w-100">
 					{% for item in global_menus.main %}
-						{% set current = (item.href == '/' and page.path == 'index') or (item.href != '/' and page.path starts with item.href|trim('/')) %}
-						<a href="{{ item.href }}" class="nav-item {{ current ? 'active' : '' }}" {{ current ? 'aria-current="page"' : '' }}>
+						{% set is_active = false %}
+						{% if item.href == '/' %}
+							{% if page.path == 'index' or page.path == '/' or page.path == '' %}
+								{% set is_active = true %}
+							{% endif %}
+						{% elseif item.href != '/' and page.path is defined and page.path != '' and (page.path == item.href|trim('/') or page.path starts with item.href|trim('/')) %}
+							{% set is_active = true %}
+						{% endif %}
+						<a href="{{ item.href }}" class="nav-item {{ is_active ? 'active' : '' }}" {{ is_active ? 'aria-current="page"' : '' }}>
 							<span class="nav-text">{{ item.title }}</span>
 						</a>
 					{% endfor %}
 
 					<!-- Tools Dropdown -->
-					<div class="nav-dropdown" data-dropdown="tools">
-						<button class="nav-item dropdown-trigger" data-trigger="tools">
+					{% set tools_active = false %}
+					{% for item in global_menus.tools %}
+						{% if item.href != '/' and page.path is defined and page.path != '' and page.path starts with item.href|trim('/') %}
+							{% set tools_active = true %}
+						{% endif %}
+					{% endfor %}
+					<div class="nav-dropdown {{ tools_active ? 'active' : '' }}" data-dropdown="tools">
+						<button class="nav-item dropdown-trigger {{ tools_active ? 'active' : '' }}" data-trigger="tools">
 							<span class="nav-text">Tools</span>
 							<i class="bi bi-chevron-down dropdown-arrow"></i>
 						</button>
@@ -139,8 +152,14 @@
 					</div>
 
 					<!-- Documentation Dropdown -->
-					<div class="nav-dropdown" data-dropdown="docs">
-						<button class="nav-item dropdown-trigger" data-trigger="docs">
+					{% set docs_active = false %}
+					{% for item in global_menus.docs %}
+						{% if item.href != '/' and page.path is defined and page.path != '' and page.path starts with item.href|trim('/') %}
+							{% set docs_active = true %}
+						{% endif %}
+					{% endfor %}
+					<div class="nav-dropdown {{ docs_active ? 'active' : '' }}" data-dropdown="docs">
+						<button class="nav-item dropdown-trigger {{ docs_active ? 'active' : '' }}" data-trigger="docs">
 							<span class="nav-text">Documentation</span>
 							<i class="bi bi-chevron-down dropdown-arrow"></i>
 						</button>
@@ -165,8 +184,14 @@
 						</div>
 					</div>
 					{# Integration Dropdown #}
-					<div class="nav-dropdown" data-dropdown="integration">
-						<button class="nav-item dropdown-trigger" data-trigger="integration">
+					{% set integration_active = false %}
+					{% for item in global_menus.integration %}
+						{% if item.href != '/' and page.path is defined and page.path != '' and page.path starts with item.href|trim('/') %}
+							{% set integration_active = true %}
+						{% endif %}
+					{% endfor %}
+					<div class="nav-dropdown {{ integration_active ? 'active' : '' }}" data-dropdown="integration">
+						<button class="nav-item dropdown-trigger {{ integration_active ? 'active' : '' }}" data-trigger="integration">
 							<span class="nav-text">Integration</span>
 							<i class="bi bi-chevron-down dropdown-arrow"></i>
 						</button>

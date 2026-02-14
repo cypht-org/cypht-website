@@ -10,7 +10,7 @@ loadScriptAfter: /js/security.js
       <!-- Text on the left -->
       <div class="hero-content">
         <div >
-             <span class="hs-chip">🔒 Any question about security ?</span>
+             <span class="hs-chip">Security in cypht</span>
           </div>
         <h1 class="display-6 fw-bold pe-lg-3">
           Maximum Security for Your Communications

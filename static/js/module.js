@@ -83,7 +83,7 @@ const modules = [
     description:
       "TOTP based 2 factor authentication using the Google Authenticator mobile app",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/2fa",
+      "https://github.com/cypht-org/cypht/tree/master/modules/2fa/README.md",
     cover: "/svg/security.svg",
     type_id: 1,
   },
@@ -93,7 +93,7 @@ const modules = [
     description:
       "Seamless integration with external authentication systems through a secure API, enabling single sign-on (SSO) capabilities",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/api_login",
+      "https://github.com/cypht-org/cypht/tree/master/modules/api_login/README.md",
     cover: "/svg/api.svg",
     type_id: 1,
   },
@@ -102,7 +102,7 @@ const modules = [
     name: "reCAPTCHA",
     description: "Enable Recaptcha on the login form",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/recaptcha",
+      "https://github.com/cypht-org/cypht/tree/master/modules/recaptcha/README.md",
     cover: "/svg/security.svg",
     type_id: 1,
   },
@@ -112,7 +112,7 @@ const modules = [
     description:
       "End-to-end email encryption using OpenPGP standard to ensure your communications remain private and secure",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/pgp",
+      "https://github.com/cypht-org/cypht/tree/master/modules/pgp/README.md",
     cover: "/svg/encryption.svg",
     type_id: 1,
   },
@@ -124,7 +124,7 @@ const modules = [
     description:
       "UI features for admins to create accounts, and for users to update passwords",
     issues_link:
-      "https://github.com/cypht-org/cypht/issues?q=is%3Aissue+is%3Aopen+label%3Aaccount",
+      "https://github.com/cypht-org/cypht/blob/master/modules/account/README.md",
     cover: "/svg/account.svg",
     type_id: 2,
   },
@@ -134,7 +134,7 @@ const modules = [
     description:
       "Authenticate against popular mail services or auto-discover services for the specified email",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/dynamic_login",
+      "https://github.com/cypht-org/cypht/tree/master/modules/dynamic_login/README.md",
     cover: "/svg/login.svg",
     type_id: 2,
   },
@@ -144,7 +144,7 @@ const modules = [
     description:
       "Manage user profiles with custom settings, reply-to addresses, names, and signatures",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/profiles",
+      "https://github.com/cypht-org/cypht/tree/master/modules/profiles/README.md",
     cover: "/svg/profile.svg",
     type_id: 2,
   },
@@ -153,7 +153,7 @@ const modules = [
     name: "Recover Settings",
     description: "Recover user settings after an external password change",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/recover_settings",
+      "https://github.com/cypht-org/cypht/tree/master/modules/recover_settings/README.md",
     cover: "/svg/settings.svg",
     type_id: 2,
   },
@@ -165,7 +165,7 @@ const modules = [
     description:
       "Full IMAP protocol support for accessing and managing your email accounts",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/imap",
+      "https://github.com/cypht-org/cypht/tree/master/modules/imap/README.md",
     cover: "/svg/email.svg",
     type_id: 3,
   },
@@ -174,7 +174,7 @@ const modules = [
     name: "IMAP Folder Management",
     description: "IMAP email folder management support",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/imap_folders",
+      "https://github.com/cypht-org/cypht/tree/master/modules/imap_folders/README.md",
     cover: "/svg/folder.svg",
     type_id: 3,
   },
@@ -183,7 +183,7 @@ const modules = [
     name: "SMTP Support",
     description: "Send outbound email using SMTP servers",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/smtp",
+      "https://github.com/cypht-org/cypht/tree/master/modules/smtp/README.md",
     cover: "/svg/send.svg",
     type_id: 3,
   },
@@ -193,7 +193,7 @@ const modules = [
     description:
       "Modern JSON-based email protocol for faster, more reliable access to email data",
     issues_link:
-      "https://github.com/cypht-org/cypht/blob/master/modules/imap/hm-jmap.php",
+      "https://github.com/cypht-org/cypht/blob/master/modules/imap/README.md",
     cover: "/svg/api.svg",
     type_id: 3,
   },
@@ -202,7 +202,7 @@ const modules = [
     name: "Sieve Filters",
     description: "Advanced email filtering using Sieve protocol",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/sievefilters",
+      "https://github.com/cypht-org/cypht/tree/master/modules/sieve_filters/README.md",
     cover: "/svg/filter.svg",
     type_id: 3,
   },
@@ -213,7 +213,7 @@ const modules = [
     name: "Contact Management",
     description: "Contact management with support for multiple backends",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/contacts",
+      "https://github.com/cypht-org/cypht/tree/master/modules/contacts/README.md",
     cover: "/svg/contacts.svg",
     type_id: 4,
   },
@@ -222,7 +222,7 @@ const modules = [
     name: "CardDAV Contacts",
     description: "Support for contacts stored in CardDAV",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/carddav_contacts",
+      "https://github.com/cypht-org/cypht/tree/master/modules/carddav_contacts/README.md",
     cover: "/svg/contacts.svg",
     type_id: 4,
   },
@@ -231,7 +231,7 @@ const modules = [
     name: "LDAP Contacts",
     description: "Support for contacts stored in LDAP",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/ldap_contacts",
+      "https://github.com/cypht-org/cypht/tree/master/modules/ldap_contacts/README.md",
     cover: "/svg/contacts.svg",
     type_id: 4,
   },
@@ -240,7 +240,7 @@ const modules = [
     name: "Gmail Contacts",
     description: "Read-only support for Gmail contacts with OAuth2",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/gmail_contacts",
+      "https://github.com/cypht-org/cypht/tree/master/modules/gmail_contacts/README.md",
     cover: "/svg/gmail.svg",
     type_id: 4,
   },
@@ -249,7 +249,7 @@ const modules = [
     name: "Local Contacts",
     description: "Simple locally stored contact support",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/local_contacts",
+      "https://github.com/cypht-org/cypht/tree/master/modules/local_contacts/README.md",
     cover: "/svg/contacts.svg",
     type_id: 4,
   },
@@ -258,7 +258,7 @@ const modules = [
     name: "CardDAV Contacts",
     description: "Support for contacts stored in CardDAV servers",
     issues_link:
-      "https://github.com/cypht-org/cypht/issues?q=is%3Aissue+is%3Aopen+label%3Acarddav_contacts",
+      "https://github.com/cypht-org/cypht/blob/master/modules/contacts/README.md",
     cover: "/svg/contacts.svg",
     type_id: 4,
   },
@@ -269,7 +269,7 @@ const modules = [
     name: "Calendar System",
     description: "Basic calendar functionality",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/calendar",
+      "https://github.com/cypht-org/cypht/tree/master/modules/calendar/README.md",
     cover: "/svg/calendar.svg",
     type_id: 5,
   },
@@ -278,7 +278,7 @@ const modules = [
     name: "RSS/ATOM Feeds",
     description: "RSS and ATOM feed support",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/feeds",
+      "https://github.com/cypht-org/cypht/tree/master/modules/feeds/README.md",
     cover: "/svg/rss.svg",
     type_id: 5,
   },
@@ -287,7 +287,7 @@ const modules = [
     name: "GitHub Integration",
     description: "GitHub repository tracking",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/github",
+      "https://github.com/cypht-org/cypht/tree/master/modules/github/README.md",
     cover: "/svg/github.svg",
     type_id: 5,
   },
@@ -296,7 +296,7 @@ const modules = [
     name: "Saved Searches",
     description: "Save and re-run searches easily",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/saved_searches",
+      "https://github.com/cypht-org/cypht/tree/master/modules/saved_searches/README.md",
     cover: "/svg/search.svg",
     type_id: 5,
   },
@@ -305,7 +305,7 @@ const modules = [
     name: "Advanced Search",
     description: "Support for advanced search queries",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/advanced_search",
+      "https://github.com/cypht-org/cypht/tree/master/modules/advanced_search/README.md",
     cover: "/svg/search.svg",
     type_id: 5,
   },
@@ -316,7 +316,7 @@ const modules = [
     name: "Core System",
     description: "Handles page layout, login/logout, and default settings",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/core",
+      "https://github.com/cypht-org/cypht/tree/master/modules/core/README.md",
     cover: "/svg/core.svg",
     type_id: 6,
   },
@@ -325,7 +325,7 @@ const modules = [
     name: "UI Themes",
     description: "Customize the look and feel with different CSS themes",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/themes",
+      "https://github.com/cypht-org/cypht/tree/master/modules/themes/README.md",
     cover: "/svg/theme.svg",
     type_id: 6,
   },
@@ -334,7 +334,7 @@ const modules = [
     name: "Inline Message View",
     description: "View messages inline in a reading pane instead of a new page",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/inline_message",
+      "https://github.com/cypht-org/cypht/tree/master/modules/inline_message/README.md",
     cover: "/svg/view.svg",
     type_id: 6,
   },
@@ -343,7 +343,7 @@ const modules = [
     name: "Message Highlights",
     description: "Color highlighting for message lists",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/highlights",
+      "https://github.com/cypht-org/cypht/tree/master/modules/highlights/README.md",
     cover: "/svg/highlight.svg",
     type_id: 6,
   },
@@ -352,7 +352,7 @@ const modules = [
     name: "Keyboard Shortcuts",
     description: "Navigate and perform actions using keyboard shortcuts",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/keyboard_shortcuts",
+      "https://github.com/cypht-org/cypht/tree/master/modules/keyboard_shortcuts/README.md",
     cover: "/svg/keyboard.svg",
     type_id: 6,
   },
@@ -364,7 +364,7 @@ const modules = [
     description:
       "Development resources and installation details (debug mode only)",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/developer",
+      "https://github.com/cypht-org/cypht/tree/master/modules/developer/README.md",
     cover: "/svg/developer.svg",
     type_id: 7,
   },
@@ -373,7 +373,7 @@ const modules = [
     name: "WordPress Integration",
     description: "Integration with WordPress.com services",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/wordpress",
+      "https://github.com/cypht-org/cypht/tree/master/modules/wordpress/README.md",
     cover: "/svg/wordpress.svg",
     type_id: 7,
   },
@@ -382,7 +382,7 @@ const modules = [
     name: "NASA APOD",
     description: "Access the NASA Astronomy Picture of the Day API content",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/nasa",
+      "https://github.com/cypht-org/cypht/tree/master/modules/nasa/README.md",
     cover: "/svg/nasa.svg",
     type_id: 7,
   },
@@ -391,7 +391,7 @@ const modules = [
     name: "Hello World",
     description: "Example module with extensive documentation",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/hello_world",
+      "https://github.com/cypht-org/cypht/tree/master/modules/hello_world/README.md",
     cover: "/svg/hello.svg",
     type_id: 7,
   },
@@ -400,7 +400,7 @@ const modules = [
     name: "Site Overrides",
     description: "Site-specific overrides for module configurations",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/site",
+      "https://github.com/cypht-org/cypht/tree/master/modules/site/README.md",
     cover: "/svg/site.svg",
     type_id: 7,
   },
@@ -410,7 +410,7 @@ const modules = [
     description:
       "Friendly interface for new users with common email service setup",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/nux",
+      "https://github.com/cypht-org/cypht/tree/master/modules/nux/README.md",
     cover: "/svg/nux.svg",
     type_id: 7,
   },
@@ -420,7 +420,7 @@ const modules = [
     description:
       "Organize content with customizable tags for better categorization",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/tags",
+      "https://github.com/cypht-org/cypht/tree/master/modules/tags/README.md",
     cover: "/svg/tag.svg",
     type_id: 7,
   },
@@ -429,7 +429,7 @@ const modules = [
     name: "Message History",
     description: "Track recently read messages during the current session",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/history",
+      "https://github.com/cypht-org/cypht/tree/master/modules/history/README.md",
     cover: "/svg/history.svg",
     type_id: 7,
   },
@@ -438,7 +438,7 @@ const modules = [
     name: "Desktop Notifications",
     description: "Get desktop notifications for new messages",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/desktop_notifications",
+      "https://github.com/cypht-org/cypht/tree/master/modules/desktop_notifications/README.md",
     cover: "/svg/notification.svg",
     type_id: 7,
   },
@@ -447,7 +447,7 @@ const modules = [
     name: "Idle Session Timer",
     description: "Automatic logout after period of inactivity",
     issues_link:
-      "https://github.com/cypht-org/cypht/blob/master/modules/idle_timer/README.md",
+      "https://github.com/cypht-org/cypht/tree/master/modules/idle_timer/README.md",
     cover: "/svg/timer.svg",
     type_id: 7,
   },

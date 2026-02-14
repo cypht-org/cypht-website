@@ -19,7 +19,7 @@ layout: section/documentation
 
         <div class="feature-card">
             <h6><i class="bi bi-tags"></i> Smart Organization</h6>
-            <p>Organize and categorize emails easily for better management and quick access to relevant content</p>
+            <span class="doc-section-text mb-0">Organize and categorize emails easily for better management and quick access to relevant content</span>
         </div>
     </div>
 
@@ -33,13 +33,13 @@ layout: section/documentation
 
         <div class="feature-card">
             <h6><i class="bi bi-tag"></i> Email Categorization</h6>
-            <p>Tags/Labels support to organize and categorize emails easily for better management and quick access to relevant content.</p>
+            <span class="doc-section-text mb-0">Tags/Labels support to organize and categorize emails easily for better management and quick access to relevant content.</span>
         </div>
     </div>
 
-    <div id="folder_management" class="doc-section">
+    <div id="folder_structure" class="doc-section">
         <div class="doc-section-header">
-            <a href="#folder_management">Folder Structure</a>
+            <a href="#folder_structure">Folder Structure</a>
         </div>
         <span class="doc-section-text">
             Cypht includes standard folder management for organizing your emails across accounts.
@@ -50,7 +50,7 @@ layout: section/documentation
         </div>
         <div class="feature-card">
             <h6><i class="bi bi-folder"></i> Standard Email Folders</h6>
-            <p>Cypht features main folders such as Drafts, Everything, Flagged, Junk, Sent, Snoozed, Trash, and Unread for organizing your emails.</p>
+            <span class="doc-section-text mb-0">Cypht features main folders such as Drafts, Everything, Flagged, Junk, Sent, Snoozed, Trash, and Unread for organizing your emails.</span>
         </div>
 
         <!-- <div class="doc-subsection-header">
@@ -70,7 +70,7 @@ layout: section/documentation
             Discover how tags and folders improve your email management experience.
         </span>
 
-        <p>Tags and labels provide quick access to relevant content through organized categorization. This systematic approach to email organization allows for better management of your messages, making it easier to find and prioritize important communications when you need them.</p>
+        <span class="doc-section-text mb-0">Tags and labels provide quick access to relevant content through organized categorization. This systematic approach to email organization allows for better management of your messages, making it easier to find and prioritize important communications when you need them.</span>
     </div>
 
     <nav-pagination
@@ -94,7 +94,7 @@ layout: section/documentation
             <ul id="dc-ctr-nav">
                 <li><a href="#overview" class="active">Overview</a></li>
                 <li><a href="#tags_labels">Tags/Labels</a></li>
-                <li><a href="#folder_management">Folder Management</a></li>
+                <li><a href="#folder_structure">Folder Structure</a></li>
                 <li><a href="#organization_benefits">Benefits</a></li>
             </ul>
         </nav>

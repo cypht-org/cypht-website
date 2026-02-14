@@ -122,45 +122,45 @@ document.addEventListener("DOMContentLoaded", function () {
       animationTimeouts.push(timeout);
     }
 
-    // Get delay from CSS animation-delay - matching line appearance timing
-    // Line appears at: step-1: 300ms, step-2: 4300ms, step-3: 8300ms
-    // Start typing 200ms after line appears
+    // Get delay for each step with natural progression
     function getDelay(step) {
-      const delays = {
-        "step-1": 500, // 300ms (line appear) + 200ms delay
-        "step-2": 4500, // 4300ms (line appear) + 200ms delay
-        "step-3": 8500, // 8300ms (line appear) + 200ms delay
-        "step-4": 12500, // 12300ms (line appear) + 200ms delay
+      const baseDelays = {
+        "step-1": 500,    // First command starts after 500ms
+        "step-2": 3500,   // Second command after first completes
+        "step-3": 6500,   // Third command after second completes
+        "step-4": 9500,   // Fourth command after third completes
+        "step-1-out": 2500, // Output for first command
+        "step-2-out": 0,   // No output for second command
+        "step-3-out": 7500, // Output for third command
+        "step-4-out": 11000 // Output for fourth command
       };
-      return delays[step] || 0;
+      return baseDelays[step] || 0;
     }
 
     // Calculate total animation duration
-    // Last command starts at 8500ms, typing takes ~30ms * characters, plus 500ms buffer
-    const lastCommand = Array.from(commands).reduce((latest, cmd) => {
-      const stepClass = Array.from(cmd.classList).find((cls) =>
-        cls.startsWith("step-")
-      );
+    const lastCommand = 14000; // Total duration for all animations (14 seconds)
+    const totalDuration = lastCommand + 2000; // Add 2s buffer for final display
+
+    // Start animations for each element with proper sequencing
+    document.querySelectorAll('.terminal-line').forEach((line) => {
+      const stepClass = Array.from(line.classList).find(cls => cls.startsWith('step-'));
       if (stepClass) {
         const delay = getDelay(stepClass);
-        const text = cmd.getAttribute("data-original-text") || "";
-        const typingTime = text.length * 30;
-        const total = delay + typingTime;
-        return total > latest ? total : latest;
-      }
-      return latest;
-    }, 0);
-
-    const totalDuration = lastCommand + 2000; // Add 2s buffer for outputs and final display
-
-    // Start typing animations for each command
-    commands.forEach((cmd) => {
-      const stepClass = Array.from(cmd.classList).find((cls) =>
-        cls.startsWith("step-")
-      );
-      if (stepClass) {
-        const delay = getDelay(stepClass);
-        typeCommand(cmd, delay);
+        const timeout = setTimeout(() => {
+          // Show the line
+          line.style.opacity = '1';
+          line.style.transform = 'translateY(0)';
+          
+          // If it's a command line, start typing
+          const cmd = line.querySelector('.cmd');
+          if (cmd) {
+            const originalText = cmd.getAttribute('data-original-text') || cmd.textContent;
+            cmd.setAttribute('data-original-text', originalText);
+            cmd.textContent = '';
+            typeCommand(cmd, 0);
+          }
+        }, delay);
+        animationTimeouts.push(timeout);
       }
     });
 

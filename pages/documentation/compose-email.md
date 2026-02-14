@@ -19,7 +19,7 @@ layout: section/documentation
 
         <div class="feature-card text-center">
             <h6><i class="bi bi-pencil-square"></i> Versatile Composing</h6>
-            <p>Create messages in plain text, HTML, or Markdown with advanced formatting options</p>
+            <span class="doc-section-text mb-0">Create messages in plain text, HTML, or Markdown with advanced formatting options</span>
         </div>
     </div>
 

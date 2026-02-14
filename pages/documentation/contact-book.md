@@ -19,7 +19,7 @@ layout: section/documentation
 
         <div class="feature-card text-center">
             <h6><i class="bi bi-people"></i> Easy Contact Management</h6>
-            <p>Efficiently add people to your contacts with one-click functionality</p>
+            <span class="doc-section-text mb-0">Efficiently add people to your contacts with one-click functionality</span>
         </div>
     </div>
 
@@ -36,7 +36,7 @@ layout: section/documentation
         </div>
         <div class="feature-card">
             <h6><i class="bi bi-menu-button-wide"></i> Contacts Button</h6>
-            <p>Contacts can be added via clicking the Contacts button from the main menu.</p>
+            <span class="doc-section-text mb-0">Contacts can be added via clicking the Contacts button from the main menu.</span>
         </div>
 
         <div class="doc-subsection-header">
@@ -44,7 +44,7 @@ layout: section/documentation
         </div>
         <div class="feature-card">
             <h6><i class="bi bi-person-plus"></i> One-Person Icon</h6>
-            <p>Or simply by clicking on the "one-person" icon in the message you receive.</p>
+            <span class="doc-section-text mb-0">Or simply by clicking on the "one-person" icon in the message you receive.</span>
         </div>
     </div>
 
@@ -56,7 +56,7 @@ layout: section/documentation
             Discover how the Contact Book improves your email workflow.
         </span>
 
-        <p>The one-click Contact Book feature makes it effortless to build and maintain your network of contacts. By providing quick access to contact creation directly from the main menu or from received messages, Cypht ensures you can easily save important email addresses and contact information without interrupting your workflow. This efficient system helps you stay organized and maintain better communication with your contacts.</p>
+        <span class="doc-section-text mb-0">The one-click Contact Book feature makes it effortless to build and maintain your network of contacts. By providing quick access to contact creation directly from the main menu or from received messages, Cypht ensures you can easily save important email addresses and contact information without interrupting your workflow. This efficient system helps you stay organized and maintain better communication with your contacts.</span>
     </div>
 
     <nav-pagination

@@ -52,7 +52,13 @@ layout: section/documentation
         </div>
         <p>To bring your interface to life, go to the <strong>"Settings"</strong> menu then <strong>"Accounts"</strong>. Cypht excels in versatility:</p>
 
-        <div class="doc-grid-content">
+        <ul>
+            <li><strong>SMPT/IMAP/JMAP (Servers)</strong></li>
+            <li><strong>Feed RSS</strong></li>
+            <li><strong>EWS Server</strong></li>
+            <li><strong>LDAP/Server</strong></li>
+        </ul>
+        <!-- <div class="doc-grid-content">
             <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-envelope"></i> SMPT/IMAP/JMAP (Servers)</h6>
@@ -71,7 +77,7 @@ layout: section/documentation
                     <p class="small">Link external contact or calendar services via activated modules.</p>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <p>For some service providers (Gmail, Outlook, Office365), specific information is required in your configuration file (.env for Cypht 2.x.x or hm3.ini for Cypht 1.4.x). How to get them page missing.</p>
 
@@ -80,30 +86,6 @@ layout: section/documentation
             <li><code class="me-2">SERVICE_CLIENT_SECRET</code> <span>Your application client secret</span</li>
             <li><code class="me-2">SERVICE_CLIENT_URI</code> <span>Your application redirect URI</span</li>
         </ul>
-    </div>
-
-    <div id="workflow" class="doc-section">
-        <div class="doc-section-header">
-            <a href="#workflow">Optimizing Your Workflow</a>
-        </div>
-        <span class="doc-section-text">
-            Cypht's major advantage is its <strong>Combined View</strong>. In a world where we all have 3-4 email addresses, switching between them is time-consuming. Cypht eliminates this barrier.
-        </span>
-
-        <div class="doc-grid-content">
-            <div class="">
-                <div class="feature-card">
-                    <h6><i class="bi bi-funnel"></i> Filters</h6>
-                    <p>Create filters to group "Urgent" emails or social media notifications from all accounts.</p>
-                </div>
-            </div>
-            <div class="">
-                <div class="feature-card">
-                    <h6><i class="bi bi-search"></i> Search & Advanced Search</h6>
-                    <p>Single search across work account, personal account, and local archives simultaneously.</p>
-                </div>
-            </div>
-        </div>
     </div>
 
     <div id="modules" class="doc-section">
@@ -144,7 +126,6 @@ layout: section/documentation
                 <li><a href="#prerequisites">Prerequisites</a></li>
                 <li><a href="#concepts">Core Concepts</a></li>
                 <li><a href="#setup">Configuration</a></li>
-                <li><a href="#workflow">Workflow Optimization</a></li>
                 <li><a href="#modules">Module Ecosystem</a></li>
             </ul>
         </nav>

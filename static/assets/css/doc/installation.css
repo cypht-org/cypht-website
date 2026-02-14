@@ -1,5 +1,119 @@
 /* ─── Installation Page Styles ──────────────────────────────────────────────────────────── */
 
+/* Terminal Styles */
+.terminal-window {
+      background: #1e1e1e;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+}
+
+.terminal-header {
+      background: #e0e0e0;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #b0b0b0;
+}
+
+.terminal-buttons {
+      display: flex;
+      gap: 6px;
+}
+
+.terminal-btn {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+}
+
+.terminal-btn-red {
+      background: #ff5f56;
+}
+
+.terminal-btn-yellow {
+      background: #ffbd2e;
+}
+
+.terminal-btn-green {
+      background: #27c93f;
+}
+
+.terminal-title {
+      flex: 1;
+      text-align: center;
+      font-family: 'SF Mono', monospace;
+      font-size: 12px;
+      color: #333;
+}
+
+.terminal-body {
+      padding: 16px;
+      font-family: 'SF Mono', monospace;
+      font-size: 14px;
+      color: #f0f0f0;
+      line-height: 1.5;
+      min-height: 200px;
+      position: relative;
+}
+
+.terminal-line {
+      margin: 8px 0;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      display: flex;
+      align-items: flex-start;
+}
+
+.terminal-line.visible {
+      opacity: 1;
+      transform: translateY(0);
+}
+
+.terminal-prompt {
+      color: #4caf50;
+      margin-right: 8px;
+      user-select: none;
+}
+
+.cmd {
+      position: relative;
+}
+
+.typing-cursor::after {
+      content: '|';
+      position: absolute;
+      right: -4px;
+      color: #4caf50;
+      animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+      from,
+      to {
+            opacity: 1;
+      }
+
+      50% {
+            opacity: 0;
+      }
+}
+
+.terminal-success {
+      color: #4caf50;
+}
+
+.terminal-info-server {
+      color: #64b5f6;
+      font-style: italic;
+}
+
 /* Prerequisites Section */
 .prerequisites-section {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -141,6 +255,16 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+      .terminal-window {
+            border-radius: 0;
+            box-shadow: none;
+      }
+
+      .terminal-body {
+            padding: 12px;
+            font-size: 13px;
+      }
+
       .installation-methods {
             grid-template-columns: 1fr;
             gap: 1rem;

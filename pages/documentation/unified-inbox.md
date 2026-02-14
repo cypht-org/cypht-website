@@ -19,7 +19,7 @@ layout: section/documentation
 
         <div class="feature-card text-center">
             <h6><i class="bi bi-inbox"></i> Unified Email Experience</h6>
-            <p>Combine all your email accounts and RSS feeds into a single, streamlined interface</p>
+            <p class="doc-section-text mb-0">Combine all your email accounts and RSS feeds into a single, streamlined interface</p>
         </div>
     </div>
 
@@ -36,14 +36,16 @@ layout: section/documentation
         </div>
         <div class="doc-grid-content">
             <div class="">
-                <div class="feature-card h-100">
+                <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-inbox-fill"></i> Combined Inbox</h6>
+                    <img src="https://supabase.com/images/index/products/realtime-dark.svg" alt=""/>
                     <p>View all incoming messages from all your email accounts in a single unified inbox. No need to switch between accounts to see new messages.</p>
                 </div>
             </div>
             <div class="">
-                <div class="feature-card h-100">
+                <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-envelope-open"></i> Unread Messages</h6>
+                    <img src="https://supabase.com/images/index/products/realtime-dark.svg" alt=""/>
                     <p>Quick access to all unread messages across all your accounts, helping you stay on top of important communications.</p>
                 </div>
             </div>
@@ -51,22 +53,19 @@ layout: section/documentation
 
         <div class="doc-grid-content">
             <div class="">
-                <div class="feature-card h-100">
+                <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-send"></i> Sent Messages</h6>
+                    <img src="https://supabase.com/images/index/products/realtime-dark.svg" alt=""/>
                     <p>View all sent messages from all your accounts in one place, making it easy to track your outgoing communications.</p>
                 </div>
             </div>
             <div class="">
-                <div class="feature-card h-100">
+                <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-flag"></i> Flagged Messages</h6>
+                    <img src="https://supabase.com/images/index/products/realtime-dark.svg" alt=""/>
                     <p>Access all your starred or flagged messages across accounts to quickly find important emails you've marked for follow-up.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="feature-card mt-3">
-            <h6><i class="bi bi-rss"></i> RSS Integration</h6>
-            <p>Cypht also functions as a news reader, allowing you to subscribe to RSS feeds and view them alongside your email messages in the same unified interface.</p>
         </div>
     </div>
 
@@ -80,13 +79,13 @@ layout: section/documentation
 
         <div class="doc-grid-content">
             <div class="">
-                <div class="feature-card h-100">
+                <div class="feature-card ">
                     <h6><i class="bi bi-folder"></i> IMAP Folder Access</h6>
                     <p>Browse and manage IMAP folders from any of your configured accounts with full folder hierarchy support.</p>
                 </div>
             </div>
             <div class="">
-                <div class="feature-card h-100">
+                <div class="feature-card ">
                     <h6><i class="bi bi-layers"></i> Multi-Account Support</h6>
                     <p>Switch between different email accounts while maintaining the unified view experience when desired.</p>
                 </div>
@@ -107,13 +106,13 @@ layout: section/documentation
         </div>
         <div class="doc-grid-content">
             <div class="">
-                <div class="feature-card h-100">
+                <div class="feature-card ">
                     <h6><i class="bi bi-person"></i> Profile Configuration</h6>
                     <p>Combine IMAP accounts with SMTP accounts and setup signatures and reply-to details for each profile.</p>
                 </div>
             </div>
             <div class="">
-                <div class="feature-card h-100">
+                <div class="feature-card ">
                     <h6><i class="bi bi-gear"></i> Custom Settings</h6>
                     <p>Configure individual account settings while maintaining the benefits of unified views.</p>
                 </div>
@@ -131,13 +130,13 @@ layout: section/documentation
 
         <div class="doc-grid-content">
             <div class="">
-                <div class="feature-card h-100">
+                <div class="feature-card ">
                     <h6><i class="bi bi-arrow-left-right"></i> Move Between Accounts</h6>
                     <p>Move emails from one account to another, allowing you to consolidate important messages in your preferred account.</p>
                 </div>
             </div>
             <div class="">
-                <div class="feature-card h-100">
+                <div class="feature-card ">
                     <h6><i class="bi bi-files"></i> Copy Across Accounts</h6>
                     <p>Copy emails between accounts while keeping the original in place, perfect for backup or organization purposes.</p>
                 </div>
@@ -160,13 +159,13 @@ layout: section/documentation
 
         <div class="doc-grid-content">
             <div class="">
-                <div class="feature-card h-100">
+                <div class="feature-card ">
                     <h6><i class="bi bi-lightning"></i> Parallel Processing</h6>
                     <p>Data from multiple accounts is fetched simultaneously using parallel AJAX requests for optimal performance.</p>
                 </div>
             </div>
             <div class="">
-                <div class="feature-card h-100">
+                <div class="feature-card ">
                     <h6><i class="bi bi-memory"></i> Local Caching</h6>
                     <p>Local storage (session only) is used to cache content for speedier reloads and reduced server load.</p>
                 </div>
@@ -196,7 +195,7 @@ layout: section/documentation
                 </div>
             </div>
             <div class="">
-                <div class="feature-card h-100">
+                <div class="feature-card h-100 ">
                     <h6><i class="bi bi-search"></i> Unified Search</h6>
                     <p>Search across all your accounts simultaneously to find exactly what you're looking for.</p>
                 </div>

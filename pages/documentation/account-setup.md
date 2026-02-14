@@ -21,8 +21,6 @@ layout: section/documentation
             <span class="tip-warning-text"><i class="bi bi-exclamation-triangle"></i> Complete These First</span>
             <ul class="mb-2">
                 <li><strong>Installation:</strong> Cypht must be deployed on your web server with proper PHP configuration</li>
-                <!-- <li><strong>Initial Configuration:</strong> Database connectivity and basic settings must be configured</li>
-                <li><strong>Profile Creation:</strong> You must have created your local Cypht profile with encryption password</li> -->
             </ul>
             <p class="mb-0"><strong>Need help?</strong> Go to <a href="/install">Installation Guide</a></p>
         </div>
@@ -38,26 +36,30 @@ layout: section/documentation
 
         <div class="doc-grid-content">
             <div class="">
-                <div class="feature-card h-100">
-                    <h6><i class="bi bi-envelope"></i> IMAP/SMTP Email</h6>
+                <div class="feature-card doc-img-card">
+                    <h6><i class="bi bi-envelope"></i> JMAP/IMAP/SMTP/ Servers</h6>
+                    <img src="https://supabase.com/images/index/products/realtime-dark.svg" alt=""/>
                     <p>Standard email accounts including Gmail, Outlook, Yahoo, and custom domain emails. Supports SSL/TLS encryption and various authentication methods.</p>
                 </div>
             </div>
             <div class="">
-                <div class="feature-card h-100">
+                <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-rss"></i> RSS/Atom Feeds</h6>
+                    <img src="https://supabase.com/images/index/products/realtime-dark.svg" alt=""/>
                     <p>News feeds, blogs, and content streams displayed as message threads. Perfect for staying updated with your favorite sources.</p>
                 </div>
             </div>
             <div class="">
-                <div class="feature-card h-100">
+                <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-cloud"></i> Exchange Web Services</h6>
+                    <img src="https://supabase.com/images/index/products/realtime-dark.svg" alt=""/>
                     <p>Microsoft Exchange and Office 365 accounts with full calendar and contact synchronization capabilities.</p>
                 </div>
             </div>
             <div class="">
-                <div class="feature-card h-100">
+                <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-people"></i> LDAP/Server</h6>
+                    <img src="https://supabase.com/images/index/products/realtime-dark.svg" alt=""/>
                     <p>Corporate directory services and local contact databases for integrated address book functionality.</p>
                 </div>
             </div>
@@ -219,71 +221,59 @@ layout: section/documentation
         </span>
 
         <div class="doc-grid-content">
-            <div class="">
-                <div class="feature-card h-100 d-flex flex-column">
-                    <div class="flex-grow-1">
-                        <h6><i class="bi bi-x-circle"></i> Connection Failed</h6>
-                        <p class="small">Check server settings, firewall rules, and ensure SSL/TLS ports are open. Verify credentials and try app-specific passwords.</p>
-                    </div>
-                    <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+connection+failed" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
+            <div class="feature-card d-flex flex-column">
+                <div class="flex-grow-1">
+                    <h6><i class="bi bi-x-circle"></i> Connection Failed</h6>
+                    <p class="small">Check server settings, firewall rules, and ensure SSL/TLS ports are open. Verify credentials and try app-specific passwords.</p>
+                </div>
+                <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+connection+failed" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
                         <i class="bi bi-github"></i> See Issues
                     </a>
-                </div>
             </div>
-            <div class="">
-                <div class="feature-card h-100 d-flex flex-column">
-                    <div class="flex-grow-1">
-                        <h6><i class="bi bi-exclamation-triangle"></i> Authentication Error</h6>
-                        <p class="small">Enable two-factor authentication and generate app passwords. Verify that the username matches the email address format.</p>
-                    </div>
-                    <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+authentication" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
+            <div class="feature-card d-flex flex-column">
+                <div class="flex-grow-1">
+                    <h6><i class="bi bi-exclamation-triangle"></i> Authentication Error</h6>
+                    <p class="small">Enable two-factor authentication and generate app passwords. Verify that the username matches the email address format.</p>
+                </div>
+                <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+authentication" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
                         <i class="bi bi-github"></i> See Issues
                     </a>
-                </div>
             </div>
-            <div class="">
-                <div class="feature-card h-100 d-flex flex-column">
-                    <div class="flex-grow-1">
-                        <h6><i class="bi bi-arrow-repeat"></i> Sync Issues</h6>
-                        <p class="small">Increase connection limits, check server quotas, and verify folder permissions. Use manual refresh if needed.</p>
-                    </div>
-                    <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+sync" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
+            <div class="feature-card d-flex flex-column">
+                <div class="flex-grow-1">
+                    <h6><i class="bi bi-arrow-repeat"></i> Sync Issues</h6>
+                    <p class="small">Increase connection limits, check server quotas, and verify folder permissions. Use manual refresh if needed.</p>
+                </div>
+                <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+sync" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
                         <i class="bi bi-github"></i> See Issues
                     </a>
-                </div>
             </div>
-            <div class="">
-                <div class="feature-card h-100 d-flex flex-column">
-                    <div class="flex-grow-1">
+            <div class="feature-card d-flex flex-column">
+                <div class="flex-grow-1">
                         <h6><i class="bi bi-shield-lock"></i> Security Blocks</h6>
                         <p class="small">Review account security settings, allow less secure app access if needed, or use OAuth2 authentication.</p>
                     </div>
                     <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+security" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
                         <i class="bi bi-github"></i> See Issues
                     </a>
-                </div>
             </div>
-            <div class="">
-                <div class="feature-card h-100 d-flex flex-column">
-                    <div class="flex-grow-1">
-                        <h6><i class="bi bi-folder"></i> Folder Configuration</h6>
-                        <p class="small">Check system folder mappings (Inbox, Sent) and IMAP folder prefixes (like INBOX.) for server compatibility.</p>
-                    </div>
-                    <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+folder" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
-                        <i class="bi bi-github"></i> See Issues
-                    </a>
+            <div class="feature-card d-flex flex-column">
+                <div class="flex-grow-1">
+                    <h6><i class="bi bi-folder"></i> Folder Configuration</h6>
+                    <p class="small">Check system folder mappings (Inbox, Sent) and IMAP folder prefixes (like INBOX.) for server compatibility.</p>
                 </div>
+                <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+folder" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
+                        <i class="bi bi-github"></i> See Issues
+                </a>
             </div>
-            <div class="">
-                <div class="feature-card h-100 d-flex flex-column">
-                    <div class="flex-grow-1">
-                        <h6><i class="bi bi-shield-check"></i> SSL/TLS Certificate Issues</h6>
-                        <p class="small">Ensure certificates are up to date and properly configured. For self-signed certificates, add them to trusted certificates.</p>
-                    </div>
-                    <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+ssl+OR+tls+certificate" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
-                        <i class="bi bi-github"></i> See Issues
-                    </a>
+            <div class="feature-card d-flex flex-column">
+                <div class="flex-grow-1">
+                    <h6><i class="bi bi-shield-check"></i> SSL/TLS Certificate Issues</h6>
+                    <p class="small">Ensure certificates are up to date and properly configured. For self-signed certificates, add them to trusted certificates.</p>
                 </div>
+                <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+ssl+OR+tls+certificate" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
+                        <i class="bi bi-github"></i> See Issues
+                </a>
             </div>
         </div>
     </div>
