@@ -246,7 +246,7 @@ layout: section/documentation
                 <p class="doc-section-text">
                     Cypht redefines email management with its innovative approach to handling multiple accounts, robust security features, and unparalleled customization. Experience the power of a lightweight yet powerful email client that puts you in control of your communication. Built with privacy in mind, Cypht ensures your data stays yours, with no tracking or data mining.
                 </p>
-                <div class="benefits-grid">
+                <div class="doc-grid-content benefits-grid">
                     <div class="doc-section-card">
                         <div class="doc-section-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Lucide by Lucide Contributors - https://github.com/lucide-icons/lucide/blob/main/LICENSE --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M16 3.128a4 4 0 0 1 0 7.744M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></g></svg>

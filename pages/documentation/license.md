@@ -21,8 +21,8 @@ layout: section/documentation
             <h6><i class="bi bi-shield-check"></i> LGPL V2.1 License</h6>
             <p>Cypht is licensed under the GNU Lesser General Public License v2.1</p>
             <div class="d-flex gap-2 justify-content-center flex-wrap">
-                <a href="https://github.com/cypht-org/cypht/blob/master/LICENSE" target="_blank" class="btn btn-primary">View Full License</a>
-                <a href="/license" class="btn btn-outline-primary">Detailed License Page</a>
+                <a href="https://github.com/cypht-org/cypht/blob/master/LICENSE" target="_blank" class="doc-btn-card btn-dm btn-success">View Full License</a>
+                <a href="/license" class="doc-btn-card btn-sm">Detailed License Page</a>
             </div>
         </div>
     </div>
@@ -38,8 +38,8 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#key_permissions">Key Permissions</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-check-circle"></i> What You Can Do</h6>
                     <ul>
@@ -51,7 +51,7 @@ layout: section/documentation
                     </ul>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-info-circle"></i> Requirements</h6>
                     <ul>
@@ -84,104 +84,93 @@ layout: section/documentation
         </div>
         <p>These libraries are directly integrated into Cypht and are essential for core functionality:</p>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-shield-check"></i> HTMLPurifier</h6>
                     <p>A comprehensive HTML filter written in PHP that removes malicious code while preserving valid markup. Essential for email security.</p>
-                    <a href="http://htmlpurifier.org/" target="_blank" class="btn btn-sm btn-outline-primary">Visit Website</a>
+                    <a href="http://htmlpurifier.org/" target="_blank" class="doc-btn-card btn-sm">Visit Website</a>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-code-slash"></i> Cash</h6>
                     <p>A compact jQuery compatible JavaScript library that provides core DOM manipulation and event handling features.</p>
-                    <a href="http://kenwheeler.github.io/cash/" target="_blank" class="btn btn-sm btn-outline-primary">Documentation</a>
+                    <a href="http://kenwheeler.github.io/cash/" target="_blank" class="doc-btn-card btn-sm">Documentation</a>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-file-text"></i> Html2Text</h6>
                     <p>HTML to text converter in PHP that extracts textual content from HTML emails for better compatibility and readability.</p>
-                    <a href="https://github.com/mtibben/html2text" target="_blank" class="btn btn-sm btn-outline-primary">GitHub</a>
+                    <a href="https://github.com/mtibben/html2text" target="_blank" class="doc-btn-card btn-sm">GitHub</a>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-pencil-square"></i> KindEditor</h6>
                     <p>Lightweight JavaScript WYSIWYG editor for composing HTML messages with built-in rich text editing features.</p>
-                    <a href="http://kindeditor.net/demo.php" target="_blank" class="btn btn-sm btn-outline-primary">View Demo</a>
+                    <a href="http://kindeditor.net/demo.php" target="_blank" class="doc-btn-card btn-sm">View Demo</a>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 mb-3">
+            <!--  -->
+             <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-shield-lock"></i> Forge</h6>
                     <p>JavaScript cryptography library providing secure encryption, digital signatures, and key generation capabilities.</p>
-                    <a href="https://github.com/digitalbazaar/forge" target="_blank" class="btn btn-sm btn-outline-primary">GitHub</a>
+                    <a href="https://github.com/digitalbazaar/forge" target="_blank" class="doc-btn-card btn-sm">GitHub</a>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-dice-3"></i> Random Compat</h6>
                     <p>Cryptographically secure random number generator library for PHP, ensuring the safety of sensitive operations.</p>
-                    <a href="https://github.com/paragonie/random_compat" target="_blank" class="btn btn-sm btn-outline-primary">GitHub</a>
+                    <a href="https://github.com/paragonie/random_compat" target="_blank" class="doc-btn-card btn-sm">GitHub</a>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 mb-3">
+            <!--  -->
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-code-slash"></i> Base32</h6>
                     <p>Base32 encoding library used by the two-factor authentication (2FA) module to generate secure QR codes.</p>
-                    <a href="https://github.com/ChristianRiesen/base32" target="_blank" class="btn btn-sm btn-outline-primary">GitHub</a>
+                    <a href="https://github.com/ChristianRiesen/base32" target="_blank" class="doc-btn-card btn-sm">GitHub</a>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-qr-code"></i> Barcode</h6>
                     <p>PNG QR code generator for PHP, used by the 2FA module to create secure visual authentication codes.</p>
-                    <a href="https://github.com/codeitnowin/barcode-generator" target="_blank" class="btn btn-sm btn-outline-primary">GitHub</a>
+                    <a href="https://github.com/codeitnowin/barcode-generator" target="_blank" class="doc-btn-card btn-sm">GitHub</a>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 mb-3">
+            <!--  -->
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-shield-lock"></i> Libsodium</h6>
                     <p>Optional NIST-compliant cryptography library offering modern, secure encryption algorithms for sensitive operations.</p>
-                    <a href="https://download.libsodium.org/doc/" target="_blank" class="btn btn-sm btn-outline-primary">Documentation</a>
+                    <a href="https://download.libsodium.org/doc/" target="_blank" class="doc-btn-card btn-sm">Documentation</a>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-bell"></i> Push</h6>
                     <p>JavaScript library for easy desktop notifications, used by the desktop notification module to alert users about new emails.</p>
-                    <a href="https://pushjs.org/" target="_blank" class="btn btn-sm btn-outline-primary">Website</a>
+                    <a href="https://pushjs.org/" target="_blank" class="doc-btn-card btn-sm">Website</a>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 mb-3">
+            <!--  -->
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-pencil-square"></i> Editor</h6>
                     <p>JavaScript Markdown editor for composing messages with a modern UI and advanced editing features.</p>
-                    <a href="https://lepture.com/" target="_blank" class="btn btn-sm btn-outline-primary">Website</a>
+                    <a href="https://lepture.com/" target="_blank" class="doc-btn-card btn-sm">Website</a>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-file-text"></i> Parsedown</h6>
                     <p>PHP library to convert Markdown to HTML, enabling message and documentation formatting with simple, readable syntax.</p>
-                    <a href="http://parsedown.org/" target="_blank" class="btn btn-sm btn-outline-primary">Website</a>
+                    <a href="http://parsedown.org/" target="_blank" class="doc-btn-card btn-sm">Website</a>
                 </div>
             </div>
         </div>
@@ -191,26 +180,26 @@ layout: section/documentation
         </div>
         <p>These libraries are used during development and testing but are not required for running Cypht:</p>
 
-        <div class="row">
-            <div class="col-md-4 mb-3">
+        <div class="doc-grid-second-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-vial"></i> PHPUnit</h6>
                     <p>Program that runs unit tests and builds coverage reports for PHP</p>
-                    <a href="https://phpunit.de/" target="_blank" class="btn btn-sm btn-outline-primary">Website</a>
+                    <a href="https://phpunit.de/" target="_blank" class="doc-btn-card btn-sm">Website</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-book"></i> ApiGen</h6>
                     <p>PHP app to generate documentation from source code</p>
-                    <a href="http://www.apigen.org/" target="_blank" class="btn btn-sm btn-outline-primary">Website</a>
+                    <a href="http://www.apigen.org/" target="_blank" class="doc-btn-card btn-sm">Website</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-browser-chrome"></i> Selenium</h6>
                     <p>Automated browser testing framework</p>
-                    <a href="https://www.selenium.dev/" target="_blank" class="btn btn-sm btn-outline-primary">Website</a>
+                    <a href="https://www.selenium.dev/" target="_blank" class="doc-btn-card btn-sm">Website</a>
                 </div>
             </div>
         </div>
@@ -246,8 +235,8 @@ layout: section/documentation
         </div>
         <p>Yes, you can use Cypht in commercial applications! The LGPL allows commercial use as long as you comply with the license terms. You can:</p>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-check-circle text-success"></i> Allowed</h6>
                     <ul>
@@ -258,7 +247,7 @@ layout: section/documentation
                     </ul>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-info-circle text-info"></i> Requirements</h6>
                     <ul>
@@ -272,7 +261,7 @@ layout: section/documentation
         </div>
     </div>
 
-    <div id="contributing_license" class="doc-section">
+    <!-- <div id="contributing_license" class="doc-section">
         <div class="doc-section-header">
             <a href="#contributing_license">Contributing & License</a>
         </div>
@@ -288,7 +277,7 @@ layout: section/documentation
                 <a href="/documentation/dev-docs" class="btn btn-outline-secondary">Developer Docs</a>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div id="additional_resources" class="doc-section">
         <div class="doc-section-header">
@@ -298,24 +287,24 @@ layout: section/documentation
             More information about open source licensing and Cypht.
         </span>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-book"></i> License Resources</h6>
                     <ul>
-                        <li><a href="https://www.gnu.org/licenses/lgpl-2.1.html" target="_blank">Official LGPL v2.1 Text</a></li>
-                        <li><a href="https://www.gnu.org/licenses/why-lgpl.html" target="_blank">Why Use LGPL?</a></li>
-                        <li><a href="https://www.gnu.org/licenses/gpl-faq.html" target="_blank">GPL/LGPL FAQ</a></li>
+                        <li><a href="https://www.gnu.org/licenses/lgpl-2.1.html" target="_blank" class="text-link">Official LGPL v2.1 Text</a></li>
+                        <li><a href="https://www.gnu.org/licenses/why-lgpl.html" target="_blank" class="text-link">Why Use LGPL?</a></li>
+                        <li><a href="https://www.gnu.org/licenses/gpl-faq.html" target="_blank" class="text-link">GPL/LGPL FAQ</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-link"></i> Related Links</h6>
                     <ul>
-                        <li><a href="/license" target="_blank">Detailed License Page</a></li>
-                        <li><a href="https://github.com/cypht-org/cypht" target="_blank">GitHub Repository</a></li>
-                        <li><a href="/documentation/contributing" target="_blank">Contributing Guide</a></li>
+                        <li><a href="/license" target="_blank" class="text-link">Detailed License Page</a></li>
+                        <li><a href="https://github.com/cypht-org/cypht" target="_blank" class="text-link">GitHub Repository</a></li>
+                        <li><a href="/documentation/contributing" target="_blank" class="text-link">Contributing Guide</a></li>
                     </ul>
                 </div>
             </div>
@@ -343,7 +332,7 @@ layout: section/documentation
                 <li><a href="#lgpl_explanation">Understanding LGPL</a></li>
                 <li><a href="#third_party_libraries">Third-Party Libraries</a></li>
                 <li><a href="#license_compliance">Compliance</a></li>
-                <li><a href="#contributing_license">Contributing</a></li>
+                <!-- <li><a href="#contributing_license">Contributing</a></li> -->
                 <li><a href="#additional_resources">Resources</a></li>
             </ul>
         </nav>

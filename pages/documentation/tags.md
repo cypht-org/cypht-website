@@ -17,7 +17,7 @@ layout: section/documentation
             Cypht provides tags and labels to help you organize and categorize your emails for better management and quick access to relevant content.
         </span>
 
-        <div class="feature-card text-center">
+        <div class="feature-card">
             <h6><i class="bi bi-tags"></i> Smart Organization</h6>
             <p>Organize and categorize emails easily for better management and quick access to relevant content</p>
         </div>
@@ -53,13 +53,13 @@ layout: section/documentation
             <p>Cypht features main folders such as Drafts, Everything, Flagged, Junk, Sent, Snoozed, Trash, and Unread for organizing your emails.</p>
         </div>
 
-        <div class="doc-subsection-header">
+        <!-- <div class="doc-subsection-header">
             <a href="#folder_integration">Folder Integration</a>
         </div>
         <div class="feature-card">
             <h6><i class="bi bi-layers"></i> Combined Folder View</h6>
             <p>To ensure that email messages from your accounts appear in these folders, you can add them by accessing the respective folder and clicking the "Add this folder to combined pages" icon. This integrates the folder into the combined view for easier management across all your accounts.</p>
-        </div>
+        </div> -->
     </div>
 
     <div id="organization_benefits" class="doc-section">

@@ -1,0 +1,61 @@
+/* Help */
+.troubleshooting-grid h6 {
+
+      font-weight: 600;
+      font-size: .9rem;
+}
+
+.issue-accordion .accordion-button {
+      background-color: transparent;
+      border: none;
+      padding: 0.875rem 1rem;
+      color: var(--color-text);
+      font-size: 0.95rem;
+      font-weight: 500;
+      min-height: 44px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-color: var(--color-border);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: none;
+      text-transform: none;
+}
+
+
+.issue-accordion .accordion-button:focus {
+      border: none;
+      box-shadow: none;
+      background-color: rgba(0, 0, 0, 0.05);
+}
+
+.issue-accordion .accordion-button:not(.collapsed) {
+      background-color: rgba(0, 0, 0, 0.05);
+      color: var(--color-text);
+      box-shadow: none;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+
+      .issue-accordion {
+            --bs-accordion-bg: transparent;
+            --bs-accordion-border-color: var(--color-border);
+            --bs-accordion-border-radius: 5px;
+            --bs-accordion-inner-border-radius: 0;
+      }
+
+      .issue-accordion .accordion-button:focus {
+            background-color: var(--clr-card-bg);
+            color: var(--color-text);
+      }
+
+      .mobile-accordion .accordion-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--color-text-light);
+      }
+
+      .issue-accordion .accordion-button:not(.collapsed) {
+            background-color: rgba(255, 255, 255, 0.1);
+      }
+
+}

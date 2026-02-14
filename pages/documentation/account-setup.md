@@ -36,26 +36,26 @@ layout: section/documentation
             Cypht supports multiple account types, allowing you to centralize various communication channels in one interface.
         </span>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-envelope"></i> IMAP/SMTP Email</h6>
                     <p>Standard email accounts including Gmail, Outlook, Yahoo, and custom domain emails. Supports SSL/TLS encryption and various authentication methods.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-rss"></i> RSS/Atom Feeds</h6>
                     <p>News feeds, blogs, and content streams displayed as message threads. Perfect for staying updated with your favorite sources.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-cloud"></i> Exchange Web Services</h6>
                     <p>Microsoft Exchange and Office 365 accounts with full calendar and contact synchronization capabilities.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-people"></i> LDAP/Server</h6>
                     <p>Corporate directory services and local contact databases for integrated address book functionality.</p>
@@ -93,8 +93,8 @@ layout: section/documentation
         </div>
         <p>Configure the incoming and outgoing mail servers:</p>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-download"></i> IMAP (Incoming)</h6>
                     <ul class="small mb-0">
@@ -106,7 +106,7 @@ layout: section/documentation
                     </ul>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-upload"></i> SMTP (Outgoing)</h6>
                     <ul class="small mb-0">
@@ -139,20 +139,20 @@ layout: section/documentation
         </div>
         <p>Many providers (Google, Microsoft, Yahoo) require app-specific passwords instead of your regular password:</p>
 
-        <div class="row">
-            <div class="col-md-4 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-google"></i> Google/Gmail</h6>
                     <p class="small">Enable 2-Step Verification, then generate an App Password in your Google Account settings.</p>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-microsoft"></i> Microsoft/Outlook</h6>
                     <p class="small">Use App Passwords or OAuth2 authentication for Office 365 and Outlook accounts.</p>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-shield-check"></i> Corporate Email</h6>
                     <p class="small">Contact your IT administrator for proper server settings and authentication requirements.</p>
@@ -198,7 +198,7 @@ layout: section/documentation
             <a href="#advanced_settings">Advanced Settings</a>
         </div>
         <span class="doc-section-text">
-            Fine-tune your account configuration for optimal performance and functionality.
+           Fine-tune your account configuration for optimal performance and functionality.
         </span>
 
         <ul>
@@ -206,7 +206,6 @@ layout: section/documentation
             <li><strong>Connection Limits:</strong> Set maximum concurrent connections to prevent server overload</li>
             <li><strong>Message Limits:</strong> Configure how many messages to sync per folder</li>
             <li><strong>Signature Management:</strong> Create and manage email signatures per account</li>
-            <li><strong>Auto-Cleanup:</strong> Set rules for automatic message deletion or archiving</li>
             <li><strong>Notification Settings:</strong> Configure desktop or email notifications for new messages</li>
         </ul>
     </div>
@@ -216,32 +215,74 @@ layout: section/documentation
             <a href="#troubleshooting">Troubleshooting Common Issues</a>
         </div>
         <span class="doc-section-text">
-            Resolve common account setup problems with these solutions.
+            Resolve common account setup issues with these solutions.
         </span>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <div class="feature-card h-100">
-                    <h6><i class="bi bi-x-circle"></i> Connection Failed</h6>
-                    <p class="small">Check server settings, firewall rules, and ensure SSL/TLS ports are open. Verify credentials and try app-specific passwords.</p>
+        <div class="doc-grid-content">
+            <div class="">
+                <div class="feature-card h-100 d-flex flex-column">
+                    <div class="flex-grow-1">
+                        <h6><i class="bi bi-x-circle"></i> Connection Failed</h6>
+                        <p class="small">Check server settings, firewall rules, and ensure SSL/TLS ports are open. Verify credentials and try app-specific passwords.</p>
+                    </div>
+                    <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+connection+failed" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
+                        <i class="bi bi-github"></i> See Issues
+                    </a>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
-                <div class="feature-card h-100">
-                    <h6><i class="bi bi-exclamation-triangle"></i> Authentication Error</h6>
-                    <p class="small">Enable 2-factor authentication and generate app passwords. Check that username matches email address format.</p>
+            <div class="">
+                <div class="feature-card h-100 d-flex flex-column">
+                    <div class="flex-grow-1">
+                        <h6><i class="bi bi-exclamation-triangle"></i> Authentication Error</h6>
+                        <p class="small">Enable two-factor authentication and generate app passwords. Verify that the username matches the email address format.</p>
+                    </div>
+                    <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+authentication" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
+                        <i class="bi bi-github"></i> See Issues
+                    </a>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
-                <div class="feature-card h-100">
-                    <h6><i class="bi bi-clock"></i> Sync Issues</h6>
-                    <p class="small">Increase connection limits, check server quota limits, and verify folder permissions. Manually refresh if needed.</p>
+            <div class="">
+                <div class="feature-card h-100 d-flex flex-column">
+                    <div class="flex-grow-1">
+                        <h6><i class="bi bi-arrow-repeat"></i> Sync Issues</h6>
+                        <p class="small">Increase connection limits, check server quotas, and verify folder permissions. Use manual refresh if needed.</p>
+                    </div>
+                    <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+sync" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
+                        <i class="bi bi-github"></i> See Issues
+                    </a>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
-                <div class="feature-card h-100">
-                    <h6><i class="bi bi-shield-slash"></i> Security Blocked</h6>
-                    <p class="small">Review account security settings, approve less secure app access if required, or use OAuth2 authentication.</p>
+            <div class="">
+                <div class="feature-card h-100 d-flex flex-column">
+                    <div class="flex-grow-1">
+                        <h6><i class="bi bi-shield-lock"></i> Security Blocks</h6>
+                        <p class="small">Review account security settings, allow less secure app access if needed, or use OAuth2 authentication.</p>
+                    </div>
+                    <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+security" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
+                        <i class="bi bi-github"></i> See Issues
+                    </a>
+                </div>
+            </div>
+            <div class="">
+                <div class="feature-card h-100 d-flex flex-column">
+                    <div class="flex-grow-1">
+                        <h6><i class="bi bi-folder"></i> Folder Configuration</h6>
+                        <p class="small">Check system folder mappings (Inbox, Sent) and IMAP folder prefixes (like INBOX.) for server compatibility.</p>
+                    </div>
+                    <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+folder" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
+                        <i class="bi bi-github"></i> See Issues
+                    </a>
+                </div>
+            </div>
+            <div class="">
+                <div class="feature-card h-100 d-flex flex-column">
+                    <div class="flex-grow-1">
+                        <h6><i class="bi bi-shield-check"></i> SSL/TLS Certificate Issues</h6>
+                        <p class="small">Ensure certificates are up to date and properly configured. For self-signed certificates, add them to trusted certificates.</p>
+                    </div>
+                    <a href="https://github.com/cypht-org/cypht/issues?q=is%3Aissue+ssl+OR+tls+certificate" target="_blank" class="doc-btn-card btn-sm mt-2 align-self-start">
+                        <i class="bi bi-github"></i> See Issues
+                    </a>
                 </div>
             </div>
         </div>

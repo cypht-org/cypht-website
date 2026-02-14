@@ -86,11 +86,11 @@ layout: section/documentation
         <div class="feature-card mt-3">
             <h6><i class="bi bi-pencil-square"></i> Filter Management</h6>
             <p>Sieve filters can be easily edited or deleted as needed. For more information on how to create and manage Sieve filters, see the Email filters documentation.</p>
-            <a href="https://www.cypht.org/email-filters" target="_blank" class="btn btn-outline-primary">Email Filters Guide</a>
+            <a href="https://www.cypht.org/email-filters" target="_blank" class="doc-btn-card btn-sm">Email Filters Guide</a>
         </div>
     </div>
 
-    <div id="block_list" class="doc-section">
+    <!-- <div id="block_list" class="doc-section">
         <div class="doc-section-header">
             <a href="#block_list">Block List</a>
         </div>
@@ -123,7 +123,7 @@ layout: section/documentation
             <h6><i class="bi bi-list"></i> Block List Management</h6>
             <p>You can manage blocked senders later under Settings > Block List.</p>
         </div>
-    </div>
+    </div> -->
 
     <nav-pagination
         prev-label="Compose Email"
@@ -148,7 +148,7 @@ layout: section/documentation
                 <li><a href="#unified_search">Unified Search</a></li>
                 <li><a href="#saved_searches">Saved Searches</a></li>
                 <li><a href="#sieve_filters">Sieve Filters</a></li>
-                <li><a href="#block_list">Block List</a></li>
+                <!-- <li><a href="#block_list">Block List</a></li> -->
             </ul>
         </nav>
     </div>

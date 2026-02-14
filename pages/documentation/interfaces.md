@@ -29,26 +29,26 @@ layout: section/documentation
             The Cypht interface is organized into logical sections that work together to provide an intuitive email management experience.
         </span>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-list"></i> Navigation Panel</h6>
                     <p>Left sidebar containing folder hierarchy, account switching, and quick access to combined views (inbox, sent, flagged). Collapsible for maximum screen space.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-envelope-open"></i> Message List</h6>
                     <p>Central area displaying email threads with sender, subject, date, and preview. Sortable by date, sender, or subject with real-time updates.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-file-text"></i> Reading Pane</h6>
                     <p>Right panel showing full message content with HTML rendering, attachment previews, and quick reply functionality. Can be hidden or positioned below.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-gear"></i> Settings Tab</h6>
                     <p>Top navigation with account management, module configuration, theme selection, and user preferences. Always accessible for quick adjustments.</p>
@@ -90,20 +90,20 @@ layout: section/documentation
             Cypht provides comprehensive tools for managing your email with an emphasis on speed and efficiency.
         </span>
 
-        <div class="row">
-            <div class="col-md-4 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-pencil-square"></i> Compose Window</h6>
                     <p>Full-featured composer with rich text editing, Markdown support, file attachments, and saved drafts. Auto-saves to prevent data loss.</p>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-search"></i> Search Interface</h6>
                     <p>Powerful search across all accounts with filters for date ranges, senders, subjects, and content. Results displayed with highlighting.</p>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-funnel"></i> Filtering System</h6>
                     <p>Advanced filtering with server-side Sieve support, custom rules, and automatic message organization based on your criteria.</p>
@@ -140,14 +140,14 @@ layout: section/documentation
             Cypht is committed to providing an accessible experience for all users, with comprehensive support for assistive technologies and mobile devices.
         </span>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-phone"></i> Mobile Responsive</h6>
                     <p>Touch-optimized interface that adapts seamlessly to smartphones and tablets with gesture support and mobile-specific layouts.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-universal-access"></i> Accessibility Features</h6>
                     <p>Screen reader compatibility, high contrast modes, and semantic HTML for inclusive access.</p>

@@ -34,14 +34,14 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#plain_text">Plain Text</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-file-text"></i> Simple & Universal</h6>
                     <p>Plain text emails are lightweight, load quickly, and are compatible with all email clients and devices.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-shield-check"></i> Secure & Reliable</h6>
                     <p>Plain text eliminates security risks associated with HTML and ensures your message is displayed consistently everywhere.</p>
@@ -52,14 +52,14 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#html_format">HTML Format</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-code-slash"></i> Rich Formatting</h6>
                     <p>Create visually appealing emails with formatting, colors, links, and embedded content using the built-in HTML editor.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-palette"></i> Professional Appearance</h6>
                     <p>Perfect for business communications, newsletters, and messages that require visual presentation.</p>
@@ -75,14 +75,14 @@ layout: section/documentation
             <p>Compose messages in Markdown for structured content that's easy to write and read. Markdown formatted messages are automatically converted to HTML before being sent, combining the simplicity of Markdown with the display capabilities of HTML.</p>
         </div>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-code"></i> Developer Friendly</h6>
                     <p>Perfect for technical documentation, code snippets, and structured communication.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-file-code"></i> Structured Content</h6>
                     <p>Use headers, lists, links, and code blocks to create well-organized messages.</p>
@@ -99,14 +99,14 @@ layout: section/documentation
             Advanced editing capabilities that make composing emails efficient and enjoyable.
         </span>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-type"></i> Rich Text Editor</h6>
                     <p>Built-in WYSIWYG editor for HTML messages with formatting tools, font styles, and text alignment options.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-markdown"></i> Markdown Editor</h6>
                     <p>Modern JavaScript Markdown editor with live preview and advanced editing features.</p>
@@ -114,14 +114,14 @@ layout: section/documentation
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-paperclip"></i> Attachments</h6>
                     <p>Easily attach files to your emails with drag-and-drop support and file size indicators.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-image"></i> Image Embedding</h6>
                     <p>Embed images directly in your HTML emails for rich visual content.</p>
@@ -141,14 +141,14 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#profile_management">Profile Management</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-person"></i> Flexible Profiles</h6>
                     <p>Combine IMAP accounts with SMTP accounts and setup signatures and reply-to details for each profile.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-arrow-repeat"></i> Quick Account Switching</h6>
                     <p>Switch between sending accounts on the fly without losing your composed message.</p>
@@ -159,14 +159,14 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#signatures">Signatures & Identity</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-pen"></i> Custom Signatures</h6>
                     <p>Create and manage multiple signatures for different accounts and purposes.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-envelope"></i> Reply-To Configuration</h6>
                     <p>Set custom reply-to addresses for each profile to manage responses effectively.</p>
@@ -183,14 +183,14 @@ layout: section/documentation
             Powerful features that enhance your email composition workflow and productivity.
         </span>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-reply"></i> Smart Reply</h6>
                     <p>Intelligent reply functionality that automatically quotes original messages and manages reply headers.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-forward"></i> Forward Management</h6>
                     <p>Easily forward messages with proper formatting and attachment handling.</p>
@@ -198,14 +198,14 @@ layout: section/documentation
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-people"></i> Contact Integration</h6>
                     <p>Auto-complete addresses from your contact book and recently used addresses.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-save"></i> Draft Management</h6>
                     <p>Automatically save drafts and recover them if your browser closes unexpectedly.</p>
@@ -213,14 +213,14 @@ layout: section/documentation
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-clock-history"></i> Scheduled Sending</h6>
                     <p>Schedule emails to be sent at specific times for optimal delivery.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-check-circle"></i> Delivery Receipts</h6>
                     <p>Get confirmation when your emails are delivered to the recipient's inbox.</p>
@@ -237,14 +237,14 @@ layout: section/documentation
             Built-in security features to protect your communications and maintain your privacy.
         </span>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-shield-lock"></i> Content Filtering</h6>
                     <p>HTML content is filtered through HTMLPurifier to remove potentially malicious code while preserving valid formatting.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-lock"></i> Secure Transmission</h6>
                     <p>Supports TLS/STARTTLS for SMTP connections to ensure your emails are transmitted securely.</p>
@@ -261,20 +261,20 @@ layout: section/documentation
             Tools and shortcuts that make email composition faster and more efficient.
         </span>
 
-        <div class="row">
-            <div class="col-md-4 mb-3">
+        <div class="doc-grid-second-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-keyboard"></i> Keyboard Shortcuts</h6>
                     <p>Quick keyboard shortcuts for common actions like sending, saving drafts, and formatting.</p>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-text-paragraph"></i> Templates</h6>
                     <p>Create and use email templates for frequently sent messages.</p>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-translate"></i> Spell Check</h6>
                     <p>Built-in spell checking to ensure professional communication.</p>

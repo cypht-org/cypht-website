@@ -71,6 +71,21 @@
       --clr-card-bg: #F8F9FA;
       --clr-dark-card-second: rgba(255, 255, 255, 0.05);
 
+      /* Tip info */
+      --tip-info-bg: #EBF6FD;
+      --tip-info-border: #C3D9DF;
+      --tip-info-color: #3D9DF;
+
+      /* Tip Warning */
+      --tip-warning-bg: #FBE9A0;
+      --tip-warning-border: #F5D6C3;
+      --tip-warning-color: #857531;
+
+      /* Tip Danger */
+      --tip-danger-bg: #FAEDEB;
+      --tip-danger-border: #E9CFCD;
+      --tip-danger-color: #857531;
+
       /* Shadow system */
       --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
       --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -162,6 +177,22 @@
       --nav-item-hover-color: #F8FAFC;
       --nav-item-active-bg: rgba(255, 255, 255, 0.15);
       --nav-item-active-color: #F8FAFC;
+
+      /* Tip Info (blue) */
+      --tip-info-bg: #0f2a3a;
+      --tip-info-border: #1f4a63;
+      --tip-info-color: #7cc7ff;
+
+      /* Tip Warning (amber) */
+      --tip-warning-bg: rgba(233, 182, 13, 0.527);
+      --tip-warning-border: #5a4a1f;
+      --tip-warning-color: #ffd76a;
+
+      /* Tip Danger (red) */
+      --tip-danger-bg: #3a1717;
+      --tip-danger-border: #5c2a2a;
+      --tip-danger-color: #ff8a8a;
+
 
       /* Cards */
       --clr-card-bg: #1E1E1E;

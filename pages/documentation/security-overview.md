@@ -9,16 +9,16 @@ layout: section/documentation
         <h3>Security</h3>
     </div>
 
-    <div id="security_overview" class="doc-section">
+    <div id="introduction" class="doc-section">
         <div class="doc-section-header">
-            <a href="#security_overview">Security Overview</a>
+            <a href="#introduction">Introduction</a>
         </div>
         <span class="doc-section-text">
             Cypht takes security seriously at every level - from browser interactions to server-side operations and development practices. Learn about our comprehensive security measures and how we protect your data.
         </span>
 
-        <div class="feature-card text-center">
-            <h6><i class="bi bi-shield-check"></i> Security First Approach</h6>
+        <div class="tip-card tip-info">
+            <span class="tip-info-text"><i class="bi bi-shield-check"></i> Security First Approach</span>
             <p>Multi-layered security protecting your email communications and personal data</p>
         </div>
     </div>
@@ -41,14 +41,14 @@ layout: section/documentation
         </div>
         <p>Drop by the Cypht Gitter channel or use our private security reporting channels. We take security seriously and promise:</p>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-section-grid">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-clock"></i> Quick Response</h6>
                     <p>Any security issue reported before release will receive a prompt response from our team.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-search"></i> Thorough Review</h6>
                     <p>Every report is carefully analyzed and validated by our security team.</p>
@@ -56,14 +56,14 @@ layout: section/documentation
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-section-grid">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-heart"></i> Sincere Thanks</h6>
                     <p>We appreciate your contribution to keeping Cypht secure for everyone.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-award"></i> Honorable Mention</h6>
                     <p>Security researchers receive recognition on this page for their valuable contributions.</p>
@@ -74,7 +74,7 @@ layout: section/documentation
         <div class="feature-card mt-3">
             <h6><i class="bi bi-info-circle"></i> Volunteer Project</h6>
             <p>Cypht is an entirely volunteer effort, so we can't afford a bounty program. However, we're committed to maintaining the highest security standards and value every security report.</p>
-            <a href="https://gitter.im/cypht-org/community" target="_blank" class="btn btn-primary">Report Security Issue</a>
+            <a href="https://github.com/cypht-org/cypht/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3ASecurity" target="_blank" class="doc-btn-card btn-sm btn-success">Report Security Issue</a>
         </div>
     </div>
 
@@ -89,14 +89,14 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#session_protection">Session & Cookie Protection</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-section-grid">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-shield-lock"></i> Secure Cookies</h6>
                     <p>By default, all cookies are session level, HTTP only, and have the secure flag, path, and domain values set (except one cookie used to pass user notices to JavaScript).</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-clock-history"></i> Idle Timeout</h6>
                     <p>Configurable idle timeout module set that automatically ends a session after a predetermined amount of inactivity.</p>
@@ -107,14 +107,14 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#request_protection">Request & Attack Protection</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-section-grid">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-fingerprint"></i> Request Fingerprinting</h6>
                     <p>HTTP request header fingerprinting to detect and prevent suspicious requests.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-shield-exclamation"></i> CSRF Protection</h6>
                     <p>CSRF token protection and target/source origin mismatch blocking prevent cross-site request forgery attacks.</p>
@@ -126,26 +126,24 @@ layout: section/documentation
             <a href="#security_headers">Security Headers</a>
         </div>
         <p>Comprehensive security-related HTTP headers are implemented:</p>
-        <div class="feature-card">
-            <ul>
-                <li><strong>X-XSS-Protection:</strong> Enables browser cross-site scripting filters</li>
-                <li><strong>X-Content-Type-Options:</strong> Prevents MIME-type sniffing attacks</li>
-                <li><strong>X-Frame-Options:</strong> Protects against clickjacking attacks</li>
-                <li><strong>Content-Security-Policy:</strong> Defines approved content sources</li>
-            </ul>
-        </div>
+        <ul>
+            <li><strong>X-XSS-Protection :</strong> Enables browser cross-site scripting filters</li>
+            <li><strong>X-Content-Type-Options :</strong> Prevents MIME-type sniffing attacks</li>
+            <li><strong>X-Frame-Options :</strong> Protects against clickjacking attacks</li>
+            <li><strong>Content-Security-Policy :</strong> Defines approved content sources</li>
+        </ul>
 
         <div class="doc-subsection-header">
             <a href="#integrity_verification">Integrity Verification</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-section-grid">
+            <div class="">
                 <div class="feature-card h-100">
-                    <h6><i class="bi bi-check-circle"></i> Subresource Integrity</h6>
-                    <p>Subresource Integrity for the 2 primary includes (site.js and site.css) ensures files haven't been tampered with.</p>
+                    <h6><i class="bi bi-shield-check"></i> Subresource Integrity (SRI)</h6>
+                    <p>Ensures site.js and site.css files haven't been tampered with by verifying their cryptographic hashes match expected values.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-recaptcha"></i> reCAPTCHA Support</h6>
                     <p>Google reCAPTCHA support for the login form prevents automated attacks and brute force attempts.</p>
@@ -156,14 +154,14 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#authentication_security">Authentication Security</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-section-grid">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-phone"></i> 2FA Support</h6>
                     <p>Support for 2-factor authentication with any TOTP compatible authentication application for enhanced login security.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-lock"></i> Encrypted Communications</h6>
                     <p>Optional AES encrypted AJAX responses and encrypted local session storage cache protect data in transit.</p>
@@ -183,14 +181,14 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#secure_connections">Secure Connections</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-section-grid">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-shield-lock"></i> TLS/STARTTLS Support</h6>
                     <p>TLS/STARTTLS support for IMAP, LDAP, and SMTP connections ensures encrypted email communications.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-key"></i> OAuth2 Support</h6>
                     <p>OAuth2 over IMAP/SMTP supported (currently Gmail and Outlook) for secure token-based authentication.</p>
@@ -201,17 +199,17 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#data_encryption">Data Encryption</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-section-grid">
+            <div class="">
                 <div class="feature-card h-100">
-                    <h6><i class="bi bi-clock"></i> Session Data Encryption</h6>
-                    <p>Session level data is encrypted with a long random string generated on login. Data is stored server side, and the key is stored in a session level secure cookie.</p>
+                    <h6><i class="bi bi-shield-lock"></i> Session Data Protection</h6>
+                    <p>Session data encrypted with a secure random string at login. Data stays server-side; key stored in a secure, HTTP-only cookie.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
-                    <h6><i class="bi bi-database-lock"></i> Persistent Data Encryption</h6>
-                    <p>Persistent data stored between logins is encrypted with a key derived from your clear text password, which is obviously not stored anywhere.</p>
+                    <h6><i class="bi bi-database-lock"></i> Persistent Storage</h6>
+                    <p>Data between sessions encrypted with a password-derived key. Uses PBKDF2/Argon2 for key derivation. Password never stored.</p>
                 </div>
             </div>
         </div>
@@ -220,27 +218,27 @@ layout: section/documentation
             <a href="#encryption_methods">Encryption Methods</a>
         </div>
         <div class="feature-card">
-            <h6><i class="bi bi-shield-check"></i> Advanced Cryptography</h6>
-            <p>All encryption is done with:</p>
+            <h6><i class="bi bi-shield-check"></i> Encryption Implementation</h6>
+            <p>All cryptographic operations follow these standards:</p>
             <ul>
-                <li><strong>libsodium</strong> if available (preferred)</li>
-                <li><strong>AES-256-CBC</strong> with encrypt-then-MAC as fallback</li>
-                <li><strong>PBKDF2</strong> key derivation using OpenSSL (NOT Mcrypt)</li>
-                <li><strong>Argon2</strong> with libsodium if available for password hashing</li>
+                <li>Primary: <strong>libsodium</strong> when available (preferred implementation)</li>
+                <li>Fallback: <strong>AES-256-CBC</strong> with encrypt-then-MAC</li>
+                <li>Key Derivation: <strong>PBKDF2</strong> via OpenSSL (Mcrypt is never used)</li>
+                <li>For local DB authentication: <strong>PBKDF2</strong> with salt, or <strong>Argon2</strong> when using libsodium</li>
             </ul>
         </div>
 
         <div class="doc-subsection-header">
             <a href="#server_hardening">Server Hardening</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-gear"></i> PHP Security Settings</h6>
                     <p>PHP ini settings are tightened up at runtime for extra security, including open basedir and session best practices (ones writable at runtime).</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-folder-x"></i> Minimal Web Root</h6>
                     <p>No writable files or directories are used inside the web-server document root, and only 3 files need to be inside the document root to run the program.</p>
@@ -251,17 +249,17 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#authentication_methods">Authentication Methods</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
-                    <h6><i class="bi bi-database"></i> Local Authentication</h6>
+                    <h6><i class="bi bi-database"></i> Local Authentication DB</h6>
                     <p>Optional local DB based authentication using a salt and PBKDF2 (or libsodium using Argon2 if available) for secure password storage.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
-                    <h6><i class="bi bi-envelope-check"></i> Email Security</h6>
-                    <p>HTML formatted E-Mail is filtered through HTMLPurifier with all external resources removed before being rendered.</p>
+                    <h6><i class="bi bi-envelope-check"></i> IMAP/SMTP Security</h6>
+                    <p>IMAP/SMTP connections are encrypted using TLS/STARTTLS.</p>
                 </div>
             </div>
         </div>
@@ -272,7 +270,7 @@ layout: section/documentation
         <div class="feature-card text-center">
             <h6><i class="bi bi-award"></i> Perfect Privacy Score</h6>
             <p>Achieves a perfect score from the "Email Privacy Tester" at emailprivacytester.com</p>
-            <a href="https://emailprivacytester.com/" target="_blank" class="btn btn-outline-primary">Test Privacy Score</a>
+            <a href="https://emailprivacytester.com/" target="_blank" class="doc-btn-card btn-sm">Test Privacy Score</a>
         </div>
     </div>
 
@@ -287,14 +285,14 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#secure_coding">Secure Coding Practices</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-code-slash"></i> Easy Output Escaping</h6>
                     <p>Easy output escaping inside modules for potentially dangerous content prevents XSS attacks.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-exclamation-triangle"></i> Strict Error Reporting</h6>
                     <p>Development is done with PHP's "E_ALL" and "E_STRICT" error reporting to catch potential issues early.</p>
@@ -305,14 +303,14 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#architecture_security">Secure Architecture</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-layers"></i> Separation of Concerns</h6>
                     <p>Module design enforces a separation of input processing and output formatting, and encourages concise methods, which makes the code easier to debug and audit.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-shield-check"></i> Input Validation</h6>
                     <p>Only white-listed and typed/sanitized input is allowed. Modules must pre-define input in order to have access.</p>
@@ -331,34 +329,33 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#testing_coverage">Testing & Coverage</a>
         </div>
-        <div class="row">
-            <div class="col-md-4 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-check-circle text-success"></i> 98% Unit Test Coverage</h6>
                     <p>~98% unit test coverage with PHPUnit for the application framework and core module set.</p>
-                    <a href="http://cypht.org/docs/test_coverage/index.html" target="_blank" class="btn btn-sm btn-outline-primary">View Coverage</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-browser-chrome"></i> UI Testing</h6>
                     <p>UI tests using Selenium with python bindings (currently at 64 tests).</p>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-arrow-repeat"></i> Continuous Integration</h6>
                     <p>Continuous Integration for UI tests, unit tests, and static code analysis done with Travis CI.</p>
-                    <a href="https://travis-ci.org" target="_blank" class="btn btn-sm btn-outline-primary">Travis CI</a>
+                    <a href="https://travis-ci.org" target="_blank" class="doc-btn-card btn-sm">Travis CI</a>
                 </div>
             </div>
         </div>
 
-        <div class="feature-card mt-3">
+        <!-- <div class="feature-card mt-3">
             <h6><i class="bi bi-book"></i> Testing Process</h6>
             <p>Read more about our comprehensive testing process and security validation on our testing page.</p>
             <a href="https://www.cypht.org/security/tests.html" target="_blank" class="btn btn-outline-primary">View Testing Documentation</a>
-        </div>
+        </div> -->
     </div>
 
     <div id="security_best_practices" class="doc-section">
@@ -372,14 +369,14 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#user_recommendations">For Users</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-phone"></i> Enable 2FA</h6>
                     <p>Always enable two-factor authentication when available to add an extra layer of security to your account.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-clock"></i> Regular Logout</h6>
                     <p>Log out when finished and configure appropriate idle timeouts to prevent unauthorized access.</p>
@@ -390,14 +387,14 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#administrator_recommendations">For Administrators</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-arrow-repeat"></i> Keep Updated</h6>
                     <p>Always run the latest version of Cypht to ensure you have the latest security patches and improvements.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-server"></i> Secure Server Configuration</h6>
                     <p>Ensure your web server, PHP, and database are properly configured with security best practices.</p>
@@ -425,11 +422,11 @@ layout: section/documentation
         </div>
         <nav>
             <ul id="dc-ctr-nav">
-                <li><a href="#security_overview" class="active">Security Overview</a></li>
+                <li><a href="#introduction" class="active">Introduction</a></li>
                 <li><a href="#reporting_security">Report Flaws</a></li>
                 <li><a href="#browser_security">Browser Security</a></li>
                 <li><a href="#server_security">Server Security</a></li>
-                <li><a href="#development_security">Development Security</a></li>
+                <li><a href="#development_security">Dev Security</a></li>
                 <li><a href="#security_best_practices">Best Practices</a></li>
             </ul>
         </nav>

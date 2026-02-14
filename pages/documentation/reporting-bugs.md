@@ -32,7 +32,7 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#check_existing">Check Existing Issues</a>
         </div>
-        <p>Before creating a new report, search the <a href="https://github.com/cypht-org/cypht/issues" target="_blank">GitHub issues</a> to see if the bug has already been reported.</p>
+        <p>Before creating a new report, search the <a href="https://github.com/cypht-org/cypht/issues" target="_blank" class="text-link">GitHub issues</a> to see if the bug has already been reported.</p>
 
         <div class="doc-subsection-header">
             <a href="#reproduce_issue">Reproduce the Issue</a>
@@ -44,8 +44,8 @@ layout: section/documentation
         </div>
         <p>Collect relevant details about your environment that might help diagnose the problem.</p>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-info-circle"></i> Helpful Information</h6>
                     <ul>
@@ -58,7 +58,7 @@ layout: section/documentation
                     </ul>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-clock"></i> When to Report</h6>
                     <p>Report issues that are reproducible and affect functionality. Minor UI improvements or feature requests should use the contribution guidelines instead.</p>
@@ -84,14 +84,14 @@ layout: section/documentation
             <a href="#how_to_report_security">How to Report Security Issues</a>
         </div>
         <ol>
-            <li>Visit the <a href="https://www.cypht.org/security" target="_blank">Cypht Security page</a></li>
+            <li>Visit the <a href="https://www.cypht.org/security" target="_blank" class="text-link">Cypht Security page</a></li>
             <li>Follow the private reporting instructions</li>
             <li>Provide detailed information about the vulnerability</li>
             <li>Include steps to reproduce if possible</li>
         </ol>
 
-        <div class="feature-card mt-3">
-            <h6><i class="bi bi-award"></i> Security Recognition</h6>
+        <div class="tip-card tip-info mt-3">
+            <span class="tip-info-text"><i class="bi bi-award"></i> Security Recognition</span>
             <p>Security issues reported before release receive a quick response, thorough review, sincere thanks, and honorable mention on our security page.</p>
         </div>
     </div>
@@ -104,21 +104,21 @@ layout: section/documentation
             Choose the appropriate channel based on your issue type and urgency.
         </span>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-github"></i> GitHub Issues</h6>
                     <p><strong>Best for:</strong> Bug reports, feature requests, technical issues</p>
                     <p>Submit detailed issues with reproduction steps and system information.</p>
-                    <a href="https://github.com/cypht-org/cypht/issues" target="_blank" class="btn btn-primary btn-sm mt-2">Submit Issue</a>
+                    <a href="https://github.com/cypht-org/cypht/issues" target="_blank" class="doc-btn-card btn-sm btn-success mt-2">Submit Issue</a>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-chat-dots"></i> Gitter Chat</h6>
                     <p><strong>Best for:</strong> Quick questions, general discussions, community support</p>
                     <p>Real-time chat with developers and community members.</p>
-                    <a href="https://gitter.im/cypht-org/community" target="_blank" class="btn btn-secondary btn-sm mt-2">Join Chat</a>
+                    <a href="https://gitter.im/cypht-org/community" target="_blank" class="doc-btn-card btn-sm mt-2">Join Chat</a>
                 </div>
             </div>
         </div>
@@ -136,7 +136,7 @@ layout: section/documentation
             <a href="#issue_description">Issue Description</a>
         </div>
         <p>Provide a clear and concise description of the problem:</p>
-        <pre><code>**Bug Description**
+        <pre><code class="code-bash">**Bug Description**
 
 A clear and brief description of what the bug is.
 
@@ -149,7 +149,7 @@ What actually happened instead.</code></pre>
         <div class="doc-subsection-header">
             <a href="#reproduction_steps">Steps to Reproduce</a>
         </div>
-        <pre><code>**To Reproduce**
+        <pre><code class="code-bash">**To Reproduce**
 
 1.  Go to '...'
 2.  Click on '....'
@@ -159,7 +159,7 @@ What actually happened instead.</code></pre>
         <div class="doc-subsection-header">
             <a href="#environment_info">Environment Information</a>
         </div>
-        <pre><code>**Environment**
+        <pre><code class="code-bash">**Environment**
 
 - Cypht version: [e.g., 1.3.0]
 - PHP version: [e.g., 8.1.0]
@@ -207,53 +207,9 @@ What actually happened instead.</code></pre>
         </div>
 
     </div>
-
-    <div id="community_support" class="doc-section">
-        <div class="doc-section-header">
-            <a href="#community_support">Community Support</a>
-        </div>
-        <span class="doc-section-text">
-            Get help from the community and contribute to making Cypht better for everyone.
-        </span>
-
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                <div class="feature-card h-100">
-                    <h6><i class="bi bi-people"></i> Community Forum</h6>
-                    <p>Ask questions and share experiences with other Cypht users.</p>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="feature-card h-100">
-                    <h6><i class="bi bi-code"></i> Developer Chat</h6>
-                    <p>Connect with developers for technical discussions and support.</p>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="feature-card h-100">
-                    <h6><i class="bi bi-book"></i> Documentation</h6>
-                    <p>Comprehensive guides and API documentation for developers.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="doc-subsection-header">
-            <a href="#contributing">Contributing to Cypht</a>
-        </div>
-        <p>Want to do more than report bugs? Consider contributing to the project:</p>
-        <ul>
-            <li><strong>Code contributions:</strong> Fix bugs or implement features</li>
-            <li><strong>Documentation:</strong> Improve guides and tutorials</li>
-            <li><strong>Testing:</strong> Help test new releases</li>
-            <li><strong>Translation:</strong> Translate Cypht into your language</li>
-            <li><strong>Support:</strong> Help other users in the community</li>
-        </ul>
-
-        <div class="feature-card">
-            <h6><i class="bi bi-heart"></i> Thank You!</h6>
-            <p>Whether you're reporting a bug, suggesting a feature, or contributing code, your involvement helps make Cypht better for everyone. We appreciate your support!</p>
-        </div>
-
+    <div class="doc-section">
+        <h6><i class="bi bi-heart me-2"></i> Thank You!</h6>
+        <p>Whether you're reporting a bug, suggesting a feature, or contributing code, your involvement helps make Cypht better for everyone. We appreciate your support!</p>
     </div>
 
   <nav-pagination
@@ -281,7 +237,6 @@ What actually happened instead.</code></pre>
                 <li><a href="#reporting_channels">Reporting Channels</a></li>
                 <li><a href="#bug_report_template">Report Template</a></li>
                 <li><a href="#feature_requests">Feature Requests</a></li>
-                <li><a href="#community_support">Community Support</a></li>
             </ul>
         </nav>
     </div>

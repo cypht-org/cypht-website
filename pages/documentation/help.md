@@ -27,39 +27,38 @@ layout: section/documentation
         </span>
 
         <div class="doc-subsection-header">
-            <a href="#frequently_asked_questions">Frequently Asked Questions</a>
+            <span class="doc-subsection-header-text">Frequently Asked Questions</span>
         </div>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <div class="feature-card h-100">
-                    <h6><i class="bi bi-question-circle"></i> Installation Issues</h6>
-                    <p>Having trouble installing Cypht? Check our installation guide and common troubleshooting steps.</p>
-                    <a href="/documentation/getting-started" class="btn btn-sm btn-outline-primary">Installation Guide</a>
+        <div class="doc-grid-content">
+            <!-- <div class="row"> -->
+                <div class="">
+                    <div class="feature-card h-100">
+                        <h6><i class="bi bi-question-circle"></i> Installation Issues</h6>
+                        <span class="doc-section-text">Having trouble installing Cypht? Check our installation guide and common troubleshooting steps.</span>
+                        <a href="/documentation/getting-started" class="doc-btn-card btn-sm mt-3">Installation Guide</a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <div class="feature-card h-100">
-                    <h6><i class="bi bi-envelope"></i> Email Setup</h6>
-                    <p>Learn how to configure your email accounts and troubleshoot connection problems.</p>
-                    <a href="/documentation/account-setup" class="btn btn-sm btn-outline-primary">Account Setup</a>
+                <div class="">
+                    <div class="feature-card h-100">
+                        <h6><i class="bi bi-envelope"></i> Email Setup</h6>
+                        <span class="doc-section-text">Learn how to configure your email accounts and troubleshoot connection problems.</span>
+                        <a href="/documentation/account-setup" class="doc-btn-card btn-sm mt-3">Account Setup</a>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-gear"></i> Configuration</h6>
-                    <p>Find answers about modules, themes, and advanced configuration options.</p>
-                    <a href="/documentation/configuration" class="btn btn-sm btn-outline-primary">Configuration</a>
+                    <span class="doc-section-text">Find answers about modules, themes, and advanced configuration options.</span>
+                    <a href="/documentation/configuration" class="doc-btn-card btn-sm mt-3">Configuration</a>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-bug"></i> Common Issues</h6>
-                    <p>Solutions to frequently reported problems and their fixes.</p>
-                    <a href="/documentation/reporting-bugs" class="btn btn-sm btn-outline-primary">Bug Reports</a>
+                    <span class="doc-section-text">Solutions to frequently reported problems and their fixes.</span>
+                    <a href="/documentation/reporting-bugs" class="doc-btn-card btn-sm mt-3">Bug Reports</a>
                 </div>
             </div>
         </div>
@@ -73,27 +72,24 @@ layout: section/documentation
             Connect with our community for real-time help and discussions.
         </span>
 
-        <div class="doc-subsection-header">
-            <a href="#gitter_chat">Gitter Chat</a>
-        </div>
-        <p>Join our active Gitter community where you can chat with developers and other Cypht users in real-time. This is the best place for quick questions and immediate assistance.</p>
+        <div>
+            <div class="doc-subsection-header">
+                    <a href="#gitter_chat">Gitter Chat</a>
+            </div>
+            <p>Join our active Gitter community where you can chat with developers and other Cypht users in real-time. This is the best place for quick questions and immediate assistance.  <a href="https://gitter.im/cypht-org/community" target="_blank" class="text-link ms-1"><i class="bi bi-chat-dots me-1"></i>Join us</a></p>
 
-        <div class="feature-card text-center">
-            <h6><i class="bi bi-chat-dots"></i> Join Our Community</h6>
-            <p>Get help from experienced users and developers</p>
-            <a href="https://gitter.im/cypht-org/community" target="_blank" class="btn btn-primary">Join Gitter Chat</a>
-        </div>
-
-        <div class="tip-card tip-info mt-3">
-            <span class="tip-info-text"><i class="bi bi-info-circle"></i> Chat Guidelines</span>
-            <p class="mb-0">Be patient, provide details about your issue, and search the chat history first - your question might have been answered already!</p>
+            <div class="tip-card tip-info">
+                <span class="tip-info-text"><i class="bi bi-info-circle"></i> Chat Guidelines</span>
+                <p class="mb-0 doc-section-text">Be patient, provide details about your issue, and search the chat history first - your question might have been answered already!</p>
+            </div>
         </div>
 
-        <div class="doc-subsection-header">
-            <a href="#github_discussions">GitHub Discussions</a>
+        <div class="mt-3">
+            <div class="doc-subsection-header">
+                <a href="#github_discussions">GitHub Discussions</a>
+            </div>
+            <p>Use GitHub Discussions for longer-form questions, feature requests, and community conversations that benefit from threaded responses. <a href="https://github.com/cypht-org/cypht/discussions" target="_blank" class="text-link ms-1"><i class="bi bi-chat-dots me-1"></i>View Discussions</a></p>
         </div>
-        <p>Use GitHub Discussions for longer-form questions, feature requests, and community conversations that benefit from threaded responses.</p>
-        <a href="https://github.com/cypht-org/cypht/discussions" target="_blank" class="btn btn-outline-primary">View Discussions</a>
     </div>
 
     <div id="documentation_resources" class="doc-section">
@@ -104,11 +100,11 @@ layout: section/documentation
             Comprehensive guides and references to help you master Cypht.
         </span>
 
-        <div class="row">
-            <div class="col-md-4 mb-3">
+        <div class="doc-grid-second-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-book"></i> User Guides</h6>
-                    <p>Step-by-step tutorials for common tasks and features.</p>
+                    <span class="doc-section-text">Step-by-step tutorials for common tasks and features.</span>
                     <ul>
                         <li>Getting Started</li>
                         <li>Account Setup</li>
@@ -117,7 +113,7 @@ layout: section/documentation
                     </ul>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-code-slash"></i> Developer Docs</h6>
                     <p>Technical documentation for developers and contributors.</p>
@@ -129,7 +125,7 @@ layout: section/documentation
                     </ul>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-gear"></i> Configuration</h6>
                     <p>Detailed guides for setup and customization.</p>
@@ -157,26 +153,26 @@ layout: section/documentation
         </div>
         <p>When encountering problems, follow these steps to identify and resolve issues:</p>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content troubleshooting-grid">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-search"></i> 1. Check Logs</h6>
                     <p>Review error logs in your web server and Cypht logs for specific error messages and stack traces.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-gear"></i> 2. Verify Configuration</h6>
                     <p>Ensure your configuration files are correct and all required modules are enabled.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-shield-check"></i> 3. Test Connections</h6>
                     <p>Verify database and email server connections are working properly.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-arrow-clockwise"></i> 4. Clear Cache</h6>
                     <p>Clear browser cache and Cypht cache to rule out caching issues.</p>
@@ -188,7 +184,7 @@ layout: section/documentation
             <a href="#common_issues">Common Issues and Solutions</a>
         </div>
 
-        <div class="accordion" id="issuesAccordion">
+        <div class="accordion issue-accordion" id="issuesAccordion">
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#issue1">
@@ -276,19 +272,19 @@ layout: section/documentation
             </ul>
         </div>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-bug"></i> Bug Reports</h6>
                     <p>Report technical issues and unexpected behavior.</p>
-                    <a href="https://github.com/cypht-org/cypht/issues" target="_blank" class="btn btn-primary">Submit Bug Report</a>
+                    <a href="https://github.com/cypht-org/cypht/issues" target="_blank" class="doc-btn-card btn-sm">Submit Bug Report</a>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-shield-exclamation"></i> Security Issues</h6>
                     <p>Report security vulnerabilities privately.</p>
-                    <a href="https://www.cypht.org/security" target="_blank" class="btn btn-outline-danger">Security Report</a>
+                    <a href="https://github.com/cypht-org/cypht/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3ASecurity" target="_blank" class="doc-btn-card btn-sm">Security Report</a>
                 </div>
             </div>
         </div>
@@ -306,8 +302,8 @@ layout: section/documentation
             <h6><i class="bi bi-briefcase"></i> Enterprise Support</h6>
             <p>While Cypht is community-supported, organizations can explore professional support options through experienced Cypht developers and consultants. Contact the community for recommendations.</p>
             <div class="d-flex gap-2 flex-wrap">
-                <a href="https://gitter.im/cypht-org/community" target="_blank" class="btn btn-outline-primary">Contact Community</a>
-                <a href="/documentation/join-community" class="btn btn-outline-secondary">Find Contributors</a>
+                <a href="https://gitter.im/cypht-org/community" target="_blank" class="doc-btn-card btn-sm">Contact Community</a>
+                <a href="/documentation/join-community" class="doc-btn-card btn-sm">Find Contributors</a>
             </div>
         </div>
     </div>

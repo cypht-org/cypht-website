@@ -52,28 +52,28 @@ layout: section/documentation
         </div>
         <p>To bring your interface to life, go to the <strong>"Settings"</strong> menu then <strong>"Accounts"</strong>. Cypht excels in versatility:</p>
 
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                <div class="feature-card">
+        <div class="doc-grid-content">
+            <div class="">
+                <div class="feature-card h-100">
                     <h6><i class="bi bi-envelope"></i> SMPT/IMAP/JMAP (Servers)</h6>
                     <p class="small">Standard protocol. Requires server address, port (usually 993 with SSL), and credentials.</p>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
-                <div class="feature-card">
+            <div class="">
+                <div class="feature-card h-100">
                     <h6><i class="bi bi-rss"></i> Feed RSS</h6>
                     <p class="small">Enter feed URL to transform articles into readable messages in your inbox.</p>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
-                <div class="feature-card">
+            <div class="">
+                <div class="feature-card h-100">
                     <h6><i class="bi bi-cloud"></i> EWS Server</h6>
                     <p class="small">Link external contact or calendar services via activated modules.</p>
                 </div>
             </div>
         </div>
 
-        <p>For some service providers (Gmail, Outlook, Office365), specific information is required in your configuration file (.env for Cypht 2.x.x or hm3.ini for Cypht 1.4.x). How to get them page missing..</p>
+        <p>For some service providers (Gmail, Outlook, Office365), specific information is required in your configuration file (.env for Cypht 2.x.x or hm3.ini for Cypht 1.4.x). How to get them page missing.</p>
 
         <ul class="mb-0 mt-2">
             <li><code class="me-2">SERVICE_CLIENT_ID</code> <span>Your application client ID</span</li>
@@ -90,14 +90,14 @@ layout: section/documentation
             Cypht's major advantage is its <strong>Combined View</strong>. In a world where we all have 3-4 email addresses, switching between them is time-consuming. Cypht eliminates this barrier.
         </span>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card">
                     <h6><i class="bi bi-funnel"></i> Filters</h6>
                     <p>Create filters to group "Urgent" emails or social media notifications from all accounts.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card">
                     <h6><i class="bi bi-search"></i> Search & Advanced Search</h6>
                     <p>Single search across work account, personal account, and local archives simultaneously.</p>
@@ -111,7 +111,7 @@ layout: section/documentation
             <a href="#modules" class="text-link">The Module Ecosystem</a>
         </div>
         <span class="doc-section-text">
-            Cypht is "Lean" by default minimalist. To extend it, explore the <a href="/modules">modules</a> tab. You can activate various modules to enhance functionality in your <code>.env</code> file.
+            Cypht is "Lean" by default minimalist. To extend it, explore the <a href="/modules" class="text-link">modules</a> tab. You can activate various modules to enhance functionality in your <code>.env</code> file.
         </span>
 
         <ul>

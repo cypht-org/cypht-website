@@ -34,14 +34,14 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#inbox_types">Unified Inbox Types</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-inbox-fill"></i> Combined Inbox</h6>
                     <p>View all incoming messages from all your email accounts in a single unified inbox. No need to switch between accounts to see new messages.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-envelope-open"></i> Unread Messages</h6>
                     <p>Quick access to all unread messages across all your accounts, helping you stay on top of important communications.</p>
@@ -49,14 +49,14 @@ layout: section/documentation
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-send"></i> Sent Messages</h6>
                     <p>View all sent messages from all your accounts in one place, making it easy to track your outgoing communications.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-flag"></i> Flagged Messages</h6>
                     <p>Access all your starred or flagged messages across accounts to quickly find important emails you've marked for follow-up.</p>
@@ -78,14 +78,14 @@ layout: section/documentation
             While Cypht excels at unified views, it also provides traditional email client folder navigation for when you need to access specific folders.
         </span>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-folder"></i> IMAP Folder Access</h6>
                     <p>Browse and manage IMAP folders from any of your configured accounts with full folder hierarchy support.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-layers"></i> Multi-Account Support</h6>
                     <p>Switch between different email accounts while maintaining the unified view experience when desired.</p>
@@ -105,14 +105,14 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#flexible_profiles">Flexible Profiles</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-person"></i> Profile Configuration</h6>
                     <p>Combine IMAP accounts with SMTP accounts and setup signatures and reply-to details for each profile.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-gear"></i> Custom Settings</h6>
                     <p>Configure individual account settings while maintaining the benefits of unified views.</p>
@@ -129,14 +129,14 @@ layout: section/documentation
             Perform email operations across different accounts seamlessly, breaking down the barriers between your email providers.
         </span>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-arrow-left-right"></i> Move Between Accounts</h6>
                     <p>Move emails from one account to another, allowing you to consolidate important messages in your preferred account.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-files"></i> Copy Across Accounts</h6>
                     <p>Copy emails between accounts while keeping the original in place, perfect for backup or organization purposes.</p>
@@ -153,19 +153,19 @@ layout: section/documentation
             Cypht is designed for speed and efficiency, handling multiple accounts without sacrificing performance.
         </span>
 
-        <div class="feature-card">
+        <!-- <div class="feature-card">
             <h6><i class="bi bi-speedometer2"></i> Optimized for Speed</h6>
             <p>Pages are comprised of only 3 HTTP requests totaling ~50KB (gzipped). Data to populate a page from different sources is collected with parallel AJAX requests. With standard browser caching, pages tend to transfer 10 to 20 KB.</p>
-        </div>
+        </div> -->
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-lightning"></i> Parallel Processing</h6>
                     <p>Data from multiple accounts is fetched simultaneously using parallel AJAX requests for optimal performance.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-memory"></i> Local Caching</h6>
                     <p>Local storage (session only) is used to cache content for speedier reloads and reduced server load.</p>
@@ -182,20 +182,20 @@ layout: section/documentation
             Discover how the unified inbox approach transforms your email management experience.
         </span>
 
-        <div class="row">
-            <div class="col-md-4 mb-3">
+        <div class="doc-grid-second-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-clock"></i> Time Saving</h6>
                     <p>No more switching between accounts to check for new messages. Everything is in one place.</p>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-eye"></i> Better Overview</h6>
                     <p>See all your communications at a glance and prioritize what needs your attention.</p>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-search"></i> Unified Search</h6>
                     <p>Search across all your accounts simultaneously to find exactly what you're looking for.</p>
@@ -226,8 +226,8 @@ layout: section/documentation
                 <li><a href="#overview" class="active">Overview</a></li>
                 <li><a href="#combined_views">Combined Views</a></li>
                 <li><a href="#folder_navigation">Folder Navigation</a></li>
-                <li><a href="#account_management">Account Management</a></li>
-                <li><a href="#message_management">Message Management</a></li>
+                <li><a href="#account_management">Account Manage</a></li>
+                <li><a href="#message_management">Message Manage</a></li>
                 <li><a href="#performance">Performance</a></li>
                 <li><a href="#benefits">Benefits</a></li>
             </ul>

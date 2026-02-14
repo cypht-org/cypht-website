@@ -41,26 +41,26 @@ layout: section/documentation
         </div>
         <p>As a community, we prioritize collaboration, inclusivity, and transparency. We encourage respect for others and open communication. Our goal is to create a welcoming environment for all developers, regardless of experience levels.</p>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-people"></i> Collaboration</h6>
                     <p>We work together to solve problems and improve Cypht for everyone.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-shield-check"></i> Inclusivity</h6>
                     <p>We welcome contributors of all backgrounds and experience levels.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-eye"></i> Transparency</h6>
                     <p>Our development process is open and accessible to everyone.</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-heart"></i> Respect</h6>
                     <p>We treat all community members with dignity and respect.</p>
@@ -80,13 +80,7 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#getting_involved">Getting Involved</a>
         </div>
-        <p>To start your journey with the Cypht community, connect with us on Gitter where you can chat with developers and community members in real-time.</p>
-
-        <div class="feature-card text-center">
-            <h6><i class="bi bi-chat-dots"></i> Join Our Community</h6>
-            <p>Connect with developers and community members from around the world.</p>
-            <a href="https://gitter.im/cypht-org/community" target="_blank" class="btn btn-primary">Join Gitter Chat</a>
-        </div>
+        <p>To start your journey with the Cypht community, connect with us on Gitter where you can chat with developers and community members in real-time. <a href="https://gitter.im/cypht-org/community" target="_blank" class="text-link ms-1"><i class="bi bi-chat-dots me-1"></i>Join us</a></p>
 
         <div class="tip-card tip-info mt-3">
             <span class="tip-info-text"><i class="bi bi-info-circle"></i> First Steps</span>
@@ -107,26 +101,26 @@ layout: section/documentation
         </div>
         <p>You will need the following tools and software to start contributing:</p>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-code-slash"></i> Code Editor</h6>
                     <p>A code editor of your choice (e.g., VSCode, Sublime Text, PhpStorm)</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-git"></i> Version Control</h6>
                     <p>Git for version control and collaboration</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-filetype-php"></i> PHP Environment</h6>
                     <p>PHP for developing Cypht (version 7.4+ recommended)</p>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-server"></i> Web Server</h6>
                     <p>A web server (e.g., Apache, Nginx) for testing</p>
@@ -137,8 +131,7 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#configuration_setup">Configuration and Setup</a>
         </div>
-        <p>For detailed installation, configuration, and setup instructions, please check our comprehensive installation guide:</p>
-        <a href="https://www.cypht.org/install" target="_blank" class="btn btn-outline-primary">Installation Guide</a>
+        <span class="doc-section-text">For detailed installation, configuration, and setup instructions, please check our <a href="https://www.cypht.org/install" target="_blank" class="text-link ms-1">Installation Guide</a></span>
     </div>
 
     <div id="contributing" class="doc-section">
@@ -152,26 +145,25 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#contribution_practices">Contribution Practices</a>
         </div>
-        <p>When contributing to Cypht, follow these established practices to maintain code quality and community standards:</p>
-        <a href="https://www.cypht.org/contribute" target="_blank" class="btn btn-primary">Contribution Guidelines</a>
+        <span class="doc-section-text">When contributing to Cypht, follow these established practices to maintain code quality and community standards:  <a href="https://www.cypht.org/contribute" target="_blank" class="text-link ms-1">Contribution Guidelines</a></span>
 
-        <div class="doc-subsection-header">
+        <div class="doc-subsection-header mt-3">
             <a href="#contribution_types">Types of Contributions</a>
         </div>
-        <div class="row">
-            <div class="col-md-4 mb-3">
+        <div class="doc-grid-second-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-bug"></i> Bug Fixes</h6>
                     <p>Help us squash bugs and improve stability</p>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-plus-circle"></i> New Features</h6>
                     <p>Add exciting new functionality to Cypht</p>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-book"></i> Documentation</h6>
                     <p>Improve guides and help others learn</p>
@@ -191,19 +183,19 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#documentation">Documentation</a>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-journal-text"></i> Official Documentation</h6>
                     <p>Comprehensive guides and API documentation</p>
-                    <a href="https://www.cypht.org/documentation" target="_blank" class="btn btn-sm btn-outline-primary">View Docs</a>
+                    <a href="https://www.cypht.org/documentation" target="_blank" class="doc-btn-card btn-sm">View Docs</a>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-star"></i> Major Features</h6>
                     <p>Explore Cypht's powerful features and capabilities</p>
-                    <a href="https://www.cypht.org/features" target="_blank" class="btn btn-sm btn-outline-primary">View Features</a>
+                    <a href="https://www.cypht.org/features" target="_blank" class="doc-btn-card btn-sm">View Features</a>
                 </div>
             </div>
         </div>
@@ -227,43 +219,43 @@ layout: section/documentation
             Quick access to important developer resources and tools.
         </span>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
+        <div class="doc-grid-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-github"></i> GitHub Repository</h6>
                     <p>View source code, submit issues, and contribute</p>
-                    <a href="https://github.com/cypht-org/cypht" target="_blank" class="btn btn-sm btn-outline-primary">View on GitHub</a>
+                    <a href="https://github.com/cypht-org/cypht" target="_blank" class="doc-btn-card btn-sm">View on GitHub</a>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-github"></i> Website Repository</h6>
                     <p>Contribute to the Cypht website and documentation</p>
-                    <a href="https://github.com/cypht-org/cypht-website" target="_blank" class="btn btn-sm btn-outline-primary">Website Repo</a>
+                    <a href="https://github.com/cypht-org/cypht-website" target="_blank" class="doc-btn-card btn-sm">Website Repo</a>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-4 mb-3">
+        <div class="doc-grid-second-content">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-exclamation-triangle"></i> Report Issues</h6>
                     <p>Submit bug reports and feature requests</p>
-                    <a href="https://github.com/cypht-org/cypht/issues" target="_blank" class="btn btn-sm btn-outline-primary">Submit Issue</a>
+                    <a href="https://github.com/cypht-org/cypht/issues" target="_blank" class="doc-btn-card btn-sm">Submit Issue</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-chat-dots"></i> Gitter Chat</h6>
                     <p>Real-time chat with the community</p>
-                    <a href="https://gitter.im/cypht-org/community" target="_blank" class="btn btn-sm btn-outline-primary">Join Chat</a>
+                    <a href="https://gitter.im/cypht-org/community" target="_blank" class="doc-btn-card btn-sm">Join Chat</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-hand-thumbs-up"></i> Contribute</h6>
                     <p>Learn how to contribute to Cypht</p>
-                    <a href="https://www.cypht.org/contribute" target="_blank" class="btn btn-sm btn-outline-primary">Contribute Guide</a>
+                    <a href="https://www.cypht.org/contribute" target="_blank" class="doc-btn-card btn-sm">Contribute Guide</a>
                 </div>
             </div>
         </div>
@@ -281,8 +273,8 @@ layout: section/documentation
             <h6><i class="bi bi-envelope"></i> Get in Touch</h6>
             <p>Whether you have questions, suggestions, or just want to say hello, we'd love to hear from you!</p>
             <div class="d-flex gap-2 justify-content-center flex-wrap">
-                <a href="https://gitter.im/cypht-org/community" target="_blank" class="btn btn-primary">Join Chat</a>
-                <a href="https://github.com/cypht-org/cypht/issues" target="_blank" class="btn btn-outline-primary">Submit Feedback</a>
+                <a href="https://gitter.im/cypht-org/community" target="_blank" class="doc-btn-card btn-sm btn-success">Join Chat</a>
+                <a href="https://github.com/cypht-org/cypht/issues" target="_blank" class="doc-btn-card btn-sm">Submit Feedback</a>
             </div>
         </div>
     </div>
