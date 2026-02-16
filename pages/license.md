@@ -210,10 +210,10 @@ css: /assets/doc/license.css
           <div class="line-top-indicator"></div>
           <div class="libraries-grid">
             <div class="library-card">
-              <div class="library-name"><i class="bi bi-shield-check"></i>HTMLPurifier</div>
-              <div class="library-description">A comprehensive HTML filter written in PHP that removes malicious code while preserving valid markup. Essential for email security.</div>
+              <div class="library-name"><i class="bi bi-shield-check"></i>PHPUnit</div>
+              <div class="library-description">Framework de tests unitaires PHP pour automatiser les tests et générer des rapports de couverture de code.</div>
               <div class="library-footer">
-                <a href="http://htmlpurifier.org/" class="library-btn secondary" target="_blank" rel="noopener">
+                <a href="https://phpunit.de/" class="library-btn secondary" target="_blank" rel="noopener">
                   Visit website
                   <i class="bi bi-arrow-right-short library-btn-icon"></i>
                 </a>
@@ -221,22 +221,22 @@ css: /assets/doc/license.css
             </div>
 
             <div class="library-card">
-              <div class="library-name"><i class="bi bi-code-slash"></i>Cash</div>
-              <div class="library-description">A lightweight JavaScript library compatible with jQuery that provides core DOM manipulation and event handling features.</div>
+              <div class="library-name"><i class="bi bi-file-text"></i>Apigen</div>
+              <div class="library-description">Générateur de documentation PHP à partir des commentaires du code source.</div>
               <div class="library-footer">
-                <a href="http://kenwheeler.github.io/cash/" class="library-btn secondary" target="_blank" rel="noopener">
-                  Documentation
+                <a href="http://www.apigen.org/" class="library-btn secondary" target="_blank" rel="noopener">
+                  Visit website
                   <i class="bi bi-arrow-right-short library-btn-icon"></i>
                 </a>
               </div>
             </div>
 
             <div class="library-card">
-              <div class="library-name"><i class="bi bi-file-text"></i>Html2Text</div>
-              <div class="library-description">An HTML-to-text converter in PHP that extracts textual content from HTML emails for better compatibility and readability.</div>
+              <div class="library-name"><i class="bi bi-code-slash"></i>Selenium</div>
+              <div class="library-description">Outil d'automatisation des tests navigateurs pour simuler les interactions utilisateur.</div>
               <div class="library-footer">
-                <a href="https://github.com/mtibben/html2text" class="library-btn secondary" target="_blank" rel="noopener">
-                  GitHub Repository
+                <a href="https://www.selenium.dev/" class="library-btn secondary" target="_blank" rel="noopener">
+                  Visit website
                   <i class="bi bi-arrow-right-short library-btn-icon"></i>
                 </a>
               </div>

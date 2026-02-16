@@ -49,9 +49,9 @@ layout: section/documentation
 
             <div class="">
                 <div class="feature-card h-100">
-                    <h6><i class="bi bi-gear"></i> Configuration</h6>
-                    <span class="doc-section-text">Find answers about modules, themes, and advanced configuration options.</span>
-                    <a href="/documentation/configuration" class="doc-btn-card btn-sm mt-3">Configuration</a>
+                    <h6><i class="bi bi-shield-lock"></i> Security</h6>
+                    <span class="doc-section-text">Learn about security features, best practices, and how to keep your Cypht installation secure.</span>
+                    <a href="/documentation/security-overview" class="doc-btn-card btn-sm mt-3">Security Guide</a>
                 </div>
             </div>
             <div class="">
