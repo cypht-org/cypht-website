@@ -1,0 +1,76 @@
+---
+id: 8
+title: Screen Emails
+layout: section/documentation
+---
+
+<div class="doc-content-left col mx-xl-3">
+    <div class="doc-page-header">
+        <h3>Screen Emails</h3>
+    </div>
+
+    <div id="overview" class="doc-section">
+        <span class="doc-section-text">
+           This feature allows you to filter emails in your inbox in a semi-automatic way. It enables you to perform two main actions:
+        </span>
+    </div>
+
+    <div id="dislike" class="doc-section">
+        <div class="doc-section-header">
+            <a href="#dislike">Dislike an Email</a>
+        </div>
+        <span class="doc-section-text">
+           This action moves the selected emails to a dedicated folder named “Screen Emails” (default label). As a side effect, the senders of those emails are automatically added to the Block List, which is managed by <a href="/documentation/search-filters">Filters</a>.
+        </span>
+
+        <div class="tip-card tip-info">
+            <span class="tip-info-text"><i class="bi bi-info-circle"></i> Note</span>
+            <p>This action affects all emails from the selected sender and will result in all existing emails from that sender being moved to the screening folder.</p>
+        </div>
+    </div>
+
+    <div id="like" class="doc-section">
+        <div class="doc-section-header">
+            <a href="#like">Like an Email</a>
+        </div>
+        <span class="doc-section-text">
+           Liking an email places the sender on the White List, which removes them from the Block List if they were previously listed there.
+        </span>
+    </div>
+
+    <div id="proceeding" class="doc-section">
+        <div class="doc-section-header">
+            <a href="#proceeding">How to Proceed</a>
+        </div>
+
+        To screen emails:
+        <ol>
+            <li>Go to the Inbox folder of any mailbox.</li>
+            <li>Click the “Screen” button.</li>
+
+            <br/>
+            <img src="/img/screen_button.png" /> <br/><br/>
+
+            <li>Select one or more emails, then choose an action (Like or Dislike).</li>
+
+            <br/>
+            <img src="/img/selecting_emails_to_screen.png" /> <br/><br/>
+        </ol>
+    </div>
+
+    <div id="result" class="doc-section">
+        <div class="doc-section-header">
+            <a href="#result">Behavior</a>
+        </div>
+
+        <ul>
+            <li><strong>Liked emails</strong> remain in the inbox, and their senders are white-listed.</li>
+            <li><strong>Disliked emails</strong> are moved to the “Screen Emails” folder, where you can decide what to do next (e.g., delete, mark as spam, archive, flag, etc.).</li>
+        </ul>
+
+        <div class="tip-card tip-info">
+            <span class="tip-info-text"><i class="bi bi-info-circle"></i> Note</span>
+            <p>You do not need to manually create the “Screen Emails” folder. It will be automatically created the first time you dislike emails in a mailbox.</p>
+        </div>
+    </div>
+</div>

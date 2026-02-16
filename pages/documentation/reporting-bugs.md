@@ -1,5 +1,5 @@
 ---
-id: 13
+id: 14
 title: Reporting Bugs
 layout: section/documentation
 ---
