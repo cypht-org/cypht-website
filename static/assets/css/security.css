@@ -742,8 +742,6 @@
       }
 
       .sec-tab-line::before {
-            /* background-color: var(--clr-card-bg); */
-            /* background-color: #898989b8; */
             background-color: var(--color-border);
             border: 1.5px solid var(--color-border);
       }
@@ -751,4 +749,5 @@
       .sec-tab-line::after {
             background: var(--color-border);
       }
+
 }

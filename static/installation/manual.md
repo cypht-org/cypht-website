@@ -1,3 +1,8 @@
+---
+id: 0
+title: Manual Install
+---
+
 <div class="guide-left col col-xl-9">
    <div class="guide-page-header">
       <h3>Manual installation</h3>

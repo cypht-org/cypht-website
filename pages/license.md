@@ -14,7 +14,7 @@ css: /assets/doc/license.css
         Cypht License & Dependencies
       </h1>
       <p class="license-subtitle home-hs-subtitle">
-        Cypht is distributed under the LGPL V2.1 license and will always remain free and open source. 
+        Cypht is distributed under the LGPL V2.1 license and will always remain free and Open Source. 
         Learn about our licensing terms and the third-party libraries we use.
       </p>
     <div class="home-hero-actions">

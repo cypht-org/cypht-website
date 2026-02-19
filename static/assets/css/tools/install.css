@@ -588,6 +588,7 @@
       line-height: 1.5;
 }
 
+
 #guide_nav_list {
       width: 100%;
       list-style: none;
@@ -604,7 +605,7 @@
       width: 12px;
       height: 100%;
       top: 0;
-      border-right: 1px solid #cccccccb;
+      border-right: 1px solid var(--color-border);
 }
 
 #guide_nav_list li {

@@ -17,7 +17,7 @@ loadScriptAfter: /js/contribute.js
           Contributing to Cypht
       </h1>
       <p class="contribute-subtitle home-hs-subtitle">
-        Join our open source community and help make Cypht better! Whether you're a developer, designer, 
+        Join our Open Source community and help make Cypht better! Whether you're a developer, designer, 
         or documentation writer, there are many ways to contribute to the project.
       </p>
       <div class="contribute-buttons mt-3">
@@ -111,7 +111,7 @@ loadScriptAfter: /js/contribute.js
               <img src="/img/contribute.png" alt="Contribute illustration" />
               <div class="dev-flow-text">
                 <h4>Want to Contribute ?</h4>
-                <p>Join our open-source team and help us build next-gen mailing features 🚀</p>
+                <p>Join our Open Source team and help us build next-gen mailing features 🚀</p>
               </div>
           </div>
         </div>

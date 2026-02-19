@@ -58,6 +58,15 @@
       width: 100%;
 }
 
+.stat-indicator {
+      color: var(--color-primary) !important;
+      font-weight: bold !important;
+      opacity: 1 !important;
+      -webkit-text-stroke: .6px var(--color-primary);
+}
+
+/* }
+
 /*  */
 .section-card-title {
       color: var(--color-text);

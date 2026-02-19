@@ -17,7 +17,7 @@ h1: false
         <h2>About the Cypht Community</h2>
         <h3 class="h3">What is Cypht?</h3>
         <p>
-            Cypht is an open-source email client and news aggregator with a modular design. Unlike traditional
+            Cypht is an Open Source email client and news aggregator with a modular design. Unlike traditional
             applications, Cypht is built entirely from plugins, or "module sets," with the core modules being
             essential. Users can customize their experience by adding or replacing modules to suit specific site
             requirements. This modular approach offers flexibility and easy customization, although it may introduce

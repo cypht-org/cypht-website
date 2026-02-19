@@ -323,9 +323,10 @@
       background: white !important;
       color: #558017 !important;
       border: none !important;
-      font-weight: 600;
+      font-weight: 600 !important;
       margin-top: 1rem;
       align-self: flex-start;
+      font-size: .87rem !important;
 }
 
 .cta-btn:hover {

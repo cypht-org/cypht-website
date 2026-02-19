@@ -90,7 +90,7 @@ loadScriptAfter: /js/feature.js
                     </div>
                         <!--  -->
                     <div class="ft-card-img-content">
-                            <img draggable="false" alt="Lightweight Pages" decoding="async" data-nimg="fill" class="" src="https://supabase.com/images/index/products/edge-functions-dark.svg">
+                            <img draggable="false" alt="Lightweight Pages" decoding="async" data-nimg="fill" class="" src="/img/features/caching_mechanisms.png">
                     </div>
                     </div>
                     <div class="perf-div2 feature-card feat-card-long">
@@ -104,7 +104,7 @@ loadScriptAfter: /js/feature.js
                             </div>
                         </div>
                         <div class="ft-card-img-content">
-                            <img draggable="false" alt="Lightweight Pages" decoding="async" data-nimg="fill" src="https://supabase.com/images/index/products/edge-functions-dark.svg">
+                            <img draggable="false" alt="Lightweight Pages" decoding="async" data-nimg="fill" src="/img/features/basic_ajax_page.png">
                         </div>
                     </div>
                     <div class="perf-div3 feature-card feat-card-long">
@@ -116,7 +116,7 @@ loadScriptAfter: /js/feature.js
                            </div>
                         </div>
                         <div class="ft-card-img-content">
-                            <img draggable="false" alt="Lightweight Pages" decoding="async" data-nimg="fill" class="" src="https://supabase.com/images/index/products/edge-functions-dark.svg">
+                            <img draggable="false" alt="Lightweight Pages" decoding="async" data-nimg="fill" class="" src="/img/features/multi_protocol_support.png">
                         </div>
                     </div>
                     <div class="perf-div4 feature-card">
@@ -125,7 +125,7 @@ loadScriptAfter: /js/feature.js
                             <span class="ft-description">The keyboard_shortcuts module transforms Cypht into a power-user environment by enabling fully configurable keyboard shortcuts for all core actions.</span>
                         </div>
                         <div class="ft-card-img-content">
-                            <img draggable="false" alt="Cypht feat" decoding="async" data-nimg="fill" class="" src="https://supabase.com/images/index/products/auth.svg">
+                            <img draggable="false" alt="Cypht feat" decoding="async" data-nimg="fill" class="" src="/img/features/keyboard.png">
                         </div>
                     </div>
                 </div>
@@ -159,7 +159,7 @@ loadScriptAfter: /js/feature.js
                             <span class="ft-description">Search across all accounts with powerful filters and boolean operators for precise results.</span>
                         </div>
                         <div class="ft-card-img-content">
-                            <img draggable="false" alt="Lightweight Pages" decoding="async" data-nimg="fill" src="https://supabase.com/images/index/products/edge-functions-dark.svg">
+                            <img draggable="false" alt="Lightweight Pages" decoding="async" data-nimg="fill" src="/img/features/advanced_search.png">
                         </div>
                     </div>
                     <div class="search-div5 feature-card search-card-long">
@@ -169,7 +169,7 @@ loadScriptAfter: /js/feature.js
                             </span>
                         </div>
                         <div class="ft-card-img-content">
-                            <img draggable="false" alt="Lightweight Pages" decoding="async" data-nimg="fill" src="https://supabase.com/images/index/products/edge-functions-dark.svg">
+                            <img draggable="false" alt="Lightweight Pages" decoding="async" data-nimg="fill" src="/img/features/saved_searches.png">
                         </div>
                     </div>
                 </div>
@@ -233,7 +233,7 @@ loadScriptAfter: /js/feature.js
                     <div class="security-card sec-card-1">
                         <div class="feat-card-header">
                             <span class="mss-div-header"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 6.5v-2c0-.465 0-.697-.038-.89A2 2 0 0 0 6.39 2.038C6.197 2 5.965 2 5.5 2s-.697 0-.89.038A2 2 0 0 0 3.038 3.61C3 3.803 3 4.035 3 4.5v2c0 .465 0 .697.038.89A2 2 0 0 0 4.61 8.962C4.803 9 5.035 9 5.5 9s.697 0 .89-.038A2 2 0 0 0 7.962 7.39C8 7.197 8 6.965 8 6.5Zm13 0v-2c0-.465 0-.697-.038-.89a2 2 0 0 0-1.572-1.572C19.197 2 18.965 2 18.5 2s-.697 0-.89.038a2 2 0 0 0-1.572 1.572C16 3.803 16 4.035 16 4.5v2c0 .465 0 .697.038.89a2 2 0 0 0 1.572 1.572c.193.038.425.038.89.038s.697 0 .89-.038a2 2 0 0 0 1.572-1.572C21 7.197 21 6.965 21 6.5Zm-13 13v-2c0-.465 0-.697-.038-.89a2 2 0 0 0-1.572-1.572C6.197 15 5.965 15 5.5 15s-.697 0-.89.038a2 2 0 0 0-1.572 1.572C3 16.803 3 17.035 3 17.5v2c0 .465 0 .697.038.89a2 2 0 0 0 1.572 1.572c.193.038.425.038.89.038s.697 0 .89-.038a2 2 0 0 0 1.572-1.572C8 20.197 8 19.965 8 19.5Zm13 0v-2c0-.465 0-.697-.038-.89a2 2 0 0 0-1.572-1.572C19.197 15 18.965 15 18.5 15s-.697 0-.89.038a2 2 0 0 0-1.572 1.572c-.038.193-.038.425-.038.89v2c0 .465 0 .697.038.89a2 2 0 0 0 1.572 1.572c.193.038.425.038.89.038s.697 0 .89-.038a2 2 0 0 0 1.572-1.572c.038-.193.038-.425.038-.89Zm-5-1H8m8-13H8m4 13V16m0-10.5V8m2 2l-4 4m0-4l4 4"/></svg>Advanced Encryption</span>
-                    <span class="ft-description">Easily move or copy emails between different accounts and folders for better organization.</span>
+                    <span class="ft-description">Client-side encryption with libsodium/AES-256-CBC. Session and persistent data encrypted with unique keys</span>
                         </div>
                         <div class="ft-card-img-content sec-img-card">
                             <img draggable="false" alt="Cypht feat" decoding="async" data-nimg="fill" src="/img/features/isec_encryption.png">
@@ -242,7 +242,7 @@ loadScriptAfter: /js/feature.js
                     <div class="security-card sec-card-2">
                         <div class="feat-card-header">
                             <span class="mss-div-header"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M3.378 5.082C3 5.62 3 7.22 3 10.417v1.574c0 5.638 4.239 8.375 6.899 9.536c.721.315 1.082.473 2.101.473c1.02 0 1.38-.158 2.101-.473C16.761 20.365 21 17.63 21 11.991v-1.574c0-3.198 0-4.797-.378-5.335c-.377-.537-1.88-1.052-4.887-2.081l-.573-.196C13.595 2.268 12.812 2 12 2c-.811 0-1.595.268-3.162.805L8.265 3c-3.007 1.03-4.51 1.545-4.887 2.082M13.5 15a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1.401A2.999 2.999 0 0 1 12 8a3 3 0 0 1 1.5 5.599z" clip-rule="evenodd"/></svg>Flexible Authentication</span>
-                            <span class="ft-description">Easily move or copy emails between different accounts and folders for better organization.</span>
+                            <span class="ft-description">2FA with TOTP apps, OAuth2 for Gmail/Outlook. Secure HTTP-only and Secure cookies.</span>
                         </div>
                         <div class="ft-card-img-content sec-img-card">
                             <img src="/img/features/isec_auth.png">
@@ -251,7 +251,7 @@ loadScriptAfter: /js/feature.js
                     <div class="security-card sec-card-3">
                         <div class="feat-card-header">
                             <span class="mss-div-header"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none"><circle cx="12" cy="13" r="2" stroke="currentColor" stroke-width="1.5"/><path fill="currentColor" d="M11.25 17.5a.75.75 0 0 0 1.5 0zm0-2.5v2.5h1.5V15z"/><path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M22 11.798c0-2.632 0-3.949-.77-4.804a2.984 2.984 0 0 0-.224-.225C20.151 6 18.834 6 16.202 6h-.374c-1.153 0-1.73 0-2.268-.153a4 4 0 0 1-.848-.352C12.224 5.224 11.816 4.815 11 4l-.55-.55c-.274-.274-.41-.41-.554-.53a4 4 0 0 0-2.18-.903C7.53 2 7.336 2 6.95 2c-.883 0-1.324 0-1.692.07A4 4 0 0 0 2.07 5.257C2 5.626 2 6.068 2 6.95M21.991 16c-.036 2.48-.22 3.885-1.163 4.828C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.172C2 19.657 2 17.771 2 14v-3"/></g></svg>Secure Storage</span>
-                    <span class="ft-description">Easily move or copy emails between different accounts and folders for better organization.</span>
+                    <span class="ft-description">Server-side encrypted session data. No sensitive data in web root.</span>
                         </div>
                         <div class="ft-card-img-content sec-img-card">
                             <img draggable="false" alt="Cypht feat" decoding="async" data-nimg="fill" src="/img/features/isec_sec.png">

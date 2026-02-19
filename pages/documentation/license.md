@@ -67,7 +67,7 @@ layout: section/documentation
 
         <div class="tip-card tip-info">
             <span class="tip-info-text"><i class="bi bi-lightbulb"></i> Why LGPL?</span>
-            <p class="mb-0">We chose LGPL v2.1 because it balances freedom for users with flexibility for developers. You can use Cypht in commercial projects while ensuring the core remains open source.</p>
+            <p class="mb-0">We chose LGPL v2.1 because it balances freedom for users with flexibility for developers. You can use Cypht in commercial projects while ensuring the core remains Open Source.</p>
         </div>
     </div>
 
@@ -284,7 +284,7 @@ layout: section/documentation
             <a href="#additional_resources">Additional Resources</a>
         </div>
         <span class="doc-section-text">
-            More information about open source licensing and Cypht.
+            More information about Open Source licensing and Cypht.
         </span>
 
         <div class="doc-grid-content">

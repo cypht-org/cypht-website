@@ -14,7 +14,7 @@ layout: section/documentation
             <a href="#overview">Bug Reporting Overview</a>
         </div>
         <span class="doc-section-text">
-            Help us improve Cypht by reporting bugs and issues you encounter. Your feedback is essential for maintaining the quality and reliability of this open-source email client.
+            Help us improve Cypht by reporting bugs and issues you encounter. Your feedback is essential for maintaining the quality and reliability of this Open Source email client.
         </span>
         <span class="doc-section-text">
             Cypht is an entirely volunteer effort, and we rely on community contributions to identify and fix issues. Every bug report helps make Cypht better for everyone.

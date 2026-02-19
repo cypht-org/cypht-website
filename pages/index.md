@@ -3,7 +3,7 @@ title: Home
 weight: 1
 nocontainer: true
 h1: Welcome to Cypht
-loadScriptAfter: /home-page.js
+loadScriptAfter: /js/home-page.js
 ---
 
 <div>
@@ -26,7 +26,8 @@ loadScriptAfter: /home-page.js
                     <img src="https://avatars.githubusercontent.com/u/28566468?v=4" alt="Customer avatar" class="avatar" />
                     <img src="https://avatars.githubusercontent.com/u/62720246?v=4" alt="Customer avatar" class="avatar" />
                 </div>
-                <p class="stat-text d-flex flex-column align-items-start mb-0"><span class="d-block">Trusted by 21,000+ happy</span>customers worldwide</p>
+                <!-- <span id="packagist-downloads">Loading downloads...</span> -->
+                <p class="stat-text d-flex flex-column align-items-start mb-0"><span class="d-block">Trusted with <span id="packagist-downloads" class="fw-bold"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from SVG Spinners by Utkarsh Verma - https://github.com/n3r4zzurr0/svg-spinners/blob/main/LICENSE --><circle cx="4" cy="12" r="3" fill="currentColor"><animate id="SVG7x14Dcom" fill="freeze" attributeName="opacity" begin="0;SVGqSjG0dUp.end-0.25s" dur="0.75s" values="1;.2"/></circle><circle cx="12" cy="12" r="3" fill="currentColor" opacity=".4"><animate fill="freeze" attributeName="opacity" begin="SVG7x14Dcom.begin+0.15s" dur="0.75s" values="1;.2"/></circle><circle cx="20" cy="12" r="3" fill="currentColor" opacity=".3"><animate id="SVGqSjG0dUp" fill="freeze" attributeName="opacity" begin="SVG7x14Dcom.begin+0.3s" dur="0.75s" values="1;.2"/></circle></svg></span></span> downloads worldwide</p>
             </div>
             <div class="minimal-mockup">
                 <img src="/img/app_overview_2.png" alt="App preview" />
@@ -130,7 +131,7 @@ loadScriptAfter: /home-page.js
                             <i class="bi bi-github"></i>
                             <i class="bi bi-wordpress"></i>
                         </div>
-                        <a href="/modules" class="see-all-link">See all modules <i class="bi bi-arrow-right"></i></a>
+                        <a href="/modules" class="see-all-link fw-medium">See all modules</a>
                     </div>
                 </div>
                 <!-- cyan card -->
@@ -152,7 +153,7 @@ loadScriptAfter: /home-page.js
                         </div>
                         <h3>Flexible Authentication</h3>
                         <p>Support for IMAP, LDAP, database, and popular email providers with auto-discovery.</p>
-                        <a href="/features" class="btn btn-light cta-btn">See all features <i class="bi bi-arrow-right"></i></a>
+                        <a href="/features" class="btn btn-light cta-btn fw-bold">See all features <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
             </div>

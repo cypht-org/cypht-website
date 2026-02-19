@@ -642,10 +642,10 @@
       .drop-item-icon {
             flex-shrink: 0;
             font-size: 1.2rem;
-            color: var(--color-primary);
+            /* color: var(--color-primary);
             background: linear-gradient(135deg,
                         rgba(128, 180, 65, 0.15),
-                        rgba(128, 180, 65, 0.25));
+                        rgba(128, 180, 65, 0.25)); */
             padding: 0.625rem;
             border-radius: 10px;
             display: flex;
@@ -663,9 +663,9 @@
       .drop-item-icon svg {
             width: 100%;
             height: 100%;
-            fill: var(--color-primary);
+            /* fill: var(--color-primary);
             stroke: var(--color-primary);
-            color: var(--color-primary);
+            color: var(--color-primary); */
       }
 
       .drop-item-icon img {

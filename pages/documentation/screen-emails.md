@@ -5,11 +5,14 @@ layout: section/documentation
 ---
 
 <div class="doc-content-left col mx-xl-3">
-    <div class="doc-page-header">
+    <div id="overview" class="doc-page-header">
         <h3>Screen Emails</h3>
     </div>
 
-    <div id="overview" class="doc-section">
+    <div class="doc-section">
+        <div class="doc-section-header">
+            <a href="#overview">Overview</a>
+        </div>
         <span class="doc-section-text">
            This feature allows you to filter emails in your inbox in a semi-automatic way. It enables you to perform two main actions:
         </span>
@@ -20,7 +23,7 @@ layout: section/documentation
             <a href="#dislike">Dislike an Email</a>
         </div>
         <span class="doc-section-text">
-           This action moves the selected emails to a dedicated folder named “Screen Emails” (default label). As a side effect, the senders of those emails are automatically added to the Block List, which is managed by <a href="/documentation/search-filters">Filters</a>.
+           This action moves the selected emails to a dedicated folder named “Screen Emails” (default label). As a side effect, the senders of those emails are automatically added to the Block List, which is managed by <a href="/documentation/search-filters" class="text-link">Filters</a>.
         </span>
 
         <div class="tip-card tip-info">
@@ -72,5 +75,26 @@ layout: section/documentation
             <span class="tip-info-text"><i class="bi bi-info-circle"></i> Note</span>
             <p>You do not need to manually create the “Screen Emails” folder. It will be automatically created the first time you dislike emails in a mailbox.</p>
         </div>
+    </div>
+
+</div>
+
+<div class="doc-content-right d-none d-xl-flex col-xl-2">
+    <div class="dc-ctr-content">
+        <div class="dc-ctr-header">
+            <p class="dc-ctr-header-title">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"/></svg>
+                On this page
+            </p>
+        </div>
+        <nav>
+            <ul id="dc-ctr-nav">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#dislike">Dislike an Email</a></li>
+                <li><a href="#like">Like an Email</a></li>
+                <li><a href="#proceeding">How to Proceed</a></li>
+                <li><a href="#result">Behavior</a></li>
+            </ul>
+        </nav>
     </div>
 </div>

@@ -14,7 +14,7 @@ layout: section/documentation
             <a href="#versioning_policy">Versioning Policy & Support</a>
         </div>
         <span class="doc-section-text">
-            Cypht is a lightweight open-source webmail aggregator, written in PHP and JavaScript. It supports IMAP/SMTP, JMAP and EWS, allowing you to centralize multiple email accounts in a single modern and modular interface.
+            Cypht is a lightweight Open Source webmail aggregator, written in PHP and JavaScript. It supports IMAP/SMTP, JMAP and EWS, allowing you to centralize multiple email accounts in a single modern and modular interface.
         </span>
 
         <ul>

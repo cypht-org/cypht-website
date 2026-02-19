@@ -29,7 +29,7 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#what_is_cypht">What is Cypht?</a>
         </div>
-        <p>Cypht is an open-source email client and news aggregator with a modular design. Unlike traditional applications, Cypht is built entirely from plugins, or "module sets," with the core modules being essential. Users can customize their experience by adding or replacing modules to suit specific site requirements.</p>
+        <p>Cypht is an Open Source email client and news aggregator with a modular design. Unlike traditional applications, Cypht is built entirely from plugins, or "module sets," with the core modules being essential. Users can customize their experience by adding or replacing modules to suit specific site requirements.</p>
 
         <div class="feature-card">
             <h6><i class="bi bi-puzzle"></i> Modular Architecture</h6>

@@ -23,7 +23,7 @@ layout: section/documentation
             <a href="#meet_cypht">Meet Cypht</a>
         </div>
         <span class="doc-section-text">
-            Cypht is a <strong>modern, open-source webmail client</strong> that brings together multiple email accounts into one secure, unified dashboard. Designed for speed, privacy, and flexibility. Cypht lets you take full control of your email experience.
+            Cypht is a <strong>modern, Open Source webmail client</strong> that brings together multiple email accounts into one secure, unified dashboard. Designed for speed, privacy, and flexibility. Cypht lets you take full control of your email experience.
         </span>
     </div>
       <!--  -->
@@ -43,7 +43,7 @@ layout: section/documentation
           </ul>
             <!--  -->
           <span class="doc-section-text">
-              Cypht is a <strong>modern, open-source webmail client</strong> that brings together multiple email accounts into one secure, unified dashboard. Designed for speed, privacy, and flexibility — Cypht lets you take full control of your email experience.
+              Cypht is a <strong>modern, Open Source webmail client</strong> that brings together multiple email accounts into one secure, unified dashboard. Designed for speed, privacy, and flexibility — Cypht lets you take full control of your email experience.
           </span>
     </div>
     <!--  -->

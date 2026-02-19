@@ -680,6 +680,14 @@
 
       .perf-div1 {
             grid-column: span 2 / span 2;
+            /* performance */
+
+
+            & .ft-card-img-content img {
+                  width: 80% !important;
+            }
+
+
       }
 
       .perf-div2 {
@@ -703,6 +711,10 @@
             grid-column: span 2 / span 2;
             grid-column-start: 4;
             grid-row-start: 2;
+
+            & .ft-card-img-content img {
+                  width: 90% !important;
+            }
       }
 
       .feature-card {
@@ -821,10 +833,11 @@
 
       /* V. Security Section ──────────────────────────────────────────────────────────── */
       .security-parent {
-            display: flex;
+            grid-template-columns: repeat(3, 1fr);
+            /* display: flex;
             flex-direction: row;
             gap: 10px;
-            width: 100%;
+            width: 100%; */
       }
 
       .security-card {
@@ -867,6 +880,18 @@
       .key-tab-demo,
       .key-tab-demo-body {
             background-color: var(--clr-card-bg);
+      }
+
+      /* performance */
+      .perf-div1,
+      .perf-div2,
+      .perf-div3,
+      .perf-div4 {
+
+            & .ft-card-img-content img {
+                  opacity: .8;
+            }
+
       }
 
 }
