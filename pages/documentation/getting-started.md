@@ -23,7 +23,7 @@ layout: section/documentation
 
     <div id="prerequisites" class="doc-section">
         <div class="doc-section-header">
-            <a href="#prerequisites">🛑 Step Zero: Environment Setup</a>
+            <a href="#prerequisites">Step Zero: Environment Setup</a>
         </div>
         <span class="doc-section-text">
             Before exploring the interface, Cypht must be deployed on a web server (Apache/Nginx) with PHP. This process is technical and requires specific prerequisites.

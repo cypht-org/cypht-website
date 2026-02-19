@@ -1,8 +1,3 @@
----
-id: 0
-title: Manual Install
----
-
 <div class="guide-left col col-xl-9">
    <div class="guide-page-header">
       <h3>Manual installation</h3>
@@ -706,57 +701,46 @@ The easiest way to serve Cypht is to symlink it to the web-server document root.
 <!-- <p class="terminal-prompt"> <span class="terminal-command">sudo ln -s </span><span class="terminal-text">/usr/local/share/cypht /var/www/html/mail</span></p> -->
 
 <div class="code-preview-content gc-terminal">
-<pre class="py-0">
-   <code class="language-bash p-0">
-   sudo ln -s   /usr/local/share/cypht /var/www/html/mail
-   </code>
-</pre>
+   <pre class="py-0">
+      <code class="language-bash p-0">
+sudo ln -s   /usr/local/share/cypht /var/www/html/mail
+      </code>
+   </pre>
 </div>
 <div class="mt-4">
-<span class="gpc-body-title">Nginx Configuration</span>
-<p>
-For Nginx users, add these security rules to your server configuration :
-</p>
-<div class="code-preview-content">
-<pre><code class="language-bash">location = / {
+   <span class="gpc-body-title">Nginx Configuration</span>
+   <p>For Nginx users, add these security rules to your server configuration :</p>
+   <div class="code-preview-content">
+   <pre><code class="language-bash">
+location = / {
 rewrite ^/$ /index.php last;
 }
-
-# Block hidden files starting with
-
+#Block hidden files starting with
 location ~ /\. {
 deny all;
 }
-
-# Block sensitive files
-
+#Block sensitive files
 location ~\* \.(env|ini|log|conf|json|lock|yml|yaml|md|txt|sh|bat|ps1|xml|bak|sql|dist|inc|cfg|db|csv)$ {
 deny all;
 }
-
-# Allow exceptions for specific files
-
+#Allow exceptions for specific files
 location ~\* ^/(server_accounts_sample\.yaml|server_accounts_sample\.csv|contact_sample\.csv)$ {
 allow all;
 }
-
-# Block RELEASE_NOTES, Makefile, Docker-related configs
-
+#Block RELEASE_NOTES, Makefile, Docker-related configs
 location ~\* /(RELEASE_NOTES|Makefile|Dockerfile|docker-compose\.yml|docker-compose\.dev\.yaml|docker-compose\.prod\.yaml)$ {
 deny all;
 }
-
-# Block .git directory
-
+#Block .git directory
 location ~ /\.git {
 deny all;
 }
+#Disable directory listing
+autoindex off;
+</code></pre>
 
-# Disable directory listing
-
-autoindex off;</code></pre>
-
-</div>
+<!--  -->
+ </div>
 </div>
 <div>
 <p>
@@ -801,11 +785,50 @@ php ./scripts/delete_account.php username
       <span class="terminal-comment">change an account password</span>
       <div class="code-preview-content gc-terminal">
          <pre>
-             <code class="language-bash">
-php ./scripts/update_password.php username password
-             </code>
+             <code class="language-bash py-0">
+#Change an account password with old password (preserves user data):
+   php ./scripts/update_password.php username old_password new_password
+#Change an account password without old password (may lose user data):
+php ./scripts/update_password.php username new_password
+</code>
          </pre>
       </div>
+
+   </li>
+   <!--  -->
+   <li class="">
+      <span class="terminal-comment"> Password Special Characters</span>
+      <div class="g-warning-card">
+         <div class="g-warning-card-icon">
+            <i class="bi bi-info-circle"></i>
+         </div>
+         <span class="g-warning-card-text">
+          <b>Always quote passwords containing special characters</b> to prevent shell misinterpretation.
+         </span>
+      </div> 
+      <span class="">Shell special characters that require quoting:</span>
+      <div class="code-preview-content gc-terminal">
+         <pre>
+             <code class="language-bash">
+    - & - Background operator
+    - ; - Command separator  
+    - | - Pipe operator
+    - > < - Redirection operators
+    - $ - Variable expansion
+    - `command` - Command substitution
+    - * ? - Wildcards
+    - ! - History expansion
+    - # - Comment marker
+    - \ - Escape character
+    - ( ) - Subshell
+    - { } - Brace expansion
+    - [ ] - Pattern matching
+    - ~ - Home directory expansion
+    - ' " - Quote characters
+    - Spaces and tabs
+            </code>
+         </pre>
+      </div>   
    </li>
  </ol>
 </div>
@@ -813,9 +836,40 @@ php ./scripts/update_password.php username password
 Now going to <code >https://your-server/mail</code> should load the Cypht login page. Note that If you use a symlink, your web-server must be configured to follow symlinks.
 </p>
 </div>
-<!-- step 7  -->
+<!--  -->
+
+<div id="shell-history"> 
+   <span class="gpc-body-title">7. Avoid Shell History Exposure</span>   
+   <p>Passwords entered on the command line are saved to your shell history file in plain text. Anyone with access to your account can view them. Use these methods to prevent this:</p>
+    <ul>
+      <li>
+        <h6>Method A : Prefix command with a space (Bash/Zsh)</h6>
+        <pre><code>
+# First, enable this feature (add to ~/.bashrc or ~/.zshrc):
+  export HISTCONTROL=ignorespace  # For Bash
+# or
+  setopt HIST_IGNORE_SPACE        # For Zsh
+    # Then prefix your command with a space (notice the space before 'php'):
+     php ./scripts/create_account.php username 'password123'
+        </code></pre>
+      </li>
+      <li>
+        <h6>Method B : Remove command from history immediately after</h6>
+        <pre><code>
+# Run your command
+   php ./scripts/create_account.php username 'password123'
+# Then immediately delete it from history
+   history -d $((HISTCMD-1))  # Bash
+# or
+   history -d -1              # Zsh
+        </code> </pre>
+      </li>
+    </ul>
+
+</div>
+<!-- step 8  -->
 <div id="debug-mode">
-<span class="gpc-body-title">7. Debug mode</span>
+<span class="gpc-body-title">8. Debug mode</span>
 <p>
 Cypht has a debug or developer mode that can be used to troubleshoot problems or enable faster development of modules. To enable the debug version of Cypht, just sym-link the entire source directory instead of the site sub-directory
 </p>
@@ -907,6 +961,7 @@ Debug mode is not as efficient as the normal version, and it is NOT designed to 
                      <li><a href="#run-time-config" class="">Run-time config</a></li>
                      <li><a href="#web-server" class="">web-server</a></li>
                      <li><a href="#users" class="">Users</a></li>
+                     <li><a href="#shell-history" class="">Shell History</a></li>
                      <li><a href="#debug-mode" class="">Debug mode</a></li>
                   </ul>
                   <div class="cc-line-bottom"></div>

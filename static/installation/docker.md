@@ -1,8 +1,3 @@
----
-id: 1
-title: Docker
----
-
 <div class="guide-left col col-xl-9">
   <div class="guide-page-header">
     <h3>Install Cypht using Docker</h3>

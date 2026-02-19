@@ -1,8 +1,3 @@
----
-id: 3
-title: Tiki
----
-
 <div class="guide-left px-2 col col-xl-9">
       <div class="guide-page-header">
             <h3>Install Cypht within Tiki</h3>
