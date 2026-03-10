@@ -102,7 +102,7 @@
       justify-content: space-between;
       border: 1px solid rgba(0, 0, 0, 0.08);
       transition: all 0.7s ease;
-      cursor: pointer;
+      cursor: default;
 }
 
 .f-card h3 {
@@ -601,6 +601,7 @@
       white-space: nowrap;
 }
 
+
 /* ==============================================
     ANIMATIONS AND SPECIAL EFFECTS
 ============================================== */
@@ -651,15 +652,6 @@
       opacity: 1;
       transform: translateY(0);
 }
-
-/* ==============================================
-   7. MEDIA QUERIES FOR RESPONSIVENESS
-============================================== */
-
-/* Desktop (> 1028px) - Keep current 8-column mosaic layout */
-/* No media query needed - desktop styles are default */
-
-
 
 /* Mobile breakpoint (< 640px) */
 @media (max-width: 640px) {
@@ -776,6 +768,44 @@
       }
 }
 
+/*  */
+@media (max-width: 767px) {
+
+      /* Stack the hero card content and reduce padding */
+      .f-card.m-hero {
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+            padding: 1.4rem;
+      }
+
+      .f-card.m-hero .m-hero-col:nth-child(2) {
+            align-items: center;
+      }
+
+      .f-card.m-hero h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+      }
+
+      .f-card.m-hero p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+      }
+
+      .f-card.m-hero .phone-mock {
+            max-width: 210px;
+            margin: 0 auto;
+      }
+}
+
+/* Reduce horizontal gap on large screens */
+@media (min-width: 992px) {
+      .f-card.m-hero {
+            gap: .5rem !important;
+      }
+}
+
+
 /* Tablet breakpoint (640px - 1028px) */
 @media (max-width: 1028px) and (min-width: 640px) {
       .features-section {
@@ -801,7 +831,7 @@
             grid-column: 1 / 3;
             grid-row: 1 / 2;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 0.5rem !important;
       }
 
       .m-hero-col {

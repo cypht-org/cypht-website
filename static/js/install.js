@@ -357,19 +357,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //2.  Methods type animation
   const methods = document.querySelectorAll(".install-method-btn button");
+
+  function activateMethod(methodName) {
+    methods.forEach((m) => m.classList.remove("guide-menu-active"));
+    const targetBtn = document.querySelector(`.install-method-btn button[data-method="${methodName}"]`);
+    if (targetBtn) targetBtn.classList.add("guide-menu-active");
+    UtilsFn.load_md_file(
+      "installation",
+      methodName,
+      document.querySelector("#guide_content")
+    );
+    // Scroll to the guide section
+    const guideSection = document.querySelector("#guide");
+    if (guideSection) {
+      guideSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
   methods.forEach((method) => {
     method.addEventListener("click", function () {
-      // Remove active class from all elements
-      methods.forEach((m) => m.classList.remove("guide-menu-active"));
-      // Add class to clicked element
-      this.classList.add("guide-menu-active");
-      // show selected method list
-      UtilsFn.load_md_file(
-        "installation",
-        this.getAttribute("data-method"),
-        document.querySelector("#guide_content")
-      );
-      // show_methods_list(this.getAttribute("data-method"));
+      activateMethod(this.getAttribute("data-method"));
+    });
+  });
+
+  // Make method cards in the overview section clickable
+  const methodCards = document.querySelectorAll(".imth-card[data-method]");
+  methodCards.forEach((card) => {
+    card.addEventListener("click", function () {
+      activateMethod(this.getAttribute("data-method"));
+    });
+    card.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        activateMethod(this.getAttribute("data-method"));
+      }
     });
   });
 

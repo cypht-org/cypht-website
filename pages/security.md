@@ -99,7 +99,7 @@ loadScriptAfter: /js/security.js
                   </div>
                   <div class="security-item-content">
                     <h4>Security Headers</h4>
-                    <p>Security related HTTP headers like X-XSS-Protection, X-Content-Type-Options, X-Frame-Options, and Content-Security-Policy</p>
+                    <p>Security related HTTP headers like X-Content-Type-Options, X-Frame-Options, Strict-Transport-Security, and Content-Security-Policy</p>
                   </div>
               </li>
               <li class="security-item" data-category="browser">
@@ -154,7 +154,7 @@ loadScriptAfter: /js/security.js
                   </div>
                   <div class="security-item-content">
                     <h4>Bot Protection</h4>
-                    <p><a href="https://www.google.com/recaptcha/intro/index.html" target="_blank">reCAPTCHA</a> support for the login form</p>
+                    <p>Optional <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank">reCAPTCHA</a> support for the login form</p>
                   </div>
               </li>
             </ul>
@@ -240,7 +240,7 @@ loadScriptAfter: /js/security.js
                   </div>
                   <div class="security-item-content">
                     <h4>Email Security</h4>
-                    <p>HTML formatted E-Mail is filtered through HTMLPurifier with all external resources removed before rendering. Achieves perfect score from the <a href="https://emailprivacytester.com/" target="_blank">"Email Privacy Tester"</a>.</p>
+                    <p>HTML formatted E-Mail is filtered through HTMLPurifier with all external resources removed before rendering. Tested against the <a href="https://emailprivacytester.com/" target="_blank">"Email Privacy Tester"</a> for strong privacy protection.</p>
                   </div>
                 </li>
               </ul>
@@ -300,7 +300,7 @@ loadScriptAfter: /js/security.js
                   </div>
                   <div class="security-item-content">
                     <h4>Comprehensive Testing</h4>
-                    <p>~98% unit <a href="https://coveralls.io/github/cypht-org/cypht?branch=master" target="_blank">test coverage</a> with PHPUnit for the framework and core modules. UI tests using Selenium with Python bindings ensure interface reliability.</p>
+                    <p>High unit <a href="https://coveralls.io/github/cypht-org/cypht?branch=master" target="_blank">test coverage</a> with PHPUnit for the framework and core modules. UI tests using Selenium with Python bindings ensure interface reliability.</p>
                   </div>
                 </li>
                 <li class="security-item" data-category="development">

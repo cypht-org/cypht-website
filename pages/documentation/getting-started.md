@@ -9,7 +9,7 @@ layout: section/documentation
         <h3>Getting Started</h3>
     </div>
 
-    <div id="overview" class="doc-section">
+    <div id="architecture" class="doc-section">
         <div class="doc-section-header">
             <a href="#overview">The Architecture of Digital Freedom</a>
         </div>
@@ -122,9 +122,8 @@ layout: section/documentation
         </div>
         <nav>
             <ul id="dc-ctr-nav">
-                <li><a href="#overview" class="active">Architecture Overview</a></li>
+                <li><a href="#architecture" class="active">Architecture</a></li>
                 <li><a href="#prerequisites">Prerequisites</a></li>
-                <li><a href="#concepts">Core Concepts</a></li>
                 <li><a href="#setup">Configuration</a></li>
                 <li><a href="#modules">Module Ecosystem</a></li>
             </ul>

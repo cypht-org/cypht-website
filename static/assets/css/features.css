@@ -55,6 +55,15 @@
       gap: 8rem;
 }
 
+/* Anchor offset: avoid content hidden under sticky navbar */
+#messaging,
+#performance,
+#search,
+#development,
+#security {
+      scroll-margin-top: 5.5rem;
+}
+
 .ft-section {
       display: flex;
       flex-direction: column;

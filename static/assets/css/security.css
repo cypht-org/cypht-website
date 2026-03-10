@@ -249,7 +249,9 @@
       margin: 0;
 }
 
-#browser {
+#browser,
+#server,
+#development {
       scroll-margin-top: 80px !important;
       /* hauteur du header */
 }

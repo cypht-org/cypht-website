@@ -18,7 +18,7 @@ css: /assets/doc/license.css
         Learn about our licensing terms and the third-party libraries we use.
       </p>
     <div class="home-hero-actions">
-      <a href="#libraries" class="action-btn cypht-primary-btn" target="_blank" rel="noopener">
+      <a href="#libraries" class="action-btn cypht-primary-btn">
        View Dependencies
       </a>
       <a  href="https://github.com/cypht-org/cypht/blob/master/LICENSE"  class="action-btn cypht-secondary-btn">
@@ -66,7 +66,7 @@ css: /assets/doc/license.css
                   A comprehensive HTML filter written in PHP that removes malicious code while preserving valid markup. Essential for email security.
                 </p>
                 <div class="library-footer">
-                  <a href="http://htmlpurifier.org/" class="library-btn secondary" target="_blank" rel="noopener">
+                  <a href="https://htmlpurifier.org/" class="library-btn secondary" target="_blank" rel="noopener">
                     Visit website
                       <i class="bi bi-arrow-right-short library-btn-icon"></i>
                   </a>
@@ -76,7 +76,7 @@ css: /assets/doc/license.css
                 <div class="library-name"><i class="bi bi-code-slash"></i>Cash</div>
                 <div class="library-description">A lightweight JavaScript library compatible with jQuery that provides core DOM manipulation and event handling features.</div>
                 <div class="library-footer">
-                  <a href="http://kenwheeler.github.io/cash/" class="library-btn secondary" target="_blank" rel="noopener">
+                  <a href="https://kenwheeler.github.io/cash/" class="library-btn secondary" target="_blank" rel="noopener">
                     Documentation
                     <i class="bi bi-arrow-right-short library-btn-icon"></i>
                   </a>
@@ -98,7 +98,7 @@ css: /assets/doc/license.css
                 <div class="library-name"><i class="bi bi-pencil-square"></i>KindEditor</div>
                 <div class="library-description">Lightweight JavaScript WYSIWYG editor for composing HTML messages with built-in rich text editing features.</div>
                 <div class="library-footer">
-                  <a href="http://kindeditor.net/demo.php" class="library-btn secondary" target="_blank" rel="noopener">
+                  <a href="https://github.com/kindsoft/kindeditor" class="library-btn secondary" target="_blank" rel="noopener">
                     View demo
                     <i class="bi bi-arrow-right-short library-btn-icon"></i>
                   </a>
@@ -186,7 +186,7 @@ css: /assets/doc/license.css
                 <div class="library-name"><i class="bi bi-file-text"></i>Parsedown</div>
                 <div class="library-description">PHP library for converting Markdown to HTML, enabling message and documentation formatting with simple, readable syntax.</div>
                 <div class="library-footer">
-                  <a href="http://parsedown.org/" class="library-btn outline" target="_blank" rel="noopener">
+                  <a href="https://parsedown.org/" class="library-btn outline" target="_blank" rel="noopener">
                     Visit website
                     <i class="bi bi-arrow-right-short library-btn-icon"></i>
                   </a>
@@ -224,7 +224,7 @@ css: /assets/doc/license.css
               <div class="library-name"><i class="bi bi-file-text"></i>Apigen</div>
               <div class="library-description">Générateur de documentation PHP à partir des commentaires du code source.</div>
               <div class="library-footer">
-                <a href="http://www.apigen.org/" class="library-btn secondary" target="_blank" rel="noopener">
+                  <a href="https://apigen.org/" class="library-btn secondary" target="_blank" rel="noopener">
                   Visit website
                   <i class="bi bi-arrow-right-short library-btn-icon"></i>
                 </a>

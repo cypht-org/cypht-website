@@ -66,6 +66,12 @@ const typeModules = [
         </svg>`,
   },
   {
+    id: 8,
+    name: "Core & Framework",
+    color: "#6b7280",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>`,
+  },
+  {
     id: 7,
     name: "Diverse",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-puzzle">
@@ -100,9 +106,9 @@ const modules = [
   {
     chip: "reCAPTCHA",
     name: "reCAPTCHA",
-    description: "Enable Recaptcha on the login form",
+    description: "Enable reCAPTCHA on the login form for bot protection",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/recaptcha/README.md",
+      "https://github.com/cypht-org/cypht/blob/master/modules/recaptcha/README.md",
     cover: "/svg/security.svg",
     type_id: 1,
   },
@@ -192,8 +198,7 @@ const modules = [
     name: "JMAP Protocol",
     description:
       "Modern JSON-based email protocol for faster, more reliable access to email data",
-    issues_link:
-      "https://github.com/cypht-org/cypht/blob/master/modules/imap/README.md",
+    issues_link: "https://github.com/cypht-org/cypht/tree/master/modules/jmap",
     cover: "/svg/api.svg",
     type_id: 3,
   },
@@ -202,7 +207,7 @@ const modules = [
     name: "Sieve Filters",
     description: "Advanced email filtering using Sieve protocol",
     issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/sieve_filters/README.md",
+      "https://github.com/cypht-org/cypht/blob/master/modules/sievefilters/README.md",
     cover: "/svg/filter.svg",
     type_id: 3,
   },
@@ -250,15 +255,6 @@ const modules = [
     description: "Simple locally stored contact support",
     issues_link:
       "https://github.com/cypht-org/cypht/tree/master/modules/local_contacts/README.md",
-    cover: "/svg/contacts.svg",
-    type_id: 4,
-  },
-  {
-    chip: "CardDAV",
-    name: "CardDAV Contacts",
-    description: "Support for contacts stored in CardDAV servers",
-    issues_link:
-      "https://github.com/cypht-org/cypht/blob/master/modules/contacts/README.md",
     cover: "/svg/contacts.svg",
     type_id: 4,
   },
@@ -310,7 +306,7 @@ const modules = [
     type_id: 5,
   },
 
-  // User Interface
+  // Core & Framework
   {
     chip: "Core",
     name: "Core System",
@@ -318,8 +314,10 @@ const modules = [
     issues_link:
       "https://github.com/cypht-org/cypht/tree/master/modules/core/README.md",
     cover: "/svg/core.svg",
-    type_id: 6,
+    type_id: 8,
   },
+
+  // User Interface
   {
     chip: "Themes",
     name: "UI Themes",
@@ -387,15 +385,6 @@ const modules = [
     type_id: 7,
   },
   {
-    chip: "Hello World",
-    name: "Hello World",
-    description: "Example module with extensive documentation",
-    issues_link:
-      "https://github.com/cypht-org/cypht/tree/master/modules/hello_world/README.md",
-    cover: "/svg/hello.svg",
-    type_id: 7,
-  },
-  {
     chip: "Site",
     name: "Site Overrides",
     description: "Site-specific overrides for module configurations",
@@ -422,7 +411,7 @@ const modules = [
     issues_link:
       "https://github.com/cypht-org/cypht/tree/master/modules/tags/README.md",
     cover: "/svg/tag.svg",
-    type_id: 7,
+    type_id: 5,
   },
   {
     chip: "History",
@@ -431,7 +420,7 @@ const modules = [
     issues_link:
       "https://github.com/cypht-org/cypht/tree/master/modules/history/README.md",
     cover: "/svg/history.svg",
-    type_id: 7,
+    type_id: 5,
   },
   {
     chip: "Notifications",
@@ -449,7 +438,7 @@ const modules = [
     issues_link:
       "https://github.com/cypht-org/cypht/tree/master/modules/idle_timer/README.md",
     cover: "/svg/timer.svg",
-    type_id: 7,
+    type_id: 1,
   },
 ];
 
@@ -683,7 +672,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <p>${module.description}</p>
                     </div>
                     <div class="md-item-buttons py-1 d-flex justify-content-start align-items-center">
-                    <a href="${module.issues_link}" target="_blank" class="module-issue-link d-flex align-items-center gap-2"><i class="bi bi-box-arrow-up-right"></i>View on Github</a>
+                    <a href="${module.issues_link}" target="_blank" class="module-issue-link d-flex align-items-center gap-2"><i class="bi bi-box-arrow-up-right"></i>View it on GitHub</a>
                     </div>
                 </div>
             `;

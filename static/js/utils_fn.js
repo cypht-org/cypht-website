@@ -155,20 +155,13 @@ export class UtilsFn {
 
     const response = await fetch(file_path);
     if (!response.ok) {
-      throw new Error(`Unable to load ${normalized}.md (${response.status})`);
+      throw new Error(`Unable to load ${normalized}.html (${response.status})`);
     }
 
-    const markdown = await response.text();
-
-    // Convert Markdown → HTML
-    const html = marked.parse(markdown, {
-      mangle: false,
-      headerIds: true
-    });
-
+    const html = await response.text();
     container.innerHTML = html;
 
-    // Highlight code blocks
+    // Highlight code blocks if needed
     if (typeof hljs !== "undefined") {
       container.querySelectorAll("pre code").forEach((block) => {
         hljs.highlightElement(block);

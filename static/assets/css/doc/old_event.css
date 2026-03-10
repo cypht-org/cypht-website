@@ -86,33 +86,8 @@
 }
 
 .old-event-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-
-      & .event-image-container {
-            transition: height 0.4s ease;
-            height: 45% !important;
-      }
-
-      & .event-body {
-            padding-bottom: .5rem !important;
-            /* background-color: rebeccapurple; */
-      }
-}
-
-.old-event-item:hover .event-description {
-      height: 100% !important;
-      -webkit-line-clamp: inherit !important;
-      /* 
-      overflow-y: auto;
-      text-overflow: clip;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-
-      &::-webkit-scrollbar {
-            display: none;
-      } */
-
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
 }
 
 .event-image-container {

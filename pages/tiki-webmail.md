@@ -3,27 +3,6 @@ title: Tiki Webmail
 weight: 15
 ---
 
-<!-- Hero Section -->
-<!-- <section class="tiki-hero">
-  <div class="license-hero-content">
-    <span class="hs-chip">Integration</span>
-    <h1 class="display-5 fw-bold">
-      Tiki Webmail
-    </h1>
-    <p class="license-subtitle home-hs-subtitle">
-      A powerful web-based email client integrated into Tiki Wiki CMS Groupware via the Cypht project
-    </p>
-    <div class="home-hero-actions">
-      <a href="#overview" class="action-btn cypht-primary-btn">
-        Learn More
-      </a>
-      <a href="https://tiki.org" class="action-btn cypht-secondary-btn" target="_blank" rel="noopener">
-        Visit Tiki.org
-      </a>
-    </div>
-  </div>
-</section> -->
-
 <!-- Main Content -->
 <div class="tiki-webmail-content">
   <!-- Overview Section -->
@@ -40,16 +19,13 @@ weight: 15
         <p class="description-text">
           Tiki Webmail, integrated into <a href="https://tiki.org" target="_blank" rel="noopener" class="text-link">Tiki Wiki CMS Groupware</a> via the Cypht project, provides a powerful web-based email client that is deeply connected to Tiki's other features. It allows users to access IMAP-based email accounts, and its integration is enhanced by unique Tiki-specific functionalities like the <strong>Email folders Tracker Field</strong> (<a href="https://doc.tiki.org/Tiki23" target="_blank" rel="noopener" class="text-link">from Tiki23</a>) for storing emails as database-tracked content and <strong>Email filters</strong> (<a href="https://doc.tiki.org/Tiki25" target="_blank" rel="noopener" class="text-link">from Tiki25</a>) for server-side email management using the Sieve standard.
         </p>
-        <p class="description-text">
-          For comprehensive setup instructions, user guides, and the latest details on configuration, account management, reading, and composing emails, please refer to <a href="https://doc.tiki.org/Tiki+Webmail" target="_blank" rel="noopener" class="text-link">the full documentation</a>.
-        </p>
       </div>
       <div class="description-block">
         <p class="description-text">
-          The ongoing development, which includes bridging Cypht's capabilities with Tiki's ecosystem (like moving emails to trackers or creating tasks from emails), is most active in the latest versions. For a complete understanding of all features, settings, and advanced integration options, the primary resource is the official <a href="https://doc.tiki.org/Tiki+Webmail" target="_blank" rel="noopener" class="text-link">Tiki Webmail documentation</a>.
+          The ongoing development, which includes bridging Cypht's capabilities with Tiki's ecosystem (like moving emails to trackers or creating tasks from emails), is most active in the latest versions.
         </p>
         <div class="description-cta">
-          <a href="https://doc.tiki.org/Tiki+Webmail" class="documentation-link" target="_blank" rel="noopener">
+          <a href="https://tiki.org/Tiki-Webmail" class="documentation-link" target="_blank" rel="noopener">
             <span>Explore Documentation</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
@@ -62,7 +38,7 @@ weight: 15
   <!-- Interface Section -->
   <section class="tiki-webmail-section">
     <div class="tiki-webmail-interface-header">
-      <h2>Tiki Webmail Interface</h2>
+      <h3>Tiki Webmail Interface</h3>
       <p>
         The screenshot below presents the integrated Tiki Webmail interface within the Tiki Wiki CMS Groupware environment:
       </p>
@@ -73,6 +49,13 @@ weight: 15
         src="https://pad.evoludata.com/uploads/588bb3e1-4e38-4265-aa9d-bc3bf8cdb0fe.png" 
         alt="Tiki Webmail interface showing email folders at the home page"
         loading="lazy"
+        class="tiki-screenshot-dark"
+      />
+      <img 
+        src="https://pad.evoludata.com/uploads/588bb3e1-4e38-4265-aa9d-bc3bf8cdb0fe.png" 
+        alt="Tiki Webmail interface showing email folders at the home page"
+        loading="lazy"
+        class="tiki-screenshot-light"
       />
       <figcaption>
         The Tiki Webmail interface, powered by Tiki Wiki CMS Groupware, showing email folders at its home page.

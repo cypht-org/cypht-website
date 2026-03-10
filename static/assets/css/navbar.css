@@ -136,9 +136,9 @@
 }
 
 .mobile-nav-item.active {
-      background-color: var(--clr-dark-card-second);
-      border: .5px solid rgba(255, 255, 255, 0.2);
-      color: var(--color-text-light);
+      background: transparent;
+      border: none;
+      color: var(--color-primary);
       font-weight: 600;
 }
 
@@ -472,7 +472,7 @@
 
       .dropdown-panel {
             position: absolute;
-            top: calc(100% + 0.95rem);
+            top: calc(100% + 1.2rem);
             left: 50%;
             transform: translateX(-50%) translateY(-8px);
             background: rgba(31, 31, 31, 0.856);
@@ -727,6 +727,22 @@
 
       .dropdown-item:hover .drop-item-description {
             color: rgba(255, 255, 255, 0.8);
+      }
+
+      /* Active state for current page dropdown item */
+      .dropdown-item.active {
+            background-color: var(--clr-dark-card-second) !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
+      }
+
+      .dropdown-item.active .drop-item-title {
+            color: var(--color-primary);
+            font-weight: 600;
+      }
+
+      .dropdown-item.active .drop-item-description {
+            color: rgba(255, 255, 255, 0.7);
       }
 
       /* Desktop actions container */

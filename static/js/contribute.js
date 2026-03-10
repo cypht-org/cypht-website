@@ -176,8 +176,7 @@ async function load_contributors() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  //   const contributeNav = document.querySelector(".contribute-nav");
-  const nav_items = document.querySelectorAll(".contribute-nav ul li a");
+  const nav_items = document.querySelectorAll(".contribute-nav ul li a[data-tab]");
   const content_card = document.querySelector("#content_card");
   const tab_pages = {
     dev: dev_flow,
@@ -185,8 +184,8 @@ document.addEventListener("DOMContentLoaded", function () {
     git: git_guidelines,
   };
 
-  // Fonction pour afficher le contenu
   function showContent(tab_key) {
+    if (!content_card) return;
     content_card.classList.add("fade-out");
     setTimeout(() => {
       content_card.innerHTML =
@@ -195,17 +194,129 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 200);
   }
 
-  // manager active class
   nav_items.forEach((item) => {
     item.addEventListener("click", function (e) {
+      e.preventDefault();
       nav_items.forEach((link) => link.classList.remove("nav-active"));
       this.classList.add("nav-active");
-      // const tab_id = this.getAttribute("href").split("#")[1];
-      // showContent(tab_id);
+      const tab_id = this.getAttribute("data-tab");
+      showContent(tab_id);
     });
   });
 
   load_contributors();
 
-  // showContent("dev");
+  // Initialize with the first tab (dev workflow)
+  showContent("dev");
+
+  // Floating menu visibility on scroll (desktop only)
+  const contributeNav = document.querySelector(".contribute-nav");
+  const floatingCard = document.querySelector(".floating-card");
+  const contributorsSection = document.querySelector(".contributors-section");
+  const floatingLinks = document.querySelectorAll(
+    ".floating-card .ftl-card-content a[data-tab]"
+  );
+  const sectionMap = {
+    dev: document.getElementById("dev"),
+    req: document.getElementById("req"),
+    git: document.getElementById("git"),
+  };
+
+  function updateFloatingMenu() {
+    if (!contributeNav || !floatingCard) return;
+
+    const isDesktop = window.innerWidth >= 1024;
+    if (!isDesktop) {
+      floatingCard.classList.remove("is-visible");
+      return;
+    }
+
+    const navRect = contributeNav.getBoundingClientRect();
+    const navPassed = navRect.bottom <= 0;
+
+    // Only show while we are BEFORE the contributors section
+    let beforeContributors = true;
+    if (contributorsSection) {
+      const contribRect = contributorsSection.getBoundingClientRect();
+      const thresholdY = window.innerHeight * 0.3;
+
+      // Once the top of the contributors section reaches the upper 30% of the viewport,
+      // keep the floating card hidden for the rest of the scroll.
+      beforeContributors = contribRect.top > thresholdY;
+    }
+
+    const shouldShow = navPassed && beforeContributors;
+
+    if (shouldShow) {
+      floatingCard.classList.add("is-visible");
+    } else {
+      floatingCard.classList.remove("is-visible");
+    }
+
+    // Scroll-based active state (scrollspy) for nav + floating links
+    // Only when we're in the contribute content area
+    if (navPassed) {
+      let activeKey = null;
+      const viewportMiddle = window.innerHeight * 0.35;
+
+      Object.entries(sectionMap).forEach(([key, el]) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const inView =
+          rect.top <= viewportMiddle && rect.bottom > viewportMiddle * 0.4;
+        if (inView && activeKey === null) {
+          activeKey = key;
+        }
+      });
+
+      if (activeKey) {
+        // Top nav
+        nav_items.forEach((item) => {
+          const tabId = item.getAttribute("data-tab");
+          item.classList.toggle("nav-active", tabId === activeKey);
+        });
+
+        // Floating nav
+        floatingLinks.forEach((link) => {
+          const tabId = link.getAttribute("data-tab");
+          link.classList.toggle("nav-active", tabId === activeKey);
+        });
+      }
+    }
+  }
+
+  window.addEventListener("scroll", updateFloatingMenu, { passive: true });
+  window.addEventListener("resize", updateFloatingMenu);
+  updateFloatingMenu();
+
+  // Active state for floating links
+  if (floatingLinks.length) {
+    floatingLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        // Update active state on floating links
+        floatingLinks.forEach((l) => l.classList.remove("nav-active"));
+        this.classList.add("nav-active");
+
+        // Sync active state with top nav and content tabs
+        const tabId = this.getAttribute("data-tab");
+        if (tabId) {
+          nav_items.forEach((item) => {
+            item.classList.toggle(
+              "nav-active",
+              item.getAttribute("data-tab") === tabId
+            );
+          });
+          showContent(tabId);
+
+          // Smooth scroll to the target section
+          const target = document.getElementById(tabId);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+      });
+    });
+  }
 });

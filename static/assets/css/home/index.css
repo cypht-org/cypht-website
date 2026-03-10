@@ -168,6 +168,12 @@
       height: auto;
 }
 
+/* Theme-adaptive hero screenshots */
+[data-theme="dark"] .mockup-light,
+[data-theme="light"] .mockup-dark {
+      display: none;
+}
+
 
 /*
 |--------------------------------------------------------------------------

@@ -21,7 +21,7 @@ loadScriptAfter: /js/module.js
                 </p>
                 <div class="module-buttons">
                     <a href="#modules" class="action-btn cypht-primary-btn">Discover our modules</a>
-                    <a href="https://github.com/cypht-org/cypht" target="_blank" class="action-btn cypht-secondary-btn">View on Github</a>
+                    <a href="https://github.com/cypht-org/cypht" target="_blank" class="action-btn cypht-secondary-btn">View it on GitHub</a>
                 </div>
             </div>  
         </div>
@@ -48,7 +48,7 @@ loadScriptAfter: /js/module.js
                         </div>
 <!--  -->
                         <div class="mt-3">
-                            <a href="https://github.com" target="_blank" class="action-btn cypht-primary-btn"> <i class="bi bi-github"></i> Contribute on Github</a>
+                            <a href="https://github.com/cypht-org/cypht" target="_blank" class="action-btn cypht-primary-btn"> <i class="bi bi-github"></i> Contribute on GitHub</a>
                         </div>
                     </div>
                 </div>

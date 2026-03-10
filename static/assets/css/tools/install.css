@@ -4,6 +4,18 @@
       gap: 3rem;
 }
 
+/* Anchor offset: avoid content hidden under sticky navbar */
+#installation_methods,
+#guide,
+#guide_content {
+      scroll-margin-top: 5rem;
+}
+
+/* Dynamic guide content (loaded markdown) */
+#guide_content [id] {
+      scroll-margin-top: 5rem;
+}
+
 /* Hero Visual - Terminal */
 .install-hero-visual {
       position: relative;
@@ -459,9 +471,9 @@
       transition: opacity 0.3s ease;
 }
 
-/* .imth-card {
+.imth-card[data-method] {
       cursor: pointer;
-} */
+}
 
 .imth-card:hover {
       transform: translateY(-4px);

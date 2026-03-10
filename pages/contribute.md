@@ -42,28 +42,28 @@ loadScriptAfter: /js/contribute.js
             The goal of this page is to provide everything you need to know in order to contribute to cypht-website and its different integrations.
           </p>
         </div>
-         <div>
-          <ul class="d-none d-lg-flex">
-          <li>
-            <a href="#dev" class="nav-active">
-              <i class="bi bi-collection-fill"></i>
-              Dev Workflow
-            </a>
-          </li>
-          <li>
-            <a href="#req">
-              <i class="bi bi-braces-asterisk"></i>
-              Requirements
-            </a>
-          </li>
-          <li>
-            <a href="#git">
-              <i class="bi bi-git"></i>
-              Git Guidelines
-            </a>
-          </li>
-        </ul>
-         </div>
+        <div>
+          <ul class="d-none">
+              <li>
+                <a href="#dev" class="nav-active">
+                  <i class="bi bi-collection-fill"></i>
+                  Dev Workflow
+                </a>
+              </li>
+              <li>
+                <a href="#req">
+                  <i class="bi bi-braces-asterisk"></i>
+                  Requirements
+                </a>
+              </li>
+              <li>
+                <a href="#git">
+                  <i class="bi bi-git"></i>
+                  Git Guidelines
+                </a>
+              </li>
+          </ul>
+        </div>
       </div>
       <!-- Content Card -->
       <div class="content-card">
@@ -159,7 +159,7 @@ loadScriptAfter: /js/contribute.js
                   </span>
                 </div>
                 <span class="req-list-item-text">
-                  You know about the <a href="https://gitter.im/cypht-org/community" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Tabler Icons by Paweł Kuna - https://github.com/tabler/tabler-icons/blob/master/LICENSE --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7a4 4 0 1 0 8 0a4 4 0 1 0-8 0M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2m1-17.87a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.85"/></svg>Cypht community.</a> Please use this as help and check <a href="/how-to-join"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M8 13h8m-8 0v5c0 1.886 0 2.828.586 3.414C9.172 22 10.114 22 12 22c1.886 0 2.828 0 3.414-.586C16 20.828 16 19.886 16 18v-5m-8 0a7.459 7.459 0 0 1-5.618-5.472L2 6m14 7c1.71 0 3.15 1.28 3.35 2.98L20 21.5"/><circle cx="12" cy="6" r="4"/></g></svg>How to join the community.</a>
+                  You know about the <a href="https://gitter.im/cypht-org/community" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Tabler Icons by Paweł Kuna - https://github.com/tabler/tabler-icons/blob/master/LICENSE --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7a4 4 0 1 0 8 0a4 4 0 1 0-8 0M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2m1-17.87a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.85"/></svg>Cypht community.</a> Please use this as help and check <a href="/documentation/join-community"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M8 13h8m-8 0v5c0 1.886 0 2.828.586 3.414C9.172 22 10.114 22 12 22c1.886 0 2.828 0 3.414-.586C16 20.828 16 19.886 16 18v-5m-8 0a7.459 7.459 0 0 1-5.618-5.472L2 6m14 7c1.71 0 3.15 1.28 3.35 2.98L20 21.5"/><circle cx="12" cy="6" r="4"/></g></svg>How to join the community.</a>
                 </span>
               </li>
             </ul>
@@ -175,9 +175,6 @@ loadScriptAfter: /js/contribute.js
               <span class="req-header-chip-text">Git Guidelines</span>
             </div>
             <h3>Follow these steps to contribute to the project</h3>
-            <!-- <div class="me-2 req-header-cover">
-              <img src="/img/git.png"/>
-            </div> -->
           </div>
           <div class="req-list">
             <ul>
@@ -283,6 +280,31 @@ loadScriptAfter: /js/contribute.js
             </ul>
           </div>
         </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="floating-card">
+      <div class="ftl-card-content">
+        <ul>
+            <li>
+              <a href="#dev" data-tab="dev" class="">
+                <i class="bi bi-collection-fill"></i>
+                <span>Dev Workflow</span>
+              </a>
+            </li>
+            <li>
+              <a href="#req" data-tab="req">
+                <i class="bi bi-braces-asterisk"></i>
+                <span>Requirements</span>
+              </a>
+            </li>
+            <li>
+              <a href="#git" data-tab="git">
+                <i class="bi bi-git"></i>
+                <span>Git Guidelines</span>
+              </a>
+            </li>
+        </ul>
       </div>
     </div>
 

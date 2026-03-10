@@ -54,6 +54,16 @@
 
 /* Content Section */
 
+/* Anchor offset: avoid content hidden under sticky navbar */
+#contributing,
+#dev,
+#req,
+#git,
+#development-workflow,
+#contributors {
+      scroll-margin-top: 5rem;
+}
+
 .lc-header h2 {
       font-weight: 700;
 }
@@ -66,6 +76,11 @@
       margin-top: 1rem;
       width: 100%;
       gap: 3rem;
+      transition: opacity 0.2s ease;
+}
+
+.content-card.fade-out {
+      opacity: 0;
 }
 
 .req-header-chip {
@@ -423,6 +438,7 @@
       .contribute-content {
             max-width: var(--container-xl);
             margin: 0 auto;
+            position: relative;
       }
 
       .dev-content {
@@ -596,6 +612,7 @@
       }
 
       .contribute-nav ul {
+            display: flex !important;
             list-style: none;
             padding: 0;
             margin: 0;
@@ -611,7 +628,7 @@
             /* margin-bottom: 0.5rem; */
             padding: 0;
             margin: 0;
-            font-size: 0.87rem;
+            font-size: 0.75rem;
             display: inline-flex;
       }
 
@@ -662,6 +679,106 @@
             max-width: var(--container-3xl);
       }
 
+      /* Floating Card */
+
+      .floating-card {
+            position: fixed;
+            top: 50%;
+            right: 7.5rem;
+            transform: translateY(-50%);
+            z-index: 80;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            display: none;
+      }
+
+      /* Visible only on large screens and after scroll (class added via JS) */
+      .floating-card {
+            display: block;
+      }
+
+      .floating-card.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(-50%);
+      }
+
+
+      .ftl-card-content {
+            position: static;
+      }
+
+      /* Floating nav reuses contribute-nav look */
+      .floating-card .ftl-card-content ul {
+            list-style: none;
+            padding: 0.3rem 0.2rem;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            border-radius: 8px;
+            background: rgba(31, 31, 31, 0.95);
+            border: .8px solid var(--color-border);
+      }
+
+      .floating-card .ftl-card-content li {
+            padding: 0;
+            margin: 0;
+            font-size: 0.75rem;
+            display: flex;
+      }
+
+      .floating-card .ftl-card-content a {
+            color: rgba(255, 255, 255, 0.8) !important;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            padding: 0.3rem .8rem !important;
+            min-width: inherit !important;
+            border: 1px solid transparent;
+            gap: 0.5rem;
+            position: relative;
+      }
+
+      .floating-card .ftl-card-content a i {
+            font-size: .9rem;
+      }
+
+      .floating-card .ftl-card-content a:hover {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+            color: rgba(255, 255, 255, 0.8) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+      }
+
+      .floating-card .ftl-card-content a:hover i {
+            color: var(--color-primary) !important;
+      }
+
+      /* Only icons by default, show labels on hover */
+      .floating-card .ftl-card-content a span {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: -20%;
+            transform: translateX(-100%);
+            transition: all 0.3s ease;
+            background-color: rgba(31, 31, 31, 0.95);
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            gap: 0.8rem;
+            font-size: 0.87rem;
+      }
+
+      .floating-card .ftl-card-content li:hover a span {
+            display: inline-block;
+      }
+
 }
 
 @media (min-width: 1200px) {
@@ -677,6 +794,11 @@
       .text-left {
             width: 48%;
             padding-right: 2rem;
+      }
+
+      /* FTL Card */
+      .ftl-card-content {
+            right: 0;
       }
 }
 

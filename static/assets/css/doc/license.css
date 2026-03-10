@@ -40,6 +40,11 @@
       gap: 3rem;
 }
 
+/* Anchor offset: avoid content hidden under sticky navbar */
+#libraries {
+      scroll-margin-top: 7rem;
+}
+
 /* Info cards */
 .license-info {
       display: flex;
@@ -178,7 +183,8 @@
 }
 
 .ls-item-header-text h3 {
-      font-weight: 700;
+      font-size: 1.2rem;
+      font-weight: 600;
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -256,7 +262,7 @@
       min-height: 220px;
       overflow: hidden;
       width: 100%;
-      cursor: pointer;
+      cursor: default;
 }
 
 .library-card:hover {

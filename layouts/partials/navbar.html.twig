@@ -133,7 +133,8 @@
 						<div class="dropdown-panel" data-panel="tools">
 							<div class="dropdown-content">
 								{% for item in global_menus.tools %}
-									<a href="{{ item.href }}" class="dropdown-item d-flex  gap-2">
+									{% set item_active = item.href != '/' and page.path is defined and page.path != '' and page.path starts with item.href|trim('/') %}
+									<a href="{{ item.href }}" class="dropdown-item d-flex  gap-2 {{ item_active ? 'active' : '' }}" {{ item_active ? 'aria-current="page"' : '' }}>
 										<div class="drop-item-icon">
 											{% if item.svg %}
 												<img src="{{ item.svg }}" alt="{{ item.title }}">
@@ -166,7 +167,8 @@
 						<div class="dropdown-panel" data-panel="docs">
 							<div class="dropdown-content">
 								{% for item in global_menus.docs %}
-									<a href="{{ item.href }}" class="dropdown-item d-flex gap-2">
+									{% set item_active = item.href != '/' and page.path is defined and page.path != '' and page.path starts with item.href|trim('/') %}
+									<a href="{{ item.href }}" class="dropdown-item d-flex gap-2 {{ item_active ? 'active' : '' }}" {{ item_active ? 'aria-current="page"' : '' }}>
 										<div class="drop-item-icon">
 											{% if item.svg %}
 												<img src="{{ item.svg }}" alt="{{ item.title }}">
@@ -248,8 +250,15 @@
 					class="mobile-links">
 					{# Mobile primary menu #}
 					{% for item in global_menus.main %}
-						{% set current = (item.href == '/' and page.path == 'index') or (item.href != '/' and page.path starts with item.href|trim('/')) %}
-						<a href="{{ item.href }}" class="mobile-nav-item {{ current ? 'active' : '' }}">
+						{% set current = false %}
+						{% if item.href == '/' %}
+							{% if page.path == 'index' or page.path == '/' or page.path == '' %}
+								{% set current = true %}
+							{% endif %}
+						{% elseif item.href != '/' and page.path is defined and page.path != '' and (page.path == item.href|trim('/') or page.path starts with item.href|trim('/')) %}
+							{% set current = true %}
+						{% endif %}
+						<a href="{{ item.href }}" class="mobile-nav-item {{ current ? 'active' : '' }}" {{ current ? 'aria-current=\"page\"' : '' }}>
 							{{ item.title }}
 						</a>
 					{% endfor %}
@@ -267,7 +276,8 @@
 							<div id="collapseTools" class="accordion-collapse collapse" data-bs-parent="#mobileNavAccordion">
 								<div class="accordion-body">
 									{% for item in global_menus.tools %}
-										<a href="{{ item.href }}" class="mobile-nav-item mobile-nav-subitem">
+										{% set current = item.href != '/' and page.path is defined and page.path != '' and page.path starts with item.href|trim('/') %}
+										<a href="{{ item.href }}" class="mobile-nav-item mobile-nav-subitem {{ current ? 'active' : '' }}" {{ current ? 'aria-current=\"page\"' : '' }}>
 											{{ item.title }}
 										</a>
 									{% endfor %}
@@ -285,7 +295,8 @@
 							<div id="collapseDocs" class="accordion-collapse collapse" data-bs-parent="#mobileNavAccordion">
 								<div class="accordion-body">
 									{% for item in global_menus.docs %}
-										<a href="{{ item.href }}" class="mobile-nav-item mobile-nav-subitem">
+										{% set current = item.href != '/' and page.path is defined and page.path != '' and page.path starts with item.href|trim('/') %}
+										<a href="{{ item.href }}" class="mobile-nav-item mobile-nav-subitem {{ current ? 'active' : '' }}" {{ current ? 'aria-current=\"page\"' : '' }}>
 											{{ item.title }}
 										</a>
 									{% endfor %}
@@ -303,7 +314,8 @@
 							<div id="collapseIntegration" class="accordion-collapse collapse" data-bs-parent="#mobileNavAccordion">
 								<div class="accordion-body">
 									{% for item in global_menus.integration %}
-										<a href="{{ item.href }}" class="mobile-nav-item mobile-nav-subitem">
+										{% set current = item.href != '/' and page.path is defined and page.path != '' and page.path starts with item.href|trim('/') %}
+										<a href="{{ item.href }}" class="mobile-nav-item mobile-nav-subitem {{ current ? 'active' : '' }}" {{ current ? 'aria-current=\"page\"' : '' }}>
 											{{ item.title }}
 										</a>
 									{% endfor %}
