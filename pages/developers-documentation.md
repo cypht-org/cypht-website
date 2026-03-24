@@ -791,6 +791,14 @@ nocontainer: true
         </code>
         <p>And there you have it! Refresh your page to see the result:</p>
         <img src="/img/screenshots/12.png" style="width:100%; margin-bottom: 10px;"/>
+        <h2>Tracking PHP errors with Glitchtip</h2>
+        <p>
+            New .env variables have been introduced to send php errors to glitchtip.<br/>
+            Glitchtip is enabled once GLITCHTIP_DSN value is set.<br/>
+            GLITCHTIP_TRACES_SAMPLE_RATE is the percentage of transaction events sent to glitchtip,
+            set to a low value in production to save disk space.
+        </p>
+        <p>For more details please check <a href="https://glitchtip.com/sdkdocs/php">https://glitchtip.com/sdkdocs/php</a></p>
     </div>
     <br/><br/>
     <h3>Related links:</h3>
