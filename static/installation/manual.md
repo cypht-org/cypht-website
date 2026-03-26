@@ -32,32 +32,28 @@
          <ul class="list_letter">
             <li>
                <span>
-                  You need to check php version. For Cypht version 1.4.x,
-                     ensure PHP version is between 5.6 and 7.4, while for version 2.x.x,
-                     PHP 8.1 or higher is required
+                  Check your PHP version and make sure it matches the requirements listed above.
                </span>
-               <div class="gc-terminal">
-                  <p class="terminal-prompt"> <span class="terminal-command">php </span><span class="terminal-text">--version</span></p>
+               <div class="code-preview-content gc-terminal">
+<pre><code class="language-bash">php --version</code></pre>
                </div>
             </li>
             <li>
                <span>
                   List installed PHP extensions. at least OpenSSL, mbstring and cURL
                </span>
-               <div class="gc-terminal">
-                  <p class="terminal-prompt"> <span class="terminal-command">php </span><span class="terminal-text">-m</span></p>
-                     </div>
+               <div class="code-preview-content gc-terminal">
+<pre><code class="language-bash">php -m</code></pre>
+               </div>
            </li>
             <li>
-               <span> 
-                  For PHP 8.4 if there is missing php_imap extension is deprecated and unmaintained - see <a href="https://php.watch/versions/8.4/imap-unbundled">imap-unbundled</a> and <a href="https://github.com/php/pecl-mail-imap">pecl-mail-imap</a>
-                  please download and add it manually, particularly for Windows users who won't be able to log in Cypht without that extension installed.
-                  Next you need to check composer version which should be &gt;=2.0.0
+               <span>For PHP 8.4, the php_imap extension is deprecated and unmaintained. If it is missing, you need to use <a href="https://php.watch/versions/8.4/imap-unbundled">imap-unbundled</a> or <a href="https://github.com/php/pecl-mail-imap">pecl-mail-imap</a> instead. Please download and install the required extension manually - this is especially important for Windows users, as Cypht will not allow logins without it.
                </span>
-               <div class="gc-terminal">
-                  <p class="terminal-prompt"> <span class="terminal-command">composer </span><span class="terminal-text">--version</span></p>
+               <span>Next, ensure your Composer version is at least (&gt;=2.0.0)</span>
+               <div class="code-preview-content gc-terminal">
+<pre><code class="language-bash">composer --version</code></pre>
                </div>
-               </li>
+            </li>
          </ul>
             <!-- 2 Step  -->
          <div id="prepare-code">
@@ -73,7 +69,7 @@
             </p>
             <p>
                It also ensures that the required configuration files are created,
-               such as .env or hm3.ini (depending on the version). The script requires sudo access to perform these actions:
+               such as .env (for Cypht 2.0 or higher) or hm3.ini (for Cypht 1.x). The script requires sudo access to perform these actions:
             </p>
             <ul class="nav system-tabs" id="myTab" role="tablist">
                <li class="tab-item" role="presentation">
@@ -99,19 +95,20 @@
             <div class="tab-content" id="myTabCo  ntent">
                <!-- Manual -->
                <div class="tab-pane fade show active" id="linux-tab-pane" role="tabpanel" aria-labelledby="linux-tab" tabindex="0">
-                  <div class="code-preview-content">
+                  <div class="code-preview-content gc-terminal">
                      <pre><code class="language-bash">#!/bin/bash
+
 bold_green() {
-    echo -e "\033[1m\033[32m✓ $1\033[0m"
+echo -e "\033[1m\033[32m✓ $1\033[0m"
 }
 bold_red() {
-    echo -e "\033[1m\033[31m$1\033[0m"
+echo -e "\033[1m\033[31m$1\033[0m"
 }
 bold_blue() {
-    echo -e "\033[1m\033[34m$1\033[0m"
+echo -e "\033[1m\033[34m$1\033[0m"
 }
 bold_yellow() {
-    echo -e "\033[1m\033[33m$1\033[0m"
+echo -e "\033[1m\033[33m$1\033[0m"
 }
 
 # Function to check prerequisites
@@ -282,7 +279,7 @@ install_cypht "$selected_version"</code></pre>
 </div>
 <!-- windows -->
 <div class="tab-pane fade" id="windows-tab-pane" role="tabpanel" aria-labelledby="windows-tab" tabindex="0">
-<div class="code-preview-content">
+<div class="code-preview-content gc-terminal">
  <pre><code class="language-bash">@echo off
 setlocal enabledelayedexpansion
 :: Enabling ANSI Support and UTF-8 Encoding
@@ -451,7 +448,7 @@ pause</code></pre>
 <!--  -->
 <!-- cpanel -->
 <div class="tab-pane fade" id="cpanel-tab-pane" role="tabpanel" aria-labelledby="cpanel-tab" tabindex="0">
-<div class="code-preview-content">
+<div class="code-preview-content gc-terminal">
 <pre><code class="language-bash">#!/bin/bash
 bold_green() {
 echo -e "\033[1m\033[32m✓ $1\033[0m"
@@ -665,18 +662,29 @@ fi</code></pre>
 <div id="config-the-program">
 <span class="gpc-body-title">3. Configure the program</span>
 <p>
-To configure Cypht for your environment, you must first edit the <code>hm3.ini</code> (for Cypht 1.4.x) or <code>.env</code> (for Cypht 2.x.x) file to your liking, .env content can be generated using the Cypht Config Generator, then run the <a href="/config-generator">config-generator</a> script to generate the optimized configuration file and assets used at run-time.
+To configure Cypht for your environment, you must first edit the <code>hm3.ini</code> (for Cypht 1.4.x) or <code>.env</code> (for Cypht 2.x.x) file to your liking, .env content can be generated using the <a href="/config-generator">Cypht Config Generator</a>, then run the <code >config_gen.php</code> script to generate the optimized configuration file and assets used at run-time.
 </p>
 <p>
-For Cypht 1.4.x, begin by editing the "hm3.ini" file to configure Cypht for your environment. If you choose to use a database for any of the three available purposes (authentication, sessions, or user settings), you will need to complete the "DB support" section and create the required tables. SQL to do so can be found in the "hm3.sample.ini" file. The "hm3.ini" file contains many comments explaining each configuration option and how to set it up for your environment.
+For Cypht 1.4.x, begin by editing the "hm3.ini" file to configure Cypht for your environment. If you choose to use a database for any of the three available purposes (authentication, sessions, or user settings), you will need to complete the "DB support" section and create the required tables. SQL to do so can be found in the <code>"hm3.sample.ini"</code> file. The <code>"hm3.ini"</code> file contains many comments explaining each configuration option and how to set it up for your environment.
 </p>
-<div class="gc-terminal">
-<p class="terminal-prompt"> <span class="terminal-command">sudo mkdir -p </span><span class="terminal-text">/var/lib/hm3/{attachments,users,app_data}</span></p>
-<p class="terminal-prompt"> <span class="terminal-command">sudo chown -R </span><span class="terminal-text">www-data:www-data /var/lib/hm3/</span></p>
-</div>
+               <div class="code-preview-content gc-terminal">
+<pre><code class="language-bash">
+sudo mkdir -p /var/lib/hm3/{attachments,users,app_data}
+sudo chown -R www-data:www-data /var/lib/hm3/
+</code></pre>
+               </div>
+
 <p class="mt-2">
 The <code>"/var/lib/hm3/users"</code> directory is only required if you are using the file-system and not a database to store user settings <code>(user_config_type = file in the "hm3.ini"</code> or <code>".env").</code> You can put these directories anywhere, just make sure the values in the ini file point to the right place.
 </p>
+
+<p>
+If you used <code>AUTH_TYPE=DB</code>, You need add the database structure creation with:
+</p>
+<div class="code-preview-content gc-terminal">
+<pre><code class="language-bash">
+php ./scripts/setup_database.php
+</code></pre>
 </div>
 <!-- step 4 -->
 <div id="run-time-config">
@@ -684,33 +692,30 @@ The <code>"/var/lib/hm3/users"</code> directory is only required if you are usin
 <p>
 Cypht uses a build process to create an optimized configuration, and to combine and minimize page assets.Once you have edited your <code>hm3.ini</code> or <code>.env</code> file, generate the configuration with:
 </p>
-<div class="gc-terminal">
-<p class="terminal-prompt"> <span class="terminal-command">cd </span><span class="terminal-text">/usr/local/share/cypht <span class="terminal-comment">(or wherever you put the code in section 1)</span></span></p>
+<div class="code-preview-content gc-terminal">
+<pre><code class="language-bash">
+cd /usr/local/share/cypht  (or wherever you put the code in section 1)
+sudo php ./scripts/config_gen.php
+</code></pre>
 </div>
 <p class="mt-2">
-Now going to <code >https://your-server/mail</code> should load the Cypht login page. Note that If you use a symlink, your web-server must be configured to follow symlinks.
+Now going to <code>https://your-server/mail</code> should load the Cypht login page. Note that If you use a symlink, your web-server must be configured to follow symlinks.
 </p>
 </div>
 <!-- step 5 -->
 <div id="web-server">
 <span class="gpc-body-title">5. Enable the program in your web-server</span>
 <p>
-The easiest way to serve Cypht is to symlink it to the web-server document root. You can also copy the generated files to your web-server location, but then you will need to re-copy them anytime the config_gen script is run. If the source is located at /usr/local/share/cypht, and the web-server document root is at /var/www/html, the following command will make Cypht available under the "mail" path of the web-server
+The easiest way to serve Cypht is to symlink it to the web-server document root. You can also copy the generated files to your web-server location, but then you will need to re-copy them anytime the <code>config_gen script</code> is run. If the source is located at <code>/usr/local/share/cypht</code>, and the web-server document root is at <code>/var/www/html</code>, the following command will make Cypht available under the "mail" path of the web-server
 </p>
-<!-- <div class="gc-terminal"> -->
-<!-- <p class="terminal-prompt"> <span class="terminal-command">sudo ln -s </span><span class="terminal-text">/usr/local/share/cypht /var/www/html/mail</span></p> -->
 
 <div class="code-preview-content gc-terminal">
-   <pre class="py-0">
-      <code class="language-bash p-0">
-sudo ln -s   /usr/local/share/cypht /var/www/html/mail
-      </code>
-   </pre>
+<pre><code class="language-bash">sudo ln -s /usr/local/share/cypht/site /var/www/html/mail</code></pre>
 </div>
 <div class="mt-4">
    <span class="gpc-body-title">Nginx Configuration</span>
    <p>For Nginx users, add these security rules to your server configuration :</p>
-   <div class="code-preview-content">
+   <div class="code-preview-content gc-terminal">
    <pre><code class="language-bash">
 location = / {
 rewrite ^/$ /index.php last;
@@ -746,8 +751,8 @@ autoindex off;
 <p>
 Make sure to reload Nginx after making these changes:
 </p>
-<div class="gc-terminal">
-<p class="terminal-prompt"> <span class="terminal-command">sudo systemctl </span><span class="terminal-text">reload nginx</span></p>
+<div class="code-preview-content gc-terminal">
+<pre><code class="language-bash">sudo systemctl reload nginx</code></pre>
 </div>
 <p>
 Now going to https://your-server/mail/ should load the Cypht login page. Note that If you use a symlink, your web-server must be configured to follow symlinks.
@@ -764,34 +769,22 @@ Setting up users depends on what type of authentication you configure in the <co
    <li class="">
       <span class="terminal-comment">create an account</span>
       <div class="code-preview-content gc-terminal">
-         <pre>
-             <code class="language-php">
-php ./scripts/create_account.php username password
-             </code>
-         </pre>
+<pre><code class="language-php">php ./scripts/create_account.php username password</code></pre>
       </div>
    </li>
    <li class="">
       <span class="terminal-comment">delete an account</span>
       <div class="code-preview-content gc-terminal">
-         <pre>
-             <code class="language-bash">
-php ./scripts/delete_account.php username
-             </code>
-         </pre>
+<pre><code class="language-bash">php ./scripts/delete_account.php username</code></pre>
       </div>
    </li>
    <li class="">
       <span class="terminal-comment">change an account password</span>
       <div class="code-preview-content gc-terminal">
-         <pre>
-             <code class="language-bash py-0">
-#Change an account password with old password (preserves user data):
-   php ./scripts/update_password.php username old_password new_password
+<pre><code class="language-bash">#Change an account password with old password (preserves user data):
+php ./scripts/update_password.php username old_password new_password
 #Change an account password without old password (may lose user data):
-php ./scripts/update_password.php username new_password
-</code>
-         </pre>
+php ./scripts/update_password.php username new_password</code></pre>
       </div>
 
    </li>
@@ -808,26 +801,24 @@ php ./scripts/update_password.php username new_password
       </div> 
       <span class="">Shell special characters that require quoting:</span>
       <div class="code-preview-content gc-terminal">
-         <pre>
-             <code class="language-bash">
-    - & - Background operator
-    - ; - Command separator  
-    - | - Pipe operator
-    - > < - Redirection operators
-    - $ - Variable expansion
-    - `command` - Command substitution
-    - * ? - Wildcards
-    - ! - History expansion
-    - # - Comment marker
-    - \ - Escape character
-    - ( ) - Subshell
-    - { } - Brace expansion
-    - [ ] - Pattern matching
-    - ~ - Home directory expansion
-    - ' " - Quote characters
-    - Spaces and tabs
-            </code>
-         </pre>
+<pre><code class="language-bash">
+- & - Background operator
+- ; - Command separator  
+- | - Pipe operator
+- > < - Redirection operators
+- $ - Variable expansion
+- `command` - Command substitution
+- * ? - Wildcards
+- ! - History expansion
+- # - Comment marker
+- \ - Escape character
+- ( ) - Subshell
+- { } - Brace expansion
+- [ ] - Pattern matching
+- ~ - Home directory expansion
+- ' " - Quote characters
+- Spaces and tabs
+</code></pre>
       </div>   
    </li>
  </ol>
@@ -844,25 +835,29 @@ Now going to <code >https://your-server/mail</code> should load the Cypht login 
     <ul>
       <li>
         <h6>Method A : Prefix command with a space (Bash/Zsh)</h6>
-        <pre><code>
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-bash">
 # First, enable this feature (add to ~/.bashrc or ~/.zshrc):
   export HISTCONTROL=ignorespace  # For Bash
 # or
   setopt HIST_IGNORE_SPACE        # For Zsh
-    # Then prefix your command with a space (notice the space before 'php'):
-     php ./scripts/create_account.php username 'password123'
-        </code></pre>
+# Then prefix your command with a space (notice the space before 'php'):
+  php ./scripts/create_account.php username 'password123'
+</code></pre>
+        </div>
       </li>
       <li>
         <h6>Method B : Remove command from history immediately after</h6>
-        <pre><code>
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-bash">
 # Run your command
    php ./scripts/create_account.php username 'password123'
 # Then immediately delete it from history
    history -d $((HISTCMD-1))  # Bash
 # or
    history -d -1              # Zsh
-        </code> </pre>
+</code></pre>
+        </div>
       </li>
     </ul>
 
@@ -871,18 +866,24 @@ Now going to <code >https://your-server/mail</code> should load the Cypht login 
 <div id="debug-mode">
 <span class="gpc-body-title">8. Debug mode</span>
 <p>
-Cypht has a debug or developer mode that can be used to troubleshoot problems or enable faster development of modules. To enable the debug version of Cypht, just sym-link the entire source directory instead of the site sub-directory
+Cypht debugging and logging are controlled with environment variables (not by deploying a separate symlinked debug instance). Use these settings to troubleshoot safely.
 </p>
 <div class="code-preview-content gc-terminal">
-         <pre>
-             <code class="language-bash">
-sudo ln -s /usr/local/share/cypht /var/www/html/mail-debug
-             </code>
-         </pre>
-      </div>
+<pre><code class="language-bash">
+ENABLE_DEBUG=true
+LOG_LEVEL=INFO
+LOG_FILE=
+</code></pre>
+</div>
 <p class="mt-2">
-Debug mode is not as efficient as the normal version, and it is NOT designed to be secure. <strong>DO NOT RUN DEBUG MODE IN PRODUCTION.</strong> You have been warned! Debug mode outputs lots of information to the PHP error log that can be useful for trouble-shooting problems. The location of the error log varies based on your php.ini settings and web-server software.
+With <code>ENABLE_DEBUG=true</code>, Cypht shows the in-browser debug panel on HTML pages and emits logs according to <code>LOG_LEVEL</code> (<code>ERROR</code>, <code>WARNING</code>, <code>INFO</code>, <code>DEBUG</code>). If <code>LOG_FILE</code> is empty, logs go to your PHP/web-server error log; if set, logs are also written to that file.
 </p>
+<p class="mt-2">
+For production, keep <code>ENABLE_DEBUG=false</code> and use a restrictive level such as <code>LOG_LEVEL=WARNING</code>. <strong>DO NOT RUN DEBUG MODE IN PRODUCTION.</strong>
+</p>
+<span>
+For implementation details, see the <a href="https://github.com/cypht-org/cypht/wiki/Cypht-Logging-System">Cypht Logging System</a> guide.
+</span>
 </div>
 </div>
 
@@ -895,7 +896,7 @@ Debug mode is not as efficient as the normal version, and it is NOT designed to 
          <p>
              Some Cypht modules require additional ini files to be configured. These should NOT be inside the web-server document root. Cypht will look for them in the location defined by "app_data_dir" in the hm3.ini file. A sample ini file for each module set that requires one is included in the source for that module. To configure them you must copy the sample ini file to the "app_data_dir" and edit it for your setup.
          </p>
-          <p>Some of these require configuring your service with a provider, specifically ones related to Oauth2 client setup (Gi thub,  WordPress, Oauth2 over IMAP for Gmail and Outlook). Re-run the config_gen script after configuring an ini file and it will be merged into the main configuration settings.</p>
+          <p>Some of these require configuring your service with a provider, specifically ones related to OAuth2 client setup (Gi thub,  WordPress, OAuth2 over IMAP for Gmail and Outlook). Re-run the config_gen script after configuring an ini file and it will be merged into the main configuration settings.</p>
          <div>
             <ul>
                <li>
@@ -907,12 +908,12 @@ Debug mode is not as efficient as the normal version, and it is NOT designed to 
                      </p>
                </li>
                <li>
-                  <b>OAUTH2 over IMAP</b>
-                  <p>Gmail and Outlook.com support OAUTH2 authentication over IMAP. This is preferable to normal IMAP
+                  <b>OAuth2 over IMAP</b>
+                  <p>Gmail and Outlook.com support OAuth2 authentication over IMAP. This is preferable to normal IMAP
                   authentication because Cypht never has access to your account password.</p>
                   <p>
-                     Example oauth2 ini file
-                     <a href="https://github.com/cypht-org/cypht/blob/1.4.x/modules/imap/oauth2.ini">get oauth2.ini example</a>
+                     Example OAuth2 ini file
+                     <a href="https://github.com/cypht-org/cypht/blob/1.4.x/modules/imap/OAuth2.ini">get OAuth2.ini example</a>
                            , Authorize an application for gmail
                      <a href="https://console.developers.google.com/project">https://console.developers.google.com/project</a>, Authorize an application for outlook.com
                      <a href="https://account.live.com/developers/applications/">https://account.live.com/developers/applications</a>
@@ -936,6 +937,7 @@ Debug mode is not as efficient as the normal version, and it is NOT designed to 
             </ul>
           </div>
       </div>
+   </div>
    </div>
 </div>
 <!--  -->

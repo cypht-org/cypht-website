@@ -163,18 +163,6 @@
 
 /* III. Security Section ──────────────────────────────────────────────────────────── */
 
-/* .sec-img-card {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-
-      & img {
-            width: 75%;
-            height: auto;
-            object-fit: cover;
-      }
-} */
 
 /* IV. Key Features Section ──────────────────────────────────────────────────────────── */
 .key-feature-content {
@@ -475,6 +463,11 @@
 
 
       /* en media: */
+
+      #search {
+            min-height: inherit;
+      }
+
       .search-parent {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -504,6 +497,19 @@
       .search-div5 {
             grid-column: 2;
             grid-row: 4 / span 3;
+      }
+
+      .search-parent .search-div4 .ft-card-img-content img,
+      .search-parent .search-div5 .ft-card-img-content img {
+            position: static;
+            top: auto;
+            left: auto;
+            transform: none;
+            height: auto;
+            width: auto;
+            max-width: min(55%, 15rem);
+            max-height: 100%;
+            object-fit: contain;
       }
 
       /* IV. Development Section ──────────────────────────────────────────────────────────── */
@@ -596,6 +602,7 @@
             width: 100%;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
+            padding: 0 1.3rem;
       }
 
       .hero-section-content {
@@ -608,6 +615,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+            img {
+                  width: 90%;
+                  height: 100%;
+                  object-fit: cover;
+            }
 
       }
 
@@ -689,14 +702,10 @@
 
       .perf-div1 {
             grid-column: span 2 / span 2;
-            /* performance */
-
 
             & .ft-card-img-content img {
                   width: 80% !important;
             }
-
-
       }
 
       .perf-div2 {
@@ -756,6 +765,19 @@
             & .feature-card {
                   min-height: 12rem;
             }
+      }
+
+      .search-parent .search-div4 .ft-card-img-content img,
+      .search-parent .search-div5 .ft-card-img-content img {
+            position: static;
+            top: auto;
+            left: auto;
+            transform: none;
+            height: auto;
+            width: auto;
+            max-width: min(55%, 15rem);
+            max-height: 100%;
+            object-fit: contain;
       }
 
       /* RESET  */
@@ -843,14 +865,50 @@
       /* V. Security Section ──────────────────────────────────────────────────────────── */
       .security-parent {
             grid-template-columns: repeat(3, 1fr);
-            /* display: flex;
-            flex-direction: row;
-            gap: 10px;
-            width: 100%; */
       }
 
       .security-card {
             height: 25rem;
+      }
+}
+
+@media (min-width: 1024px) {
+
+      .search-parent {
+            grid-template-rows: auto auto;
+      }
+
+      .search-parent .search-div1,
+      .search-parent .search-div2,
+      .search-parent .search-div3 {
+            align-self: start;
+            min-height: 9rem;
+      }
+
+      /* Long cards: text + image — keep layout compact without clipping illustrations */
+      .search-parent .search-div4,
+      .search-parent .search-div5 {
+            align-self: start;
+            min-height: auto;
+      }
+
+      .search-parent .search-div4 .ft-card-img-content,
+      .search-parent .search-div5 .ft-card-img-content {
+            height: 9rem;
+      }
+
+      .search-parent .search-div4 .ft-card-img-content img,
+      .search-parent .search-div5 .ft-card-img-content img {
+            width: auto;
+            max-width: 68%;
+            max-height: 100%;
+            object-fit: contain;
+      }
+}
+
+@media (min-width: 1100px) {
+      .ft-hero-content {
+            padding: 0;
       }
 }
 

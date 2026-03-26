@@ -44,6 +44,11 @@
 	      id:7,
 	      title: 'Redirection',
 	      href: '#redirect'
+	    },
+	    {
+	      id:8,
+	      title: 'Logging System',
+	      href: '#logging_system'
 	    }
 	  ]
     },
@@ -144,20 +149,20 @@
 								<h6>Config menu</h6>
 								<p>Choose a config to generate</p>
 								{# <div class="d-flex gap-2 align-items-center cfh-version">
-																																																																	<span class="version-label">Vesion</span>
-																																																																	<div class="custom-select">
-																																																																		<button class="select-btn">
-																																																																			<span id="selected_text" class="selected-text"></span>
-																																																																			<span class="arrow">
-																																																																				<i class="bi bi-chevron-down dropdown-arrow"></i>
-																																																																			</span>
-																																																																		</button>
-																																																																		<ul class="select-menu">
-																																																																			<li data-value="Version 1.0.1">V1.x</li>
-																																																																			<li data-value="Version 1.0.1">V2.x</li>
-																																																																		</ul>
-																																																																	</div>
-																																																																</div> #}
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																	<span class="version-label">Vesion</span>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																	<div class="custom-select">
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																		<button class="select-btn">
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																			<span id="selected_text" class="selected-text"></span>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																			<span class="arrow">
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																				<i class="bi bi-chevron-down dropdown-arrow"></i>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																			</span>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																		</button>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																		<ul class="select-menu">
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																			<li data-value="Version 1.0.1">V1.x</li>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																			<li data-value="Version 1.0.1">V2.x</li>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																		</ul>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																	</div>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																</div> #}
 							</div>
 
 
@@ -228,13 +233,6 @@
 									<div class="form-field-description">Name of your application</div>
 								</div>
 								<div class="form-field">
-									<div class="form-switch-container">
-										<label for="debug_log" class="form-switch-label">Enable Debug Log</label>
-										<input name="DEBUG_LOG" class="form-check-input" type="checkbox" id="debug_log">
-									</div>
-									<div class="form-field-description">Enable debug logging for troubleshooting</div>
-								</div>
-								<div class="form-field">
 									<label for="admin_users" class="form-field-label">Admin Users</label>
 									<input type="text" name="ADMIN_USERS" id="admin_users" class="form-input" placeholder="admin@example.com">
 									<div class="form-field-description">Comma-separated list of admin user emails</div>
@@ -277,7 +275,7 @@
 								</div>
 								<div class="form-field">
 									<label for="win_cacert_dir" class="form-field-label">Windows CA Certificate Directory</label>
-									<input type="text" name="WIN_CACERT_DIR" id="win_cacert_dir" class="form-input" placeholder="c:\php\extras\ssl\cacert.pem">
+									<input type="text" name="WIN_CACERT_DIR" id="win_cacert_dir" class="form-input" placeholder="Enter the path to the CA certificates for Windows" value="c:\php\extras\ssl\cacert.pem">
 									<div class="form-field-description">Path to CA certificates for Windows (get from https://curl.se/ca/cacert.pem)</div>
 								</div>
 							</div>
@@ -368,7 +366,7 @@
 								<div class="form-field-group">
 									<div class="form-field">
 										<label for="ldap_auth_server" class="form-field-label">LDAP Server</label>
-										<input type="text" name="LDAP_AUTH_SERVER" id="ldap_auth_server" class="form-input" placeholder="localhost">
+										<input type="text" name="LDAP_AUTH_SERVER" id="ldap_auth_server" class="form-input" placeholder="Enter the LDAP server" value="localhost">
 										<div class="form-field-description">LDAP server hostname or IP address</div>
 									</div>
 									<div class="form-field">
@@ -401,7 +399,7 @@
 								<!-- IMAP Configuration -->
 								<div class="form-field">
 									<label for="imap_auth_name" class="form-field-label">IMAP Auth Name</label>
-									<input type="text" name="IMAP_AUTH_NAME" id="imap_auth_name" class="form-input" placeholder="localhost">
+									<input type="text" name="IMAP_AUTH_NAME" id="imap_auth_name" class="form-input" placeholder="Enter the IMAP server name" value="localhost">
 									<div class="form-field-description">IMAP authentication server name</div>
 								</div>
 
@@ -466,12 +464,12 @@
 								</div>
 								<div class="form-field">
 									<label for="user_settings_dir" class="form-field-label">User Settings Directory</label>
-									<input type="text" name="USER_SETTINGS_DIR" id="user_settings_dir" class="form-input" placeholder="/var/lib/hm3/users">
+									<input type="text" name="USER_SETTINGS_DIR" id="user_settings_dir" class="form-input" placeholder="Enter  path" value="/var/lib/hm3/users">
 									<div class="form-field-description">Directory path for storing user settings (file mode only)</div>
 								</div>
 								<div class="form-field">
 									<label for="attachment_dir" class="form-field-label">Attachment Directory</label>
-									<input type="text" name="ATTACHMENT_DIR" id="attachment_dir" class="form-input" placeholder="/var/lib/hm3/attachments">
+									<input type="text" name="ATTACHMENT_DIR" id="attachment_dir" class="form-input" placeholder="Enter attachment path" value="/var/lib/hm3/attachments">
 									<div class="form-field-description">Directory path for storing email attachments</div>
 								</div>
 								<div class="form-field">
@@ -501,10 +499,12 @@
 								<div class="form-field-group">
 									<div class="form-field">
 										<label for="default_smtp_port" class="form-field-label">Default SMTP Port</label>
-										<input type="number" name="DEFAULT_SMTP_PORT" id="default_smtp_port" class="form-input" placeholder="587">
+										<input type="number" name="DEFAULT_SMTP_PORT" id="default_smtp_port" class="form-input" placeholder="Enter SMTP port" value="587">
 										<div class="form-field-description">Default SMTP server port</div>
 									</div>
 									<div class="form-field">
+										<label for="default_smtp_port" class="form-field-label">SMTP TLS
+										</label>
 										<div class="form-switch-container">
 											<label for="default_smtp_tls" class="form-switch-label">Default SMTP TLS</label>
 											<input name="DEFAULT_SMTP_TLS" class="form-check-input" type="checkbox" id="default_smtp_tls">
@@ -669,11 +669,12 @@
 										<input type="password" name="REDIS_PASS" id="redis_password" class="form-input">
 										<div class="form-field-description">Redis authentication password</div>
 									</div>
-									<div class="form-field">
-										<label for="redis_socket" class="form-field-label">Redis Socket</label>
-										<input type="text" name="REDIS_SOCKET" id="redis_socket" class="form-input" placeholder="/var/run/redis/redis-server.sock">
-										<div class="form-field-description">Redis socket path (if using Unix socket)</div>
-									</div>
+								</div>
+
+								<div class="form-field">
+									<label for="redis_socket" class="form-field-label">Redis Socket</label>
+									<input type="text" name="REDIS_SOCKET" id="redis_socket" class="form-input" placeholder="Enter the Redis socket path" value="/var/run/redis/redis-server.sock">
+									<div class="form-field-description">Redis socket path (if using Unix socket)</div>
 								</div>
 
 								<div class="form-field">
@@ -773,8 +774,52 @@
 							<div class="cc-body-content">
 								<div class="form-field">
 									<label for="redirect_after_login" class="form-field-label">Redirect After Login</label>
-									<input type="text" name="REDIRECT_AFTER_LOGIN" id="redirect_after_login" class="form-input" placeholder="127.0.0.1">
+									<input type="text" name="REDIRECT_AFTER_LOGIN" id="redirect_after_login" class="form-input" placeholder="Enter the redirect URL" value="127.0.0.1">
 									<div class="form-field-description">Redirect after login</div>
+								</div>
+							</div>
+						</div>
+						<!-- Logging System -->
+						<div class="config-content-item" id="logging_system">
+							<div class="cc-body-header">
+								<div class="cc-body-header-icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553" color="currentColor"/></svg>
+									<span>Logging System</span>
+								</div>
+								<button type="button" class="cc-header-reset-btn" onclick="resetSection('logging_system')">
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									Reset
+								</button>
+							</div>
+							<div class="cc-body-content">
+								<div
+									class="form-field-group">
+									{# Debug Logging #}
+									<div class="form-field">
+										<label for="debug_log" class="form-field-label">Debug Log</label>
+										<div class="form-switch-container">
+											<label for="debug_log" class="form-switch-label">Enable Debug Logging</label>
+											<input name="DEBUG_LOG" class="form-check-input" type="checkbox" id="debug_log">
+										</div>
+										<div class="form-field-description">Enable Debug Logging</div>
+									</div>
+									{# Session Type #}
+									<div class="form-field">
+										<label for="log_level" class="form-field-label">Log Level</label>
+										<select name="LOG_LEVEL" id="log_level" class="form-select">
+											<option value="WARNING">WARNING</option>
+											<option value="ERROR">ERROR</option>
+											<option value="INFO">INFO</option>
+											<option value="DEBUG">DEBUG</option>
+										</select>
+										<div class="form-field-description">Choose how to handle user sessions</div>
+									</div>
+								</div>
+								{# Log File #}
+								<div class="form-field">
+									<label for="log_file" class="form-field-label">Log File</label>
+									<input type="text" name="LOG_FILE" id="log_file" class="form-input" placeholder="/var/log/cypht/cypht.log" value="/var/log/cypht/cypht.log">
+									<div class="form-field-description">Absolute path on the server where Cypht writes its log file.</div>
 								</div>
 							</div>
 						</div>
@@ -952,7 +997,7 @@
 							<div class="cc-body-content">
 								<div class="form-field">
 									<label for="carddav_host" class="form-field-label">CardDAV Host</label>
-									<input type="text" name="CARDDAV_HOST" id="carddav_host" class="form-input" placeholder="localhost">
+									<input type="text" name="CARDDAV_HOST" id="carddav_host" class="form-input" placeholder="Enter the CardDAV server hostname" value="localhost">
 									<div class="form-field-description">CardDAV server hostname or IP address</div>
 								</div>
 							</div>
@@ -1042,8 +1087,8 @@
 									</svg>
 								</div>
 								<div class="cc-item-top-text">
-									<h5>Github Config</h5>
-									<p>Configure your Cypht application's GitHub settings. Set up the GitHub parameters to enable integration with GitHub for authentication and other features.</p>
+									<h5>GitHub Config</h5>
+									<p>Configure your Cypht application's GitHub settings. Set up the GitHub parameters to add Github notification support to Cypht.</p>
 								</div>
 							</div>
 						</div>
@@ -1104,7 +1149,7 @@
 								</div>
 								<div class="cc-item-top-text">
 									<h5>LDAP Config</h5>
-									<p>Configure your Cypht application's LDAP settings. Set up the LDAP parameters to enable integration with LDAP for authentication and other features.</p>
+									<p>Configure your Cypht application's LDAP settings. Set up the LDAP parameters to enable integration with LDAP for authentication and address book.</p>
 								</div>
 							</div>
 							<div></div>
@@ -1775,6 +1820,10 @@ USER_SETTINGS_DIR=/var/lib/hm3/users
 WORDPRESS_CLIENT_ID=
 WORDPRESS_CLIENT_SECRET=
 WORDPRESS_CLIENT_URI=
+
+LOG_FILE=/var/log/cypht/cypht.log
+DEBUG_LOG=false
+LOG_LEVEL=WARNING
 </pre>
 			</div>
 		</div>

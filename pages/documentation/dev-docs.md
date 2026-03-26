@@ -137,13 +137,16 @@ layout: section/documentation
         </div>
         <p>To create a page called "list_messages":</p>
         <p>In module/setup.php:</p>
-        <pre><code class="language-bash">setup_base_page('all_messages', 'core');
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-php">setup_base_page('all_messages', 'core');
 
 add_handler('all_messages', 'load_messages', true);
 add_output('all_messages', 'print_messages', true);</code></pre>
+        </div>
 
         <p>In module/modules.php:</p>
-        <pre><code class="language-bash">class Hm_Handler_load_messages extends Hm_Handler_Module {
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-php">class Hm_Handler_load_messages extends Hm_Handler_Module {
     public function process() {
         // Logic to get messages
         $this->out('messages', $message_list);
@@ -157,15 +160,18 @@ $messages = $this->get('messages');
 return '&lt;div class="message_list"&gt;' . implode('', $messages) . '&lt;/div&gt;';
 }
 }</code></pre>
+        </div>
 
         <div class="doc-subsection-header">
             <a href="#ajax_pages">AJAX Pages</a>
         </div>
         <p>For AJAX pages that load data asynchronously:</p>
-        <pre><code class="language-bash">setup_base_ajax_page('ajax_load_new_messages', 'core');
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-php">setup_base_ajax_page('ajax_load_new_messages', 'core');
 
 add_handler('ajax_load_new_messages', 'get_new_messages', true);
 add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
+        </div>
 
         <div class="tip-card tip-info mt-3">
             <span class="tip-info-text"><i class="bi bi-info-circle"></i> Page Authorization</span>
@@ -176,7 +182,8 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
             <a href="#ajax_javascript">AJAX with JavaScript</a>
         </div>
         <p>Add this code in module/site.js to run your AJAX page every 15 seconds:</p>
-        <pre><code class="language-bash">$(function() {
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-javascript">$(function() {
     if (hm_page_name() === 'all_messages') {
         setInterval(function() {
             Hm_Ajax.request(
@@ -192,6 +199,7 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
     }
 
 });</code></pre>
+        </div>
 
         <div class="tip-card tip-info mt-3">
             <span class="tip-info-text"><i class="bi bi-lightbulb"></i> AJAX Note</span>
@@ -202,7 +210,8 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
             <a href="#page_authorization">Page Authorization</a>
         </div>
         <p>Finally, add the following code to module/setup.php:</p>
-        <pre><code class="language-bash">return array(
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-php">return array(
     'allowed_pages' => array(
         ...
         'ajax_load_new_messages',
@@ -216,6 +225,7 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
     'allowed_post' => array(...)
 
 );</code></pre>
+        </div>
 
 <ul>
 <li>Add all_messages and ajax_load_new_messages to the list of allowed pages</li>
@@ -274,9 +284,13 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
             <a href="#translating_strings">Translating Strings</a>
         </div>
         <p>In output modules:</p>
-        <pre><code class="language-bash p-3">$this->trans("Your text here");</code></pre>
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-php">$this->trans("Your text here");</code></pre>
+        </div>
         <p>Or with specific language:</p>
-        <pre><code class="language-bash p-3">hm_trans("Your text here", "en");</code></pre>
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-php">hm_trans("Your text here", "en");</code></pre>
+        </div>
 
         <div class="doc-subsection-header">
             <a href="#adding_languages">Adding New Languages</a>
@@ -302,12 +316,16 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
             <a href="#phpunit">PHPUnit Tests</a>
         </div>
         <p>Run all tests:</p>
-        <pre><code class="language-bash p-3">php vendor/phpunit/phpunit/phpunit --configuration tests/phpunit/phpunit.xml</code></pre>
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-bash">php vendor/phpunit/phpunit/phpunit --configuration tests/phpunit/phpunit.xml</code></pre>
+        </div>
         <p>Run specific tests:</p>
-        <pre><code class="language-bash p-3">php vendor/phpunit/phpunit/phpunit \
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-bash">php vendor/phpunit/phpunit/phpunit \
 
 --configuration tests/phpunit/phpunit.xml \
  --filter classOrMethodName</code></pre>
+        </div>
 
         <div class="doc-subsection-header">
             <a href="#selenium">Selenium Tests</a>
@@ -365,15 +383,21 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
         </ol>
 
         <p><strong>For JavaScript files:</strong></p>
-        <pre><code class="language-bash p-3">Hm_Output_page_js.output</code></pre>
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-php">Hm_Output_page_js.output</code></pre>
+        </div>
 
         <p><strong>For CSS files:</strong></p>
-        <pre><code class="language-bash p-3">Hm_Output_header_css.output</code></pre>
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-php">Hm_Output_header_css.output</code></pre>
+        </div>
         <div class="doc-subsection-header">
             <a href="#enable_module">Enable a Module</a>
         </div>
         <p>Edit .env file and add your module to CYPHT_MODULES variable:</p>
-        <pre><code class="language-bash p-3">CYPHT_MODULES=core,imap,smtp,your_module_name</code></pre>
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-bash">CYPHT_MODULES=core,imap,smtp,your_module_name</code></pre>
+        </div>
 
         <div class="doc-subsection-header">
             <a href="#create_module">Create a Module</a>
@@ -386,12 +410,15 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
         <p>Let's create a complete test page step by step:</p>
 
         <p><strong>Step 1:</strong> Add the page in core/setup.php:</p>
-        <pre><code class="language-bash p-3">setup_base_page('test');</code></pre>
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-php">setup_base_page('test');</code></pre>
+        </div>
 
         <p><strong>Step 2:</strong> Access the page at <code class="language-bash">?page=test</code> - you'll see "Page Not Found!" which is normal because we need to authorize it.</p>
 
         <p><strong>Step 3:</strong> Authorize the page in core/setup.php:</p>
-        <pre><code class="language-bash p-3">return array(
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-php">return array(
     'allowed_pages' => array(
         ...
         'test'
@@ -403,22 +430,30 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
     'allowed_post' => array(...)
 
 );</code></pre>
+        </div>
 
         <p><strong>Step 4:</strong> Add content with outputs in core/setup.php:</p>
-        <pre><code class="language-bash p-3">add_output('test', 'test_heading', true, 'core', 'content_section_start', 'after');</code></pre>
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-php">add_output('test', 'test_heading', true, 'core', 'content_section_start', 'after');</code></pre>
+        </div>
 
         <p><strong>Step 5:</strong> Define the output class in core/modules.php:</p>
-        <pre><code class="language-bash p-3">class Hm_Output_test_heading extends Hm_Output_Module {
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-php">class Hm_Output_test_heading extends Hm_Output_Module {
     protected function output() {
         return '&lt;div class="content_title"&gt;'.$this->trans('Test').'&lt;/div&gt;';
     }
 
 }</code></pre>
+        </div>
 
         <p><strong>Step 6:</strong> Add more content with additional outputs:</p>
-        <pre><code class="language-bash p-3">add_output('test', 'test_first_div', true, 'core', 'test_heading', 'after');</code></pre>
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-php">add_output('test', 'test_first_div', true, 'core', 'test_heading', 'after');</code></pre>
+        </div>
 
-        <pre><code class="language-bash p-3">class Hm_Output_test_first_div extends Hm_Output_Module {
+        <div class="code-preview-content gc-terminal">
+<pre><code class="language-php">class Hm_Output_test_first_div extends Hm_Output_Module {
     protected function output() {
         return '&lt;div class="mt-3 col-lg-6 col-md-12 col-sm-12"&gt;
             &lt;div class="card"&gt;
@@ -433,6 +468,7 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
     }
 
 }</code></pre>
+        </div>
 
         <div class="tip-card tip-warning mt-3">
             <span class="tip-warning-text"><i class="bi bi-exclamation-triangle"></i> Integration Compatibility</span>

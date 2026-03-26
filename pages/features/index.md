@@ -24,7 +24,7 @@ loadScriptAfter: /js/feature.js
             </div>
             <!-- Icons -->
             <div class="hero-section-right">
-                <img src="/img/feat-cover.png" alt="Cypht"/>
+                <img src="/img/features/hero.png" alt="Cypht" class="mt-4"/>
             </div>
         </div>
     </section>
@@ -182,13 +182,13 @@ loadScriptAfter: /js/feature.js
             <div class="ft-section">
                 <div class="ft-section-center-header">
                     <span class="hs-chip">Development</span>
-                    <h3>Cypht does not replace your existing accounts - it combines them into one</h3>
+                    <h3>Extend Cypht with modules, additional protocols, and a streamlined build workflow</h3>
                 </div>
                 <div class="dev-parent w-100">
                     <div class="dev-div1 feature-card">
                         <div class="feat-card-header">
                             <span class="mss-div-header"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="m15 9l4-4M5 19l4-4m0-6L5 5m14 14l-4-4"/><path stroke-linecap="round" d="M9.412 2.339a9.954 9.954 0 0 1 5.176.002c5.335 1.43 8.5 6.913 7.071 12.247c-1.43 5.335-6.912 8.5-12.247 7.071c-5.335-1.43-8.5-6.912-7.071-12.247a9.954 9.954 0 0 1 2.586-4.484"/></g></svg>EWS Support</span>
-                            <span class="ft-description">Exchange Web Services (EWS) protocol support for connecting to Microsoft Exchange servers. Check out the progress <a href="https://github.com/cypht-org/cypht/pull/1278"  target="_blank" class="text-link-card">here</a></span>
+                            <span class="ft-description">Exchange Web Services (EWS) lets you connect to Microsoft Exchange servers alongside IMAP, JMAP, and other account types.</span>
 
                         </div>
                         <div class="ft-card-img-content dev-img-card">
@@ -227,7 +227,7 @@ loadScriptAfter: /js/feature.js
             <div class="ft-section">
                 <div class="ft-section-left-header">
                     <span class="hs-chip">Security</span>
-                    <h3 class="fc-h-title fc-h-title-left">Cypht does not replace your existing accounts - it combines them into one</h3>
+                    <h3 class="fc-h-title fc-h-title-left">Protect your email and sessions with encryption, strong authentication & secure storage</h3>
                 </div>
                 <div class="security-parent w-100">
                     <div class="security-card sec-card-1">

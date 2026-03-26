@@ -20,7 +20,7 @@ loadScriptAfter: /js/install.js
                     Get your secure, self-hosted email client running quickly with our comprehensive installation guide. Multiple deployment options available.
                 </p>
                 <div class="hs-stats-content">
-                    <div class="hs-hs-stat-item">
+                    <div class="hs-stat-item">
                         <div class="hs-stat-number">5min</div>
                         <div class="hs-stat-label">Setup Time</div>
                     </div>
@@ -30,15 +30,15 @@ loadScriptAfter: /js/install.js
                         <div class="hs-stat-label">Install Methods</div>
                     </div>
                     <div class="hs-stat-divider"></div>
-                        <div class="hs-stat-item">
+                    <div class="hs-stat-item">
                         <div class="hs-stat-number">100%</div>
-                    <div class="hs-stat-label">Open Source</div>
+                        <div class="hs-stat-label">Open Source</div>
                     </div>
                 </div>
                 <div class="hs-actions-content">
                     <a href="#guide_content" class="action-btn cypht-primary-btn">
                     <i class="bi bi-rocket-takeoff"></i>
-                    Quick Install
+                    Manual Install
                     </a>
                     <a href="#installation_methods" class="action-btn cypht-secondary-btn">
                     <i class="bi bi-list-ul"></i>
@@ -60,7 +60,7 @@ loadScriptAfter: /js/install.js
                         <!-- Commande 1 -->
                         <div class="terminal-line step-1">
                             <span class="terminal-prompt">$</span>
-                            <span class="cmd">git clone https://github.com/cypht-org/cypht</span>
+                            <span class="cmd">git clone https://github.com/cypht-org/cypht.git</span>
                         </div>
                         <!-- Output 1 -->
                         <div class="terminal-line output step-1-out">
@@ -76,19 +76,37 @@ loadScriptAfter: /js/install.js
                         <!-- Commande 3 -->
                         <div class="terminal-line step-3">
                             <span class="terminal-prompt">$</span>
-                            <span class="cmd">cp .env.example .env</span>
+                            <span class="cmd">composer install</span>
                         </div>
                         <!-- Output 3 -->
                         <div class="terminal-line output step-3-out">
-                            <span class="terminal-success">✓ Configuration file created successfully!</span>
+                            <span class="terminal-success">✓ Dependencies installed.</span>
                         </div>
                         <!-- Commande 4 -->
                         <div class="terminal-line step-4">
                             <span class="terminal-prompt">$</span>
-                            <span class="cmd">php -S localhost:7777</span>
+                            <span class="cmd">cp .env.example .env</span>
                         </div>
                         <!-- Output 4 -->
                         <div class="terminal-line output step-4-out">
+                            <span class="terminal-success">✓ Configuration file created successfully!</span>
+                        </div>
+                        <!-- Commande 5 -->
+                        <div class="terminal-line step-5">
+                            <span class="terminal-prompt">$</span>
+                            <span class="cmd">php ./scripts/config_gen.php</span>
+                        </div>
+                        <!-- Output 5 -->
+                        <div class="terminal-line output step-5-out">
+                            <span class="terminal-success">✓ Configuration generated.</span>
+                        </div>
+                        <!-- Commande 6 -->
+                        <div class="terminal-line step-6">
+                            <span class="terminal-prompt">$</span>
+                            <span class="cmd">php -S localhost:7777</span>
+                        </div>
+                        <!-- Output 6 -->
+                        <div class="terminal-line output step-6-out">
                             <span class="terminal-info-server">[<span id="sec-today"></span>] PHP 8.3.9 Development Server (http://localhost:7777) started</span>
                         </div>
                     </div>

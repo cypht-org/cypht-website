@@ -127,18 +127,22 @@ document.addEventListener("DOMContentLoaded", function () {
       const baseDelays = {
         "step-1": 500,    // First command starts after 500ms
         "step-2": 3500,   // Second command after first completes
-        "step-3": 6500,   // Third command after second completes
-        "step-4": 9500,   // Fourth command after third completes
+        "step-3": 6500,   // Third command (composer install)
+        "step-4": 9500,   // Fourth command (cp .env.example .env)
+        "step-5": 12500,  // Fifth command (php ./scripts/config_gen.php)
+        "step-6": 15500,  // Sixth command (php -S localhost:7777)
         "step-1-out": 2500, // Output for first command
         "step-2-out": 0,   // No output for second command
         "step-3-out": 7500, // Output for third command
-        "step-4-out": 11000 // Output for fourth command
+        "step-4-out": 11000, // Output for fourth command
+        "step-5-out": 14000, // Output for fifth command
+        "step-6-out": 17000  // Output for sixth command
       };
       return baseDelays[step] || 0;
     }
 
     // Calculate total animation duration
-    const lastCommand = 14000; // Total duration for all animations (14 seconds)
+    const lastCommand = 20000; // Total duration for all animations (20 seconds)
     const totalDuration = lastCommand + 2000; // Add 2s buffer for final display
 
     // Start animations for each element with proper sequencing
@@ -188,26 +192,23 @@ document.addEventListener("DOMContentLoaded", function () {
     isAnimating = false;
   }
 
-  //+- 5 Highlight code when tabs are shown (Bootstrap tab events)
-  function tabs_flow() {
-    const tabList = document.querySelectorAll('[data-bs-toggle="tab"]');
-    tabList.forEach((tab) => {
-      tab.addEventListener("shown.bs.tab", function (event) {
-        // Re-highlight code in the newly shown tab
-        const targetPane = document.querySelector(
-          event.target.getAttribute("data-bs-target")
-        );
-        // if (targetPane) {
-        // Normalize code indentation first
-        // normalizeCodeIndentation(targetPane);
-        // // Then highlight with PrismJS
-        // if (typeof Prism !== "undefined") {
-        //   Prism.highlightAllUnder(targetPane);
-        // }
-        // }
+  //+- 5 highlight.js dans les onglets (Linux / Windows / cPanel) après affichage
+  function initInstallGuideTabs() {
+    document.querySelectorAll('[data-bs-toggle="tab"]').forEach((tab) => {
+      if (tab.dataset.gcHljsBound) return;
+      tab.dataset.gcHljsBound = "1";
+      tab.addEventListener("shown.bs.tab", (event) => {
+        const sel = event.target.getAttribute("data-bs-target");
+        const targetPane = sel && document.querySelector(sel);
+        if (!targetPane || typeof hljs === "undefined") return;
+        targetPane.querySelectorAll("pre code").forEach((block) => {
+          hljs.highlightElement(block);
+        });
       });
     });
   }
+
+  window.initInstallGuideTabs = initInstallGuideTabs;
 
   //+- 6 Load documentation
   function updateActiveMenu() {
@@ -435,16 +436,6 @@ document.addEventListener("DOMContentLoaded", function () {
       ticking = true;
     }
   });
-});
-
-//  terminal highlight code
-document.addEventListener("DOMContentLoaded", function () {
-  setTimeout(function () {
-    // Highlight all code blocks
-    document.querySelectorAll("pre code").forEach(function (block) {
-      hljs.highlightElement(block);
-    });
-  }, 100);
 });
 
 // Update current date and time in the terminal

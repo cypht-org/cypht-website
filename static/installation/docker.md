@@ -26,20 +26,18 @@
           <!-- Step 1 -->
           <li>
               <span class="terminal-comment">Create a Project Directory</span>
-                <div class="code-preview-content gc-terminal mt-1">
-                  <pre>
-                    <code class="language-bash">
-mkdir cypht-docker
-cd cypht-docker
-                    </code>
-                  </pre>
+                <div class="code-preview-content gc-terminal">
+<pre><code class="language-bash">mkdir cypht-docker
+cd cypht-docker</code></pre>
                 </div>
             </li>
             <!-- Step 2 -->
             <li>
-              Create a file named
+              1. Create a file named
+              <span>
               <code>docker-compose.yaml</code>
               in the directory you just created.
+              <span>
             </li>
             <!-- Step 3 -->
             <li>
@@ -50,8 +48,8 @@ cd cypht-docker
             <li>
               Run containers
               If you use the legacy standalone tool:
-              <div class="gc-terminal">
-                <p class="terminal-prompt"> <span class="terminal-command">docker compose </span><span class="terminal-text">up -d</span></p>
+              <div class="code-preview-content gc-terminal">
+<pre><code class="language-bash">docker compose up -d</code></pre>
               </div>
               <div class="g-warning-card">
                 <div class="g-warning-card-icon">
@@ -64,7 +62,7 @@ cd cypht-docker
             </li>
             <!-- Step 5 -->
             <li>
-              Access Cypht at <code>http://localhost:80</code> (or your server IP) unless you changed the mapped port.
+              Access Cypht at <code class="">http://localhost:80</code> (or your server IP) unless you changed the mapped port.
             </li>
           </ol>
       </div>

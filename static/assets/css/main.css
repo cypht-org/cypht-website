@@ -1,6 +1,7 @@
 @import url('./typography.css');
 @import url('./animations.css');
 @import url('./spacing.css');
+@import url('./code-preview.css');
 @import url('./accessibility.css');
 @import url('./home/index.css');
 @import url('./features.css');

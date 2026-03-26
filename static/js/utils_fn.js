@@ -167,6 +167,16 @@ export class UtilsFn {
         hljs.highlightElement(block);
       });
     }
+
+    // Ré-attacher les boutons copy aux blocs code (contenu injecté)
+    if (typeof window.initCodeCopyButtons === "function") {
+      window.initCodeCopyButtons();
+    }
+
+    // Onglets install (manual) : écouteurs + surlignage au changement d’onglet
+    if (typeof window.initInstallGuideTabs === "function") {
+      window.initInstallGuideTabs();
+    }
   } catch (error) {
     container.innerHTML = `
       <div class="alert alert-danger">

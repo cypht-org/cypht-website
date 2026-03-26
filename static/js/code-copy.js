@@ -5,7 +5,6 @@
 (function () {
   "use strict";
 
-  // Configuration
   const CONFIG = {
     codeSelectors:
       "pre code, .code-preview-content pre code, .gc-terminal pre code",
@@ -19,11 +18,10 @@
     },
   };
 
+  /** Debounce delay to avoid feedback loops when MutationObserver reacts to our own DOM insertions. */
+  let copyDebounceTimer = null;
   let observer = null;
 
-  /**
-   * Main initialization
-   */
   function init() {
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", initCopyButtons);
@@ -33,11 +31,7 @@
     setupMutationObserver();
   }
 
-  /**
-   * Initialize copy buttons for all code and text blocks
-   */
   function initCopyButtons() {
-    // Use requestIdleCallback for non-blocking initialization
     if ("requestIdleCallback" in window) {
       requestIdleCallback(initCopyButtonsNow);
     } else {
@@ -45,19 +39,86 @@
     }
   }
 
-  function initCopyButtonsNow() {
-    // Initialize code blocks
-    document.querySelectorAll(CONFIG.codeSelectors).forEach(initCodeBlock);
+  function scheduleInitCopyButtons() {
+    if (copyDebounceTimer) clearTimeout(copyDebounceTimer);
+    copyDebounceTimer = setTimeout(() => {
+      copyDebounceTimer = null;
+      initCopyButtons();
+    }, 120);
+  }
 
-    // Initialize copyable text blocks
+  function initCopyButtonsNow() {
+    document.querySelectorAll(CONFIG.codeSelectors).forEach(initCodeBlock);
     document.querySelectorAll(CONFIG.textSelectors).forEach(initCopyableText);
   }
 
   /**
-   * Initialize a single code block
+   * Terminal: use a single .gc-terminal-inner wrapper (position: relative) for <pre> + button.
+   * Avoids repeated appendChild on the parent, which caused duplicate buttons when MutationObserver fired.
    */
   function initCodeBlock(codeBlock) {
+    const pre = codeBlock.closest("pre");
+    const codePreviewContent = pre && pre.closest(".code-preview-content");
+
+    if (codePreviewContent?.querySelector(".gc-terminal-inner")) return;
     if (codeBlock.closest(`.${CONFIG.buttonClass}-container`)) return;
+    if (codeBlock.closest(".code-card")) return;
+
+    /* Do not assign to codeBlock.textContent — it removes highlight.js <span class="hljs-*"> tokens. */
+    const normalizedCode = normalizeCodeText(codeBlock.textContent);
+
+    if (codePreviewContent && !codePreviewContent.querySelector(".code-card")) {
+      const isTerminal = codePreviewContent.classList.contains("gc-terminal");
+
+      if (isTerminal) {
+        const wrap = document.createElement("div");
+        wrap.className = "gc-terminal-inner";
+        wrap.appendChild(pre);
+
+        const button = createCopyButton();
+        button.classList.add("gc-terminal-copy-btn");
+        wrap.appendChild(button);
+
+        codePreviewContent.replaceChildren(wrap);
+
+        button.addEventListener("click", () =>
+          copyToClipboard(normalizedCode, button),
+        );
+        return;
+      }
+
+      const codeCard = document.createElement("div");
+      codeCard.className = "code-card";
+
+      const header = document.createElement("div");
+      header.className = "code-card-header";
+
+      const filePath = codePreviewContent.getAttribute("data-file");
+      if (filePath) {
+        const path = document.createElement("span");
+        path.className = "code-card-path";
+        path.textContent = filePath;
+        header.appendChild(path);
+      }
+
+      const button = createCopyButton();
+      button.classList.add("code-card-copy");
+      header.appendChild(button);
+
+      const body = document.createElement("div");
+      body.className = "code-card-body";
+      body.appendChild(pre);
+
+      codeCard.appendChild(header);
+      codeCard.appendChild(body);
+
+      codePreviewContent.replaceChildren(codeCard);
+
+      button.addEventListener("click", () =>
+        copyToClipboard(normalizedCode, button),
+      );
+      return;
+    }
 
     const container = document.createElement("div");
     container.className = `${CONFIG.buttonClass}-container`;
@@ -68,13 +129,14 @@
     container.appendChild(button);
 
     button.addEventListener("click", () =>
-      copyToClipboard(codeBlock.textContent, button)
+      copyToClipboard(normalizedCode, button),
     );
   }
 
-  /**
-   * Initialize a copyable text block
-   */
+  function normalizeCodeText(text) {
+    return text.replace(/^\s*\n/, "").replace(/\n\s*$/, "");
+  }
+
   function initCopyableText(textBlock) {
     if (textBlock.querySelector(`.${CONFIG.buttonClass}`)) return;
 
@@ -88,11 +150,9 @@
     });
   }
 
-  /**
-   * Create a copy button element
-   */
   function createCopyButton() {
     const button = document.createElement("button");
+    button.type = "button";
     button.className = CONFIG.buttonClass;
     button.setAttribute("aria-label", "Copy to clipboard");
     button.setAttribute("title", "Copy to clipboard");
@@ -100,9 +160,6 @@
     return button;
   }
 
-  /**
-   * Copy text to clipboard
-   */
   async function copyToClipboard(text, button) {
     try {
       await navigator.clipboard.writeText(text);
@@ -111,16 +168,13 @@
       console.error("Failed to copy:", err);
       try {
         fallbackCopyToClipboard(text, button);
-      } catch (err) {
-        console.error("Fallback copy failed:", err);
+      } catch (fallbackErr) {
+        console.error("Fallback copy failed:", fallbackErr);
         showFeedback(button, false);
       }
     }
   }
 
-  /**
-   * Fallback copy method for older browsers
-   */
   function fallbackCopyToClipboard(text, button) {
     const textArea = document.createElement("textarea");
     textArea.value = text;
@@ -139,9 +193,6 @@
     }
   }
 
-  /**
-   * Show feedback when text is copied
-   */
   function showFeedback(button, success) {
     const icon = button.querySelector("i");
     const originalIcon = icon.className;
@@ -156,35 +207,20 @@
     }, CONFIG.feedbackDuration);
   }
 
-  /**
-   * Setup mutation observer for dynamically added content
-   */
   function setupMutationObserver() {
     if (observer) return;
 
-    observer = new MutationObserver((mutations) => {
-      if (document.body && !document.body.matches("body")) return;
-
-      let shouldInit = mutations.some(
-        (mutation) =>
-          mutation.addedNodes.length > 0 ||
-          (mutation.attributeName === "class" &&
-            (mutation.target.matches(CONFIG.codeSelectors) ||
-              mutation.target.matches(CONFIG.textSelectors)))
-      );
-
-      if (shouldInit) {
-        initCopyButtons();
-      }
+    observer = new MutationObserver(() => {
+      scheduleInitCopyButtons();
     });
 
     observer.observe(document.documentElement, CONFIG.observerConfig);
   }
 
-  // Start the initialization
   init();
 
-  // Export for testing
+  window.initCodeCopyButtons = initCopyButtons;
+
   if (typeof module !== "undefined" && module.exports) {
     module.exports = {
       init,

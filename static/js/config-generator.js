@@ -211,7 +211,7 @@ function showFeedback(btn_id, toast_id, message, type = "success") {
       {
         autohide: true,
         delay: 3000,
-      }
+      },
     );
 
     toastTrigger.addEventListener("click", (e) => {

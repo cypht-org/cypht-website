@@ -39,7 +39,7 @@ loadScriptAfter: /js/contribute.js
         <div class="text-left lc-header">
           <h2>Want to contribute ?</h2>
           <p>
-            The goal of this page is to provide everything you need to know in order to contribute to cypht-website and its different integrations.
+            The goal of this page is to provide everything you need to know in order to contribute to cypht-webmail and its different integrations.
           </p>
         </div>
         <div>

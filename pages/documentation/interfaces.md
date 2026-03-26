@@ -33,28 +33,28 @@ layout: section/documentation
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-list"></i> Navigation Panel</h6>
-                    <img src="/img/app_overview_2.png" alt="Cypht navigation panel screenshot"/>
+                    <img src="/img/docs/navigation_panel.png" alt="Cypht navigation panel screenshot" loading="lazy" decoding="async"/>
                     <p>Left sidebar containing folder hierarchy, account switching, and quick access to combined views (inbox, sent, flagged). Collapsible for maximum screen space.</p>
                 </div>
             </div>
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-envelope-open"></i> Message List</h6>
-                    <img src="/img/Inbox.PNG" alt="Cypht message list screenshot"/>
+                    <img src="/img/docs/message_list.png" alt="Cypht message list screenshot" loading="lazy" decoding="async"/>
                     <p>Central area displaying email threads with sender, subject, date, and preview. Sortable by date, sender, or subject with real-time updates.</p>
                 </div>
             </div>
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-file-text"></i> Reading Pane</h6>
-                    <img src="/img/Multi.PNG" alt="Cypht reading pane screenshot"/>
+                    <img src="/img/docs/reading_pane.png" alt="Cypht reading pane screenshot" loading="lazy" decoding="async"/>
                     <p>Right panel showing full message content with HTML rendering, attachment previews, and quick reply functionality. Can be hidden or positioned below.</p>
                 </div>
             </div>
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-gear"></i> Settings Tab</h6>
-                    <img src="/img/screenshots/5.png" alt="Cypht settings screenshot"/>
+                    <img src="/img/docs/settings_tab.png" alt="Cypht settings screenshot" loading="lazy" decoding="async"/>
                     <p>Top navigation with account management, module configuration, theme selection, and user preferences. Always accessible for quick adjustments.</p>
                 </div>
             </div>
@@ -98,21 +98,21 @@ layout: section/documentation
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-pencil-square"></i> Compose Window</h6>
-                    <img src="/img/Compose.PNG" alt="Cypht compose window screenshot"/>
+                    <img src="/img/Compose.PNG" alt="Cypht compose window screenshot" loading="lazy" decoding="async"/>
                     <p>Full-featured composer with rich text editing, Markdown support, file attachments, and saved drafts. Auto-saves to prevent data loss.</p>
                 </div>
             </div>
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-search"></i> Search Interface</h6>
-                    <img src="/img/screenshots/3.png" alt="Cypht search interface screenshot"/>
+                    <img src="/img/docs/search_interface.png" alt="Cypht search interface screenshot" loading="lazy" decoding="async"/>
                     <p>Powerful search across all accounts with filters for date ranges, senders, subjects, and content. Results displayed with highlighting.</p>
                 </div>
             </div>
             <div>
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-funnel"></i> Filtering System</h6>
-                    <img src="/img/Archive.png" alt="Cypht filtering system screenshot"/>
+                    <img src="/img/Archive.png" alt="Cypht filtering system screenshot" loading="lazy" decoding="async"/>
                     <p>Advanced filtering with server-side Sieve support, custom rules, and automatic message organization based on your criteria.</p>
                 </div>
             </div>

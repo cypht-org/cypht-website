@@ -35,7 +35,7 @@
       width: 100%;
       max-width: 580px;
       min-width: 480px;
-      height: 420px;
+      height: 480px;
       display: flex;
       flex-direction: column;
 }
@@ -108,12 +108,12 @@
       font-family: var(--font-family-monospace);
       font-size: 0.78rem;
       line-height: 1.6;
-      min-height: 200px;
+      min-height: 260px;
       height: calc(100% - 60px);
       /* Subtract header height */
       flex: 1;
-      overflow-y: auto;
-      overflow-x: hidden;
+      /* overflow-y: auto; */
+      overflow: hidden;
       background: var(--color-bg-secondary);
       position: relative;
       display: flex;
@@ -357,7 +357,7 @@
       animation-delay: 4.5s;
 }
 
-/* Step 3 - Third command (cp .env.example .env) and output */
+/* Step 3 - Third command (composer install) and output */
 .line-step-3 {
       animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
       animation-delay: 6.3s;
@@ -376,7 +376,7 @@
       animation-delay: 9s;
 }
 
-/* Step 4 - Fourth command (php -S localhost:7777) and output */
+/* Step 4 - Fourth command (cp .env.example .env) and output */
 .line-step-4 {
       animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
       animation-delay: 10.3s;
@@ -399,6 +399,50 @@
 
 .step-4-out {
       animation-delay: 13s;
+}
+
+/* Step 5 - Fifth command (php ./scripts/config_gen.php) and output */
+.line-step-5 {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 14.3s;
+}
+
+.step-5 {
+      animation-delay: 14.5s;
+}
+
+.line-step-5-out {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 16.3s;
+}
+
+.step-5-out {
+      animation-delay: 16.5s;
+}
+
+/* Step 6 - Sixth command (php -S localhost:7777) and output */
+.line-step-6 {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 18.3s;
+}
+
+.step-6 {
+      animation-delay: 18.5s;
+}
+
+.line-step-6-out {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 20.3s;
+}
+
+/* Override output animation for step-6-out to ensure it displays */
+.line-step-6-out.output {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+      animation-delay: 20.3s !important;
+}
+
+.step-6-out {
+      animation-delay: 20.5s;
 }
 
 /* ─── Installation Methods ───────────────────────────────────────────────── */
@@ -714,7 +758,6 @@
 
 .guide-left li {
       margin: .25rem 0;
-      /* background-color: rebeccapurple; */
 }
 
 .guide-page-header h3 {
@@ -798,246 +841,13 @@
 
 /* Terminal header bar effect (optional) */
 
-.code-preview-content {
-      /* margin: 0 auto; */
-      overflow: visible;
-      position: relative;
-}
-
-.code-preview-content pre {
-      position: relative;
-      margin: 0 !important;
-      padding: 0 !important;
-      border: none !important;
-      border-radius: 0 !important;
-      background: transparent !important;
-      overflow: visible;
-}
-
-/* When code is wrapped in copy button container */
-.code-copy-btn-container {
-      position: relative;
-      display: block;
-      width: 100%;
-}
-
-.code-preview-content pre code {
-      display: block !important;
-      margin: 0 !important;
-      padding: 5px 20px !important;
-      background: #343434 !important;
-      border: 1px solid var(--color-border) !important;
-      border-radius: 4px !important;
-      font-family: 'Consolas', 'Monaco', 'Courier New', 'SF Mono', 'Menlo', 'Liberation Mono', monospace !important;
-      /* font-size: 14px !important; */
-      line-height: 1.6 !important;
-      white-space: pre !important;
-      word-wrap: normal;
-      overflow-wrap: normal;
-      tab-size: 4;
-      -moz-tab-size: 4;
-      text-align: left !important;
-      direction: ltr;
-      overflow-x: auto;
-      overflow-y: visible;
-      max-width: 100%;
-      box-sizing: border-box;
-      visibility: visible !important;
-      opacity: 1 !important;
-      text-indent: 0 !important;
-}
-
-.code-preview-content pre.hljs {
-      margin: 0 !important;
-      padding: 0 !important;
-      border: none !important;
-      background: transparent !important;
-      overflow: visible;
-}
-
-.code-preview-content pre.hljs code {
-      padding: 16px 20px !important;
-      background: #343434 !important;
-      border: 1px solid var(--color-border);
-      border-radius: 4px;
-      display: block !important;
-      white-space: pre !important;
-      overflow-x: auto;
-      overflow-y: visible;
-      font-family: 'Consolas', 'Monaco', 'Courier New', 'SF Mono', 'Menlo', 'Liberation Mono', monospace !important;
-      line-height: 1.6 !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-}
-
-/* Terminal code blocks */
-.gc-terminal pre code,
-.code-preview-content.gc-terminal pre code {
-      display: block;
-      margin: 0 !important;
-      padding: 12px 16px !important;
-      background: #343434 !important;
-      border: 1px solid var(--color-border);
-      border-radius: 4px;
-      font-family: 'Consolas', 'Monaco', 'Courier New', 'SF Mono', 'Menlo', 'Liberation Mono', monospace;
-      font-size: 13px;
-      line-height: 1.6;
-      white-space: pre;
-      word-wrap: normal;
-      overflow-wrap: normal;
-      tab-size: 4;
-      -moz-tab-size: 4;
-      text-align: left;
-      direction: ltr;
-      overflow-x: auto;
-      overflow-y: hidden;
-}
-
-/* terminal comment */
+/* Code preview/copy styles: regroupés dans static/assets/css/code-preview.css */
 
 .terminal-comment {
       text-transform: capitalize;
       font-weight: 500;
       font-size: .87rem;
 }
-
-/* Ensure code text is properly displayed */
-.code-preview-content pre code *,
-.gc-terminal pre code * {
-      font-family: inherit !important;
-      font-size: inherit !important;
-      line-height: inherit !important;
-}
-
-/*  */
-.code-preview-content pre code,
-.gc-terminal pre code {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
-      letter-spacing: 0.01em;
-}
-
-/*  */
-.code-preview-content pre code,
-.code-preview-content pre.hljs code {
-      min-height: 1em;
-      width: 100%;
-      box-sizing: border-box;
-}
-
-/* Ensure text is visible and properly formatted */
-.code-preview-content pre code span,
-.code-preview-content pre.hljs code span,
-.code-preview-content pre code .hljs-keyword,
-.code-preview-content pre code .hljs-string,
-.code-preview-content pre code .hljs-comment,
-.code-preview-content pre code .hljs-number,
-.code-preview-content pre code .hljs-function {
-      display: inline !important;
-      white-space: pre !important;
-      font-family: inherit !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-}
-
-
-/* Scrollbar styling for terminal-like appearance */
-.code-preview-content pre::-webkit-scrollbar {
-      height: 8px;
-}
-
-.code-preview-content pre::-webkit-scrollbar-track {
-      background: #1e1e1e;
-      border-radius: 4px;
-}
-
-.code-preview-content pre::-webkit-scrollbar-thumb {
-      background: #424242;
-      border-radius: 4px;
-      border: 1px solid #1e1e1e;
-}
-
-.code-preview-content pre::-webkit-scrollbar-thumb:hover {
-      background: #4e4e4e;
-}
-
-/* Code Copy Button Styles */
-.code-copy-btn {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 4px;
-      color: var(--color-text);
-      cursor: pointer;
-      padding: 6px 8px;
-      font-size: 14px;
-      z-index: 10;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      box-sizing: border-box;
-      max-width: calc(100% - 16px);
-      overflow: hidden;
-      min-width: inherit;
-}
-
-.code-preview-content:hover .code-copy-btn,
-.gc-terminal:hover .code-copy-btn,
-.gc-code-card:hover .code-copy-btn,
-pre:hover .code-copy-btn {
-      opacity: 1;
-      pointer-events: auto;
-}
-
-.code-copy-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.3);
-      transform: scale(1.05);
-}
-
-.code-copy-btn:active {
-      transform: scale(0.95);
-}
-
-.code-copy-btn.copied {
-      background: rgba(76, 175, 80, 0.8);
-      border-color: rgba(76, 175, 80, 1);
-      opacity: 1;
-}
-
-.code-copy-btn.error {
-      background: rgba(244, 67, 54, 0.8);
-      border-color: rgba(244, 67, 54, 1);
-      opacity: 1;
-}
-
-.code-copy-btn i {
-      font-size: 16px;
-      line-height: 1;
-}
-
-/* Ensure parent containers are positioned for absolute button */
-.code-preview-content,
-.gc-terminal,
-.gc-code-card {
-      position: relative;
-}
-
-/* Ensure copy button stays within bounds */
-.code-copy-btn-container .code-copy-btn {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      margin: 0;
-      z-index: 10;
-}
-
 
 /* +- Tabs */
 
@@ -1429,11 +1239,6 @@ pre:hover .code-copy-btn {
       .imth-card:hover {
             opacity: .8;
             border: .7px solid var(--color-primary);
-      }
-
-      .code-preview-content pre code {
-            background-color: #1B1B1B ! important;
-            border: 1px solid var(--color-border);
       }
 
       /* Doc Content */
