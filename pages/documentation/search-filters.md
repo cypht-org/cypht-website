@@ -85,8 +85,8 @@ layout: section/documentation
 
         <div class="feature-card mt-3">
             <h6><i class="bi bi-pencil-square"></i> Filter Management</h6>
-            <span class="doc-section-text mb-0">Sieve filters can be easily edited or deleted as needed. For more information on how to create and manage Sieve filters, see the Email filters documentation.</span>
-            <a href="https://www.cypht.org/email-filters" target="_blank" class="doc-btn-card btn-sm">Email Filters Guide</a>
+            <span class="doc-section-text mb-0">Sieve filters can be edited, deleted, and extended with custom scripts. For step-by-step setup instructions, examples, and troubleshooting, use the dedicated Sieve guide.</span>
+            <a href="/documentation/sieve-filters" class="doc-btn-card btn-sm">Open Sieve Filters Guide</a>
         </div>
     </div>
 
@@ -128,8 +128,8 @@ layout: section/documentation
     <nav-pagination
         prev-label="Compose Email"
         prev-url="/documentation/compose-email"
-        next-label="Tags & Folders"
-        next-url="/documentation/tags">
+        next-label="Sieve Filters"
+        next-url="/documentation/sieve-filters">
     </nav-pagination>
 
 </div>

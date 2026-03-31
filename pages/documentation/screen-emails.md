@@ -77,6 +77,13 @@ layout: section/documentation
         </div>
     </div>
 
+    <nav-pagination
+        prev-label="Sieve Filters"
+        prev-url="/documentation/sieve-filters"
+        next-label="Tags & Folders"
+        next-url="/documentation/tags">
+    </nav-pagination>
+
 </div>
 
 <div class="doc-content-right d-none d-xl-flex col-xl-2">
