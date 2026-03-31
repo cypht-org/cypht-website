@@ -38,31 +38,28 @@ layout: section/documentation
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-inbox-fill"></i> Combined Inbox</h6>
-                    <img src="https://supabase.com/images/index/products/realtime-dark.svg" alt=""/>
+                    <img src="/img/docs/combined_inbox.png" alt="Cypht combined inbox screenshot" loading="lazy" decoding="async"/>
                     <p>View all incoming messages from all your email accounts in a single unified inbox. No need to switch between accounts to see new messages.</p>
                 </div>
             </div>
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-envelope-open"></i> Unread Messages</h6>
-                    <img src="https://supabase.com/images/index/products/realtime-dark.svg" alt=""/>
+                    <img src="/img/docs/unread_messages.png" alt="Cypht unread messages screenshot" loading="lazy" decoding="async"/>
                     <p>Quick access to all unread messages across all your accounts, helping you stay on top of important communications.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="doc-grid-content">
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-send"></i> Sent Messages</h6>
-                    <img src="https://supabase.com/images/index/products/realtime-dark.svg" alt=""/>
+                    <img src="/img/docs/sent_messages.png" alt="Cypht sent messages screenshot" loading="lazy" decoding="async"/>
                     <p>View all sent messages from all your accounts in one place, making it easy to track your outgoing communications.</p>
                 </div>
             </div>
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-flag"></i> Flagged Messages</h6>
-                    <img src="https://supabase.com/images/index/products/realtime-dark.svg" alt=""/>
+                    <img src="/img/docs/flagged_messages.png" alt="Cypht flagged messages screenshot" loading="lazy" decoding="async"/>
                     <p>Access all your starred or flagged messages across accounts to quickly find important emails you've marked for follow-up.</p>
                 </div>
             </div>

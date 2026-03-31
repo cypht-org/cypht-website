@@ -14,22 +14,21 @@ loadScriptAfter: /js/event.js
       <!--  -->
       <div class="event-separator"></div>
       <!--  -->
-      <div class="next-event-content">
+      <div id="next_event_block" class="next-event-content">
         <div class="nec-details-content">
           <div class="">
             <div class="nec-cover">
-              <!--  -->
-              <img src="https://picsum.photos/seed/event-0.6332654670036725/600/400" alt="Cypht Community Event"/>
+              <img id="next_event_cover" src="" alt=""/>
             </div>
           </div>
           <div class="nec-details">
             <div class="nec-detail-header">
               <div class="nec-dh-text">
-                <h2>The Cypht Monthly Community Meetings</h2>
-                <span>Cypht Community</span>
+                <h2 id="next_event_title"></h2>
+                <span id="next_event_organizer_label"></span>
               </div>
               <div class="nec-dh-actions d-md-flex d-none">
-                <a href="https://meet.evoludata.com/rooms/5ih-sxu-osg-dvg/join" target="_blank" class="action-btn cypht-primary-btn">Participate</a>
+                <a id="next_event_participate_desktop" href="#" target="_blank" rel="noopener noreferrer" class="action-btn cypht-primary-btn">Participate</a>
               </div>
             </div>
             <div class="nec-date-content">
@@ -39,18 +38,14 @@ loadScriptAfter: /js/event.js
                </span>
               </div>
               <div class="nec-timer">
-                  <span>Friday, Jan 30</span>
-                  <span>02:00 PN - 3:00 PM</span>
+                  <span id="next_event_date_line"></span>
+                  <span id="next_event_time_line"></span>
                 </div>
             </div>
-            <!--  -->
-            <span class="text-description">
-               The Cypht Monthly Community Meetings are a recurring space for the global Cypht community to connect, collaborate, and stay aligned on the project’s evolution. Each session brings together contributors, users, and enthusiasts to share updates, exchange ideas, and discuss ongoing and upcoming initiatives.</br>
-               Designed as an inclusive and open forum, these meetings span multiple time zones—from Los Angeles to Tokyo—ensuring broad participation across our worldwide community.
-            </span>
+            <span id="next_event_description" class="text-description"></span>
           </div>
           <div class="nec-dh-actions d-md-none">
-            <a href="https://meet.evoludata.com/rooms/5ih-sxu-osg-dvg/join" target="_blank" class="action-btn cypht-primary-btn">Participate</a>
+            <a id="next_event_participate_mobile" href="#" target="_blank" rel="noopener noreferrer" class="action-btn cypht-primary-btn">Participate</a>
           </div>
         </div>
       </div>

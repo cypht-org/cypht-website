@@ -756,6 +756,21 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1rem;
+      align-items: stretch;
+}
+
+/* Equal-height screenshot cards: grid cells stretch; card fills cell (overrides height: auto on .doc-img-card) */
+.doc-grid-content > * {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+}
+
+.doc-grid-content > * > .feature-card.doc-img-card {
+      flex: 1 1 auto;
+      width: 100%;
+      min-height: 0;
+      height: 100% !important;
 }
 
 .doc-grid-second-content {
@@ -1075,10 +1090,16 @@
       .doc-img-card img {
             background: var(--clr-dark-card-second);
             border-color: var(--color-border);
+            filter: brightness(0.86);
+            transition:
+                  filter 0.2s ease,
+                  box-shadow 0.2s ease,
+                  border-color 0.2s ease;
       }
 
       .doc-img-card:hover img {
             border-color: rgba(155, 203, 90, 0.45);
+            filter: brightness(0.92);
       }
 
       .doc-img-card p {
