@@ -122,7 +122,6 @@ layout: section/documentation
             <br/>
             <img src="/img/docs/sieve_filters_4.png" alt="Filled Add Filter form with conditions and redirect action" loading="lazy" decoding="async" /> <br/><br/>
 
-            <li>Click <strong>Dry Run</strong> to test the filter against visible messages and verify it matches the right ones.</li>
             <li>Save the filter.</li>
         </ol>
 
@@ -135,26 +134,26 @@ layout: section/documentation
             <a href="#add_script">Add a Custom Script</a>
         </div>
         <span class="doc-section-text">
-            Cypht now includes a <strong>Custom Actions</strong> dropdown in the message list controls so you can create, test, and reuse advanced filters without leaving the current view.
+            Cypht now includes a <strong>Quick Actions</strong> dropdown in the message list controls so you can create, test, and reuse advanced filters without leaving the current view.
         </span>
 
         <div class="doc-grid-content">
             <div>
                 <div class="feature-card h-100">
-                    <h6><i class="bi bi-menu-button"></i> Custom Actions dropdown</h6>
-                    <p class="mb-0">Clicking <strong>Custom Actions</strong> opens a dropdown containing your existing custom actions plus a <strong>Create from Selected</strong> entry.</p>
+                    <h6><i class="bi bi-menu-button"></i> Quick Actions dropdown</h6>
+                    <p class="mb-0">Clicking <strong>Quick Actions</strong> opens a dropdown listing all your saved filters plus a <strong>Create from Selected</strong> entry.</p>
                 </div>
             </div>
             <div>
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-stars"></i> Reusable actions</h6>
-                    <p class="mb-0">Filters created from this workflow are automatically saved as custom actions so they appear in the dropdown the next time you need them.</p>
+                    <p class="mb-0">All saved filters appear in the Quick Actions dropdown so you can quickly edit them from the message list and DRY RUN Test them.</p>
                 </div>
             </div>
             <div>
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-pencil-square"></i> Quick editing</h6>
-                    <p class="mb-0">Selecting an existing custom action opens the edit modal directly, which makes it easy to refine the rule before using it again.</p>
+                    <p class="mb-0">Selecting an existing filter opens the edit modal directly, which makes it easy to refine the rule before using it again.</p>
                 </div>
             </div>
         </div>
@@ -172,20 +171,20 @@ layout: section/documentation
             <a href="#create_from_selected">Step 3 — Create from Selected Messages</a>
         </div>
         <span class="doc-section-text">
-            The <strong>Custom Actions</strong> dropdown in the message list toolbar lets you build filters directly from messages you are looking at, without navigating to Settings.
+            The <strong>Quick Actions</strong> dropdown in the message list toolbar lets you build filters directly from messages you are looking at, without navigating to Settings.
         </span>
 
         <ol>
             <li>Select one or more messages in the current mailbox view.</li>
 
             <br/>
-            <img src="/img/docs/sieve_filters_5.png" alt="Inbox with selected messages and toolbar showing QuickActions" loading="lazy" decoding="async" /> <br/><br/>
+            <img src="/img/docs/sieve_filters_5.png" alt="Inbox with selected messages and toolbar showing Quick Actions" loading="lazy" decoding="async" /> <br/><br/>
 
-            <li>Click the <strong>Custom Actions</strong> button in the toolbar.</li>
+            <li>Click the <strong>Quick Actions</strong> button in the toolbar.</li>
             <li>Click <strong>Create from Selected</strong>.</li>
 
             <br/>
-            <img src="/img/docs/sieve_filters_6.png" alt="QuickActions dropdown showing Create from Selected option" loading="lazy" decoding="async" /> <br/><br/>
+            <img src="/img/docs/sieve_filters_6.png" alt="Quick Actions dropdown showing Create from Selected option" loading="lazy" decoding="async" /> <br/><br/>
             <li>Review the auto-populated conditions (From addresses and Subject keywords are prefilled from the selected messages).</li>
 
             <br/>
@@ -198,7 +197,7 @@ layout: section/documentation
                 </ul>
             </li>
             <li>Choose the action to apply.</li>
-            <li>Click <strong>Dry Run</strong> to test the filter against visible messages — matched and unmatched messages are shown in a results panel so you can verify the rule before committing.</li>
+            <li>Click <strong>Dry Run</strong> to test the filter against messages already loaded in the list — matched and unmatched messages are shown in a results panel so you can verify the rule before committing.</li>
             <li>Save the filter.</li>
         </ol>
 
@@ -211,11 +210,16 @@ layout: section/documentation
             <a href="#dry_run">Dry Run</a>
         </div>
         <span class="doc-section-text">
-            The <strong>Dry Run</strong> button tests the current filter conditions against all visible messages in your active view and shows which messages match and which do not — without moving or changing anything.
+            The <strong>Dry Run</strong> button tests the current filter conditions against messages already loaded in the message list and shows which ones match and which do not — without moving or changing anything. It does not fetch additional messages from the server.
         </span>
 
+        <div class="tip-card tip-info mt-3">
+            <span class="tip-info-text"><i class="bi bi-info-circle"></i> Availability</span>
+            <p class="mb-0">Dry Run is only available when creating or editing filters from the message list (e.g. via <strong>Quick Actions → Create from Selected</strong>). It is not available on the Sieve Filters settings page or when creating a filter from an opened message, because there is no message list to test against.</p>
+        </div>
+
         <ol>
-            <li>Create a filter from selected messages or open an existing custom action.</li>
+            <li>Create a filter from selected messages or open an existing filter from the Quick Actions dropdown.</li>
             <li>Adjust the conditions, actions, and match logic.</li>
             <li>Click <strong>Dry Run</strong> in the modal.</li>
             <li>Review the matched and unmatched messages in the results panel.</li>
@@ -239,10 +243,10 @@ layout: section/documentation
         </div>
 
         <div class="doc-subsection-header">
-            <a href="#reuse_actions">Reuse and Edit Custom Actions</a>
+            <a href="#reuse_actions">Reuse and Edit Quick Actions</a>
         </div>
         <span class="doc-section-text">
-            Filters created through this workflow are automatically marked as custom actions and appear in the <strong>Custom Actions</strong> dropdown for future use. Click any existing action in the dropdown to reopen its edit modal, adjust conditions, dry run it against the current messages, or delete it.
+            Filters created through this workflow are automatically marked as quick actions and appear in the <strong>Quick Actions</strong> dropdown for future use. Click any existing action in the dropdown to reopen its edit modal, adjust conditions, dry run it against the current messages, or delete it.
         </span>
     </div>
 
@@ -275,7 +279,6 @@ layout: section/documentation
             <img src="/img/docs/sieve_filters_10.png" alt="Add Filter for message like this modal with auto-populated conditions and actions" loading="lazy" decoding="async" /> <br/><br/>
 
             <li>Adjust the conditions and choose the action (move, flag, discard, etc.).</li>
-            <li>Click <strong>Dry Run</strong> to preview which messages would match before committing.</li>
             <li>Save the filter.</li>
         </ol>
 
