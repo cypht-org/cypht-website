@@ -95,7 +95,7 @@
 		<div class="nav-brand">
 			<a href="/" class="">
 				<div class="logo-wrapper">
-					<img src="/img/logo.svg" alt="Cypht" class="logo-img ">
+					<img src="/img/logo.svg" alt="Cypht" width="140" height="62" loading="eager" decoding="async" class="logo-img ">
 				</div>
 			</a>
 		</div>
@@ -137,7 +137,7 @@
 									<a href="{{ item.href }}" class="dropdown-item d-flex  gap-2 {{ item_active ? 'active' : '' }}" {{ item_active ? 'aria-current="page"' : '' }}>
 										<div class="drop-item-icon">
 											{% if item.svg %}
-												<img src="{{ item.svg }}" alt="{{ item.title }}">
+												<img src="{{ item.svg }}" alt="{{ item.title }}" width="24" height="24" loading="lazy" decoding="async">
 											{% else %}
 												<i class="{{ item.icon }}"></i>
 											{% endif %}
@@ -171,7 +171,7 @@
 									<a href="{{ item.href }}" class="dropdown-item d-flex gap-2 {{ item_active ? 'active' : '' }}" {{ item_active ? 'aria-current="page"' : '' }}>
 										<div class="drop-item-icon">
 											{% if item.svg %}
-												<img src="{{ item.svg }}" alt="{{ item.title }}">
+												<img src="{{ item.svg }}" alt="{{ item.title }}" width="24" height="24" loading="lazy" decoding="async">
 											{% else %}
 												<i class="{{ item.icon }}"></i>
 											{% endif %}
@@ -202,7 +202,7 @@
 								{% for item in global_menus.integration %}
 									<a href="{{ item.href }}" class="dropdown-item d-flex gap-2">
 										<div class="drop-item-icon">
-											<img src="/img/tiki_logo.png" alt="{{ item.title }}">
+											<img src="/img/tiki_logo.png" alt="{{ item.title }}" width="240" height="130" loading="lazy" decoding="async">
 										</div>
 										<div class="drop-item-content mt-1">
 											<span class="drop-item-title">{{ item.title }}</span>
@@ -241,7 +241,7 @@
 		<div class="offcanvas offcanvas-end px-1" tabindex="-1" id="mobileNavOffcanvas" aria-labelledby="mobileNavOffcanvasLabel">
 			<div class="offcanvas-header">
 				<div class="logo-wrapper">
-					<img src="/img/logo.svg" alt="Cypht" class="logo-img ">
+					<img src="/img/logo.svg" alt="Cypht" width="140" height="62" loading="eager" decoding="async" class="logo-img ">
 				</div>
 				<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>

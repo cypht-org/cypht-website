@@ -106,7 +106,7 @@ layout: section/documentation
           <div class="doc-section-grid px-4">
             <div class="doc-section-card">
                 <div class="doc-section-icon">
-                  <img src="/svg/speed.svg" alt="">
+                  <img src="/svg/speed.svg" alt="" aria-hidden="true" width="32" height="32" loading="lazy" decoding="async">
                 </div>
                 <div class="doc-section-content">
                     <h5>Exceptional Speed</h5>
@@ -116,7 +116,7 @@ layout: section/documentation
             <!--  -->
             <div class="doc-section-card">
                 <div class="doc-section-icon">
-                  <img src="/svg/filter.svg" alt="">
+                  <img src="/svg/filter.svg" alt="" aria-hidden="true" width="32" height="32" loading="lazy" decoding="async">
                 </div>
                 <div class="doc-section-content">
                     <h5>Smart Filtering</h5>
@@ -126,7 +126,7 @@ layout: section/documentation
             <!--  -->
             <div class="doc-section-card">
                 <div class="doc-section-icon">
-                  <img src="/svg/calendar.svg" alt="">
+                  <img src="/svg/calendar.svg" alt="" aria-hidden="true" width="32" height="32" loading="lazy" decoding="async">
                 </div>
                 <div class="doc-section-content">
                     <h5>Integrated Calendar</h5>
@@ -136,7 +136,7 @@ layout: section/documentation
             <!--  -->
             <div class="doc-section-card">
                 <div class="doc-section-icon">
-                  <img src="/svg/frames_multiple.svg" alt="">
+                  <img src="/svg/frames_multiple.svg" alt="" aria-hidden="true" width="32" height="32" loading="lazy" decoding="async">
                 </div>
                 <div class="doc-section-content">
                     <h5>100% Responsive</h5>
@@ -249,25 +249,25 @@ layout: section/documentation
                 <div class="doc-grid-content benefits-grid">
                     <div class="doc-section-card">
                         <div class="doc-section-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Lucide by Lucide Contributors - https://github.com/lucide-icons/lucide/blob/main/LICENSE --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M16 3.128a4 4 0 0 1 0 7.744M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></g></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><!-- Icon from Lucide by Lucide Contributors - https://github.com/lucide-icons/lucide/blob/main/LICENSE --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M16 3.128a4 4 0 0 1 0 7.744M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></g></svg>
                         </div>
                         <h5>100% Open Source</h5>
                         <p>Open source code and active community.</p>
                     </div>
                     <!--  -->
                     <div class="doc-section-card">
-                        <div class="doc-section-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4c1.234 0 2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12c-1.234 0-2.227-.397-4.213-1.191z"/><path stroke-linecap="round" d="M22 12s-.993.89-2.979 1.685l-2.808 1.124C14.227 15.603 13.233 16 12 16c-1.234 0-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12 2 12m20 4s-.993.89-2.979 1.685l-2.808 1.124C14.227 19.603 13.233 20 12 20c-1.234 0-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.891 2 16 2 16"/></g></svg></div>
+                        <div class="doc-section-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.979 9.685C2.993 8.891 2 8.494 2 8s.993-.89 2.979-1.685l2.808-1.123C9.773 4.397 10.767 4 12 4c1.234 0 2.227.397 4.213 1.192l2.808 1.123C21.007 7.109 22 7.506 22 8s-.993.89-2.979 1.685l-2.808 1.124C14.227 11.603 13.233 12 12 12c-1.234 0-2.227-.397-4.213-1.191z"/><path stroke-linecap="round" d="M22 12s-.993.89-2.979 1.685l-2.808 1.124C14.227 15.603 13.233 16 12 16c-1.234 0-2.227-.397-4.213-1.191L4.98 13.685C2.993 12.891 2 12 2 12m20 4s-.993.89-2.979 1.685l-2.808 1.124C14.227 19.603 13.233 20 12 20c-1.234 0-2.227-.397-4.213-1.192L4.98 17.685C2.993 16.891 2 16 2 16"/></g></svg></div>
                         <h5>Your data, your control</h5>
                         <p>Hosting on your own servers.</p>
                     </div>
                     <!--  -->
                     <div class="doc-section-card">
-                        <div class="doc-section-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M15 5H9.5c-.935 0-1.402 0-1.75.201a1.5 1.5 0 0 0-.549.549C7 6.098 7 6.565 7 7.5s0 1.402.201 1.75a1.5 1.5 0 0 0 .549.549C8.098 10 8.565 10 9.5 10h9c.935 0 1.402 0 1.75-.201a1.5 1.5 0 0 0 .549-.549C21 8.902 21 8.435 21 7.5s0-1.402-.201-1.75a1.5 1.5 0 0 0-.549-.549c-.28-.161-.636-.193-1.25-.2"/><path d="M7 16.5c0-.935 0-1.402.201-1.75a1.5 1.5 0 0 1 .549-.549C8.098 14 8.565 14 9.5 14h6c.935 0 1.402 0 1.75.201a1.5 1.5 0 0 1 .549.549c.201.348.201.815.201 1.75s0 1.402-.201 1.75a1.5 1.5 0 0 1-.549.549c-.348.201-.815.201-1.75.201h-6c-.935 0-1.402 0-1.75-.201a1.5 1.5 0 0 1-.549-.549C7 17.902 7 17.435 7 16.5Z"/><path stroke-linecap="round" d="M3 14V2m0 20v-4"/></g></svg></div>
+                        <div class="doc-section-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M15 5H9.5c-.935 0-1.402 0-1.75.201a1.5 1.5 0 0 0-.549.549C7 6.098 7 6.565 7 7.5s0 1.402.201 1.75a1.5 1.5 0 0 0 .549.549C8.098 10 8.565 10 9.5 10h9c.935 0 1.402 0 1.75-.201a1.5 1.5 0 0 0 .549-.549C21 8.902 21 8.435 21 7.5s0-1.402-.201-1.75a1.5 1.5 0 0 0-.549-.549c-.28-.161-.636-.193-1.25-.2"/><path d="M7 16.5c0-.935 0-1.402.201-1.75a1.5 1.5 0 0 1 .549-.549C8.098 14 8.565 14 9.5 14h6c.935 0 1.402 0 1.75.201a1.5 1.5 0 0 1 .549.549c.201.348.201.815.201 1.75s0 1.402-.201 1.75a1.5 1.5 0 0 1-.549.549c-.348.201-.815.201-1.75.201h-6c-.935 0-1.402 0-1.75-.201a1.5 1.5 0 0 1-.549-.549C7 17.902 7 17.435 7 16.5Z"/><path stroke-linecap="round" d="M3 14V2m0 20v-4"/></g></svg></div>
                         <h5>Advanced customization</h5>
                         <p>Adapt every aspect to your needs.</p>
                     </div>
                     <div class="doc-section-card">
-                        <div class="doc-section-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M2 2h20M8.049 18.53C9.932 20.178 10.873 21 12 21c1.127 0 2.069-.823 3.951-2.47l2-1.748c1.008-.882 1.513-1.322 1.78-1.913c.269-.59.269-1.26.269-2.599V9.702M20 6V2H4v10.27c0 1.34 0 2.009.268 2.6c.175.385.451.707.903 1.13M8.5 13h7m-7-5h7"/></svg></div>
+                        <div class="doc-section-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M2 2h20M8.049 18.53C9.932 20.178 10.873 21 12 21c1.127 0 2.069-.823 3.951-2.47l2-1.748c1.008-.882 1.513-1.322 1.78-1.913c.269-.59.269-1.26.269-2.599V9.702M20 6V2H4v10.27c0 1.34 0 2.009.268 2.6c.175.385.451.707.903 1.13M8.5 13h7m-7-5h7"/></svg></div>
                         <h5>Multi-platform</h5>
                         <p>Access your emails from any device.</p>
                     </div>

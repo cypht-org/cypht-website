@@ -357,7 +357,8 @@
 }
 
 .doc-section-card .doc-section-icon {
-      display: inline-block;
+      display: inline-flex;
+      width: fit-content;
       background-color: #c6c6c762;
       padding: .4rem;
       border-radius: 5px;
@@ -365,8 +366,8 @@
 }
 
 .doc-section-card .doc-section-icon img {
-      height: 32px !important;
-      width: 32px !important;
+      height: 25px !important;
+      width: 25px !important;
       color: whitesmoke !important;
 }
 
@@ -760,13 +761,13 @@
 }
 
 /* Equal-height screenshot cards: grid cells stretch; card fills cell (overrides height: auto on .doc-img-card) */
-.doc-grid-content > * {
+.doc-grid-content>* {
       display: flex;
       flex-direction: column;
       min-height: 0;
 }
 
-.doc-grid-content > * > .feature-card.doc-img-card {
+.doc-grid-content>*>.feature-card.doc-img-card {
       flex: 1 1 auto;
       width: 100%;
       min-height: 0;

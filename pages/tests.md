@@ -19,7 +19,7 @@ loadScriptAfter: /assets/tests.css
       </p>
     </div>
     <div class="tests-hero-image">
-      <img src="/img/puzzle.png" alt="Testing and quality assurance illustration" loading="eager" decoding="async" />
+      <img src="/img/puzzle.png" alt="Testing and quality assurance illustration" width="500" height="500" loading="eager" fetchpriority="high" decoding="async" />
     </div>
   </div>
 </section>

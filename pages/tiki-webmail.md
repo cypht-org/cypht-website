@@ -48,13 +48,19 @@ weight: 15
       <img 
         src="https://pad.evoludata.com/uploads/588bb3e1-4e38-4265-aa9d-bc3bf8cdb0fe.png" 
         alt="Tiki Webmail interface showing email folders at the home page"
+        width="1893"
+        height="1030"
         loading="lazy"
+        decoding="async"
         class="tiki-screenshot-dark"
       />
       <img 
         src="https://pad.evoludata.com/uploads/588bb3e1-4e38-4265-aa9d-bc3bf8cdb0fe.png" 
         alt="Tiki Webmail interface showing email folders at the home page"
+        width="1893"
+        height="1030"
         loading="lazy"
+        decoding="async"
         class="tiki-screenshot-light"
       />
       <figcaption>

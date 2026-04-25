@@ -18,7 +18,7 @@ loadScriptAfter: /js/event.js
         <div class="nec-details-content">
           <div class="">
             <div class="nec-cover">
-              <img id="next_event_cover" src="" alt=""/>
+              <img id="next_event_cover" src="" alt="" width="800" height="450" loading="lazy" decoding="async"/>
             </div>
           </div>
           <div class="nec-details">
@@ -89,7 +89,7 @@ loadScriptAfter: /js/event.js
 
       <div class="event-detail-header">
           <div class="event-detail-cover image-wrapper skeleton">
-            <img id="event-detail-cover" src="" alt="" loading="lazy">
+            <img id="event-detail-cover" src="" alt="" width="800" height="450" loading="lazy" decoding="async">
          </div>
         <h3 id="event-detail-title"></h3>
         <div id="event-detail-organizer" class="event-detail-organizer">

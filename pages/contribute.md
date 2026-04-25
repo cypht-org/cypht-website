@@ -108,7 +108,7 @@ loadScriptAfter: /js/contribute.js
               </div>
           </div>
           <div class="dev-flow-label-card">
-              <img src="/img/contribute.png" alt="Contribute illustration" />
+              <img src="/img/contribute.png" alt="Contribute illustration" width="564" height="327" loading="lazy" decoding="async" />
               <div class="dev-flow-text">
                 <h4>Want to Contribute ?</h4>
                 <p>Join our Open Source team and help us build next-gen mailing features 🚀</p>

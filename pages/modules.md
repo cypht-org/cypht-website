@@ -54,7 +54,7 @@ loadScriptAfter: /js/module.js
                 </div>
 <!--  -->
                 <div class="d-none d-lg-flex flex-grow-1 ov-img">
-                    <img src="/img/puzzle.png" alt="Illustration of modular puzzle pieces" class="object-fit-contain"  />
+                    <img src="/img/puzzle.png" alt="Illustration of modular puzzle pieces" width="500" height="500" loading="eager" fetchpriority="high" decoding="async" class="object-fit-contain"  />
                 </div>
             </div>
             <!--  -->

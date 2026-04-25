@@ -16,7 +16,7 @@ nocontainer: true
     <section class="content-section-doc container">
         <div class="line">
             <div  class="element1 item ">
-                <img src="/img/google-oauth-screen/google-oauth-1.png" alt="google-oauth-screen">
+                <img src="/img/google-oauth-screen/google-oauth-1.png" alt="Google OAuth setup step 1" width="1791" height="1128" loading="lazy" decoding="async">
             </div>
             <div  class="element2 item ">
                 <h2>1. Open the Google Cloud Console</h2>
@@ -36,7 +36,7 @@ nocontainer: true
     <section class="content-section-doc container">
         <div class="line">
             <div  class="element1 item ">
-                <img src="/img/google-oauth-screen/google-oauth-2.png" alt="google-oauth-screen">
+                <img src="/img/google-oauth-screen/google-oauth-2.png" alt="Google OAuth setup step 2" width="1791" height="1128" loading="lazy" decoding="async">
             </div>
             <div  class="element2 item ">
                 <h2>3. Configure the OAuth consent screen</h2>
@@ -68,7 +68,7 @@ nocontainer: true
     <section class="content-section-doc container">
         <div class="line">
             <div  class="element1 item ">
-                <img src="/img/google-oauth-screen/google-oauth-2.png" alt="google-oauth-screen">
+                <img src="/img/google-oauth-screen/google-oauth-2.png" alt="Google OAuth setup step 2" width="1791" height="1128" loading="lazy" decoding="async">
             </div>
             <div  class="element2 item ">
                 <h2>5. Create OAuth credentials</h2>
@@ -111,7 +111,7 @@ nocontainer: true
                 <p>Your configuration is now complete.</p>        
             </div>
             <div  class="element2 item ">
-                <img src="/img/google-oauth-screen/google-oauth-4.png" alt="google-oauth-screen">
+                <img src="/img/google-oauth-screen/google-oauth-4.png" alt="Google OAuth setup step 4" width="1791" height="1128" loading="lazy" decoding="async">
             </div>
         </div>
     </section>

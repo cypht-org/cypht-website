@@ -24,7 +24,7 @@ loadScriptAfter: /js/security.js
       </div>
       <!-- Image on Right -->
       <div class="sec-hero-image">
-        <img src="/img/security/hero.png" alt="Mail security illustration" loading="eager" decoding="async" />
+        <img src="/img/security/hero.png" alt="Mail security illustration" width="1927" height="2177" loading="eager" fetchpriority="high" decoding="async" />
       </div>
     </div>
   </section>

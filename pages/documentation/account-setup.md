@@ -38,31 +38,31 @@ layout: section/documentation
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-envelope"></i> JMAP/IMAP/SMTP/ Servers</h6>
-                    <img src="https://supabase.com/images/index/products/realtime-dark.svg" alt=""/>
+                    <img src="/img/docs/jmap_imap_smtp_servers.png" alt="JMAP, IMAP and SMTP server setup screen" width="2000" height="2000" loading="lazy" decoding="async"/>
                     <p>Standard email accounts including Gmail, Outlook, Yahoo, and custom domain emails. Supports SSL/TLS encryption and various authentication methods.</p>
                 </div>
             </div>
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-rss"></i> RSS/Atom Feeds</h6>
-                    <img src="https://supabase.com/images/index/products/realtime-dark.svg" alt=""/>
+                    <img src="/img/docs/add_an_rss_atom_feed.png" alt="Add an RSS / Atom feed screen" width="2000" height="2000" loading="lazy" decoding="async"/>
                     <p>News feeds, blogs, and content streams displayed as message threads. Perfect for staying updated with your favorite sources.</p>
                 </div>
             </div>
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-cloud"></i> Exchange Web Services</h6>
-                    <img src="https://supabase.com/images/index/products/realtime-dark.svg" alt=""/>
+                    <img src="/img/docs/exchange_web_services.png" alt="Exchange Web Services account screen" width="2000" height="2000" loading="lazy" decoding="async"/>
                     <p>Microsoft Exchange and Office 365 accounts with full calendar and contact synchronization capabilities.</p>
                 </div>
             </div>
-            <div class="">
+            <!-- <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-people"></i> LDAP/Server</h6>
                     <img src="https://supabase.com/images/index/products/realtime-dark.svg" alt=""/>
                     <p>Corporate directory services and local contact databases for integrated address book functionality.</p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 

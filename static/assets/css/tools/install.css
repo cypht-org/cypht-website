@@ -610,7 +610,8 @@
 .guide-container {
       width: 100%;
       display: flex;
-      flex-direction: row;
+      flex-direction: row !important;
+      background-color: red !important;
 }
 
 .guide-content {
