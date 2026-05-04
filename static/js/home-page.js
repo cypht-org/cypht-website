@@ -9,14 +9,20 @@ function init_about_cards() {
       const currentCard = btn.closest(".about-card");
       const currentDesc = currentCard.querySelector(".card-desc");
 
-      // Close others
+      // Close others with smooth animation
       document.querySelectorAll(".about-card").forEach((card) => {
-        if (card !== currentCard) {
+        if (card !== currentCard && card.classList.contains("expanded")) {
           const desc = card.querySelector(".card-desc");
           const toggleBtn = card.querySelector(".card-toggle");
 
+          // Animate closing like Read less
+          desc.style.maxHeight = desc.scrollHeight + "px";
+          // Force reflow
+          desc.offsetHeight;
           desc.style.maxHeight = null;
+
           card.classList.remove("expanded");
+          desc.classList.remove("is-clamped");
 
           toggleBtn.textContent = "Read more";
           toggleBtn.setAttribute("aria-expanded", "false");

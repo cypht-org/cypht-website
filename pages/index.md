@@ -172,7 +172,7 @@ loadScriptAfter: /js/home-page.js
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#81B441"stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </div>
                         <div>
-                            <h4>Do you have suge=gestion or other questions ?</h4>
+                            <h4>Do you have suggestion or other questions ?</h4>
                             <p class="simple-description">Our team will answer all your questions, we ensure a quick response.</p>
                             <a href="https://matrix.to/#/#cypht-org_community:gitter.im" class="action-btn contact-btn cypht-primary-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M12 10a4 4 0 1 0 0-8a4 4 0 0 0 0 8m-4 2.25a4.124 4.124 0 0 0-4.095 3.642l-.65 5.52a.75.75 0 0 0 1.49.176l.65-5.52a2.624 2.624 0 0 1 1.855-2.209v4.193c0 .899 0 1.648.08 2.242c.084.628.27 1.195.726 1.65c.455.456 1.022.642 1.65.726c.594.08 1.344.08 2.242.08h.104c.899 0 1.648 0 2.243-.08c.627-.084 1.194-.27 1.65-.726c.455-.455.64-1.022.725-1.65c.08-.594.08-1.343.08-2.242v-4.193a2.624 2.624 0 0 1 1.856 2.208l.65 5.52a.75.75 0 1 0 1.489-.175l-.65-5.52A4.124 4.124 0 0 0 16 12.25z"/></svg>

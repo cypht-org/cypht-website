@@ -395,6 +395,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Hero Manual Install button - load manual content and scroll to guide
+  const heroManualBtn = document.querySelector(".hero-manual-btn");
+  if (heroManualBtn) {
+    heroManualBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      activateMethod("manual");
+    });
+  }
+
   // Initialiser le menu actif au chargement initial
   updateActiveMenu();
 

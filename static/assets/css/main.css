@@ -31,6 +31,13 @@
       font-family: var(--font-sans);
 }
 
+/* Disable transitions during theme change to prevent lag */
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+      transition: none !important;
+      animation: none !important;
+}
+
 /* ==========================================
    CSS VARIABLES - COLOR SYSTEM AND THEMES
 ========================================== */

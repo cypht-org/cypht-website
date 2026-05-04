@@ -148,24 +148,7 @@
 							<div class="">
 								<h6>Config menu</h6>
 								<p>Choose a config to generate</p>
-								{# <div class="d-flex gap-2 align-items-center cfh-version">
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																	<span class="version-label">Vesion</span>
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																	<div class="custom-select">
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																		<button class="select-btn">
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																			<span id="selected_text" class="selected-text"></span>
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																			<span class="arrow">
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																				<i class="bi bi-chevron-down dropdown-arrow"></i>
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																			</span>
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																		</button>
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																		<ul class="select-menu">
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																			<li data-value="Version 1.0.1">V1.x</li>
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																			<li data-value="Version 1.0.1">V2.x</li>
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																		</ul>
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																	</div>
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																</div> #}
 							</div>
-
-
 						</div>
 						<div class="config-generator-list-container pb-5">
 							<ul class="config-generator-list ms-1">
@@ -222,7 +205,12 @@
 									<span>General Settings</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('general')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -289,7 +277,12 @@
 									<span>Session</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('session')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -339,7 +332,12 @@
 									<span>Authentication</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('auth')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -448,7 +446,12 @@
 									<span>User</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('user')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -529,7 +532,12 @@
 									<span>Security</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('security')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -629,7 +637,12 @@
 									<span>Cache</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('security')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -728,7 +741,12 @@
 									<span>User Interface</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('user')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -767,7 +785,12 @@
 									<span>Redirect</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('security')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -787,7 +810,12 @@
 									<span>Logging System</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('logging_system')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -847,7 +875,12 @@
 									<span>Database</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('database')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -947,7 +980,12 @@
 									</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('2fa')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -990,7 +1028,12 @@
 									</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('carddav')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -1025,7 +1068,12 @@
 									</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('dynamic_login')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -1101,7 +1149,12 @@
 									</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('github')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -1163,7 +1216,12 @@
 									</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('ldap')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -1273,7 +1331,12 @@
 									</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('gmail')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -1327,7 +1390,12 @@
 									</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('outlook')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -1381,7 +1449,12 @@
 									</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('office365')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>
@@ -1455,7 +1528,12 @@
 									</span>
 								</div>
 								<button type="button" class="cc-header-reset-btn" onclick="resetSection('recaptcha')">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.001 10c0 3.3 0 4.95 1.025 5.975S5.701 17 9.001 17s4.95 0 5.975-1.025S16 13.3 16 10s0-4.95-1.025-5.975S12.3 3 9 3S4.05 3 3.025 4.025S2.001 6.7 2.001 10M22 14.42l-1.11-1.346c-.591-.716-.887-1.074-1.254-1.074v1c0 3.771 0 5.657-1.171 6.828S15.408 21 11.636 21H11" color="currentColor"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+										<path d="M21 3v5h-5"/>
+										<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+										<path d="M3 21v-5h5"/>
+									</svg>
 									Reset
 								</button>
 							</div>

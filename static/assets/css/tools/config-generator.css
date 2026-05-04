@@ -1,3 +1,11 @@
+/* Disable transitions during theme change on config-generator page only */
+html.theme-transitioning .config-gen-container *,
+html.theme-transitioning .config-gen-container *::before,
+html.theme-transitioning .config-gen-container *::after {
+      transition: none !important;
+      animation: none !important;
+}
+
 /* ─── Hero Section ──────────────────────────────────────────────────────────── */
 /* cfh = config hero section */
 
@@ -292,7 +300,7 @@
 }
 
 .config-generator-list li a {
-      font-size: .87rem;
+      font-size: .82rem !important;
       opacity: .5;
       transition: all .3s ease;
 }

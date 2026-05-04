@@ -106,7 +106,7 @@
       right: 0;
       bottom: 0;
       height: 2.2rem;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+      background: linear-gradient(to bottom, transparent, var(--color-bg-secondary));
 }
 
 .card-desc.is-clamped::after {
@@ -121,6 +121,8 @@
       width: 35%;
       height: 30px !important;
       font-size: .82rem !important;
+      /* Green ring style by default (like focus state) */
+      box-shadow: 0 0 0 1px var(--color-bg), 0 0 0 3px var(--color-primary);
 }
 
 

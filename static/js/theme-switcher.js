@@ -55,7 +55,11 @@ class ThemeSwitcher {
 
     setTheme(theme) {
         this.theme = theme;
-        document.documentElement.setAttribute('data-theme', theme);
+         // Disable transitions during theme change to prevent lag
+        const html = document.documentElement;
+        html.classList.add('theme-transitioning');
+ 
+        html.setAttribute('data-theme', theme);
         
         // Update all icons if they exist
         this.themeIcons.forEach(icon => {
@@ -65,6 +69,13 @@ class ThemeSwitcher {
         // Update all toggle buttons aria-label
         this.themeToggles.forEach(toggle => {
             toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+        });
+
+        // Re-enable transitions after the theme change is complete
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                html.classList.remove('theme-transitioning');
+            });
         });
     }
 }

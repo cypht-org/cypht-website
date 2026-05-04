@@ -381,6 +381,16 @@ async function loadOldEvents(page = 1) {
 
   displayOldEvents(events);
   updatePaginationControls();
+
+  // Scroll vers le haut de la section événements après le rendu DOM
+  setTimeout(() => {
+    const header = document.querySelector(".page-header-content");
+    if (header) {
+      header.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      window.scrollTo({ top: -40, behavior: "smooth" });
+    }
+  }, 100);
 }
 
 /* =========================================================
