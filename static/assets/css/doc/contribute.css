@@ -6,7 +6,7 @@
 
 .contribute-hero {
       margin: 0 auto;
-      min-height: var(--hero-height-lg);
+      min-height: var(--hero-height-md);
       padding: var(--hero-padding-md);
       position: relative;
       overflow: hidden;
@@ -782,14 +782,24 @@
 
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1020px) {
+      .contribute-hero {
+            min-height: var(--hero-height-md);
+            padding: 5.7rem 0;
+      }
 
       .contribute-hero-content {
-            width: 50%;
+            width: 55%;
       }
 
       .contribute-subtitle {
             width: 70%;
+      }
+}
+
+@media (min-width: 1200px) {
+      .contribute-hero-content {
+            width: 50%;
       }
 
       .text-left {
@@ -800,6 +810,16 @@
       /* FTL Card */
       .ftl-card-content {
             right: 0;
+      }
+}
+
+@media (min-width: 1280px) {
+      .contribute-hero {
+            min-height: 50dvh;
+      }
+
+      .contribute-hero-content {
+            width: 50%;
       }
 }
 

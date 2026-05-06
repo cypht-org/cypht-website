@@ -4,6 +4,11 @@
       gap: 3rem;
 }
 
+/* Hero padding harmonized with other pages */
+.install-hero-container {
+      padding: var(--hero-padding-md) !important;
+}
+
 /* Anchor offset: avoid content hidden under sticky navbar */
 #installation_methods,
 #guide,

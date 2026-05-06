@@ -10,9 +10,7 @@ loadScriptAfter: /js/contribute.js
 <div class="contribute-page">
   <section class="contribute-hero">
     <div class="contribute-hero-content">
-      <div class="">
-          <span class="hs-chip">🤝 Open Source Community</span>
-      </div>
+      <span class="hs-chip">🤝 Open Source Community</span>
       <h1 class="display-5 fw-bold mb-0">
           Contributing to Cypht
       </h1>
@@ -20,7 +18,7 @@ loadScriptAfter: /js/contribute.js
         Join our Open Source community and help make Cypht better! Whether you're a developer, designer, 
         or documentation writer, there are many ways to contribute to the project.
       </p>
-      <div class="contribute-buttons mt-3">
+      <div class="contribute-buttons">
         <a href="#contributing" class="action-btn cypht-primary-btn">
           Get Started
         </a>
@@ -35,7 +33,7 @@ loadScriptAfter: /js/contribute.js
   <section class="contribute-content">
     <div id="contributing" class="contribute-container">
       <!-- Navigation -->
-      <div class="contribute-nav px-4 d-flex justify-content-between mb-2 mb-lg-5">
+      <div class="contribute-nav px-4 d-flex justify-content-between mb-2">
         <div class="text-left lc-header">
           <h2>Want to contribute ?</h2>
           <p>

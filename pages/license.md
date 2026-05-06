@@ -28,7 +28,7 @@ css: /assets/doc/license.css
   </div>
 </section>
 <!--  -->
-<section class="license-content">
+<section class="license-content mt-8">
   <div class="license-container">
     <!-- <div class="license-stats-content">
         <div class="l-stats-text">

@@ -1,7 +1,7 @@
 /* ─── License Hero Section ──────────────────────────────────────────────────────────── */
 .license-hero {
       margin: 0 auto;
-      min-height: var(--hero-height-lg);
+      min-height: var(--hero-height-md);
       padding: var(--hero-padding-md);
       position: relative;
       overflow: hidden;
@@ -32,7 +32,6 @@
       align-items: center;
       text-align: center;
       gap: 1.3rem;
-      /* background-color: red; */
       width: 80%;
 }
 
@@ -76,7 +75,6 @@
 /* stats content */
 
 .license-stats-content {
-      /* background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); */
       border-radius: 20px;
       padding: 2rem 1.5rem;
       display: flex;
@@ -104,13 +102,6 @@
       transform: perspective(1000px) rotateX(20deg);
       z-index: -1;
 }
-
-/* .license-stats-content:hover {
-      transform: perspective(1000px) rotateX(0deg);
-      box-shadow:
-            0 15px 40px rgba(30, 58, 138, 0.4),
-            0 6px 16px rgba(30, 58, 138, 0.3);
-} */
 
 .l-stats-text {
       display: flex;
@@ -211,7 +202,6 @@
       top: -1.6rem;
       position: absolute;
       bottom: 0;
-      /* border: 1.2px solid rgba(226, 232, 240, 0.6); */
       border: 1.2px solid var(--color-border);
 }
 
@@ -229,7 +219,6 @@
       top: 0;
       position: absolute;
       height: 1.6rem;
-      /* border: 1.2px solid rgba(226, 232, 240, 0.6); */
       border: 1.2px solid var(--color-border);
 }
 
@@ -331,18 +320,6 @@
       transition: all 0.3s ease;
 }
 
-/* .library-btn.clicked {
-      transform: scale(0.95);
-      transition: transform 0.1s ease;
-}
-
-.library-btn.hover-effect {
-      transform: translateY(-2px);
-      box-shadow:
-            0 8px 15px rgba(128, 180, 65, 0.3),
-            0 3px 6px rgba(128, 180, 65, 0.2);
-} */
-
 /* Animated line indicators */
 .line-top-indicator,
 .line-bottom-indicator {
@@ -397,37 +374,6 @@
       min-height: initial !important;
 }
 
-/* .library-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s ease;
-} */
-
-/* .library-card:hover .library-btn {
-      transform: translateY(-2px);
-      box-shadow:
-            0 8px 15px rgba(128, 180, 65, 0.3),
-            0 3px 6px rgba(128, 180, 65, 0.2);
-      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-      opacity: 1;
-}
-
-.library-btn:hover::before {
-      left: 100%;
-}
-
-.library-btn:active {
-      transform: translateY(0);
-      box-shadow:
-            0 2px 4px rgba(128, 180, 65, 0.2),
-            0 1px 2px rgba(128, 180, 65, 0.1);
-} */
-
 .library-btn-icon {
       font-size: 0.9rem;
       transition: transform 0.2s ease;
@@ -455,13 +401,9 @@
 
       .license-hero-content {
             width: 60%;
-            /* background-color: blue; */
       }
 
-
-
       .license-container {
-            /* background-color: red; */
             max-width: var(--container-2xl);
             margin: 0 auto;
       }
@@ -501,23 +443,18 @@
       .libraries-grid {
             grid-template-columns: repeat(2, 1fr);
       }
-
-      /* .htext-descrition {
-            background-color: red;
-            width: 25em;
-      } */
 }
 
 @media (min-width: 1020px) {
 
       .license-hero {
             padding: 2rem;
-            min-height: 85dvh !important;
+            min-height: var(--hero-height-md);
+            padding: 5.7rem 0;
       }
 
       .license-hero-content {
             width: 55%;
-            /* background-color: green; */
       }
 
       .license-subtitle {
@@ -556,7 +493,7 @@
       }
 
       .license-hero {
-            height: 70dvh;
+            min-height: 50dvh;
       }
 
       .license-container {
