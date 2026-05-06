@@ -123,7 +123,7 @@
 .text-description {
       font-size: .95rem;
       display: -webkit-box;
-      -webkit-line-clamp: 4;
+      /* -webkit-line-clamp: 4; */
       -webkit-box-orient: vertical;
       overflow: hidden;
 }
@@ -763,6 +763,15 @@ img {
       .event-content-line {
             max-width: var(--container-7xl);
       }
+}
+
+/* Disabled state for participate button */
+.action-btn.disabled,
+.nec-dh-actions .action-btn.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+      filter: grayscale(0.6);
 }
 
 /* Dark theme */
