@@ -27,7 +27,7 @@
       padding: 0 1rem;
       position: relative;
       z-index: 1;
-      min-height: 70dvh;
+      min-height: var(--hero-height-md);
 }
 
 /* ─── Hero Content ──────────────────────────────────────────────────────────── */

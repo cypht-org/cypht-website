@@ -3,8 +3,8 @@
       margin: 0 auto;
       position: relative;
       overflow: hidden;
-      padding: 3.5rem 1rem;
-      min-height: 70dvh;
+      padding: var(--hero-padding-md);
+      min-height: var(--hero-height-md);
 }
 
 .module-hero {
@@ -16,12 +16,13 @@
 .module-container:before {
       content: "";
       position: absolute;
-      inset: 0;
-      z-index: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><defs><pattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'><path d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
+      z-index: 1;
       pointer-events: none;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'> <path d='M32 0H0v32' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/> </svg>");
-      background-size: 32px 32px;
-      background-repeat: repeat;
 }
 
 

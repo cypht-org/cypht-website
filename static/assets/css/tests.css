@@ -4,7 +4,7 @@
 
 /* ─── Tests Hero Section ──────────────────────────────────────────────────────────── */
 .tests-hero {
-      padding: 4rem 2rem;
+      padding: var(--hero-padding-sm);
       position: relative;
       background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }

@@ -36,7 +36,7 @@ loadScriptAfter: /js/install.js
                     </div>
                 </div>
                 <div class="hs-actions-content">
-                    <a href="#guide_content" class="action-btn cypht-primary-btn">
+                    <a href="#guide_content" class="action-btn cypht-primary-btn hero-manual-btn">
                     <i class="bi bi-rocket-takeoff"></i>
                     Manual Install
                     </a>

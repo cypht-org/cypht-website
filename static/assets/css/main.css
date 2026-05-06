@@ -147,6 +147,15 @@ html.theme-transitioning *::after {
       --size-radius-3xl: 1.6rem;
       --size-radius-4xl: 1.8rem;
       --size-radius-5xl: 2rem;
+
+      /* Hero heights - standardized */
+      --hero-height-lg: 90dvh;
+      --hero-height-md: 70dvh;
+      --hero-height-sm: 50dvh;
+      --hero-padding-lg: 8rem 2rem;
+      --hero-padding-md: 6rem 2rem;
+      --hero-padding-sm: 4rem 2rem;
+
       color-scheme: light;
 
       .cypht-card-bg {
@@ -573,10 +582,71 @@ a:hover {
 /* ─── Hero Section Container ──────────────────────────────────────────────────────────── */
 /* Hero section styles (hs = hero section) */
 
+/* Standardized Hero Classes - Use these for consistency across pages */
+.hero-lg {
+      min-height: var(--hero-height-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+}
 
-/* +- Container */
+.hero-md {
+      min-height: var(--hero-height-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+}
+
+.hero-sm {
+      min-height: var(--hero-height-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+}
+
+/* Padding-based heroes (alternative to min-height) */
+.hero-padding-lg {
+      padding: var(--hero-padding-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+}
+
+.hero-padding-md {
+      padding: var(--hero-padding-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+}
+
+.hero-padding-sm {
+      padding: var(--hero-padding-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+}
+
+/* +- Container (legacy - now using standardized classes above) */
 .hs-container {
-      min-height: 90dvh;
+      min-height: var(--hero-height-lg);
       position: relative;
       overflow: hidden;
       display: flex;

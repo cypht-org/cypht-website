@@ -66,7 +66,7 @@ css: /assets/doc/license.css
                   A comprehensive HTML filter written in PHP that removes malicious code while preserving valid markup. Essential for email security.
                 </p>
                 <div class="library-footer">
-                  <a href="https://htmlpurifier.org/" class="library-btn secondary" target="_blank" rel="noopener">
+                  <a href="http://htmlpurifier.org/" class="library-btn secondary" target="_blank" rel="noopener">
                     Visit website
                       <i class="bi bi-arrow-right-short library-btn-icon"></i>
                   </a>
@@ -142,7 +142,7 @@ css: /assets/doc/license.css
                 <div class="library-name"><i class="bi bi-qr-code"></i>Barcode</div>
                 <div class="library-description">PNG QR code generator for PHP, used by the 2FA module to create secure visual authentication codes.</div>
                 <div class="library-footer">
-                  <a href="https://github.com/codeitnowin/barcode-generator" class="library-btn secondary" target="_blank" rel="noopener">
+                  <a href="https://github.com/picqer/php-barcode-generator" class="library-btn secondary" target="_blank" rel="noopener">
                     GitHub Repository
                     <i class="bi bi-arrow-right-short library-btn-icon"></i>
                   </a>
@@ -164,7 +164,7 @@ css: /assets/doc/license.css
                 <div class="library-name"><i class="bi bi-bell"></i>Push</div>
                 <div class="library-description">JavaScript library for simple desktop notifications, used by the notifications module to alert users about new emails.</div>
                 <div class="library-footer">
-                  <a href="https://pushjs.org/" class="library-btn secondary" target="_blank" rel="noopener">
+                  <a href="https://github.com/Nickersoft/push.js/" class="library-btn secondary" target="_blank" rel="noopener">
                     Visit website
                     <i class="bi bi-arrow-right-short library-btn-icon"></i>
                   </a>
@@ -224,7 +224,7 @@ css: /assets/doc/license.css
               <div class="library-name"><i class="bi bi-file-text"></i>Apigen</div>
               <div class="library-description">Générateur de documentation PHP à partir des commentaires du code source.</div>
               <div class="library-footer">
-                  <a href="https://apigen.org/" class="library-btn secondary" target="_blank" rel="noopener">
+                  <a href="https://github.com/ApiGen/ApiGen" class="library-btn secondary" target="_blank" rel="noopener">
                   Visit website
                   <i class="bi bi-arrow-right-short library-btn-icon"></i>
                 </a>

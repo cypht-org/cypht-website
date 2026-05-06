@@ -10,8 +10,7 @@ html.theme-transitioning .config-gen-container *::after {
 /* cfh = config hero section */
 
 .config-hero-container {
-      padding-top: 7.5rem !important;
-      padding-bottom: 7.5rem !important;
+      padding: var(--hero-padding-lg) !important;
 }
 
 .cfh-features-list {

@@ -1,8 +1,7 @@
 .ft-hero {
-      padding: 4rem 1rem;
+      padding: var(--hero-padding-md);
       position: relative;
-      height: 90dv;
-
+      min-height: var(--hero-height-md);
 }
 
 .ft-hero:before {
@@ -876,6 +875,17 @@
 
       .search-parent {
             grid-template-rows: auto auto;
+      }
+
+      .mss-div1,
+      .mss-div2,
+      .mss-div3,
+      .mss-div4,
+      .mss-div5,
+      .mss-div6,
+      .mss-div7 {
+            align-self: start;
+            min-height: 9.5rem;
       }
 
       .search-parent .search-div1,
