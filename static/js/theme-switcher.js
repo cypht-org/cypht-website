@@ -55,28 +55,31 @@ class ThemeSwitcher {
 
     setTheme(theme) {
         this.theme = theme;
-         // Disable transitions during theme change to prevent lag
+        // Disable transitions during theme change to prevent lag
         const html = document.documentElement;
         html.classList.add('theme-transitioning');
- 
+
+        // Force reflow to ensure the class is applied before changing theme
+        void html.offsetHeight;
+
         html.setAttribute('data-theme', theme);
-        
+
         // Update all icons if they exist
         this.themeIcons.forEach(icon => {
             icon.className = theme === 'dark' ? 'bi bi-sun' : 'bi bi-moon';
         });
-        
+
         // Update all toggle buttons aria-label
         this.themeToggles.forEach(toggle => {
             toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
         });
 
-        // Re-enable transitions after the theme change is complete
-        requestAnimationFrame(() => {
+        // Re-enable transitions after a short delay to ensure DOM updates
+        setTimeout(() => {
             requestAnimationFrame(() => {
                 html.classList.remove('theme-transitioning');
             });
-        });
+        }, 50);
     }
 }
 

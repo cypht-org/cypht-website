@@ -32,6 +32,8 @@
 }
 
 /* Disable transitions during theme change to prevent lag */
+html.theme-transitioning,
+html.theme-transitioning *,
 html.theme-transitioning *::before,
 html.theme-transitioning *::after {
       transition: none !important;
