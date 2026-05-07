@@ -6,8 +6,8 @@
 
 .contribute-hero {
       margin: 0 auto;
-      min-height: var(--hero-height-md);
-      padding: var(--hero-padding-md);
+      /* min-height: var(--hero-height-md);
+      padding: var(--hero-padding-md); */
       position: relative;
       overflow: hidden;
       display: flex;
@@ -423,7 +423,7 @@
 @media (min-width: 600px) {
       .contribute-hero {
             width: 100%;
-            height: 70dvh;
+            /* height: 70dvh; */
       }
 
       .contribute-subtitle {
@@ -784,7 +784,7 @@
 
 @media (min-width: 1020px) {
       .contribute-hero {
-            min-height: var(--hero-height-md);
+            /* min-height: var(--hero-height-md); */
             padding: 5.7rem 0;
       }
 
@@ -815,7 +815,7 @@
 
 @media (min-width: 1280px) {
       .contribute-hero {
-            min-height: 50dvh;
+            /* min-height: 50dvh; */
       }
 
       .contribute-hero-content {
