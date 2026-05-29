@@ -1,5 +1,6 @@
 ---
-title: Modules
+title: "Modules & Extensions"
+description: "Discover 30+ Cypht modules to personalize your email experience. Enable or disable module sets independently for IMAP, SMTP, LDAP, WordPress, GitHub, and more."
 weight: 20
 loadScriptAfter: /js/module.js
 ---

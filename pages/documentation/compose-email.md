@@ -1,6 +1,7 @@
 ---
 id: 6
 title: Compose Email
+description: "Learn how to compose emails in Cypht. Write in plain text, HTML, or Markdown with flexible signatures, attachments, profiles, and reply-to configuration."
 layout: section/documentation
 ---
 

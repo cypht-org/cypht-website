@@ -1,5 +1,6 @@
 ---
-title: Security
+title: "Security & Privacy"
+description: "Discover how Cypht protects your communications with enterprise-grade encryption, secure cookie management, CSRF protection, two-factor authentication, and a privacy-first architecture."
 weight: 15
 loadScriptAfter: /js/security.js
 ---

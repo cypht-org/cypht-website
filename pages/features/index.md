@@ -1,5 +1,6 @@
 ---
-title: Features
+title: "Features & Capabilities"
+description: "Explore all Cypht features: unified inbox, advanced search, Sieve email filters, multi-protocol support (IMAP, JMAP, EWS), encryption, keyboard shortcuts, and modular architecture."
 weight: 10
 loadScriptAfter: /js/feature.js
 ---

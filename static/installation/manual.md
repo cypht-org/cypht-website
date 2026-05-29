@@ -757,6 +757,16 @@ Make sure to reload Nginx after making these changes:
 <p>
 Now going to https://your-server/mail/ should load the Cypht login page. Note that If you use a symlink, your web-server must be configured to follow symlinks.
 </p>
+
+      <div class="g-warning-card mb-6">
+         <div class="g-warning-card-icon">
+            <i class="bi bi-info-circle"></i>
+         </div>
+         <span class="g-warning-card-text">
+          <b>For Apache2 users:</b> these rules are already included in the <a href="https://github.com/cypht-org/cypht/blob/master/.htaccess" target="_blank" rel="noopener" class="link-alert-card">Apache2 Config</a> file shipped with Cypht. No additional configuration is needed.
+         </span>
+      </div>
+
 </div>
 </div>
 <!-- step 6  -->
@@ -956,7 +966,7 @@ For implementation details, see the <a href="https://github.com/cypht-org/cypht/
                <a href="#step" class="item-gr-title">Step</a>
                <div class="position-relative ">
                   <div class="cc-line-top"></div>
-                  <ul class="sub-iten-list mt-3 mb-2">
+                  <ul class="sub-item-list mt-3 mb-2">
                      <li><a href="#check-in" class="">Check-in</a></li>
                      <li><a href="#prepare-code" class="">Prepare code</a></li>
                      <li><a href="#config-the-program" class="">Config the program</a></li>

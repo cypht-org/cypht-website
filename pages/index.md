@@ -1,5 +1,6 @@
 ---
-title: Home
+title: "Cypht – Unified Email Client for All Your Accounts"
+description: "Cypht is a lightweight, open-source webmail client that combines all your email accounts and RSS feeds into one unified, streamlined inbox. Supports IMAP, SMTP, JMAP, and EWS."
 weight: 1
 nocontainer: true
 h1: Welcome to Cypht
@@ -27,7 +28,7 @@ loadScriptAfter: /js/home-page.js
                     <img src="https://avatars.githubusercontent.com/u/62720246?v=4" alt="Customer avatar" class="avatar" />
                 </div>
                 <!-- <span id="packagist-downloads">Loading downloads...</span> -->
-                <p class="stat-text d-flex flex-column align-items-start mb-0"><span class="d-block">Trusted. With <span id="packagist-downloads" class="fw-bold"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from SVG Spinners by Utkarsh Verma - https://github.com/n3r4zzurr0/svg-spinners/blob/main/LICENSE --><circle cx="4" cy="12" r="3" fill="currentColor"><animate id="SVG7x14Dcom" fill="freeze" attributeName="opacity" begin="0;SVGqSjG0dUp.end-0.25s" dur="0.75s" values="1;.2"/></circle><circle cx="12" cy="12" r="3" fill="currentColor" opacity=".4"><animate fill="freeze" attributeName="opacity" begin="SVG7x14Dcom.begin+0.15s" dur="0.75s" values="1;.2"/></circle><circle cx="20" cy="12" r="3" fill="currentColor" opacity=".3"><animate id="SVGqSjG0dUp" fill="freeze" attributeName="opacity" begin="SVG7x14Dcom.begin+0.3s" dur="0.75s" values="1;.2"/></circle></svg></span></span> downloads worldwide</p>
+                <p class="stat-text d-flex flex-column align-items-start mb-0"><span class="d-block">Trusted. With <a id="packagist-downloads" href="https://packagist.org/packages/jason-munro/cypht" target="_blank" class="fw-bold"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from SVG Spinners by Utkarsh Verma - https://github.com/n3r4zzurr0/svg-spinners/blob/main/LICENSE --><circle cx="4" cy="12" r="3" fill="currentColor"><animate id="SVG7x14Dcom" fill="freeze" attributeName="opacity" begin="0;SVGqSjG0dUp.end-0.25s" dur="0.75s" values="1;.2"/></circle><circle cx="12" cy="12" r="3" fill="currentColor" opacity=".4"><animate fill="freeze" attributeName="opacity" begin="SVG7x14Dcom.begin+0.15s" dur="0.75s" values="1;.2"/></circle><circle cx="20" cy="12" r="3" fill="currentColor" opacity=".3"><animate id="SVGqSjG0dUp" fill="freeze" attributeName="opacity" begin="SVG7x14Dcom.begin+0.3s" dur="0.75s" values="1;.2"/></circle></svg></a></span> downloads worldwide</p>
             </div>
             <div class="minimal-mockup">
                 <img src="/img/home/message_list_light.png" alt="App preview - light mode" class="mockup-light" />
@@ -50,9 +51,8 @@ loadScriptAfter: /js/home-page.js
                             </div>
                             <div class="card-content">
                                 <h3>A standard E-mail client</h3>
-                                <p class="card-desc">The driving force behind Cypht development is to provide combined views for multiple accounts, but it's also a standard E-mail client that lets you browse and manage IMAP folders and send outbound messages with SMTP.</p>
+                                <p class="card-desc">Combined views for multiple accounts, IMAP folder management, and outbound messages with SMTP.</p>
                             </div>
-                            <button class="card-toggle action-btn cypht-primary-btn" type="button" aria-expanded="false">Read more</button>
                          </div>
                     </div>
                     <!-- 2 -->
@@ -63,9 +63,8 @@ loadScriptAfter: /js/home-page.js
                             </div>
                             <div class="card-content">
                                 <h3>A set of plugins</h3>
-                                <p class="card-desc">Cypht is an application built entirely of plugins, or as we call them, module sets (which is obviously way cooler sounding than plugins), that are executed by the framework. Modules provide a flexible way to add new features or customize the program without hacking the code.</p>
+                                <p class="card-desc">Built entirely on module sets that let you add features or customize behavior without touching the core code.</p>
                             </div>
-                            <button class="card-toggle action-btn cypht-primary-btn" type="button" aria-expanded="false">Read more</button>
                         </div>
                     </div>
                     <!-- 3 -->
@@ -76,9 +75,8 @@ loadScriptAfter: /js/home-page.js
                             </div>
                             <div class="card-content">
                                 <h3>Privacy‑first</h3>
-                                <p class="card-desc">Cypht is Open Source (LGPL V2), and written in PHP and JavaScript. If you are looking for a lightweight webmail solution for an ISP, school, business, or just personal use, I hope that Cypht can help!</p>
+                                <p class="card-desc">Open Source (LGPL v2.1), written in PHP and JavaScript. A lightweight webmail for ISPs, schools, businesses, or personal use.</p>
                             </div>
-                            <button class="card-toggle action-btn cypht-primary-btn" type="button" aria-expanded="false">Read more</button>
                         </div>
                     </div>
              </div>
@@ -174,7 +172,8 @@ loadScriptAfter: /js/home-page.js
                         <div>
                             <h4>Do you have suggestion or other questions ?</h4>
                             <p class="simple-description">Our team will answer all your questions, we ensure a quick response.</p>
-                            <a href="https://matrix.to/#/#cypht-org_community:gitter.im" class="action-btn contact-btn cypht-primary-btn">
+                            <a href="https://matrix.to/#/#cypht-org_community:gitter.im" target="_blank"
+                            class="action-btn contact-btn cypht-primary-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M12 10a4 4 0 1 0 0-8a4 4 0 0 0 0 8m-4 2.25a4.124 4.124 0 0 0-4.095 3.642l-.65 5.52a.75.75 0 0 0 1.49.176l.65-5.52a2.624 2.624 0 0 1 1.855-2.209v4.193c0 .899 0 1.648.08 2.242c.084.628.27 1.195.726 1.65c.455.456 1.022.642 1.65.726c.594.08 1.344.08 2.242.08h.104c.899 0 1.648 0 2.243-.08c.627-.084 1.194-.27 1.65-.726c.455-.455.64-1.022.725-1.65c.08-.594.08-1.343.08-2.242v-4.193a2.624 2.624 0 0 1 1.856 2.208l.65 5.52a.75.75 0 1 0 1.489-.175l-.65-5.52A4.124 4.124 0 0 0 16 12.25z"/></svg>
                                 Contact Our Team
                             </a>

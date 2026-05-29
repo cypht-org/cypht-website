@@ -1,5 +1,6 @@
 ---
-title: Tiki Webmail
+title: "Tiki Webmail Integration"
+description: "Discover Tiki Webmail, a powerful web-based email client integrated into Tiki Wiki CMS Groupware via Cypht. Access IMAP accounts with email trackers and Sieve filters."
 weight: 15
 ---
 

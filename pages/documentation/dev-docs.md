@@ -1,6 +1,7 @@
 ---
 id: 13
 title: Developer Docs
+description: "Cypht developer documentation. Learn the module architecture, handler and output system, page creation, build process, and how to extend Cypht with custom plugins."
 layout: section/documentation
 ---
 

@@ -482,9 +482,6 @@ html.theme-transitioning .config-gen-container *::after {
 .form-field {
       margin-bottom: 1.5rem;
       position: relative;
-      /* display: inline-flex;
-      flex-direction: column;
-      justify-content: end; */
 
 }
 
@@ -506,10 +503,14 @@ html.theme-transitioning .config-gen-container *::after {
 
 /* Form Field Description */
 .form-field-description {
+      margin-top: 0.25rem;
+}
+
+.form-field-description,
+.form-simple-description {
       font-size: 0.75rem;
       color: var(--color-text);
       opacity: 0.6;
-      margin-top: 0.25rem;
       line-height: 1.4;
 }
 
@@ -636,8 +637,6 @@ html.theme-transitioning .config-gen-container *::after {
 
 /* Form Field Groups */
 .form-field-group {
-      /* display: grid;
-      grid-template-columns: 1fr 1fr; */
       display: flex;
       flex-direction: column;
       gap: 1rem;
@@ -694,6 +693,82 @@ html.theme-transitioning .config-gen-container *::after {
       opacity: 0.6;
 }
 
+
+/* Modules Labels */
+.config-modules {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+}
+
+
+/* Groupe Module Header */
+.module-group-header {
+      margin-bottom: .5rem;
+}
+
+.module-group-title {
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .82rem;
+      font-weight: 600;
+      opacity: .85;
+}
+
+.module-group-title svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      color: var(--color-primary);
+}
+
+.config-module-item {
+      display: inline-flex;
+      font-size: .8rem;
+      border: 1px solid var(--color-border);
+      padding: .15rem .6rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: 400;
+      transition: all ease-out .25s;
+}
+
+.config-module-item:hover {
+      background-color: #f2f2f2aa;
+      border-color: #9ca3af60;
+}
+
+.module_selected,
+.required_module {
+      position: relative;
+      padding-right: 1.5rem;
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+      border-style: dashed;
+      opacity: .9;
+      font-weight: 600;
+}
+
+.module_selected::after,
+.required_module::after {
+      content: "✓";
+      position: absolute;
+      right: 0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+}
+
+.required_module {
+      cursor: not-allowed;
+}
+
+.required_module:hover {
+      background-color: inherit !important;
+      border-color: inherit;
+}
+
 /* ─── Right Card ──────────────────────────────────────────────────────────── */
 .config-right {
       width: 40%;
@@ -702,7 +777,6 @@ html.theme-transitioning .config-gen-container *::after {
 .config-right-content {
       display: flex;
       flex-direction: column;
-      /* justify-content: space-between; */
       gap: 2rem;
       position: sticky;
       top: 8rem;
@@ -889,6 +963,7 @@ html.theme-transitioning .config-gen-container *::after {
 /* ─── Offcanvas Body ─────────────────────────────────────────────────────── */
 .cfg-offcanvas {
       margin: .5rem 0;
+      margin-right: .5rem;
       width: 360px !important;
       border-radius: 7px;
       background-color: var(--color-bg);
@@ -1047,17 +1122,18 @@ html.theme-transitioning .config-gen-container *::after {
 
 /* ─── Toast ──────────────────────────────────────────────────────────────── */
 .toast-container {
-      width: 20rem !important;
+      width: 22rem !important;
 }
 
 .toast {
       background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.398);
-      transition: all 0.3s ease;
-      border: 1px solid #d1d5db;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid #e5e7eb;
+      padding: .25rem .5rem;
 }
 
 .toast.show {
@@ -1077,7 +1153,38 @@ html.theme-transitioning .config-gen-container *::after {
       margin: 0 !important;
 }
 
-.toast button svg,
+.toast-close-btn {
+      margin-left: .4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: inherit;
+      min-height: inherit;
+      padding: .4rem;
+      border: none;
+      border-radius: 5px;
+      background: transparent;
+      color: #6b7280;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+}
+
+.toast-close-btn:hover {
+      background: rgba(0, 0, 0, 0.06);
+      color: #374151;
+}
+
+.toast-close-btn:focus-visible {
+      outline: 2px solid var(--color-primary, #80b441);
+      outline-offset: 1px;
+}
+
+.toast-close-btn svg {
+      height: .8rem !important;
+      width: .8rem !important;
+}
+
 .offc-footer-actions button svg {
       height: .75rem !important;
       width: .75rem !important;
@@ -1086,7 +1193,8 @@ html.theme-transitioning .config-gen-container *::after {
 .toast-body {
       font-size: .8rem;
       font-weight: 500;
-      opacity: .8;
+      color: #374151;
+      padding: .5rem .25rem;
 }
 
 /* ─── Responsive Design ──────────────────────────────────────────────────────────── */
@@ -1427,7 +1535,8 @@ html.theme-transitioning .config-gen-container *::after {
             border: 1px solid var(--color-border);
       }
 
-      .config-right-header button:hover {
+      .config-right-header button:hover,
+      .config-module-item:hover {
             background: var(--clr-dark-card-second);
       }
 
@@ -1471,6 +1580,15 @@ html.theme-transitioning .config-gen-container *::after {
             background-color: var(--clr-dark-card-second);
       }
 
+      .offc-close-btn:hover::before {
+            background-color: var(--clr-dark-card-second);
+            border: 1px solid var(--color-border);
+      }
+
+      .offc-close-btn:hover svg {
+            color: var(--color-text) !important;
+      }
+
       .form-select {
             color: var(--color-text);
             background-color: var(--clr-dark-card-second);
@@ -1500,6 +1618,25 @@ html.theme-transitioning .config-gen-container *::after {
             background: var(--clr-card-bg);
             border: 1px solid var(--color-border);
             color: var(--color-text);
+      }
+
+      .toast {
+            background: rgba(30, 30, 30, 0.95);
+            border: 1px solid var(--color-border);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3);
+      }
+
+      .toast-body {
+            color: var(--color-text);
+      }
+
+      .toast-close-btn {
+            color: #9ca3af;
+      }
+
+      .toast-close-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e5e7eb;
       }
 
 }

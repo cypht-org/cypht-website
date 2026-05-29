@@ -1,6 +1,7 @@
 ---
 id: 8
 title: Screen Emails
+description: "Learn how to screen emails in Cypht. Mark messages as favorites, automatically group them into folders, and quickly access important emails for better inbox organization."
 layout: section/documentation
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: How to Join
+title: "Join the Community"
+description: "Get started with the Cypht open-source community. Connect on Gitter, contribute on GitHub, set up your development environment, and follow our guidelines to start contributing."
 nocontainer: true
 exclude: true
 h1: false

@@ -1,6 +1,7 @@
 ---
 id: 18
 title: Sieve Filters
+description: "Set up Sieve email filters in Cypht to automatically sort, move, forward, and flag messages server-side. Create rules that work even when you're offline."
 layout: section/documentation
 ---
 

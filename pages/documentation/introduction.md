@@ -1,20 +1,12 @@
 ---
 id: 0
 title: Introduction
+description: "Introduction to Cypht, a lightweight open-source webmail client. Learn what Cypht is, its core philosophy, and how it aggregates all your email accounts into one unified view."
 layout: section/documentation
 ---
 
 <div class="doc-content-left col mx-xl-3">
     <div class="doc-page-header">
-        <!-- <div class="doc-page-header-indicator">
-            <i class="bi bi-house"></i>
-            <span class="ph-indicator-parent">
-                Overview
-            </span>
-            <span class="ph-indicator-children">
-                Introduction
-            </span>
-        </div> -->
         <h3>Introduction</h3>
     </div>
       <!--  -->
@@ -129,8 +121,8 @@ layout: section/documentation
                   <img src="/svg/calendar.svg" alt="" aria-hidden="true" width="32" height="32" loading="lazy" decoding="async">
                 </div>
                 <div class="doc-section-content">
-                    <h5>Integrated Calendar</h5>
-                    <p>Manage your appointments directly from your email interface.</p>
+                    <h5>Calendar</h5>
+                    <p>View and track simple events alongside your emails.</p>
                 </div>
             </div>
             <!--  -->

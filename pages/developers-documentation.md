@@ -1,5 +1,6 @@
 ---
-title: Devs-doc
+title: "Developer Guide & API"
+description: "Technical guide for Cypht developers. Understand the folder structure, module system, page creation, handler and output architecture, testing workflow, and third-party integrations."
 weight: 35
 nocontainer: true
 ---

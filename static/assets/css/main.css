@@ -12,7 +12,6 @@
 @import url('./footer.css');
 @import url('./tiki-webmail.css');
 @import url('./how-to-join.css');
-/* @import url('./email-filter.css'); */
 
 
 /* ==========================================
@@ -928,11 +927,6 @@ a:hover {
 @media (min-width: 1200px) {
 
       /* +- Hero Section Container */
-      .hs-container {
-            /* background-color: green; */
-
-      }
-
       .hs-text-content {
             margin: 0 auto;
             max-width: var(--container-6xl);

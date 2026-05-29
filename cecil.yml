@@ -1,7 +1,7 @@
 title: "Cypht Website"
 baseline: "cypht.org website"
 baseurl: "https://www.cypht.org/"
-description: "Cecil-powered static site generation for cypht.org"
+description: "Cypht is a lightweight, secure, open-source webmail client that aggregates multiple email accounts and services into a single unified interface."
 author:
   name: multiple
   url: "https://example.com/"

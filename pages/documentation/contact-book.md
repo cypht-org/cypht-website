@@ -1,6 +1,7 @@
 ---
 id: 10
 title: Contact Book
+description: "Manage your contacts in Cypht. Add contacts manually or from received emails, organize your address book, and use CardDAV integration for synchronized contacts."
 layout: section/documentation
 ---
 

@@ -1,6 +1,7 @@
 ---
 id: 3
 title: Interfaces
+description: "Explore Cypht's user interface. Discover the navigation layout, sidebar, message list views, settings panel, and how to customize your email client experience."
 layout: section/documentation
 ---
 

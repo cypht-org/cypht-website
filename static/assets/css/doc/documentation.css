@@ -846,7 +846,7 @@
       align-items: center;
       border: .5px solid var(--color-border);
       border-radius: 5px;
-      padding: 0.5rem 1rem;
+      padding: 0.25rem 1rem;
       text-decoration: none;
       color: var(--color-text) !important;
       font-weight: 600;
@@ -857,7 +857,7 @@
             /* font-weight: 600; */
             color: var(--color-primary) !important;
             scale: 1.02;
-            padding: 0.5rem 1.1rem;
+            padding: 0.25rem 1.1rem;
             margin-left: .1rem;
       }
 
@@ -885,6 +885,57 @@
       border: .5px solid var(--tip-info-border);
 }
 
+
+/* ─── Image Preview Overlay ─────────────────────────────────────────────────── */
+.doc-img-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.85);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.doc-img-overlay.active {
+      opacity: 1;
+      visibility: visible;
+}
+
+.doc-img-overlay-img {
+      max-width: min(90vw, 1200px);
+      max-height: min(90vh, 800px);
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      transform: scale(0.95);
+      transition: transform 0.25s ease;
+}
+
+.doc-img-overlay.active .doc-img-overlay-img {
+      transform: scale(1);
+}
+
+.doc-img-overlay-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+}
+
+.doc-img-overlay-close:hover {
+      opacity: 1;
+}
 
 /* Responsive */
 @media (min-width: 544px) {
@@ -1040,8 +1091,10 @@
       .doc-section-icon {
             background-color: var(--clr-dark-card-second);
             border: .8px solid var(--color-border);
-            color: var(--color-text);
-            fill: var(--color-text) !important;
+      }
+
+      .doc-section-icon img {
+            filter: invert(1) brightness(2);
       }
 
       .doc-section-text,
@@ -1105,5 +1158,9 @@
 
       .doc-img-card p {
             color: var(--color-text-secondary);
+      }
+
+      .doc-img-overlay {
+            background: #2828287f;
       }
 }

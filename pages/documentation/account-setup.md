@@ -1,6 +1,7 @@
 ---
 id: 4
 title: Account Setup
+description: "Learn how to add and configure email accounts in Cypht. Set up IMAP, SMTP, Gmail, Outlook, and other providers with auto-discovery and OAuth authentication."
 layout: section/documentation
 ---
 
@@ -77,7 +78,7 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#access_settings">1. Access Account Settings</a>
         </div>
-        <p>Navigate to <strong>Settings → Accounts</strong> in the top navigation bar. Click "Add Account" to begin the configuration process.</p>
+        <p>Navigate to <strong>Settings → Servers</strong> in the top navigation bar. Click "Add Account" to begin the configuration process.</p>
 
         <div class="doc-subsection-header">
             <a href="#basic_settings">2. Basic Account Information</a>

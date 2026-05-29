@@ -1,6 +1,7 @@
 ---
 id: 5
 title: Unified Inbox
+description: "Discover Cypht's unified inbox. View emails from all your accounts in one place with combined inbox, unread, sent, and flagged views across IMAP, JMAP, and EWS."
 layout: section/documentation
 ---
 

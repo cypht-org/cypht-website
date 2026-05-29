@@ -1,6 +1,7 @@
 ---
 id: 2
 title: Getting Started
+description: "Get started with Cypht. Learn about the architecture, system requirements, installation steps, and initial configuration to set up your self-hosted email client."
 layout: section/documentation
 ---
 
@@ -58,26 +59,6 @@ layout: section/documentation
             <li><strong>EWS Server</strong></li>
             <li><strong>LDAP/Server</strong></li>
         </ul>
-        <!-- <div class="doc-grid-content">
-            <div class="">
-                <div class="feature-card h-100">
-                    <h6><i class="bi bi-envelope"></i> SMPT/IMAP/JMAP (Servers)</h6>
-                    <p class="small">Standard protocol. Requires server address, port (usually 993 with SSL), and credentials.</p>
-                </div>
-            </div>
-            <div class="">
-                <div class="feature-card h-100">
-                    <h6><i class="bi bi-rss"></i> Feed RSS</h6>
-                    <p class="small">Enter feed URL to transform articles into readable messages in your inbox.</p>
-                </div>
-            </div>
-            <div class="">
-                <div class="feature-card h-100">
-                    <h6><i class="bi bi-cloud"></i> EWS Server</h6>
-                    <p class="small">Link external contact or calendar services via activated modules.</p>
-                </div>
-            </div>
-        </div> -->
 
         <p>For some service providers (Gmail, Outlook, Office365), specific information is required in your configuration file (.env for Cypht 2.x.x or hm3.ini for Cypht 1.4.x). How to get them page missing.</p>
 

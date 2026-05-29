@@ -253,6 +253,13 @@
       margin: 0 auto;
 }
 
+
+.guide-left .g-warning-card .link-alert-card {
+      background-color: transparent !important;
+      color: red !important;
+      text-decoration: underline;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
       .terminal-window {

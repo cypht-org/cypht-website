@@ -87,30 +87,16 @@
 .about-card h3 {
       margin: .5rem 0 .25rem;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.1rem;
 }
 
 .card-desc {
-      font-size: .85rem;
+      font-size: .87rem;
       transition: max-height 0.3s ease;
-      max-height: 5rem;
+      margin-top: 0.7rem;
+      font-weight: 500;
       overflow: hidden;
-      text-align: justify;
       position: relative;
-}
-
-.card-desc::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 2.2rem;
-      background: linear-gradient(to bottom, transparent, var(--color-bg-secondary));
-}
-
-.card-desc.is-clamped::after {
-      background: inherit;
 }
 
 .card-toggle {
@@ -235,6 +221,6 @@
 
 
       .card-desc::after {
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(28, 28, 28));
+            background: linear-gradient(to bottom, rgba(30, 30, 30, 0), rgba(30, 30, 30, .8));
       }
 }

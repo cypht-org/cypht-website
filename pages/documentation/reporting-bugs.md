@@ -1,6 +1,7 @@
 ---
 id: 14
 title: Reporting Bugs
+description: "Learn how to report bugs in Cypht effectively. Follow our bug reporting guidelines to provide useful details and help the team fix issues quickly."
 layout: section/documentation
 ---
 

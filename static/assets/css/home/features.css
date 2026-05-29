@@ -2,12 +2,16 @@
    1. VARIABLES AND CONFIGURATION
 ============================================== */
 :root {
-      --feature-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      --card-padding: 1.75rem;
-      --card-gap: 1rem;
+      --feature-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      --card-padding: 1.25rem;
+      --card-gap: 0.75rem;
       --accent-color: #81B441;
-      --accent-light: rgba(129, 180, 65, 0.15);
-      --accent-border: rgba(129, 180, 65, 0.3);
+      --accent-light: rgba(129, 180, 65, 0.12);
+      --accent-border: rgba(129, 180, 65, 0.25);
+      --f-yellow: rgba(245, 208, 96, 0.28);
+      --f-yellow-border: rgba(245, 208, 96, 0.5);
+      --f-pink: rgba(45, 130, 130, 0.18);
+      --f-pink-border: rgba(45, 130, 130, 0.35);
 }
 
 /* ==============================================
@@ -55,7 +59,7 @@
 
 .mosaic-grid {
       grid-template-columns: repeat(8, 1fr);
-      grid-auto-rows: minmax(180px, auto);
+      grid-auto-rows: minmax(140px, auto);
 }
 
 /* Grid placement configuration */
@@ -106,35 +110,26 @@
 }
 
 .f-card h3 {
-      /* color: #2F4858; */
-      font-size: 1.3rem;
+      font-size: 1.15rem;
       font-weight: 600;
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.4rem;
 }
 
-.f-card p {
-      color: #555;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      margin-bottom: 0.5rem;
-}
 
 .f-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-
-
-
-
 /* ==============================================
    5. SPECIFIC CARD STYLES
 ============================================== */
 
 .f-card p {
+      line-height: 1.45;
+      margin-bottom: 0.35rem;
       font-weight: 500 !important;
-      font-size: .87rem !important;
+      font-size: 0.88rem !important;
 }
 
 /* Hero card */
@@ -143,8 +138,8 @@
       border: 1px solid var(--accent-border);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      padding: 2rem;
+      gap: 1.25rem;
+      padding: 1.5rem;
 }
 
 .m-hero-col {
@@ -152,10 +147,6 @@
       flex-direction: column;
       justify-content: center;
 }
-
-/* .m-hero-col p {
-      color: var(--color-text-secondary);
-} */
 
 .m-hero-illus {
       display: flex;
@@ -209,8 +200,8 @@
 
 /* Yellow card (integrations) */
 .f-card.m-yellow {
-      background: rgba(255, 232, 134, 0.3);
-      border: 1px solid rgba(255, 200, 0, 0.15);
+      background: var(--f-yellow);
+      border: 1px solid var(--f-yellow-border);
 }
 
 .f-apps .apps {
@@ -249,10 +240,10 @@
       font-size: 1rem;
 }
 
-/* Cyan card (synchronization) */
+/* Pink card (filtering) */
 .f-card.m-cyan {
-      background: rgba(184, 241, 255, 0.3);
-      border: 1px solid rgba(100, 200, 255, 0.15);
+      background: var(--f-pink);
+      border: 1px solid var(--f-pink-border);
 }
 
 .f-sync p {
@@ -285,7 +276,6 @@
 
 /* CTA card */
 .f-others {
-      /* background: linear-gradient(180deg, #81B441, #68a124); */
       color: white;
       border: none;
       display: flex;
@@ -295,28 +285,28 @@
 
 .f-others h3 {
       color: white;
-      font-size: 1.5rem;
+      font-size: 1.1rem;
 }
 
 .f-others p {
       color: rgba(255, 255, 255, 0.9);
-      font-size: 1rem;
+      font-size: 0.82rem;
 }
 
 .cta-badge {
-      width: 45px;
-      height: 45px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
 }
 
 .cta-badge i {
       color: white;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
 }
 
 .cta-btn {
@@ -324,9 +314,9 @@
       color: #558017 !important;
       border: none !important;
       font-weight: 600 !important;
-      margin-top: 1rem;
+      margin-top: 0.5rem;
       align-self: flex-start;
-      font-size: .87rem !important;
+      font-size: .8rem !important;
 }
 
 .cta-btn:hover {
@@ -339,40 +329,39 @@
 ============================================== */
 /* Reduce height of f-card except m-hero */
 .f-card:not(.m-hero) {
-      max-height: 220px;
+      max-height: 200px;
       min-height: 0;
-      padding: 1.25rem;
+      padding: 1rem;
       display: flex;
       flex-direction: column;
 }
 
 /* Adjust internal content to fit reduced height */
 .f-card:not(.m-hero) h3 {
-      font-size: 1.15rem;
-      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
 }
 
 .f-card:not(.m-hero) p {
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+      margin-bottom: 0.35rem;
       line-height: 1.4;
 }
 
 .f-card:not(.m-hero) .f-illus {
-      width: 60px;
-      height: 60px;
-      font-size: 1.75rem;
-      margin-bottom: 0.75rem;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
 }
 
 /* Adjust icons and spacing in specific cards */
 .f-card.m-yellow:not(.m-hero) {
-      min-height: 230px;
-      /* Increased to accommodate the link */
+      min-height: 200px;
 }
 
 .f-card.m-cyan:not(.m-hero) {
-      min-height: 200px;
+      min-height: 180px;
 }
 
 .f-card.m-yellow:not(.m-hero) .apps {
@@ -388,8 +377,8 @@
 
 /* Adjustment for CTA card */
 .f-others:not(.m-hero) {
-      min-height: 200px;
-      padding-bottom: 1rem;
+      min-height: 180px;
+      padding-bottom: 0.75rem;
 }
 
 .f-others:not(.m-hero) .cta-badge {
@@ -399,8 +388,8 @@
 }
 
 .f-others:not(.m-hero) h3 {
-      font-size: 1.15rem;
-      margin-bottom: 0.4rem;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
 }
 
 .f-others:not(.m-hero) .cta-btn {
@@ -486,7 +475,7 @@
 /* Adjust proportions and spacing */
 .f-card:not(.m-hero) {
       height: auto;
-      min-height: 280px;
+      min-height: 230px;
       display: flex;
       flex-direction: column;
 }
@@ -517,11 +506,11 @@
 .f-card.m-yellow,
 .f-card.m-cyan,
 .f-others {
-      height: 280px !important;
-      min-height: 280px !important;
-      max-height: 280px !important;
+      height: 230px !important;
+      min-height: 230px !important;
+      max-height: 230px !important;
       box-sizing: border-box;
-      padding: 1.5rem;
+      padding: 1.25rem;
       margin: 0;
       overflow: hidden;
 }
@@ -912,6 +901,11 @@
 
 [data-theme="dark"] {
 
+      .m-hero {
+            background: rgba(137, 184, 188, 0.08);
+            border-color: rgba(137, 184, 188, 0.15);
+      }
+
       .m-hero p {
             color: var(--color-text);
             opacity: .8;
@@ -925,6 +919,16 @@
 
       .f-soft p {
             opacity: 1 !important;
+      }
+
+      .f-card.m-yellow {
+            background: rgba(245, 208, 96, 0.08);
+            border-color: rgba(245, 208, 96, 0.18);
+      }
+
+      .f-card.m-cyan {
+            background: rgba(45, 130, 130, 0.1);
+            border-color: rgba(45, 130, 130, 0.2);
       }
 
       .f-apps a {

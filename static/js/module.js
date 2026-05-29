@@ -194,15 +194,6 @@ const modules = [
     type_id: 3,
   },
   {
-    chip: "JMAP",
-    name: "JMAP Protocol",
-    description:
-      "Modern JSON-based email protocol for faster, more reliable access to email data",
-    issues_link: "https://github.com/cypht-org/cypht/tree/master/modules/jmap",
-    cover: "/svg/api.svg",
-    type_id: 3,
-  },
-  {
     chip: "Sieve",
     name: "Sieve Filters",
     description: "Advanced email filtering using Sieve protocol",
@@ -438,6 +429,33 @@ const modules = [
     issues_link:
       "https://github.com/cypht-org/cypht/tree/master/modules/idle_timer/README.md",
     cover: "/svg/timer.svg",
+    type_id: 1,
+  },
+  {
+    chip: "MTA-STS",
+    name: "MTA-STS & TLS-RPT",
+    description: "Displays recipient domain email security policy status during composition",
+    issues_link:
+      "https://github.com/cypht-org/cypht/tree/master/modules/mta_sts",
+    cover: "/svg/shield.svg",
+    type_id: 1,
+  },
+  {
+    chip: "Scheduled Send",
+    name: "Scheduled Messages",
+    description: "Schedule emails for future delivery instead of sending immediately",
+    issues_link:
+      "https://github.com/cypht-org/cypht/tree/master/modules/scheduled_sends",
+    cover: "/svg/clock.svg",
+    type_id: 3,
+  },
+  {
+    chip: "Brute Force",
+    name: "Brute Force Protection",
+    description: "Login lockout mechanism to prevent brute force authentication attacks",
+    issues_link:
+      "https://github.com/cypht-org/cypht/tree/master/modules/brute_force",
+    cover: "/svg/shield.svg",
     type_id: 1,
   },
 ];

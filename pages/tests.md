@@ -1,5 +1,6 @@
 ---
-title: Tests
+title: "Testing & Quality Assurance"
+description: "Learn about Cypht's comprehensive testing and quality assurance: PHPUnit unit tests, Selenium browser tests, CI/CD pipelines, and code coverage tracking across multiple PHP versions."
 exclude: true
 loadScriptAfter: /assets/tests.css
 ---

@@ -3,7 +3,7 @@
     <h3>Install Cypht using Docker</h3>
     <p class="guide-page-subtitle">Using Docker is one of the easiest ways to install Cypht as the image bundles the necessary steps from the manual installation.</p>
     <p>Repository :
-      <a href="https://hub.docker.com/r/cypht/cypht">https://hub.docker.com/r/cypht/cypht</a>
+      <a href="https://hub.docker.com/r/cypht/cypht" target="_blank">https://hub.docker.com/r/cypht/cypht</a>
     </p>
   </div>
   <!--  -->

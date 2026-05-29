@@ -1,56 +1,4 @@
 // ===============================
-// About cards (Read more / less)
-// ===============================
-function init_about_cards() {
-  const buttons = document.querySelectorAll(".card-toggle");
-
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const currentCard = btn.closest(".about-card");
-      const currentDesc = currentCard.querySelector(".card-desc");
-
-      // Close others with smooth animation
-      document.querySelectorAll(".about-card").forEach((card) => {
-        if (card !== currentCard && card.classList.contains("expanded")) {
-          const desc = card.querySelector(".card-desc");
-          const toggleBtn = card.querySelector(".card-toggle");
-
-          // Animate closing like Read less
-          desc.style.maxHeight = desc.scrollHeight + "px";
-          // Force reflow
-          desc.offsetHeight;
-          desc.style.maxHeight = null;
-
-          card.classList.remove("expanded");
-          desc.classList.remove("is-clamped");
-
-          toggleBtn.textContent = "Read more";
-          toggleBtn.setAttribute("aria-expanded", "false");
-        }
-      });
-
-      // Toggle current
-      const isOpen = currentDesc.style.maxHeight;
-
-      if (isOpen) {
-        currentDesc.style.maxHeight = null;
-        btn.textContent = "Read more";
-        btn.setAttribute("aria-expanded", "false");
-        currentCard.classList.remove("expanded");
-        currentDesc.classList.remove("is-clamped");
-      } else {
-        currentDesc.style.maxHeight = currentDesc.scrollHeight + "px";
-        currentDesc.classList.add("is-clamped");
-        btn.textContent = "Read less";
-        btn.setAttribute("aria-expanded", "true");
-        currentCard.classList.add("expanded");
-      }
-    });
-  });
-}
-
-
-// ===============================
 // Features cards animations
 // ===============================
 function init_feature_cards() {
@@ -137,7 +85,6 @@ async function load_packagist_stats() {
     const res = await fetch(
       "https://packagist.org/packages/jason-munro/cypht.json"
     );
-
     const data = await res.json();
     const downloads = data.package.downloads.total;
 
@@ -153,7 +100,6 @@ async function load_packagist_stats() {
 // Init
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
-  init_about_cards();
   init_feature_cards();
   init_testimonials();
   init_faq();

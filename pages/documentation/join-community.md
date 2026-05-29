@@ -1,6 +1,7 @@
 ---
 id: 15
 title: Join the Community
+description: "Join the Cypht open-source community. Connect with contributors on Gitter, participate in discussions, and collaborate on building a better email experience."
 layout: section/documentation
 ---
 

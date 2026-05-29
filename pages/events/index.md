@@ -1,5 +1,6 @@
 ---
-title: Events
+title: "Events & Community Meetups"
+description: "Stay updated with upcoming Cypht community events. Join our meetups, webinars, and conferences to connect with contributors and the open-source email community."
 weight: 10
 loadScriptAfter: /js/event.js
 ---

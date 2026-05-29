@@ -1,179 +1,183 @@
 {% set footer_links = {
-    links: [
+  links: [
+    {
+      title: 'features',
+      childrens: [
         {
-            title: 'features',
-            childrens: [
-                {
-                    'title': 'Messaging',
-                    'href': '/features#messaging'
-                },
-                {
-                    'title': 'Performance',
-                    'href': '/features#performance'
-                },
-                {
-                    'title': 'Search',
-                    'href': '/features#search'
-                },
-                {
-                    'title': 'Development',
-                    'href': '/features#development'
-                }
-            ]
+          title: 'Messaging',
+          href: '/features#messaging'
         },
         {
-            title: 'resources',
-            childrens: [
-                {
-                    'title': 'Install',
-                    'href': '/install'
-
-                },
-                {
-                    'title': 'User Guide',
-                    'href': '/documentation'
-                },
-                {
-                    'title': 'Tiki Webmail',
-                    'href': '/tiki-webmail',
-                    'external': true
-                }
-            ]
+          title: 'Performance',
+          href: '/features#performance'
         },
         {
-            title: 'about',
-            childrens: [
-                {
-                    'title': 'License',
-                    'href': '/license'
-                },
-                {
-                    'title': 'Contribute',
-                    'href': '/contribute'
-                },
-                 {
-                    'title': 'Security',
-                    'href': '/features#security'
-                },
-            ]
+          title: 'Search',
+          href: '/features#search'
         },
         {
-            title: 'support',
-            childrens: [
-                {
-                    'title': 'FAQ',
-                    'href': '/#faq'
-                },
-                {
-                    'title': 'Community',
-                    'href': 'https://matrix.to/#/#cypht-org_community:gitter.im',
-                    'external': true
-                },
-                {
-                    'title': 'Event',
-                    'href': '/events'
-                }
-            ]
+          title: 'Development',
+          href: '/features#development'
         }
-    ],
-    policies: [
+      ]
+    },
+    {
+      title: 'resources',
+      childrens: [
         {
-            title: 'License',
-            href: 'https://github.com/cypht-org/cypht/blob/master/LICENSE',
-            external: true
+          title: 'Install',
+          href: '/install'
         },
         {
-            title: 'Releases',
-            href: 'https://github.com/cypht-org/cypht/releases',
-            external: true
+          title: 'User Guide',
+          href: '/documentation'
+        },
+        {
+          title: 'Tiki Webmail',
+          href: '/tiki-webmail',
+          external: true
         }
-    ],
-    socials: [
+      ]
+    },
+    {
+      title: 'about',
+      childrens: [
         {
-            title: 'X',
-            icon: 'bi bi-twitter-x',
-            href: 'https://x.com/CyphtWebmail',
-            external: true
+          title: 'License',
+          href: '/license'
         },
         {
-            title: 'LinkedIn',
-            icon: 'bi bi-linkedin',
-            href: 'https://www.linkedin.com/groups/13804559',
-            external: true
+          title: 'Contribute',
+          href: '/contribute'
         },
         {
-            title: 'GitHub',
-            icon: 'bi bi-github',
-            href: 'https://github.com/cypht-org/cypht',
-            external: true
-        },
-        {
-            title: 'Discord',
-            icon: 'bi bi-chat-square-dots',
-            href: 'https://matrix.to/#/#cypht-org_community:gitter.im',
-            external: true
+          title: 'Security',
+          href: '/features#security'
         }
-    ]
+      ]
+    },
+    {
+      title: 'support',
+      childrens: [
+        {
+          title: 'FAQ',
+          href: '/#faq'
+        },
+        {
+          title: 'Community',
+          href: 'https://matrix.to/#/#cypht-org_community:gitter.im',
+          external: true
+        },
+        {
+          title: 'Event',
+          href: '/events'
+        }
+      ]
+    }
+  ],
+  policies: [
+    {
+      title: 'License',
+      href: 'https://github.com/cypht-org/cypht/blob/master/LICENSE',
+      external: true
+    },
+    {
+      title: 'Releases',
+      href: 'https://github.com/cypht-org/cypht/releases',
+      external: true
+    }
+  ],
+  socials: [
+    {
+      title: 'X',
+      icon: 'bi bi-twitter-x',
+      href: 'https://x.com/Cypht_Webmail',
+      external: true
+    },
+    {
+      title: 'LinkedIn',
+      icon: 'bi bi-linkedin',
+      href: 'https://www.linkedin.com/groups/13804559',
+      external: true
+    },
+    {
+      title: 'GitHub',
+      icon: 'bi bi-github',
+      href: 'https://github.com/cypht-org/cypht',
+      external: true
+    },
+    {
+      title: 'Discord',
+      icon: 'bi bi-chat-square-dots',
+      href: 'https://matrix.to/#/#cypht-org_community:gitter.im',
+      external: true
+    }
+  ]
 } %}
 
-<footer
-	class="footer-content">
-	<!-- Main footer section -->
-	<div class="footer-main">
-		<div
-			class="footer-container mb-2">
-			<!-- Branding and newsletter -->
-			<div class="footer-brand">
-				<div class="d-flex flex-column brand-header">
-					<div class="logo-wrapper">
-						<img id="footer_logo" src="/img/logo_dark.svg" alt="Cypht" width="140" height="62" loading="lazy" decoding="async" class="footer-logo">
-					</div>
-					<p class="brand-description">
-						Secure, Open Source email client for all your communication needs.
-					</p>
-				</div>
+<footer class="footer-content">
+  <!-- Main footer section -->
+  <div class="footer-main">
+    <div class="footer-container mb-2">
+      <!-- Branding and newsletter -->
+      <div class="footer-brand">
+        <div class="d-flex flex-column brand-header">
+          <div class="logo-wrapper">
+            <img
+              id="footer_logo"
+              src="/img/logo_dark.svg"
+              alt="Cypht"
+              width="140"
+              height="62"
+              loading="lazy"
+              decoding="async"
+              class="footer-logo"
+            />
+          </div>
+          <p class="brand-description">
+            Secure, Open Source email client for all your communication needs.
+          </p>
+        </div>
 
-				<div class="social-links">
-					{% for social in footer_links.socials %}
-						<a href="{{ social.href }}" class="social-link" target="_blank" rel="noopener">
-							<i class="{{ social.icon }}"></i>
-						</a>
-					{% endfor %}
-				</div>
-			</div>
+        <div class="social-links">
+          {% for social in footer_links.socials %}
+            <a href="{{ social.href }}" class="social-link" target="_blank" rel="noopener">
+              <i class="{{ social.icon }}"></i>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
 
-			<!-- Organized links -->
-			<div class="footer-links flex-1 pt-lg-4">
-				{% for link in footer_links.links %}
-					<div class="link-column">
-						<h4 class="link-title text-capitalize">{{ link.title }}</h4>
-						{% for children in link.childrens %}
-							<a href="{{ children.href }}" class="link-item">{{ children.title }}</a>
-						{% endfor %}
-					</div>
-				{% endfor %}
-			</div>
-		</div>
-	</div>
+      <!-- Organized links -->
+      <div class="footer-links flex-1 pt-lg-4">
+        {% for link in footer_links.links %}
+          <div class="link-column">
+            <h4 class="link-title text-capitalize">{{ link.title }}</h4>
+            {% for children in link.childrens %}
+              <a href="{{ children.href }}" class="link-item">{{ children.title }}</a>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 
-	<!-- Footer bottom -->
-	<div class="footer-bottom cy-container">
-		<div class="footer-container">
-			<div class="footer-bottom-content">
-				<p class="copyright">
-					©
-					{{ "now"|date("Y") }}
-					Cypht.org. All rights reserved.
-				</p>
-				<div class="policies-links">
-					{% for link in footer_links.policies %}
-						<a href="{{ link.href }}" target="{{ link.external ? '_blank' : '' }}" rel="noopener">
-							{{ link.title }}
-						</a>
-					{% endfor %}
-				</div>
-			</div>
-			{# <span class="text-center d-flex justify-content-center footer-label">Cypht</span> #}
-		</div>
-	</div>
+  <!-- Footer bottom -->
+  <div class="footer-bottom cy-container">
+    <div class="footer-container">
+      <div class="footer-bottom-content">
+        <p class="copyright">
+          ©
+          {{ 'now'|date('Y') }}
+          Cypht.org. All rights reserved.
+        </p>
+        <div class="policies-links">
+          {% for link in footer_links.policies %}
+            <a href="{{ link.href }}" target="{{ link.external ? '_blank' : '' }}" rel="noopener">{{ link.title }}</a>
+          {% endfor %}
+        </div>
+      </div>
+      {# <span class="text-center d-flex justify-content-center footer-label">Cypht</span> #}
+    </div>
+  </div>
 </footer>

@@ -1,5 +1,6 @@
 ---
-title: Install
+title: "Install & Deploy Cypht"
+description: "Install Cypht in minutes with our step-by-step guide. Choose from manual installation, Docker, YunoHost, or Tiki integration to deploy your self-hosted email client."
 loadScriptAfter: /js/install.js
 ---
 

@@ -1,6 +1,7 @@
 ---
 id: 11
 title: Calendar
+description: "Use Cypht's built-in calendar to manage events and appointments. View, create, and organize your schedule alongside your unified email inbox."
 layout: section/documentation
 ---
 

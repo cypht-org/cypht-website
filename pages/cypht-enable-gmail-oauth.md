@@ -1,5 +1,6 @@
 ---
-title: Gmail OAuth
+title: "Set Up Gmail OAuth"
+description: "Step-by-step guide to enable Google OAuth authentication in Cypht. Configure Google Cloud Console, create OAuth credentials, and connect your Gmail account securely."
 h1: false
 exclude: true
 nocontainer: true

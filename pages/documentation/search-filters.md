@@ -1,6 +1,7 @@
 ---
 id: 7
 title: Search & Filters
+description: "Master Cypht's search and filter capabilities. Search across all accounts, save frequent searches, use advanced operators, and get notified when new emails match your criteria."
 layout: section/documentation
 ---
 
@@ -89,41 +90,6 @@ layout: section/documentation
             <a href="/documentation/sieve-filters" class="doc-btn-card btn-sm">Open Sieve Filters Guide</a>
         </div>
     </div>
-
-    <!-- <div id="block_list" class="doc-section">
-        <div class="doc-section-header">
-            <a href="#block_list">Block List</a>
-        </div>
-        <span class="doc-section-text">
-            Block specific email addresses or domains from sending emails to your inbox.
-        </span>
-
-        <div class="feature-card">
-            <h6><i class="bi bi-lock"></i> Block Senders</h6>
-            <p>The Block List feature allows users to block specific email addresses or domains from sending emails to your inbox. To block a sender in Cypht Webmail, open the email, click the BLOCK SENDER button (lock icon), and choose whether to block This Sender or the Whole Domain.</p>
-        </div>
-
-        <div class="doc-subsection-header">
-            <a href="#block_actions">Block Actions</a>
-        </div>
-        <div class="feature-card">
-            <h6><i class="bi bi-gear"></i> Available Actions</h6>
-            <p>Select an action: Default Action, Discard, Move to Blocked Folder, Reject with Default Message, or Reject with Specific Message, and confirm by clicking BLOCK.</p>
-        </div>
-
-        <div class="tip-card tip-info">
-            <span class="tip-info-text"><i class="bi bi-info-circle"></i> Requirement</span>
-            <p class="mb-0">Make sure Sieve filters are enabled in your Cypht settings for this feature to work.</p>
-        </div>
-
-        <div class="doc-subsection-header">
-            <a href="#manage_blocked">Managing Blocked Senders</a>
-        </div>
-        <div class="feature-card">
-            <h6><i class="bi bi-list"></i> Block List Management</h6>
-            <p>You can manage blocked senders later under Settings > Block List.</p>
-        </div>
-    </div> -->
 
     <nav-pagination
         prev-label="Compose Email"

@@ -313,16 +313,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  //+- 7 Load installation list menu
+  //+- 7 Load installation list menu (mobile)
+  UtilsFn.custom_select(".select-btn", "#inst_list_menu", true);
+
   const mobi_menu_list = document.getElementById("inst_list_menu");
   mobi_menu_list.addEventListener("click", function (e) {
     if (e.target && e.target.nodeName === "LI") {
-      const selected_value = e.target.dataset.value;
-      UtilsFn.load_md_file(
-        "installation",
-        selected_value,
-        document.querySelector("#guide_content")
-      );
+      activateMethod(e.target.dataset.value);
     }
   });
 

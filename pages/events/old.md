@@ -1,5 +1,6 @@
 ---
-title: Events
+title: Past Events
+description: "Browse past Cypht community events. Relive the best moments from previous meetups, webinars, and conferences organized by the Cypht open-source community."
 weight: 10
 loadScriptAfter: /js/old_event.js
 ---

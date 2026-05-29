@@ -1,6 +1,7 @@
 ---
 id: 12
 title: Security
+description: "Overview of Cypht's security architecture. Learn about browser protections, server-side encryption, secure authentication, input validation, and development best practices."
 layout: section/documentation
 ---
 

@@ -1,6 +1,7 @@
 ---
 id: 17
 title: License
+description: "Cypht licensing information. Understand the LGPL V2.1 license terms, permissions, and obligations for using, modifying, and distributing Cypht in your projects."
 layout: section/documentation
 ---
 

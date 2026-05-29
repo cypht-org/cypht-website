@@ -1,5 +1,6 @@
 ---
-title: Contribute
+title: "Contribute to Cypht"
+description: "Join the Cypht open-source community and help make Cypht better. Learn the development workflow, contribution requirements, and Git guidelines to start contributing today."
 weight: 40
 nocontainer: true
 h1: Contributing to Cypht
@@ -179,18 +180,17 @@ loadScriptAfter: /js/contribute.js
               <li>
                 <div>
                   <span class="req-list-item-index">
-                    <!-- <i class="bi bi-check-circle"></i> -->
                   01
                   </span>
                 </div>
                 <span class="req-list-item-text">
                   Make sure that the contribution you want to make is explained or detailed in a GitHub issue! Find an
-                  <a href="https://github.com/cypht-org/cypht-website/issues" target="_blank" rel="noopener">
+                  <a href="https://github.com/cypht-org/cypht/issues" target="_blank" rel="noopener">
                     <i class="bi bi-github"></i>
                     existing issue
                   </a>
                   or
-                  <a href="https://github.com/cypht-org/cypht-website/issues/new/choose" target="_blank" rel="noopener">
+                  <a href="https://github.com/cypht-org/cypht/issues/new/choose" target="_blank" rel="noopener">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"> <!-- Icon from Huge Icons by Hugeicons - undefined --> <g fill="none" stroke="currentColor" stroke-linecap="round"><path stroke-width="1.5" d="M2 10c0-3.771 0-5.657 1.172-6.828S6.229 2 10 2h4c3.771 0 5.657 0 6.828 1.172S22 6.229 22 10s0 5.657-1.172 6.828S17.771 18 14 18h-4c-3.771 0-5.657 0-6.828-1.172S2 13.771 2 10Zm14 12a8.4 8.4 0 0 0-4-1a8.4 8.4 0 0 0-4 1"/><path stroke-linejoin="round" stroke-width="2" d="M12 14h.009"/><path stroke-linejoin="round" stroke-width="1.5" d="M12 11V7"/></g></svg>
                     open a new one
                   </a>.
@@ -199,15 +199,14 @@ loadScriptAfter: /js/contribute.js
               <li>
                 <div>
                   <span class="req-list-item-index">
-                    <!-- <i class="bi bi-check-circle"></i> -->
                     02
                   </span>
                 </div>
                 <span class="req-list-item-text">
                   Once done,
-                  <a href="https://github.com/cypht-org/cypht-website/fork" target="_blank" rel="noopener">
+                  <a href="https://github.com/cypht-org/cypht/fork" target="_blank" rel="noopener">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"> <!-- Icon from Fluent UI System Icons by Microsoft Corporation - https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE --><path fill="currentColor" d="M11 5.5a3.5 3.5 0 0 1-3 3.465V11.5h6.25a2.25 2.25 0 0 0 2.25-2.25v-.395A3.502 3.502 0 0 1 17.5 2a3.5 3.5 0 0 1 .5 6.965v.285A3.75 3.75 0 0 1 14.25 13H8v2.035a3.5 3.5 0 1 1-1.5.11v-6.29A3.502 3.502 0 0 1 7.5 2A3.5 3.5 0 0 1 11 5.5"/></svg>
-                    fork the cypht website repository
+                    fork the cypht repository
                   </a>
                   to your own GitHub account.
                   You can request a maintainer to check your issue before making a PR.
@@ -216,7 +215,6 @@ loadScriptAfter: /js/contribute.js
               <li>
                 <div>
                   <span class="req-list-item-index">
-                    <!-- <i class="bi bi-check-circle"></i> -->
                   03
                   </span>
                 </div>
@@ -243,7 +241,6 @@ loadScriptAfter: /js/contribute.js
               <li>
                 <div>
                   <span class="req-list-item-index">
-                    <!-- <i class="bi bi-check-circle"></i> -->
                   05
                   </span>
                 </div>
@@ -254,21 +251,19 @@ loadScriptAfter: /js/contribute.js
               <li>
                 <div>
                   <span class="req-list-item-index">
-                    <!-- <i class="bi bi-check-circle"></i> -->
                   06
                   </span>
                 </div>
                 <span class="req-list-item-text">
                   Submit the branch as a PR pointing to the
                   <code>master</code>
-                  branch of cypht-website repository.
+                  branch of cypht repository.
                 </span>
               </li>
               <li>
                 <div>
                   <span class="req-list-item-index">
                   07
-                    <!-- <i class="bi bi-check-circle"></i> -->
                   </span>
                 </div>
                 <span class="req-list-item-text">

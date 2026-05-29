@@ -1,5 +1,6 @@
 ---
 title: Email filters
+description: "Learn how to use Sieve email filters in Cypht to automatically sort, move, delete, and flag emails. Create powerful server-side filters that work even when you're offline."
 exclude: true
 ---
 

@@ -1,6 +1,7 @@
 ---
 id: 16
 title: Help
+description: "Get help with Cypht. Find answers to common questions, troubleshooting tips, support channels, and resources to resolve issues with your Cypht installation."
 layout: section/documentation
 ---
 
