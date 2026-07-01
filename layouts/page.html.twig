@@ -14,19 +14,83 @@ const theme = localStorage.getItem('theme') || 'dark';
 document.documentElement.setAttribute('data-theme', theme);
 })();
 		</script>
+		<!-- Preconnect to external asset / font origins -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+		<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+		<!-- Fonts: only the families/weights actually used (Poppins dropped) -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap">
 		<link rel="stylesheet" href="/assets/css/main.css">
 		<link rel="canonical" href="{{site.baseurl}}{{page.path}}">
+
 		<!-- Open Graph -->
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="{{site.baseurl}}{{page.path}}">
+		<meta property="og:url" content="{{ site.baseurl }}{{ page.path }}">
 		<meta property="og:title" content="{{ page.title|default(site.title) }}">
 		<meta property="og:description" content="{{ page.description|default(site.description)|default('Cypht is a lightweight, secure, open-source webmail client that aggregates multiple email accounts and services into a single unified interface.') }}">
-		<meta property="og:image" content="{{site.baseurl}}img/home/message_list-dark.png">
-		<meta property="og:image:width" content="1207">
-		<meta property="og:image:height" content="778">
+		<meta property="og:image" content="{{ site.baseurl }}img/cypht_preview.png">
+		<meta property="og:image:width" content="1728">
+		<meta property="og:image:height" content="910">
 		<meta property="og:site_name" content="Cypht">
+
 		<!-- Twitter card format -->
 		<meta name="twitter:card" content="summary_large_image">
+		<!-- Structured data (schema.org) -->
+		<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@graph": [
+		    {
+		      "@type": "Organization",
+		      "@id": "{{ site.baseurl }}#organization",
+		      "name": "{{ site.organization.name }}",
+		      "url": "{{ site.baseurl }}",
+		      "logo": "{{ site.baseurl }}{{ site.organization.logo }}",
+		      "sameAs": ["{{ site.organization.github }}"]
+		    },
+		    {
+		      "@type": "WebSite",
+		      "@id": "{{ site.baseurl }}#website",
+		      "url": "{{ site.baseurl }}",
+		      "name": "{{ site.title }}",
+		      "description": "{{ site.description }}",
+		      "publisher": { "@id": "{{ site.baseurl }}#organization" }
+		    },
+		    {
+		      "@type": "SoftwareApplication",
+		      "name": "{{ site.organization.name }}",
+		      "applicationCategory": "{{ site.software.category }}",
+		      "operatingSystem": "{{ site.software.os }}",
+		      "description": "{{ site.description }}",
+		      "url": "{{ site.baseurl }}",
+		      "license": "{{ site.organization.license }}",
+		      "isAccessibleForFree": true,
+		      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+		      "sameAs": ["{{ site.organization.github }}"]
+		    }
+		  ]
+		}
+		</script>
+		<!-- FAQ structured data (home page only) -->
+		{% if page.path == '' %}
+		<script type="application/ld+json">
+		{ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+		{% for item in site.data.faq %}{ "@type": "Question", "name": {{ item.question|json_encode|raw }}, "acceptedAnswer": { "@type": "Answer", "text": {{ item.answer|json_encode|raw }} } }{% if not loop.last %},{% endif %}
+		{% endfor %}
+		] }
+		</script>
+		{% endif %}
+		<!-- Breadcrumb structured data (documentation pages) -->
+		{% if page.path starts with 'documentation/' %}
+		<script type="application/ld+json">
+		{ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+		{ "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.baseurl }}" },
+		{ "@type": "ListItem", "position": 2, "name": "Documentation", "item": "{{ site.baseurl }}documentation/" },
+		{ "@type": "ListItem", "position": 3, "name": {{ page.title|json_encode|raw }}, "item": "{{ site.baseurl }}{{ page.path }}" }
+		] }
+		</script>
+		{% endif %}
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 	</head>
@@ -45,7 +109,7 @@ document.documentElement.setAttribute('data-theme', theme);
 					{% endblock %}
 
 					{% if page.path == 'config-generator' %}
-						{{- include('partials/config-generator.html.twig') ~}}
+						{{- include('partials/config-generator.html.twig')~}}
 					{% endif %}
 				</main>
 			{% endif %}

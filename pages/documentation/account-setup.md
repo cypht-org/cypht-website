@@ -12,7 +12,7 @@ layout: section/documentation
 
     <div id="prerequisites_check" class="doc-section">
         <div class="doc-section-header">
-            <a href="#prerequisites_check">🔍 Prerequisites Check</a>
+            <a href="#prerequisites_check">Prerequisites Check</a>
         </div>
         <span class="doc-section-text">
             Before adding accounts to Cypht, ensure you have completed the essential setup steps. Account setup requires a fully functional Cypht installation.
@@ -39,21 +39,21 @@ layout: section/documentation
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-envelope"></i> JMAP/IMAP/SMTP/ Servers</h6>
-                    <img src="/img/docs/jmap_imap_smtp_servers.png" alt="JMAP, IMAP and SMTP server setup screen" width="2000" height="2000" loading="lazy" decoding="async"/>
+                    <img src="/img/docs/jmap_imap_smtp_servers.webp" alt="JMAP, IMAP and SMTP server setup screen" width="2000" height="2000" loading="lazy" decoding="async"/>
                     <p>Standard email accounts including Gmail, Outlook, Yahoo, and custom domain emails. Supports SSL/TLS encryption and various authentication methods.</p>
                 </div>
             </div>
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-rss"></i> RSS/Atom Feeds</h6>
-                    <img src="/img/docs/add_an_rss_atom_feed.png" alt="Add an RSS / Atom feed screen" width="2000" height="2000" loading="lazy" decoding="async"/>
+                    <img src="/img/docs/add_an_rss_atom_feed.webp" alt="Add an RSS / Atom feed screen" width="2000" height="2000" loading="lazy" decoding="async"/>
                     <p>News feeds, blogs, and content streams displayed as message threads. Perfect for staying updated with your favorite sources.</p>
                 </div>
             </div>
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-cloud"></i> Exchange Web Services</h6>
-                    <img src="/img/docs/exchange_web_services.png" alt="Exchange Web Services account screen" width="2000" height="2000" loading="lazy" decoding="async"/>
+                    <img src="/img/docs/exchange_web_services.webp" alt="Exchange Web Services account screen" width="2000" height="2000" loading="lazy" decoding="async"/>
                     <p>Microsoft Exchange and Office 365 accounts with full calendar and contact synchronization capabilities.</p>
                 </div>
             </div>
@@ -292,7 +292,7 @@ layout: section/documentation
     <div class="dc-ctr-content">
         <div class="dc-ctr-header">
             <p class="dc-ctr-header-title">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"/></svg>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"/></svg>
                 On this page
             </p>
         </div>

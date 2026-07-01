@@ -53,12 +53,12 @@ layout: section/documentation
             <li>Click the “Screen” button.</li>
 
             <br/>
-            <img src="/img/screen_button.png" alt="Screen button location in the inbox toolbar" width="2764" height="1674" loading="lazy" decoding="async" /> <br/><br/>
+            <img src="/img/screen_button.webp" alt="Screen button location in the inbox toolbar" width="2764" height="1674" loading="lazy" decoding="async" /> <br/><br/>
 
             <li>Select one or more emails, then choose an action (Like or Dislike).</li>
 
             <br/>
-            <img src="/img/selecting_emails_to_screen.png" alt="Selecting emails to screen with Like or Dislike action" width="2770" height="1664" loading="lazy" decoding="async" /> <br/><br/>
+            <img src="/img/selecting_emails_to_screen.webp" alt="Selecting emails to screen with Like or Dislike action" width="2770" height="1664" loading="lazy" decoding="async" /> <br/><br/>
         </ol>
     </div>
 
@@ -91,7 +91,7 @@ layout: section/documentation
     <div class="dc-ctr-content">
         <div class="dc-ctr-header">
             <p class="dc-ctr-header-title">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"/></svg>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"/></svg>
                 On this page
             </p>
         </div>

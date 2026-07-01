@@ -20,9 +20,14 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><defs><pattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'><path d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
       z-index: 1;
       pointer-events: none;
+}
+
+/* Lighten the hero grid so it stays visible on the dark background */
+[data-theme="dark"] .module-container:before {
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
 }
 
 
@@ -450,7 +455,7 @@ body.md-type-open {
       border-radius: 8px;
       background-color: #f8f9fa;
       flex-shrink: 0;
-      border: 1px solid #e9ecef;
+      border: 1px solid var(--gray-200);
       padding: .4rem;
 }
 
@@ -851,7 +856,7 @@ body.md-type-open {
             display: none;
             position: fixed;
             inset: 0;
-            z-index: 1040;
+            z-index: var(--z-overlay);
             padding: 5rem 1.25rem 2rem;
             background: linear-gradient(180deg, rgba(15, 23, 42, 0.65) 0%, rgba(15, 23, 42, 0.45) 20%, rgba(15, 23, 42, 0.25) 100%);
             backdrop-filter: blur(6px);

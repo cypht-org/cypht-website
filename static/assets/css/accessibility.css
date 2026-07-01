@@ -32,7 +32,7 @@
       padding: 8px;
       text-decoration: none;
       border-radius: 4px;
-      z-index: 10000;
+      z-index: var(--z-skiplink);
       font-weight: 600;
       transition: top 0.3s ease;
 }
@@ -658,15 +658,15 @@ pre code {
 
 [data-theme="dark"] {
       /* Ensure proper contrast in dark mode */
-      --color-text: #F8FAFC;
-      --color-text-secondary: #CBD5E1;
-      --color-text-muted: #94A3B8;
+      --color-text: var(--slate-50);
+      --color-text-secondary: var(--slate-300);
+      --color-text-muted: var(--slate-400);
       --color-bg: #0F172A;
-      --color-bg-secondary: #1E293B;
-      --color-bg-tertiary: #334155;
-      --color-border: #334155;
+      --color-bg-secondary: var(--slate-800);
+      --color-bg-tertiary: var(--slate-700);
+      --color-border: var(--slate-700);
       --color-border-light: #475569;
-      --color-border-dark: #1E293B;
+      --color-border-dark: var(--slate-800);
 
       code {
             background: var(--clr-dark-card-second) !important;

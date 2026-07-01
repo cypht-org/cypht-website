@@ -18,9 +18,14 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><defs><pattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'><path d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
       z-index: 1;
       pointer-events: none;
+}
+
+/* Lighten the hero grid so it stays visible on the dark background */
+[data-theme="dark"] .license-hero:before {
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
 }
 
 .license-hero-content {
@@ -257,24 +262,17 @@
 }
 
 .library-card:hover {
-      /* background: #c8c7c70f; */
-      background-color: #edf1e782;
-      border-radius: 4px;
-}
+      background-color: #f9f9f9;
 
-.library-card:hover .library-description {
-      padding: 0 .5rem;
-      -webkit-transform: scale(1.5);
-      transform: scale(1.1);
-      font-size: 0.85rem;
-      /* font-weight: 500; */
+      & .library-description {
+            font-size: 0.821rem;
+      }
+
 }
 
 .library-description {
-      /* -webkit-transform: scale(1.5); */
-      /* transform: scale(1.5); */
       -webkit-transition: .3s ease-out;
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       color: #475569;
       line-height: 1.6;
       margin: 0.5rem 0 1.5rem 0;
@@ -292,7 +290,7 @@
 
 .library-name {
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       color: var(--color-text);
       margin: 0 0 0.5rem 0;
       line-height: 1.3;
@@ -310,9 +308,12 @@
 
 
 .library-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
       margin-top: auto;
       padding-top: 0.75rem;
-      border-top: 1px solid rgba(226, 232, 240, 0.5);
 }
 
 /* ?? CSS for libraries grid */
@@ -361,28 +362,42 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      flex: 1 1 130px;
+      gap: 0.3rem;
       font-size: 0.76rem !important;
       font-weight: 500;
-      background: linear-gradient(135deg, rgba(129, 180, 65, 0.15) 0%, rgba(129, 180, 65, 0.25) 100%);
-      border: .5px solid var(--color-primary);
-      box-shadow: var(--shadow-md);
-      color: var(--color-primary-dark);
-      backdrop-filter: blur(10px);
-      padding: 0.1rem .6rem;
+      background: transparent;
+      border: .5px solid var(--color-border);
+      box-shadow: none;
+      color: var(--color-text-secondary);
+      padding: 0.25rem 0.7rem;
       text-decoration: none;
       border-radius: 4px;
-      min-height: initial !important;
+      min-height: 2rem !important;
+      line-height: 1;
+      transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.library-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary-dark);
 }
 
 .library-btn-icon {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      line-height: 1;
       transition: transform 0.2s ease;
       rotate: -40deg;
-      font-size: 1.1rem;
 }
 
 .library-btn:hover .library-btn-icon {
       transform: translate(2px, -2px);
+}
+
+/* GitHub "Source code" link — shares the neutral base .library-btn style; just size the icon */
+.library-btn-source .bi-github {
+      font-size: 0.9rem;
+      line-height: 1;
 }
 
 @media (min-width: 480px) {
@@ -530,10 +545,6 @@
       .line-before,
       .line-after {
             border: .8px solid var(--color-border);
-      }
-
-      .library-footer {
-            border-top: .8px solid var(--color-border);
       }
 
       .library-card {

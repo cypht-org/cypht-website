@@ -299,13 +299,27 @@
       justify-content: space-between;
       padding: .8rem;
       border: .5px solid var(--color-border);
-      border-radius: 12px;
+      border-radius: 6px;
       text-decoration: none;
       background-color: transparent;
       transition: border-color 0.2s ease;
+      transition: all 0.2s ease;
+
+      /* & .nav-icon {
+            transition: transform 0.2s ease;
+      } */
 
       &:hover {
-            border-radius: 12px;
+            border-color: #00000030;
+      }
+
+      /* arrow slides outward, in its reading direction */
+      &.prev:hover .nav-icon {
+            transform: translateX(-4px);
+      }
+
+      &.next:hover .nav-icon {
+            transform: translateX(4px);
       }
 }
 
@@ -329,11 +343,12 @@
       font-size: 0.85rem;
       color: var(--color-text-muted);
       margin-bottom: 4px;
+      font-weight: 500;
 }
 
 .nav-title {
       font-size: .8rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--color-text);
 }
 
@@ -342,17 +357,6 @@
       height: .9rem !important;
       color: var(--color-text-muted);
 }
-
-/* 
-
-
-
-
-
-.nav-icon {
-      font-size: 1.5rem;
-      color: var(--text-main);
-} */
 
 /* ==========================================
    FOOTER RESPONSIVE BREAKPOINTS
@@ -438,5 +442,9 @@
 
       .brand-description {
             opacity: 0.8;
+      }
+
+      .nav-card:hover {
+            border-color: #c0bdbd5d;
       }
 }

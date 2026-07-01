@@ -2,7 +2,7 @@
 .tests-hero {
       padding: var(--hero-padding-sm);
       position: relative;
-      /* background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); */
+      /* background: linear-gradient(135deg, var(--slate-50) 0%, var(--slate-200) 100%); */
 }
 
 .tests-hero::before {
@@ -11,9 +11,14 @@
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'> <path d='M32 0H0v32' fill='none' stroke='rgba(0,0,0,0.05)' stroke-width='1'/> </svg>");
-      background-size: 32px 32px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'> <path d='M50 0H0v50' fill='none' stroke='rgba(0,0,0,0.05)' stroke-width='1'/> </svg>");
+      background-size: 50px 50px;
       background-repeat: repeat;
+}
+
+/* Lighten the hero grid so it stays visible on the dark background */
+[data-theme="dark"] .tests-hero::before {
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'> <path d='M50 0H0v50' fill='none' stroke='rgba(255,255,255,0.07)' stroke-width='1'/> </svg>");
 }
 
 .tests-hero-container {
@@ -42,12 +47,12 @@
       line-height: 1.05;
       font-size: clamp(2rem, 3.8vw, 4rem);
       margin: .4rem auto .4rem;
-      color: #1e293b;
+      color: var(--slate-800);
 }
 
 .tests-hero-subtitle {
       font-size: 1.1rem;
-      color: #64748b;
+      color: var(--slate-500);
       max-width: 500px;
       line-height: 1.6;
 }
@@ -89,12 +94,12 @@
       line-height: 1.1;
       font-size: clamp(1.8rem, 4.8vw, 2.6rem);
       margin: 0 0 1rem;
-      color: #1e293b;
+      color: var(--slate-800);
 }
 
 .tests-overview-subtitle {
       font-size: 1.1rem;
-      color: #64748b;
+      color: var(--slate-500);
       max-width: 600px;
       margin: 0 auto;
       line-height: 1.6;
@@ -126,7 +131,7 @@
       width: 60px;
       height: 60px;
       border-radius: 16px;
-      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      background: linear-gradient(135deg, #3b82f6 0%, var(--blue-700) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -138,20 +143,20 @@
 .tests-stat-number {
       font-size: 2.5rem;
       font-weight: 700;
-      color: #1e293b;
+      color: var(--slate-800);
       margin-bottom: 0.5rem;
 }
 
 .tests-stat-label {
       font-size: 1rem;
-      color: #64748b;
+      color: var(--slate-500);
       font-weight: 500;
 }
 
 /* ─── Testing Tools Section ──────────────────────────────────────────────────────────── */
 .tests-tools {
       padding: 4rem 2rem;
-      background: #f8fafc;
+      background: var(--slate-50);
 }
 
 .tests-tools-container {
@@ -171,12 +176,12 @@
       line-height: 1.1;
       font-size: clamp(1.8rem, 4.8vw, 2.6rem);
       margin: 0 0 1rem;
-      color: #1e293b;
+      color: var(--slate-800);
 }
 
 .tests-tools-subtitle {
       font-size: 1.1rem;
-      color: #64748b;
+      color: var(--slate-500);
       max-width: 600px;
       margin: 0 auto;
       line-height: 1.6;
@@ -241,7 +246,7 @@
 }
 
 .tests-tool-icon.coveralls {
-      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      background: linear-gradient(135deg, #3b82f6 0%, var(--blue-700) 100%);
 }
 
 .tests-tool-icon.scrutinizer {
@@ -251,13 +256,13 @@
 .tests-tool-title {
       font-size: 1.5rem;
       font-weight: 600;
-      color: #1e293b;
+      color: var(--slate-800);
       margin: 0;
 }
 
 .tests-tool-description {
       font-size: 1rem;
-      color: #64748b;
+      color: var(--slate-500);
       line-height: 1.6;
       margin-bottom: 1.5rem;
 }
@@ -273,7 +278,7 @@
 }
 
 .tests-tool-link:hover {
-      color: #1d4ed8;
+      color: var(--blue-700);
 }
 
 .tests-tool-link::after {
@@ -308,19 +313,19 @@
       line-height: 1.1;
       font-size: clamp(1.8rem, 4.8vw, 2.6rem);
       margin: 0 0 1rem;
-      color: #1e293b;
+      color: var(--slate-800);
 }
 
 .tests-coverage-subtitle {
       font-size: 1.1rem;
-      color: #64748b;
+      color: var(--slate-500);
       max-width: 600px;
       margin: 0 auto;
       line-height: 1.6;
 }
 
 .tests-coverage-card {
-      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      background: linear-gradient(135deg, var(--slate-800) 0%, var(--slate-700) 100%);
       border-radius: 20px;
       padding: 3rem;
       text-align: center;

@@ -206,7 +206,7 @@ html.theme-transitioning .config-gen-container *::after {
 }
 
 .config-generator-list {
-      border-left: 1px solid #e9ecef;
+      border-left: 1px solid var(--gray-200);
       padding-top: 0.2rem;
       padding-bottom: 0.2rem;
 }
@@ -222,7 +222,7 @@ html.theme-transitioning .config-gen-container *::after {
 .group-list {
       margin: .7rem 0;
       padding-left: .8rem;
-      border-left: 1px solid #e9ecef;
+      border-left: 1px solid var(--gray-200);
 }
 
 .group-list::before {
@@ -252,8 +252,8 @@ html.theme-transitioning .config-gen-container *::after {
       width: .7rem;
       top: -.59rem;
       border-radius: 0 5px 0 0;
-      border-right: 1px solid #e9ecef;
-      border-top: 1px solid #e9ecef;
+      border-right: 1px solid var(--gray-200);
+      border-top: 1px solid var(--gray-200);
       left: -.62rem;
       z-index: 50;
       height: 9.5px;
@@ -266,8 +266,8 @@ html.theme-transitioning .config-gen-container *::after {
       left: -.247rem;
       width: .248rem;
       height: 6px;
-      border-left: 1px solid #e9ecef;
-      border-bottom: 1px solid #e9ecef;
+      border-left: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
       border-radius: 0 0 0 5px;
       z-index: 32;
       padding: .1rem 0;
@@ -280,8 +280,8 @@ html.theme-transitioning .config-gen-container *::after {
       left: -.86rem;
       bottom: -.64rem;
       border-radius: 5px 0 5px 0;
-      border-top: 1px solid #e9ecef;
-      border-left: 1px solid #e9ecef;
+      border-top: 1px solid var(--gray-200);
+      border-left: 1px solid var(--gray-200);
 }
 
 .cc-line-bottom::before {
@@ -291,8 +291,8 @@ html.theme-transitioning .config-gen-container *::after {
       right: -.34rem;
       width: .34rem;
       height: 7px;
-      border-right: 1px solid #e9ecef;
-      border-bottom: 1px solid #e9ecef;
+      border-right: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
       border-radius: 5px 0 5px 0;
       z-index: 15;
       padding: .1rem 0;
@@ -326,7 +326,7 @@ html.theme-transitioning .config-gen-container *::after {
       border-radius: 4px;
       height: 5px;
       background-color: var(--color-primary);
-      z-index: 150000;
+      z-index: 2; /* local marker (was 150000) */
 }
 
 /* footer */
@@ -343,7 +343,7 @@ html.theme-transitioning .config-gen-container *::after {
 }
 
 .cc-item-top {
-      border-bottom: 1px solid #e9ecef;
+      border-bottom: 1px solid var(--gray-200);
       padding-bottom: .5rem;
       margin-bottom: 2rem;
 }
@@ -402,9 +402,9 @@ html.theme-transitioning .config-gen-container *::after {
       align-items: center;
       justify-content: space-between;
       border-radius: 7px 7px 0 0;
-      border-top: .8px solid #e2e8f0;
-      border-left: .8px solid #e2e8f0;
-      border-right: .8px solid #e2e8f0;
+      border-top: .8px solid var(--slate-200);
+      border-left: .8px solid var(--slate-200);
+      border-right: .8px solid var(--slate-200);
       position: relative;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
@@ -450,7 +450,7 @@ html.theme-transitioning .config-gen-container *::after {
 .cc-header-reset-btn:hover {
       background-color: #f3f4f6;
       border-color: #9ca3af;
-      color: #374151;
+      color: var(--gray-700);
       transform: translateY(-1px);
 }
 
@@ -466,9 +466,9 @@ html.theme-transitioning .config-gen-container *::after {
 
 .cc-body-content {
       flex-grow: 1;
-      border-bottom: 1px solid #e9ecef;
-      border-left: 1px solid #e9ecef;
-      border-right: 1px solid #e9ecef;
+      border-bottom: 1px solid var(--gray-200);
+      border-left: 1px solid var(--gray-200);
+      border-right: 1px solid var(--gray-200);
       border-radius: 0 0 7px 7px;
 }
 
@@ -546,7 +546,7 @@ html.theme-transitioning .config-gen-container *::after {
 }
 
 .form-input::placeholder {
-      color: #94a3b8;
+      color: var(--slate-400);
       font-weight: 400;
 }
 
@@ -599,7 +599,7 @@ html.theme-transitioning .config-gen-container *::after {
       position: relative;
       width: 3rem;
       height: .8rem;
-      background-color: #e2e8f0;
+      background-color: var(--slate-200);
       border: none;
       border-radius: 9999px !important;
       cursor: pointer;
@@ -667,7 +667,7 @@ html.theme-transitioning .config-gen-container *::after {
       left: 0.75rem;
       top: 50%;
       transform: translateY(-50%);
-      color: #94a3b8;
+      color: var(--slate-400);
       font-size: 1rem;
       pointer-events: none;
 }
@@ -687,8 +687,8 @@ html.theme-transitioning .config-gen-container *::after {
 
 .form-field.disabled .form-input,
 .form-field.disabled .form-select {
-      background-color: #f8fafc;
-      color: #94a3b8;
+      background-color: var(--slate-50);
+      color: var(--slate-400);
       cursor: not-allowed;
       opacity: 0.6;
 }
@@ -856,7 +856,7 @@ html.theme-transitioning .config-gen-container *::after {
       border-radius: 10px;
       background: var(--color-surface, rgba(141, 141, 142, 0.05));
       border-left: 3px solid #80b44175;
-      color: var(--color-text, #374151);
+      color: var(--color-text, var(--gray-700));
       font-size: 0.85rem;
       line-height: 1.6;
       backdrop-filter: blur(8px);
@@ -872,7 +872,7 @@ html.theme-transitioning .config-gen-container *::after {
 
 .config-right-notice-text span,
 .config-right-notice-text p {
-      color: var(--color-text, #374151);
+      color: var(--color-text, var(--gray-700));
       opacity: 0.85;
 }
 
@@ -997,7 +997,7 @@ html.theme-transitioning .config-gen-container *::after {
 .cfg-offcanvas .offc-header-text p {
       font-weight: 400;
       font-size: 0.84rem;
-      color: #64748b;
+      color: var(--slate-500);
       margin: 0;
       line-height: 1.5;
 }
@@ -1027,7 +1027,7 @@ html.theme-transitioning .config-gen-container *::after {
       border: none;
       border-radius: 8px;
       background-color: transparent;
-      color: #64748b;
+      color: var(--slate-500);
       cursor: pointer;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
@@ -1053,7 +1053,7 @@ html.theme-transitioning .config-gen-container *::after {
 }
 
 .offc-close-btn:hover {
-      color: #1e293b;
+      color: var(--slate-800);
       background-color: transparent;
 }
 
@@ -1071,7 +1071,7 @@ html.theme-transitioning .config-gen-container *::after {
 }
 
 .offc-close-btn:active::before {
-      background-color: #e2e8f0;
+      background-color: var(--slate-200);
 }
 
 .offc-close-btn:focus-visible {
@@ -1099,7 +1099,7 @@ html.theme-transitioning .config-gen-container *::after {
       gap: 0.5rem;
       padding: 1.2rem 0.7rem;
       border-radius: 8px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--slate-200);
       background-color: white !important;
       color: var(--color-text) !important;
       font-weight: 600;
@@ -1172,7 +1172,7 @@ html.theme-transitioning .config-gen-container *::after {
 
 .toast-close-btn:hover {
       background: rgba(0, 0, 0, 0.06);
-      color: #374151;
+      color: var(--gray-700);
 }
 
 .toast-close-btn:focus-visible {
@@ -1193,7 +1193,7 @@ html.theme-transitioning .config-gen-container *::after {
 .toast-body {
       font-size: .8rem;
       font-weight: 500;
-      color: #374151;
+      color: var(--gray-700);
       padding: .5rem .25rem;
 }
 

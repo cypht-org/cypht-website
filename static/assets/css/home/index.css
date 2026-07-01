@@ -8,7 +8,6 @@
    Minimal hero variant
 ===================== */
 .home-hero {
-      min-height: 90dvh;
       width: 100%;
       padding: 6rem 1.25rem 3rem;
       text-align: center;
@@ -23,7 +22,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><defs><pattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'><path d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
       z-index: 1;
       pointer-events: none;
 }
@@ -42,7 +41,6 @@
       line-height: 1.6;
       color: var(--color-text-secondary);
       width: 80%;
-      animation: fadeInUp 0.8s ease-out 0.4s both;
       /* font-size: clamp(1rem, 1.2vw, 1.1rem); */
       font-size: clamp(1rem, 1.2vw, 1.1rem);
 }
@@ -316,10 +314,17 @@
       }
 }
 
-/* Theme */
-/* [data-theme="dark"] { */
-/* #hero_minimal::before {
-
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'> <path d='M32 0H0v32' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1'/> </svg>");
-      } */
-/* } */
+/* Theme: lighten the hero grid so it stays visible on the dark background */
+[data-theme="dark"] #hero_minimal::before {
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
+}
+/* Hero text: constrain width + clamp children so the heading never overflows on mobile
+   (align-items:center otherwise sizes children to their max-content width). */
+.home-hs-text-content {
+      width: 100%;
+      max-width: 42rem;
+      margin-inline: auto;
+}
+.home-hs-text-content > * {
+      max-width: 100%;
+}

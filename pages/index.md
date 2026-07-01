@@ -22,17 +22,17 @@ loadScriptAfter: /js/home-page.js
             </div>
             <div class="mini-stat d-flex align-items-center">
                 <div class="avatar-group">
-                    <img src="https://avatars.githubusercontent.com/u/3793556?v=4" alt="Customer avatar" class="avatar" />
-                    <img src="https://avatars.githubusercontent.com/u/81784141?v=4" alt="Customer avatar" class="avatar" />
-                    <img src="https://avatars.githubusercontent.com/u/28566468?v=4" alt="Customer avatar" class="avatar" />
-                    <img src="https://avatars.githubusercontent.com/u/62720246?v=4" alt="Customer avatar" class="avatar" />
+                    <img width="80" height="80" src="https://avatars.githubusercontent.com/u/3793556?v=4" alt="Customer avatar" class="avatar" />
+                    <img width="80" height="80" src="https://avatars.githubusercontent.com/u/81784141?v=4" alt="Customer avatar" class="avatar" />
+                    <img width="80" height="80" src="https://avatars.githubusercontent.com/u/28566468?v=4" alt="Customer avatar" class="avatar" />
+                    <img width="80" height="80" src="https://avatars.githubusercontent.com/u/62720246?v=4" alt="Customer avatar" class="avatar" />
                 </div>
                 <!-- <span id="packagist-downloads">Loading downloads...</span> -->
-                <p class="stat-text d-flex flex-column align-items-start mb-0"><span class="d-block">Trusted. With <a id="packagist-downloads" href="https://packagist.org/packages/jason-munro/cypht" target="_blank" class="fw-bold"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from SVG Spinners by Utkarsh Verma - https://github.com/n3r4zzurr0/svg-spinners/blob/main/LICENSE --><circle cx="4" cy="12" r="3" fill="currentColor"><animate id="SVG7x14Dcom" fill="freeze" attributeName="opacity" begin="0;SVGqSjG0dUp.end-0.25s" dur="0.75s" values="1;.2"/></circle><circle cx="12" cy="12" r="3" fill="currentColor" opacity=".4"><animate fill="freeze" attributeName="opacity" begin="SVG7x14Dcom.begin+0.15s" dur="0.75s" values="1;.2"/></circle><circle cx="20" cy="12" r="3" fill="currentColor" opacity=".3"><animate id="SVGqSjG0dUp" fill="freeze" attributeName="opacity" begin="SVG7x14Dcom.begin+0.3s" dur="0.75s" values="1;.2"/></circle></svg></a></span> downloads worldwide</p>
+                <p class="stat-text d-flex flex-column align-items-start mb-0"><span class="d-block">Trusted. With <a id="packagist-downloads" href="https://packagist.org/packages/jason-munro/cypht" target="_blank" class="fw-bold"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from SVG Spinners by Utkarsh Verma - https://github.com/n3r4zzurr0/svg-spinners/blob/main/LICENSE --><circle cx="4" cy="12" r="3" fill="currentColor"><animate id="SVG7x14Dcom" fill="freeze" attributeName="opacity" begin="0;SVGqSjG0dUp.end-0.25s" dur="0.75s" values="1;.2"/></circle><circle cx="12" cy="12" r="3" fill="currentColor" opacity=".4"><animate fill="freeze" attributeName="opacity" begin="SVG7x14Dcom.begin+0.15s" dur="0.75s" values="1;.2"/></circle><circle cx="20" cy="12" r="3" fill="currentColor" opacity=".3"><animate id="SVGqSjG0dUp" fill="freeze" attributeName="opacity" begin="SVG7x14Dcom.begin+0.3s" dur="0.75s" values="1;.2"/></circle></svg></a></span> downloads worldwide</p>
             </div>
             <div class="minimal-mockup">
-                <img src="/img/home/message_list_light.png" alt="App preview - light mode" class="mockup-light" />
-                <img src="/img/home/message_list-dark.png" alt="App preview - dark mode" class="mockup-dark" />
+                <img width="5760" height="3256" src="/img/home/message_list_light.webp" alt="App preview - light mode" class="mockup-light" />
+                <img width="5760" height="3256" src="/img/home/message_list-dark.webp" alt="App preview - dark mode" class="mockup-dark" />
             </div>
         </div>
     </section>
@@ -47,7 +47,7 @@ loadScriptAfter: /js/home-page.js
                     <div>
                         <div class="about-card">
                             <div class="card-illustration">
-                                <img src="/img/home/_client.png" alt="Mail icon" loading="eager" decoding="async" />
+                                <img width="500" height="500" src="/img/home/_client.webp" alt="Mail icon" loading="eager" decoding="async" />
                             </div>
                             <div class="card-content">
                                 <h3>A standard E-mail client</h3>
@@ -59,7 +59,7 @@ loadScriptAfter: /js/home-page.js
                     <div>
                         <div class="about-card">
                             <div class="card-illustration">
-                                <img src="/img/home/_plugins.png" alt="Module system illustration" loading="eager" decoding="async" />
+                                <img width="500" height="500" src="/img/home/_plugins.webp" alt="Module system illustration" loading="eager" decoding="async" />
                             </div>
                             <div class="card-content">
                                 <h3>A set of plugins</h3>
@@ -71,7 +71,7 @@ loadScriptAfter: /js/home-page.js
                     <div>
                         <div class="about-card">
                             <div class="card-illustration">
-                                <img src="/img/home/_privacy.png" alt="Privacy illustration" loading="eager" decoding="async" />
+                                <img width="500" height="500" src="/img/home/_privacy.webp" alt="Privacy illustration" loading="eager" decoding="async" />
                             </div>
                             <div class="card-content">
                                 <h3>Privacy‑first</h3>
@@ -99,13 +99,13 @@ loadScriptAfter: /js/home-page.js
                         <p>Get unified views for inbox, unread, sent, and flagged messages across all your accounts in one place, including RSS feeds.</p>
                     </div>
                     <div class="m-hero-col">
-                        <img src="/img/u3.png" alt="Cypht Unified Interface" class="phone-mock">
+                        <img width="408" height="612" src="/img/u3.webp" alt="Cypht Unified Interface" class="phone-mock">
                     </div>
                 </div>
                 <!-- left card -->
                 <div class="f-card f-soft m-left">
                     <div class="f-illus">
-                           <img src="/img/u1.png" alt="Cypht Unified Interface" class="phone-mock">
+                           <img width="494" height="505" src="/img/u1.webp" alt="Cypht Unified Interface" class="phone-mock">
                     </div>
                     <h3>Advanced Email Management</h3>
                     <p>Move or copy emails between accounts. Compose in plain text, HTML, or Markdown with flexible signature options.</p>
@@ -113,7 +113,7 @@ loadScriptAfter: /js/home-page.js
                 <!-- right card -->
                 <div class="f-card f-soft m-right">
                     <div class="f-illus">
-                              <img src="/img/u4.png" alt="Cypht Unified Interface" class="phone-mock">
+                              <img width="597" height="418" src="/img/u4.webp" alt="Cypht Unified Interface" class="phone-mock">
                     </div>
                     <h3>Universal Search</h3>
                     <p>Instantly search across all your email accounts and RSS feeds with a powerful search engine.</p>
@@ -167,14 +167,14 @@ loadScriptAfter: /js/home-page.js
                     <p class="section-card-subtitle">Trusted by users in more than 50 countries and thousands of developers worldwide.</p>
                     <div class="faq-contact-box mt-3">
                         <div class="faq-contact-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#81B441"stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#81B441"stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </div>
                         <div>
                             <h4>Do you have suggestion or other questions ?</h4>
                             <p class="simple-description">Our team will answer all your questions, we ensure a quick response.</p>
                             <a href="https://matrix.to/#/#cypht-org_community:gitter.im" target="_blank"
                             class="action-btn contact-btn cypht-primary-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M12 10a4 4 0 1 0 0-8a4 4 0 0 0 0 8m-4 2.25a4.124 4.124 0 0 0-4.095 3.642l-.65 5.52a.75.75 0 0 0 1.49.176l.65-5.52a2.624 2.624 0 0 1 1.855-2.209v4.193c0 .899 0 1.648.08 2.242c.084.628.27 1.195.726 1.65c.455.456 1.022.642 1.65.726c.594.08 1.344.08 2.242.08h.104c.899 0 1.648 0 2.243-.08c.627-.084 1.194-.27 1.65-.726c.455-.455.64-1.022.725-1.65c.08-.594.08-1.343.08-2.242v-4.193a2.624 2.624 0 0 1 1.856 2.208l.65 5.52a.75.75 0 1 0 1.489-.175l-.65-5.52A4.124 4.124 0 0 0 16 12.25z"/></svg>
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M12 10a4 4 0 1 0 0-8a4 4 0 0 0 0 8m-4 2.25a4.124 4.124 0 0 0-4.095 3.642l-.65 5.52a.75.75 0 0 0 1.49.176l.65-5.52a2.624 2.624 0 0 1 1.855-2.209v4.193c0 .899 0 1.648.08 2.242c.084.628.27 1.195.726 1.65c.455.456 1.022.642 1.65.726c.594.08 1.344.08 2.242.08h.104c.899 0 1.648 0 2.243-.08c.627-.084 1.194-.27 1.65-.726c.455-.455.64-1.022.725-1.65c.08-.594.08-1.343.08-2.242v-4.193a2.624 2.624 0 0 1 1.856 2.208l.65 5.52a.75.75 0 1 0 1.489-.175l-.65-5.52A4.124 4.124 0 0 0 16 12.25z"/></svg>
                                 Contact Our Team
                             </a>
                         </div>

@@ -34,28 +34,28 @@ layout: section/documentation
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-list"></i> Navigation Panel</h6>
-                    <img src="/img/docs/navigation_panel.png" alt="Cypht navigation panel screenshot" width="1959" height="1500" loading="lazy" decoding="async"/>
+                    <img src="/img/docs/navigation_panel.webp" alt="Cypht navigation panel screenshot" width="1959" height="1500" loading="lazy" decoding="async"/>
                     <p>Left sidebar containing folder hierarchy, account switching, and quick access to combined views (inbox, sent, flagged). Collapsible for maximum screen space.</p>
                 </div>
             </div>
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-envelope-open"></i> Message List</h6>
-                    <img src="/img/docs/message_list.png" alt="Cypht message list screenshot" width="1959" height="1500" loading="lazy" decoding="async"/>
+                    <img src="/img/docs/message_list.webp" alt="Cypht message list screenshot" width="1959" height="1500" loading="lazy" decoding="async"/>
                     <p>Central area displaying email threads with sender, subject, date, and preview. Sortable by date, sender, or subject with real-time updates.</p>
                 </div>
             </div>
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-file-text"></i> Reading Pane</h6>
-                    <img src="/img/docs/reading_pane.png" alt="Cypht reading pane screenshot" width="1959" height="1500" loading="lazy" decoding="async"/>
+                    <img src="/img/docs/reading_pane.webp" alt="Cypht reading pane screenshot" width="1959" height="1500" loading="lazy" decoding="async"/>
                     <p>Right panel showing full message content with HTML rendering, attachment previews, and quick reply functionality. Can be hidden or positioned below.</p>
                 </div>
             </div>
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-gear"></i> Settings Tab</h6>
-                    <img src="/img/docs/settings_tab.png" alt="Cypht settings screenshot" width="1959" height="1500" loading="lazy" decoding="async"/>
+                    <img src="/img/docs/settings_tab.webp" alt="Cypht settings screenshot" width="1959" height="1500" loading="lazy" decoding="async"/>
                     <p>Top navigation with account management, module configuration, theme selection, and user preferences. Always accessible for quick adjustments.</p>
                 </div>
             </div>
@@ -99,21 +99,21 @@ layout: section/documentation
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-pencil-square"></i> Compose Window</h6>
-                    <img src="/img/Compose.PNG" alt="Cypht compose window screenshot" width="2025" height="1094" loading="lazy" decoding="async"/>
+                    <img src="/img/docs/compose_window.png" alt="Cypht compose window screenshot" width="2025" height="1094" loading="lazy" decoding="async"/>
                     <p>Full-featured composer with rich text editing, Markdown support, file attachments, and saved drafts. Auto-saves to prevent data loss.</p>
                 </div>
             </div>
             <div class="">
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-search"></i> Search Interface</h6>
-                    <img src="/img/docs/search_interface.png" alt="Cypht search interface screenshot" width="1959" height="1500" loading="lazy" decoding="async"/>
+                    <img src="/img/docs/search_interface.webp" alt="Cypht search interface screenshot" width="1959" height="1500" loading="lazy" decoding="async"/>
                     <p>Powerful search across all accounts with filters for date ranges, senders, subjects, and content. Results displayed with highlighting.</p>
                 </div>
             </div>
             <div>
                 <div class="feature-card doc-img-card">
                     <h6><i class="bi bi-funnel"></i> Filtering System</h6>
-                    <img src="/img/Archive.png" alt="Cypht filtering system screenshot" width="1280" height="637" loading="lazy" decoding="async"/>
+                    <img src="/img/docs/filter.png" alt="Cypht filtering system screenshot" width="1280" height="637" loading="lazy" decoding="async"/>
                     <p>Advanced filtering with server-side Sieve support, custom rules, and automatic message organization based on your criteria.</p>
                 </div>
             </div>
@@ -177,7 +177,7 @@ layout: section/documentation
     <div class="dc-ctr-content">
         <div class="dc-ctr-header">
             <p class="dc-ctr-header-title">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"/></svg>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"/></svg>
                 On this page
             </p>
         </div>

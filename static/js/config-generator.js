@@ -220,8 +220,6 @@ function showFeedback(btn_id, toast_id, message, type = "success") {
     });
   } else {
     console.error("Toast elements not found!");
-    console.log("toastTrigger:", toastTrigger);
-    console.log("toastLiveExample:", toastLiveExample);
   }
 }
 

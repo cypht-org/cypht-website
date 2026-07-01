@@ -6,6 +6,17 @@ author:
   name: multiple
   url: "https://example.com/"
 image: cecil-card.png
+
+# Reusable metadata (used by JSON-LD, OG tags, footer)
+organization:
+  name: "Cypht"
+  logo: "img/logo.svg"
+  github: "https://github.com/cypht-org/cypht"
+  license: "https://github.com/cypht-org/cypht/blob/master/LICENSE"
+software:
+  category: "Webmail"
+  os: "Cross-platform, self-hosted (PHP)"
+
 pages:
   virtual:
     - path: contribute-redirect

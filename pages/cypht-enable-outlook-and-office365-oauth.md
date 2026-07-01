@@ -16,7 +16,7 @@ nocontainer: true
     <section class="content-section-doc container">
         <div class="line">
             <div  class="element1 item ">
-                <img src="/img/outlook-and-office365-oauth-screen/outlook-and-office365-oauth-section-01.png" alt="Outlook and Office365 OAuth setup step 1" width="1791" height="930" loading="lazy" decoding="async">
+                <img src="/img/outlook-and-office365-oauth-screen/outlook-and-office365-oauth-section-01.webp" alt="Outlook and Office365 OAuth setup step 1" width="1791" height="930" loading="lazy" decoding="async">
             </div>
             <div  class="element2 item ">
                 <h2>1. Go to the Azure portal</h2>
@@ -41,7 +41,7 @@ nocontainer: true
     <section class="content-section-doc container" id="get-client-id">
         <div class="line">
             <div  class="element1 item ">
-                <img src="/img/outlook-and-office365-oauth-screen/outlook-and-office365-oauth-section-02.png" alt="Outlook and Office365 OAuth setup step 2" width="1791" height="1128" loading="lazy" decoding="async">
+                <img src="/img/outlook-and-office365-oauth-screen/outlook-and-office365-oauth-section-02.webp" alt="Outlook and Office365 OAuth setup step 2" width="1791" height="1128" loading="lazy" decoding="async">
             </div>
             <div  class="element2 item ">
                 <h2>3. Get the client ID (application ID):</h2>
@@ -55,7 +55,7 @@ nocontainer: true
     <section class="content-section-doc container">
         <div class="line">
             <div  class="element1 item ">
-                <img src="/img/outlook-and-office365-oauth-screen/outlook-and-office365-oauth-section-03.png" alt="Outlook and Office365 OAuth setup step 3" width="1791" height="1128" loading="lazy" decoding="async">
+                <img src="/img/outlook-and-office365-oauth-screen/outlook-and-office365-oauth-section-03.webp" alt="Outlook and Office365 OAuth setup step 3" width="1791" height="1128" loading="lazy" decoding="async">
             </div>
             <div  class="element2 item ">
                 <h2>4. Create the client secret key</h2>
@@ -83,7 +83,7 @@ nocontainer: true
                 <p>Now your configuration is done.</p>        
             </div>
             <div  class="element2 item ">
-                <img src="/img/outlook-and-office365-oauth-screen/outlook-and-office365-oauth-section-04.png" alt="Outlook and Office365 OAuth setup step 4" width="1791" height="1128" loading="lazy" decoding="async">
+                <img src="/img/outlook-and-office365-oauth-screen/outlook-and-office365-oauth-section-04.webp" alt="Outlook and Office365 OAuth setup step 4" width="1791" height="1128" loading="lazy" decoding="async">
             </div>
         </div>
     </section>

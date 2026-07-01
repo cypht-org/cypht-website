@@ -1,7 +1,6 @@
 .ft-hero {
       padding: var(--hero-padding-md);
       position: relative;
-      min-height: var(--hero-height-md);
 }
 
 .ft-hero:before {
@@ -11,9 +10,14 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><defs><pattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'><path d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
       z-index: 1;
       pointer-events: none;
+}
+
+/* Lighten the hero grid so it stays visible on the dark background */
+[data-theme="dark"] .ft-hero:before {
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
 }
 
 .ft-hero-content {
@@ -100,6 +104,18 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: start
+}
+
+/* Subtle hover animation: soft gray border + light gray background */
+.feature-card {
+      transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+      /* background-color: #F3F4F6; */
+      background-color: #f2f2f310;
+      border-color: #D1D5DB;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
 }
 
 .ft-card-img-content {
@@ -316,7 +332,8 @@
       position: relative;
 }
 
-.key-tab-demo-body img {
+.key-tab-demo-body img,
+.key-tab-demo-body video {
       position: absolute;
       top: 0;
       left: 0;

@@ -1,6 +1,19 @@
 const spy_scroll = () => {
   const nav_links = document.querySelectorAll("#dc-ctr-nav a");
-  const sections = document.querySelectorAll(".doc-content-left [id]");
+
+  // IDs réellement référencés par le menu de droite : eux seuls pilotent l'état actif.
+  const nav_ids = new Set(
+    Array.from(nav_links)
+      .map((link) => link.getAttribute("href"))
+      .filter((href) => href && href.startsWith("#"))
+      .map((href) => href.slice(1)),
+  );
+
+  // On n'observe que les sections liées au menu, pour que des éléments enfants
+  // ayant un id (ex. les cartes de version) n'effacent pas la classe active.
+  const sections = Array.from(
+    document.querySelectorAll(".doc-content-left [id]"),
+  ).filter((section) => nav_ids.has(section.id));
 
   const options = {
     root: null, // utilise le viewport

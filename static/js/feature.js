@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (video) {
           video.play().catch((error) => {
             // Autoplay was prevented, user interaction required
-            console.log("Video autoplay prevented:", error);
           });
         }
       }
@@ -67,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const video = targetPane.querySelector("video");
             if (video) {
               video.play().catch((error) => {
-                console.log("Video autoplay prevented:", error);
               });
             }
           }

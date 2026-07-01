@@ -36,9 +36,11 @@ jobs:
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Build static
-        run: php cecil.phar build
-        
+      - name: Build static & bundle CSS
+        run: |
+          php cecil.phar build
+          php scripts/bundle-css.php
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

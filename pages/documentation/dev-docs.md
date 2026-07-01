@@ -511,7 +511,7 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
     <div class="dc-ctr-content">
         <div class="dc-ctr-header">
             <p class="dc-ctr-header-title">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"/></svg>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"/></svg>
                 On this page
             </p>
         </div>

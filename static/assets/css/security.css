@@ -2,7 +2,6 @@
 .hero-security {
       padding: var(--hero-padding-md);
       position: relative;
-      min-height: var(--hero-height-md);
 }
 
 .hero-security:before {
@@ -12,9 +11,14 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><defs><pattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'><path d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
       z-index: 1;
       pointer-events: none;
+}
+
+/* Lighten the hero grid so it stays visible on the dark background */
+[data-theme="dark"] .hero-security:before {
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
 }
 
 .hero-container {
@@ -48,6 +52,10 @@
       font-size: clamp(1.75rem, 5vw, 2.5rem);
       margin: 0.5rem 0;
       color: #1a202c;
+}
+
+.hero-security .home-hs-subtitle {
+      width: 100% !important;
 }
 
 .hero-subtitle {
@@ -102,7 +110,7 @@
 .sec-tabs-container {
       position: sticky;
       top: 4rem;
-      z-index: 50;
+      z-index: var(--z-sticky);
       width: 100%;
       background-color: var(--color-bg);
       padding: 0.28rem 0;
@@ -166,7 +174,6 @@
 
 .sec-tabs-menu ul li .sec-active {
       background-color: #80b441d0;
-      border: 1px solid var(--color-primary) !important;
       color: white;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       font-weight: 600;
@@ -251,8 +258,7 @@
 #browser,
 #server,
 #development {
-      scroll-margin-top: 80px !important;
-      /* hauteur du header */
+      scroll-margin-top: 11rem !important;
 }
 
 /* ─── Security Features List ────────────────────────────────────────────────── */
@@ -318,22 +324,25 @@
 .security-item[data-category="browser"] .security-item-icon {
       background-color: #eef2ff;
       border-color: #c7d2fe;
+      color: #6366f1;
 }
 
 .security-item[data-category="server"] .security-item-icon {
       background-color: #ecfdf5;
       border-color: #a7f3d0;
+      color: #10b981;
 }
 
 .security-item[data-category="development"] .security-item-icon {
       background-color: #fffbeb;
       border-color: #fde68a;
+      color: #d97706;
 }
 
 .security-item-icon img,
 .security-item-icon svg {
-      width: 25px !important;
-      height: 25px !important;
+      width: 20px !important;
+      height: 20px !important;
 }
 
 .security-item-content {
@@ -372,37 +381,37 @@
 
 .sec-description {
       font-size: .95rem !important;
-      max-width: 25rem !important;
+      max-width: 75rem !important;
 }
 
 /* ─── Dark Mode Support ────────────────────────────────────────────────────── */
 [data-theme="dark"] .security-item {
-      background-color: #1e293b;
+      background-color: var(--slate-800);
       border-color: #2d3748;
 }
 
 [data-theme="dark"] .security-item h4 {
-      color: #f8fafc;
+      color: var(--slate-50);
 }
 
 [data-theme="dark"] .security-item p {
-      color: #cbd5e1;
+      color: var(--slate-300);
 }
 
 [data-theme="dark"] .hero-title {
-      color: #f8fafc;
+      color: var(--slate-50);
 }
 
 [data-theme="dark"] .hero-subtitle {
-      color: #cbd5e1;
+      color: var(--slate-300);
 }
 
 [data-theme="dark"] .sec-tab-details h2 {
-      color: #f8fafc;
+      color: var(--slate-50);
 }
 
 [data-theme="dark"] .sec-tab-details p {
-      color: #cbd5e1;
+      color: var(--slate-300);
 }
 
 @media (min-width: 567px) and (max-width: 992px) {
@@ -483,11 +492,11 @@
       }
 
       .security-item h4 {
-            font-size: 1.125rem;
+            font-size: 1rem;
       }
 
       .security-item p {
-            font-size: 0.95rem;
+            font-size: 0.83rem;
       }
 }
 
@@ -637,16 +646,20 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       }
 
+      /* Icons are inlined as data-URIs so the stroke color actually applies:
+         an SVG loaded as a file via background-image is an external document and
+         cannot inherit the page color (its `currentColor` falls back to black).
+         To recolor, change the stroke hex (%23xxxxxx) below. */
       #browser .sec-tab-line::before {
-            background-image: url("/svg/world.svg");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236366f1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21.54 15H17a2 2 0 0 0-2 2v4.54'/%3E%3Cpath d='M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17'/%3E%3Cpath d='M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05'/%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3C/svg%3E");
       }
 
       #server .sec-tab-line::before {
-            background-image: url("/svg/lock.svg");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2310b981' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='11' width='18' height='11' rx='2' ry='2'/%3E%3Cpath d='M7 11V7a5 5 0 0 1 10 0v4'/%3E%3C/svg%3E");
       }
 
       #development .sec-tab-line::before {
-            background-image: url("/svg/shield.svg");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23f59e0b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3C/svg%3E");
       }
 
       .sec-tab-d-one,
@@ -726,7 +739,6 @@
 
       .sec-tabs-menu ul li .sec-active {
             background: linear-gradient(135deg, rgba(129, 180, 65, 0.15) 0%, rgba(129, 180, 65, 0.25) 100%);
-            border: .8px solid var(--color-primary);
       }
 
       .security-item {
@@ -763,4 +775,9 @@
             background: var(--color-border);
       }
 
+}
+
+/* Dark mode: brighter indigo for the Browser tab icon (better contrast on the dark chip) */
+[data-theme="dark"] #browser .sec-tab-line::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23818cf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21.54 15H17a2 2 0 0 0-2 2v4.54'/%3E%3Cpath d='M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17'/%3E%3Cpath d='M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05'/%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3C/svg%3E");
 }

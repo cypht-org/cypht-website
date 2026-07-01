@@ -23,9 +23,14 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><defs><pattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'><path d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
       z-index: 1;
       pointer-events: none;
+}
+
+/* Lighten the hero grid so it stays visible on the dark background */
+[data-theme="dark"] .contribute-hero:before {
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
 }
 
 .contribute-hero-content {
@@ -93,14 +98,14 @@
 
 .req-header-chip-text {
       font-size: 1rem;
-      color: #64748b;
+      color: var(--slate-500);
       font-weight: 600;
 }
 
 .req-header h3,
 .dev-content h3,
 .contributor-header-text h3 {
-      color: #1e293b;
+      color: var(--slate-800);
       margin-bottom: .8rem;
       font-size: clamp(1.3rem, 2.5vw, 1.8rem);
       font-weight: 600;
@@ -108,7 +113,7 @@
 
 .req-header-chip-icon {
       font-size: 1rem;
-      color: #64748b;
+      color: var(--slate-500);
       background-color: rgba(128, 125, 125, 0.063);
       padding: .3rem .6rem;
       border-radius: 8px;
@@ -170,7 +175,7 @@
 .dev-flow-card {
       background: #f8f9fa5e;
       background-color: #F6F6F6;
-      border: 1.7px dashed #E9ECEF;
+      border: 1.7px dashed var(--gray-200);
       border-radius: 20px;
       padding: 1.5rem;
       display: flex;
@@ -324,7 +329,7 @@
 
 .req-list-item-index {
       font-size: 1.2rem;
-      color: #64748b;
+      color: var(--slate-500);
       background-color: rgba(128, 125, 125, 0.063);
       padding: .5rem;
       border-radius: 8px;
@@ -524,7 +529,7 @@
       .dev-flow-card {
             background: #f8f9fa5e;
             background-color: #F6F6F6;
-            border: 1.7px dashed #E9ECEF;
+            border: 1.7px dashed var(--gray-200);
             border-radius: 20px;
             padding: 1.5rem;
             display: flex;

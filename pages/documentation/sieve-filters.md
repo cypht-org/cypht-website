@@ -81,7 +81,7 @@ layout: section/documentation
         </span>
 
         <br/>
-        <img src="/img/docs/sieve_filters_0.png" alt="Settings sidebar showing the Filters menu item" loading="lazy" decoding="async" /> <br/><br/>
+        <img width="1919" height="991" src="/img/docs/sieve_filters_0.webp" alt="Settings sidebar showing the Filters menu item" loading="lazy" decoding="async" /> <br/><br/>
     </div>
 
     <!-- ======================================== -->
@@ -104,24 +104,24 @@ layout: section/documentation
             <li>Click <strong>Filters</strong>.</li>
 
             <br/>
-            <img src="/img/docs/sieve_filters_1.png" alt="Filters page showing the selected email account" loading="lazy" decoding="async" /> <br/><br/>
+            <img width="1918" height="992" src="/img/docs/sieve_filters_1.webp" alt="Filters page showing the selected email account" loading="lazy" decoding="async" /> <br/><br/>
 
             <li>Select the email account you want to manage.</li>
             <li>Click <strong>Add Filter</strong>.</li>
 
             <br/>
-            <img src="/img/docs/sieve_filters_2.png" alt="Filter list with Add Filter and Add Script buttons" loading="lazy" decoding="async" /> <br/><br/>
+            <img width="1918" height="987" src="/img/docs/sieve_filters_2.webp" alt="Filter list with Add Filter and Add Script buttons" loading="lazy" decoding="async" /> <br/><br/>
             <li>Enter a filter name and set its priority.</li>
 
             <br/>
-            <img src="/img/docs/sieve_filters_3.png" alt="Empty Add Filter modal with name, priority, conditions and actions fields" loading="lazy" decoding="async" /> <br/><br/>
+            <img width="1918" height="986" src="/img/docs/sieve_filters_3.webp" alt="Empty Add Filter modal with name, priority, conditions and actions fields" loading="lazy" decoding="async" /> <br/><br/>
 
             <li>Add one or more conditions (sender, subject, recipient, body, etc.).</li>
             <li>Set the test logic: use <strong>ALLOF</strong> if every condition must match, or <strong>ANYOF</strong> if any single condition is enough.</li>
             <li>Choose the action: move to folder, copy, flag, discard, redirect, etc.</li>
 
             <br/>
-            <img src="/img/docs/sieve_filters_4.png" alt="Filled Add Filter form with conditions and redirect action" loading="lazy" decoding="async" /> <br/><br/>
+            <img width="1919" height="988" src="/img/docs/sieve_filters_4.webp" alt="Filled Add Filter form with conditions and redirect action" loading="lazy" decoding="async" /> <br/><br/>
 
             <li>Save the filter.</li>
         </ol>
@@ -179,17 +179,17 @@ layout: section/documentation
             <li>Select one or more messages in the current mailbox view.</li>
 
             <br/>
-            <img src="/img/docs/sieve_filters_5.png" alt="Inbox with selected messages and toolbar showing Quick Actions" loading="lazy" decoding="async" /> <br/><br/>
+            <img width="1913" height="953" src="/img/docs/sieve_filters_5.webp" alt="Inbox with selected messages and toolbar showing Quick Actions" loading="lazy" decoding="async" /> <br/><br/>
 
             <li>Click the <strong>Quick Actions</strong> button in the toolbar.</li>
             <li>Click <strong>Create from Selected</strong>.</li>
 
             <br/>
-            <img src="/img/docs/sieve_filters_6.png" alt="Quick Actions dropdown showing Create from Selected option" loading="lazy" decoding="async" /> <br/><br/>
+            <img width="1916" height="990" src="/img/docs/sieve_filters_6.webp" alt="Quick Actions dropdown showing Create from Selected option" loading="lazy" decoding="async" /> <br/><br/>
             <li>Review the auto-populated conditions (From addresses and Subject keywords are prefilled from the selected messages).</li>
 
             <br/>
-            <img src="/img/docs/sieve_filters_7.png" alt="Setup Filter from selected messages modal with auto-populated From emails and Subject keywords" loading="lazy" decoding="async" /> <br/><br/>
+            <img width="1916" height="946" src="/img/docs/sieve_filters_7.webp" alt="Setup Filter from selected messages modal with auto-populated From emails and Subject keywords" loading="lazy" decoding="async" /> <br/><br/>
 
             <li>Adjust the matching options:
                 <ul>
@@ -267,17 +267,17 @@ layout: section/documentation
             <li>Open the message you want to base the filter on.</li>
 
             <br/>
-            <img src="/img/docs/sieve_filters_8.png" alt="Opened message showing Filter similar messages button in the action bar" loading="lazy" decoding="async" /> <br/><br/>
+            <img width="1919" height="950" src="/img/docs/sieve_filters_8.webp" alt="Opened message showing Filter similar messages button in the action bar" loading="lazy" decoding="async" /> <br/><br/>
 
             <li>Click <strong>Filter similar messages</strong> in the message actions area.</li>
             <li>Select the fields to match (From, To, Subject, Reply-To) and click <strong>Create filter</strong>.</li>
 
             <br/>
-            <img src="/img/docs/sieve_filters_9.png" alt="Filter similar messages dropdown with From, To, Subject and Reply-To checkboxes" loading="lazy" decoding="async" /> <br/><br/>
+            <img width="1919" height="953" src="/img/docs/sieve_filters_9.webp" alt="Filter similar messages dropdown with From, To, Subject and Reply-To checkboxes" loading="lazy" decoding="async" /> <br/><br/>
             <li>Review the prefilled conditions — Cypht auto-populates the filter name, sender, recipient, and subject from the opened message.</li>
 
             <br/>
-            <img src="/img/docs/sieve_filters_10.png" alt="Add Filter for message like this modal with auto-populated conditions and actions" loading="lazy" decoding="async" /> <br/><br/>
+            <img width="1918" height="951" src="/img/docs/sieve_filters_10.webp" alt="Add Filter for message like this modal with auto-populated conditions and actions" loading="lazy" decoding="async" /> <br/><br/>
 
             <li>Adjust the conditions and choose the action (move, flag, discard, etc.).</li>
             <li>Save the filter.</li>
@@ -347,7 +347,7 @@ layout: section/documentation
     <div class="dc-ctr-content">
         <div class="dc-ctr-header">
             <p class="dc-ctr-header-title">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"/></svg>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"/></svg>
                 On this page
             </p>
         </div>

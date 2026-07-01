@@ -11,10 +11,10 @@ css: /assets/doc/license.css
      <!-- <div class=""> -->
         <span class="hs-chip">📄 Open Source License</span>
       <!-- </div> -->
-      <h1 class="display-5 fw-bold">
+      <h2 class="display-6 fw-bold">
         Cypht License & Dependencies
-      </h1>
-      <p class="license-subtitle home-hs-subtitle">
+      </h2>
+      <p class="home-hs-subtitle">
         Cypht is distributed under the LGPL V2.1 license and will always remain free and Open Source. 
         Learn about our licensing terms and the third-party libraries we use.
       </p>
@@ -37,7 +37,7 @@ css: /assets/doc/license.css
         <div class="lc-item-conetent">
           <div class="ls-item-header">
             <div class="ls-item-header-text">
-              <h3><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M21.984 10c-.037-1.311-.161-2.147-.581-2.86c-.598-1.015-1.674-1.58-3.825-2.708l-2-1.05C13.822 2.461 12.944 2 12 2s-1.822.46-3.578 1.382l-2 1.05C4.271 5.56 3.195 6.125 2.597 7.14C2 8.154 2 9.417 2 11.942v.117c0 2.524 0 3.787.597 4.801c.598 1.015 1.674 1.58 3.825 2.709l2 1.049C10.178 21.539 11.056 22 12 22s1.822-.46 3.578-1.382l2-1.05c2.151-1.129 3.227-1.693 3.825-2.708c.42-.713.544-1.549.581-2.86M21 7.5L12 12m0 0L3 7.5m9 4.5v9.5"/></svg>Directly Used Libraries</h3>
+              <h3><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M21.984 10c-.037-1.311-.161-2.147-.581-2.86c-.598-1.015-1.674-1.58-3.825-2.708l-2-1.05C13.822 2.461 12.944 2 12 2s-1.822.46-3.578 1.382l-2 1.05C4.271 5.56 3.195 6.125 2.597 7.14C2 8.154 2 9.417 2 11.942v.117c0 2.524 0 3.787.597 4.801c.598 1.015 1.674 1.58 3.825 2.709l2 1.049C10.178 21.539 11.056 22 12 22s1.822-.46 3.578-1.382l2-1.05c2.151-1.129 3.227-1.693 3.825-2.708c.42-.713.544-1.549.581-2.86M21 7.5L12 12m0 0L3 7.5m9 4.5v9.5"/></svg>Directly Used Libraries</h3>
               <p>These libraries are directly integrated into Cypht and are essential for core functionality.</p>
             </div>
           </div>
@@ -55,6 +55,9 @@ css: /assets/doc/license.css
                     Visit website
                       <i class="bi bi-arrow-right-short library-btn-icon"></i>
                   </a>
+                  <a href="https://github.com/ezyang/htmlpurifier" class="library-btn library-btn-source" target="_blank" rel="noopener">
+                    <i class="bi bi-github"></i> Source code
+                  </a>
                 </div>
               </div>
               <div class="library-card">
@@ -64,6 +67,9 @@ css: /assets/doc/license.css
                   <a href="https://kenwheeler.github.io/cash/" class="library-btn secondary" target="_blank" rel="noopener">
                     Documentation
                     <i class="bi bi-arrow-right-short library-btn-icon"></i>
+                  </a>
+                  <a href="https://github.com/fabiospampinato/cash" class="library-btn library-btn-source" target="_blank" rel="noopener">
+                    <i class="bi bi-github"></i> Source code
                   </a>
                 </div>
               </div>
@@ -142,6 +148,9 @@ css: /assets/doc/license.css
                     Documentation
                     <i class="bi bi-arrow-right-short library-btn-icon"></i>
                   </a>
+                  <a href="https://github.com/jedisct1/libsodium" class="library-btn library-btn-source" target="_blank" rel="noopener">
+                    <i class="bi bi-github"></i> Source code
+                  </a>
                 </div>
               </div>
 
@@ -164,6 +173,9 @@ css: /assets/doc/license.css
                     Visit website
                     <i class="bi bi-arrow-right-short library-btn-icon"></i>
                   </a>
+                  <a href="https://github.com/lepture/editor" class="library-btn library-btn-source" target="_blank" rel="noopener">
+                    <i class="bi bi-github"></i> Source code
+                  </a>
                 </div>
               </div>
 
@@ -174,6 +186,9 @@ css: /assets/doc/license.css
                   <a href="https://parsedown.org/" class="library-btn outline" target="_blank" rel="noopener">
                     Visit website
                     <i class="bi bi-arrow-right-short library-btn-icon"></i>
+                  </a>
+                  <a href="https://github.com/erusev/parsedown" class="library-btn library-btn-source" target="_blank" rel="noopener">
+                    <i class="bi bi-github"></i> Source code
                   </a>
                 </div>
               </div>
@@ -186,7 +201,7 @@ css: /assets/doc/license.css
         <div class="lc-item-conetent">
           <div class="ls-item-header">
              <div class="ls-item-header-text">
-              <h3><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M21.984 10c-.037-1.311-.161-2.147-.581-2.86c-.598-1.015-1.674-1.58-3.825-2.708l-2-1.05C13.822 2.461 12.944 2 12 2s-1.822.46-3.578 1.382l-2 1.05C4.271 5.56 3.195 6.125 2.597 7.14C2 8.154 2 9.417 2 11.942v.117c0 2.524 0 3.787.597 4.801c.598 1.015 1.674 1.58 3.825 2.709l2 1.049C10.178 21.539 11.056 22 12 22s1.822-.46 3.578-1.382l2-1.05c2.151-1.129 3.227-1.693 3.825-2.708c.42-.713.544-1.549.581-2.86M21 7.5L12 12m0 0L3 7.5m9 4.5v9.5"/></svg>Indirectly Used Libraries</h3>
+              <h3><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M21.984 10c-.037-1.311-.161-2.147-.581-2.86c-.598-1.015-1.674-1.58-3.825-2.708l-2-1.05C13.822 2.461 12.944 2 12 2s-1.822.46-3.578 1.382l-2 1.05C4.271 5.56 3.195 6.125 2.597 7.14C2 8.154 2 9.417 2 11.942v.117c0 2.524 0 3.787.597 4.801c.598 1.015 1.674 1.58 3.825 2.709l2 1.049C10.178 21.539 11.056 22 12 22s1.822-.46 3.578-1.382l2-1.05c2.151-1.129 3.227-1.693 3.825-2.708c.42-.713.544-1.549.581-2.86M21 7.5L12 12m0 0L3 7.5m9 4.5v9.5"/></svg>Indirectly Used Libraries</h3>
               <p>Supporting libraries used for development, testing, documentation, and browser automation.</p>
             </div>
           </div>
@@ -200,6 +215,9 @@ css: /assets/doc/license.css
                 <a href="https://phpunit.de/" class="library-btn secondary" target="_blank" rel="noopener">
                   Visit website
                   <i class="bi bi-arrow-right-short library-btn-icon"></i>
+                </a>
+                <a href="https://github.com/sebastianbergmann/phpunit" class="library-btn library-btn-source" target="_blank" rel="noopener">
+                  <i class="bi bi-github"></i> Source code
                 </a>
               </div>
             </div>
@@ -222,6 +240,9 @@ css: /assets/doc/license.css
                 <a href="https://www.selenium.dev/" class="library-btn secondary" target="_blank" rel="noopener">
                   Visit website
                   <i class="bi bi-arrow-right-short library-btn-icon"></i>
+                </a>
+                <a href="https://github.com/SeleniumHQ/selenium" class="library-btn library-btn-source" target="_blank" rel="noopener">
+                  <i class="bi bi-github"></i> Source code
                 </a>
               </div>
             </div>

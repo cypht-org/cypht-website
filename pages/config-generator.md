@@ -18,7 +18,7 @@ loadScriptAfter: /js/config-generator.js
             <ul class="cfh-features-list">
                 <li>
                     <a href="#general">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><g
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><g
                                 fill="none"
                                 stroke="currentColor"
                                 stroke-linecap="round"
@@ -29,7 +29,7 @@ loadScriptAfter: /js/config-generator.js
                 </li>
                 <li>
                     <a href="#database">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><g
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><g
                                 fill="none"
                                 stroke="currentColor"
                                 stroke-linecap="round"
@@ -40,7 +40,7 @@ loadScriptAfter: /js/config-generator.js
                 </li>
                 <li>
                     <a href="#twofa">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><g
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><g
                                 fill="none"
                                 stroke="currentColor"
                                 stroke-linecap="round"
@@ -53,7 +53,7 @@ loadScriptAfter: /js/config-generator.js
                 </li>
                 <li>
                     <a href="#carddav">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><path
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><path
                                 fill="currentColor"
                                 d="M12 10a4 4 0 1 0 0-8a4 4 0 0 0 0 8m-4 2.25a4.124 4.124 0 0 0-4.095 3.642l-.65 5.52a.75.75 0 0 0 1.49.176l.65-5.52a2.624 2.624 0 0 1 1.855-2.209v4.193c0 .899 0 1.648.08 2.242c.084.628.27 1.195.726 1.65c.455.456 1.022.642 1.65.726c.594.08 1.344.08 2.242.08h.104c.899 0 1.648 0 2.243-.08c.627-.084 1.194-.27 1.65-.726c.455-.455.64-1.022.725-1.65c.08-.594.08-1.343.08-2.242v-4.193a2.624 2.624 0 0 1 1.856 2.208l.65 5.52a.75.75 0 1 0 1.489-.175l-.65-5.52A4.124 4.124 0 0 0 16 12.25z"
                             /></svg>
@@ -61,7 +61,7 @@ loadScriptAfter: /js/config-generator.js
                 </li>
                 <li>
                     <a href="#dynamic_login">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><g
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><g
                                 fill="none"
                                 stroke="currentColor"
                                 stroke-linecap="round"
@@ -74,7 +74,7 @@ loadScriptAfter: /js/config-generator.js
                 </li>
                 <li>
                     <a href="#github">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><g
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><g
                                 fill="none"
                                 stroke="currentColor"
                                 stroke-linecap="round"
@@ -87,7 +87,7 @@ loadScriptAfter: /js/config-generator.js
                 </li>
                 <li>
                     <a href="#ldap">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path
                                 fill="none"
                                 stroke="currentColor"
                                 stroke-linecap="round"
@@ -98,7 +98,7 @@ loadScriptAfter: /js/config-generator.js
                 </li>
                 <li>
                     <a href="#oauth2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><g
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><g
                                 fill="none"
                                 stroke="currentColor"
                                 stroke-linecap="round"
@@ -113,7 +113,7 @@ loadScriptAfter: /js/config-generator.js
                 </li>
                 <li>
                     <a href="#recaptcha">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><g
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><g
                                 fill="none"
                                 stroke="currentColor"
                                 stroke-linecap="round"
@@ -124,7 +124,7 @@ loadScriptAfter: /js/config-generator.js
                 </li>
                 <li>
                     <a href="#wordpress">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><path
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24"><path
                                 fill="currentColor"
                                 d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10s10-4.49 10-10S17.51 2 12 2M3.01 12c0-1.3.28-2.54.78-3.66l4.29 11.75c-3-1.46-5.07-4.53-5.07-8.09M12 20.99c-.88 0-1.73-.13-2.54-.37l2.7-7.84l2.76 7.57c.02.04.04.09.06.12c-.93.34-1.93.52-2.98.52m1.24-13.21c.54-.03 1.03-.09 1.03-.09c.48-.06.43-.77-.06-.74c0 0-1.46.11-2.4.11c-.88 0-2.37-.11-2.37-.11c-.48-.02-.54.72-.05.75c0 0 .46.06.94.09l1.4 3.84l-1.97 5.9l-3.27-9.75c.54-.02 1.03-.08 1.03-.08c.48-.06.43-.77-.06-.74c0 0-1.46.11-2.4.11c-.17 0-.37 0-.58-.01C6.1 4.62 8.86 3.01 12 3.01c2.34 0 4.47.89 6.07 2.36c-.04 0-.08-.01-.12-.01c-.88 0-1.51.77-1.51 1.6c0 .74.43 1.37.88 2.11c.34.6.74 1.37.74 2.48c0 .77-.3 1.66-.68 2.91l-.9 3zm6.65-.09a8.99 8.99 0 0 1-3.37 12.08l2.75-7.94c.51-1.28.68-2.31.68-3.22c0-.33-.02-.64-.06-.92"
                             /></svg>Wordpress</a>
