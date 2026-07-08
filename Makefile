@@ -18,10 +18,10 @@ prod:
 # The domain is NOT hard-coded. Override it per deploy without editing this file:
 #   CECIL_BASEURL=https://your-new-domain.example/ make demo
 # The same variable works with any build command (e.g. in CI):
-#   CECIL_BASEURL=https://your-new-domain.example/ make prod
+# CECIL_BASEURL=https://your-new-domain.example/ make prod
 .PHONY: demo
 demo:
-	CECIL_BASEURL="$${CECIL_BASEURL:-https://demo.cypht.lab15.evoludata.com/}" php cecil.phar build
+	CECIL_BASEURL="$${CECIL_BASEURL:-https://cypht.org/}" php cecil.phar build
 	php scripts/bundle-css.php
 
 # Preview the production build locally WITH working <video> (Range support,

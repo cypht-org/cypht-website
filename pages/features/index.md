@@ -17,7 +17,7 @@ loadScriptAfter: /js/feature.js
                     Everything You Need for a Unified Email Workflow
                 </h1>
                 <p class="home-hs-subtitle">
-                    Simplify, secure, and optimize your email workflow with seamless integration and powerful features—all in one place.
+                    Simplify, secure, and optimize your email workflow with seamless integration and powerful features-all in one place.
                 </p>
                 <a href="#messaging" class="dark-action-btn">
                     Explore all features
