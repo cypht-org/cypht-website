@@ -1,0 +1,330 @@
+@import url('./testimonials.css');
+@import url('./footer_label.css');
+@import url('./features.css');
+@import url('./faq.css');
+@import url('./about.css');
+
+/* =====================
+   Minimal hero variant
+===================== */
+.home-hero {
+      width: 100%;
+      padding: 6rem 1.25rem 3rem;
+      text-align: center;
+      gap: .9rem;
+}
+
+/* Subtle grid background */
+#hero_minimal::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
+      z-index: 1;
+      pointer-events: none;
+}
+
+.home-hs-text-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 1.04rem;
+      margin-top: 1rem;
+}
+
+.home-hs-subtitle {
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      width: 80%;
+      /* font-size: clamp(1rem, 1.2vw, 1.1rem); */
+      font-size: clamp(1rem, 1.2vw, 1.1rem);
+}
+
+.home-hero-actions {
+      display: flex;
+      gap: .6rem;
+      justify-content: center;
+      margin: .75rem 0 1.5rem;
+}
+
+.subtitle-center {
+      width: 100%;
+}
+
+.stat-indicator {
+      color: var(--color-primary) !important;
+      font-weight: bold !important;
+      opacity: 1 !important;
+      -webkit-text-stroke: .6px var(--color-primary);
+}
+
+/* }
+
+/*  */
+.section-card-title {
+      color: var(--color-text);
+      font-size: clamp(1.75rem, 3.6vw, 2rem);
+      font-weight: 700;
+      margin: 1rem 0;
+      line-height: 1.2;
+}
+
+.section-card-subtitle {
+      color: var(--color-text-secondary);
+      font-size: clamp(1rem, 1.5vw, 1.05rem);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+}
+
+
+.home-overline {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 700;
+      font-size: .8rem;
+      color: var(--color-text);
+      text-align: center;
+      margin: 0 0 .5rem;
+}
+
+/*  */
+
+
+
+/*  */
+
+.btn-light {
+      background: var(--color-bg-secondary);
+      color: var(--color-text);
+      border: 1px solid var(--color-border) !important;
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(10px);
+}
+
+.btn-light:hover {
+      background: var(--color-bg-tertiary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+}
+
+.btn-dark {
+      background: var(--color-text);
+      color: var(--color-bg);
+      border: 1px solid var(--color-text) !important;
+      box-shadow: var(--shadow-lg);
+}
+
+.btn-dark:hover {
+      background: var(--color-text-secondary);
+      border-color: var(--color-text-secondary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-xl);
+}
+
+.minimal-mockup {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--color-bg-secondary);
+      border: 2px solid var(--color-border);
+      padding: 2px;
+      box-shadow: var(--shadow-2xl);
+      transition: all 0.3s ease;
+}
+
+.minimal-mockup:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.25);
+}
+
+.minimal-mockup img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: inherit;
+      max-width: 100%;
+      object-fit: contain;
+}
+
+/* Decorative squares around hero text */
+.home-hero {
+      position: relative;
+      isolation: isolate;
+}
+
+/* Ensure all images are responsive */
+.minimal-mockup img {
+      max-width: 100%;
+      height: auto;
+}
+
+/* Theme-adaptive hero screenshots */
+[data-theme="dark"] .mockup-light,
+[data-theme="light"] .mockup-dark {
+      display: none;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| EXTRA COMPONENTS (PILLS, ICONS, etc.)
+|--------------------------------------------------------------------------
+*/
+.pill {
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+      display: inline-block;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+}
+
+.pill:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+}
+
+.pill-soft {
+      background: linear-gradient(135deg, rgba(129, 180, 65, 0.15) 0%, rgba(129, 180, 65, 0.25) 100%);
+      border: 1px solid var(--color-primary);
+      padding: 0.4rem 0.8rem;
+      box-shadow: var(--shadow-md);
+      color: var(--color-primary-dark);
+      backdrop-filter: blur(10px);
+}
+
+.pill-strong {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+}
+
+.icon-grid {
+      display: grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: #f6f7f8;
+      border: 1px solid rgba(17, 17, 17, .06);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, .06);
+      font-size: 1.25rem;
+}
+
+/* Mini stat (avatars + text) */
+.mini-stat {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: 3rem;
+      color: var(--color-text);
+}
+
+.stat-text {
+      font-size: .92rem;
+      opacity: .8;
+}
+
+
+.avatar-group {
+      display: flex;
+      align-items: center;
+}
+
+.avatar-group .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
+      margin-left: -10px;
+      background: #ddd;
+}
+
+.avatar-group .avatar:first-child {
+      margin-left: 0;
+}
+
+.stat-text {
+      font-size: .92rem;
+      opacity: .8;
+}
+
+.stat-text strong {
+      opacity: 1;
+}
+
+
+/* ==========================================
+   RESPONSIVE BREAKPOINTS - HERO SECTION
+========================================== */
+
+
+@media (min-width: 620px) {
+
+      .home-hs-text-content {
+            width: 80%;
+      }
+}
+
+@media (min-width: 768px) {
+
+      .home-hs-text-content {
+            width: 75%;
+
+            & .home-hs-subtitle {
+                  max-width: 65%;
+            }
+      }
+}
+
+@media (min-width: 992px) {
+      .home-hs-text-content {
+            width: 60%;
+
+            & .home-hs-subtitle {
+                  max-width: calc(100% - 14rem);
+                  /* background-color: blue; */
+            }
+      }
+
+}
+
+@media (min-width: 1200px) {
+      .home-hs-text-content {
+            width: 67%;
+
+            & .home-hs-subtitle {
+                  max-width: calc(100% - 17rem);
+                  /* background-color: green; */
+            }
+      }
+}
+
+/* Theme: lighten the hero grid so it stays visible on the dark background */
+[data-theme="dark"] #hero_minimal::before {
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
+}
+/* Hero text: constrain width + clamp children so the heading never overflows on mobile
+   (align-items:center otherwise sizes children to their max-content width). */
+.home-hs-text-content {
+      width: 100%;
+      max-width: 42rem;
+      margin-inline: auto;
+}
+.home-hs-text-content > * {
+      max-width: 100%;
+}

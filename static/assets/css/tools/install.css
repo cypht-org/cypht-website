@@ -1,0 +1,1282 @@
+.install-container {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+}
+
+/* Hero padding harmonized with other pages */
+.install-hero-container {
+      padding: var(--hero-padding-md) !important;
+}
+
+/* Anchor offset: avoid content hidden under sticky navbar */
+#installation_methods,
+#guide,
+#guide_content {
+      scroll-margin-top: 5rem;
+}
+
+/* Dynamic guide content (loaded markdown) */
+#guide_content [id] {
+      scroll-margin-top: 5rem;
+}
+
+/* Hero Visual - Terminal */
+.install-hero-visual {
+      position: relative;
+      z-index: 3;
+      animation: fadeInRight 1s ease-out 0.4s both;
+}
+
+.terminal-window {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      box-shadow: var(--shadow-2xl);
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      width: 100%;
+      max-width: 580px;
+      min-width: 480px;
+      height: 480px;
+      display: flex;
+      flex-direction: column;
+}
+
+.terminal-window::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg,
+                  rgba(0, 0, 0, 0.02) 0%,
+                  transparent 100%);
+      pointer-events: none;
+      border-radius: 12px;
+      z-index: 0;
+}
+
+.terminal-window:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-3xl);
+}
+
+.terminal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      background: var(--color-bg-tertiary);
+      border-bottom: 1px solid var(--color-border);
+}
+
+.terminal-buttons {
+      display: flex;
+      gap: 0.5rem;
+}
+
+.terminal-btn {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      transition: transform 0.2s ease;
+}
+
+.terminal-btn:hover {
+      transform: scale(1.1);
+}
+
+.terminal-btn-red {
+      background: #ff5f57;
+}
+
+.terminal-btn-yellow {
+      background: #ffbd2e;
+}
+
+.terminal-btn-green {
+      background: #28ca42;
+}
+
+.terminal-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+}
+
+.terminal-body {
+      padding: 1.5rem;
+      font-family: var(--font-family-monospace);
+      font-size: 0.78rem;
+      line-height: 1.6;
+      min-height: 260px;
+      height: calc(100% - 60px);
+      /* Subtract header height */
+      flex: 1;
+      /* overflow-y: auto; */
+      overflow: hidden;
+      background: var(--color-bg-secondary);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+}
+
+/* Custom scrollbar for terminal body */
+.terminal-body::-webkit-scrollbar {
+      width: 6px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+      background: var(--color-bg-tertiary);
+      border-radius: 3px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+      background: var(--color-border);
+      border-radius: 3px;
+      transition: background 0.2s ease;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+      background: var(--color-text-secondary);
+}
+
+/* Terminal line base styles */
+.terminal-line {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      transform: translateX(-15px);
+      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+            transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: opacity, transform;
+}
+
+.terminal-prompt {
+      color: var(--color-primary);
+      font-weight: 600;
+      user-select: none;
+      flex-shrink: 0;
+      opacity: 1;
+      transform: translateX(0);
+}
+
+/* Hide all commands and outputs by default */
+.cmd,
+.output {
+      opacity: 0;
+      transform: translateX(-10px);
+}
+
+/* Cursor blink animation - for typing effect */
+@keyframes cursorBlink {
+
+      0%,
+      45% {
+            border-right-color: var(--color-primary);
+            opacity: 1;
+      }
+
+      46%,
+      100% {
+            border-right-color: transparent;
+            opacity: 0.3;
+      }
+}
+
+.cmd {
+      display: inline-block;
+      overflow: visible;
+      white-space: nowrap;
+      border-right: 2px solid var(--color-primary);
+      color: var(--color-text);
+      font-weight: 500;
+      position: relative;
+      padding-right: 2px;
+      min-height: 1.2em;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      transform: translateX(0);
+}
+
+/* Show command when it starts typing */
+.cmd.typing-cursor {
+      opacity: 1;
+      animation: cursorBlink 1s step-end infinite;
+}
+
+/* Remove cursor after typing completes */
+.cmd:not(.typing-cursor) {
+      border-right: none;
+      padding-right: 0;
+      animation: none;
+}
+
+/* Output animations with smooth slide and fade */
+@keyframes slideInFade {
+      0% {
+            opacity: 0;
+            transform: translateX(-10px) translateY(-3px);
+      }
+
+      100% {
+            opacity: 1;
+            transform: translateX(0) translateY(0);
+      }
+}
+
+.output {
+      animation: slideInFade 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      margin-left: 1rem;
+      padding-left: 0.5rem;
+      border-left: 2px solid transparent;
+      transition: border-left-color 0.3s ease,
+            padding-left 0.3s ease,
+            transform 0.2s ease;
+      position: relative;
+}
+
+.output::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--color-primary);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+}
+
+.output:hover {
+      border-left-color: var(--color-primary);
+      padding-left: 0.75rem;
+      transform: translateX(2px);
+}
+
+.output:hover::before {
+      opacity: 0.3;
+}
+
+.terminal-success {
+      color: var(--color-success);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      animation: successPulse 0.6s ease-out;
+      animation-delay: inherit;
+}
+
+.terminal-info {
+      color: var(--color-accent);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      animation: infoGlow 0.6s ease-out;
+      animation-delay: inherit;
+}
+
+.terminal-info-server {
+      color: var(--color-accent);
+      font-size: .78rem;
+      font-weight: 500;
+      animation: infoGlow 0.6s ease-out;
+      animation-delay: inherit;
+}
+
+@keyframes successPulse {
+      0% {
+            transform: scale(0.95);
+            opacity: 0;
+      }
+
+      50% {
+            transform: scale(1.02);
+      }
+
+      100% {
+            transform: scale(1);
+            opacity: 1;
+      }
+}
+
+@keyframes infoGlow {
+      0% {
+            opacity: 0;
+            filter: brightness(0.8);
+      }
+
+      100% {
+            opacity: 1;
+            filter: brightness(1);
+      }
+}
+
+/* Line appearance animation */
+@keyframes lineAppear {
+      0% {
+            opacity: 0;
+            transform: translateX(-15px);
+      }
+
+      100% {
+            opacity: 1;
+            transform: translateX(0);
+      }
+}
+
+/* Step 1 - First command and output */
+.line-step-1 {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 0.3s;
+}
+
+.step-1 {
+      animation-delay: 0.5s;
+}
+
+.line-step-1-out {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 2.8s;
+}
+
+.step-1-out {
+      animation-delay: 3s;
+}
+
+/* Step 2 - Second command (cd cypht) */
+.line-step-2 {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 4.3s;
+}
+
+.step-2 {
+      animation-delay: 4.5s;
+}
+
+/* Step 3 - Third command (composer install) and output */
+.line-step-3 {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 6.3s;
+}
+
+.step-3 {
+      animation-delay: 6.5s;
+}
+
+.line-step-3-out {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 8.8s;
+}
+
+.step-3-out {
+      animation-delay: 9s;
+}
+
+/* Step 4 - Fourth command (cp .env.example .env) and output */
+.line-step-4 {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 10.3s;
+}
+
+.step-4 {
+      animation-delay: 10.5s;
+}
+
+.line-step-4-out {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 12.8s;
+}
+
+/* Override output animation for step-4-out to ensure it displays */
+.line-step-4-out.output {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+      animation-delay: 12.8s !important;
+}
+
+.step-4-out {
+      animation-delay: 13s;
+}
+
+/* Step 5 - Fifth command (php ./scripts/config_gen.php) and output */
+.line-step-5 {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 14.3s;
+}
+
+.step-5 {
+      animation-delay: 14.5s;
+}
+
+.line-step-5-out {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 16.3s;
+}
+
+.step-5-out {
+      animation-delay: 16.5s;
+}
+
+/* Step 6 - Sixth command (php -S localhost:7777) and output */
+.line-step-6 {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 18.3s;
+}
+
+.step-6 {
+      animation-delay: 18.5s;
+}
+
+.line-step-6-out {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 20.3s;
+}
+
+/* Override output animation for step-6-out to ensure it displays */
+.line-step-6-out.output {
+      animation: lineAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+      animation-delay: 20.3s !important;
+}
+
+.step-6-out {
+      animation-delay: 20.5s;
+}
+
+/* ─── Installation Methods ───────────────────────────────────────────────── */
+
+.imth-container {
+      width: 100%;
+      max-width: var(--container-6xl);
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      position: relative;
+}
+
+.imth-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+}
+
+.imth-header h3 {
+      color: var(--color-text);
+      /* font-size: clamp(1.75rem, 4vw, 2.5rem); */
+      font-weight: 600;
+      margin-top: .3rem;
+      line-height: 1.2;
+}
+
+.imth-header .install-methods-subtitle {
+      color: var(--color-text-secondary);
+      font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+}
+
+.imth-content {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.25rem;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0;
+      position: relative;
+      z-index: 1;
+}
+
+.imth-card {
+      background: var(--color-bg);
+      border-radius: 16px;
+      border: .8px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+}
+
+.imth-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+}
+
+.imth-card[data-method] {
+      cursor: pointer;
+}
+
+.imth-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-primary);
+}
+
+.imth-card:hover::before {
+      opacity: 1;
+}
+
+.imth-card:active {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+}
+
+.imth-card-header {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 0.25rem;
+}
+
+.imth-card-header-icon {
+      padding: .6rem .7rem;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--color-text);
+      background-color: #FCFCFC;
+      border: 1px solid var(--color-border);
+      transition: all 0.3s ease;
+
+      & svg {
+            width: 22px;
+            height: 22px;
+      }
+}
+
+
+.imth-card:hover .imth-card-header-icon {
+      transform: scale(1.05) rotate(3deg);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon colors matching the image style */
+/* .imth-icon-manual {
+      background: linear-gradient(135deg, #3b82f6 0%, var(--blue-600) 100%);
+}
+
+.imth-icon-docker {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.imth-icon-yuno {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+}
+
+.imth-icon-tiki {
+      background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+} */
+
+.imth-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+}
+
+.imth-card-title {
+      font-size: clamp(.97rem, 2vw, 1.1rem);
+      font-weight: 700;
+      color: var(--color-text);
+      margin: 0;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+}
+
+.imth-card-description {
+      font-size: clamp(0.875rem, 1.8vw, 0.9375rem);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin: 0;
+      flex: 1;
+}
+
+/* Doc Content */
+
+.guide-container {
+      width: 100%;
+      display: flex;
+      flex-direction: row !important;
+}
+
+.guide-content {
+      min-height: 400px;
+      width: 100%;
+      display: flex;
+      margin: 0 !important;
+      gap: 1.5rem;
+}
+
+/* +- Guide Navbar */
+.guide-nav {
+      padding: 0 !important;
+      margin: 0 !important;
+}
+
+.guide-nav-content {
+      position: sticky;
+      top: 8rem;
+}
+
+.guide-nav-header h5 {
+      font-weight: 600;
+      font-size: .92rem;
+      margin-top: .3rem;
+}
+
+.guide-nav-header p {
+      font-size: .8rem;
+      opacity: .9;
+      line-height: 1.5;
+}
+
+
+#guide_nav_list {
+      width: 100%;
+      list-style: none;
+      margin: 0 !important;
+      margin-top: .8rem !important;
+      position: relative;
+      padding: .4rem 0 !important;
+
+}
+
+#guide_nav_list::before {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 100%;
+      top: 0;
+      border-right: 1px solid var(--color-border);
+}
+
+#guide_nav_list li {
+      padding: 0 !important;
+      margin: 0 !important;
+      position: relative;
+}
+
+#guide_nav_list li button {
+      text-decoration: none;
+      color: var(--color-text);
+      transition: all .2s ease-in-out;
+      font-size: .845rem;
+      font-weight: 500;
+      min-height: inherit !important;
+      text-transform: capitalize;
+      line-height: 1.5;
+      opacity: .4;
+      padding-left: 1.5rem;
+      border: none;
+      background-color: transparent;
+      text-align: left;
+      border-radius: 5px;
+      transition: all .2s ease-in-out;
+      cursor: pointer;
+}
+
+#guide_nav_list li button:hover {
+      color: var(--color-primary);
+      opacity: 1 !important;
+      margin-left: .3rem;
+}
+
+.guide-menu-active {
+      opacity: 1 !important;
+      color: var(--color-text) !important;
+      margin-left: 0 !important;
+      font-weight: 600 !important;
+}
+
+.guide-menu-active::before {
+      content: "";
+      position: absolute;
+      top: 25%;
+      left: .6rem;
+      padding: .4rem 2px;
+      border-radius: 4px;
+      height: 5px;
+      background-color: var(--color-primary);
+}
+
+
+/* Manual Style Doc */
+.guide-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+}
+
+.guide-left h1,
+.guide-left h2,
+.guide-left h3,
+.guide-left h4,
+.guide-left h5 {
+      color: var(--color-text);
+      margin: .6rem 0 .4rem 0;
+      font-weight: 600;
+}
+
+.guide-left h2 {
+      font-weight: 700;
+      letter-spacing: -0.01em;
+}
+
+.guide-left p,
+.list_letter li span {
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin: .3rem 0 .8rem 0;
+      font-size: .96rem;
+      font-weight: 400;
+      overflow-wrap: break-word;
+}
+
+.guide-left ul,
+.guide-left ol {
+      padding-left: 1.25rem;
+      margin: .4rem 0 .9rem 0;
+}
+
+.list_letter {
+      padding-left: 0 !important;
+}
+
+.guide-left li {
+      margin: .25rem 0;
+}
+
+.guide-page-header h3 {
+      font-weight: 600;
+}
+
+/*+- Links */
+.guide-left a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all .2s ease-in-out;
+      font-size: .85rem;
+      margin: 0 .15rem;
+      background-color: #F5F5F5;
+      border-radius: 5px;
+      padding: .2rem .6rem;
+      border: 1px solid #e2e2e262;
+      max-width: 100%;
+      white-space: normal;
+      overflow-wrap: break-word;
+      /* Break long words if needed */
+      word-break: break-word;
+}
+
+.guide-left a:hover {
+      text-decoration: underline;
+      font-weight: 600;
+}
+
+.g-page-card {
+      /* margin-top: 2.5rem; */
+      border-top: 1px dashed var(--color-border);
+      padding-top: 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+}
+
+.g-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      margin-top: .8rem;
+}
+
+
+
+.gpc-body-title {
+      font-size: clamp(.97rem, 2vw, 1.1rem);
+      font-weight: 600 !important;
+      display: block;
+      margin-bottom: .7rem;
+      text-transform: capitalize;
+}
+
+.list_letter {
+      list-style: none;
+}
+
+.list_letter li {
+      counter-increment: lettre;
+}
+
+.list_letter li::before {
+      content: counter(lettre, lower-alpha) ". ";
+      font-weight: 600;
+      font-size: .9rem;
+}
+
+/* +- code card */
+.guide-left code {
+      background-color: #f4f4f4;
+      color: #d63384;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: 'Inconsolata', 'SF Mono', 'Monaco', 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+      font-size: .8rem !important;
+      font-weight: 600;
+}
+
+/* Terminal header bar effect (optional) */
+
+/* Code preview/copy styles: regroupés dans static/assets/css/code-preview.css */
+
+.terminal-comment {
+      text-transform: capitalize;
+      font-weight: 500;
+      font-size: .87rem;
+}
+
+/* +- Tabs */
+
+.system-tabs {
+      border-bottom: 1px solid var(--color-border);
+      margin-top: 2rem !important;
+      padding-bottom: .3rem !important;
+      margin-bottom: .5rem !important;
+      display: flex;
+      gap: .3rem;
+      padding-left: 0 !important;
+      padding-left: 0 !important;
+}
+
+.tab-item {
+      padding: 0 !important;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+}
+
+.tab-link {
+      background-color: transparent !important;
+      border: none !important;
+      text-decoration: none !important;
+      color: var(--color-text) !important;
+      font-size: .88rem !important;
+      font-weight: 600 !important;
+      transition: all ease 1s;
+      margin: 0 !important;
+      min-height: inherit;
+      position: relative;
+      opacity: .5;
+      transition: all ease 1s;
+}
+
+.tab-link:hover {
+      opacity: 1;
+}
+
+.tab-item svg {
+      height: 26px !important;
+      width: 26px !important;
+}
+
+.tab-link.active {
+      opacity: 1;
+}
+
+.tab-link.active::after {
+      content: "";
+      position: absolute;
+      bottom: -.66rem;
+      border-radius: 4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-primary) !important;
+}
+
+/* +- Short menu */
+.guide-actions {
+      display: none;
+      padding: 0 .5rem;
+}
+
+.guide-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .55rem .9rem;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--color-text);
+      background: #fff;
+      transition: transform .15s ease, background .15s ease;
+}
+
+.guide-content .guide-actions a:hover {
+      transform: translateY(-1px);
+      background: var(--color-bg-secondary);
+}
+
+.sub-item-list {
+      list-style: none;
+      padding: 0 0 0 .7rem;
+      margin: 0;
+      border-left: 1.2px solid var(--color-border);
+}
+
+.sub-item-list a {
+      text-decoration: none;
+}
+
+#ga-content-nav .item-group::before {
+      content: "";
+      position: absolute;
+      background-color: var(--color-bg-strong);
+      width: 2px;
+      top: 1.8rem;
+      bottom: -.5rem;
+      left: -.88rem;
+      z-index: inherit;
+}
+
+.g-warning-card {
+      background-color: #FFE696;
+      padding: .6rem;
+      box-shadow: var(--shadow-md);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-bottom: .6rem;
+}
+
+.g-warning-card-icon i {
+      font-size: 1.2rem;
+}
+
+.g-warning-card-text {
+      font-size: .87rem;
+      font-weight: 500;
+}
+
+.g-warning-card-text a.link-alert-card {
+      background-color: transparent !important;
+      padding: 0;
+      font-weight: 600;
+}
+
+/* Short menu for guide */
+.g-short-nav {
+      display: inline-flex;
+      flex-direction: column;
+      position: sticky;
+      top: 8rem;
+}
+
+.ga-content-header-title {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+}
+
+.ga-content-header-title svg {
+      height: 1.2rem !important;
+}
+
+#ga-content-nav {
+      list-style: none;
+      padding-left: 0;
+      border-left: 1px solid var(--color-border);
+      padding-left: .8rem;
+      padding-bottom: 0.2rem;
+      margin-left: .3rem;
+}
+
+.ga-content-header {
+      font-size: 0.82rem;
+      color: #333;
+      font-weight: 600;
+      padding-top: .8rem;
+}
+
+#ga-content-nav li,
+.item-gr-title {
+      position: relative;
+}
+
+#ga-content-nav li a {
+      font-size: .78rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #555555c5;
+      transition: all 0.2s ease;
+      opacity: .5;
+      background-color: transparent !important;
+      min-height: inherit !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+}
+
+.sub-item-list {
+      list-style: none;
+      padding-left: .7rem !important;
+      margin: 0;
+      border-left: 1px solid var(--color-border);
+}
+
+.sub-item-list a {
+      text-decoration: none;
+}
+
+.item-group::before {
+      content: "";
+      position: absolute;
+      background-color: var(--color-bg-strong);
+      width: 2px;
+      top: 1.8rem;
+      bottom: -.5rem;
+      left: -.88rem;
+}
+
+.item-group .cc-line-top {
+      width: 10.5px;
+      height: 7.5px;
+      left: -.6rem;
+      top: -.45rem;
+}
+
+.item-group .cc-line-bottom {
+      width: 9.3px;
+      bottom: -.49rem;
+      height: 2px;
+      z-index: 20;
+}
+
+
+/*  */
+.guide-page-menu-active {
+      opacity: 1 !important;
+      color: var(--color-text) !important;
+      margin-left: 0 !important;
+      font-weight: 600 !important;
+}
+
+.guide-page-menu-active::before {
+      content: "";
+      position: absolute;
+      top: 25%;
+      left: -.97rem !important;
+      padding: .4rem 2px;
+      border-radius: 4px;
+      height: 5px;
+      background-color: var(--color-primary);
+}
+
+.sub-item-list .guide-page-menu-active::before {
+      left: -.89rem;
+}
+
+/* Mobile Menu */
+.mobi-nav-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .3rem;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      background-color: var(--color-bg-strong);
+      border-bottom: 1px solid var(--color-border);
+      width: 100%;
+      height: 4rem;
+      position: sticky;
+      top: 4.2rem;
+      z-index: 100;
+      margin-bottom: 2.5rem;
+      padding: 0 1rem;
+}
+
+.mobi-nav-icon {
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .9rem;
+      font-weight: 500;
+      color: var(--color-text);
+}
+
+.mobi-nav-icon svg {
+      height: 1.45rem;
+      width: 1.45rem;
+      color: var(--color-text);
+}
+
+.mobi-nav-content .custom-select .selected-text,
+.mobi-nav-content .custom-select .select-menu li {
+      font-size: .85rem !important;
+      text-transform: capitalize;
+}
+
+.mobi-nav-content .custom-select .select-btn {
+      height: 2.3rem;
+}
+
+.mobi-nav-content .custom-select .select-menu {
+      background: var(--color-bg-strong);
+      width: calc(100% + 2rem);
+      right: 0;
+
+}
+
+/* Responsive */
+@media (min-width: 600px) {
+
+      .imth-header p {
+            width: 50%;
+            margin: 0 auto;
+      }
+
+      .imth-content {
+            grid-template-columns: repeat(2, 1fr);
+      }
+}
+
+@media (min-width: 768px) {
+
+      .imth-content {
+            padding: 0 4rem;
+      }
+
+      .guide-container {
+            max-width: var(--container-5xl) !important;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+      }
+
+      .mobi-nav-content {
+            /* max-width: calc(var(--container-3xl) - 4.5rem); */
+            /* margin: 0 auto; */
+            width: calc(100% - 4.5rem);
+            padding: 0;
+            margin-bottom: 2.5rem;
+      }
+
+}
+
+@media (min-width: 992px) {
+      .imth-content {
+            /* background-color: green; */
+            padding: 0 8rem;
+      }
+
+      .guide-container {
+            max-width: var(--container-6xl) !important;
+            margin: 0 auto;
+
+      }
+
+      .list_letter {
+            padding-left: 1.25rem !important;
+      }
+
+
+}
+
+@media (min-width: 1200px) {
+      .guide-actions {
+            display: block;
+      }
+}
+
+
+[data-theme="dark"] {
+
+      .imth-card-header-icon {
+            background-color: var(--clr-card-bg);
+            border: .8px solid var(--color-border);
+      }
+
+      #ga-content-nav .item-group::before {
+            background-color: var(--color-bg);
+      }
+
+      /*Terminal*/
+      .terminal-header {
+            background: var(--clr-card-bg);
+            border-bottom: 1px solid var(--color-border);
+      }
+
+      .terminal-body {
+            background: var(--clr-dark-card-second);
+      }
+
+      /* Methods Cards */
+
+      .install-methods-subtitle {
+            color: var(--color-text);
+            opacity: .8;
+      }
+
+      .imth-card {
+            background: var(--clr-card-bg);
+
+      }
+
+      .imth-card:hover {
+            opacity: .8;
+            border: .7px solid var(--color-primary);
+      }
+
+      /* Doc Content */
+
+      .guide-menu-active::before,
+      .guide-page-menu-active::before,
+      .tab-link.active::after {
+            background: linear-gradient(135deg, rgba(128, 180, 65, 0.532) 0%, rgba(128, 180, 65, 0.532) 100%);
+            border: .8px solid var(--color-primary);
+      }
+
+
+      /*  */
+      .guide-left a {
+            background-color: var(--clr-dark-card-second);
+            border: 1px solid var(--color-border);
+      }
+
+      .g-warning-card {
+            background-color: rgba(233, 182, 13, 0.527);
+            border: 1px solid var(--color-border);
+      }
+
+      .g-warning-card-icon i,
+      .g-warning-card-text {
+            color: #353434;
+      }
+
+      .g-warning-card-text a.link-alert-card {
+            border: none;
+      }
+}

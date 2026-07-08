@@ -1,60 +1,3301 @@
-<form id="config-generator">
-    <h1>Cypht Config Generator</h1>
-    <blockquote>
-        Click any of the options below to configure Cypht!<br>
-        On the bottom of the page you can find a button to generate your .env
-    </blockquote>
-    {% for file in site.data.configFiles %}
-    <details>
-        <summary class="h4">
-            <h2 class="h4">{{file | replace({".php": ""})}}</h2>
-        </summary>
-        {% for option in site.data.configOptions[file] %}
-        {% set select = option.inputType == "select" %}
-        {% set inputId = option.key ~ "_CCGINPUT" %}
-        <fieldset id="{{option.key}}">
-            <legend>
-                <h3>{{option.key}}</h3>
-            </legend>
-            <label for="{{inputId}}">{{option.commentHtml}}</label>
-            {% if option.valueDefault %}<p>Default: {{option.valueDefault}}</p>{% endif %}
+{% set config_menu = [
+  {
+    id: 0,
+    title: 'App Config',
+    href: '#app-configuration',
+    children: [
+      {
+        id: 0,
+        title: 'General',
+        href: '#general'
+      },
+      {
+        id: 1,
+        title: 'Session',
+        href: '#session'
+      },
+      {
+        id: 2,
+        title: 'Auth',
+        href: '#auth'
+      },
+      {
+        id: 3,
+        title: 'User',
+        href: '#user'
+      },
+      {
+        id: 4,
+        title: 'Security',
+        href: '#security'
+      },
+      {
+        id: 5,
+        title: 'Cache',
+        href: '#cache'
+      },
+      {
+        id: 6,
+        title: 'User Interface',
+        href: '#user_interface'
+      },
+      {
+        id: 7,
+        title: 'Redirection',
+        href: '#redirect'
+      },
+      {
+        id: 8,
+        title: 'Logging System',
+        href: '#logging_system'
+      }
+    ]
+  },
+  {
+    id: 1,
+    title: 'Database',
+    href: '#database',
+    children: []
+  },
+  {
+    id: 2,
+    title: '2FA',
+    href: '#twofa',
+    children: []
+  },
+  {
+    id: 3,
+    title: 'Carddav',
+    href: '#carddav',
+    children: []
+  },
+  {
+    id: 4,
+    title: 'Dynamic login',
+    href: '#dynamic_login',
+    children: []
+  },
+  {
+    id: 5,
+    title: 'Github',
+    href: '#github',
+    children: []
+  },
+  {
+    id: 6,
+    title: 'LDAP',
+    href: '#ldap',
+    children: []
+  },
+  {
+    id: 7,
+    title: 'OAuth2',
+    href: '#oauth2',
+    children: [
+      {
+        id: 0,
+        title: 'Gmail',
+        href: '#gmail'
+      },
+      {
+        id: 1,
+        title: 'Outlook',
+        href: '#outlook'
+      },
+      {
+        id: 2,
+        title: 'Office 365',
+        href: '#office365'
+      }
+    ]
+  },
+  {
+    id: 8,
+    title: 'ReCaptcha',
+    href: '#recaptcha',
+    children: []
+  },
+  {
+    id: 8,
+    title: 'Wordpress',
+    href: '#wordpress',
+    children: []
+  }
+] %}
 
-            {% if not select %}
-            <input id="{{inputId}}" type="{{option.inputType}}" name="{{option.key}}"
-                data-default="{{option.valueDefault}}" {% if option.valueDefault %} {% if option.inputType=="checkbox"
-                and option.valueDefault=="true" %} checked {% else %} value="{{option.valueDefault}}" {% endif %}
-                {% endif %} />
-            {% else %}
-            <select class="btn btn-light text-left" id="{{inputId}}" name="{{option.key}}" data-default="{{option.valueDefault}}">
-                {% for setValue in option.setValues %}
-                <option value="{{setValue.value}}">{{setValue.value}} - {{setValue.description}}</option>
+{# Template #}
+<section>
+  <div class="">
+    {# Floating btn #}
+    <div class="floating-btn-container w-100 d-flex d-xl-none">
+      <div class="floating-btn-content position-relative">
+        <button
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"
+        >
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+            <!-- Icon from Huge Icons by Hugeicons - undefined -->
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M5.061 20.045C6.375 21 8.251 21 12 21s5.625 0 6.939-.955a5 5 0 0 0 1.106-1.106C21 17.625 21 15.749 21 12s0-5.625-.955-6.939a5 5 0 0 0-1.106-1.106C17.625 3 15.749 3 12 3s-5.625 0-6.939.955A5 5 0 0 0 3.955 5.06C3 6.375 3 8.251 3 12s0 5.625.955 6.939a5 5 0 0 0 1.106 1.106M17 18l1-1m-5 1l5-5m-9 5l9-9"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="config-gen-container">
+      <div class="config-content row">
+        <div class="config-left d-none d-md-block col-md-3 col-xl-2">
+          <nav>
+            <div class="config-left-header">
+              <div class="">
+                <h6>Config menu</h6>
+                <p>
+                  Choose a config to generate
+                </p>
+              </div>
+            </div>
+            <div class="config-generator-list-container pb-5">
+              <ul class="config-generator-list ms-1">
+                {% for item in config_menu %}
+                  {% if item.children is defined and (item.children|length) > 1 %}
+                    <li class="position-relative cg-menu-group">
+                      <span
+                        href=" {{ item.href }} "
+                        class="text-capitalize cg-menu-group-title"
+                        data-id=" {{ item.id }} "
+                      >
+                        {{ item.title }}
+                      </span>
+                      <div class="position-relative">
+                        <div class="cc-line-top"></div>
+                        <ul class="group-list">
+                          {% for child in item.children %}
+                            <li class="position-relative">
+                              <a href="{{ child.href }}" data-id="{{ child.id }}">{{ child.title }}</a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                        <div class="cc-line-bottom"></div>
+                      </div>
+                    </li>
+                  {% else %}
+                    <li class="position-relative cg-menu-alone">
+                      <a href="{{ item.href }}" class="config-generator-link text-capitalize" data-id="{{ item.id }}">
+                        {{ item.title }}
+                      </a>
+                    </li>
+                  {% endif %}
                 {% endfor %}
-            </select>
-            {% endif %}
-            <button class="reset btn btn-light">Reset</button>
-        </fieldset>
-        {% endfor %}
-    </details>
-    <hr>
-    {% endfor %}
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div id="app_config" class="config-center col">
+          {# App config #}
+          <div class="config-content-item">
+            <div class="config-content-item-header">
+              <div class="cc-item-top">
+                <div class="cc-item-top-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    >
+                      <path d="M7 21h10" />
+                      <rect width="20" height="14" x="2" y="3" rx="2" />
+                    </g>
+                  </svg>
+                </div>
+                <div class="cc-item-top-text">
+                  <h5>App Config</h5>
+                  <p>
+                    Configure your Cypht application's core settings. Customize the basic behavior, display preferences,
+                    and essential features for an optimal user experience.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Section General -->
+            <div class="config-content-item" id="general">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span>General Settings</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('general')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field">
+                  <label for="app_name" class="form-field-label">Application Name</label>
+                  <input
+                    type="text"
+                    name="APP_NAME"
+                    id="app_name"
+                    class="form-input"
+                    placeholder="Cypht"
+                    value="Cypht"
+                  />
+                  <div class="form-field-description">
+                    Name of your application
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="admin_users" class="form-field-label">Admin Users</label>
+                  <input
+                    type="text"
+                    name="ADMIN_USERS"
+                    id="admin_users"
+                    class="form-input"
+                    placeholder="admin@example.com"
+                  />
+                  <div class="form-field-description">
+                    Comma-separated list of admin user emails
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="default_language" class="form-field-label">Default Language</label>
+                  <input
+                    type="text"
+                    name="DEFAULT_LANGUAGE"
+                    id="default_language"
+                    class="form-input"
+                    placeholder="en"
+                    value="en"
+                  />
+                  <div class="form-field-description">
+                    Default language code (e.g., en, fr, de)
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="always_mobile_ui" class="form-switch-label">Always Use Mobile UI</label>
+                    <input name="ALWAYS_MOBILE_UI" class="form-check-input" type="checkbox" id="always_mobile_ui" />
+                  </div>
+                  <div class="form-field-description">
+                    Force mobile UI for all devices
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="single_server_mode" class="form-switch-label">Single Server Mode</label>
+                    <input name="SINGLE_SERVER_MODE" class="form-check-input" type="checkbox" id="single_server_mode" />
+                  </div>
+                  <div class="form-field-description">
+                    Enable single server mode
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div>
+                    <label for="cypht_modules" class="form-field-label mb-0">Cypht Modules</label>
+                    <p class="form-simple-description">
+                      Comma-separated list of enabled modules
+                    </p>
+                  </div>
+                  <div class="ms-2 me-1">
+                    <div id="module-zone" class="ms-2"></div>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="fancy_login" class="form-switch-label">Fancy Login Page</label>
+                    <input name="FANCY_LOGIN" class="form-check-input" type="checkbox" id="fancy_login" />
+                  </div>
+                  <div class="form-field-description">
+                    Enable fancy login page design
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="api_login_key" class="form-field-label">API Login Key</label>
+                  <input type="text" name="API_LOGIN_KEY" id="api_login_key" class="form-input" placeholder="" />
+                  <div class="form-field-description">
+                    API login key for authentication
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="win_cacert_dir" class="form-field-label">Windows CA Certificate Directory</label>
+                  <input
+                    type="text"
+                    name="WIN_CACERT_DIR"
+                    id="win_cacert_dir"
+                    class="form-input"
+                    placeholder="Enter the path to the CA certificates for Windows"
+                    value="c:\php\extras\ssl\cacert.pem"
+                  />
+                  <div class="form-field-description">
+                    Path to CA certificates for Windows (get from https://curl.se/ca/cacert.pem)
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <hr>
+            <!-- Section Session -->
+            <div class="config-content-item" id="session">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span>Session</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('session')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field">
+                  <label for="session_type" class="form-field-label">Session Type</label>
+                  <select name="SESSION_TYPE" id="session_type" class="form-select">
+                    <option value="PHP">
+                      Standard PHP session handlers
+                    </option>
+                    <option value="DB">
+                      Custom database based sessions
+                    </option>
+                    <option value="MEM">
+                      Custom Memcached based sessions
+                    </option>
+                    <option value="REDIS">
+                      Custom Redis based sessions
+                    </option>
+                    <option value="custom">
+                      Create your own session class
+                    </option>
+                  </select>
+                  <div class="form-field-description">
+                    Choose how to handle user sessions
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="session_class" class="form-field-label">Session Class</label>
+                  <input type="text" name="SESSION_CLASS" id="session_class" class="form-input" placeholder="" />
+                  <div class="form-field-description">
+                    Custom session class name (if using custom session type)
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="allow_session_cache" class="form-switch-label">Allow Session Cache</label>
+                    <input
+                      name="ALLOW_SESSION_CACHE"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="allow_session_cache"
+                    />
+                  </div>
+                  <div class="form-field-description">
+                    Enable session caching
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="allow_long_session" class="form-switch-label">Allow Long Sessions</label>
+                    <input name="ALLOW_LONG_SESSION" class="form-check-input" type="checkbox" id="allow_long_session" />
+                  </div>
+                  <div class="form-field-description">
+                    Allow extended session lifetime
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="long_session_lifetime" class="form-field-label">Long Session Lifetime (days)</label>
+                  <input
+                    type="number"
+                    name="LONG_SESSION_LIFETIME"
+                    id="long_session_lifetime"
+                    class="form-input"
+                    placeholder="30"
+                    value="30"
+                  />
+                  <div class="form-field-description">
+                    Lifetime for long sessions in days
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Section Authentification -->
+            <div class="config-content-item" id="auth">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span>Authentication</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('auth')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field">
+                  <label for="auth_type" class="form-field-label">Authentication Type</label>
+                  <select name="AUTH_TYPE" id="auth_type" class="form-select">
+                    <option value="DB">
+                      Authenticate against the database
+                    </option>
+                    <option value="LDAP">
+                      Authenticate against an LDAP server
+                    </option>
+                    <option value="IMAP">
+                      Authenticate using an IMAP server
+                    </option>
+                    <option value="dynamic">
+                      Let the user choose from a list
+                    </option>
+                    <option value="custom">
+                      Custom authentication class
+                    </option>
+                  </select>
+                  <div class="form-field-description">
+                    Select the authentication method for your application
+                  </div>
+                </div>
 
-    <button class="btn btn-success" id="generate">Generate .env file</button>
-    <button class="btn btn-light" id="reset-all">Reset all</button>
-    <p>
-        Please note that neither <code>allow_session_cache</code> &amp; <code>cache_class</code> are configurable
-        through here,
-        as it is not recommended and as such quite advanced usage.
-        Check <a href="https://github.com/cypht-org/cypht/blob/master/config/app.php">
-            app.php (@github:cypht-org/cypht)
-        </a> for more info
-    </p>
-    <textarea class="container" id="result"></textarea>
-    <hr>
-    <p>The 
-        <a href="https://github.com/cypht-org/cypht-website#cypht-config-generator-generator">
-            config-generator source code can be found on GitHub
-        </a>
-    </p>
-</form>
+                <div class="form-field">
+                  <label for="auth_class" class="form-field-label">Authentication Class</label>
+                  <input type="text" name="AUTH_CLASS" id="auth_class" class="form-input" placeholder="" />
+                  <div class="form-field-description">
+                    Custom authentication class name (if using custom auth type)
+                  </div>
+                </div>
+
+                <!-- LDAP Configuration -->
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="ldap_auth_server" class="form-field-label">LDAP Server</label>
+                    <input
+                      type="text"
+                      name="LDAP_AUTH_SERVER"
+                      id="ldap_auth_server"
+                      class="form-input"
+                      placeholder="Enter the LDAP server"
+                      value="localhost"
+                    />
+                    <div class="form-field-description">
+                      LDAP server hostname or IP address
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="ldap_auth_port" class="form-field-label">LDAP Port</label>
+                    <input
+                      type="number"
+                      name="LDAP_AUTH_PORT"
+                      id="ldap_auth_port"
+                      class="form-input"
+                      value="389"
+                      min="1"
+                      max="65535"
+                    />
+                    <div class="form-field-description">
+                      LDAP server port (default: 389)
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="ldap_auth_tls" class="form-switch-label">Enable TLS for LDAP</label>
+                    <input name="LDAP_AUTH_TLS" class="form-check-input" type="checkbox" id="ldap_auth_tls" />
+                  </div>
+                  <div class="form-field-description">
+                    Enable secure connection to LDAP server
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="ldap_auth_base_dn" class="form-field-label">LDAP Base DN</label>
+                  <input
+                    type="text"
+                    name="LDAP_AUTH_BASE_DN"
+                    id="ldap_auth_base_dn"
+                    class="form-input"
+                    placeholder="example,dc=com"
+                  />
+                  <div class="form-field-description">
+                    LDAP base distinguished name for authentication
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="ldap_auth_uid_attr" class="form-field-label">LDAP UID Attribute</label>
+                  <input
+                    type="text"
+                    name="LDAP_AUTH_UID_ATTR"
+                    id="ldap_auth_uid_attr"
+                    class="form-input"
+                    placeholder="uid"
+                    value="uid"
+                  />
+                  <div class="form-field-description">
+                    LDAP attribute for user identification
+                  </div>
+                </div>
+
+                <!-- IMAP Configuration -->
+                <div class="form-field">
+                  <label for="imap_auth_name" class="form-field-label">IMAP Auth Name</label>
+                  <input
+                    type="text"
+                    name="IMAP_AUTH_NAME"
+                    id="imap_auth_name"
+                    class="form-input"
+                    placeholder="Enter the IMAP server name"
+                    value="localhost"
+                  />
+                  <div class="form-field-description">
+                    IMAP authentication server name
+                  </div>
+                </div>
+
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="imap_auth_server" class="form-field-label">IMAP Server</label>
+                    <input
+                      type="text"
+                      name="IMAP_AUTH_SERVER"
+                      id="imap_auth_server"
+                      class="form-input"
+                      placeholder="imap.example.com"
+                    />
+                    <div class="form-field-description">
+                      IMAP server hostname or IP address
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="imap_auth_port" class="form-field-label">IMAP Port</label>
+                    <input
+                      type="number"
+                      name="IMAP_AUTH_PORT"
+                      id="imap_auth_port"
+                      class="form-input"
+                      value="993"
+                      min="1"
+                      max="65535"
+                    />
+                    <div class="form-field-description">
+                      IMAP server port (default: 993)
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="imap_auth_tls" class="form-switch-label">Enable TLS for IMAP</label>
+                    <input name="IMAP_AUTH_TLS" class="form-check-input" type="checkbox" id="imap_auth_tls" />
+                  </div>
+                  <div class="form-field-description">
+                    Enable secure connection to IMAP server
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="imap_auth_sieve_conf_host" class="form-field-label">IMAP Sieve Config Host</label>
+                  <input
+                    type="text"
+                    name="IMAP_AUTH_SIEVE_CONF_HOST"
+                    id="imap_auth_sieve_conf_host"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <div class="form-field-description">
+                    Sieve configuration host for IMAP
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="imap_auth_sieve_tls_mode" class="form-switch-label">IMAP Sieve TLS Mode</label>
+                    <input
+                      name="IMAP_AUTH_SIEVE_TLS_MODE"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="imap_auth_sieve_tls_mode"
+                      checked
+                    />
+                  </div>
+                  <div class="form-field-description">
+                    Enable TLS for Sieve connections
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section Utilisateur -->
+            <div class="config-content-item" id="user">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span>User</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('user')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field">
+                  <label for="user_config_type" class="form-field-label">User Configuration Type</label>
+                  <select name="USER_CONFIG_TYPE" id="user_config_type" class="form-select">
+                    <option value="file">
+                      Store user settings in the filesystem
+                    </option>
+                    <option value="DB">
+                      Store user settings in a database
+                    </option>
+                    <option value="custom">
+                      Custom user settings storage
+                    </option>
+                  </select>
+                  <div class="form-field-description">
+                    Choose how to store user configuration data
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="user_settings_dir" class="form-field-label">User Settings Directory</label>
+                  <input
+                    type="text"
+                    name="USER_SETTINGS_DIR"
+                    id="user_settings_dir"
+                    class="form-input"
+                    placeholder="Enter  path"
+                    value="/var/lib/hm3/users"
+                  />
+                  <div class="form-field-description">
+                    Directory path for storing user settings (file mode only)
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="attachment_dir" class="form-field-label">Attachment Directory</label>
+                  <input
+                    type="text"
+                    name="ATTACHMENT_DIR"
+                    id="attachment_dir"
+                    class="form-input"
+                    placeholder="Enter attachment path"
+                    value="/var/lib/hm3/attachments"
+                  />
+                  <div class="form-field-description">
+                    Directory path for storing email attachments
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="default_email_domain" class="form-field-label">Default Email Domain</label>
+                  <input
+                    type="text"
+                    name="DEFAULT_EMAIL_DOMAIN"
+                    id="default_email_domain"
+                    class="form-input"
+                    placeholder="example.com"
+                  />
+                  <div class="form-field-description">
+                    Default domain for email addresses
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="auto_create_profile" class="form-switch-label">Auto Create Profile</label>
+                    <input
+                      name="AUTO_CREATE_PROFILE"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="auto_create_profile"
+                    />
+                  </div>
+                  <div class="form-field-description">
+                    Automatically create user profiles on first login
+                  </div>
+                </div>
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="default_smtp_name" class="form-field-label">Default SMTP Name</label>
+                    <input
+                      type="text"
+                      name="DEFAULT_SMTP_NAME"
+                      id="default_smtp_name"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <div class="form-field-description">
+                      Default name for SMTP server
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="default_smtp_server" class="form-field-label">Default SMTP Server</label>
+                    <input
+                      type="text"
+                      name="DEFAULT_SMTP_SERVER"
+                      id="default_smtp_server"
+                      class="form-input"
+                      placeholder="smtp.example.com"
+                    />
+                    <div class="form-field-description">
+                      Default SMTP server hostname
+                    </div>
+                  </div>
+                </div>
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="default_smtp_port" class="form-field-label">Default SMTP Port</label>
+                    <input
+                      type="number"
+                      name="DEFAULT_SMTP_PORT"
+                      id="default_smtp_port"
+                      class="form-input"
+                      placeholder="Enter SMTP port"
+                      value="587"
+                    />
+                    <div class="form-field-description">
+                      Default SMTP server port
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="default_smtp_port" class="form-field-label">SMTP TLS</label>
+                    <div class="form-switch-container">
+                      <label for="default_smtp_tls" class="form-switch-label">Default SMTP TLS</label>
+                      <input name="DEFAULT_SMTP_TLS" class="form-check-input" type="checkbox" id="default_smtp_tls" />
+                    </div>
+                    <div class="form-field-description">
+                      Enable TLS for default SMTP
+                    </div>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="default_smtp_no_auth" class="form-switch-label">Default SMTP No Auth</label>
+                    <input
+                      name="DEFAULT_SMTP_NO_AUTH"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="default_smtp_no_auth"
+                    />
+                  </div>
+                  <div class="form-field-description">
+                    Disable authentication for default SMTP
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Security -->
+            <div class="config-content-item" id="security">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span>Security</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('security')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="disable_origin_check" class="form-switch-label">Disable Origin Check</label>
+                    <input
+                      name="DISABLE_ORIGIN_CHECK"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="disable_origin_check"
+                    />
+                  </div>
+                  <div class="form-field-description">
+                    Disable origin check for enhanced security (recommended)
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="disable_ip_check" class="form-switch-label">Disable IP Check</label>
+                    <input name="DISABLE_IP_CHECK" class="form-check-input" type="checkbox" id="disable_ip_check" />
+                  </div>
+                  <div class="form-field-description">
+                    Disable IP address checking
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="disable_fingerprint" class="form-switch-label">Disable Fingerprint</label>
+                    <input
+                      name="DISABLE_FINGERPRINT"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="disable_fingerprint"
+                    />
+                  </div>
+                  <div class="form-field-description">
+                    Disable browser fingerprinting
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="disable_empty_superglobals" class="form-switch-label">Disable Empty Superglobals</label>
+                    <input
+                      name="DISABLE_EMPTY_SUPERGLOBALS"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="disable_empty_superglobals"
+                    />
+                  </div>
+                  <div class="form-field-description">
+                    Disable emptying PHP superglobal arrays
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="disable_open_base_dir" class="form-switch-label">Disable Open Base Dir</label>
+                    <input
+                      name="DISABLE_OPEN_BASE_DIR"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="disable_open_base_dir"
+                    />
+                  </div>
+                  <div class="form-field-description">
+                    Disable open_basedir PHP restriction
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="disable_ini_settings" class="form-switch-label">Disable INI Settings</label>
+                    <input
+                      name="DISABLE_INI_SETTINGS"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="disable_ini_settings"
+                    />
+                  </div>
+                  <div class="form-field-description">
+                    Disable custom PHP INI settings
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="allow_external_image_sources" class="form-switch-label">
+                      Allow External Image Sources
+                    </label>
+                    <input
+                      name="ALLOW_EXTERNAL_IMAGE_SOURCES"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="allow_external_image_sources"
+                      checked
+                    />
+                  </div>
+                  <div class="form-field-description">
+                    Allow loading images from external sources
+                  </div>
+                </div>
+
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="cookie_domain" class="form-field-label">Cookie Domain</label>
+                    <input
+                      type="url"
+                      name="COOKIE_DOMAIN"
+                      id="cookie_domain"
+                      class="form-input"
+                      placeholder="example.com"
+                    />
+                    <div class="form-field-description">
+                      Domain for application cookies
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="cookie_path" class="form-field-label">Cookie Path</label>
+                    <input
+                      type="text"
+                      name="COOKIE_PATH"
+                      id="cookie_path"
+                      class="form-input"
+                      placeholder="/"
+                      value="/"
+                    />
+                    <div class="form-field-description">
+                      Path for application cookies
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="encrypt_ajax_request" class="form-switch-label">Encrypt AJAX Requests</label>
+                    <input
+                      name="ENCRYPT_AJAX_REQUESTS"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="encrypt_ajax_request"
+                    />
+                  </div>
+                  <div class="form-field-description">
+                    Encrypt all AJAX requests for enhanced security
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="encrypt_local_storage" class="form-switch-label">Encrypt Local Storage</label>
+                    <input
+                      name="ENCRYPT_LOCAL_STORAGE"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="encrypt_local_storage"
+                    />
+                  </div>
+                  <div class="form-field-description">
+                    Encrypt data stored in browser local storage
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cache -->
+            <div class="config-content-item" id="cache">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span>Cache</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('security')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field">
+                  <label for="cache_class" class="form-field-label">Cache Class</label>
+                  <input type="text" name="CACHE_CLASS" id="cache_class" class="form-input" placeholder="" />
+                  <div class="form-field-description">
+                    Custom cache class name (leave empty for default)
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="enable_redis" class="form-switch-label">Enable Redis</label>
+                    <input name="ENABLE_REDIS" class="form-check-input" type="checkbox" id="enable_redis" checked />
+                  </div>
+                  <div class="form-field-description">
+                    Enable Redis caching
+                  </div>
+                </div>
+
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="redis_server" class="form-field-label">Redis Server</label>
+                    <input
+                      type="text"
+                      name="REDIS_SERVER"
+                      id="redis_server"
+                      class="form-input"
+                      placeholder="127.0.0.1"
+                      value="127.0.0.1"
+                    />
+                    <div class="form-field-description">
+                      Redis server hostname or IP
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="redis_port" class="form-field-label">Redis Port</label>
+                    <input
+                      type="text"
+                      name="REDIS_PORT"
+                      id="redis_port"
+                      class="form-input"
+                      placeholder="6379"
+                      value="6379"
+                    />
+                    <div class="form-field-description">
+                      Redis server port
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="redis_index" class="form-field-label">Redis Index</label>
+                    <input
+                      type="number"
+                      name="REDIS_INDEX"
+                      id="redis_index"
+                      class="form-input"
+                      placeholder="1"
+                      value="1"
+                    />
+                    <div class="form-field-description">
+                      Redis database index
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="redis_password" class="form-field-label">Redis Password</label>
+                    <input type="password" name="REDIS_PASS" id="redis_password" class="form-input" />
+                    <div class="form-field-description">
+                      Redis authentication password
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="redis_socket" class="form-field-label">Redis Socket</label>
+                  <input
+                    type="text"
+                    name="REDIS_SOCKET"
+                    id="redis_socket"
+                    class="form-input"
+                    placeholder="Enter the Redis socket path"
+                    value="/var/run/redis/redis-server.sock"
+                  />
+                  <div class="form-field-description">
+                    Redis socket path (if using Unix socket)
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="enable_memcached" class="form-switch-label">Enable Memcached</label>
+                    <input
+                      name="ENABLE_MEMCACHED"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="enable_memcached"
+                      checked
+                    />
+                  </div>
+                  <div class="form-field-description">
+                    Enable Memcached caching
+                  </div>
+                </div>
+
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="memcached_server" class="form-field-label">Memcached Server</label>
+                    <input
+                      type="text"
+                      name="MEMCACHED_SERVER"
+                      id="memcached_server"
+                      class="form-input"
+                      placeholder="127.0.0.1"
+                      value="127.0.0.1"
+                    />
+                    <div class="form-field-description">
+                      Memcached server hostname or IP
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="memcached_port" class="form-field-label">Memcached Port</label>
+                    <input
+                      type="text"
+                      name="MEMCACHED_PORT"
+                      id="memcached_port"
+                      class="form-input"
+                      placeholder="11211"
+                      value="11211"
+                    />
+                    <div class="form-field-description">
+                      Memcached server port
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="memcached_auth" class="form-switch-label">Memcached Authentication</label>
+                    <input name="MEMCACHED_AUTH" class="form-check-input" type="checkbox" id="memcached_auth" />
+                  </div>
+                  <div class="form-field-description">
+                    Enable Memcached authentication
+                  </div>
+                </div>
+
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="memcached_user" class="form-field-label">Memcached User</label>
+                    <input type="text" name="MEMCACHED_USER" id="memcached_user" class="form-input" />
+                    <div class="form-field-description">
+                      Memcached authentication username
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="memcached_password" class="form-field-label">Memcached Password</label>
+                    <input type="password" name="MEMCACHED_PASS" id="memcached_password" class="form-input" />
+                    <div class="form-field-description">
+                      Memcached authentication password
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- User interface -->
+            <div class="config-content-item" id="user_interface">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span>User Interface</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('user')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="js_compress" class="form-switch-label">JS Compress</label>
+                    <input name="JS_COMPRESS" class="form-check-input" type="checkbox" id="js_compress" />
+                  </div>
+                  <div class="form-field-description">
+                    Enable JS compression for enhanced security (recommended)
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="css_compress" class="form-switch-label">CSS Compress</label>
+                    <input name="CSS_COMPRESS" class="form-check-input" type="checkbox" id="css_compress" />
+                  </div>
+                  <div class="form-field-description">
+                    Enable CSS compression for enhanced security (recommended)
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="js_exclude_deps" class="form-field-label">JS Exclude Dependencies</label>
+                  <input type="text" name="JS_EXCLUDE_DEPS" id="js_exclude_deps" class="form-input" placeholder="" />
+                  <div class="form-field-description">
+                    Comma-separated list of JS dependencies to exclude
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="worker_custom_imports" class="form-field-label">Worker Custom Imports</label>
+                  <input
+                    type="text"
+                    name="WORKER_CUSTOM_IMPORTS"
+                    id="worker_custom_imports"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <div class="form-field-description">
+                    Custom imports for web workers
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Redirection -->
+            <div class="config-content-item" id="redirect">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span>Redirect</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('security')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field">
+                  <label for="redirect_after_login" class="form-field-label">Redirect After Login</label>
+                  <input
+                    type="url"
+                    name="REDIRECT_AFTER_LOGIN"
+                    id="redirect_after_login"
+                    class="form-input"
+                    placeholder="https://yourdomain.com/dashboard"
+                    value="http://127.0.0.1"
+                  />
+                  <div class="form-field-description">
+                    Redirect after login
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Logging System -->
+            <div class="config-content-item" id="logging_system">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span>Logging System</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('logging_system')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field-group">
+                  {# Debug Logging #}
+                  <div class="form-field">
+                    <label for="debug_log" class="form-field-label">Debug Log</label>
+                    <div class="form-switch-container">
+                      <label for="debug_log" class="form-switch-label">Enable Debug Logging</label>
+                      <input name="DEBUG_LOG" class="form-check-input" type="checkbox" id="debug_log" />
+                    </div>
+                    <div class="form-field-description">
+                      Enable Debug Logging
+                    </div>
+                  </div>
+                  {# Session Type #}
+                  <div class="form-field">
+                    <label for="log_level" class="form-field-label">Log Level</label>
+                    <select name="LOG_LEVEL" id="log_level" class="form-select">
+                      <option value="WARNING">
+                        WARNING
+                      </option>
+                      <option value="ERROR">
+                        ERROR
+                      </option>
+                      <option value="INFO">
+                        INFO
+                      </option>
+                      <option value="DEBUG">
+                        DEBUG
+                      </option>
+                    </select>
+                    <div class="form-field-description">
+                      Choose how to handle user sessions
+                    </div>
+                  </div>
+                </div>
+                {# Log File #}
+                <div class="form-field">
+                  <label for="log_file" class="form-field-label">Log File</label>
+                  <input
+                    type="text"
+                    name="LOG_FILE"
+                    id="log_file"
+                    class="form-input"
+                    placeholder="/var/log/cypht/cypht.log"
+                    value="/var/log/cypht/cypht.log"
+                  />
+                  <div class="form-field-description">
+                    Absolute path on the server where Cypht writes its log file.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {# Database config #}
+          <div class="config-content-item" id="database">
+            <div class="config-content-item-header">
+              <div class="cc-item-top">
+                <div class="cc-item-top-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    >
+                      <ellipse cx="12" cy="5" rx="9" ry="3" />
+                      <path d="M3 5v14a9 3 0 0 0 12 2.84M21 5v3m0 4l-3 5h4l-3 5" />
+                      <path d="M3 12a9 3 0 0 0 11.59 2.87" />
+                    </g>
+                  </svg>
+                </div>
+                <div class="cc-item-top-text">
+                  <h5>Database Config</h5>
+                  <p>
+                    Configure your Cypht application's database settings. Set up the database connection parameters to
+                    ensure smooth data management and retrieval.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="config-content-item">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span>Database</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('database')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <!-- Connection Type -->
+                <div class="form-field">
+                  <label for="db_connection_type" class="form-field-label">Connection Type</label>
+                  <select name="DB_CONNECTION_TYPE" id="db_connection_type" class="form-select">
+                    <option value="tcp">
+                      TCP/IP
+                    </option>
+                    <option value="socket">
+                      Socket
+                    </option>
+                  </select>
+                  <div class="form-field-description">
+                    Choose how to connect to the database
+                  </div>
+                </div>
+
+                <!-- TCP/IP Fields -->
+                <div id="tcp-fields">
+                  <div class="form-field-group">
+                    <div class="form-field">
+                      <label for="db_host" class="form-field-label">Database Host</label>
+                      <input
+                        type="text"
+                        name="DB_HOST"
+                        id="db_host"
+                        class="form-input"
+                        placeholder="localhost"
+                        value="localhost"
+                      />
+                      <div class="form-field-description">
+                        Database server hostname or IP address
+                      </div>
+                    </div>
+                    <div class="form-field">
+                      <label for="db_port" class="form-field-label">Database Port</label>
+                      <input
+                        type="number"
+                        name="DB_PORT"
+                        id="db_port"
+                        class="form-input"
+                        placeholder="3306"
+                        value="3306"
+                        min="1"
+                        max="65535"
+                      />
+                      <div class="form-field-description">
+                        Database server port number
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Socket Fields -->
+                <div id="socket-fields" style="display: none;">
+                  <div class="form-field">
+                    <label for="db_socket" class="form-field-label">Socket Path</label>
+                    <input
+                      type="text"
+                      name="DB_SOCKET"
+                      id="db_socket"
+                      class="form-input"
+                      placeholder="/var/run/mysqld/mysqld.sock"
+                    />
+                    <div class="form-field-description">
+                      Path to the database socket file
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Common Fields -->
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="db_name" class="form-field-label">Database Name</label>
+                    <input
+                      type="text"
+                      name="DB_NAME"
+                      id="db_name"
+                      class="form-input"
+                      placeholder="cypht_database"
+                      required
+                    />
+                    <div class="form-field-description">
+                      Name of the database to connect to
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="db_driver" class="form-field-label">Database Driver</label>
+                    <select name="DB_DRIVER" id="db_driver" class="form-select">
+                      <option value="mysql">
+                        MySQL
+                      </option>
+                      <option value="pgsql">
+                        PostgreSQL
+                      </option>
+                      <option value="sqlsrv">
+                        SQL Server
+                      </option>
+                      <option value="sqlite">
+                        SQLite
+                      </option>
+                    </select>
+                    <div class="form-field-description">
+                      Database management system
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="db_user" class="form-field-label">Database Username</label>
+                    <input
+                      type="text"
+                      name="DB_USER"
+                      id="db_user"
+                      class="form-input"
+                      placeholder="cypht_user"
+                      required
+                    />
+                    <div class="form-field-description">
+                      Username for database authentication
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="db_pass" class="form-field-label">Database Password</label>
+                    <input
+                      type="password"
+                      name="DB_PASS"
+                      id="db_pass"
+                      class="form-input"
+                      placeholder="••••••••"
+                      autocomplete="new-password"
+                    />
+                    <div class="form-field-description">
+                      Password for database authentication
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {# 2FA config #}
+          <div class="config-content-item" id="twofa">
+            <div class="config-content-item-header">
+              <div class="cc-item-top">
+                <div class="cc-item-top-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    >
+                      <path d="M12 21H7a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h10c.564 0 1.074.234 1.437.61" />
+                      <path
+                        d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0-2 0m-3-5V7a4 4 0 1 1 8 0v4m1.001 8a2 2 0 1 0 4 0a2 2 0 1 0-4 0m2-3.5V17m0 4v1.5m3.031-5.25l-1.299.75m-3.463 2l-1.3.75m0-3.5l1.3.75m3.463 2l1.3.75"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                <div class="cc-item-top-text">
+                  <h5>2FA Config</h5>
+                  <p>
+                    Configure your Cypht application's two-factor authentication settings. Set up the 2FA parameters to
+                    enhance security and protect your application from unauthorized access.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="config-content-item-body">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span class="">2FA</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('2fa')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field">
+                  <label for="app_2fa_secret" class="form-field-label">2FA Secret Key</label>
+                  <input
+                    type="text"
+                    name="APP_2FA_SECRET"
+                    id="app_2fa_secret"
+                    class="form-input"
+                    placeholder="Enter your 2FA secret key"
+                  />
+                  <div class="form-field-description">
+                    Secret key for two-factor authentication (32 characters)
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="app_2fa_simple" class="form-switch-label">Enable Simple 2FA</label>
+                    <input name="APP_2FA_SIMPLE" class="form-check-input" type="checkbox" id="app_2fa_simple" />
+                  </div>
+                  <div class="form-field-description">
+                    Enable simplified two-factor authentication mode
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {# Carddav config #}
+          <div class="config-content-item" id="carddav">
+            <div class="config-content-item-header">
+              <div class="cc-item-top">
+                <div class="cc-item-top-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M2.5 5.5c0-1.65 0-2.475.513-2.987C3.525 2 4.35 2 6 2s2.475 0 2.987.513C9.5 3.025 9.5 3.85 9.5 5.5s0 2.475-.513 2.987C8.475 9 7.65 9 6 9s-2.475 0-2.987-.513C2.5 7.975 2.5 7.15 2.5 5.5m1.157 10.157C4.76 14.552 5.314 14 6 14s1.239.552 2.343 1.657C9.448 16.76 10 17.314 10 18s-.552 1.239-1.657 2.343C7.24 21.448 6.686 22 6 22s-1.239-.552-2.343-1.657C2.552 19.24 2 18.686 2 18s.552-1.239 1.657-2.343M6 9v5m4 4h5m0 0c0-1.65 0-2.475.513-2.987c.512-.513 1.337-.513 2.987-.513s2.475 0 2.987.513C22 15.525 22 16.35 22 18s0 2.475-.513 2.987c-.512.513-1.337.513-2.987.513s-2.475 0-2.987-.513C15 20.475 15 19.65 15 18"
+                      color="currentColor"
+                    />
+                  </svg>
+                </div>
+                <div class="cc-item-top-text">
+                  <h5>Carddav Config</h5>
+                  <p>
+                    Configure your Cypht application's carddav settings. Set up the carddav parameters to enhance
+                    security and protect your application from unauthorized access.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="config-content-item-body">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span class="">Carddav</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('carddav')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field">
+                  <label for="carddav_host" class="form-field-label">CardDAV Host</label>
+                  <input
+                    type="text"
+                    name="CARDDAV_HOST"
+                    id="carddav_host"
+                    class="form-input"
+                    placeholder="Enter the CardDAV server hostname"
+                    value="localhost"
+                  />
+                  <div class="form-field-description">
+                    CardDAV server hostname or IP address
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {# Dynamic login config #}
+          <div class="config-content-item" id="dynamic_login">
+            <div class="config-content-item-header">
+              <div class="cc-item-top">
+                <div class="cc-item-top-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M12 10a4 4 0 1 0 0-8a4 4 0 0 0 0 8m-4 2.25a4.124 4.124 0 0 0-4.095 3.642l-.65 5.52a.75.75 0 0 0 1.49.176l.65-5.52a2.624 2.624 0 0 1 1.855-2.209v4.193c0 .899 0 1.648.08 2.242c.084.628.27 1.195.726 1.65c.455.456 1.022.642 1.65.726c.594.08 1.344.08 2.242.08h.104c.899 0 1.648 0 2.243-.08c.627-.084 1.194-.27 1.65-.726c.455-.455.64-1.022.725-1.65c.08-.594.08-1.343.08-2.242v-4.193a2.624 2.624 0 0 1 1.856 2.208l.65 5.52a.75.75 0 1 0 1.489-.175l-.65-5.52A4.124 4.124 0 0 0 16 12.25z"
+                    />
+                  </svg>
+                </div>
+                <div class="cc-item-top-text">
+                  <h5>Dynamic Login Config</h5>
+                  <p>
+                    Configure your Cypht application's dynamic login settings. Set up the dynamic login parameters to
+                    enable flexible and secure user authentication.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="config-content-item-body">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span class="">Dynamic Login</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('dynamic_login')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="dynamic_host" class="form-switch-label">Dynamic Host</label>
+                    <input name="DYNAMIC_HOST" class="form-check-input" type="checkbox" id="dynamic_host" />
+                  </div>
+                  <div class="form-field-description">
+                    Enable dynamic host configuration
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="dynamic_host_subdomain" class="form-switch-label">Dynamic Host Subdomain</label>
+                    <input
+                      name="DYNAMIC_HOST_SUBDOMAIN"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="dynamic_host_subdomain"
+                    />
+                  </div>
+                  <div class="form-field-description">
+                    Enable dynamic host subdomain support
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="dynamic_user" class="form-switch-label">Dynamic User</label>
+                    <input name="DYNAMIC_USER" class="form-check-input" type="checkbox" id="dynamic_user" />
+                  </div>
+                  <div class="form-field-description">
+                    Enable dynamic user configuration
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="dynamic_smtp_subdomain" class="form-switch-label">Dynamic SMTP Subdomain</label>
+                    <input
+                      name="DYNAMIC_SMTP_SUBDOMAIN"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="dynamic_smtp_subdomain"
+                    />
+                  </div>
+                  <div class="form-field-description">
+                    Enable dynamic SMTP subdomain support
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="dynamic_mail_subdomain" class="form-switch-label">Dynamic Mail Subdomain</label>
+                    <input
+                      name="DYNAMIC_MAIL_SUBDOMAIN"
+                      class="form-check-input"
+                      type="checkbox"
+                      id="dynamic_mail_subdomain"
+                    />
+                  </div>
+                  <div class="form-field-description">
+                    Enable dynamic mail subdomain support
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {# Github config #}
+          <div class="config-content-item" id="github">
+            <div class="config-content-item-header">
+              <div class="cc-item-top">
+                <div class="cc-item-top-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M9 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v5"
+                      />
+                      <circle cx="13" cy="12" r="2" />
+                      <path d="M18 19c-2.8 0-5-2.2-5-5v8" />
+                      <circle cx="20" cy="19" r="2" />
+                    </g>
+                  </svg>
+                </div>
+                <div class="cc-item-top-text">
+                  <h5>GitHub Config</h5>
+                  <p>
+                    Configure your Cypht application's GitHub settings. Set up the GitHub parameters to add Github
+                    notification support to Cypht.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="config-content-item-body">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span class="">Github</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('github')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="github_client_id" class="form-field-label">Client ID</label>
+                    <input
+                      type="text"
+                      name="GITHUB_CLIENT_ID"
+                      id="github_client_id"
+                      class="form-input"
+                      placeholder="Enter GitHub Client ID"
+                    />
+                    <div class="form-field-description">
+                      GitHub OAuth application client ID
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="github_client_secret" class="form-field-label">Client Secret</label>
+                    <input
+                      type="password"
+                      name="GITHUB_CLIENT_SECRET"
+                      id="github_client_secret"
+                      class="form-input"
+                      placeholder="Enter GitHub Client Secret"
+                    />
+                    <div class="form-field-description">
+                      GitHub OAuth application client secret
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="github_redirect_uri" class="form-field-label">Redirect URI</label>
+                  <input
+                    type="url"
+                    name="GITHUB_REDIRECT_URI"
+                    id="github_redirect_uri"
+                    class="form-input"
+                    placeholder="https://yourdomain.com/auth/github/callback"
+                  />
+                  <div class="form-field-description">
+                    OAuth callback URL for GitHub authentication
+                  </div>
+                </div>
+
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="github_auth_url" class="form-field-label">Authorization URL</label>
+                    <input
+                      type="url"
+                      name="GITHUB_AUTH_URL"
+                      id="github_auth_url"
+                      class="form-input"
+                      placeholder="https://github.com/login/oauth/authorize"
+                    />
+                    <div class="form-field-description">
+                      GitHub OAuth authorization endpoint
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="github_token_url" class="form-field-label">Token URL</label>
+                    <input
+                      type="url"
+                      name="GITHUB_TOKEN_URL"
+                      id="github_token_url"
+                      class="form-input"
+                      placeholder="https://github.com/login/oauth/access_token"
+                    />
+                    <div class="form-field-description">
+                      GitHub OAuth token exchange endpoint
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {# LDAP config #}
+          <div class="config-content-item" id="ldap">
+            <div class="config-content-item-header">
+              <div class="cc-item-top">
+                <div class="cc-item-top-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-width="1.5"
+                      d="M3 10v4c0 1.886 0 2.828.586 3.414C4.172 18 5.114 18 7 18h10c1.886 0 2.828 0 3.414-.586C21 16.828 21 15.886 21 14V9c0-2.828 0-4.243-.879-5.121C19.243 3 17.828 3 15 3H9c-2.828 0-4.243 0-5.121.879c-.49.49-.707 1.146-.803 2.121M22 21h-6M2 21h10m3-6H9"
+                    />
+                  </svg>
+                </div>
+                <div class="cc-item-top-text">
+                  <h5>LDAP Config</h5>
+                  <p>
+                    Configure your Cypht application's LDAP settings. Set up the LDAP parameters to enable integration
+                    with LDAP for authentication and address book.
+                  </p>
+                </div>
+              </div>
+              <div></div>
+            </div>
+            <div class="config-content-item-body">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span class="">LDAP</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('ldap')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="ldap_server" class="form-field-label">LDAP Server</label>
+                    <input
+                      type="text"
+                      name="LDAP_SERVER"
+                      id="ldap_server"
+                      class="form-input"
+                      placeholder="ldap.example.com"
+                    />
+                    <div class="form-field-description">
+                      LDAP server hostname or IP address
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="ldap_port" class="form-field-label">LDAP Port</label>
+                    <input
+                      type="number"
+                      name="LDAP_PORT"
+                      id="ldap_port"
+                      class="form-input"
+                      placeholder="389"
+                      value="389"
+                      min="1"
+                      max="65535"
+                    />
+                    <div class="form-field-description">
+                      LDAP server port (default: 389)
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="ldap_enable_tls" class="form-switch-label">Enable TLS</label>
+                    <input name="LDAP_AUTH_TLS" class="form-check-input" type="checkbox" id="ldap_auth_tls" />
+                  </div>
+                  <div class="form-field-description">
+                    Enable secure connection to LDAP server
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="ldap_base_dn" class="form-field-label">Base DN</label>
+                  <input
+                    type="text"
+                    name="LDAP_BASE_DN"
+                    id="ldap_base_dn"
+                    class="form-input"
+                    placeholder="dc=example,dc=com"
+                  />
+                  <div class="form-field-description">
+                    LDAP base distinguished name for searches
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="ldap_search_term" class="form-field-label">Search Term</label>
+                  <input
+                    type="text"
+                    name="LDAP_SEARCH_TERM"
+                    id="ldap_search_term"
+                    class="form-input"
+                    placeholder="uid"
+                  />
+                  <div class="form-field-description">
+                    LDAP attribute to search for usernames
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="ldap_auth" class="form-switch-label">Enable LDAP Authentication</label>
+                    <input name="LDAP_AUTH" class="form-check-input" type="checkbox" id="ldap_auth" />
+                  </div>
+                  <div class="form-field-description">
+                    Enable LDAP authentication for users
+                  </div>
+                </div>
+
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="ldap_user" class="form-field-label">LDAP Username</label>
+                    <input
+                      type="text"
+                      name="LDAP_USER"
+                      id="ldap_user"
+                      class="form-input"
+                      placeholder="cn=admin,dc=example,dc=com"
+                    />
+                    <div class="form-field-description">
+                      LDAP bind username for authentication
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="ldap_pass" class="form-field-label">LDAP Password</label>
+                    <input type="password" name="LDAP_PASS" id="ldap_pass" class="form-input" placeholder="••••••••" />
+                    <div class="form-field-description">
+                      LDAP bind password for authentication
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="ldap_object_class" class="form-field-label">Object Class</label>
+                  <input
+                    type="text"
+                    name="LDAP_OBJECT_CLASS"
+                    id="ldap_object_class"
+                    class="form-input"
+                    placeholder="person"
+                    value="person"
+                  />
+                  <div class="form-field-description">
+                    LDAP object class for user searches
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="ldap_uid_attr" class="form-field-label">UID Attribute</label>
+                  <input
+                    type="text"
+                    name="LDAP_UID_ATTR"
+                    id="ldap_uid_attr"
+                    class="form-input"
+                    placeholder="uid"
+                    value="uid"
+                  />
+                  <div class="form-field-description">
+                    LDAP UID attribute name
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <div class="form-switch-container">
+                    <label for="ldap_read_write" class="form-switch-label">Read/Write Access</label>
+                    <input name="LDAP_READ_WRITE" class="form-check-input" type="checkbox" id="ldap_read_write" />
+                  </div>
+                  <div class="form-field-description">
+                    Enable read/write access to LDAP directory
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {# OAuth2 config #}
+          <div class="config-content-item">
+            <div class="config-content-item-header">
+              <div class="cc-item-top">
+                <div class="cc-item-top-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4M14 13.12c0 2.38 0 6.38-1 8.88m4.29-.98c.12-.6.43-2.3.5-3.02M2 12a10 10 0 0 1 18-6M2 16h.01m19.79 0c.2-2 .131-5.354 0-6"
+                      />
+                      <path
+                        d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2m2.31 12c.21-.66.45-1.32.57-2M9 6.8a6 6 0 0 1 9 5.2v2"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                <div class="cc-item-top-text">
+                  <h5>OAuth2 Config</h5>
+                  <p>
+                    Configure your Cypht application's OAuth2 settings. Set up the OAuth2 parameters to enable
+                    integration with OAuth2 for authentication and other features.
+                  </p>
+                </div>
+              </div>
+              <div></div>
+            </div>
+            {# Gmail #}
+            <div class="config-content-item" id="gmail">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span class="">Gmail</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('gmail')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="gmail_client_id" class="form-field-label">Client ID</label>
+                    <input
+                      type="text"
+                      name="GMAIL_CLIENT_ID"
+                      id="gmail_client_id"
+                      class="form-input"
+                      placeholder="Enter Gmail Client ID"
+                    />
+                    <div class="form-field-description">
+                      Gmail OAuth application client ID
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="gmail_client_secret" class="form-field-label">Client Secret</label>
+                    <input
+                      type="password"
+                      name="GMAIL_CLIENT_SECRET"
+                      id="gmail_client_secret"
+                      class="form-input"
+                      placeholder="Enter Gmail Client Secret"
+                    />
+                    <div class="form-field-description">
+                      Gmail OAuth application client secret
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="gmail_client_uri" class="form-field-label">Redirect URI</label>
+                  <input
+                    type="url"
+                    name="GMAIL_CLIENT_URI"
+                    id="gmail_client_uri"
+                    class="form-input"
+                    placeholder="https://yourdomain.com/auth/gmail/callback"
+                  />
+                  <div class="form-field-description">
+                    OAuth callback URL for Gmail authentication
+                  </div>
+                </div>
+
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="gmail_auth_uri" class="form-field-label">Authorization URL</label>
+                    <input
+                      type="url"
+                      name="GMAIL_AUTH_URI"
+                      id="gmail_auth_uri"
+                      class="form-input"
+                      placeholder="https://accounts.google.com/o/oauth2/auth"
+                    />
+                    <div class="form-field-description">
+                      Gmail OAuth authorization endpoint
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="gmail_token_uri" class="form-field-label">Token URL</label>
+                    <input
+                      type="url"
+                      name="GMAIL_TOKEN_URI"
+                      id="gmail_token_uri"
+                      class="form-input"
+                      placeholder="https://oauth2.googleapis.com/token"
+                    />
+                    <div class="form-field-description">
+                      Gmail OAuth token exchange endpoint
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="gmail_refresh_uri" class="form-field-label">Refresh Token URL</label>
+                  <input
+                    type="url"
+                    name="GMAIL_REFRESH_URI"
+                    id="gmail_refresh_uri"
+                    class="form-input"
+                    placeholder="https://oauth2.googleapis.com/token"
+                  />
+                  <div class="form-field-description">
+                    Gmail OAuth refresh token endpoint
+                  </div>
+                </div>
+              </div>
+            </div>
+            {# Outlook #}
+            <div class="config-content-item" id="outlook">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span class="">Outlook</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('outlook')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="outlook_client_id" class="form-field-label">Client ID</label>
+                    <input
+                      type="text"
+                      name="OUTLOOK_CLIENT_ID"
+                      id="outlook_client_id"
+                      class="form-input"
+                      placeholder="Enter Outlook Client ID"
+                    />
+                    <div class="form-field-description">
+                      Outlook OAuth application client ID
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="outlook_client_secret" class="form-field-label">Client Secret</label>
+                    <input
+                      type="password"
+                      name="OUTLOOK_CLIENT_SECRET"
+                      id="outlook_client_secret"
+                      class="form-input"
+                      placeholder="Enter Outlook Client Secret"
+                    />
+                    <div class="form-field-description">
+                      Outlook OAuth application client secret
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="outlook_client_uri" class="form-field-label">Redirect URI</label>
+                  <input
+                    type="url"
+                    name="OUTLOOK_CLIENT_URI"
+                    id="outlook_client_uri"
+                    class="form-input"
+                    placeholder="https://yourdomain.com/auth/outlook/callback"
+                  />
+                  <div class="form-field-description">
+                    OAuth callback URL for Outlook authentication
+                  </div>
+                </div>
+
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="outlook_auth_uri" class="form-field-label">Authorization URL</label>
+                    <input
+                      type="url"
+                      name="OUTLOOK_AUTH_URI"
+                      id="outlook_auth_uri"
+                      class="form-input"
+                      placeholder="https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                    />
+                    <div class="form-field-description">
+                      Outlook OAuth authorization endpoint
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="outlook_token_uri" class="form-field-label">Token URL</label>
+                    <input
+                      type="url"
+                      name="OUTLOOK_TOKEN_URI"
+                      id="outlook_token_uri"
+                      class="form-input"
+                      placeholder="https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                    />
+                    <div class="form-field-description">
+                      Outlook OAuth token exchange endpoint
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="outlook_refresh_uri" class="form-field-label">Refresh Token URL</label>
+                  <input
+                    type="url"
+                    name="OUTLOOK_REFRESH_URI"
+                    id="outlook_refresh_uri"
+                    class="form-input"
+                    placeholder="https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                  />
+                  <div class="form-field-description">
+                    Outlook OAuth refresh token endpoint
+                  </div>
+                </div>
+              </div>
+            </div>
+            {# Office365 #}
+            <div class="config-content-item" id="office365">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span class="">Office 365</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('office365')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="office365_client_id" class="form-field-label">Client ID</label>
+                    <input
+                      type="text"
+                      name="OFFICE365_CLIENT_ID"
+                      id="office365_client_id"
+                      class="form-input"
+                      placeholder="Enter Office 365 Client ID"
+                    />
+                    <div class="form-field-description">
+                      Office 365 OAuth application client ID
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="office365_client_secret" class="form-field-label">Client Secret</label>
+                    <input
+                      type="password"
+                      name="OFFICE365_CLIENT_SECRET"
+                      id="office365_client_secret"
+                      class="form-input"
+                      placeholder="Enter Office 365 Client Secret"
+                    />
+                    <div class="form-field-description">
+                      Office 365 OAuth application client secret
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="office365_client_uri" class="form-field-label">Redirect URI</label>
+                  <input
+                    type="url"
+                    name="OFFICE365_CLIENT_URI"
+                    id="office365_client_uri"
+                    class="form-input"
+                    placeholder="https://yourdomain.com/auth/office365/callback"
+                  />
+                  <div class="form-field-description">
+                    OAuth callback URL for Office 365 authentication
+                  </div>
+                </div>
+
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="office365_auth_uri" class="form-field-label">Authorization URL</label>
+                    <input
+                      type="url"
+                      name="OFFICE365_AUTH_URI"
+                      id="office365_auth_uri"
+                      class="form-input"
+                      placeholder="https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+                    />
+                    <div class="form-field-description">
+                      Office 365 OAuth authorization endpoint
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="office365_token_uri" class="form-field-label">Token URL</label>
+                    <input
+                      type="url"
+                      name="OFFICE365_TOKEN_URI"
+                      id="office365_token_uri"
+                      class="form-input"
+                      placeholder="https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                    />
+                    <div class="form-field-description">
+                      Office 365 OAuth token exchange endpoint
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="office365_refresh_uri" class="form-field-label">Refresh Token URL</label>
+                  <input
+                    type="url"
+                    name="OFFICE365_REFRESH_URI"
+                    id="office365_refresh_uri"
+                    class="form-input"
+                    placeholder="https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                  />
+                  <div class="form-field-description">
+                    Office 365 OAuth refresh token endpoint
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {# Recaptcha config #}
+          <div class="config-content-item" id="recaptcha">
+            <div class="config-content-item-header">
+              <div class="cc-item-top">
+                <div class="cc-item-top-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    >
+                      <rect width="7" height="9" x="3" y="3" rx="1" />
+                      <rect width="7" height="5" x="14" y="3" rx="1" />
+                      <rect width="7" height="9" x="14" y="12" rx="1" />
+                      <rect width="7" height="5" x="3" y="16" rx="1" />
+                    </g>
+                  </svg>
+                </div>
+                <div class="cc-item-top-text">
+                  <h5>Recaptcha Config</h5>
+                  <p>
+                    Configure your Cypht application's reCAPTCHA settings. Set up the reCAPTCHA parameters to enable
+                    integration with reCAPTCHA for authentication and other features.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="config-content-item-body">
+              <div class="cc-body-header">
+                <div class="cc-body-header-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                      color="currentColor"
+                    />
+                  </svg>
+                  <span class="">Recaptcha</span>
+                </div>
+                <button type="button" class="cc-header-reset-btn" onclick="resetSection('recaptcha')">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                    <path d="M21 3v5h-5" />
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                    <path d="M3 21v-5h5" />
+                  </svg>Reset
+                </button>
+              </div>
+              <div class="cc-body-content">
+                <div class="form-field-group">
+                  <div class="form-field">
+                    <label for="recaptcha_secret" class="form-field-label">Secret Key</label>
+                    <input
+                      type="password"
+                      name="RECAPTCHA_SECRET"
+                      id="recaptcha_secret"
+                      class="form-input"
+                      placeholder="Enter reCAPTCHA Secret Key"
+                    />
+                    <div class="form-field-description">
+                      reCAPTCHA secret key for server-side verification
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="recaptcha_site_key" class="form-field-label">Site Key</label>
+                    <input
+                      type="text"
+                      name="RECAPTCHA_SITE_KEY"
+                      id="recaptcha_site_key"
+                      class="form-input"
+                      placeholder="Enter reCAPTCHA Site Key"
+                    />
+                    <div class="form-field-description">
+                      reCAPTCHA site key for client-side integration
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {# Wordpress config #}
+          <div class="config-content-item" id="wordpress">
+            <div class="config-content-item-header">
+              <div class="cc-item-top">
+                <div class="cc-item-top-icon">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10s10-4.49 10-10S17.51 2 12 2M3.01 12c0-1.3.28-2.54.78-3.66l4.29 11.75c-3-1.46-5.07-4.53-5.07-8.09M12 20.99c-.88 0-1.73-.13-2.54-.37l2.7-7.84l2.76 7.57c.02.04.04.09.06.12c-.93.34-1.93.52-2.98.52m1.24-13.21c.54-.03 1.03-.09 1.03-.09c.48-.06.43-.77-.06-.74c0 0-1.46.11-2.4.11c-.88 0-2.37-.11-2.37-.11c-.48-.02-.54.72-.05.75c0 0 .46.06.94.09l1.4 3.84l-1.97 5.9l-3.27-9.75c.54-.02 1.03-.08 1.03-.08c.48-.06.43-.77-.06-.74c0 0-1.46.11-2.4.11c-.17 0-.37 0-.58-.01C6.1 4.62 8.86 3.01 12 3.01c2.34 0 4.47.89 6.07 2.36c-.04 0-.08-.01-.12-.01c-.88 0-1.51.77-1.51 1.6c0 .74.43 1.37.88 2.11c.34.6.74 1.37.74 2.48c0 .77-.3 1.66-.68 2.91l-.9 3zm6.65-.09a8.99 8.99 0 0 1-3.37 12.08l2.75-7.94c.51-1.28.68-2.31.68-3.22c0-.33-.02-.64-.06-.92"
+                    />
+                  </svg>
+                </div>
+                <div class="cc-item-top-text">
+                  <h5>Wordpress Config</h5>
+                  <p>
+                    Configure your Cypht application's WordPress settings. Set up the WordPress parameters to enable
+                    integration with WordPress for authentication and other features.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="cc-body-header">
+              <div class="cc-body-header-icon">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                  <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M4.513 19.487c2.512 2.392 5.503 1.435 6.7.466c.618-.501.897-.825 1.136-1.065c.837-.777.784-1.555.24-2.177c-.219-.249-1.616-1.591-2.956-2.967c-.694-.694-1.172-1.184-1.582-1.58c-.547-.546-1.026-1.172-1.744-1.154c-.658 0-1.136.58-1.735 1.179c-.688.688-1.196 1.555-1.375 2.333c-.539 2.273.299 3.888 1.316 4.965m0 0L2 21.999M19.487 4.515c-2.513-2.394-5.494-1.42-6.69-.45c-.62.502-.898.826-1.138 1.066c-.837.778-.784 1.556-.239 2.178c.078.09.31.32.635.644m7.432-3.438c1.017 1.077 1.866 2.71 1.327 4.985c-.18.778-.688 1.645-1.376 2.334c-.598.598-1.077 1.179-1.735 1.179c-.718.018-1.09-.502-1.639-1.048m3.423-7.45L22 2m-5.936 9.964c-.41-.395-.994-.993-1.688-1.687c-.858-.882-1.74-1.75-2.321-2.325m4.009 4.012l-1.562 1.524m-3.99-3.983l1.543-1.553"
+                    color="currentColor"
+                  />
+                </svg>
+                <span class="">Wordpress</span>
+              </div>
+              <button type="button" class="cc-header-reset-btn" onclick="resetSection('wordpress')">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewbox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                  <path d="M21 3v5h-5" />
+                  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                  <path d="M3 21v-5h5" />
+                </svg>Reset
+              </button>
+            </div>
+            <div class="cc-body-content">
+              <div class="form-field-group">
+                <div class="form-field">
+                  <label for="wordpress_client_id" class="form-field-label">Client ID</label>
+                  <input
+                    type="text"
+                    name="WORDPRESS_CLIENT_ID"
+                    id="wordpress_client_id"
+                    class="form-input"
+                    placeholder="Enter WordPress Client ID"
+                  />
+                  <div class="form-field-description">
+                    WordPress OAuth application client ID
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="wordpress_client_secret" class="form-field-label">Client Secret</label>
+                  <input
+                    type="password"
+                    name="WORDPRESS_CLIENT_SECRET"
+                    id="wordpress_client_secret"
+                    class="form-input"
+                    placeholder="Enter WordPress Client Secret"
+                  />
+                  <div class="form-field-description">
+                    WordPress OAuth application client secret
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="wordpress_client_uri" class="form-field-label">Redirect URI</label>
+                <input
+                  type="url"
+                  name="WORDPRESS_CLIENT_URI"
+                  id="wordpress_client_uri"
+                  class="form-input"
+                  placeholder="https://yourdomain.com/auth/wordpress/callback"
+                />
+                <div class="form-field-description">
+                  OAuth callback URL for WordPress authentication
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {# Right card #}
+        <div class="config-right d-none d-xl-block col-xl-3">
+          <div class="config-right-content">
+            <div class="config-right-header">
+              <button type="button" id="liveToastBtn">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                  <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                  <g
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    color="currentColor"
+                  >
+                    <path
+                      d="M3.59 18.177a3 3 0 0 1-.418-.349C2 16.657 2 14.771 2 11s0-5.657 1.172-6.828S6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172S22 7.229 22 11s0 5.657-1.172 6.828q-.194.195-.418.349"
+                    />
+                    <path
+                      d="M8.686 16.926c-.864.527-3.131 1.602-1.75 2.947C7.61 20.53 8.36 21 9.306 21h5.389c.944 0 1.695-.47 2.37-1.127c1.38-1.345-.887-2.42-1.751-2.947a6.39 6.39 0 0 0-6.628 0M14.5 11a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0"
+                    />
+                  </g>
+                </svg>Reset All
+              </button>
+              <button
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight"
+              >
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+                  <!-- Icon from Huge Icons by Hugeicons - undefined -->
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M5.061 20.045C6.375 21 8.251 21 12 21s5.625 0 6.939-.955a5 5 0 0 0 1.106-1.106C21 17.625 21 15.749 21 12s0-5.625-.955-6.939a5 5 0 0 0-1.106-1.106C17.625 3 15.749 3 12 3s-5.625 0-6.939.955A5 5 0 0 0 3.955 5.06C3 6.375 3 8.251 3 12s0 5.625.955 6.939a5 5 0 0 0 1.106 1.106M17 18l1-1m-5 1l5-5m-9 5l9-9"
+                  />
+                </svg>Preview
+              </button>
+            </div>
+            <div class="config-right-notice">
+              <h5>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 48 48">
+                  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+                    <path
+                      d="M24 4v8m0 24v8M4 24h8m24 0h8M10.93 10.93l5.66 5.66m14.82 14.82l5.66 5.66M10.93 37.07l5.66-5.66m14.82-14.82l5.66-5.66"
+                    />
+                  </g>
+                </svg>Notice
+              </h5>
+
+              <div class="config-right-notice-text">
+                <span>
+                  Please note that neither
+                  <span class="cc-right-span">allow_session_cache</span>
+                  &
+                  <span class="cc-right-span">cache_class</span>
+                  are configurable here, as this is not recommended and intended for advanced use only.
+                </span>
+
+                <span>
+                  Check
+                  <a href="https://github.com/cypht-org/cypht" target="_blank">
+                    app.php<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+                      <path
+                        fill="currentColor"
+                        d="M13.5 3a.75.75 0 0 1 .75-.75H21a.75.75 0 0 1 .75.75v6.75a.75.75 0 0 1-1.5 0V4.81l-6.97 6.97a.75.75 0 1 1-1.06-1.06l6.97-6.97h-4.94A.75.75 0 0 1 13.5 3"
+                      />
+                    </svg>
+                  </a>
+                  for more info.
+                </span>
+              </div>
+
+              <div class="config-right-notice-footer mt-2">
+                <span>
+                  The config-generator source code can be found on
+                  <a href="https://github.com/cypht-org/cypht-website#cypht-config-generator-generator" target="_blank">
+                    <i class="bi bi-github"></i>GitHub
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {# Preview Modal #}
+  <div
+    class="offcanvas offcanvas-end cfg-offcanvas"
+    tabindex="-1"
+    id="offcanvasRight"
+    aria-labelledby="offcanvasRightLabel"
+  >
+    {# Body #}
+    <div class="offcanvas-body">
+      <div class="">
+        {# Header #}
+        <div class="offc-header-content mb-3">
+          <div class="offc-header-text">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Preview</h5>
+            <p class="offc-header-description">
+              Review your generated
+              <code>.env</code>
+              file before downloading or copying to clipboard
+            </p>
+          </div>
+          <div class="offc-close-btn-wrapper">
+            <button type="button" class="offc-close-btn" data-bs-dismiss="offcanvas" aria-label="Close preview">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewbox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="env-container">
+        <pre id="env_config">
+          ADMIN_USERS=
+
+          ALLOW_EXTERNAL_IMAGE_SOURCES=true ALLOW_LONG_SESSION=false ALLOW_SESSION_CACHE=false
+
+          ALWAYS_MOBILE_UI=false
+
+          APP_2FA_SECRET= APP_2FA_SIMPLE=false APP_NAME=Cypht
+
+          ATTACHMENT_DIR=/var/lib/hm3/attachments
+
+          AUTH_CLASS= AUTH_TYPE=DB
+
+          AUTO_CREATE_PROFILE=false
+
+          CACHE_CLASS=false
+
+          CARD_DAV_SERVER=http://localhost:5232
+
+          COOKIE_DOMAIN= COOKIE_PATH=
+
+          CSS_COMPRESS=false
+
+          CYPHT_MODULES=core,contacts,local_contacts,feeds,imap,smtp,account,idle_timer,calendar,themes,nux,developer,history,saved_searches,advanced_search,highlights,profiles,inline_message,imap_folders,keyboard_shortcuts,tags
+
+          DB_CONNECTION_TYPE=host DB_DRIVER=mysql DB_HOST=127.0.0.1 DB_NAME=cypht_db DB_PASS= DB_PORT=3306
+          DB_SOCKET=/var/lib/mysqld/mysqld.sock DB_USER=root
+
+          DEBUG_LOG=false
+
+          DEFAULT_EMAIL_DOMAIN= DEFAULT_LANGUAGE=en DEFAULT_SETTING_ALL_EMAIL_PER_SOURCE=20
+          DEFAULT_SETTING_ALL_EMAIL_SINCE=-1 week DEFAULT_SETTING_ALL_PER_SOURCE=20 DEFAULT_SETTING_ALL_SINCE=-1 week
+          DEFAULT_SETTING_DISABLE_DELETE_PROMPT=false DEFAULT_SETTING_DRAFT_PER_SOURCE=20 DEFAULT_SETTING_DRAFT_SINCE=-1
+          week DEFAULT_SETTING_ENABLE_COLLECT_ADDRESS_ON_SEND=false DEFAULT_SETTING_ENABLE_KEYBOARD_SHORTCUTS=false
+          DEFAULT_SETTING_ENABLE_SIEVE_FILTER=false DEFAULT_SETTING_ENABLE_SNOOZE=false DEFAULT_SETTING_FEED_LIMIT=20
+          DEFAULT_SETTING_FEED_SINCE=-1 week DEFAULT_SETTING_FLAGGED_PER_SOURCE=20 DEFAULT_SETTING_FLAGGED_SINCE=-1 week
+          DEFAULT_SETTING_GITHUB_LIMIT=20 DEFAULT_SETTING_GITHUB_SINCE=-1 week DEFAULT_SETTING_IMAP_PER_PAGE=20
+          DEFAULT_SETTING_INLINE_MESSAGE=false DEFAULT_SETTING_INLINE_MESSAGE_STYLE=right
+          DEFAULT_SETTING_JUNK_PER_SOURCE=20 DEFAULT_SETTING_JUNK_SINCE=-1 week DEFAULT_SETTING_LANGUAGE=en
+          DEFAULT_SETTING_LIST_STYLE=email_style DEFAULT_SETTING_MSG_PART_ICONS=true
+          DEFAULT_SETTING_NO_FOLDER_ICONS=false DEFAULT_SETTING_NO_PASSWORD_SAVE=false
+          DEFAULT_SETTING_PAGINATE_LINKS=true DEFAULT_SETTING_REVIEW_SENT_EMAIL=true DEFAULT_SETTING_SEARCH_SINCE=-1
+          week DEFAULT_SETTING_SENT_PER_SOURCE=20 DEFAULT_SETTING_SENT_SINCE=-1 week
+          DEFAULT_SETTING_SHOW_LIST_ICONS=true DEFAULT_SETTING_SIMPLE_MSG_PARTS=false
+          DEFAULT_SETTING_SMTP_AUTO_BCC=false DEFAULT_SETTING_SMTP_COMPOSE_TYPE= DEFAULT_SETTING_SNOOZED_PER_SOURCE=20
+          DEFAULT_SETTING_SNOOZED_SINCE=-1 week DEFAULT_SETTING_START_PAGE=none DEFAULT_SETTING_TAGS_PER_SOURCE=20
+          DEFAULT_SETTING_TAGS_SINCE=-1 week DEFAULT_SETTING_TEXT_ONLY=false DEFAULT_SETTING_THEME=default
+          DEFAULT_SETTING_TIMEZONE=UTC DEFAULT_SETTING_TRASH_PER_SOURCE=20 DEFAULT_SETTING_TRASH_SINCE=-1 week
+          DEFAULT_SETTING_UNREAD_EXCLUDE_FEEDS=false DEFAULT_SETTING_UNREAD_EXCLUDE_GITHUB=false
+          DEFAULT_SETTING_UNREAD_EXCLUDE_WORDPRESS=false DEFAULT_SETTING_UNREAD_PER_SOURCE=20
+          DEFAULT_SETTING_UNREAD_SINCE=-1 week DEFAULT_SETTING_WORDPRESS_SINCE=-1 week
+
+          DEFAULT_SMTP_NAME= DEFAULT_SMTP_NO_AUTH=false DEFAULT_SMTP_PORT= DEFAULT_SMTP_SERVER= DEFAULT_SMTP_TLS=false
+
+          DISABLE_EMPTY_SUPERGLOBALS=false DISABLE_FINGERPRINT=false DISABLE_INI_SETTINGS=false DISABLE_IP_CHECK=false
+          DISABLE_OPEN_BASE_DIR=false DISABLE_ORIGIN_CHECK=false
+
+          DYNAMIC_HOST=true DYNAMIC_HOST_SUBDOMAIN=false DYNAMIC_MAIL_SUBDOMAIN=false DYNAMIC_SMTP_SUBDOMAIN=false
+          DYNAMIC_USER=false
+
+          ENABLE_MEMCACHED=true ENABLE_REDIS=true
+
+          ENCRYPT_AJAX_REQUESTS=false ENCRYPT_LOCAL_STORAGE=false
+
+          FANCY_LOGIN=false
+
+          GITHUB_AUTH_URL=https://github.com/login/oauth/authorize GITHUB_CLIENT_ID=false GITHUB_CLIENT_SECRET=
+          GITHUB_REDIRECT_URI=http://localhost/?page=home GITHUB_TOKEN_URL=https://github.com/login/oauth/access_token
+
+          GMAIL_AUTH_URI=https://accounts.google.com/o/oauth2/auth GMAIL_CLIENT_ID= GMAIL_CLIENT_SECRET=
+          GMAIL_CLIENT_URI=http://localhost/?page=home GMAIL_REFRESH_URI=https://www.googleapis.com/oauth2/v3/token
+          GMAIL_TOKEN_URI=https://www.googleapis.com/oauth2/v3/token
+
+          IMAP_AUTH_NAME=Gandi IMAP_AUTH_PORT=993 IMAP_AUTH_SERVER=mail.gandi.net IMAP_AUTH_SIEVE_CONF_HOST=false
+          IMAP_AUTH_SIEVE_TLS_MODE=true IMAP_AUTH_TLS=true
+
+          JS_COMPRESS=false JS_EXCLUDE_DEPS=false
+
+          LDAP_AUTH=false LDAP_AUTH_BASE_DN=example,dc=com LDAP_AUTH_PORT=389 LDAP_AUTH_SERVER=localhost
+          LDAP_AUTH_TLS=false LDAP_AUTH_UID_ATTR=uid LDAP_BASE_DN=dc=example,dc=com LDAP_ENABLE_TLS=false
+          LDAP_OBJECT_CLASS=top,person,organizationalperson,inetorgperson LDAP_PASS= LDAP_PORT=389 LDAP_READ_WRITE=true
+          LDAP_SEARCH_TERM=objectclass=inetOrgPerson LDAP_SERVER=localhost LDAP_UID_ATTR=uid LDAP_USER=
+
+          LONG_SESSION_LIFETIME=30
+
+          MEMCACHED_AUTH=false MEMCACHED_PASS= MEMCACHED_PORT=11211 MEMCACHED_SERVER=127.0.0.1 MEMCACHED_USER=
+
+          OFFICE365_AUTH_URI=https://login.live.com/oauth20_authorize.srf OFFICE365_CLIENT_ID= OFFICE365_CLIENT_SECRET=
+          OFFICE365_CLIENT_URI=http://localhost/?page=home
+          OFFICE365_REFRESH_URI=https://login.live.com/oauth20_token.srf
+          OFFICE365_TOKEN_URI=https://login.live.com/oauth20_token.srf
+
+          OUTLOOK_AUTH_URI=https://login.live.com/oauth20_authorize.srf OUTLOOK_CLIENT_ID= OUTLOOK_CLIENT_SECRET=
+          OUTLOOK_CLIENT_URI=http://localhost/?page=home OUTLOOK_REFRESH_URI=https://login.live.com/oauth20_token.srf
+          OUTLOOK_TOKEN_URI=https://login.live.com/oauth20_token.srf
+
+          RECAPTCHA_SECRET= RECAPTCHA_SITE_KEY=
+
+          REDIRECT_AFTER_LOGIN=
+
+          REDIS_INDEX=1 REDIS_PASS= REDIS_PORT=6379 REDIS_SERVER=127.0.0.1 REDIS_SOCKET=/var/run/redis/redis-server.sock
+
+          SESSION_CLASS= SESSION_TYPE=PHP
+
+          SINGLE_SERVER_MODE=false
+
+          USER_CONFIG_TYPE=file USER_SETTINGS_DIR=/var/lib/hm3/users
+
+          WORDPRESS_CLIENT_ID= WORDPRESS_CLIENT_SECRET= WORDPRESS_CLIENT_URI=
+
+          LOG_FILE=/var/log/cypht/cypht.log DEBUG_LOG=false LOG_LEVEL=WARNING
+        </pre>
+      </div>
+    </div>
+    {# Footer (visible on small screens, hidden on lg+) #}
+    <div class="offcanvas-footer">
+      <div class="offc-footer-actions">
+        <button type="button" class="action-btn cypht-primary-btn" id="copy_btn" aria-label="Copy to clipboard">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewbox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+            <path d="M4 16c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2" />
+          </svg>
+          <span>Copy</span>
+        </button>
+        <button type="button" class="action-btn cypht-primary-btn" id="download_btn" aria-label="Download file">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewbox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          <span>Download</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  {# Toast #}
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="simple_toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="toast-body"></div>
+        <button type="button" class="toast-close-btn" data-bs-dismiss="toast" aria-label="Close">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M19 5L5 19M5 5l14 14"
+              color="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  {# Download Toast #}
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="download_toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="toast-body"></div>
+        <button type="button" class="toast-close-btn" data-bs-dismiss="toast" aria-label="Close">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M19 5L5 19M5 5l14 14"
+              color="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

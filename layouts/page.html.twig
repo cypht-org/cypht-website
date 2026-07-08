@@ -1,115 +1,159 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{page.title}}</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="/img/icon.ico">
-    <link rel="stylesheet" href="/site.css">
-    <link rel="canonical" href="{{site.baseurl}}{{page.path}}">
-</head>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>{{page.title}}</title>
+		<meta name="description" content="{{ page.description|default(site.description)|default('Cypht is a lightweight, secure, open-source webmail client that aggregates multiple email accounts and services into a single unified interface.') }}">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/png" href="/img/icon.ico">
+		<script>
+			(function () {
+const theme = localStorage.getItem('theme') || 'dark';
+document.documentElement.setAttribute('data-theme', theme);
+})();
+		</script>
+		<!-- Preconnect to external asset / font origins -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+		<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+		<!-- Fonts: only the families/weights actually used (Poppins dropped) -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap">
+		<link rel="stylesheet" href="/assets/css/main.css">
+		<link rel="canonical" href="{{site.baseurl}}{{page.path}}">
 
-<body>
-    {% if not page.h1 is defined or page.h1 != false %}
-    <h1 class="sr-only">{{page.h1 |default(page.title)}}</h1>
-    {% endif %}
-    <header>
-        <nav aria-label="Site navigation" class="navbar navbar-expand-lg navbar-dark  fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="/">
-                    <img src="/img/logo.svg" width="120" height="60" alt="">
-                </a>
-                <button class="navbar-toggler toggler-home" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-lg-auto">
-                        {% for pageEntry in site.pages.showable|sort_by_weight  %}
-                            {% set current = pageEntry.path == page.path %}
-                            <li class="nav-item {{current ? 'active' : ''}}">
-                                <a
-                                    class="nav-link"
-                                    href="/{{pageEntry.path}}"
-                                    {{ current ? 'aria-current="page"' : '' }}
-                                >{{pageEntry.title}}</a>
-                            </li>
-                        {% endfor %}
-                        <li class="nav-item">
-                            <a class="nav-link"
-                               href="https://unencumberedbyfacts.com/"
-                            >Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/cypht-org/cypht-website/blob/master/pages/{% if page.path %}{{page.path}}.md{% else %}index.md{% endif %}">
-                                 <img src="/img/edit_icon.png" alt="Edit Icon" width="23" height="23" style="vertical-align:middle;" title="Edit this page">
-                            </a>
-                       </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    {% if page.nocontainer is defined %}
-        {{page.content}}
-    {% else %}
-        <main class="content-section container">
-            {{page.content}}
-            {% if page.path == 'config-generator' %}
-                {{- include('partials/config-generator.html.twig') ~}}
-            {% endif %}
-        </main>
-    {% endif %}
+		<!-- Open Graph -->
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="{{ site.baseurl }}{{ page.path }}">
+		<meta property="og:title" content="{{ page.title|default(site.title) }}">
+		<meta property="og:description" content="{{ page.description|default(site.description)|default('Cypht is a lightweight, secure, open-source webmail client that aggregates multiple email accounts and services into a single unified interface.') }}">
+		<meta property="og:image" content="{{ site.baseurl }}img/cypht_preview.png">
+		<meta property="og:image:width" content="1728">
+		<meta property="og:image:height" content="910">
+		<meta property="og:site_name" content="Cypht">
+
+		<!-- Twitter card format -->
+		<meta name="twitter:card" content="summary_large_image">
+		<!-- Structured data (schema.org) -->
+		<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@graph": [
+		    {
+		      "@type": "Organization",
+		      "@id": "{{ site.baseurl }}#organization",
+		      "name": "{{ site.organization.name }}",
+		      "url": "{{ site.baseurl }}",
+		      "logo": "{{ site.baseurl }}{{ site.organization.logo }}",
+		      "sameAs": ["{{ site.organization.github }}"]
+		    },
+		    {
+		      "@type": "WebSite",
+		      "@id": "{{ site.baseurl }}#website",
+		      "url": "{{ site.baseurl }}",
+		      "name": "{{ site.title }}",
+		      "description": "{{ site.description }}",
+		      "publisher": { "@id": "{{ site.baseurl }}#organization" }
+		    },
+		    {
+		      "@type": "SoftwareApplication",
+		      "name": "{{ site.organization.name }}",
+		      "applicationCategory": "{{ site.software.category }}",
+		      "operatingSystem": "{{ site.software.os }}",
+		      "description": "{{ site.description }}",
+		      "url": "{{ site.baseurl }}",
+		      "license": "{{ site.organization.license }}",
+		      "isAccessibleForFree": true,
+		      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+		      "sameAs": ["{{ site.organization.github }}"]
+		    }
+		  ]
+		}
+		</script>
+		<!-- FAQ structured data (home page only) -->
+		{% if page.path == '' %}
+		<script type="application/ld+json">
+		{ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+		{% for item in site.data.faq %}{ "@type": "Question", "name": {{ item.question|json_encode|raw }}, "acceptedAnswer": { "@type": "Answer", "text": {{ item.answer|json_encode|raw }} } }{% if not loop.last %},{% endif %}
+		{% endfor %}
+		] }
+		</script>
+		{% endif %}
+		<!-- Breadcrumb structured data (documentation pages) -->
+		{% if page.path starts with 'documentation/' %}
+		<script type="application/ld+json">
+		{ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+		{ "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.baseurl }}" },
+		{ "@type": "ListItem", "position": 2, "name": "Documentation", "item": "{{ site.baseurl }}documentation/" },
+		{ "@type": "ListItem", "position": 3, "name": {{ page.title|json_encode|raw }}, "item": "{{ site.baseurl }}{{ page.path }}" }
+		] }
+		</script>
+		{% endif %}
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+	</head>
+	<body>
+
+		{% include 'partials/navbar.html.twig' %}
+		<div class="flex-1  main-content">
+			{% if page.nocontainer is defined %}
+				{% block content %}
+					{{page.content}}
+				{% endblock %}
+			{% else %}
+				<main class="">
+					{% block content_area %}
+						{{page.content}}
+					{% endblock %}
+
+					{% if page.path == 'config-generator' %}
+						{{- include('partials/config-generator.html.twig')~}}
+					{% endif %}
+				</main>
+			{% endif %}
+		</div>
+		{% include 'partials/footer_label.html.twig' %}
+		{% include 'partials/footer.html.twig' %}
 
 
-    <footer>
-        <section class="footer-section" id="contact">
-            <div class="container text-center">
-                <h2>Have a suggestion or a question?</h2>
-                <h3>Or maybe you want to throw huge wads of cash at us? </h3>
-                <p>We love feedback so let us know what you think!</p>
-            </div>
-        </section>
-        <nav aria-label="Developer links" class=" social-section text-center">
-            <h2 class="sr-only">Developer links</h2>
-            <div class="container">
-                <div class="row">
-                    <div class="col-3 col-md-3 col-sm-12">
-                        <p>
-                            <span>Page on Github</span><br>
-                            <a href="https://github.com/cypht-org/cypht-website/blob/master/pages/{% if page.path %}{{page.path}}.md{% else %}index.md{% endif %}">Edit here</a>                        </p>
-                    </div>
-                    <div class="col-3 col-md-3 col-sm-12">
-                        <p>
-                            <span>Fill out an issue at Github</span><br>
-                            <a href="https://github.com/cypht-org/cypht/issues">Submit an issue</a>
-                        </p>
-                    </div>
-                    <div class="col-3 col-md-3 col-sm-12">
-                        <p>
-                            <span>Chat with us at Gitter</span><br>
-                            <a href="https://gitter.im/cypht-org/community">Cypht at Gitter</a>
-                        </p>
-                    </div>
-                    <div class="col-3 col-md-3 col-sm-12">
-                        <p>
-                            <span>Want to contribute?</span><br>
-                            <a href="/contribute">Cypht website contribution</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </footer>
-    <script src="/jquery.slim.min.js"></script>
-    <script src="/bootstrap.bundle.min.js"></script>
-    {% if page.loadScriptAfter is defined %}
-        <script src="{{page.loadScriptAfter}}"></script>
-    {% endif %}
-</body>
+		{% if page.loadScriptAfter is defined %}
+			{% if page.loadScriptAfter|slice(-3) == '.js' and page.loadScriptAfter|slice(0, 4) == '/js/' %}
+				<script type="module" src="{{page.loadScriptAfter}}"></script>
+			{% else %}
+				<script src="{{page.loadScriptAfter}}"></script>
+			{% endif %}
+		{% endif %}
 
+		<script src="/js/theme-switcher.js"></script>
+		<script src="/js/lazy-load.js"></script>
+		<script src="/js/code-copy.js"></script>
+		<script src="/js/documentation.js"></script>
+		<script src="/js/doc_pagination.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+		<script src="https://cdn.jsdelivr.net/npm/highlight.js/lib/common.min.js"></script>
+		<!-- Highlight.js -->
+		<script>
+			// Function to initialize highlight.js when ready
+function initHighlight() {
+if (typeof hljs !== 'undefined') {
+hljs.highlightAll();
+} else { // Retry if hljs isn't loaded yet
+setTimeout(initHighlight, 50);
+}
+}
+
+// Wait for DOM to be ready
+if (document.readyState === 'loading') {
+document.addEventListener('DOMContentLoaded', function () {
+initHighlight();
+});
+} else { // DOM already loaded
+initHighlight();
+}
+		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" onload="initHighlight()"></script>
+	</body>
 </html>

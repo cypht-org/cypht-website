@@ -1,0 +1,13 @@
+# FAQ — single source of truth for the home accordion AND the FAQPage JSON-LD.
+- question: 'Can I access multiple email accounts with Cypht?'
+  answer: 'Yes! Cypht is specifically designed to manage multiple email accounts simultaneously. You can add accounts from various providers (Gmail, Outlook, IMAP, JMAP, EWS) and access them all through a unified interface.'
+- question: 'Does Cypht support multiple users?'
+  answer: 'Yes, Cypht supports multiple users. Each user can have their own login and manage their collection of email accounts independently.'
+- question: 'What is the Combined Inbox?'
+  answer: 'The Combined Inbox displays emails from all your connected accounts in one unified view, allowing you to read, sort, and manage messages from different providers without switching between accounts.'
+- question: 'Can I create email filters?'
+  answer: 'Yes, Cypht supports Sieve filters. Go to Settings > Sieve Filters, select your account, and create filters to automatically organize emails based on criteria like sender, subject, or keywords.'
+- question: 'Is there a contact management system?'
+  answer: 'Yes, Cypht includes a contact book. You can add contacts manually from the contacts page or quickly add senders by clicking the person icon in received messages.'
+- question: 'How do I add new email accounts?'
+  answer: 'Click "Add" in the accounts section. For services like Gmail or Outlook, you may need to configure OAuth settings in your configuration file.'

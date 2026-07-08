@@ -1,0 +1,574 @@
+/* ─── License Hero Section ──────────────────────────────────────────────────────────── */
+.license-hero {
+      margin: 0 auto;
+      min-height: var(--hero-height-md);
+      padding: var(--hero-padding-md);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+}
+
+.license-hero:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(0,0,0,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
+      z-index: 1;
+      pointer-events: none;
+}
+
+/* Lighten the hero grid so it stays visible on the dark background */
+[data-theme="dark"] .license-hero:before {
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>");
+}
+
+.license-hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 1.3rem;
+      width: 80%;
+}
+
+.license-container {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+}
+
+/* Anchor offset: avoid content hidden under sticky navbar */
+#libraries {
+      scroll-margin-top: 7rem;
+}
+
+/* Info cards */
+.license-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 1rem;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+      color: white;
+      padding: 3rem 1.4rem;
+      border-radius: 24px;
+}
+
+.license-info h2 {
+      border: none;
+      margin-bottom: .92rem;
+      font-weight: 800;
+      line-height: 1.2;
+      position: relative;
+      z-index: 1;
+}
+
+.license-info p {
+      color: white;
+      font-weight: 500;
+}
+
+/* stats content */
+
+.license-stats-content {
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      position: relative;
+      overflow: hidden;
+      max-width: var(--container-4xl);
+      margin: 0 auto;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.license-stats-content:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: -1rem;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(129, 180, 65, 0.15) 0%, rgba(129, 180, 65, 0.25) 100%);
+      border: .5px solid var(--color-primary);
+      border-radius: 20px;
+      transform: perspective(1000px) rotateX(20deg);
+      z-index: -1;
+}
+
+.l-stats-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+}
+
+.l-stats-title {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+}
+
+.l-stats-underline {
+      width: 50%;
+      height: 2px;
+      background-color: white;
+      border-radius: 2px;
+}
+
+.l-stats-overview {
+      display: flex;
+      flex-direction: row;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+}
+
+.stat-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+      min-width: 120px;
+}
+
+.stat-number {
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.03em;
+}
+
+.stat-label {
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 400;
+      opacity: 0.95;
+      line-height: 1.3;
+}
+
+/* Libraries Section */
+.lc-list {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+}
+
+.ls-item-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 0 2rem;
+      margin-bottom: 4rem;
+}
+
+.ls-item-header-text h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+}
+
+.ls-item-header-text p {
+      max-width: 25em;
+}
+
+/* line top indicator */
+.line-top-indicator,
+.line-bottom-indicator {
+      width: 100%;
+      height: 2px;
+      background: rgba(226, 232, 240, 0.6);
+      position: relative;
+}
+
+.line-top-indicator::before,
+.line-top-indicator::after {
+      content: '';
+      top: -1.6rem;
+      position: absolute;
+      bottom: 0;
+      border: 1.2px solid var(--color-border);
+}
+
+.line-top-indicator::before {
+      left: 2rem;
+}
+
+.line-top-indicator::after {
+      right: 2rem;
+}
+
+.line-bottom-indicator::before,
+.line-bottom-indicator::after {
+      content: '';
+      top: 0;
+      position: absolute;
+      height: 1.6rem;
+      border: 1.2px solid var(--color-border);
+}
+
+.line-bottom-indicator::before {
+      left: 2rem;
+}
+
+.line-bottom-indicator::after {
+      right: 2rem;
+}
+
+/* ─── Libraries Grid ──────────────────────────────────────────────────────────── */
+.libraries-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      padding: 0 .1rem;
+      position: relative;
+      height: 100%;
+      margin: 0 2rem;
+      background-color: rgba(226, 232, 240, 0.6);
+      gap: 1px;
+}
+
+.library-card {
+      background: #f8f9fa13;
+      background-color: #F6F6F6;
+      padding: 1.75rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+      overflow: hidden;
+      width: 100%;
+      cursor: default;
+}
+
+.library-card:hover {
+      background-color: #f9f9f9;
+
+      & .library-description {
+            font-size: 0.821rem;
+      }
+
+}
+
+.library-description {
+      -webkit-transition: .3s ease-out;
+      font-size: 0.82rem;
+      color: #475569;
+      line-height: 1.6;
+      margin: 0.5rem 0 1.5rem 0;
+      flex: 1;
+      transition: .3s ease-in-out;
+}
+
+/* Card header with icon and metadata */
+.library-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+}
+
+.library-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--color-text);
+      margin: 0 0 0.5rem 0;
+      line-height: 1.3;
+      letter-spacing: -0.025em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+}
+
+.library-name i {
+      font-size: 1.3rem;
+      margin-right: 0.5rem;
+}
+
+
+
+.library-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: auto;
+      padding-top: 0.75rem;
+}
+
+/* ?? CSS for libraries grid */
+.library-card {
+      transition: all 0.3s ease;
+}
+
+/* Animated line indicators */
+.line-top-indicator,
+.line-bottom-indicator {
+      transition: all 0.5s ease;
+}
+
+.line-top-indicator.animate-in,
+.line-bottom-indicator.animate-in {
+      opacity: 1;
+      transform: scaleX(1);
+}
+
+.line-before,
+.line-after {
+      position: absolute;
+      height: 1.6rem;
+      border: 0.8px solid rgba(128, 180, 65, 0.2);
+      transition: all 0.3s ease;
+}
+
+.line-before {
+      left: 4rem;
+      top: -1.6rem;
+}
+
+.line-after {
+      right: 4rem;
+      top: -1.6rem;
+}
+
+.line-bottom-indicator .line-before,
+.line-bottom-indicator .line-after {
+      top: 0;
+}
+
+/* Button style */
+
+.library-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1 1 130px;
+      gap: 0.3rem;
+      font-size: 0.76rem !important;
+      font-weight: 500;
+      background: transparent;
+      border: .5px solid var(--color-border);
+      box-shadow: none;
+      color: var(--color-text-secondary);
+      padding: 0.25rem 0.7rem;
+      text-decoration: none;
+      border-radius: 4px;
+      min-height: 2rem !important;
+      line-height: 1;
+      transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.library-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary-dark);
+}
+
+.library-btn-icon {
+      font-size: 0.95rem;
+      line-height: 1;
+      transition: transform 0.2s ease;
+      rotate: -40deg;
+}
+
+.library-btn:hover .library-btn-icon {
+      transform: translate(2px, -2px);
+}
+
+/* GitHub "Source code" link — shares the neutral base .library-btn style; just size the icon */
+.library-btn-source .bi-github {
+      font-size: 0.9rem;
+      line-height: 1;
+}
+
+@media (min-width: 480px) {
+      .license-info {
+            padding: 3rem 3rem;
+      }
+}
+
+@media (min-width: 634px) and (max-width: 750px) {
+      .license-hero-content {
+            width: 70%;
+      }
+}
+
+@media (min-width: 750px) {
+
+      .license-hero-content {
+            width: 60%;
+      }
+
+      .license-container {
+            max-width: var(--container-2xl);
+            margin: 0 auto;
+      }
+
+      .license-stats-content {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 3rem 3.5rem;
+            gap: 3rem;
+      }
+
+      .l-stats-text {
+            flex: 0 0 auto;
+            max-width: 45%;
+      }
+
+      .l-stats-title {
+            font-size: 1.75rem;
+      }
+
+      .l-stats-overview {
+            flex: 1;
+            justify-content: flex-end;
+            gap: 3rem;
+      }
+
+      .stat-card {
+            flex: 0 0 auto;
+            min-width: 140px;
+      }
+
+      .stat-number {
+            font-size: 3rem;
+      }
+
+      .libraries-grid {
+            grid-template-columns: repeat(2, 1fr);
+      }
+}
+
+@media (min-width: 1020px) {
+
+      .license-hero {
+            padding: 2rem;
+            min-height: var(--hero-height-md);
+            padding: 5.7rem 0;
+      }
+
+      .license-hero-content {
+            width: 55%;
+      }
+
+      .license-subtitle {
+            width: 70%;
+      }
+
+      .license-container {
+            max-width: calc(var(--container-5xl) - 4rem);
+      }
+
+
+      .license-info {
+            /* background: blue !important; */
+            padding: 2.5rem 2rem;
+            max-width: calc(var(--container-4xl) - 4rem);
+            margin: 0 auto;
+      }
+
+      .license-info h2,
+      .license-info p {
+            width: 70% !important;
+      }
+
+      .libraries-grid {
+            grid-template-columns: repeat(3, 1fr);
+      }
+
+
+}
+
+@media (min-width: 1280px) {
+
+      .license-hero-content {
+            /* background-color: yellow; */
+            width: 50%;
+      }
+
+      .license-hero {
+            min-height: 50dvh;
+      }
+
+      .license-container {
+            /* background-color: green; */
+            max-width: var(--container-5xl);
+      }
+
+      .license-stats-content {
+            padding: 3.5rem 4rem;
+      }
+
+      .l-stats-title {
+            font-size: 2rem;
+      }
+
+      .stat-number {
+            font-size: 3.5rem;
+      }
+
+      .stat-label {
+            font-size: 1rem;
+      }
+}
+
+/* Theme */
+
+[data-theme="dark"] {
+
+      .line-top-indicator::before,
+      .line-top-indicator::after,
+      .line-bottom-indicator::before,
+      .line-bottom-indicator::after,
+
+      .line-before,
+      .line-after {
+            border: .8px solid var(--color-border);
+      }
+
+      .library-card {
+            background-color: var(--clr-card-bg);
+      }
+
+      .line-top-indicator,
+      .line-bottom-indicator,
+      .libraries-grid {
+            background-color: var(--color-border);
+      }
+
+      .library-description {
+            color: var(--color-text);
+            opacity: .8;
+      }
+
+      .library-card:hover {
+            background: var(--clr-card-bg-second);
+      }
+
+      .license-stats-content:before {
+            /* background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); */
+            background: linear-gradient(135deg, rgba(129, 180, 65, 0.15) 0%, rgba(129, 180, 65, 0.25) 100%);
+            border: .5px solid var(--color-primary);
+      }
+}

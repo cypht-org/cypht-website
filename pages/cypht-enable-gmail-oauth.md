@@ -1,32 +1,34 @@
 ---
-title: Gmail OAuth
+title: "Set Up Gmail OAuth"
+description: "Step-by-step guide to enable Google OAuth authentication in Cypht. Configure Google Cloud Console, create OAuth credentials, and connect your Gmail account securely."
 h1: false
 exclude: true
 nocontainer: true
 ---
+
 <div style="margin-top: 100px;"></div>
 <main>
     <section class="security-section" style="padding-top:50px">
         <div class="container text-center">
-            <h1>Google OAuth in cypht</h1>
-            <p>Welcome to the documentation allowing you to enable google authentication in cypht.</p>
+            <h1>Google OAuth in Cypht</h1>
+            <p>Follow this guide to enable Google authentication for your Cypht installation.</p>
         </div>
     </section>
     <section class="content-section-doc container">
         <div class="line">
             <div  class="element1 item ">
-                <img src="/img/google-oauth-screen/google-oauth-1.png" alt="google-oauth-screen">
+                <img src="/img/google-oauth-screen/google-oauth-1.webp" alt="Google OAuth setup step 1" width="1791" height="1128" loading="lazy" decoding="async">
             </div>
             <div  class="element2 item ">
-                <h2>1. Go to the Google Cloud Console</h2>
+                <h2>1. Open the Google Cloud Console</h2>
                 <ul>
-                    <li>Go to <a href="https://console.cloud.google.com/">Google Cloud Console</a></li>
-                    <li>Sign in with your Google Account (the one associated with your app).</li>
+                    <li>Visit the <a href="https://console.cloud.google.com/">Google Cloud Console</a>.</li>
+                    <li>Sign in with the Google Account that manages your application.</li>
                 </ul>
                 <h2>2. Create or select a project</h2>
                 <ul>
-                    <li>If you don't have a project yet, click on "Create Project" and give it a name</li>
-                    <li>If you already have a project, select it from the list.</li>
+                    <li>If you do not already have a project, choose <strong>Create Project</strong> and provide a name.</li>
+                    <li>If a project exists, select it from the project list.</li>
                 </ul>
             </div>
         </div>
@@ -35,60 +37,60 @@ nocontainer: true
     <section class="content-section-doc container">
         <div class="line">
             <div  class="element1 item ">
-                <img src="/img/google-oauth-screen/google-oauth-2.png" alt="google-oauth-screen">
+                <img src="/img/google-oauth-screen/google-oauth-2.webp" alt="Google OAuth setup step 2" width="1791" height="1128" loading="lazy" decoding="async">
             </div>
             <div  class="element2 item ">
-                <h2>3. Set up the OAuth consent screen</h2>
+                <h2>3. Configure the OAuth consent screen</h2>
                 <ul>
-                    <li>Go to "APIs and Services" > "OAuth Consent Screen".</li>
+                    <li>Navigate to <strong>APIs &amp; Services</strong> &gt; <strong>OAuth consent screen</strong>.</li>
                     <li>
-                        Fill in the required information :
+                        Provide the required information:
                         <ul>
-                            <li>Select the type of application (External or Internal depending on your case).</li>
-                            <li>Application Name(visible to users).</li>
-                            <li>Support email and administrative contact email.</li>
-                            <li>Allowed domains (add your domain, e.g. votresite.com or localhost for development).</li>
-                            <li>Privacy policy URL (if available).</li>
-                            <li>Save and proceed to the next step.</li>
+                            <li>Select the application type (<strong>External</strong> or <strong>Internal</strong>, depending on your needs).</li>
+                            <li>Enter the application name that will be displayed to users.</li>
+                            <li>Provide support and administrative contact email addresses.</li>
+                            <li>Add your authorized domains (for example, <code>yourdomain.com</code> or <code>localhost</code> for development).</li>
+                            <li>Include a privacy policy URL if you have one.</li>
+                            <li>Save your changes and continue.</li>
                         </ul>
                     </li>
                 </ul>
-                <h2>4. Since we are in Test mode, still in "API and Services" > "OAuth consent screen"</h2>
+                <h2>4. Add test users (Test mode)</h2>
                 <ul>
-                    <li>Go to Audiance(1)</li>
-                    <li>Add users(2)</li>
-                    <li>Enter the addresses that will have access to the app(3)</li>
-                    <li>Then the list(4) will be displayed</li>
+                    <li>Within the same <strong>OAuth consent screen</strong>, open the <strong>Test users</strong> tab.</li>
+                    <li>Select <strong>Add users</strong>.</li>
+                    <li>Enter the email addresses that should be allowed to access the application during testing.</li>
+                    <li>Confirm to display the list of authorized test accounts.</li>
                 </ul>
-                <p>NB : if you don't add the address, when you try to connect in cypht, you won't have access, google will return an error.</p>  
+                <p><strong>Note:</strong> Any email address not listed here will be blocked from signing in while the application remains in test mode.</p>  
             </div>
         </div>
     </section>
     <section class="content-section-doc container">
         <div class="line">
             <div  class="element1 item ">
-                <img src="/img/google-oauth-screen/google-oauth-2.png" alt="google-oauth-screen">
+                <img src="/img/google-oauth-screen/google-oauth-2.webp" alt="Google OAuth setup step 2" width="1791" height="1128" loading="lazy" decoding="async">
             </div>
             <div  class="element2 item ">
                 <h2>5. Create OAuth credentials</h2>
                 <ul>
-                    <li>Go to "APIs and Services" > "Credentials"</li>
-                    <li>Click on "Create credentials" > "OAuth client ID".</li>
-                    <li>Choose the type of application: Web application.</li>
+                    <li>Return to <strong>APIs &amp; Services</strong> and choose <strong>Credentials</strong>.</li>
+                    <li>Select <strong>Create credentials</strong> &gt; <strong>OAuth client ID</strong>.</li>
+                    <li>Set the application type to <strong>Web application</strong>.</li>
                     <li>
-                        Fill in the fields :
+                        Complete the form:
                         <ul>
-                            <li>Name (e.g. "My App - Gmail Authentication").</li>
+                            <li>Name the client (e.g., “Cypht – Gmail Authentication”).</li>
                             <li>
-                                Allowed redirect URI :
+                                Define the authorized redirect URIs:
                                 <ul>
-                                <li>For development: http://localhost:3000/auth/google/callback (adjust the port according to your app).</li>
-                                <li>For production: https://yourdomaine.com/auth/google/callback.</li>
+                                <li>Development: <code>http://localhost:3000/auth/google/callback</code> (adjust the port as needed).</li>
+                                <li>Production: <code>https://yourdomain.com/auth/google/callback</code>.</li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
-                    <li>Click "Create".</li>
+                    <li>Click <strong>Create</strong>.</li>
                 </ul>
             </div>
         </div>
@@ -96,18 +98,21 @@ nocontainer: true
     <section class="content-section-doc container">
         <div class="line">
             <div  class="element1 item ">
-                <h2>6. Get your GMAIL_CLIENT_ID and GMAIL_CLIENT_SECRET</h2>
-                <p>After creation, Google will display</p>
+                <h2>6. Retrieve your GMAIL_CLIENT_ID and GMAIL_CLIENT_SECRET</h2>
+                <p>After the client is created, Google displays the credentials:</p>
                 <ul>
-                    <li>ID client(1) (GMAIL_CLIENT_ID).</li>
-                    <li>Client secret (2)(GMAIL_CLIENT_SECRET).</li>
+                    <li>Client ID (1) — this becomes your <code>GMAIL_CLIENT_ID</code>.</li>
+                    <li>Client secret (2) — this becomes your <code>GMAIL_CLIENT_SECRET</code>.</li>
                 </ul>
-                <p>Once you already have your credentials, go to the ".env" file at the root of the cypht project, then look for "GMAIL_CLIENT_ID" where you will put the number 1 and "GMAIL_CLIENT_SECRET" where you will put the number 2.</p>
-                       
-                <p>Now your configuration is done.</p>        
+                <p>Open the <code>.env</code> file at the root of your Cypht project and update the following variables with these values:</p>
+                <ul>
+                    <li><code>GMAIL_CLIENT_ID=&lt;client-id&gt;</code></li>
+                    <li><code>GMAIL_CLIENT_SECRET=&lt;client-secret&gt;</code></li>
+                </ul>
+                <p>Your configuration is now complete.</p>        
             </div>
             <div  class="element2 item ">
-                <img src="/img/google-oauth-screen/google-oauth-4.png" alt="google-oauth-screen">
+                <img src="/img/google-oauth-screen/google-oauth-4.webp" alt="Google OAuth setup step 4" width="1791" height="1128" loading="lazy" decoding="async">
             </div>
         </div>
     </section>

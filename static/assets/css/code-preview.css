@@ -1,0 +1,628 @@
+/* Terminal cards, code blocks, copy control, highlight.js tokens */
+
+.code-preview-content {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Terminal wrapper: dark card + CSS variables for text, hljs, copy button */
+.code-preview-content.gc-terminal {
+  background: #1e1e1e !important;
+  border: 1px solid #333 !important;
+  padding: 10px;
+  position: relative;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  box-sizing: border-box !important;
+  height: fit-content !important;
+  min-height: 60px !important;
+  flex: 0 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow: visible !important;
+  border-radius: 6px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --gc-terminal-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --gc-terminal-text: #e8e6ef;
+  --gc-terminal-copy: rgba(210, 200, 245, 0.75);
+  --gc-terminal-copy-hover: #f5f3ff;
+  --gc-terminal-copy-btn-bg: #2c2c2e;
+  --gc-terminal-copy-btn-border: rgba(255, 255, 255, 0.14);
+  --gc-terminal-copy-btn-icon: #ffffff;
+  --gc-terminal-copy-btn-bg-hover: #3a3a3d;
+  --gc-terminal-copy-btn-border-hover: rgba(255, 255, 255, 0.22);
+  --gc-terminal-copy-btn-shadow-hover: 0 1px 3px rgba(0, 0, 0, 0.45);
+  --gc-terminal-copy-btn-bg-success: rgba(22, 101, 52, 0.45);
+  --gc-terminal-copy-btn-border-success: rgba(74, 222, 128, 0.4);
+  --gc-terminal-copy-btn-icon-success: #ecfdf5;
+  --gc-terminal-copy-btn-bg-error: rgba(127, 29, 29, 0.45);
+  --gc-terminal-copy-btn-border-error: rgba(252, 165, 165, 0.4);
+  --gc-terminal-copy-btn-icon-error: #fff1f2;
+  --gc-hljs-meta: #7dd3fc;
+  --gc-hljs-keyword: #c4b5fd;
+  --gc-hljs-built_in: #c4b5fd;
+  --gc-hljs-title: #e9d5ff;
+  --gc-hljs-title-class: #ddd6fe;
+  --gc-hljs-type: #c4b5fd;
+  --gc-hljs-string: #a7f3d0;
+  --gc-hljs-number: #fde68a;
+  --gc-hljs-variable: #f0abfc;
+  --gc-hljs-regexp: #56b6c2;
+  --gc-hljs-symbol: #93c5fd;
+  --gc-hljs-comment: #7d8799;
+  --gc-hljs-section: #e879a9;
+  --gc-hljs-addition: #86efac;
+  --gc-hljs-deletion: #fb7185;
+  --gc-hljs-link: #7dd3fc;
+  --gc-hljs-strong: #e9d5ff;
+  --gc-hljs-subst: #e879a9;
+}
+
+[data-theme="dark"] .code-preview-content.gc-terminal {
+  --gc-terminal-text: #f0eef6;
+  --gc-terminal-copy: rgba(196, 181, 255, 0.7);
+  --gc-terminal-copy-hover: #faf5ff;
+  --gc-terminal-copy-btn-bg: #323234;
+  --gc-terminal-copy-btn-border: rgba(255, 255, 255, 0.12);
+  --gc-terminal-copy-btn-bg-hover: #3f3f42;
+  --gc-terminal-copy-btn-border-hover: rgba(255, 255, 255, 0.2);
+  --gc-terminal-copy-btn-shadow-hover: 0 1px 4px rgba(0, 0, 0, 0.55);
+  --gc-terminal-copy-btn-bg-success: rgba(6, 78, 59, 0.55);
+  --gc-terminal-copy-btn-border-success: rgba(52, 211, 153, 0.38);
+}
+
+.code-preview-content.gc-terminal pre,
+.code-preview-content.gc-terminal pre.hljs {
+  background: transparent !important;
+  border: none !important;
+  padding: 5px !important;
+  margin: 0 !important;
+  display: block !important;
+  flex: 1 1 auto !important;
+  height: auto !important;
+  min-height: 40px !important;
+  max-height: none;
+  width: 100% !important;
+  overflow-x: auto;
+  overflow-y: visible;
+  border-radius: 8px;
+  box-sizing: border-box !important;
+}
+
+/* Copy: pill like theme toggle — gray surface, thin border, white icon */
+.code-preview-content.gc-terminal .code-card-copy,
+.code-preview-content.gc-terminal .code-copy-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  position: absolute !important;
+  top: 8px !important;
+  right: 8px !important;
+  z-index: 10 !important;
+  margin: 0 !important;
+  padding: 6px !important;
+  min-width: 30px !important;
+  min-height: 30px !important;
+  box-sizing: border-box !important;
+  background: var(--gc-terminal-copy-btn-bg) !important;
+  border: 1px solid var(--gc-terminal-copy-btn-border) !important;
+  border-radius: 6px !important;
+  color: var(--gc-terminal-copy-btn-icon) !important;
+  font-size: 12px !important;
+  font-family: "JetBrains Mono", "Fira Code", "Consolas", "SF Mono", monospace !important;
+  cursor: pointer !important;
+  transform: none !important;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease !important;
+}
+
+.code-preview-content.gc-terminal .code-card-copy i,
+.code-preview-content.gc-terminal .code-copy-btn i {
+  color: inherit !important;
+  opacity: 0.95;
+}
+
+/* Extra height once copy UI is injected */
+.code-preview-content.gc-terminal:has(.code-card-copy),
+.code-preview-content.gc-terminal:has(.code-copy-btn) {
+  min-height: 60px !important;
+}
+
+.code-preview-content.gc-terminal:has(.code-card-copy) pre,
+.code-preview-content.gc-terminal:has(.code-copy-btn) pre {
+  min-height: 40px !important;
+}
+
+.code-preview-content.gc-terminal .code-card-copy:hover,
+.code-preview-content.gc-terminal .code-copy-btn:hover {
+  background: var(--gc-terminal-copy-btn-bg-hover) !important;
+  border-color: var(--gc-terminal-copy-btn-border-hover) !important;
+  color: var(--gc-terminal-copy-btn-icon) !important;
+  box-shadow: var(--gc-terminal-copy-btn-shadow-hover);
+  transform: none !important;
+}
+
+.code-preview-content.gc-terminal .code-card-copy:active,
+.code-preview-content.gc-terminal .code-copy-btn:active {
+  background: var(--gc-terminal-copy-btn-bg-hover) !important;
+  filter: brightness(0.92);
+  transform: none !important;
+}
+
+.code-preview-content.gc-terminal .code-card-copy.success,
+.code-preview-content.gc-terminal .code-copy-btn.success,
+.code-preview-content.gc-terminal .code-card-copy.copied,
+.code-preview-content.gc-terminal .code-copy-btn.copied {
+  background: var(--gc-terminal-copy-btn-bg-success) !important;
+  border-color: var(--gc-terminal-copy-btn-border-success) !important;
+  color: var(--gc-terminal-copy-btn-icon-success) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  transform: none !important;
+}
+
+.code-preview-content.gc-terminal .code-card-copy.error,
+.code-preview-content.gc-terminal .code-copy-btn.error {
+  background: var(--gc-terminal-copy-btn-bg-error) !important;
+  border-color: var(--gc-terminal-copy-btn-border-error) !important;
+  color: var(--gc-terminal-copy-btn-icon-error) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  transform: none !important;
+}
+
+/* Layout fixes: lists, standalone blocks, generic parents */
+.list_letter li > .code-preview-content.gc-terminal,
+.guide-left li > .code-preview-content.gc-terminal,
+div > .code-preview-content.gc-terminal,
+.gpc-body-title + .code-preview-content.gc-terminal,
+p + .code-preview-content.gc-terminal {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: fit-content !important;
+  max-height: none !important;
+  flex: 0 0 auto !important;
+  flex-shrink: 1 !important;
+  flex-basis: auto !important;
+  margin: 1rem 0 !important;
+  padding: 0 !important;
+}
+
+.list_letter li > .code-preview-content.gc-terminal,
+.guide-left li > .code-preview-content.gc-terminal {
+  align-self: flex-start !important;
+}
+
+* > .code-preview-content.gc-terminal {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: fit-content !important;
+  max-height: none !important;
+  flex: 0 0 auto !important;
+  flex-shrink: 1 !important;
+  flex-basis: auto !important;
+  align-self: flex-start !important;
+}
+
+/* Non-terminal cards and direct <pre> under .gc-terminal (before JS wrap) */
+.code-preview-content:not(.gc-terminal) pre,
+.code-preview-content:not(.gc-terminal) pre.hljs,
+.code-preview-content.gc-terminal > pre,
+.code-preview-content.gc-terminal > pre.hljs {
+  position: relative;
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease;
+}
+
+.code-preview-content:not(.gc-terminal) pre:hover,
+.code-preview-content:not(.gc-terminal) pre.hljs:hover,
+.code-preview-content.gc-terminal > pre:hover,
+.code-preview-content.gc-terminal > pre.hljs:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.code-preview-content pre code {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0.875rem 1.25rem !important;
+  background: #282c34 !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-family: "Consolas", "Monaco", "Courier New", "SF Mono", "Menlo", "Liberation Mono", monospace !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.65 !important;
+  letter-spacing: 0.02em !important;
+  white-space: pre !important;
+  word-wrap: normal;
+  overflow-wrap: normal;
+  tab-size: 4;
+  -moz-tab-size: 4;
+  text-align: left !important;
+  direction: ltr;
+  overflow-x: auto;
+  overflow-y: visible;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: 1em;
+  width: 100%;
+}
+
+.code-preview-content pre code::selection {
+  background: rgba(97, 175, 239, 0.35);
+}
+
+.code-preview-content.gc-terminal pre code,
+.code-preview-content.gc-terminal pre.hljs code,
+.gc-terminal pre code {
+  background: #1e1e1e5d !important;
+  color: var(--gc-terminal-text) !important;
+  border-radius: 0 !important;
+}
+
+.code-preview-content.gc-terminal .gc-terminal-body pre code,
+.code-preview-content.gc-terminal .gc-terminal-body pre.hljs code,
+.code-preview-content.gc-terminal .code-card-body pre code,
+.code-preview-content.gc-terminal .code-card-body pre.hljs code {
+  font-family: "JetBrains Mono", "Fira Code", "Consolas", "SF Mono", "Menlo", monospace !important;
+  padding: 10px !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.55 !important;
+}
+
+.code-preview-content.gc-terminal .gc-terminal-body:has(.gc-terminal-caption) pre code,
+.code-preview-content.gc-terminal .gc-terminal-body:has(.gc-terminal-caption) pre.hljs code {
+  padding-top: 0.85rem !important;
+}
+
+.code-preview-content.gc-terminal pre,
+.gc-terminal pre {
+  padding: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  height: auto !important;
+  min-height: fit-content !important;
+  max-height: none !important;
+  flex: none !important;
+  margin: 0 !important;
+}
+
+.code-preview-content.gc-terminal .gc-terminal-body pre,
+.code-preview-content.gc-terminal .gc-terminal-card pre {
+  padding: 10px !important;
+  border: none;
+  border-radius: 0;
+  box-shadow: none !important;
+  overflow-x: auto;
+  overflow-y: visible;
+  position: relative;
+  margin: 0 !important;
+  height: auto !important;
+  min-height: fit-content !important;
+  max-height: none !important;
+  flex: none !important;
+}
+
+.code-preview-content.gc-terminal .gc-terminal-body pre:hover,
+.code-preview-content.gc-terminal .gc-terminal-card pre:hover,
+.code-preview-content.gc-terminal .gc-terminal-body pre.hljs:hover,
+.code-preview-content.gc-terminal .gc-terminal-card pre.hljs:hover {
+  box-shadow: none !important;
+}
+
+.code-preview-content.gc-terminal pre:hover,
+.gc-terminal pre:hover {
+  box-shadow: var(--gc-terminal-shadow);
+}
+
+.code-preview-content.gc-terminal > pre code {
+  border-radius: 12px !important;
+}
+
+.code-preview-content pre code *,
+.gc-terminal pre code * {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+.code-preview-content pre code,
+.gc-terminal pre code {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* highlight.js: keep tokens inline and visible */
+.code-preview-content pre code span,
+.code-preview-content pre.hljs code span,
+.code-preview-content pre code .hljs-keyword,
+.code-preview-content pre code .hljs-string,
+.code-preview-content pre code .hljs-comment,
+.code-preview-content pre code .hljs-number,
+.code-preview-content pre code .hljs-function,
+.code-preview-content pre code .hljs-built_in,
+.code-preview-content pre code .hljs-title,
+.code-preview-content pre code .hljs-params,
+.code-preview-content pre code .hljs-attr {
+  display: inline !important;
+  white-space: pre !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Terminal: token colors (incl. .code-card-body) */
+.code-preview-content.gc-terminal pre code .hljs-meta,
+.code-preview-content.gc-terminal pre.hljs code .hljs-meta,
+.code-preview-content.gc-terminal pre code .hljs-meta-keyword,
+.code-preview-content.gc-terminal pre.hljs code .hljs-meta-keyword {
+  color: var(--gc-hljs-meta) !important;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-keyword,
+.code-preview-content.gc-terminal pre.hljs code .hljs-keyword {
+  color: var(--gc-hljs-keyword) !important;
+  font-weight: 500;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-built_in,
+.code-preview-content.gc-terminal pre.hljs code .hljs-built_in,
+.code-preview-content.gc-terminal pre code .hljs-name,
+.code-preview-content.gc-terminal pre.hljs code .hljs-name {
+  color: var(--gc-hljs-built_in) !important;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-title,
+.code-preview-content.gc-terminal pre.hljs code .hljs-title,
+.code-preview-content.gc-terminal pre code .hljs-title.class_,
+.code-preview-content.gc-terminal pre.hljs code .hljs-title.class_,
+.code-preview-content.gc-terminal pre code .hljs-title.function_,
+.code-preview-content.gc-terminal pre.hljs code .hljs-title.function_ {
+  color: var(--gc-hljs-title) !important;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-type,
+.code-preview-content.gc-terminal pre.hljs code .hljs-type {
+  color: var(--gc-hljs-type) !important;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-string,
+.code-preview-content.gc-terminal pre.hljs code .hljs-string,
+.code-preview-content.gc-terminal pre code .hljs-attr,
+.code-preview-content.gc-terminal pre.hljs code .hljs-attr,
+.code-preview-content.gc-terminal pre code .hljs-attribute,
+.code-preview-content.gc-terminal pre.hljs code .hljs-attribute {
+  color: var(--gc-hljs-string) !important;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-number,
+.code-preview-content.gc-terminal pre.hljs code .hljs-number,
+.code-preview-content.gc-terminal pre code .hljs-literal,
+.code-preview-content.gc-terminal pre.hljs code .hljs-literal {
+  color: var(--gc-hljs-number) !important;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-variable,
+.code-preview-content.gc-terminal pre.hljs code .hljs-variable,
+.code-preview-content.gc-terminal pre code .hljs-variable.language_,
+.code-preview-content.gc-terminal pre.hljs code .hljs-variable.language_,
+.code-preview-content.gc-terminal pre code .hljs-template-variable,
+.code-preview-content.gc-terminal pre.hljs code .hljs-template-variable {
+  color: var(--gc-hljs-variable) !important;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-regexp,
+.code-preview-content.gc-terminal pre.hljs code .hljs-regexp {
+  color: var(--gc-hljs-regexp) !important;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-symbol,
+.code-preview-content.gc-terminal pre.hljs code .hljs-symbol,
+.code-preview-content.gc-terminal pre code .hljs-bullet,
+.code-preview-content.gc-terminal pre.hljs code .hljs-bullet {
+  color: var(--gc-hljs-symbol) !important;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-comment,
+.code-preview-content.gc-terminal pre.hljs code .hljs-comment,
+.code-preview-content.gc-terminal pre code .hljs-quote,
+.code-preview-content.gc-terminal pre.hljs code .hljs-quote,
+.code-preview-content.gc-terminal pre code .hljs-doctag,
+.code-preview-content.gc-terminal pre.hljs code .hljs-doctag {
+  color: var(--gc-hljs-comment) !important;
+  font-style: italic;
+  opacity: 0.95;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-section,
+.code-preview-content.gc-terminal pre.hljs code .hljs-section,
+.code-preview-content.gc-terminal pre code .hljs-selector-tag,
+.code-preview-content.gc-terminal pre.hljs code .hljs-selector-tag {
+  color: var(--gc-hljs-section) !important;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-addition,
+.code-preview-content.gc-terminal pre.hljs code .hljs-addition {
+  color: var(--gc-hljs-addition) !important;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-deletion,
+.code-preview-content.gc-terminal pre.hljs code .hljs-deletion {
+  color: var(--gc-hljs-deletion) !important;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-link,
+.code-preview-content.gc-terminal pre.hljs code .hljs-link {
+  color: var(--gc-hljs-link) !important;
+  text-decoration: underline;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-strong,
+.code-preview-content.gc-terminal pre.hljs code .hljs-strong {
+  color: var(--gc-hljs-strong) !important;
+  font-weight: 700;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-emphasis,
+.code-preview-content.gc-terminal pre.hljs code .hljs-emphasis {
+  font-style: italic;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-subst,
+.code-preview-content.gc-terminal pre.hljs code .hljs-subst {
+  color: var(--gc-hljs-subst) !important;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-params,
+.code-preview-content.gc-terminal pre.hljs code .hljs-params,
+.code-preview-content.gc-terminal pre code .hljs-formula,
+.code-preview-content.gc-terminal pre.hljs code .hljs-formula {
+  color: var(--gc-terminal-text) !important;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-class .hljs-title,
+.code-preview-content.gc-terminal pre.hljs code .hljs-class .hljs-title {
+  color: var(--gc-hljs-title-class) !important;
+}
+
+.code-preview-content.gc-terminal pre code .hljs-function .hljs-title,
+.code-preview-content.gc-terminal pre.hljs code .hljs-function .hljs-title {
+  color: var(--gc-hljs-built_in) !important;
+}
+
+.code-preview-content pre.hljs code .hljs-keyword,
+.code-preview-content pre.hljs code .hljs-built_in {
+  font-weight: 600;
+}
+
+.code-preview-content pre.hljs code .hljs-comment {
+  font-style: italic;
+  opacity: 0.95;
+}
+
+/* Scrollbars on dark <pre> */
+.code-preview-content pre::-webkit-scrollbar,
+.code-preview-content.gc-terminal .code-card-body pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.code-preview-content pre::-webkit-scrollbar-track,
+.code-preview-content.gc-terminal .code-card-body pre::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 12px 12px;
+}
+
+.code-preview-content pre::-webkit-scrollbar-thumb,
+.code-preview-content.gc-terminal .code-card-body pre::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+
+.code-preview-content pre::-webkit-scrollbar-thumb:hover,
+.code-preview-content.gc-terminal .code-card-body pre::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* code-copy.js: floating copy (non-terminal) */
+.code-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: var(--color-text);
+  cursor: pointer;
+  padding: 6px 8px;
+  font-size: 14px;
+  z-index: 10;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  box-sizing: border-box;
+  max-width: calc(100% - 16px);
+  overflow: hidden;
+  min-width: inherit;
+}
+
+.code-preview-content:hover .code-copy-btn,
+.gc-terminal:hover .code-copy-btn,
+.gc-code-card:hover .code-copy-btn,
+pre:hover .code-copy-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.code-preview-content .code-card .code-card-header .code-card-copy {
+  display: flex !important;
+  opacity: 1 !important;
+  position: static !important;
+}
+
+.code-preview-content .code-card .code-card-body .code-copy-btn,
+.code-preview-content .code-card .code-card-body .code-copy-btn-container {
+  display: none !important;
+}
+
+.code-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.code-copy-btn:active {
+  transform: scale(0.95);
+}
+
+.code-copy-btn.success,
+.code-copy-btn.copied {
+  background: rgba(76, 175, 80, 0.8);
+  border-color: rgba(76, 175, 80, 1);
+  opacity: 1;
+}
+
+.code-copy-btn.error {
+  background: rgba(244, 67, 54, 0.8);
+  border-color: rgba(244, 67, 54, 1);
+  opacity: 1;
+}
+
+.code-copy-btn i {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.code-preview-content,
+.gc-terminal,
+.gc-code-card {
+  position: relative;
+}
+
+.code-copy-btn-container .code-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  margin: 0;
+  z-index: 10;
+}
