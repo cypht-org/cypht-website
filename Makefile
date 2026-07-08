@@ -21,7 +21,7 @@ prod:
 #   CECIL_BASEURL=https://your-new-domain.example/ make prod
 .PHONY: demo
 demo:
-	CECIL_BASEURL="$${CECIL_BASEURL:-https://demo.cypht.lab15.evoludata.com/}" php cecil.phar build
+	CECIL_BASEURL="$${CECIL_BASEURL:-https://cypht.org/}" php cecil.phar build
 	php scripts/bundle-css.php
 
 # Preview the production build locally WITH working <video> (Range support,
