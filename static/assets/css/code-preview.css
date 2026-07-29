@@ -13,7 +13,7 @@
   position: relative;
   width: 100% !important;
   max-width: 100% !important;
-  min-width: 100% !important;
+  min-width: 0 !important;
   box-sizing: border-box !important;
   height: fit-content !important;
   min-height: 60px !important;
@@ -91,7 +91,7 @@
   box-sizing: border-box !important;
 }
 
-/* Copy: pill like theme toggle — gray surface, thin border, white icon */
+/* Copy: pill like theme toggle - gray surface, thin border, white icon */
 .code-preview-content.gc-terminal .code-card-copy,
 .code-preview-content.gc-terminal .code-copy-btn {
   display: inline-flex !important;
@@ -178,11 +178,11 @@
 }
 
 /* Layout fixes: lists, standalone blocks, generic parents */
-.list_letter li > .code-preview-content.gc-terminal,
-.guide-left li > .code-preview-content.gc-terminal,
-div > .code-preview-content.gc-terminal,
-.gpc-body-title + .code-preview-content.gc-terminal,
-p + .code-preview-content.gc-terminal {
+.list_letter li>.code-preview-content.gc-terminal,
+.guide-left li>.code-preview-content.gc-terminal,
+div>.code-preview-content.gc-terminal,
+.gpc-body-title+.code-preview-content.gc-terminal,
+p+.code-preview-content.gc-terminal {
   display: block !important;
   width: 100% !important;
   height: auto !important;
@@ -195,12 +195,12 @@ p + .code-preview-content.gc-terminal {
   padding: 0 !important;
 }
 
-.list_letter li > .code-preview-content.gc-terminal,
-.guide-left li > .code-preview-content.gc-terminal {
+.list_letter li>.code-preview-content.gc-terminal,
+.guide-left li>.code-preview-content.gc-terminal {
   align-self: flex-start !important;
 }
 
-* > .code-preview-content.gc-terminal {
+*>.code-preview-content.gc-terminal {
   display: block !important;
   width: 100% !important;
   height: auto !important;
@@ -215,15 +215,17 @@ p + .code-preview-content.gc-terminal {
 /* Non-terminal cards and direct <pre> under .gc-terminal (before JS wrap) */
 .code-preview-content:not(.gc-terminal) pre,
 .code-preview-content:not(.gc-terminal) pre.hljs,
-.code-preview-content.gc-terminal > pre,
-.code-preview-content.gc-terminal > pre.hljs {
+.code-preview-content.gc-terminal>pre,
+.code-preview-content.gc-terminal>pre.hljs {
   position: relative;
   display: block;
   margin: 0 !important;
   padding: 0 !important;
   border: none !important;
   background: transparent !important;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
   transition: box-shadow 0.2s ease;
@@ -231,8 +233,8 @@ p + .code-preview-content.gc-terminal {
 
 .code-preview-content:not(.gc-terminal) pre:hover,
 .code-preview-content:not(.gc-terminal) pre.hljs:hover,
-.code-preview-content.gc-terminal > pre:hover,
-.code-preview-content.gc-terminal > pre.hljs:hover {
+.code-preview-content.gc-terminal>pre:hover,
+.code-preview-content.gc-terminal>pre.hljs:hover {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
@@ -254,12 +256,14 @@ p + .code-preview-content.gc-terminal {
   -moz-tab-size: 4;
   text-align: left !important;
   direction: ltr;
-  overflow-x: auto;
-  overflow-y: visible;
-  max-width: 100%;
+  /* The <pre> owns the horizontal scroll; <code> is only as wide as the longest
+     line (min-width keeps the dark background full-width for short snippets). */
+  overflow: visible;
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
   box-sizing: border-box;
   min-height: 1em;
-  width: 100%;
 }
 
 .code-preview-content pre code::selection {
@@ -293,7 +297,9 @@ p + .code-preview-content.gc-terminal {
 .gc-terminal pre {
   padding: 10px;
   border-radius: 10px;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
   height: auto !important;
   min-height: fit-content !important;
   max-height: none !important;
@@ -329,7 +335,7 @@ p + .code-preview-content.gc-terminal {
   box-shadow: var(--gc-terminal-shadow);
 }
 
-.code-preview-content.gc-terminal > pre code {
+.code-preview-content.gc-terminal>pre code {
   border-radius: 12px !important;
 }
 
@@ -519,6 +525,12 @@ p + .code-preview-content.gc-terminal {
 }
 
 /* Scrollbars on dark <pre> */
+.code-preview-content pre,
+.code-preview-content.gc-terminal pre {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
 .code-preview-content pre::-webkit-scrollbar,
 .code-preview-content.gc-terminal .code-card-body pre::-webkit-scrollbar {
   height: 8px;

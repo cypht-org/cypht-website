@@ -111,6 +111,12 @@
       --bs-gutter-x: 0;
 }
 
+@media (min-width: 992px) {
+      .doc-container>.row>.col {
+            min-width: 0;
+      }
+}
+
 .doc-content {
       padding: 2.5rem 0;
       width: 100%;
@@ -126,11 +132,6 @@
 .toc-section ul {
       margin: .7rem !important;
 }
-
-/* 
-.toc-section .accordion-header {
-      background-color: inherit !important;
-} */
 
 .toc-section h5,
 .dc-ctr-header-title {
@@ -212,6 +213,7 @@
       flex-direction: column;
       gap: 2rem;
       padding: 0 .8rem !important;
+      min-width: 0;
 }
 
 .doc-section {
@@ -243,7 +245,7 @@
 
 .doc-page-header h3,
 .doc-section-header a {
-      font-size: clamp(1.1rem, 1.4vw, 1.7rem);
+      font-size: clamp(1.1rem, 1.2vw, 1.5rem);
       font-weight: 600;
       color: var(--color-text);
 }
@@ -251,6 +253,32 @@
 .doc-section-header a {
       text-decoration: none;
       position: relative;
+}
+
+.doc-subsection-header {
+      scroll-margin-top: 5rem;
+}
+
+.doc-code-group {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+}
+
+.doc-code-group>p {
+      margin-bottom: 0;
+}
+
+.doc-code-group>.code-preview-content,
+.doc-code-group>.code-preview-content.gc-terminal {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+}
+
+.doc-screenshot {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
 }
 
 .doc-subsection-header a {

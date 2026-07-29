@@ -1,6 +1,7 @@
 <?php
+
 /**
- * bundle-css.php — Production CSS bundler (post-build step).
+ * bundle-css.php - Production CSS bundler (post-build step).
  *
  * Resolves every @import in main.css RECURSIVELY, in the EXACT source order
  * (so the cascade is preserved 1:1, unlike Cecil's --optimize which reorders),
@@ -23,7 +24,7 @@ if (!is_file($entry)) {
     exit(1);
 }
 if (!is_dir(dirname($outFile))) {
-    fwrite(STDERR, "[bundle-css] ERROR: build output missing — run `cecil build` first.\n");
+    fwrite(STDERR, "[bundle-css] ERROR: build output missing, run `cecil build` first.\n");
     exit(1);
 }
 
@@ -58,7 +59,7 @@ function inline_imports(string $file, array &$seen): string
             exit(1);
         }
         if (isset($seen[$path])) {
-            return ''; // already inlined once — avoid duplicate/loops
+            return ''; // already inlined once, avoid duplicate/loops
         }
         $seen[$path] = true;
         return "\n/* === " . basename($path) . " === */\n" . inline_imports($path, $seen);
@@ -80,7 +81,7 @@ $bundle = trim($bundle) . "\n";
 
 // Sanity: no @import must survive (everything is inlined now).
 if (preg_match($importRe, $bundle)) {
-    fwrite(STDERR, "[bundle-css] ERROR: an @import survived — bundle would be invalid.\n");
+    fwrite(STDERR, "[bundle-css] ERROR: an @import survived, bundle would be invalid.\n");
     exit(1);
 }
 // Sanity: braces balanced.
@@ -90,7 +91,9 @@ if (substr_count($bundle, '{') !== substr_count($bundle, '}')) {
 }
 
 file_put_contents($outFile, $bundle);
-printf("[bundle-css] OK -> %s  (%d KB, %d rules)\n",
+printf(
+    "[bundle-css] OK -> %s  (%d KB, %d rules)\n",
     str_replace($root . '/', '', $outFile),
     round(strlen($bundle) / 1024),
-    substr_count($bundle, '{'));
+    substr_count($bundle, '{')
+);

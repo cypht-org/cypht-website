@@ -55,6 +55,13 @@
       description: 'Application documentation'
     },
     {
+      title: 'Dev Doc',
+      href: '/documentation/dev-docs/',
+      icon: 'bi-code-slash',
+      svg: '/svg/code.svg',
+      description: 'Developer guide and API'
+    },
+    {
       title: 'License',
       href: '/license',
       icon: 'bi-file-earmark-check',
@@ -86,6 +93,16 @@
     }
   ]
 } %}
+
+{#  #}
+{% set current_path = page.path is defined ? page.path : '' %}
+{% set docs_match = global_menus.docs|reduce((best, item) =>
+  current_path != ''
+    and (current_path == item.href|trim('/')
+      or current_path starts with (item.href|trim('/') ~ '/'))
+    and (item.href|trim('/'))|length > best|length
+      ? item.href|trim('/')
+      : best, '') %}
 
 {# Template #}
 <nav class="pt-lg-3 pb-1" id="mainNavbar">
@@ -187,16 +204,7 @@
           </div>
 
           <!-- Documentation Dropdown -->
-          {% set docs_active = false %}
-          {% for item in global_menus.docs %}
-            {% if
-              item.href != '/'
-                and page.path is defined
-                and page.path != ''
-                and page.path starts with (item.href|trim('/')) %}
-              {% set docs_active = true %}
-            {% endif %}
-          {% endfor %}
+          {% set docs_active = docs_match != '' %}
           <div class="nav-dropdown {{ docs_active ? 'active' : '' }}" data-dropdown="docs">
             <button class="nav-item dropdown-trigger {{ docs_active ? 'active' : '' }}" data-trigger="docs">
               <span class="nav-text">Documentation</span>
@@ -205,11 +213,7 @@
             <div class="dropdown-panel" data-panel="docs">
               <div class="dropdown-content">
                 {% for item in global_menus.docs %}
-                  {% set item_active = item.href != '/'
-                    and page.path is defined
-                    and page.path != ''
-                    and page.path starts with (item.href|trim('/'))
-                  %}
+                  {% set item_active = docs_match != '' and (item.href|trim('/')) == docs_match %}
                   <a
                     href="{{ item.href }}"
                     class="dropdown-item d-flex gap-2 {{ item_active ? 'active' : '' }}"
@@ -421,11 +425,7 @@
               <div id="collapseDocs" class="accordion-collapse collapse" data-bs-parent="#mobileNavAccordion">
                 <div class="accordion-body">
                   {% for item in global_menus.docs %}
-                    {% set current = item.href != '/'
-                      and page.path is defined
-                      and page.path != ''
-                      and page.path starts with (item.href|trim('/'))
-                    %}
+                    {% set current = docs_match != '' and (item.href|trim('/')) == docs_match %}
                     <a
                       href="{{ item.href }}"
                       class="mobile-nav-item mobile-nav-subitem {{ current ? 'active' : '' }}"

@@ -1,6 +1,7 @@
 <?php
+
 /**
- * preview-router.php — Range-capable static server for previewing the PROD build.
+ * preview-router.php - Range-capable static server for previewing the PROD build.
  *
  * PHP's built-in server (`php -S`) ignores HTTP Range requests, so <video>
  * elements (mp4/webm) won't play locally. This router adds Range support.
@@ -24,11 +25,23 @@ if ($file === false || strncmp($file, realpath($root), strlen(realpath($root))) 
 }
 
 $mimes = [
-    'html' => 'text/html; charset=utf-8', 'css' => 'text/css', 'js' => 'text/javascript',
-    'json' => 'application/json', 'svg' => 'image/svg+xml', 'png' => 'image/png',
-    'jpg' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'webp' => 'image/webp', 'gif' => 'image/gif',
-    'ico' => 'image/x-icon', 'mp4' => 'video/mp4', 'webm' => 'video/webm',
-    'woff' => 'font/woff', 'woff2' => 'font/woff2', 'ttf' => 'font/ttf', 'xml' => 'application/xml',
+    'html' => 'text/html; charset=utf-8',
+    'css' => 'text/css',
+    'js' => 'text/javascript',
+    'json' => 'application/json',
+    'svg' => 'image/svg+xml',
+    'png' => 'image/png',
+    'jpg' => 'image/jpeg',
+    'jpeg' => 'image/jpeg',
+    'webp' => 'image/webp',
+    'gif' => 'image/gif',
+    'ico' => 'image/x-icon',
+    'mp4' => 'video/mp4',
+    'webm' => 'video/webm',
+    'woff' => 'font/woff',
+    'woff2' => 'font/woff2',
+    'ttf' => 'font/ttf',
+    'xml' => 'application/xml',
 ];
 $ext  = strtolower(pathinfo($file, PATHINFO_EXTENSION));
 $mime = $mimes[$ext] ?? 'application/octet-stream';
@@ -41,7 +54,10 @@ header('Accept-Ranges: bytes');
 if (isset($_SERVER['HTTP_RANGE']) && preg_match('/bytes=(\d*)-(\d*)/', $_SERVER['HTTP_RANGE'], $m)) {
     $start = $m[1] === '' ? 0 : (int) $m[1];
     $end   = $m[2] === '' ? $size - 1 : min((int) $m[2], $size - 1);
-    if ($start > $end) { http_response_code(416); return true; }
+    if ($start > $end) {
+        http_response_code(416);
+        return true;
+    }
     $len = $end - $start + 1;
     http_response_code(206);
     header("Content-Range: bytes $start-$end/$size");

@@ -75,12 +75,12 @@ layout: section/documentation
             Configure your email accounts with the proper server settings and authentication credentials.
         </span>
 
-        <div class="doc-subsection-header">
+        <div id="access_settings" class="doc-subsection-header">
             <a href="#access_settings">1. Access Account Settings</a>
         </div>
         <p>Navigate to <strong>Settings → Servers</strong> in the top navigation bar. Click "Add Account" to begin the configuration process.</p>
 
-        <div class="doc-subsection-header">
+        <div id="basic_settings" class="doc-subsection-header">
             <a href="#basic_settings">2. Basic Account Information</a>
         </div>
         <p>Enter the essential details for your email account:</p>
@@ -91,7 +91,7 @@ layout: section/documentation
             <li><strong>Reply-to Address:</strong> Optional alternative reply address</li>
         </ul>
 
-        <div class="doc-subsection-header">
+        <div id="server_configuration" class="doc-subsection-header">
             <a href="#server_configuration">3. Server Configuration</a>
         </div>
         <p>Configure the incoming and outgoing mail servers:</p>
@@ -137,7 +137,7 @@ layout: section/documentation
             Modern email services often require additional security measures for third-party applications.
         </span>
 
-        <div class="doc-subsection-header">
+        <div id="app_passwords" class="doc-subsection-header">
             <a href="#app_passwords">App-Specific Passwords</a>
         </div>
         <p>Many providers (Google, Microsoft, Yahoo) require app-specific passwords instead of your regular password:</p>
@@ -146,13 +146,13 @@ layout: section/documentation
             <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-google"></i> Google/Gmail</h6>
-                    <p class="small">Enable 2-Step Verification, then generate an App Password in your Google Account settings.</p>
+                    <p class="small">Enable 2-Step Verification, then generate an App Password in your Google Account settings or set up <a href="#gmail_oauth" class="text-link">Gmail OAuth</a>.</p>
                 </div>
             </div>
             <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-microsoft"></i> Microsoft/Outlook</h6>
-                    <p class="small">Use App Passwords or OAuth2 authentication for Office 365 and Outlook accounts.</p>
+                    <p class="small">Use App Passwords, or set up <a href="#outlook_oauth" class="text-link">OAuth2 for Outlook &amp; Office 365</a>.</p>
                 </div>
             </div>
             <div class="">
@@ -169,6 +169,226 @@ layout: section/documentation
         </div>
     </div>
 
+    <!-- Gmail OAuth -->
+    <div id="gmail_oauth" class="doc-section">
+        <div class="doc-section-header">
+            <a href="#gmail_oauth">Gmail OAuth</a>
+        </div>
+        <span class="doc-section-text">
+            OAuth2 lets your users connect their Gmail account without ever typing their Google password, and without app passwords. Cypht receives a token it can refresh, which can be revoked at any time from the Google account.
+        </span>
+        <span class="doc-section-text">
+            The setup happens in the Google Cloud Console: create a project, configure the consent screen, generate an OAuth client, then copy the two resulting values into your Cypht <code>.env</code> file.
+        </span>
+
+        <div class="tip-card tip-info mt-3">
+            <span class="tip-info-text"><i class="bi bi-info-circle"></i> What you need</span>
+            <p class="mb-0">A Google account allowed to manage the project, and access to the <code>.env</code> file at the root of your Cypht installation.</p>
+        </div>
+
+        <div id="google_cloud_project" class="doc-subsection-header">
+            <a href="#google_cloud_project">1. Create a Google Cloud project</a>
+        </div>
+        <ul>
+            <li>Visit the <a href="https://console.cloud.google.com/" target="_blank" rel="noopener" class="text-link">Google Cloud Console</a>.</li>
+            <li>Sign in with the Google account that manages your application.</li>
+            <li>If you do not have a project yet, choose <strong>Create Project</strong> and give it a name.</li>
+            <li>If a project already exists, select it from the project list.</li>
+        </ul>
+
+        <div class="doc-code-group">
+        <p>The project selector sits in the top bar of the console:</p>
+        <img class="doc-screenshot" src="/img/google-oauth-screen/google-oauth-1.webp" alt="Google Cloud Console with the project selector" width="1791" height="1128" loading="lazy" decoding="async" />
+        </div>
+
+        <div id="google_consent_screen" class="doc-subsection-header">
+            <a href="#google_consent_screen">2. Configure the OAuth consent screen</a>
+        </div>
+        <p>The consent screen is what your users see when they authorize Cypht to read their mailbox. Navigate to <strong>APIs &amp; Services</strong> &gt; <strong>OAuth consent screen</strong>, then provide:</p>
+        <ul>
+            <li>The application type <strong>External</strong> or <strong>Internal</strong>, depending on your needs.</li>
+            <li>The application name displayed to users.</li>
+            <li>Support and administrative contact email addresses.</li>
+            <li>Your authorized domains (for example <code>yourdomain.com</code>, or <code>localhost</code> for development).</li>
+            <li>A privacy policy URL if you have one.</li>
+        </ul>
+        <p>Save your changes and continue, then add the accounts allowed to use the application while it is in test mode:</p>
+        <ol>
+            <li>In the same <strong>OAuth consent screen</strong>, open the <strong>Test users</strong> tab.</li>
+            <li>Select <strong>Add users</strong>.</li>
+            <li>Enter the email addresses allowed to use the application during testing.</li>
+            <li>Confirm to display the list of authorized test accounts.</li>
+        </ol>
+
+        <div class="tip-card tip-warning mt-3">
+            <span class="tip-warning-text"><i class="bi bi-exclamation-triangle"></i> Test mode blocks everyone else</span>
+            <p class="mb-0">While the application stays in test mode, any email address not listed as a test user is refused at sign-in.</p>
+        </div>
+
+        <div class="doc-code-group">
+        <p>The consent screen and its test users tab:</p>
+        <img class="doc-screenshot" src="/img/google-oauth-screen/google-oauth-2.webp" alt="Google OAuth consent screen configuration" width="1791" height="1128" loading="lazy" decoding="async" />
+        </div>
+
+        <div id="google_credentials" class="doc-subsection-header">
+            <a href="#google_credentials">3. Create the OAuth credentials</a>
+        </div>
+        <ol>
+            <li>Return to <strong>APIs &amp; Services</strong> and choose <strong>Credentials</strong>.</li>
+            <li>Select <strong>Create credentials</strong> &gt; <strong>OAuth client ID</strong>.</li>
+            <li>Set the application type to <strong>Web application</strong>.</li>
+            <li>Name the client, for example "Cypht – Gmail Authentication".</li>
+            <li>Define the authorized redirect URIs, then click <strong>Create</strong>.</li>
+        </ol>
+
+        <div class="doc-code-group">
+        <p>The application type (1), the client name (2) and the authorized redirect URI (3):</p>
+        <img class="doc-screenshot" src="/img/google-oauth-screen/google-oauth-3.webp" alt="Google Cloud Console Create OAuth client ID form showing application type, client name and redirect URI" width="1791" height="1128" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="doc-code-group">
+        <p>The redirect URI is the address of your Cypht instance. Adjust the host and path to your installation:</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-bash"># Development
+http://localhost/my_cypht/?page=home
+
+# Production
+https://yourdomain.com/?page=home</code></pre>
+
+        </div>
+        </div>
+
+        <div class="tip-card tip-warning mt-3">
+            <span class="tip-warning-text"><i class="bi bi-exclamation-triangle"></i> The redirect URI must match exactly</span>
+            <p class="mb-0">Scheme, host, port and path are compared character for character. A trailing slash or an <code>http</code>/<code>https</code> mismatch is enough for Google to refuse the authorization.</p>
+        </div>
+
+        <div id="google_env" class="doc-subsection-header">
+            <a href="#google_env">4. Set the variables in .env</a>
+        </div>
+        <p>Once the client is created, Google displays the two values Cypht needs:</p>
+        <ul>
+            <li>Client ID (1) this becomes your <code>GMAIL_CLIENT_ID</code>.</li>
+            <li>Client secret (2) this becomes your <code>GMAIL_CLIENT_SECRET</code>.</li>
+        </ul>
+
+        <div class="doc-code-group">
+        <p>Open the <code>.env</code> file at the root of your Cypht project and fill in both variables:</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-bash">GMAIL_CLIENT_ID=&lt;client-id&gt;
+GMAIL_CLIENT_SECRET=&lt;client-secret&gt;</code></pre>
+
+        </div>
+        </div>
+
+        <div class="doc-code-group">
+        <p>Both values are shown right after the client is created:</p>
+        <img class="doc-screenshot" src="/img/google-oauth-screen/google-oauth-4.webp" alt="Google OAuth client ID and client secret displayed after creation" width="1791" height="1128" loading="lazy" decoding="async" />
+        </div>
+
+        <p>Your configuration is now complete: users can add their Gmail account from Cypht and authorize it through Google.</p>
+    </div>
+
+    <!-- Outlook / Office 365 OAuth -->
+    <div id="outlook_oauth" class="doc-section">
+        <div class="doc-section-header">
+            <a href="#outlook_oauth">Outlook &amp; Office 365 OAuth</a>
+        </div>
+        <span class="doc-section-text">
+            Outlook.com and Office 365 accounts authenticate through the same Microsoft identity platform, so a single application registration in the Azure portal covers both.
+        </span>
+        <span class="doc-section-text">
+            You register an application, note its client ID, create a client secret, then copy both values into your Cypht <code>.env</code> file.
+        </span>
+
+        <div class="tip-card tip-info mt-3">
+            <span class="tip-info-text"><i class="bi bi-info-circle"></i> What you need</span>
+            <p class="mb-0">A Microsoft account allowed to register applications in the Azure portal, and access to the <code>.env</code> file at the root of your Cypht installation.</p>
+        </div>
+
+        <div id="azure_app_registration" class="doc-subsection-header">
+            <a href="#azure_app_registration">1. Register the application</a>
+        </div>
+        <ol>
+            <li>Go to the <a href="https://portal.azure.com/#home" target="_blank" rel="noopener" class="text-link">Azure portal</a> and sign in with the Outlook account associated with your app.</li>
+            <li>In the search bar at the top, type <strong>App registrations</strong> and select the matching service.</li>
+            <li>If you already have an application, select it from the list.</li>
+            <li>Otherwise click <strong>+ New registration</strong>, name your application, set the supported account types and the redirect URIs if needed, then click <strong>Register</strong>.</li>
+        </ol>
+
+        <div class="doc-code-group">
+        <p>The app registrations service in the Azure portal:</p>
+        <img class="doc-screenshot" src="/img/outlook-and-office365-oauth-screen/outlook-and-office365-oauth-section-01.webp" alt="Azure portal app registrations page" width="1791" height="930" loading="lazy" decoding="async" />
+        </div>
+
+        <div id="azure_client_id" class="doc-subsection-header">
+            <a href="#azure_client_id">2. Get the client ID</a>
+        </div>
+        <ul>
+            <li>Once the application is registered or selected, you land on its <strong>Overview</strong> page.</li>
+            <li>The <strong>Application (client) ID</strong> is displayed there. Note it down: it becomes <code>OUTLOOK_CLIENT_ID</code> or <code>OFFICE365_CLIENT_ID</code>.</li>
+        </ul>
+
+        <div class="doc-code-group">
+        <p>The client ID on the application overview page:</p>
+        <img class="doc-screenshot" src="/img/outlook-and-office365-oauth-screen/outlook-and-office365-oauth-section-02.webp" alt="Azure application overview page showing the client ID" width="1791" height="1128" loading="lazy" decoding="async" />
+        </div>
+
+        <div id="azure_client_secret" class="doc-subsection-header">
+            <a href="#azure_client_secret">3. Create the client secret</a>
+        </div>
+        <ol>
+            <li>In the left menu of your application page, under <strong>Manage</strong>, select <strong>Certificates &amp; secrets</strong>.</li>
+            <li>In the <strong>Client secrets</strong> section, click <strong>+ New client secret</strong>.</li>
+            <li>Add a description and choose a validity period 1 or 2 years, for example.</li>
+            <li>Click <strong>Add</strong>.</li>
+        </ol>
+
+        <div class="tip-card tip-warning mt-3">
+            <span class="tip-warning-text"><i class="bi bi-exclamation-triangle"></i> Copy the secret immediately</span>
+            <p class="mb-0">The value is only displayed once, right after creation. Leave the page without copying it and you will have to generate a new secret. Avoid the "Never expires" option for security reasons.</p>
+        </div>
+
+        <div class="doc-code-group">
+        <p>The Certificates &amp; secrets screen where the secret is created:</p>
+        <img class="doc-screenshot" src="/img/outlook-and-office365-oauth-screen/outlook-and-office365-oauth-section-03.webp" alt="Azure Certificates and secrets page with the new client secret form" width="1791" height="1128" loading="lazy" decoding="async" />
+        </div>
+
+        <div id="azure_env" class="doc-subsection-header">
+            <a href="#azure_env">4. Set the variables in .env</a>
+        </div>
+        <p>You now have both values: the client ID (1) from the overview page, and the client secret (2) you just created.</p>
+
+        <div class="doc-code-group">
+        <p>Open the <code>.env</code> file at the root of your Cypht project and fill in the pair matching your provider:</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-bash"># Outlook.com
+OUTLOOK_CLIENT_ID=&lt;client-id&gt;
+OUTLOOK_CLIENT_SECRET=&lt;client-secret&gt;
+
+# Office 365
+OFFICE365_CLIENT_ID=&lt;client-id&gt;
+OFFICE365_CLIENT_SECRET=&lt;client-secret&gt;</code></pre>
+
+        </div>
+        </div>
+
+        <div class="doc-code-group">
+        <p>The client secret value, displayed once after creation:</p>
+        <img class="doc-screenshot" src="/img/outlook-and-office365-oauth-screen/outlook-and-office365-oauth-section-04.webp" alt="Azure client secret value shown after creation" width="1791" height="1128" loading="lazy" decoding="async" />
+        </div>
+
+        <p>Your configuration is now complete: users can add their Outlook or Office 365 account from Cypht and authorize it through Microsoft.</p>
+
+        <div class="tip-card tip-info mt-3">
+            <span class="tip-info-text"><i class="bi bi-lightbulb"></i> Generating a full .env</span>
+            <p class="mb-0">The <a href="/config-generator" class="text-link">configuration generator</a> builds a complete <code>.env</code> for you, OAuth variables included.</p>
+        </div>
+    </div>
+
     <div id="rss_feeds" class="doc-section">
         <div class="doc-section-header">
             <a href="#rss_feeds">Adding RSS/Atom Feeds</a>
@@ -177,7 +397,7 @@ layout: section/documentation
             Transform your favorite content sources into readable message threads within Cypht.
         </span>
 
-        <div class="doc-subsection-header">
+        <div id="feed_setup" class="doc-subsection-header">
             <a href="#feed_setup">Feed Configuration</a>
         </div>
         <ol>
@@ -302,6 +522,8 @@ layout: section/documentation
                 <li><a href="#account_types">Account Types</a></li>
                 <li><a href="#adding_email_accounts">Email Setup</a></li>
                 <li><a href="#security_authentication">Security</a></li>
+                <li><a href="#gmail_oauth">Gmail OAuth</a></li>
+                <li><a href="#outlook_oauth">Outlook &amp; Office 365 OAuth</a></li>
                 <li><a href="#rss_feeds">RSS Feeds</a></li>
                 <li><a href="#advanced_settings">Advanced Settings</a></li>
                 <li><a href="#troubleshooting">Troubleshooting</a></li>

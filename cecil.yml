@@ -23,9 +23,17 @@ pages:
       slug: contribute
       redirect: /contribute/
       uglyurl: true
+    - path: cypht-enable-gmail-oauth-redirect
+      slug: cypht-enable-gmail-oauth
+      redirect: "/documentation/account-setup/#gmail_oauth"
+      uglyurl: true
+    - path: cypht-enable-outlook-and-office365-oauth-redirect
+      slug: cypht-enable-outlook-and-office365-oauth
+      redirect: "/documentation/account-setup/#outlook_oauth"
+      uglyurl: true
     - path: developers-documentation-redirect
       slug: developers-documentation
-      redirect: /developers-documentation/
+      redirect: /documentation/dev-docs/
       uglyurl: true
     - path: documentation-redirect
       slug: documentation

@@ -16,6 +16,10 @@
           href: '/features#search'
         },
         {
+          title: 'Email Filters',
+          href: '/features/email-filters'
+        },
+        {
           title: 'Development',
           href: '/features#development'
         }
@@ -29,19 +33,51 @@
           href: '/install'
         },
         {
+          title: 'Getting Started',
+          href: '/documentation/getting-started'
+        },
+        {
           title: 'User Guide',
           href: '/documentation'
         },
         {
+          title: 'Developer Docs',
+          href: '/documentation/dev-docs'
+        },
+        {
+          title: 'Config Generator',
+          href: '/config-generator'
+        }
+      ]
+    },
+    {
+      title: 'integrations',
+      childrens: [
+        {
+          title: 'Gmail OAuth',
+          href: '/documentation/account-setup/#gmail_oauth'
+        },
+        {
+          title: 'Outlook & Office 365',
+          href: '/documentation/account-setup/#outlook_oauth'
+        },
+        {
+          title: 'Modules',
+          href: '/modules'
+        },
+        {
           title: 'Tiki Webmail',
-          href: '/tiki-webmail',
-          external: true
+          href: '/tiki-webmail'
         }
       ]
     },
     {
       title: 'about',
       childrens: [
+        {
+          title: 'Security',
+          href: '/security'
+        },
         {
           title: 'License',
           href: '/license'
@@ -51,8 +87,12 @@
           href: '/contribute'
         },
         {
-          title: 'Security',
-          href: '/features#security'
+          title: 'How to Join',
+          href: '/how-to-join'
+        },
+        {
+          title: 'Testing & QA',
+          href: '/tests'
         }
       ]
     },
@@ -64,12 +104,20 @@
           href: '/#faq'
         },
         {
-          title: 'Community',
+          title: 'Help',
+          href: '/documentation/help'
+        },
+        {
+          title: 'Reporting Bugs',
+          href: '/documentation/reporting-bugs'
+        },
+        {
+          title: 'Community Chat',
           href: 'https://matrix.to/#/#cypht-org_community:gitter.im',
           external: true
         },
         {
-          title: 'Event',
+          title: 'Events',
           href: '/events'
         }
       ]
@@ -77,7 +125,7 @@
   ],
   policies: [
     {
-      title: 'License',
+      title: 'Source License',
       href: 'https://github.com/cypht-org/cypht/blob/master/LICENSE',
       external: true
     },
@@ -107,7 +155,7 @@
       external: true
     },
     {
-      title: 'Discord',
+      title: 'Matrix',
       icon: 'bi bi-chat-square-dots',
       href: 'https://matrix.to/#/#cypht-org_community:gitter.im',
       external: true
@@ -141,20 +189,20 @@
 
         <div class="social-links">
           {% for social in footer_links.socials %}
-            <a href="{{ social.href }}" class="social-link" target="_blank" rel="noopener">
-              <i class="{{ social.icon }}"></i>
+            <a href="{{ social.href }}" class="social-link" target="_blank" rel="noopener" aria-label="{{ social.title }}" title="{{ social.title }}">
+              <i class="{{ social.icon }}" aria-hidden="true"></i>
             </a>
           {% endfor %}
         </div>
       </div>
 
       <!-- Organized links -->
-      <div class="footer-links flex-1 pt-lg-4">
+      <div class="footer-links flex-1">
         {% for link in footer_links.links %}
           <div class="link-column">
             <h4 class="link-title text-capitalize">{{ link.title }}</h4>
             {% for children in link.childrens %}
-              <a href="{{ children.href }}" class="link-item">{{ children.title }}</a>
+              <a href="{{ children.href }}" class="link-item"{% if children.external|default(false) %} target="_blank" rel="noopener"{% endif %}>{{ children.title }}</a>
             {% endfor %}
           </div>
         {% endfor %}

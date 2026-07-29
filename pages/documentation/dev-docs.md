@@ -94,6 +94,7 @@ layout: section/documentation
         </div>
     </div>
 
+    <!-- Module architecture -->
     <div id="module_architecture" class="doc-section">
         <div class="doc-section-header">
             <a href="#module_architecture">Module Architecture</a>
@@ -102,7 +103,7 @@ layout: section/documentation
             Cypht's modular design is the foundation of its extensibility. Each module is self-contained and can be enabled or disabled independently.
         </span>
 
-        <div class="doc-subsection-header">
+        <div id="module_structure" class="doc-subsection-header">
             <a href="#module_structure">Module Structure</a>
         </div>
         <p>Each module contains the following files:</p>
@@ -114,7 +115,7 @@ layout: section/documentation
             <li><strong>assets/:</strong> Fonts, images, and other resources (optional)</li>
         </ul>
 
-        <div class="doc-subsection-header">
+        <div id="module_dependencies" class="doc-subsection-header">
             <a href="#module_dependencies">Module Dependencies</a>
         </div>
         <p>Modules should be designed to be as self-contained as possible. It's acceptable to depend on the core module, but avoid dependencies between non-core modules. If you need functionality from another module, consider if you're building it in the right place.</p>
@@ -125,6 +126,7 @@ layout: section/documentation
         </div>
     </div>
 
+    <!-- Creating pages -->
     <div id="creating_pages" class="doc-section">
         <div class="doc-section-header">
             <a href="#creating_pages">Creating Pages</a>
@@ -133,20 +135,29 @@ layout: section/documentation
             Cypht supports two types of pages: basic pages (accessible via URL) and AJAX pages (load asynchronously).
         </span>
 
-        <div class="doc-subsection-header">
+        <div id="basic_pages" class="doc-subsection-header">
             <a href="#basic_pages">Basic Pages</a>
         </div>
         <p>To create a page called "list_messages":</p>
-        <p>In module/setup.php:</p>
-        <div class="code-preview-content gc-terminal">
+        <p class="m-0 p-0">In module/setup.php:</p>
+        <div class="code-preview-content gc-terminal mt-0">
+
 <pre><code class="language-php">setup_base_page('all_messages', 'core');
 
 add_handler('all_messages', 'load_messages', true);
 add_output('all_messages', 'print_messages', true);</code></pre>
+
         </div>
 
-        <p>In module/modules.php:</p>
+        <ul>
+            <li><strong>setup_base_page</strong> adds the page to the routes: it becomes reachable with <code>/?page=all_messages</code>.</li>
+            <li><strong>add_handler</strong> attaches a handler: logic, form validation, alert messages, and output variables.</li>
+            <li><strong>add_output</strong> attaches an output: the HTML returned to the client.</li>
+        </ul>
+
+        <p class="m-0 p-0">In module/modules.php:</p>
         <div class="code-preview-content gc-terminal">
+
 <pre><code class="language-php">class Hm_Handler_load_messages extends Hm_Handler_Module {
     public function process() {
         // Logic to get messages
@@ -156,22 +167,25 @@ add_output('all_messages', 'print_messages', true);</code></pre>
 }
 
 class Hm_Output_print_messages extends Hm_Output_Module {
-protected function output() {
-$messages = $this->get('messages');
-return '&lt;div class="message_list"&gt;' . implode('', $messages) . '&lt;/div&gt;';
-}
+    protected function output() {
+        $messages = $this->get('messages');
+        return '&lt;div class="message_list"&gt;' . implode('', $messages) . '&lt;/div&gt;';
+    }
 }</code></pre>
+
         </div>
 
-        <div class="doc-subsection-header">
+        <div id="ajax_pages" class="doc-subsection-header">
             <a href="#ajax_pages">AJAX Pages</a>
         </div>
-        <p>For AJAX pages that load data asynchronously:</p>
+        <p class="m-0 p-0">For AJAX pages that load data asynchronously:</p>
         <div class="code-preview-content gc-terminal">
+
 <pre><code class="language-php">setup_base_ajax_page('ajax_load_new_messages', 'core');
 
 add_handler('ajax_load_new_messages', 'get_new_messages', true);
 add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
+
         </div>
 
         <div class="tip-card tip-info mt-3">
@@ -179,11 +193,12 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
             <p class="mb-0">Don't forget to add your new pages to the 'allowed_pages' array in your module's setup.php return statement.</p>
         </div>
 
-        <div class="doc-subsection-header">
+        <div id="ajax_javascript" class="doc-subsection-header">
             <a href="#ajax_javascript">AJAX with JavaScript</a>
         </div>
         <p>Add this code in module/site.js to run your AJAX page every 15 seconds:</p>
         <div class="code-preview-content gc-terminal">
+
 <pre><code class="language-javascript">$(function() {
     if (hm_page_name() === 'all_messages') {
         setInterval(function() {
@@ -200,6 +215,7 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
     }
 
 });</code></pre>
+
         </div>
 
         <div class="tip-card tip-info mt-3">
@@ -207,11 +223,12 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
             <p class="mb-0">If setup_base_ajax_page does not have output modules, the values returned with $this->out() will be accessible in res in JavaScript.</p>
         </div>
 
-        <div class="doc-subsection-header">
+        <div id="page_authorization" class="doc-subsection-header">
             <a href="#page_authorization">Page Authorization</a>
         </div>
         <p>Finally, add the following code to module/setup.php:</p>
         <div class="code-preview-content gc-terminal">
+
 <pre><code class="language-php">return array(
     'allowed_pages' => array(
         ...
@@ -226,13 +243,14 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
     'allowed_post' => array(...)
 
 );</code></pre>
+
         </div>
 
-<ul>
-<li>Add all_messages and ajax_load_new_messages to the list of allowed pages</li>
-<li>Add ajax_messages to the list of allowed outputs</li>
-<li>Add post/get variables if they exist in the list of allowed get/posts</li>
-</ul>
+        <ul>
+            <li>Add all_messages and ajax_load_new_messages to the list of allowed pages</li>
+            <li>Add ajax_messages to the list of allowed outputs</li>
+            <li>Add post/get variables if they exist in the list of allowed get/posts</li>
+        </ul>
 
         <div class="tip-card tip-info mt-3">
             <span class="tip-info-text"><i class="bi bi-info-circle"></i> Debug Info</span>
@@ -240,6 +258,7 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
         </div>
     </div>
 
+    <!-- Handlers and outputs -->
     <div id="handlers_outputs" class="doc-section">
         <div class="doc-section-header">
             <a href="#handlers_outputs">Handlers and Outputs</a>
@@ -263,7 +282,7 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
             </div>
         </div>
 
-        <div class="doc-subsection-header">
+        <div id="data_flow" class="doc-subsection-header">
             <a href="#data_flow">Data Flow</a>
         </div>
         <ol>
@@ -273,6 +292,7 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
         </ol>
     </div>
 
+    <!-- Internationalization -->
     <div id="internationalization" class="doc-section">
         <div class="doc-section-header">
             <a href="#internationalization">Internationalization</a>
@@ -281,19 +301,34 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
             Cypht supports multiple languages with a simple translation system.
         </span>
 
-        <div class="doc-subsection-header">
+        <div id="translating_strings" class="doc-subsection-header">
             <a href="#translating_strings">Translating Strings</a>
         </div>
-        <p>In output modules:</p>
+        <p class="mb-0 pb-0">In output modules:</p>
         <div class="code-preview-content gc-terminal">
+
 <pre><code class="language-php">$this->trans("Your text here");</code></pre>
+
         </div>
         <p>Or with specific language:</p>
         <div class="code-preview-content gc-terminal">
+
 <pre><code class="language-php">hm_trans("Your text here", "en");</code></pre>
+
+        </div>
+        <p>The second parameter is optional: the default is the user's language from the settings page.</p>
+
+        <div class="tip-card tip-info mt-3">
+            <span class="tip-info-text"><i class="bi bi-info-circle"></i> Strings in handlers</span>
+            <p class="mb-0">Most strings in handlers only alert the user about success/information/failure. They are written without a translation call because they are all translated later in Hm_Output_msgs::output.</p>
         </div>
 
-        <div class="doc-subsection-header">
+        <div id="adding_strings" class="doc-subsection-header">
+            <a href="#adding_strings">Adding Translation Strings</a>
+        </div>
+        <p>Add your string to every file in the language folder. File names are language codes and each file returns an array: append your string at the end. If you know the translation, add it as the value, otherwise use false.</p>
+
+        <div id="adding_languages" class="doc-subsection-header">
             <a href="#adding_languages">Adding New Languages</a>
         </div>
         <ol>
@@ -305,6 +340,7 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
         </ol>
     </div>
 
+    <!-- Testing -->
     <div id="testing" class="doc-section">
         <div class="doc-section-header">
             <a href="#testing">Testing</a>
@@ -313,22 +349,25 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
             Cypht includes comprehensive test suites using PHPUnit and Selenium to ensure code quality and reliability.
         </span>
 
-        <div class="doc-subsection-header">
+        <div id="phpunit" class="doc-subsection-header">
             <a href="#phpunit">PHPUnit Tests</a>
         </div>
         <p>Run all tests:</p>
         <div class="code-preview-content gc-terminal">
+
 <pre><code class="language-bash">php vendor/phpunit/phpunit/phpunit --configuration tests/phpunit/phpunit.xml</code></pre>
+
         </div>
         <p>Run specific tests:</p>
         <div class="code-preview-content gc-terminal">
-<pre><code class="language-bash">php vendor/phpunit/phpunit/phpunit \
 
+<pre><code class="language-bash">php vendor/phpunit/phpunit/phpunit \
 --configuration tests/phpunit/phpunit.xml \
- --filter classOrMethodName</code></pre>
+--filter classOrMethodName</code></pre>
+
         </div>
 
-        <div class="doc-subsection-header">
+        <div id="selenium" class="doc-subsection-header">
             <a href="#selenium">Selenium Tests</a>
         </div>
         <ol>
@@ -336,12 +375,21 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
             <li>Run tests: <code class="language-bash">sh tests/selenium/runall.sh</code></li>
         </ol>
 
-        <div class="doc-subsection-header">
+        <div id="debugging_tests" class="doc-subsection-header">
             <a href="#debugging_tests">Fixing Failing Tests</a>
         </div>
         <p>Check console output for failure details, click file paths in IDE to navigate to problematic lines, and review recent changes to classes or logic.</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-bash">There was 1 failure:
+1) Hm_Test_Uid_Cache::test_uid_is_read
+Failed asserting that true is false.
+/var/www/cypht/tests/phpunit/cache.php:19</code></pre>
+
+        </div>
     </div>
 
+    <!-- Debugging -->
     <div id="debugging" class="doc-section">
         <div class="doc-section-header">
             <a href="#debugging">Debugging</a>
@@ -350,7 +398,7 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
             Effective debugging techniques for Cypht development.
         </span>
 
-        <div class="doc-subsection-header">
+        <div id="ajax_debugging" class="doc-subsection-header">
             <a href="#ajax_debugging">AJAX Request Debugging</a>
         </div>
         <ul>
@@ -360,123 +408,53 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
             <li>Click requests to inspect preview/response</li>
         </ul>
 
-        <div class="doc-subsection-header">
+        <div id="menu_caching" class="doc-subsection-header">
             <a href="#menu_caching">Menu Caching</a>
         </div>
         <p>If you add a link to the left menu but don't see it, Cypht caches menus. Click the reload link below the navigation menu to refresh.</p>
     </div>
 
+    <!-- Third-party integration -->
     <div id="third_party" class="doc-section">
         <div class="doc-section-header">
             <a href="#third_party">Third-Party Integration</a>
         </div>
+
         <span class="doc-section-text">
             Guidelines for integrating third-party libraries and maintaining compatibility with existing integrations.
         </span>
 
-        <div class="doc-subsection-header">
+        <div id="adding_libraries" class="doc-subsection-header">
             <a href="#adding_libraries">Adding Third-Party Libraries</a>
         </div>
         <ol>
             <li>Copy the minified file to the third-party directory</li>
-            <li>Add the file path in Hm_Output_page_js.output or Hm_Output_header_css.output if it is a CSS file</li>
+            <li>Add the file path in Hm_Output_page_js.output, or Hm_Output_header_css.output if it is a CSS file</li>
             <li>Finally, add the file in the combine_includes function in scripts/config_gen.php so that it is added when generating the production site</li>
         </ol>
 
-        <p><strong>For JavaScript files:</strong></p>
-        <div class="code-preview-content gc-terminal">
-<pre><code class="language-php">Hm_Output_page_js.output</code></pre>
-        </div>
-
-        <p><strong>For CSS files:</strong></p>
-        <div class="code-preview-content gc-terminal">
-<pre><code class="language-php">Hm_Output_header_css.output</code></pre>
-        </div>
-        <div class="doc-subsection-header">
+        <div id="enable_module" class="doc-subsection-header">
             <a href="#enable_module">Enable a Module</a>
         </div>
         <p>Edit .env file and add your module to CYPHT_MODULES variable:</p>
         <div class="code-preview-content gc-terminal">
+
 <pre><code class="language-bash">CYPHT_MODULES=core,imap,smtp,your_module_name</code></pre>
+
         </div>
 
-        <div class="doc-subsection-header">
+        <div id="create_module" class="doc-subsection-header">
             <a href="#create_module">Create a Module</a>
         </div>
         <p>In the modules folder, you'll find a hello_world module with the necessary scaffolding for creating a new module. Customize your module by following the code explained above.</p>
 
-        <div class="doc-subsection-header">
-            <a href="#practical_example">Practical Example: Add a Test Page</a>
-        </div>
-        <p>Let's create a complete test page step by step:</p>
-
-        <p><strong>Step 1:</strong> Add the page in core/setup.php:</p>
-        <div class="code-preview-content gc-terminal">
-<pre><code class="language-php">setup_base_page('test');</code></pre>
-        </div>
-
-        <p><strong>Step 2:</strong> Access the page at <code class="language-bash">?page=test</code> - you'll see "Page Not Found!" which is normal because we need to authorize it.</p>
-
-        <p><strong>Step 3:</strong> Authorize the page in core/setup.php:</p>
-        <div class="code-preview-content gc-terminal">
-<pre><code class="language-php">return array(
-    'allowed_pages' => array(
-        ...
-        'test'
-    ),
-    'allowed_output' => array(...),
-    'allowed_cookie' => array(...),
-    'allowed_server' => array(...),
-    'allowed_get' => array(...),
-    'allowed_post' => array(...)
-
-);</code></pre>
-        </div>
-
-        <p><strong>Step 4:</strong> Add content with outputs in core/setup.php:</p>
-        <div class="code-preview-content gc-terminal">
-<pre><code class="language-php">add_output('test', 'test_heading', true, 'core', 'content_section_start', 'after');</code></pre>
-        </div>
-
-        <p><strong>Step 5:</strong> Define the output class in core/modules.php:</p>
-        <div class="code-preview-content gc-terminal">
-<pre><code class="language-php">class Hm_Output_test_heading extends Hm_Output_Module {
-    protected function output() {
-        return '&lt;div class="content_title"&gt;'.$this->trans('Test').'&lt;/div&gt;';
-    }
-
-}</code></pre>
-        </div>
-
-        <p><strong>Step 6:</strong> Add more content with additional outputs:</p>
-        <div class="code-preview-content gc-terminal">
-<pre><code class="language-php">add_output('test', 'test_first_div', true, 'core', 'test_heading', 'after');</code></pre>
-        </div>
-
-        <div class="code-preview-content gc-terminal">
-<pre><code class="language-php">class Hm_Output_test_first_div extends Hm_Output_Module {
-    protected function output() {
-        return '&lt;div class="mt-3 col-lg-6 col-md-12 col-sm-12"&gt;
-            &lt;div class="card"&gt;
-                &lt;div class="card-body"&gt;
-                    &lt;div class="card_title"&gt;
-                        &lt;h4&gt;'.$this->trans('Test').'&lt;/h4&gt;
-                    &lt;/div&gt;
-                    '.$this->trans('We are just testing').'
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;';
-    }
-
-}</code></pre>
-        </div>
-
         <div class="tip-card tip-warning mt-3">
             <span class="tip-warning-text"><i class="bi bi-exclamation-triangle"></i> Integration Compatibility</span>
-            <p class="mb-0">Cypht is actively used as embedded webmail in Tiki. Be careful with refactoring, module updates, layout changes, and interface modifications that might break upstream integrations.</p>
+            <p class="mb-0">Cypht is actively used as embedded webmail in Tiki  read the <a href="https://gitlab.com/tikiwiki/tiki/-/tree/master/lib/cypht?ref_type=heads" target="_blank" rel="noopener" class="text-link">integration code</a> before changing the Cypht codebase. Be careful with refactoring, module updates, layout changes, and interface modifications that might break upstream integrations.</p>
         </div>
     </div>
 
+    <!-- Core module -->
     <div id="core_module" class="doc-section">
         <div class="doc-section-header">
             <a href="#core_module">The Core Module</a>
@@ -498,6 +476,435 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
         </div>
     </div>
 
+    <!-- Practical example 1: a test page -->
+    <div id="practical_example" class="doc-section">
+        <div class="doc-section-header">
+            <a href="#practical_example">Practical Example 1: Add a Test Page</a>
+        </div>
+        <span class="doc-section-text">
+            Let's build a complete page step by step, from the route to a working form, using everything covered above.
+        </span>
+
+        <p><strong>Step 1 :</strong> Add the page in core/setup.php :</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">setup_base_page('test');</code></pre>
+
+        </div>
+
+        <p><strong>Step 2 :</strong> Open the page at <code class="language-bash">?page=test</code>. The route exists, but the page is not authorized yet, so Cypht answers "Page Not Found!" :</p>
+        <img src="/img/screenshots/1.webp" alt="Cypht answering Page Not Found on the unauthorized test page" width="2874" height="1430" loading="lazy" decoding="async" style="width:100%; height:auto; margin-bottom: 1rem; border-radius: 8px;" />
+        <p>This is expected: every page, form field and output must be explicitly allowed.</p>
+
+        <p><strong>Step 3 :</strong> Authorize the page in core/setup.php :</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">
+return array(
+            'allowed_pages' => array(...,'test'),
+            'allowed_output' => array(...),
+            'allowed_cookie' => array(...),
+            'allowed_server' => array(...),
+            'allowed_get' => array(...),
+            'allowed_post' => array(...)
+);
+</code></pre>
+
+        </div>
+        <p>Once the page is authorized we get a blank page  a result at last, even if not the one we are after yet:</p>
+        <img src="/img/screenshots/2.webp" alt="The Cypht test page rendering blank after being authorized" width="2874" height="1462" loading="lazy" decoding="async" style="width:100%; height:auto; margin-bottom: 1rem; border-radius: 8px;" />
+
+        <p><strong>Step 4 :</strong> Add content with outputs in core/setup.php :</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">add_output('test', 'test_heading', true, 'core', 'content_section_start', 'after');</code></pre>
+
+        </div>
+
+        <p><strong>Step 5 :</strong> Define the output class in core/modules.php :</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">class Hm_Output_test_heading extends Hm_Output_Module {
+    protected function output() {
+        return '&lt;div class="content_title"&gt;'.$this->trans('Test').'&lt;/div&gt;';
+    }
+}</code></pre>
+
+        </div>
+        <p>And here is the result: the "Test" title now shows in the page header.</p>
+        <img src="/img/screenshots/3.webp" alt="Cypht test page showing the Test title in the header" width="2874" height="1462" loading="lazy" decoding="async" style="width:100%; height:auto; margin-bottom: 1rem; border-radius: 8px;" />
+
+        <p><strong>Step 6 :</strong> Add more content with additional outputs:</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">add_output('test', 'test_first_div', true, 'core', 'test_heading', 'after');</code></pre>
+
+        </div>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">class Hm_Output_test_first_div extends Hm_Output_Module {
+    protected function output() {
+        return '&lt;div class="mt-3 col-lg-6 col-md-12 col-sm-12"&gt;
+            &lt;div class="card"&gt;
+                &lt;div class="card-body"&gt;
+                    &lt;div class="card_title"&gt;
+                        &lt;h4&gt;'.$this->trans('Test').'&lt;/h4&gt;
+                    &lt;/div&gt;
+                    '.$this->trans('We are just testing').'
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;';
+    }
+
+}</code></pre>
+
+        </div>
+        <p>And here is the result we hope for  a first card right below the header:</p>
+        <img src="/img/screenshots/4.webp" alt="Cypht test page with a first content card below the header" width="2874" height="1462" loading="lazy" decoding="async" style="width:100%; height:auto; margin-bottom: 1rem; border-radius: 8px;" />
+
+        <div class="tip-card tip-info mt-3">
+            <span class="tip-info-text"><i class="bi bi-info-circle"></i> The six add_output parameters</span>
+            <ol class="mb-0">
+                <li><strong>page</strong>: the page this output belongs to (<code>test</code>).</li>
+                <li><strong>output name</strong>: the class in modules.php, written without the <code>Hm_Output_</code> prefix (it is auto-detected).</li>
+                <li><strong>logged_in</strong>: whether the output is shown based on the user's authentication status.</li>
+                <li><strong>module</strong>: the module that contains the output code (<code>core</code>).</li>
+                <li><strong>marker</strong>: the existing output to position against.</li>
+                <li><strong>placement</strong>: <code>before</code> or <code>after</code> the marker.</li>
+            </ol>
+        </div>
+
+        <p><strong>Step 7:</strong> Add a second card after the first one :</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">add_output('test', 'test_second_div', true, 'core', 'test_first_div', 'after');
+
+class Hm_Output_test_second_div extends Hm_Output_Module {
+    protected function output() {
+        return '&lt;div class="mt-3 col-lg-6 col-md-12 col-sm-12"&gt;
+            &lt;div class="card"&gt;
+                &lt;div class="card-body"&gt;
+                    &lt;div class="card_title"&gt;
+                        &lt;h4&gt;'.$this->trans('Test again').'&lt;/h4&gt;
+                    &lt;/div&gt;
+                    '.$this->trans('We are again just testing').'
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;';
+    }
+}</code></pre>
+
+        </div>
+        <p>And here is the result: the two cards sit side by side.</p>
+        <img src="/img/screenshots/5.webp" alt="Cypht test page with a second content card next to the first one" width="2874" height="1462" loading="lazy" decoding="async" style="width:100%; height:auto; margin-bottom: 1rem; border-radius: 8px;" />
+
+        <div id="handlers_form" class="doc-subsection-header">
+            <a href="#handlers_form">Handlers: Processing a Form</a>
+        </div>
+        <p>Outputs render HTML; <strong>handlers</strong> do the backend work (like a controller). Both take similar parameters, but for handlers the <code>before</code>/<code>after</code> ordering refers to other <em>handlers</em>. Handler classes extend <code>Hm_Handler_Module</code>.</p>
+
+        <p><strong>Step 8:</strong> Add a third output containing a form :</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">add_output('test', 'test_third_div', true, 'core', 'test_second_div', 'after');
+
+class Hm_Output_test_third_div extends Hm_Output_Module {
+    protected function output() {
+        return '&lt;div class="nux_help mt-3 col-lg-12"&gt;
+            &lt;div class="card"&gt;&lt;div class="card-body"&gt;
+                &lt;div class="card_title"&gt;
+                    &lt;h4&gt;'.$this->trans('Test Our Form').'&lt;/h4&gt;
+                &lt;/div&gt;
+
+                &lt;form class="add_server me-0" method="POST" action="?page=test"&gt;
+                    &lt;input type="hidden" name="hm_page_key"
+                       value="'.$this->html_safe(Hm_Request_Key::generate()).'" /&gt;
+                    &lt;div class="form-floating mb-3"&gt;
+                        &lt;input required type="text" id="new_tag_name" name="new_tag_name"
+                            class="txt_fld form-control" placeholder="'.$this->trans('Tag name').'" /&gt;
+                        &lt;label for="new_tag_name"&gt;'.$this->trans('Tag name').'&lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;input type="submit" class="btn btn-primary px-5"
+                       value="'.$this->trans('Add').'" name="submit_tag" /&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+         &lt;/div&gt;';
+    }
+}</code></pre>
+
+        </div>
+        <p>Here is the result: the form card is added below the two previous cards.</p>
+        <img src="/img/screenshots/6.webp" alt="Cypht test page with a form card below the two content cards" width="2874" height="1462" loading="lazy" decoding="async" style="width:100%; height:auto; margin-bottom: 1rem; border-radius: 8px;" />
+
+        <p><strong>Step 9:</strong> Authorize the form field in <code class="language-bash">allowed_post</code> (otherwise it is discarded), then register and define the handler:</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">
+// core/setup.php
+'allowed_post' => array(
+    ...
+    'new_tag_name' => FILTER_DEFAULT
+);
+
+//
+add_handler('test', 'process_test_third_div', true, 'core','load_user_data'
+, 'after');
+</code></pre>
+
+        </div>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">// core/handler_modules.php
+class Hm_Handler_process_test_third_div extends Hm_Handler_Module {
+    public function process() {
+        list($success, $form) = $this->process_form(array('new_tag_name'));
+        if ($success && $form['new_tag_name']) {
+            // do something with $form['new_tag_name']
+        }
+    }
+}</code></pre>
+
+        </div>
+
+        <div id="using_sessions" class="doc-subsection-header">
+            <a href="#using_sessions">Using Sessions</a>
+        </div>
+        <p>To carry data between requests  for example to show the submitted value back as the field label  use the session. Store it in the processing handler:</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">$this->session->set('tag_name', $form['new_tag_name']);</code></pre>
+
+        </div>
+
+        <p>Read it back in a <em>second</em> handler placed <strong>after</strong> the one that stored it, pass it to the output with <code>$this->out()</code>, then clear it :</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">// core/setup.php
+add_handler('test', 'get_test_third_div', true, 'core', 'load_user_data', 'after');
+
+// core/handler_modules.php
+class Hm_Handler_get_test_third_div extends Hm_Handler_Module {
+    public function process() {
+        $res = $this->session->get('tag_name', 'Tag name');
+        $this->out('tag_name', $res);
+        $this->session->del('tag_name'); // no longer needed
+    }
+}</code></pre>
+
+        </div>
+
+        <p class="mb-0 pb-0 mt-4">Finally, read it in the output with <code>$this->get('tag_name')</code> and use it as the field label :</p>
+        <div class="code-preview-content gc-terminal" style="margin-top: 0 !important;">
+
+<pre><code class="language-php">class Hm_Output_test_third_div extends Hm_Output_Module {
+    protected function output() {
+        $tag_name = $this->get('tag_name');
+        // ...use $tag_name as the &lt;label&gt; and subtitle text...
+    }
+}</code></pre>
+
+        </div>
+
+        <div class="tip-card tip-warning mt-3">
+            <span class="tip-warning-text"><i class="bi bi-exclamation-triangle"></i> Handler ordering matters</span>
+            <p class="mb-0">The retrieval handler must run <strong>after</strong> the one that stores the value, otherwise the session key won't exist yet. Because a default is provided to <code>session->get()</code>, the value is never null.</p>
+        </div>
+
+        <p>Result before  the label is the static "Tag name" string :</p>
+        <img src="/img/screenshots/7.webp" alt="Cypht form with the static Tag name label before wiring the session value" width="2874" height="1510" loading="lazy" decoding="async" style="width:100%; height:auto; margin-bottom: 1rem; border-radius: 8px;" />
+        <p>Result after  the label and subtitle now show the value submitted on the previous request:</p>
+        <img src="/img/screenshots/8.webp" alt="Cypht form with the label populated from the session value" width="2874" height="1510" loading="lazy" decoding="async" style="width:100%; height:auto; margin-bottom: 1rem; border-radius: 8px;" />
+    </div>
+
+    <!-- Practical example 2: settings -->
+    <div id="settings_example" class="doc-section">
+        <div class="doc-section-header">
+            <a href="#settings_example">Practical Example 2: Adding Settings</a>
+        </div>
+        <span class="doc-section-text">
+            Settings are added the same way as page content  with a handler (to save the value) and an output (to render the control). Let's add a single setting first, then a whole settings section.
+        </span>
+
+        <div id="single_setting" class="doc-subsection-header">
+            <a href="#single_setting">A Single Setting</a>
+        </div>
+        <p>We will add our checkbox right after the built-in "Default message sort order" setting :</p>
+        <img src="/img/screenshots/9.webp" alt="Cypht settings page showing the Default message sort order setting" width="2382" height="1028" loading="lazy" decoding="async" style="width:100%; height:auto; margin-bottom: 1rem; border-radius: 8px;" />
+
+        <p>Register a handler and an output in the settings page:</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">
+//
+add_handler('settings', 'process_test_enable_tag_with_parent', true,
+ 'tags', 'save_user_settings', 'before');
+
+//
+add_output('settings', 'test_enable_tag_with_parent_setting', true, 
+'tags', 'default_sort_order_setting', 'after');
+</code></pre>
+
+        </div>
+
+        <p>The handler must run <strong>before</strong> <code>save_user_settings</code> so the value is persisted with the rest of the settings.</p>
+
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">// tags/modules.php  (handler)
+class Hm_Handler_process_test_enable_tag_with_parent_setting 
+extends Hm_Handler_Module {
+    public function process() {
+        function test_tag_with_parent_enabled_callback($val) { return $val; }
+        process_site_setting('test_enable_tag_with_parent', 
+        $this, 'test_tag_with_parent_enabled_callback', true, true);
+    }
+}</code></pre>
+
+        </div>
+
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">// tags/modules.php  (output)
+class Hm_Output_test_enable_tag_with_parent_setting extends Hm_Output_Module {
+    protected function output() {
+        $settings = $this->get('user_settings');
+        $checked = (array_key_exists('test_enable_tag_with_parent', $settings) 
+        && $settings['test_enable_tag_with_parent'])
+            ? ' checked="checked"' : '';
+        return '&lt;tr class="general_setting"&gt;&lt;td&gt;&lt;label class="form-check-label" for="test_enable_tag_with_parent"&gt;'.
+            $this->trans('Test Tag enable parent').'&lt;/label&gt;&lt;/td&gt;'.
+            '&lt;td&gt;&lt;input class="form-check-input" type="checkbox"'.$checked.
+            ' value="1" id="test_enable_tag_with_parent" name="test_enable_tag_with_parent" /&gt;&lt;/td&gt;&lt;/tr&gt;';
+    }
+}</code></pre>
+
+        </div>
+
+        <p>You can now refresh the settings page to see the new checkbox :</p>
+        <img src="/img/screenshots/10.webp" alt="Cypht settings page with the new Test Tag enable parent checkbox" width="2382" height="1128" loading="lazy" decoding="async" style="width:100%; height:auto; margin-bottom: 1rem; border-radius: 8px;" />
+
+        <div class="tip-card tip-warning mt-3">
+            <span class="tip-warning-text"><i class="bi bi-exclamation-triangle"></i> Authorize the field in POST</span>
+            <p class="mb-0">Until the field is allowed in POST, the control renders but the update silently does nothing.</p>
+        </div>
+
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">// core/setup.php
+'allowed_post' => array(
+    'test_enable_tag_with_parent' => FILTER_VALIDATE_INT
+)</code></pre>
+
+        </div>
+
+        <p>Read the saved value anywhere with the usual syntax :</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">$this->user_config->get('test_enable_tag_with_parent_setting');</code></pre>
+
+        </div>
+
+        <div id="settings_section" class="doc-subsection-header">
+            <a href="#settings_section">A Full Settings Section</a>
+        </div>
+        <p>Now that a single setting works, let's add a whole section to the settings page :</p>
+        <img src="/img/screenshots/11.webp" alt="Cypht settings page before adding a dedicated Tags section" width="2416" height="1324" loading="lazy" decoding="async" style="width:100%; height:auto; margin-bottom: 1rem; border-radius: 8px;" />
+
+        <p>The goal is the section below: a title plus two settings.</p>
+        <img src="/img/screenshots/13.webp" alt="Target Tags settings section with two settings" width="1280" height="355" loading="lazy" decoding="async" style="width:100%; height:auto; margin-bottom: 1rem; border-radius: 8px;" />
+
+        <p>It needs two handlers (to process each value) and three outputs (section title + two controls):</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">// tags/setup.php
+add_handler('settings', 'process_tag_source_max_setting', true, 'tags', 'load_user_data', 'after');
+add_handler('settings', 'process_tag_since_setting',     true, 'tags', 'load_user_data', 'after');
+add_output('settings', 'start_tag_settings',    true, 'tags', 'sent_source_max_setting', 'after');
+add_output('settings', 'tag_since_setting',     true, 'tags', 'start_tag_settings',      'after');
+add_output('settings', 'tag_per_source_setting', true, 'tags', 'tag_since_setting',      'after');</code></pre>
+
+        </div>
+
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">// tags/modules.php  (handlers)
+class Hm_Handler_process_tag_source_max_setting extends Hm_Handler_Module {
+    public function process() {
+        process_site_setting('tag_per_source', $this, 'max_source_setting_callback', DEFAULT_PER_SOURCE);
+    }
+}
+
+class Hm_Handler_process_tag_since_setting extends Hm_Handler_Module {
+    public function process() {
+        process_site_setting('tag_since', $this, 'since_setting_callback');
+    }
+}</code></pre>
+
+        </div>
+
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">// tags/modules.php  (outputs)
+class Hm_Output_start_tag_settings extends Hm_Output_Module {
+    protected function output() {
+        return '&lt;tr&gt;&lt;td data-target=".tag_setting" colspan="2" class="settings_subtitle cursor-pointer border-bottom p-2"&gt;'.
+            '&lt;i class="bi bi-tags fs-5 me-2"&gt;&lt;/i&gt;'.$this->trans('Tags').'&lt;/td&gt;&lt;/tr&gt;';
+    }
+}
+
+class Hm_Output_tag_since_setting extends Hm_Output_Module {
+    protected function output() {
+        $since = DEFAULT_SINCE;
+        $settings = $this->get('user_settings', array());
+        if (array_key_exists('tag_since', $settings) && $settings['tag_since']) {
+            $since = $settings['tag_since'];
+        }
+        return '&lt;tr class="tag_setting"&gt;&lt;td&gt;&lt;label for="tag_since"&gt;'.
+            $this->trans('Show tag messages since').'&lt;/label&gt;&lt;/td&gt;'.
+            '&lt;td&gt;'.message_since_dropdown($since, 'tag_since', $this).'&lt;/td&gt;&lt;/tr&gt;';
+    }
+}
+
+class Hm_Output_tag_per_source_setting extends Hm_Output_Module {
+    protected function output() {
+        $sources = DEFAULT_PER_SOURCE;
+        $settings = $this->get('user_settings', array());
+        if (array_key_exists('tag_per_source', $settings)) {
+            $sources = $settings['tag_per_source'];
+        }
+        return '&lt;tr class="tag_setting"&gt;&lt;td&gt;&lt;label for="tag_per_source"&gt;'.
+            $this->trans('Max messages per source').'&lt;/label&gt;&lt;/td&gt;'.
+            '&lt;td&gt;&lt;input type="text" size="2" class="form-control form-control-sm w-auto" '.
+            'id="tag_per_source" name="tag_per_source" value="'.$this->html_safe($sources).'" /&gt;&lt;/td&gt;&lt;/tr&gt;';
+    }
+}</code></pre>
+
+        </div>
+
+        <p>And there you have it! Refresh the settings page to see the new Tags section :</p>
+        <img src="/img/screenshots/12.webp" alt="Cypht settings page with the new Tags section and its two settings" width="2428" height="1432" loading="lazy" decoding="async" style="width:100%; height:auto; margin-bottom: 1rem; border-radius: 8px;" />
+    </div>
+
+    <!-- Related links -->
+    <div id="related_links" class="doc-section">
+        <div class="doc-section-header">
+            <a href="#related_links">Related Links &amp; References</a>
+        </div>
+        <span class="doc-section-text">
+            External specifications and tutorials referenced throughout Cypht's protocol and filtering code.
+        </span>
+        <ul>
+            <li><a href="https://github.com/dovecot/imaptest/wiki/About" target="_blank" rel="noopener" class="text-link">Dovecot imaptest</a></li>
+            <li><a href="https://jmap.io/spec.html" target="_blank" rel="noopener" class="text-link">JMAP specification</a></li>
+            <li><a href="http://sieve.info/" target="_blank" rel="noopener" class="text-link">Sieve (sieve.info)</a></li>
+            <li><a href="https://p5r.uk/blog/2011/sieve-tutorial.html" target="_blank" rel="noopener" class="text-link">Sieve tutorial</a></li>
+            <li><a href="https://www.fastmail.com/help/technical/sieve.html" target="_blank" rel="noopener" class="text-link">Fastmail Sieve guide</a></li>
+            <li><a href="https://docs.gandi.net/en/gandimail/sieve/sieve_tutorial.html" target="_blank" rel="noopener" class="text-link">Gandi Sieve tutorial</a></li>
+        </ul>
+    </div>
+
+    <!-- navigation -->
+
     <nav-pagination
         prev-label="Security Overview"
         prev-url="/documentation/security-overview"
@@ -508,26 +915,29 @@ add_output('ajax_load_new_messages', 'print_new_messages', true);</code></pre>
 </div>
 
 <div class="doc-content-right d-none d-xl-flex col-xl-2">
-    <div class="dc-ctr-content">
-        <div class="dc-ctr-header">
-            <p class="dc-ctr-header-title">
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"/></svg>
-                On this page
-            </p>
+        <div class="dc-ctr-content">
+            <div class="dc-ctr-header">
+                <p class="dc-ctr-header-title">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"/></svg>
+                    On this page
+                </p>
+            </div>
+            <nav>
+                <ul id="dc-ctr-nav">
+                    <li><a href="#overview" class="active">Overview</a></li>
+                    <li><a href="#folder_structure">Project Structure</a></li>
+                    <li><a href="#module_architecture">Module Architecture</a></li>
+                    <li><a href="#creating_pages">Creating Pages</a></li>
+                    <li><a href="#handlers_outputs">Handlers &amp; Outputs</a></li>
+                    <li><a href="#internationalization">Internationalization</a></li>
+                    <li><a href="#testing">Testing</a></li>
+                    <li><a href="#debugging">Debugging</a></li>
+                    <li><a href="#third_party">Third-Party Integration</a></li>
+                    <li><a href="#core_module">Core Module</a></li>
+                    <li><a href="#practical_example">Test Page Example</a></li>
+                    <li><a href="#settings_example">Settings Example</a></li>
+                    <li><a href="#related_links">Related Links</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul id="dc-ctr-nav">
-                <li><a href="#overview" class="active">Development Overview</a></li>
-                <li><a href="#folder_structure">Project Structure</a></li>
-                <li><a href="#module_architecture">Module Architecture</a></li>
-                <li><a href="#creating_pages">Creating Pages</a></li>
-                <li><a href="#handlers_outputs">Handlers & Outputs</a></li>
-                <li><a href="#internationalization">Internationalization</a></li>
-                <li><a href="#testing">Testing</a></li>
-                <li><a href="#debugging">Debugging</a></li>
-                <li><a href="#third_party">Third-Party Integration</a></li>
-                <li><a href="#core_module">Core Module</a></li>
-            </ul>
-        </nav>
-    </div>
 </div>

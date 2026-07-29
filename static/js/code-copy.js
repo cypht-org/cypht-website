@@ -64,7 +64,7 @@
     if (codeBlock.closest(`.${CONFIG.buttonClass}-container`)) return;
     if (codeBlock.closest(".code-card")) return;
 
-    /* Do not assign to codeBlock.textContent — it removes highlight.js <span class="hljs-*"> tokens. */
+    /* Do not assign to codeBlock.textContent - it removes highlight.js <span class="hljs-*"> tokens. */
     const normalizedCode = normalizeCodeText(codeBlock.textContent);
 
     if (codePreviewContent && !codePreviewContent.querySelector(".code-card")) {

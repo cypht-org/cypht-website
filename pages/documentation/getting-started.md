@@ -46,7 +46,7 @@ layout: section/documentation
         <div class="doc-subsection-header">
             <a href="#first_connection">1. First Connection</a>
         </div>
-        <p>Once installation is complete, you'll land on the profile creation page. Here, privacy is paramount: the password you choose encrypts your settings in the local database. If you lose this password, no one can recover your linked account access—we don't offer "email resets" for security reasons.</p>
+        <p>Once installation is complete, you'll land on the profile creation page. Here, privacy is paramount: the password you choose encrypts your settings in the local database. If you lose this password, no one can recover your linked account access, we don't offer "email resets" for security reasons.</p>
 
         <div class="doc-subsection-header">
             <a href="#adding_accounts">2. Adding Data Sources (Accounts)</a>
