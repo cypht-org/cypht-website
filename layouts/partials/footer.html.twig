@@ -214,15 +214,37 @@
   <div class="footer-bottom cy-container">
     <div class="footer-container">
       <div class="footer-bottom-content">
-        <p class="copyright">
-          ©
-          {{ 'now'|date('Y') }}
-          Cypht.org. All rights reserved.
-        </p>
-        <div class="policies-links">
-          {% for link in footer_links.policies %}
-            <a href="{{ link.href }}" target="{{ link.external ? '_blank' : '' }}" rel="noopener">{{ link.title }}</a>
-          {% endfor %}
+        <div class="footer-legal">
+          <p class="copyright">
+            ©
+            {{ 'now'|date('Y') }}
+            Cypht.org. All rights reserved.
+          </p>
+          <div class="policies-links">
+            {% for link in footer_links.policies %}
+              <a href="{{ link.href }}" target="{{ link.external ? '_blank' : '' }}" rel="noopener">{{ link.title }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="project-support">
+          <span class="project-support-label">supported by</span>
+          <a
+            href="https://evoludata.com/"
+            class="project-support-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Evoludata"
+          >
+            <img
+              src="/img/evoludata-logo.png"
+              alt="Evoludata"
+              width="351"
+              height="97"
+              loading="lazy"
+              decoding="async"
+              class="project-support-logo"
+            />
+          </a>
         </div>
       </div>
       {# <span class="text-center d-flex justify-content-center footer-label">Cypht</span> #}
