@@ -92,8 +92,36 @@ const init_image_preview = () => {
   });
 };
 
-// Lancement de la fonction après le chargement du DOM
+// The documentation menu scrolls inside its own container, so an entry near the
+// bottom of the list stayed hidden until the reader scrolled it into view. Bring
+// it back into the visible area without ever scrolling the page itself.
+const reveal_active_doc_entry = () => {
+  const lists = [
+    document.getElementById("doc_menu"), // desktop: the nav is the scroller
+    document.querySelector("#docNav .offcanvas-body"), // mobile: the panel is
+  ];
+
+  lists.forEach((list) => {
+    const link = list?.querySelector(".active");
+    if (!link || list.scrollHeight <= list.clientHeight) return;
+
+    const list_box = list.getBoundingClientRect();
+    const link_box = link.getBoundingClientRect();
+    if (link_box.top >= list_box.top && link_box.bottom <= list_box.bottom) {
+      return; // already visible, leave it alone
+    }
+    list.scrollTop +=
+      link_box.top - list_box.top - (list_box.height - link_box.height) / 2;
+  });
+};
+
+// Run everything once the DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
   spy_scroll();
   init_image_preview();
+  reveal_active_doc_entry();
+  // The mobile menu lives in an offcanvas: it can only be measured once shown
+  document
+    .getElementById("docNav")
+    ?.addEventListener("shown.bs.offcanvas", reveal_active_doc_entry);
 });

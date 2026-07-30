@@ -412,6 +412,41 @@ Failed asserting that true is false.
             <a href="#menu_caching">Menu Caching</a>
         </div>
         <p>If you add a link to the left menu but don't see it, Cypht caches menus. Click the reload link below the navigation menu to refresh.</p>
+
+        <div id="glitchtip" class="doc-subsection-header">
+            <a href="#glitchtip">Tracking PHP Errors with GlitchTip</a>
+        </div>
+        <p><a href="https://glitchtip.com/" target="_blank" rel="noopener" class="text-link">GlitchTip</a> is an Open Source, Sentry-compatible error tracker. Pointing your instance at one gives you the stack trace, the request context and the number of occurrences for every PHP error, which is the fastest way to investigate intermittent bugs that you cannot reproduce on demand.</p>
+        <p>Cypht ships the Sentry SDK as a required Composer dependency, so <code>composer install</code> already put everything in place. Reporting stays off until you provide a DSN.</p>
+        <p class="mb-0">Create a project in GlitchTip, either on the hosted service or on your own instance, and copy the DSN it gives you into your <code>.env</code> file</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-bash">#Glitchtip errors capturing
+GLITCHTIP_DSN=https://&lt;key&gt;@app.glitchtip.com/&lt;project-id&gt;
+GLITCHTIP_TRACES_SAMPLE_RATE=0.01</code></pre>
+
+        </div>
+        <p  class="mb-0">That is the whole setup. On the next request <code>index.php</code> reads the variable and initialises the client only when it holds a value :</p>
+        <div class="code-preview-content gc-terminal">
+
+<pre><code class="language-php">$glitchtip_dsn = env('GLITCHTIP_DSN', '');
+
+if ($glitchtip_dsn) {
+    \Sentry\init([
+        'dsn' =&gt; $glitchtip_dsn,
+        'traces_sample_rate' =&gt; env('GLITCHTIP_TRACES_SAMPLE_RATE', 0.01),
+    ]);
+}</code></pre>
+
+        </div>
+        <p>Leave <code>GLITCHTIP_DSN</code> empty and nothing is loaded, so the feature costs nothing when<br> you do not use it.</p>
+        <p><code>GLITCHTIP_TRACES_SAMPLE_RATE</code> is the percentage of transaction events sent to GlitchTip, so it governs performance traces and not errors: <code>0.01</code> samples one percent of them. Errors are always reported, whatever this value is. Keep it low in production to save disk space, and raise it temporarily when you need to profile.</p>
+        <p class="my-0 py-0">For more details please check the <a href="https://glitchtip.com/sdkdocs/php" target="_blank" rel="noopener" class="text-link">GlitchTip PHP SDK documentation</a>.</p>
+
+        <div class="tip-card tip-info mt-3">
+            <span class="tip-info-text"><i class="bi bi-info-circle"></i> Attaching a report to a bug</span>
+            <p class="mb-0">Enabling it on a development or staging instance is the practical way to turn "it fails from time to time" into an actionable report. Link the GlitchTip issue when you open a ticket so maintainers get the stack trace directly.</p>
+        </div>
     </div>
 
     <!-- Third-party integration -->
