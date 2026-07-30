@@ -48,7 +48,7 @@ layout: section/documentation
 
         <div class="tip-card tip-warning mt-3">
             <span class="tip-warning-text"><i class="bi bi-exclamation-triangle"></i> Requirement</span>
-            <p class="mb-0">Your mail server must support Sieve or ManageSieve. IMAP support alone is not enough — some providers do not expose Sieve management even though they support reading mail over IMAP.</p>
+            <p class="mb-0">Your mail server must support Sieve or ManageSieve. IMAP support alone is not enough - some providers do not expose Sieve management even though they support reading mail over IMAP.</p>
         </div>
     </div>
 
@@ -58,7 +58,7 @@ layout: section/documentation
 
     <div id="enable_module" class="doc-section">
         <div class="doc-section-header">
-            <a href="#enable_module">Step 1 — Enable the Sieve Filters Module</a>
+            <a href="#enable_module">Step 1: Enable the Sieve Filters Module</a>
         </div>
         <span class="doc-section-text">
             Before you can create any filter, the <strong>sievefilters</strong> module must be activated in your Cypht configuration. If the Sieve Filters section is already visible under Settings, you can skip this step.
@@ -90,7 +90,7 @@ layout: section/documentation
 
     <div id="create_from_settings" class="doc-section">
         <div class="doc-section-header">
-            <a href="#create_from_settings">Step 2 — Create from the Sieve Filters Page</a>
+            <a href="#create_from_settings">Step 2: Create from the Sieve Filters Page</a>
         </div>
         <span class="doc-section-text">
             The most direct way to manage filters is through the dedicated Sieve Filters page in Settings.
@@ -169,7 +169,7 @@ layout: section/documentation
 
     <div id="create_from_selected" class="doc-section">
         <div class="doc-section-header">
-            <a href="#create_from_selected">Step 3 — Create from Selected Messages</a>
+            <a href="#create_from_selected">Step 3: Create from Selected Messages</a>
         </div>
         <span class="doc-section-text">
             The <strong>Quick Actions</strong> dropdown in the message list toolbar lets you build filters directly from messages you are looking at, without navigating to Settings.
@@ -198,7 +198,7 @@ layout: section/documentation
                 </ul>
             </li>
             <li>Choose the action to apply.</li>
-            <li>Click <strong>Dry Run</strong> to test the filter against messages already loaded in the list — matched and unmatched messages are shown in a results panel so you can verify the rule before committing.</li>
+            <li>Click <strong>Dry Run</strong> to test the filter against messages already loaded in the list: matched and unmatched messages are shown in a results panel so you can verify the rule before committing.</li>
             <li>Save the filter.</li>
         </ol>
 
@@ -211,7 +211,7 @@ layout: section/documentation
             <a href="#dry_run">Dry Run</a>
         </div>
         <span class="doc-section-text">
-            The <strong>Dry Run</strong> button tests the current filter conditions against messages already loaded in the message list and shows which ones match and which do not — without moving or changing anything. It does not fetch additional messages from the server.
+            The <strong>Dry Run</strong> button tests the current filter conditions against messages already loaded in the message list and shows which ones match and which do not, without moving or changing anything. It does not fetch additional messages from the server.
         </span>
 
         <div class="tip-card tip-info mt-3">
@@ -257,7 +257,7 @@ layout: section/documentation
 
     <div id="create_from_message" class="doc-section">
         <div class="doc-section-header">
-            <a href="#create_from_message">Step 4 — Create from an Opened Message</a>
+            <a href="#create_from_message">Step 4: Create from an Opened Message</a>
         </div>
         <span class="doc-section-text">
             When you are reading a single email and want to filter similar messages in the future, use the <strong>Filter similar messages</strong> button.
@@ -274,7 +274,7 @@ layout: section/documentation
 
             <br/>
             <img width="1919" height="953" src="/img/docs/sieve_filters_9.webp" alt="Filter similar messages dropdown with From, To, Subject and Reply-To checkboxes" loading="lazy" decoding="async" /> <br/><br/>
-            <li>Review the prefilled conditions — Cypht auto-populates the filter name, sender, recipient, and subject from the opened message.</li>
+            <li>Review the prefilled conditions: Cypht auto-populates the filter name, sender, recipient, and subject from the opened message.</li>
 
             <br/>
             <img width="1918" height="951" src="/img/docs/sieve_filters_10.webp" alt="Add Filter for message like this modal with auto-populated conditions and actions" loading="lazy" decoding="async" /> <br/><br/>
@@ -285,7 +285,7 @@ layout: section/documentation
 
         <div class="feature-card">
             <h6><i class="bi bi-envelope-open"></i> One-click starting point</h6>
-            <span class="doc-section-text mb-0">This is the fastest way to react to a single message. You do not need to go to Settings or select multiple messages first — just open the email and create the rule from it.</span>
+            <span class="doc-section-text mb-0">This is the fastest way to react to a single message. You do not need to go to Settings or select multiple messages first, just open the email and create the rule from it.</span>
         </div>
 
         <div class="tip-card tip-info mt-3">

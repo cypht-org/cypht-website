@@ -68,7 +68,7 @@ html.theme-transitioning *::after {
       --color-border-light: #F3F4F6;
       --color-border-dark: #D1D5DB;
 
-      /* ── Neutral & accent palette — fixed (theme-invariant) shared colours,
+      /* ── Neutral & accent palette - fixed (theme-invariant) shared colours,
          used mainly by the tools/config/install UI. Naming the existing
          hardcoded hexes here removes duplication WITHOUT any visual change
          (these are NOT overridden in dark mode, so values stay identical). ── */
@@ -86,15 +86,21 @@ html.theme-transitioning *::after {
 
       --cypht-color: #80B441;
 
-      /* ── Z-index scale — single source of truth for GLOBAL stacking layers.
+      /* ── Z-index scale - single source of truth for GLOBAL stacking layers.
          Values preserve the historical ones (no visual change), now named.
          Local/component stacking (z-index: 0/1/2…) stays inline on purpose. ── */
-      --z-sticky: 50;       /* sticky sub-navigation bars (page tab bars, doc ToC) */
-      --z-navbar: 150;      /* main site navbar */
-      --z-dropdown: 1000;   /* navbar dropdown panels / mobile menu */
-      --z-overlay: 1040;    /* fullscreen modal backdrops */
-      --z-modal: 9999;      /* image preview / dialog overlays */
-      --z-skiplink: 10000;  /* a11y skip-link — above everything */
+      --z-sticky: 50;
+      /* sticky sub-navigation bars (page tab bars, doc ToC) */
+      --z-navbar: 150;
+      /* main site navbar */
+      --z-dropdown: 1000;
+      /* navbar dropdown panels / mobile menu */
+      --z-overlay: 1040;
+      /* fullscreen modal backdrops */
+      --z-modal: 9999;
+      /* image preview / dialog overlays */
+      --z-skiplink: 10000;
+      /* a11y skip-link - above everything */
 
       --cypht-btn-bg: rgba(255, 255, 255, 0.1);
       --nav-item-color: rgba(255, 255, 255, 0.858);
@@ -976,5 +982,8 @@ a:hover {
             background: var(--clr-card-bg);
       }
 }
+
 /* Prevent stray horizontal overflow from decorative elements (clip keeps sticky working). */
-.main-content { overflow-x: clip; }
+.main-content {
+      overflow-x: clip;
+}

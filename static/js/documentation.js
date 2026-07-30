@@ -1,45 +1,55 @@
 const spy_scroll = () => {
-  const nav_links = document.querySelectorAll("#dc-ctr-nav a");
+  const nav_links = Array.from(document.querySelectorAll("#dc-ctr-nav a"));
 
-  // IDs réellement référencés par le menu de droite : eux seuls pilotent l'état actif.
-  const nav_ids = new Set(
-    Array.from(nav_links)
-      .map((link) => link.getAttribute("href"))
-      .filter((href) => href && href.startsWith("#"))
-      .map((href) => href.slice(1)),
-  );
+  //
+  const sections = nav_links
+    .map((link) => {
+      const href = link.getAttribute("href");
+      return href && href.startsWith("#")
+        ? document.getElementById(href.slice(1))
+        : null;
+    })
+    .filter(Boolean);
 
-  // On n'observe que les sections liées au menu, pour que des éléments enfants
-  // ayant un id (ex. les cartes de version) n'effacent pas la classe active.
-  const sections = Array.from(
-    document.querySelectorAll(".doc-content-left [id]"),
-  ).filter((section) => nav_ids.has(section.id));
+  if (!sections.length) return;
 
-  const options = {
-    root: null, // utilise le viewport
-    rootMargin: "0px 0px -80% 0px", // déclenche quand l'élément est en haut de page
-    threshold: 0.1,
+  //
+  const OFFSET = 120;
+
+  const set_active = () => {
+    //
+    let current = sections[0];
+    sections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= OFFSET) current = section;
+    });
+
+    //
+    const at_bottom =
+      window.scrollY + window.innerHeight >=
+      document.documentElement.scrollHeight - 2;
+    if (at_bottom) current = sections[sections.length - 1];
+
+    nav_links.forEach((link) =>
+      link.classList.toggle(
+        "active",
+        link.getAttribute("href") === `#${current.id}`,
+      ),
+    );
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // Supprimer la classe active de tous les liens
-        nav_links.forEach((link) => link.classList.remove("active"));
-
-        // Ajouter la classe au lien correspondant à l'ID de la section
-        const active_link = document.querySelector(
-          `#dc-ctr-nav a[href="#${entry.target.id}"]`,
-        );
-        if (active_link) {
-          active_link.classList.add("active");
-        }
-      }
+  let ticking = false;
+  const on_scroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      ticking = false;
+      set_active();
     });
-  }, options);
+  };
 
-  // On observe chaque section/titre ayant un ID dans le contenu
-  sections.forEach((section) => observer.observe(section));
+  set_active();
+  window.addEventListener("scroll", on_scroll, { passive: true });
+  window.addEventListener("resize", on_scroll, { passive: true });
 };
 
 // Image preview lightbox for doc-img-card

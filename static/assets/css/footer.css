@@ -409,6 +409,10 @@
             gap: 2.5rem;
       }
 
+      .footer-main .footer-container {
+            align-items: start;
+      }
+
       .footer-brand {
             flex-direction: column;
             align-items: start;

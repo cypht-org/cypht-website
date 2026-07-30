@@ -912,7 +912,6 @@
             min-height: 9rem;
       }
 
-      /* Long cards: text + image — keep layout compact without clipping illustrations */
       .search-parent .search-div4,
       .search-parent .search-div5 {
             align-self: start;

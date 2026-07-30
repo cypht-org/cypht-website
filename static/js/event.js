@@ -38,13 +38,12 @@ const defaultOrganizer = [
   },
 ];
 
-// events (monthly community meets: every 2nd Friday — same room link)
+// events (monthly community meets: every 2nd Friday - same room link)
 const events = [
   {
-    title: "Cypht Monthly Sync — February: Roadmap & Q1 priorities",
+    title: "Cypht Monthly Sync - February: Roadmap & Q1 priorities",
     subtitle:
       "Open session on where the project stands and what ships next. We review recent progress, walk through priority issues and milestones, and align on features targeted for the coming weeks. Bring questions about the backlog, release scope, and how you can plug into active work.",
-    // cover_url: `https://picsum.photos/seed/event-0.15679512620868552/600/400`,
     cover_url: `/img/event_cover.png`,
     date: "2026-02-13",
     hours: "14:00 - 15:00",
@@ -55,7 +54,7 @@ const events = [
     organizer: defaultOrganizer,
   },
   {
-    title: "Cypht Monthly Sync — March: Issue triage & contributor check‑in",
+    title: "Cypht Monthly Sync - March: Issue triage & contributor check‑in",
     subtitle:
       "We focus on the issue tracker: what’s blocked, what needs labels or owners, and which feature requests deserve discussion. Expect a concise project health update, then room for proposals, bug reports, and coordination on pull requests and reviews.",
     cover_url: `/img/event_cover.png`,
@@ -68,7 +67,7 @@ const events = [
     organizer: defaultOrganizer,
   },
   {
-    title: "Cypht Monthly Sync — April: Features in flight & release notes",
+    title: "Cypht Monthly Sync - April: Features in flight & release notes",
     subtitle:
       "Deep dive into features under development and recently merged work. We connect implementation progress to user-facing changes, surface risks or dependencies, and use issues and discussions to decide what needs follow-up before the next cut.",
     cover_url: `/img/event_cover.png`,
@@ -81,7 +80,7 @@ const events = [
     organizer: defaultOrganizer,
   },
   {
-    title: "Cypht Monthly Sync — May: UX polish, integrations & open floor",
+    title: "Cypht Monthly Sync - May: UX polish, integrations & open floor",
     subtitle:
       "A practical call on refinements and extensibility: UI/UX feedback, integration points, and how modules evolve. We recap project advancement since last month, review outstanding issues affecting real usage, and prioritize what to tackle next together.",
     cover_url: `/img/event_cover.png`,
@@ -94,7 +93,7 @@ const events = [
     organizer: defaultOrganizer,
   },
   {
-    title: "Getting Started with Cypht — Complete Beginner Guide (On Demand)",
+    title: "Getting Started with Cypht - Complete Beginner Guide (On Demand)",
     subtitle:
       "An on-demand introduction to the Cypht ecosystem, helping users understand the project, its goals, and how to get involved with the community.",
     cover_url: `/img/event_cover.png`,
@@ -107,7 +106,7 @@ const events = [
     organizer: defaultOrganizer,
   },
   {
-    title: "Cypht Modules Deep Dive — Customization & Extensibility",
+    title: "Cypht Modules Deep Dive - Customization & Extensibility",
     subtitle:
       "An on-demand community session exploring Cypht’s modular architecture and how contributors can extend and customize the platform.",
     cover_url: `/img/event_cover.png`,
@@ -120,7 +119,7 @@ const events = [
     organizer: defaultOrganizer,
   },
   {
-    title: "Cypht Monthly Sync — June: Mid‑year review, velocity & open issues",
+    title: "Cypht Monthly Sync - June: Mid‑year review, velocity & open issues",
     subtitle:
       "Halfway through the year we take stock of shipped work versus the plan: burn‑down on key issues, feature readiness, and blockers. Come prepared to discuss what’s landing next, which bugs deserve a spike, and how we keep momentum through the summer.",
     cover_url: `/img/event_cover.png`,
@@ -133,9 +132,9 @@ const events = [
     organizer: defaultOrganizer,
   },
   {
-    title: "Cypht Integration Hackathon — Build & Extend in 48h",
+    title: "Cypht Integration Hackathon - Build & Extend in 48h",
     subtitle:
-      "A focused sprint to prototype integrations and extensions: small teams pick issues or feature ideas and ship demos. Not the monthly sync—this is hands‑on coding with the same community room link for coordination.",
+      "A focused sprint to prototype integrations and extensions: small teams pick issues or feature ideas and ship demos. Not the monthly sync, this is hands‑on coding with the same community room link for coordination.",
     cover_url: `/img/event_cover.png`,
     date: "2026-06-26",
     hours: "14:00 - 15:00",
@@ -147,7 +146,7 @@ const events = [
   },
   {
     title:
-      "Cypht Monthly Sync — July: PR queue, code review & summer priorities",
+      "Cypht Monthly Sync - July: PR queue, code review & summer priorities",
     subtitle:
       "We put the spotlight on pull requests and review throughput: what’s waiting on feedback, which features need design input, and how we balance bugfixes with new capability. A short update on project progress, then we work through the issue list together.",
     cover_url: `/img/event_cover.png`,
@@ -161,7 +160,7 @@ const events = [
   },
   {
     title:
-      "Cypht Monthly Sync — August: Stabilization, regressions & quality bar",
+      "Cypht Monthly Sync - August: Stabilization, regressions & quality bar",
     subtitle:
       "After recent changes we focus on reliability: regressions, test gaps, and performance notes from the field. We tie discussions to concrete issues, agree on severity, and decide which fixes or features should lead the next iteration.",
     cover_url: `/img/event_cover.png`,
@@ -175,7 +174,7 @@ const events = [
   },
   {
     title:
-      "Cypht Monthly Sync — September: Q4 roadmap draft & feature proposals",
+      "Cypht Monthly Sync - September: Q4 roadmap draft & feature proposals",
     subtitle:
       "We sketch the roadmap for the rest of the year: candidate features, technical debt paydown, and community‑driven proposals. Expect transparent talk about project advancement, issue grooming for Q4, and space to pitch ideas backed by use cases.",
     cover_url: `/img/event_cover.png`,
@@ -188,7 +187,7 @@ const events = [
     organizer: defaultOrganizer,
   },
   {
-    title: "Cypht Monthly Sync — October: Security, privacy & hardening",
+    title: "Cypht Monthly Sync - October: Security, privacy & hardening",
     subtitle:
       "Dedicated time for security‑related issues, dependency updates, and safe‑defaults in features. We review progress on prior action items, triage vulnerability reports, and align on what must ship before year‑end from a risk perspective.",
     cover_url: `/img/event_cover.png`,
@@ -202,7 +201,7 @@ const events = [
   },
   {
     title:
-      "Cypht Monthly Sync — November: Release train, scope cuts & deadlines",
+      "Cypht Monthly Sync - November: Release train, scope cuts & deadlines",
     subtitle:
       "As milestones approach we reconcile scope with reality: what stays, what slips, and which issues are release‑blocking. Open discussion on feature completeness, documentation gaps, and how contributors can help close the loop before the holidays.",
     cover_url: `/img/event_cover.png`,
@@ -216,7 +215,7 @@ const events = [
   },
   {
     title:
-      "Cypht Monthly Sync — December: Year in review, lessons & 2027 outlook",
+      "Cypht Monthly Sync - December: Year in review, lessons & 2027 outlook",
     subtitle:
       "We close the loop on the year: highlights from shipped features, what we learned from issues and discussions, and where the project is headed. Bring reflections on process, gaps to address next year, and priorities for the issue backlog in January.",
     cover_url: `/img/event_cover.png`,
@@ -230,23 +229,67 @@ const events = [
   },
 ];
 
-/** Start of local calendar day for comparisons */
-function startOfLocalDay(d) {
-  const x = new Date(d);
-  x.setHours(0, 0, 0, 0);
-  return x;
+/** The meet link opens this long before the announced start time */
+const JOIN_OPENS_BEFORE_MS = 15 * 60 * 1000;
+
+/** Start of the event currently shown in the hero block, to detect rollover */
+let currentSlotStart = null;
+
+/** Last state written to the buttons, so idle ticks touch no DOM at all */
+let lastButtonState = null;
+
+/** Filter selected by the visitor, kept across re-renders (undefined = All) */
+let activeFilterValue;
+
+/**
+ * Schedule window of an event, in GMT.
+ * `date` is a calendar day and `hours` a "HH:MM - HH:MM" range; both are read
+ * as GMT so every visitor gets the same window whatever their own timezone.
+ * Returns null for events without a real slot ("On demand").
+ */
+function getEventWindow(event) {
+  if (!event || !event.date) return null;
+  const range = /^\s*(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})\s*$/.exec(
+    event.hours || "",
+  );
+  if (!range) return null;
+
+  const [year, month, day] = event.date.split("-").map(Number);
+  const start = Date.UTC(year, month - 1, day, +range[1], +range[2]);
+  let end = Date.UTC(year, month - 1, day, +range[3], +range[4]);
+  if (end <= start) end += 24 * 60 * 60 * 1000; // range crossing midnight
+
+  return { start, end };
 }
 
-/** Events with a scheduled date strictly after today, earliest first */
-function getSortedUpcomingEvents() {
-  const today = startOfLocalDay(new Date());
+/**
+ * True while the meet is joinable: from 15 min before the start until the end.
+ * The window is [start - 15 min, end[ — same bound as getSortedUpcomingEvents,
+ * so the button switches off exactly when the event leaves the hero block.
+ */
+function isJoinable(event, now = Date.now()) {
+  const slot = getEventWindow(event);
+  if (!slot) return false;
+  return now >= slot.start - JOIN_OPENS_BEFORE_MS && now < slot.end;
+}
+
+/** Time range labelled with its timezone, e.g. "14:00 - 15:00 GMT" */
+function formatHoursLabel(event) {
+  if (!event || !event.hours) return "Time TBD";
+  return getEventWindow(event) ? `${event.hours} GMT` : event.hours;
+}
+
+/**
+ * Events not finished yet, earliest first (a running one stays first).
+ * The window is resolved once per event rather than inside the comparator,
+ * which would re-run the `hours` regex on every comparison.
+ */
+function getSortedUpcomingEvents(now = Date.now()) {
   return events
-    .filter((e) => {
-      if (!e.date) return false;
-      const day = startOfLocalDay(new Date(`${e.date}T12:00:00`));
-      return day > today;
-    })
-    .sort((a, b) => new Date(a.date) - new Date(b.date));
+    .map((event) => ({ event, slot: getEventWindow(event) }))
+    .filter(({ slot }) => slot !== null && slot.end > now)
+    .sort((a, b) => a.slot.start - b.slot.start)
+    .map(({ event }) => event);
 }
 
 /** Pool for the list: upcoming events except the next one (hero block) */
@@ -263,6 +306,7 @@ function renderNextEvent() {
   const next = upcoming[0];
 
   if (!next) {
+    currentSlotStart = null;
     block.hidden = true;
     block.setAttribute("aria-hidden", "true");
     return;
@@ -292,50 +336,91 @@ function renderNextEvent() {
   if (dateLineEl) dateLineEl.textContent = dateLine;
 
   const timeLineEl = document.getElementById("next_event_time_line");
-  if (timeLineEl) timeLineEl.textContent = next.hours || "";
+  if (timeLineEl) timeLineEl.textContent = formatHoursLabel(next);
 
   const descEl = document.getElementById("next_event_description");
   if (descEl) {
     descEl.innerHTML = (next.subtitle || "").replace(/\n/g, "<br>");
   }
 
-  const meet = next.meet_link || "#";
-  const desktop = document.getElementById("next_event_participate_desktop");
-  const mobile = document.getElementById("next_event_participate_mobile");
+  currentSlotStart = getEventWindow(next).start;
+  updateParticipateButtons(next);
+}
 
-  // Check if event date is today or in the past (allow participation)
-  // If event is in the future, disable the button
-  const eventDate = next.date ? startOfLocalDay(new Date(`${next.date}T12:00:00`)) : null;
-  const today = startOfLocalDay(new Date());
-  const isFutureEvent = eventDate && eventDate > today;
+/** Wording of the tooltip shown while the meet link is still locked */
+function unavailableMessage(event) {
+  const slot = getEventWindow(event);
+  if (!slot) return "Not available yet";
 
-  if (desktop) {
-    if (isFutureEvent) {
-      desktop.removeAttribute("href");
-      desktop.classList.add("disabled");
-      desktop.setAttribute("aria-disabled", "true");
-      desktop.addEventListener("click", preventClick);
+  const opensAt = new Date(slot.start - JOIN_OPENS_BEFORE_MS)
+    .toISOString()
+    .slice(11, 16);
+  const day = format_date(event.date);
+
+  return `Available ${day.weekday}, ${day.month} ${day.day} from ${opensAt} GMT, 15 min before the meet starts`;
+}
+
+/** Enable the meet link only inside the event window, disable it otherwise */
+function updateParticipateButtons(event) {
+  const joinable = isJoinable(event);
+
+  // The state flips twice in the life of an event, but the timer ticks every
+  // 30 s. Bail out on the ticks that change nothing. Keyed on the event as well,
+  // so a rollover to the next event always repaints even when both are locked.
+  const state = `${event?.date ?? ""}|${joinable}`;
+  if (state === lastButtonState) return;
+  lastButtonState = state;
+
+  const meet = event?.meet_link || "#";
+  const message = joinable ? "" : unavailableMessage(event);
+
+  [
+    document.getElementById("next_event_participate_desktop"),
+    document.getElementById("next_event_participate_mobile"),
+  ].forEach((btn) => {
+    if (!btn) return;
+
+    // The tooltip lives on the wrapper, not on the button: the disabled button
+    // is dimmed with opacity/filter, which its own pseudo-elements would inherit.
+    const holder = btn.parentElement || btn;
+
+    if (joinable) {
+      btn.href = meet;
+      btn.classList.remove("disabled");
+      btn.removeAttribute("aria-disabled");
+      btn.removeAttribute("aria-label");
+      btn.removeAttribute("tabindex");
+      holder.removeAttribute("data-tooltip");
+      btn.removeEventListener("click", preventClick);
     } else {
-      desktop.href = meet;
-      desktop.classList.remove("disabled");
-      desktop.removeAttribute("aria-disabled");
-      desktop.removeEventListener("click", preventClick);
+      btn.removeAttribute("href");
+      btn.classList.add("disabled");
+      btn.setAttribute("aria-disabled", "true");
+      btn.setAttribute("aria-label", `Participate. ${message}`);
+      btn.setAttribute("tabindex", "0"); // stays reachable without an href
+      holder.setAttribute("data-tooltip", message);
+      btn.addEventListener("click", preventClick);
     }
+  });
+}
+
+/**
+ * Re-evaluated on a timer so a page left open follows the schedule: flips the
+ * button when the window opens or closes, and re-renders once an event ends.
+ */
+function refreshEventState() {
+  const next = getSortedUpcomingEvents()[0];
+  const slot = next ? getEventWindow(next) : null;
+  const start = slot ? slot.start : null;
+
+  if (start !== currentSlotStart) {
+    renderNextEvent();
+    load_event_filter();
+    load_events(activeFilterValue);
+    return;
   }
 
-  if (mobile) {
-    if (isFutureEvent) {
-      mobile.removeAttribute("href");
-      mobile.classList.add("disabled");
-      mobile.setAttribute("aria-disabled", "true");
-      mobile.addEventListener("click", preventClick);
-    } else {
-      mobile.href = meet;
-      mobile.classList.remove("disabled");
-      mobile.removeAttribute("aria-disabled");
-      mobile.removeEventListener("click", preventClick);
-    }
-  }
+  if (next) updateParticipateButtons(next);
 }
 
 function preventClick(e) {
@@ -349,17 +434,27 @@ function get_filter_item(type_key) {
 
 //
 function format_date(_date) {
-  const date = new Date(_date);
+  // Event days are GMT calendar days: format them in UTC, otherwise a bare
+  // "YYYY-MM-DD" is parsed as UTC midnight and rendered as the previous day
+  // for every visitor west of Greenwich.
+  const date = new Date(`${_date}T00:00:00Z`);
   return {
-    weekday: date.toLocaleDateString("en-US", { weekday: "long" }),
-    month: date.toLocaleDateString("en-US", { month: "short" }),
-    day: date.getDate(),
-    year: date.getFullYear(),
+    weekday: date.toLocaleDateString("en-US", {
+      weekday: "long",
+      timeZone: "UTC",
+    }),
+    month: date.toLocaleDateString("en-US", {
+      month: "short",
+      timeZone: "UTC",
+    }),
+    day: date.getUTCDate(),
+    year: date.getUTCFullYear(),
     full: date.toLocaleDateString("en-US", {
       // weekday: "long",
       month: "short",
       day: "numeric",
       year: "numeric",
+      timeZone: "UTC",
     }),
   };
 }
@@ -388,7 +483,7 @@ function create_event_item(event) {
   // Data attributes
   a.dataset.eventTitle = event.title;
   a.dataset.eventDate = formatted_date;
-  a.dataset.eventTime = event.hours || "Time TBD";
+  a.dataset.eventTime = formatHoursLabel(event);
   a.dataset.eventLocation = event.location || "Location TBD";
   a.dataset.eventDescription = event.subtitle || "";
   a.dataset.eventType = get_filter_item(event.type_key).name;
@@ -415,8 +510,8 @@ function create_event_item(event) {
       <div class="event-item-header">
        <div>
           <div class="event-item-date">
-            <span class="event-day">${event.date ? new Date(event.date).getDate() : "--"}</span>
-            <span class="event-month">${event.date ? new Date(event.date).toLocaleString("en-US", { month: "short" }) : "--"}</span>
+            <span class="event-day">${event.date ? formatted_date.day : "--"}</span>
+            <span class="event-month">${event.date ? formatted_date.month : "--"}</span>
          </div> 
        </div>
         <div class="event-header-content">
@@ -501,7 +596,7 @@ function openEventOffcanvas(event, triggerEl) {
   document.querySelector(".ed-long-date").textContent =
     formatted_date.full || "--";
   document.querySelector(".ed-long-time").textContent = event.date
-    ? event.hours
+    ? formatHoursLabel(event)
     : "--";
   document.querySelector(".ed-location-text").textContent =
     event.location || "--";
@@ -580,8 +675,8 @@ function load_event_filter() {
       <span class="event-filter-item-name">${type.name} <span class="event-filter-item-count">(${count})</span></span>
     `;
 
-    //  Initial active filter
-    if (index === 0) {
+    //  Keep the visitor's choice selected across re-renders
+    if (type.value === activeFilterValue) {
       filter_item.classList.add("filter_active");
     }
 
@@ -596,6 +691,7 @@ function load_event_filter() {
 
       // Load events
       const value = type.value !== undefined ? Number(type.value) : undefined;
+      activeFilterValue = value;
       load_events(value);
     });
 
@@ -637,7 +733,10 @@ function setupCopyButton(link) {
 document.addEventListener("DOMContentLoaded", () => {
   renderNextEvent();
   load_event_filter();
-  load_events();
+  load_events(activeFilterValue);
+
+  // The window opens and closes while the page stays open
+  setInterval(refreshEventState, 30 * 1000);
 
   // Initialize copy button with empty link (will be updated when event is opened)
   setupCopyButton("");

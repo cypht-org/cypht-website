@@ -192,7 +192,7 @@ layout: section/documentation
             <div class="">
                 <div class="feature-card h-100">
                     <h6><i class="bi bi-key"></i> OAuth2 Support</h6>
-                    <p>OAuth2 over IMAP/SMTP supported (currently Gmail and Outlook) for secure token-based authentication.</p>
+                    <p>OAuth2 over IMAP/SMTP supported (currently Gmail and Outlook) for secure token-based authentication. Set it up with the <a href="/documentation/account-setup#gmail_oauth" class="text-link">Gmail</a> and <a href="/documentation/account-setup#outlook_oauth" class="text-link">Outlook &amp; Office 365</a> guides.</p>
                 </div>
             </div>
         </div>

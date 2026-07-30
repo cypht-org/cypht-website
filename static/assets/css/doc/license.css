@@ -394,7 +394,6 @@
       transform: translate(2px, -2px);
 }
 
-/* GitHub "Source code" link — shares the neutral base .library-btn style; just size the icon */
 .library-btn-source .bi-github {
       font-size: 0.9rem;
       line-height: 1;
