@@ -491,7 +491,7 @@ function create_event_item(event) {
   a.dataset.eventOrganizerAvatar =
     event.organizer[0]?.profile_url || "/img/logo.svg";
 
-  // Click + clavier (accessibilité)
+  // Click + keyboard (accessibility)
   a.addEventListener("click", (e) => {
     e.preventDefault();
     openEventOffcanvas(event, a);
