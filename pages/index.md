@@ -116,7 +116,7 @@ loadScriptAfter: /js/home-page.js
                               <img width="597" height="418" src="/img/u4.webp" alt="Cypht Unified Interface" class="phone-mock">
                     </div>
                     <h3>Universal Search</h3>
-                    <p>Instantly search across all your email accounts and RSS feeds with a powerful search engine.</p>
+                    <p>Instantly search across all your email accounts and RSS feeds with powerful search features</p>
                 </div>
                 <!-- yellow card -->
                 <div class="f-card m-yellow">
