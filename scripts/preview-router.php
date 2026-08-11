@@ -18,9 +18,18 @@ if ($file !== false && is_dir($file)) {
     $file = realpath(rtrim($file, '/') . '/index.html');
 }
 // Security: stay inside the docroot; 404 otherwise.
+// Serve the generated 404 page, like GitHub Pages does in production.
 if ($file === false || strncmp($file, realpath($root), strlen(realpath($root))) !== 0 || !is_file($file)) {
     http_response_code(404);
+    $notFound = realpath($root . '/404.html');
+    if ($notFound !== false && is_file($notFound)) {
+        header('Content-Type: text/html; charset=utf-8');
+        readfile($notFound);
+
+        return true;
+    }
     echo 'Not found';
+
     return true;
 }
 

@@ -487,7 +487,7 @@
             z-index: var(--z-dropdown);
             min-width: 550px;
             max-width: 750px;
-            padding: 1.25rem .8rem;
+            padding: 1.25rem .4rem;
             overflow: hidden;
             will-change: transform, opacity;
       }
@@ -533,7 +533,7 @@
             display: flex;
             align-items: center;
             gap: 0.875rem;
-            padding: 1rem 1.125rem !important;
+            padding: 1rem 1.11rem !important;
             text-decoration: none;
             color: var(--nav-item-color);
             font-size: 0.875rem;

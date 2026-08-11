@@ -1,0 +1,64 @@
+/* ==========================================
+   INTEGRATION PAGES
+   The integration section reuses the whole
+   documentation layout; only the inline links
+   of the body text are restyled here.
+========================================== */
+
+/* Compact callout for a single sentence: the documentation `feature-card` is
+   built for grids of screenshots and looks oversized around one line of text. */
+.integration-container .integration-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      padding: 0.7rem 0.9rem;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      background: var(--clr-card-bg);
+}
+
+.integration-container .integration-note i {
+      color: var(--color-primary);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      flex-shrink: 0;
+}
+
+.integration-container .integration-note p {
+      margin: 0;
+      font-size: 0.85rem !important;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      opacity: 1 !important;
+}
+
+.integration-container .integration-note strong {
+      font-weight: 600;
+      color: var(--color-text);
+}
+
+/* One screenshot per page, alone in its card: let it use the full width of the
+   content column instead of the 320px cap used by the documentation grid. */
+.integration-container .doc-img-card img {
+      max-height: none;
+      padding: 0;
+}
+
+.integration-container .doc-section-text a,
+.integration-container .doc-section p a,
+.integration-container .doc-section li a,
+.integration-container .feature-card a {
+      color: var(--color-primary);
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+}
+
+.integration-container .doc-section-text a:hover,
+.integration-container .doc-section p a:hover,
+.integration-container .doc-section li a:hover,
+.integration-container .feature-card a:hover {
+      color: var(--color-primary);
+      border-bottom-color: var(--color-primary);
+}

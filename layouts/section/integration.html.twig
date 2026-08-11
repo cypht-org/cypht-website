@@ -1,0 +1,23 @@
+{% extends 'page.html.twig' %}
+
+{% block content_area %}
+	<div class="doc-container integration-container">
+		<div class="row p-2">
+			{% include 'partials/integration_menu.html.twig' %}
+			<div class="col">
+				<div class="row doc-content">
+					{% if page.redirect is defined %}
+						{% set redirect_page = site.pages[page.redirect] %}
+						{% if redirect_page %}
+							{{ redirect_page.content }}
+						{% else %}
+							{{ page.content }}
+						{% endif %}
+					{% else %}
+						{{ page.content }}
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

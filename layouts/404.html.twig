@@ -1,0 +1,33 @@
+{% extends 'page.html.twig' %}
+
+{# No call-to-action banner on an error page: the visitor is looking for a page,
+   not for a pitch. Emptying the block removes it. #}
+{% block footer_label %}{% endblock %}
+
+{% block content_area %}
+	<section class="error-page my-5">
+		<div class="error-page-content">
+			<div class="hs-chip">Error 404</div>
+			<p class="error-code" aria-hidden="true">404</p>
+			<h1 class="error-title">This page does not exist</h1>
+			{% if page.content is not empty %}
+				<div class="error-text">{{ page.content }}</div>
+			{% else %}
+				<p class="error-text">
+					The link you followed is broken, or the page has moved since it was published.
+																									Nothing is lost, start again from one of the pages below.
+				</p>
+			{% endif %}
+			<div class="error-actions">
+				<a href="/" class="action-btn cypht-primary-btn">
+					<i class="bi bi-house"></i>
+					Back to home
+				</a>
+				<a href="/documentation" class="action-btn cypht-secondary-btn">
+					<i class="bi bi-file-earmark-text"></i>
+					Documentation
+				</a>
+			</div>
+		</div>
+	</section>
+{% endblock %}
