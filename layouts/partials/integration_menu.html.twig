@@ -1,0 +1,80 @@
+{% set integration_menus = [
+  {
+    id: 0,
+    title: "Tiki",
+    href: "integration/tiki",
+  },
+  {
+    id: 1,
+    title: "Cloudron",
+    href: "integration/cloudron",
+  },
+  {
+    id: 2,
+    title: "YunoHost",
+    href: "integration/yunohost",
+  },
+] %}
+
+<div
+	class="col-lg-3 col-xl-2  menu-content">
+	{#  #}
+	<div class="doc-top-nav d-lg-none">
+		<div class="">
+			<button type="button" data-bs-toggle="offcanvas" data-bs-target="#docNav" aria-controls="offcanvasRight" class="mobi-nav-btn">
+				<i class="bi bi-three-dots-vertical top-nav-icon"></i>
+				Menu
+			</button>
+		</div>
+	</div>
+	{#  #}
+	<!-- on desk -->
+	<div id="doc_menu_desktop_wrapper" class="doc-toc flex-shrink-0 d-none d-lg-block h-full">
+		<nav id="doc_menu" class="toc-nav mb-lg-5 mt-lg-3">
+			{# Menu title, same idea as the installation guide navigation #}
+			<div class="guide-nav-header">
+				<div>
+					<h5>Integrations</h5>
+				</div>
+				<div>
+					<p>Platforms that embed or package Cypht</p>
+				</div>
+			</div>
+			<div class="toc-section">
+				<ul>
+					{% for child in integration_menus %}
+						<li>
+							{% set _child_id = child.id %}
+							{#  #}
+							<a href="{{url(child.href)}}" class="{{_child_id == page.id ? 'active' : ''}}">{{child.title}}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<!-- on mobile -->
+	<div class="offcanvas offcanvas-start" tabindex="-1" id="docNav" aria-labelledby="staticBackdropLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="offcanvasRightLabel">
+				Integrations
+			</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<div id="doc_menu_mobile_wrapper" class="toc-nav-container">
+				<div class="toc-section">
+					<ul>
+						{% for child in integration_menus %}
+							<li>
+								{% set _child_id = child.id %}
+								{#  #}
+								<a href="{{url(child.href)}}" class="{{_child_id == page.id ? 'active' : ''}}">{{child.title}}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

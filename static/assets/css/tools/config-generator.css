@@ -192,7 +192,10 @@ html.theme-transitioning .config-gen-container *::after {
 }
 
 .config-generator-list-container {
-      height: calc(90vh - 8rem);
+      /* The nav is sticky at 8rem and the menu header takes ~4rem: subtracting
+         them from the viewport keeps the whole column on screen, with room to
+         breathe below the last entry. */
+      height: calc(100vh - 15rem);
       overflow-y: auto;
       padding-bottom: 1rem;
 }

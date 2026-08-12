@@ -163,7 +163,30 @@ const navigation_menu = (nav_id, active_class) => {
     })
     .filter(Boolean);
 
+  // The menu scrolls inside its own container, so an entry near the bottom of
+  // the list stays hidden until the reader scrolls the menu by hand. Bring it
+  // back into the visible area without ever scrolling the page itself.
+  const scroller = nav.closest(".config-generator-list-container");
+
+  const reveal_active_link = (link) => {
+    if (!scroller || !link) return;
+    if (scroller.scrollHeight <= scroller.clientHeight) return;
+
+    const scroller_box = scroller.getBoundingClientRect();
+    const link_box = link.getBoundingClientRect();
+    if (link_box.top >= scroller_box.top && link_box.bottom <= scroller_box.bottom) {
+      return; // already visible, leave it alone
+    }
+
+    scroller.scrollTop +=
+      link_box.top -
+      scroller_box.top -
+      (scroller_box.height - link_box.height) / 2;
+  };
+
   // Function to update the active link based on scroll
+  let active_link = null;
+
   const update_active_link = () => {
     let current = "";
     sections.forEach((section) => {
@@ -173,10 +196,19 @@ const navigation_menu = (nav_id, active_class) => {
       }
     });
 
+    let next_active = null;
     allLinks.forEach((link) => {
       const isActive = link.getAttribute("href") === current;
       link.classList.toggle(active_class, isActive);
+      if (isActive) next_active = link;
     });
+
+    // Only follow the active entry when it changes, so a reader scrolling the
+    // menu by hand is not fought on every scroll event.
+    if (next_active !== active_link) {
+      active_link = next_active;
+      reveal_active_link(active_link);
+    }
   };
 
   // 🎯 Scroll and load event
