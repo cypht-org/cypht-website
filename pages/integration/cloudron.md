@@ -21,10 +21,10 @@ layout: section/integration
             external accounts and feeds.
         </span>
         <p class="doc-section-text">
-            Cypht is not in the official Cloudron catalogue. It is published as a <strong>community app</strong>
-            (package id <code>eu.9wd.cypht</code>) by Felix Bartels, whose packaging sources are at
+            Cypht is not in the official Cloudron catalogue, instead is published as a <strong><a href="https://docs.cloudron.io/apps/#community-app" target="_blank" rel="noopener">community app</a></strong>
+            by <a href="https://9wd.eu" target="_blank" rel="noopener">Felix Bartels</a>, whose packaging sources are at
             <a href="https://git.9wd.eu/apps/cloudron-cypht" target="_blank" rel="noopener">git.9wd.eu/apps/cloudron-cypht</a>.
-            You add the repository once, then install and update Cypht like any other Cloudron app.
+            You add the community app once, then install and update Cypht like any other Cloudron app.
         </p>
 
         <div class="integration-note">
@@ -40,17 +40,17 @@ layout: section/integration
         <ol>
             <li>Open your Cloudron dashboard and go to the <strong>App Store</strong>.</li>
             <li>
-                Select <strong>Community apps</strong> and add this repository URL:
+                Select <strong>Community apps</strong> and add this app URL:
                 <div class="code-preview-content gc-terminal">
 <pre><code class="language-text">https://git.9wd.eu/apps/cloudron-cypht/raw/branch/release/CloudronVersions.json</code></pre>
                 </div>
             </li>
-            <li>Pick <strong>Cypht</strong> in the list and install it on the domain of your choice.</li>
+            <li>You will now see a detailed listing of the app where you can select "Install Cypht" to pick the domain.</li>
             <li>Open the app from the dashboard once the installation finishes.</li>
         </ol>
         <span class="doc-section-text">
-            The app listing, with its changelog, is at
-            <a href="https://ca.cloudron.io/app/cypht" target="_blank" rel="noopener">ca.cloudron.io/app/cypht</a>.
+            The app listing, with its changelog, can be found in the
+            <a href="https://ca.cloudron.io/app/cypht" target="_blank" rel="noopener">Cloudron Community Appstore</a>.
             Plan for around 512 MB of memory for the app.
         </span>
     </div>
