@@ -400,6 +400,17 @@
       .mobile-actions .github-btn .btn-text {
             display: flex;
       }
+
+      .dropdown-panel {
+            --dropdown-gap: 0.65rem;
+            min-width: min(460px, calc(100vw - 2rem));
+            max-width: min(560px, calc(100vw - 2rem));
+      }
+
+      .dropdown-content {
+            gap: 0.5rem;
+            padding: 1rem 0.35rem;
+      }
 }
 
 
@@ -472,28 +483,85 @@
       }
 
       .dropdown-panel {
+            --dropdown-gap: 0.75rem;
             position: absolute;
-            top: calc(100% + 1rem);
+            top: 100%;
             left: 50%;
             transform: translateX(-50%) translateY(-4px);
+            /* Transparent top padding keeps the visual gap while remaining hoverable */
+            padding: var(--dropdown-gap) 0 0;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  visibility 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: var(--z-dropdown);
+            min-width: min(550px, calc(100vw - 2rem));
+            max-width: min(750px, calc(100vw - 2rem));
+            overflow: visible;
+            will-change: transform, opacity;
+      }
+
+      /* Transparent hover bridge (covers the visual gap under the trigger) */
+      .dropdown-panel::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: var(--dropdown-gap);
+      }
+
+      /* Keep the dropdown on a dark background, even in light mode */
+
+      .nav-dropdown:hover .dropdown-panel,
+      .nav-dropdown:focus-within .dropdown-panel {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+            z-index: var(--z-dropdown);
+      }
+
+      .nav-dropdown:hover .dropdown-arrow,
+      .nav-dropdown:focus-within .dropdown-arrow {
+            transform: rotate(180deg);
+      }
+
+      /* Anchor the last dropdown to the right so it stays in viewport */
+      .nav-dropdown[data-dropdown="community"] .dropdown-panel {
+            left: auto;
+            right: 0;
+            transform: translateX(0) translateY(-4px);
+      }
+
+      .nav-dropdown[data-dropdown="community"]:hover .dropdown-panel,
+      .nav-dropdown[data-dropdown="community"]:focus-within .dropdown-panel {
+            transform: translateX(0) translateY(0);
+      }
+
+      /* Visual panel surface sits below the transparent hover bridge */
+      .dropdown-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.625rem;
+            position: relative;
+            z-index: 1;
             background: rgba(31, 31, 31, 0.856);
             backdrop-filter: blur(24px) saturate(180%);
             -webkit-backdrop-filter: blur(24px) saturate(180%);
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 8px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: var(--z-dropdown);
-            min-width: 550px;
-            max-width: 750px;
-            padding: 1.25rem .4rem;
+            padding: 1.25rem 0.4rem;
             overflow: hidden;
-            will-change: transform, opacity;
       }
 
       /* Effet de brillance subtil */
-      .dropdown-panel::after {
+      .dropdown-content::after {
             content: '';
             position: absolute;
             top: 0;
@@ -505,28 +573,6 @@
                         transparent 50%);
             pointer-events: none;
             border-radius: inherit;
-      }
-
-      /* Keep the dropdown on a dark background, even in light mode */
-
-      .nav-dropdown:hover .dropdown-panel {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-            z-index: var(--z-dropdown);
-      }
-
-      .nav-dropdown:hover .dropdown-arrow {
-            transform: rotate(180deg);
-      }
-
-      .dropdown-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.625rem;
-            padding: 0;
-            position: relative;
-            z-index: 1;
       }
 
       .dropdown-item {

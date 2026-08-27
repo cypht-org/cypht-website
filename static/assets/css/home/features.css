@@ -791,12 +791,18 @@
 @media (min-width: 992px) {
       .f-card.m-hero {
             gap: .5rem !important;
+            grid-template-columns: 1fr 1fr;
+      }
+
+      .f-card.m-hero .phone-mock {
+            max-height: none;
+            max-width: 100%;
       }
 }
 
 
-/* Tablet breakpoint (640px - 1028px) */
-@media (max-width: 1028px) and (min-width: 640px) {
+/* Tablet breakpoint (640px – below lg) — keep m-hero compact until lg restores desktop layout */
+@media (max-width: 991.98px) and (min-width: 640px) {
       .features-section {
             padding: 4rem 0;
       }
@@ -812,24 +818,55 @@
 
       .mosaic-grid {
             grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: minmax(200px, auto);
+            grid-auto-rows: minmax(180px, auto);
       }
 
-      /* Reorganize card placement for 2-column grid */
+      /* Full-width hero, side-by-side content to avoid excessive height */
       .m-hero {
             grid-column: 1 / 3;
             grid-row: 1 / 2;
-            grid-template-columns: 1fr;
-            gap: 0.5rem !important;
       }
 
-      .m-hero-col {
-            order: 1;
+      .f-card.m-hero {
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem !important;
+            padding: 1.35rem;
+            align-items: center;
+            min-height: 0;
       }
 
-      .m-hero-col.m-hero-illus {
-            order: 0;
-            margin-bottom: 1rem;
+      .f-card.m-hero .m-hero-col {
+            order: unset;
+            min-width: 0;
+            align-self: center;
+      }
+
+      .f-card.m-hero .m-hero-col:last-child {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+      }
+
+      .f-card.m-hero h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+      }
+
+      .f-card.m-hero p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 0;
+      }
+
+      /* Match visual weight of soft-card phone-mocks */
+      .f-card.m-hero .phone-mock {
+            width: min(100%, 340px);
+            max-width: 100%;
+            max-height: 360px;
+            height: auto;
+            margin: 0 auto;
+            object-fit: contain;
+            display: block;
       }
 
       .m-left {
