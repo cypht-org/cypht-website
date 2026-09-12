@@ -10,4 +10,4 @@
 - question: "Is there a contact management system?"
   answer: "Yes, Cypht includes a contact book. You can add contacts manually from the contacts page or quickly add senders by clicking the person icon in received messages."
 - question: "How do I add new email accounts?"
-  answer: 'Click "Add" in the accounts section. For services like Gmail or Outlook, you may need to configure OAuth settings in your configuration file.'
+  answer: "Go to Settings → Servers and click Add Account. Enter your email address and password; Cypht can auto-detect IMAP and SMTP settings for most providers. Gmail, Outlook, and Office 365 typically need an app-specific password, or OAuth if it is already enabled on your instance."

@@ -121,7 +121,7 @@ Pages without `format: md` keep their hand-written HTML, so both formats can coe
 
 The config generator was originally a project that started out at as [a Node.JS-generated static site to help configure Cypht](https://github.com/denperidge/cypht-config-generator), to have a properly interfaced & mostly self-updating interface to configure your Cypht instance. It downloads, caches & parses the Cypht config files into a static site that outputs a .env. That project has been translated into the PHP-based Cecil generator, into the files below.
 
-- [static/config-generator.js](static/config-generator.js): client-side JavaScript
+- [static/config-generator.js](static/js/config-generator.js): client-side JavaScript
 - [pages/config-generator.md](pages/config-generator.md): defines HTML page generation at /config-generator/
 - [layouts/partials/config-generator.html.twig](layouts/partials/config-generator.html.twig): generates the config generator from [configOptions.json](data/configOptions.json)
 - [data/](data/)

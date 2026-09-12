@@ -154,6 +154,20 @@
       display: flex;
       flex-direction: column;
       gap: 0.25rem;
+      font-size: 0.95rem;
+      color: var(--color-text);
+      opacity: .8;
+
+      & a {
+            color: var(--color-primary);
+            font-weight: 600;
+            opacity: 1;
+            transition: all 0.2s ease;
+
+            &:hover {
+                  transform: translateX(2px);
+            }
+      }
 }
 
 /* ==========================================

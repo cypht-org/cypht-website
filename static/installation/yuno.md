@@ -6,7 +6,7 @@
       <!--  -->
       <div id="step" class="g-page-card">
             <div class="g-card-header">
-             <h4>Steps</h5>
+             <h4>Steps</h4>
             </div>
             <div class="g-card-body ms-3">
                   <p>

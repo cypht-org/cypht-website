@@ -14,7 +14,7 @@ loadScriptAfter: /js/home-page.js
     		<div class="home-hs-text-content">
                 <span class="hs-chip">✨ Supports IMAP/SMTP, JMAP and EWS</span>
                 <h2 class="display-6 fw-bold">All your E-mail, from all your accounts, in one place</h2>
-                <p class="home-hs-subtitle">Cypht (pronounced "sift") is like a news reader, but for email. It doesn't replace your existing accounts, it combines them into a single, streamlined inbox.</p>
+                <p class="section-card-subtitle home-hs-subtitle">Cypht (pronounced "sift") is like a news reader, but for email. It doesn't replace your existing accounts, it combines them into a single, streamlined inbox.</p>
                 <div class="home-hero-actions">
                     <a class="action-btn cypht-primary-btn" href="/install">Get Started</a>
                     <a class="action-btn cypht-secondary-btn" href="/documentation">See How it works</a>
@@ -84,10 +84,10 @@ loadScriptAfter: /js/home-page.js
     <!-- features -->
     <section class="features-section" id="features">
         <div class="section-content features-wide px-4">
-            <div class="w-full">
+            <div class="w-full mb-3">
                 <span class="home-overline">Key Features</span>
                 <h1 class="section-card-title">A new way to manage your emails</h1>
-                <p class="features-subtitle">No more switching tabs. Cypht gives you a clear and centralized view of all your communications.</p>
+                <p class="section-card-subtitle features-subtitle">No more switching tabs. Cypht gives you a clear and centralized view of all your communications.</p>
             </div>
             <!--  -->
             <div class="features-grid mosaic-grid">
@@ -189,7 +189,8 @@ loadScriptAfter: /js/home-page.js
                             </button>
                             </h2>
                             <div id="flush-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordion_flush_faq">
-                            <div class="accordion-body">Yes! Cypht is specifically designed to manage multiple email accounts simultaneously. You can add accounts from various providers (Gmail, Outlook, IMAP, JMAP, EWS) and access them all through a unified interface.</div>
+                            <div class="accordion-body">
+                                <span>Yes! Cypht is specifically designed to manage multiple email accounts simultaneously. You can add accounts from various providers (Gmail, Outlook, IMAP, JMAP, EWS) and access them all through a unified interface.</span></div>
                             </div>
                         </div>
                         <!-- 2 -->
@@ -200,7 +201,8 @@ loadScriptAfter: /js/home-page.js
                             </button>
                             </h2>
                             <div id="flush-collapse-2" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
-                            <div class="accordion-body">Yes, Cypht supports multiple users. Each user can have their own login and manage their collection of email accounts independently.</div>
+                            <div class="accordion-body">
+                                <span>Yes, Cypht supports multiple users. Each user can have their own login and manage their collection of email accounts independently.</span></div>
                             </div>
                         </div>
                         <!-- 3 -->
@@ -211,7 +213,8 @@ loadScriptAfter: /js/home-page.js
                             </button>
                             </h2>
                             <div id="flush-collapse-3" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
-                            <div class="accordion-body">The Combined Inbox displays emails from all your connected accounts in one unified view, allowing you to read, sort, and manage messages from different providers without switching between accounts.</div>
+                            <div class="accordion-body">
+                                <span>The Combined Inbox displays emails from all your connected accounts in one unified view, allowing you to read, sort, and manage messages from different providers without switching between accounts.</span></div>
                             </div>
                         </div>
                         <!-- 4 -->
@@ -222,7 +225,8 @@ loadScriptAfter: /js/home-page.js
                             </button>
                             </h2>
                             <div id="flush-collapse-4" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
-                            <div class="accordion-body">Yes, Cypht supports Sieve filters. Go to Settings > Sieve Filters, select your account, and create filters to automatically organize emails based on criteria like sender, subject, or keywords.</div>
+                            <div class="accordion-body">
+                                <span>Yes, Cypht supports Sieve filters. Go to <strong>Settings > Sieve Filters</strong>, select your account, and create filters to automatically organize emails based on criteria like sender, subject, or keywords.</span></div>
                             </div>
                         </div>
                         <!-- 5 -->
@@ -233,7 +237,9 @@ loadScriptAfter: /js/home-page.js
                             </button>
                             </h2>
                             <div id="flush-collapse-5" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
-                            <div class="accordion-body">Yes, Cypht includes a contact book. You can add contacts manually from contacts page or quickly add senders by clicking the person icon in received messages.</div>
+                            <div class="accordion-body">
+                                <span>Yes, Cypht includes a contact book. You can add contacts manually from contacts page or quickly add senders by clicking the person icon in received messages.</span>
+                            </div>
                             </div>
                         </div>
                         <!-- 6 -->
@@ -244,7 +250,12 @@ loadScriptAfter: /js/home-page.js
                             </button>
                             </h2>
                             <div id="flush-collapse-6" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
-                            <div class="accordion-body">Click “Add” in the accounts section. For services like Gmail or Outlook, you may need to configure OAuth settings in your configuration file.</div>
+                            <div class="accordion-body">
+                                <span>
+                                Go to <strong>Settings > Servers</strong>, click Add an E-mail Account, choose your provider, enter the username and account name, then click Next and confirm with the account password. You can also open IMAP / JMAP / SMTP Servers, click Add a new server, and fill in the fields as indicated. For more details follow the step in 
+                                <a href="/documentation/account-setup/#gmail_oauth">Account Setup</a>.
+                                </span>
+                            </div>
                             </div>
                         </div>
                     </div>

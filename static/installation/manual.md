@@ -6,7 +6,7 @@
    <!--  -->
    <div id="requirement" class="g-page-card">
       <div class="guide-card-header">
-          <h4>Requirements</h5>
+          <h4>Requirements</h4>
       </div>
       <div class="g-card-body">
          <p>
@@ -22,7 +22,7 @@
       <!--  -->
    <div id="step" class="g-page-card">
       <div class="g-card-header">
-        <h4>Steps</h5>
+        <h4>Steps</h4>
       </div>
       <div id="check-in" class="g-card-body ms-3">
       <!-- <div> -->

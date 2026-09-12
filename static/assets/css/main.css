@@ -182,6 +182,12 @@ html.theme-transitioning *::after {
       --size-radius-3xl: 1.6rem;
       --size-radius-4xl: 1.8rem;
       --size-radius-5xl: 2rem;
+      --section-title-size: 1.75rem;
+      --section-title-weight: 600;
+      --section-title-line: 1.2;
+      --section-subtitle-size: 1.0625rem;
+      --section-subtitle-weight: 500;
+      --section-subtitle-line: 1.6;
 
       /* Hero heights - standardized */
       --hero-height-lg: 90dvh;
@@ -296,7 +302,6 @@ button:disabled {
 a:hover {
       text-decoration: none;
 }
-
 
 .sidbar-title {
       font-size: 1.3rem;
@@ -472,7 +477,6 @@ a:hover {
 .h-full {
       height: 100% !important;
 }
-
 
 .action-btn {
       display: flex;
@@ -849,9 +853,6 @@ a:hover {
       color: #333;
 }
 
-
-
-
 /* Lazy Load Styles */
 .image-wrapper {
       position: relative;
@@ -953,11 +954,6 @@ a:hover {
 
       .hs-stats-content {
             justify-content: start;
-      }
-
-      .hs-actions-content {
-            /* background-color: orange; */
-            /* align-items: flex-end; */
       }
 }
 

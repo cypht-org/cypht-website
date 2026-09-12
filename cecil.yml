@@ -12,6 +12,8 @@ organization:
   name: "Cypht"
   logo: "img/logo.svg"
   github: "https://github.com/cypht-org/cypht"
+  website_github: "https://github.com/cypht-org/cypht-website"
+  website_branch: "master"
   license: "https://github.com/cypht-org/cypht/blob/master/LICENSE"
 software:
   category: "Webmail"

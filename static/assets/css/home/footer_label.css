@@ -9,19 +9,29 @@
       padding: 0 1.5rem;
 }
 
+.cta-panel {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+            filter 0.3s ease;
+}
+
 .cta-content {
       background: var(--color-primary);
-      border-radius: 16px;
+      border-radius: 8px;
       padding: 4.5rem 3rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 2rem;
       box-shadow: var(--shadow-xl);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
       min-height: 140px;
+      width: 100%;
 }
 
 .cta-content::before {
@@ -37,8 +47,7 @@
       z-index: 0;
 }
 
-.cta-content:hover {
-      transform: translateY(-2px);
+.cta-panel:hover .cta-content {
       box-shadow: var(--shadow-2xl);
 }
 
@@ -54,8 +63,8 @@
 }
 
 .cta-title {
-      font-size: clamp(1.8rem, 3.2vw, 2.2rem);
-      font-weight: 800;
+      font-size: clamp(1.7rem, 3.2vw, 2rem);
+      font-weight: 700;
       line-height: 1.1;
       color: white;
       margin: 0;
@@ -116,7 +125,7 @@
       transition: transform 0.3s ease;
 }
 
-.cta-content:hover .cta-button {
+.cta-panel:hover .cta-button {
 
       background: rgba(255, 255, 255, 0.25);
       border-color: rgba(255, 255, 255, 0.5);
@@ -136,9 +145,6 @@
 
 
 /* Animation for page load */
-.cta-content {
-      animation: slideInUp 0.8s ease-out;
-}
 
 .cta-title {
       animation: fadeInLeft 0.8s ease-out 0.2s both;
@@ -150,6 +156,73 @@
 
 .cta-button {
       animation: fadeInRight 0.8s ease-out 0.6s both;
+}
+
+/* Edit link — paw/tab with S-curve sides joining .cta-content */
+
+.cta-edit-link-container {
+      position: relative;
+      max-width: var(--container-6xl);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      margin-top: -1px;
+}
+
+.cta-edit-link-button {
+      --cta-edit-bg: #89b94f;
+      --cta-edit-ink: #ffffff;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      background: var(--cta-edit-bg);
+      box-shadow: var(--shadow-xl);
+      height: 1rem;
+      padding: 0.8rem 0.5rem 0.95rem 0.8rem;
+      border-bottom-right-radius: 0.4rem;
+      border-bottom-left-radius: 0.4rem;
+      position: relative;
+      color: var(--cta-edit-ink);
+      min-height: inherit;
+      transition: all 0.2s ease;
+}
+
+.cta-edit-link-button:hover,
+.cta-edit-link-button:focus-visible {
+      outline: none;
+      color: var(--cta-edit-ink);
+      transform: translateY(-1px);
+}
+
+.cta-edit-link-button-text {
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      color: inherit;
+      padding: 0;
+}
+
+.cta-edit-link-button i {
+      font-size: 0.85rem;
+      line-height: 1;
+}
+
+.cta-edit-link {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: -1px;
+      width: max-content;
+      max-width: calc(100% - 2rem);
+      height: 2.15rem;
+      padding: 0 1.65rem 0.1rem;
+      color: var(--cta-edit-ink);
 }
 
 @keyframes slideInUp {
@@ -259,6 +332,16 @@
             width: 80px;
             height: 80px;
       }
+
+      .cta-edit-link {
+            height: 2rem;
+            font-size: 0.68rem;
+            padding: 0 1.35rem 0.08rem;
+      }
+
+      .cta-edit-link i {
+            font-size: 0.75rem;
+      }
 }
 
 @media (max-width: 480px) {
@@ -305,6 +388,7 @@
 
 /* Dark theme adjustments */
 [data-theme="dark"] {
+
       .cta-content {
             background: linear-gradient(135deg, rgba(129, 180, 65, 0.15) 0%, rgba(129, 180, 65, 0.25) 100%);
             border: .8px solid var(--color-primary);
@@ -312,5 +396,14 @@
 
       .cta-content::before {
             background: inherit;
+      }
+
+      .cta-edit-link-button {
+            --cta-edit-bg: #3f5328;
+            --cta-edit-ink: #ffffff;
+            --cta-edit-curve: var(--color-primary);
+            border-bottom: 1px solid #84ad4d;
+            border-left: 1px solid #84ad4d;
+            border-right: 1px solid #84ad4d;
       }
 }

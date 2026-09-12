@@ -42,9 +42,13 @@
 }
 
 .features-subtitle {
-      font-size: 1.1rem;
-      color: #555;
       max-width: 550px;
+      margin: 0;
+}
+
+.features-section .section-card-subtitle {
+      max-width: 550px;
+      margin: 0;
 }
 
 /* ==============================================
@@ -658,7 +662,6 @@
       }
 
       .features-subtitle {
-            font-size: 0.95rem;
             max-width: 100%;
       }
 
@@ -812,7 +815,6 @@
       }
 
       .features-subtitle {
-            font-size: 1rem;
             max-width: 100%;
       }
 

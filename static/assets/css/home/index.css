@@ -38,11 +38,7 @@
 }
 
 .home-hs-subtitle {
-      line-height: 1.6;
-      color: var(--color-text-secondary);
       width: 80%;
-      font-size: clamp(1rem, 1.2vw, 1.1rem);
-      font-weight: 500;
 }
 
 .home-hero-actions {
@@ -68,18 +64,23 @@
 /*  */
 .section-card-title {
       color: var(--color-text);
-      font-size: clamp(1.75rem, 3.6vw, 2rem);
-      font-weight: 700;
+      font-size: var(--section-title-size);
+      font-weight: var(--section-title-weight);
       margin: 1rem 0;
-      line-height: 1.2;
+      line-height: var(--section-title-line);
+}
+
+.section-card-subtitle,
+.home-hs-subtitle {
+      color: var(--color-text-secondary);
+      font-size: var(--section-subtitle-size);
+      font-weight: var(--section-subtitle-weight);
+      line-height: var(--section-subtitle-line);
 }
 
 .section-card-subtitle {
-      color: var(--color-text-secondary);
-      font-size: clamp(1rem, 1.5vw, 1.05rem);
       max-width: 700px;
       margin: 0 auto;
-      line-height: 1.6;
 }
 
 
@@ -257,6 +258,7 @@
 .stat-text {
       font-size: .92rem;
       opacity: .8;
+      font-weight: 500;
       /* The counters sit on two lines, flush left beside the avatars. */
       align-items: flex-start;
 }

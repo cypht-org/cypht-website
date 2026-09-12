@@ -5,7 +5,7 @@
       </div>
       <div id="integration" class="g-page-card">
             <div class="g-card-header">
-                  <h4>Install and run Cypht.</h5>
+                  <h4>Install and run Cypht.</h4>
             </div>
             <div class="g-card-body ms-3">
                   <p>
