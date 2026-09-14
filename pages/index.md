@@ -1,6 +1,6 @@
 ---
 title: "Cypht – Unified Email Client for All Your Accounts"
-description: "Cypht is a lightweight, open-source webmail client that combines all your email accounts and RSS feeds into one unified, streamlined inbox. Supports IMAP, SMTP, JMAP, and EWS."
+description: "Cypht is a lightweight, Open Source webmail client that combines all your email accounts and RSS feeds into one unified, streamlined inbox. Supports IMAP, SMTP, JMAP, and EWS."
 weight: 1
 nocontainer: true
 h1: Welcome to Cypht
