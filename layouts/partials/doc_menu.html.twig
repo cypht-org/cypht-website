@@ -1,133 +1,14 @@
-{% set doc_menus= [{
+{# Documentation sidebar driven by Cecil 9 nested sections.
+   Each folder under pages/documentation/ with an index.md is a sub-section;
+   its pages are listed under that group's title.
 
-    title: "Overview",
-    children: [
-      {
-        id:0,
-        title: "Introduction",
-        href: "documentation/introduction",
-      },
-      {
-        id:1,
-        title: "Releases",
-        href: "documentation/releases",
-      },
-    ],
-  },
-  {
-    title: "Installation & Setup",
-    children: [
-      {
-        id:2,
-        title: "Getting Started",
-        href: "documentation/getting-started",
-      },
-      {
-        id:3,
-        title: "Interfaces",
-        href: "documentation/interfaces",
-      },
-      {
-        id:4,
-        title: "Account Setup",
-        href: "documentation/account-setup",
-      }
-    ],
-  },
-  {
-    title: "Core Features",
-    children: [
-      {
-        id:5,
-        title: "Unified Inbox",
-        href: "documentation/unified-inbox",
-      },
-      {
-        id:6,
-        title: "Compose Email",
-        href: "documentation/compose-email",
-      },
-      {
-        id:7,
-        title: "Search & Filters",
-        href: "documentation/search-filters",
-      },
-      {
-        id:18,
-        title: "Sieve Filters",
-        href: "documentation/sieve-filters",
-      },
-      {
-        id:8,
-        title: "Screen Emails",
-        href: "documentation/screen-emails",
-      },
-      {
-        id:9,
-        title: "Tags & Folders",
-        href: "documentation/tags",
-      },
-      {
-        id:10,
-        title: "Contact Book",
-        href: "documentation/contact-book",
-      },
-      {
-        id:11,
-        title: "Calendar",
-        href: "documentation/calendar",
-      },
-    ],
-  },{
-    title: "Security",
-    children: [
-      {
-        id:12,
-        title: "Overview",
-        href: "documentation/security-overview",
-      }
-    ],
-  },
-  {
-    title: "Developer Guide",
-    children: [
-      {
-        id:13,
-        title: "Dev Docs",
-        href: "documentation/dev-docs",
-      },
-      {
-        id:14,
-        title: "Reporting Bugs",
-        href: "documentation/reporting-bugs",
-      },
-      {
-        id:15,
-        title: "Join Community",
-        href: "documentation/join-community",
-      },
-    ],
-  },
-  {
-    title: "Legal & Misc",
-    children: [
-      {
-        id:16,
-        title: "Get Help",
-        href: "documentation/help",
-      },
-      {
-        id:17,
-        title: "License",
-        href: "documentation/license",
-      },
-    ],
-  },
-] %}
+   Section indexes often `redirect:` to their first page (e.g. overview →
+   introduction). The URL/chrome stay on the index, so active state must
+   follow the redirected page, same as layouts/section/documentation. #}
+{% set doc = site.pages['documentation'] %}
+{% set active_page = (page.redirect is defined and site.pages[page.redirect]) ? site.pages[page.redirect] : page %}
 
-<div
-	class="col-lg-3 col-xl-2  menu-content">
-	{#  #}
+<div class="col-lg-3 col-xl-2  menu-content">
 	<div class="doc-top-nav d-lg-none">
 		<div class="">
 			<button type="button" data-bs-toggle="offcanvas" data-bs-target="#docNav" aria-controls="offcanvasRight" class="mobi-nav-btn">
@@ -136,26 +17,23 @@
 			</button>
 		</div>
 	</div>
-	{#  #}
 	<!-- on desk -->
 	<div id="doc_menu_desktop_wrapper" class="doc-toc flex-shrink-0 d-none d-lg-block h-full">
 		<nav id="doc_menu" class="toc-nav mb-lg-5 mt-lg-3">
-			{% for menu in doc_menus %}
-				<div class="toc-section">
-					<h5>{{menu.title}}</h5>
-					{% if menu.children %}
+			{% if doc.sections is defined %}
+				{% for section in doc.sections|sort_by_weight %}
+					<div class="toc-section">
+						<h5>{{ section.title }}</h5>
 						<ul>
-							{% for child in menu.children %}
+							{% for child in section.pages.showable|sort_by_weight %}
 								<li>
-									{% set _child_id = child.id %}
-									{#  #}
-									<a href="{{url(child.href)}}" class="{{_child_id == page.id ? 'active' : ''}}">{{child.title}}</a>
+									<a href="{{ url(child) }}" class="{{ child.path == active_page.path ? 'active' : '' }}">{{ child.title }}</a>
 								</li>
 							{% endfor %}
 						</ul>
-					{% endif %}
-				</div>
-			{% endfor %}
+					</div>
+				{% endfor %}
+			{% endif %}
 		</nav>
 	</div>
 	<!-- on mobile -->
@@ -168,22 +46,20 @@
 		</div>
 		<div class="offcanvas-body">
 			<div id="doc_menu_mobile_wrapper" class="toc-nav-container">
-				{% for menu in doc_menus %}
-					<div class="toc-section">
-						<h5>{{menu.title}}</h5>
-						{% if menu.children %}
+				{% if doc.sections is defined %}
+					{% for section in doc.sections|sort_by_weight %}
+						<div class="toc-section">
+							<h5>{{ section.title }}</h5>
 							<ul>
-								{% for child in menu.children %}
+								{% for child in section.pages.showable|sort_by_weight %}
 									<li>
-										{% set _child_id = child.id %}
-										{#  #}
-										<a href="{{url(child.href)}}" class="{{_child_id == page.id ? 'active' : ''}}">{{child.title}}</a>
+										<a href="{{ url(child) }}" class="{{ child.path == active_page.path ? 'active' : '' }}">{{ child.title }}</a>
 									</li>
 								{% endfor %}
 							</ul>
-						{% endif %}
-					</div>
-				{% endfor %}
+						</div>
+					{% endfor %}
+				{% endif %}
 			</div>
 		</div>
 	</div>

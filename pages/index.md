@@ -253,7 +253,7 @@ loadScriptAfter: /js/home-page.js
                             <div class="accordion-body">
                                 <span>
                                 Go to <strong>Settings > Servers</strong>, click Add an E-mail Account, choose your provider, enter the username and account name, then click Next and confirm with the account password. You can also open IMAP / JMAP / SMTP Servers, click Add a new server, and fill in the fields as indicated. For more details follow the step in 
-                                <a href="/documentation/account-setup/#gmail_oauth">Account Setup</a>.
+                                <a href="/documentation/setup/account-setup/#gmail_oauth">Account Setup</a>.
                                 </span>
                             </div>
                             </div>
