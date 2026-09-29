@@ -1,5 +1,5 @@
 ---
 title: "Developer Guide & API"
-redirect: /documentation/dev-docs/
+redirect: /documentation/developer/dev-docs/
 exclude: true
 ---

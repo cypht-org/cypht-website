@@ -11,7 +11,7 @@ As of 2024-02-14, www.cypht.org updates from https://github.com/cypht-org/cypht-
 
 ### Build locally
 
-This requires git & PHP 8 to be installed.
+This requires git & PHP 8.3+ (Cecil 9.x) to be installed.
 
 ```bash
 git clone https://github.com/cypht-org/cypht-website.git
@@ -24,7 +24,7 @@ php cecil.phar build  # alt: make build
 php cecil.phar serve  # alt: make serve
 ```
 
-Nix users can use `nix-shell -p php81 gnumake git` to get all requirements to build.
+Nix users can use `nix-shell -p php83 gnumake git` to get all requirements to build.
 
 ### Update config generator options (data/configOptions.json)
 
