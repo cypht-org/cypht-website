@@ -82,14 +82,24 @@
       href: '/contribute',
       icon: 'bi-people',
       svg: '/svg/contributor.svg',
-      description: 'Contributing to Cypht'
+      description: 'Contributing to Cypht',
+      external: false
     },
     {
       title: 'Event',
       href: '/events',
       icon: 'bi-calendar',
       svg: '/svg/event.svg',
-      description: 'Events and updates'
+      description: 'Events and updates',
+      external: false
+    },
+    {
+      title: 'Blog',
+      href: 'https://unencumberedbyfacts.com/tag/cypht',
+      icon: 'bi-journal-text',
+      svg: '/svg/blog.svg',
+      description: 'News from the founder',
+      external: true
     }
   ]
 } %}
@@ -245,11 +255,7 @@
           {# Integration Dropdown #}
           {% set community_active = false %}
           {% for item in global_menus.Community %}
-            {% if
-              item.href != '/'
-                and page.path is defined
-                and page.path != ''
-                and page.path starts with (item.href|trim('/')) %}
+            {% if not item.external and current_path starts with item.href|trim('/') %}
               {% set community_active = true %}
             {% endif %}
           {% endfor %}
@@ -261,7 +267,12 @@
             <div class="dropdown-panel" data-panel="community">
               <div class="dropdown-content">
                 {% for item in global_menus.Community %}
-                  <a href="{{ item.href }}" class="dropdown-item d-flex gap-2">
+                  <a
+                    href="{{ item.href }}"
+                    class="dropdown-item d-flex gap-2"
+                    {% if item.external %}target="_blank"
+                    rel="noopener noreferrer"{% endif %}
+                  >
                     <div class="drop-item-icon">
                       <img
                         src="{{ item.svg }}"
@@ -449,21 +460,19 @@
                   aria-expanded="false"
                   aria-controls="collapseIntegration"
                 >
-                  Integration
+                  Community
                 </button>
               </h2>
               <div id="collapseIntegration" class="accordion-collapse collapse" data-bs-parent="#mobileNavAccordion">
                 <div class="accordion-body">
                   {% for item in global_menus.Community %}
-                    {% set current = item.href != '/'
-                      and page.path is defined
-                      and page.path != ''
-                      and page.path starts with (item.href|trim('/'))
-                    %}
+                    {% set current = not item.external and current_path starts with item.href|trim('/') %}
                     <a
                       href="{{ item.href }}"
                       class="mobile-nav-item mobile-nav-subitem {{ current ? 'active' : '' }}"
                       {{ current ? 'aria-current=\"page\"' : '' }}
+                      {% if item.external %}target="_blank"
+                      rel="noopener noreferrer"{% endif %}
                     >
                       {{ item.title }}
                     </a>
