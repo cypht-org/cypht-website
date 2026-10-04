@@ -325,6 +325,31 @@
       max-width: 100%;
 }
 
+/* Keep the hero title from leaving a short last line ("in one place")
+   when the column is just too narrow for one line. */
+.home-hs-text-content h2 {
+      text-wrap: balance;
+}
+
+/* Same pill as the protocol chip, sized to sit inside the hero sentence. */
+.home-hs-subtitle .hs-chip-inline {
+      font-family: inherit;
+      font-size: 0.82em;
+      font-weight: inherit;
+      font-style: inherit;
+      letter-spacing: inherit;
+      line-height: inherit;
+      color: inherit;
+      padding: 0.05rem 0.5rem;
+      border-radius: 0.25rem;
+      vertical-align: baseline;
+      white-space: nowrap;
+}
+
+.home-hs-subtitle .hs-chip-inline:hover {
+      transform: none;
+}
+
 /* Narrow screens: beside the avatars the counters fray into three ragged lines,
    so the block stacks and everything centres under the hero. */
 @media (max-width: 767.98px) {
