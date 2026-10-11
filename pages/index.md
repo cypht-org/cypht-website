@@ -197,65 +197,78 @@ loadScriptAfter: /js/home-page.js
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-2" aria-expanded="false" aria-controls="flush-collapse-2">
-                                Does Cypht support multiple users ?
+                                What is the Combined Inbox ?
                             </button>
                             </h2>
                             <div id="flush-collapse-2" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
                             <div class="accordion-body">
-                                <span>Yes, Cypht supports multiple users. Each user can have their own login and manage their collection of email accounts independently.</span></div>
+                                <span>The Combined Inbox displays emails from all your connected accounts in one unified view, allowing you to read, sort, and manage messages from different providers without switching between accounts.</span></div>
                             </div>
                         </div>
                         <!-- 3 -->
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-3" aria-expanded="false" aria-controls="flush-collapse-3">
-                                What is the Combined Inbox ?
-                            </button>
-                            </h2>
-                            <div id="flush-collapse-3" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
-                            <div class="accordion-body">
-                                <span>The Combined Inbox displays emails from all your connected accounts in one unified view, allowing you to read, sort, and manage messages from different providers without switching between accounts.</span></div>
-                            </div>
-                        </div>
-                        <!-- 4 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-4" aria-expanded="false" aria-controls="flush-collapse-4">
-                               Can I create email filters ?
-                            </button>
-                            </h2>
-                            <div id="flush-collapse-4" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
-                            <div class="accordion-body">
-                                <span>Yes, Cypht supports Sieve filters. Go to <strong>Settings > Sieve Filters</strong>, select your account, and create filters to automatically organize emails based on criteria like sender, subject, or keywords.</span></div>
-                            </div>
-                        </div>
-                        <!-- 5 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-5" aria-expanded="false" aria-controls="flush-collapse-5">
-                               Is there a contact management system ?
-                            </button>
-                            </h2>
-                            <div id="flush-collapse-5" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
-                            <div class="accordion-body">
-                                <span>Yes, Cypht includes a contact book. You can add contacts manually from contacts page or quickly add senders by clicking the person icon in received messages.</span>
-                            </div>
-                            </div>
-                        </div>
-                        <!-- 6 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-6" aria-expanded="false" aria-controls="flush-collapse-6">
                                How do I add new email accounts ?
                             </button>
                             </h2>
-                            <div id="flush-collapse-6" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
+                            <div id="flush-collapse-3" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
                             <div class="accordion-body">
                                 <span>
                                 Go to <strong>Settings > Servers</strong>, click Add an E-mail Account, choose your provider, enter the username and account name, then click Next and confirm with the account password. You can also open IMAP / JMAP / SMTP Servers, click Add a new server, and fill in the fields as indicated. For more details follow the step in 
                                 <a href="/documentation/setup/account-setup/#gmail_oauth">Account Setup</a>.
                                 </span>
                             </div>
+                            </div>
+                        </div>
+                        <!-- 4 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-4" aria-expanded="false" aria-controls="flush-collapse-4">
+                               Does Cypht work with Microsoft Exchange ?
+                            </button>
+                            </h2>
+                            <div id="flush-collapse-4" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
+                            <div class="accordion-body">
+                                <span>Yes. Cypht connects to Exchange through EWS (Exchange Web Services), using the Open Source <a href="https://github.com/Garethp/php-ews" target="_blank" rel="noopener noreferrer">php-ews</a> library. You add an Exchange account the same way you add an IMAP account, and it shows up in your combined inbox with your other accounts.</span>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- 5 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-5" aria-expanded="false" aria-controls="flush-collapse-5">
+                               Can I create email filters ?
+                            </button>
+                            </h2>
+                            <div id="flush-collapse-5" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
+                            <div class="accordion-body">
+                                <span>Yes, Cypht supports Sieve filters. Go to <strong>Settings > Sieve Filters</strong>, select your account, and create filters to automatically organize emails based on criteria like sender, subject, or keywords.</span></div>
+                            </div>
+                        </div>
+                        <!-- 6 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-6" aria-expanded="false" aria-controls="flush-collapse-6">
+                               Is there a contact management system ?
+                            </button>
+                            </h2>
+                            <div id="flush-collapse-6" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
+                            <div class="accordion-body">
+                                <span>Yes, Cypht includes a contact book. You can add contacts manually from contacts page or quickly add senders by clicking the person icon in received messages.</span>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- 7 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-7" aria-expanded="false" aria-controls="flush-collapse-7">
+                                Does Cypht support multiple users ?
+                            </button>
+                            </h2>
+                            <div id="flush-collapse-7" class="accordion-collapse collapse" data-bs-parent="#accordion_flush_faq">
+                            <div class="accordion-body">
+                                <span>Yes, Cypht supports multiple users. Each user can have their own login and manage their collection of email accounts independently.</span></div>
                             </div>
                         </div>
                     </div>
