@@ -11,14 +11,15 @@ As of 2024-02-14, www.cypht.org updates from https://github.com/cypht-org/cypht-
 
 ### Build locally
 
-This requires git & PHP 8.3+ (Cecil 9.x) to be installed.
+This requires git & PHP 8.3+ (Cecil 9.x) to be installed, plus Node.js (`npx`) for the search index.
 
 ```bash
 git clone https://github.com/cypht-org/cypht-website.git
 cd cypht-website
 
-# Build to _site/
-php cecil.phar build  # alt: make build
+# Build to _site/, then generate the search index in _site/pagefind/
+php cecil.phar build  # alt: make build (runs both)
+npx --yes pagefind@1.4.0 --site _site
 
 # Serve/develop on localhost:8000
 php cecil.phar serve  # alt: make serve
@@ -114,6 +115,21 @@ Where the styling lives:
 - [layouts/partials/doc_markdown.html.twig](layouts/partials/doc_markdown.html.twig): the page shell.
 
 Pages without `format: md` keep their hand-written HTML, so both formats can coexist during a migration.
+
+### Site search
+
+The search dialog (navbar button, `Ctrl/⌘ K` or `/`) uses [Pagefind](https://pagefind.app/), an open-source static
+search library. There is no server or account: Pagefind reads the built `_site/` and writes a small index to
+`_site/pagefind/`, which the browser queries directly. **Every build that is deployed must run it after Cecil**, or the
+dialog reports that the index is missing. `php cecil.phar serve` does not run it, so test search with `make build` and
+`make preview`.
+
+- Only the element marked `data-pagefind-body` (the main content in [layouts/page.html.twig](layouts/page.html.twig)) is
+  indexed, so navbar and footer text never shows up in results. Add `data-pagefind-ignore` to any block that should be
+  left out.
+- [layouts/partials/search_modal.html.twig](layouts/partials/search_modal.html.twig),
+  [static/js/search.js](static/js/search.js) and [static/assets/css/search.css](static/assets/css/search.css) hold the
+  dialog. Recent and favorite results are kept in the visitor's `localStorage` only.
 
 ## Explanation
 

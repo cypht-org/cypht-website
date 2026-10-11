@@ -1,0 +1,38 @@
+{# Site search dialog, powered by Pagefind (static index built after `cecil build`).
+   Opened by any [data-search-open] button, Ctrl/Cmd+K or "/". Logic: /js/search.js #}
+<div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-labelledby="searchModalLabel" hidden>
+  <div class="search-backdrop" data-search-close></div>
+  <div class="search-dialog">
+    <form class="search-header" role="search" onsubmit="return false">
+      <label for="searchInput" id="searchModalLabel" class="visually-hidden">Search the Cypht website</label>
+      <i class="bi bi-search search-header-icon" aria-hidden="true"></i>
+      <input
+        type="search"
+        id="searchInput"
+        class="search-input"
+        placeholder="Search docs"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        enterkeyhint="go"
+        aria-autocomplete="list"
+        aria-controls="searchResults"
+      />
+      <button type="button" class="search-cancel" data-search-close aria-label="Close search">Esc</button>
+    </form>
+
+    <div class="search-body" id="searchResults" role="listbox" aria-label="Search results"></div>
+
+    <div class="search-footer">
+      <ul class="search-commands" aria-hidden="true">
+        <li><kbd>↵</kbd> to select</li>
+        <li><kbd>↑</kbd><kbd>↓</kbd> to navigate</li>
+        <li><kbd>Esc</kbd> to close</li>
+      </ul>
+      <a class="search-powered" href="https://pagefind.app/" target="_blank" rel="noopener noreferrer">
+        Search by <strong>Pagefind</strong>
+      </a>
+    </div>
+  </div>
+</div>

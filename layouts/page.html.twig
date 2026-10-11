@@ -107,7 +107,8 @@ document.documentElement.setAttribute('data-theme', theme);
 	<body>
 
 		{% include 'partials/navbar.html.twig' %}
-		<div class="flex-1  main-content">
+		{# data-pagefind-body: only the main content is indexed by the site search (not navbar/footer) #}
+		<div class="flex-1  main-content" {{ page.path != '404' ? 'data-pagefind-body' : '' }}>
 			{% if page.nocontainer is defined %}
 				{% block content %}
 					{{page.content}}
@@ -129,6 +130,7 @@ document.documentElement.setAttribute('data-theme', theme);
 			{% include 'partials/footer_label.html.twig' %}
 		{% endblock %}
 		{% include 'partials/footer.html.twig' %}
+		{% include 'partials/search_modal.html.twig' %}
 
 
 		{% if page.loadScriptAfter is defined %}
@@ -140,6 +142,7 @@ document.documentElement.setAttribute('data-theme', theme);
 		{% endif %}
 
 		<script src="/js/theme-switcher.js"></script>
+		<script src="/js/search.js"></script>
 		<script src="/js/lazy-load.js"></script>
 		<script src="/js/code-copy.js"></script>
 		<script src="/js/documentation.js"></script>

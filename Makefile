@@ -1,8 +1,13 @@
 all: data/configOptions.json
 
+# Site search index (https://pagefind.app, MIT). Runs on the built _site/ and
+# writes _site/pagefind/. Node is only needed at build time; nothing to configure.
+PAGEFIND = npx --yes pagefind@1.4.0 --site _site
+
 .PHONY: build
 build:
 	php cecil.phar build
+	$(PAGEFIND)
 
 # Production build: render the site, then unify all CSS into ONE minified
 # file (cascade preserved). Preview with: php -S localhost:8080 -t _site
@@ -10,6 +15,7 @@ build:
 prod:
 	php cecil.phar build
 	php scripts/bundle-css.php
+	$(PAGEFIND)
 
 # Demo/staging build: identical to `prod`, but the base URL comes from Cecil's
 # native CECIL_BASEURL env override (not cecil.yml), so the social-share tags
@@ -23,6 +29,7 @@ prod:
 demo:
 	CECIL_BASEURL="$${CECIL_BASEURL:-https://cypht.org/}" php cecil.phar build
 	php scripts/bundle-css.php
+	$(PAGEFIND)
 
 # Preview the production build locally WITH working <video> (Range support,
 # which `php -S` alone lacks). Run `make prod` first. → http://127.0.0.1:8080

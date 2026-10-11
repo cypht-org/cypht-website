@@ -39,10 +39,15 @@ jobs:
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Build static & bundle CSS
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build static, bundle CSS & index search
         run: |
           php cecil.phar build
           php scripts/bundle-css.php
+          npx --yes pagefind@1.4.0 --site _site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
