@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>{{page.title}}</title>
+		<title data-pagefind-meta="title">{{page.title}}</title>
 		<meta name="description" content="{{ page.description|default(site.description)|default('Cypht is a lightweight, secure, open-source webmail client that aggregates multiple email accounts and services into a single unified interface.') }}">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" type="image/png" href="/img/icon.ico">
@@ -107,8 +107,9 @@ document.documentElement.setAttribute('data-theme', theme);
 	<body>
 
 		{% include 'partials/navbar.html.twig' %}
-		{# data-pagefind-body: only the main content is indexed by the site search (not navbar/footer) #}
-		<div class="flex-1  main-content" {{ page.path != '404' ? 'data-pagefind-body' : '' }}>
+		{# data-pagefind-body: only the main content is indexed by the site search (not navbar/footer),
+		   skipping the 404 page and Cecil's pagination copies of the home page (/page/2/, ...) #}
+		<div class="flex-1  main-content" {{ page.path != '404' and not (page.path starts with 'page/') ? 'data-pagefind-body' : '' }}>
 			{% if page.nocontainer is defined %}
 				{% block content %}
 					{{page.content}}

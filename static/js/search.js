@@ -17,7 +17,6 @@
     const input = document.getElementById('searchInput');
     const body = document.getElementById('searchResults');
     let pagefind = null;
-    let pagefindError = false;
     let lastFocused = null;
     let activeIndex = -1;
     let currentQuery = '';
@@ -77,14 +76,15 @@
     }
 
     async function loadPagefind() {
-        if (pagefind || pagefindError) return pagefind;
+        if (pagefind) return pagefind;
         try {
-            pagefind = await import(PAGEFIND_URL);
-            await pagefind.options({ excerptLength: 18 });
-            pagefind.init();
+            // Cache-busting query so a failed load (index not built yet) is retried on the next open.
+            const module = await import(PAGEFIND_URL + '?t=' + Date.now());
+            await module.options({ excerptLength: 18 });
+            module.init();
+            pagefind = module;
         } catch (e) {
-            pagefindError = true;
-            console.warn('Pagefind index not found. Run `make build` to generate it.', e);
+            console.warn('Pagefind index not found. Run `npx pagefind --site _site` after the Cecil build.', e);
         }
         return pagefind;
     }
@@ -150,7 +150,7 @@
         }
         const pf = await loadPagefind();
         if (!pf) {
-            renderMessage('<p>The search index is not available.</p><p class="search-message-hint">Build the site with <code>make build</code> to generate it.</p>');
+            renderMessage('<p>The search index is not available.</p><p class="search-message-hint">After <code>php cecil.phar build</code>, run <code>npx --yes pagefind@1.4.0 --site _site</code>.</p>');
             return;
         }
         const search = await pf.debouncedSearch(query, {}, 150);
