@@ -9,6 +9,7 @@
 @import url('./tools/index.css');
 @import url('./doc/index.css');
 @import url('./navbar.css');
+@import url('./search.css');
 @import url('./footer.css');
 @import url('./tiki-webmail.css');
 @import url('./how-to-join.css');
@@ -68,6 +69,20 @@ html.theme-transitioning *::after {
       --color-border: #E5E7EB;
       --color-border-light: #F3F4F6;
       --color-border-dark: #D1D5DB;
+      --flexsearch-color: var(--color-text);
+      --flexsearch-bg: var(--color-bg);
+      --flexsearch-heading-color: var(--color-text);
+      --flexsearch-muted: var(--color-text-secondary);
+      --flexsearch-subtle: var(--color-text-muted);
+      --flexsearch-border: var(--color-border);
+      --flexsearch-divider: var(--color-border);
+      --flexsearch-surface: var(--color-bg-tertiary);
+      --flexsearch-surface-color: var(--color-text-secondary);
+      --flexsearch-surface-border: var(--color-border);
+      --flexsearch-accent: var(--color-primary);
+      --flexsearch-mark-color: var(--color-primary);
+      --flexsearch-selected-bg: color-mix(in srgb, var(--color-primary) 18%, transparent);
+      --flexsearch-selected-color: var(--color-text);
 
       /* ── Neutral & accent palette - fixed (theme-invariant) shared colours,
          used mainly by the tools/config/install UI. Naming the existing
@@ -270,6 +285,7 @@ html.theme-transitioning *::after {
       0 10px 10px -5px rgba(0, 0, 0, 0.3);
       --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 
+      --flexsearch-bg: var(--color-bg-secondary);
       color-scheme: dark;
 }
 

@@ -1,0 +1,398 @@
+/*!
+ * FlexSearch component theme for Cecil
+ * https://github.com/Cecilapp/theme-flexsearch
+ */
+
+/*
+ * Custom properties
+ * Defaults have no specificity (`:where()`): override them in your own `:root` (and dark mode) rules.
+ */
+:where(:root) {
+  --flexsearch-color: #1e293b;
+  --flexsearch-bg: #fff;
+  --flexsearch-heading-color: #0f172a;
+  --flexsearch-muted: #64748b;
+  --flexsearch-subtle: #94a3b8;
+  --flexsearch-border: #cbd5e1;
+  --flexsearch-divider: #e2e8f0;
+  --flexsearch-surface: #f1f5f9;
+  --flexsearch-surface-color: #475569;
+  --flexsearch-surface-border: #cbd5e1;
+  --flexsearch-accent: #2563eb;
+  --flexsearch-mark-color: #2563eb;
+  --flexsearch-selected-bg: #eff6ff;
+  --flexsearch-selected-color: #1d4ed8;
+  --flexsearch-backdrop: rgb(15 23 42 / .6);
+  --flexsearch-radius: .5rem;
+  --flexsearch-width: 47.5rem;
+  --flexsearch-trigger-width: 14rem;
+}
+/* dark mode: system preference, unless a light theme is forced */
+@media (prefers-color-scheme: dark) {
+  :where(:root:not([data-theme="light"]):not(.light)) {
+    --flexsearch-color: #e2e8f0;
+    --flexsearch-bg: #0f172a;
+    --flexsearch-heading-color: #f8fafc;
+    --flexsearch-muted: #94a3b8;
+    --flexsearch-subtle: #64748b;
+    --flexsearch-border: #334155;
+    --flexsearch-divider: #1e293b;
+    --flexsearch-surface: #1e293b;
+    --flexsearch-surface-color: #cbd5e1;
+    --flexsearch-surface-border: #475569;
+    --flexsearch-accent: #60a5fa;
+    --flexsearch-mark-color: #60a5fa;
+    --flexsearch-selected-bg: #172554;
+    --flexsearch-selected-color: #fff;
+    --flexsearch-backdrop: rgb(0 0 0 / .7);
+  }
+}
+/* dark mode: forced by the site (Cecil theme selector, or a `dark` class) */
+:where(:root[data-theme="dark"], :root.dark) {
+  --flexsearch-color: #e2e8f0;
+  --flexsearch-bg: #0f172a;
+  --flexsearch-heading-color: #f8fafc;
+  --flexsearch-muted: #94a3b8;
+  --flexsearch-subtle: #64748b;
+  --flexsearch-border: #334155;
+  --flexsearch-divider: #1e293b;
+  --flexsearch-surface: #1e293b;
+  --flexsearch-surface-color: #cbd5e1;
+  --flexsearch-surface-border: #475569;
+  --flexsearch-accent: #60a5fa;
+  --flexsearch-mark-color: #60a5fa;
+  --flexsearch-selected-bg: #172554;
+  --flexsearch-selected-color: #fff;
+  --flexsearch-backdrop: rgb(0 0 0 / .7);
+}
+
+/*
+ * Elements are reset where CSS frameworks (e.g. Pico CSS) style them by tag name or role
+ * (`button`, `dialog`, `[role=search]`, `input[type=search]`, `[role=group]`…).
+ */
+
+/* trigger button */
+button.flexsearch-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  width: var(--flexsearch-trigger-width);
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  padding: .375rem .5rem;
+  font: inherit;
+  font-size: .875rem;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--flexsearch-muted);
+  background: transparent;
+  border: 1px solid var(--flexsearch-border);
+  border-radius: .375rem;
+  box-shadow: none;
+  cursor: pointer;
+}
+.flexsearch-trigger:hover,
+.flexsearch-trigger:focus-visible {
+  border-color: var(--flexsearch-accent);
+}
+.flexsearch-trigger-icon {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--flexsearch-subtle);
+}
+.flexsearch-trigger-label {
+  flex: auto;
+}
+.flexsearch-trigger-keys {
+  flex: none;
+  display: inline-flex;
+  gap: .2rem;
+}
+/* icon only trigger (`trigger: icon`) */
+button.flexsearch-trigger.flexsearch-trigger-icon-only {
+  justify-content: center;
+  width: auto;
+  padding: .375rem;
+}
+.flexsearch-trigger.flexsearch-trigger-icon-only .flexsearch-trigger-label,
+.flexsearch-trigger.flexsearch-trigger-icon-only .flexsearch-trigger-keys {
+  display: none;
+}
+
+/* keyboard keys (the trigger may live in a container that also styles kbd) */
+.flexsearch-kbd,
+.flexsearch-trigger .flexsearch-kbd {
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 1.5rem;
+  margin: 0;
+  padding: 0 .3rem;
+  font: inherit;
+  font-size: .7rem;
+  line-height: 1.4rem;
+  text-align: center;
+  color: var(--flexsearch-surface-color);
+  background: var(--flexsearch-surface);
+  border: 1px solid var(--flexsearch-surface-border);
+  border-radius: 3px;
+  box-shadow: none;
+}
+
+/* modal */
+.flexsearch-dialog {
+  position: fixed;
+  inset: 0 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: var(--flexsearch-width);
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  margin: 4rem auto 0;
+  padding: 0;
+  overflow: visible;
+  color: var(--flexsearch-color);
+  background: transparent;
+  border: 0;
+  backdrop-filter: none;
+}
+.flexsearch-dialog[open] {
+  display: block;
+}
+.flexsearch-dialog:not([open]) {
+  display: none;
+}
+.flexsearch-dialog::backdrop {
+  background: var(--flexsearch-backdrop, rgb(15 23 42 / .6));
+  backdrop-filter: blur(2px);
+}
+.flexsearch-panel {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 8rem);
+  margin: 0 1rem;
+  overflow: hidden;
+  color: var(--flexsearch-color);
+  background: var(--flexsearch-bg);
+  border: 1px solid var(--flexsearch-border);
+  border-radius: var(--flexsearch-radius);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / .25);
+}
+
+/* input */
+.flexsearch-panel .flexsearch-field {
+  position: static;
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: .5rem;
+  width: auto;
+  margin: 0;
+  padding: .75rem 1rem;
+  border: 0;
+  border-bottom: 1px solid var(--flexsearch-divider);
+  border-radius: 0;
+  box-shadow: none;
+}
+.flexsearch-field-icon {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--flexsearch-subtle);
+}
+.flexsearch-field .flexsearch-input.flexsearch-input {
+  flex: auto;
+  width: auto;
+  min-width: 0;
+  height: auto;
+  margin: 0;
+  padding: .25rem .5rem;
+  font: inherit;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--flexsearch-heading-color);
+  background: none;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+}
+.flexsearch-input::placeholder {
+  color: var(--flexsearch-subtle);
+  opacity: 1;
+}
+.flexsearch-input::-webkit-search-cancel-button {
+  appearance: none;
+}
+.flexsearch-field .flexsearch-close {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: .25rem;
+  line-height: 0;
+  box-shadow: none;
+  color: var(--flexsearch-surface-color);
+  background: var(--flexsearch-surface);
+  border: 1px solid var(--flexsearch-surface-border);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* results */
+.flexsearch-body {
+  flex: auto;
+  overflow-y: auto;
+  padding: .5rem;
+}
+.flexsearch-status {
+  margin: 0;
+  padding: 1.5rem .5rem;
+  font-size: .875rem;
+  text-align: center;
+  color: var(--flexsearch-muted);
+}
+.flexsearch-results,
+.flexsearch-group-results {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.flexsearch-results .flexsearch-group {
+  position: static;
+  display: block;
+  width: auto;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+.flexsearch-results .flexsearch-group:last-child {
+  margin-bottom: 0;
+}
+/* group title: a tinted band, kept visible while scrolling its results */
+.flexsearch-group-title {
+  position: sticky;
+  top: -.5rem; /* the padding of `.flexsearch-body` */
+  z-index: 1;
+  display: block;
+  margin-bottom: .5rem;
+  padding: .4rem .75rem;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--flexsearch-surface-color);
+  background: var(--flexsearch-surface);
+  border-left: 4px solid var(--flexsearch-accent);
+  border-radius: .25rem;
+}
+.flexsearch-result {
+  margin: 0 0 .25rem;
+  padding: 0;
+  list-style: none;
+}
+.flexsearch-result mark {
+  padding: 0;
+  font-weight: 700;
+  color: var(--flexsearch-mark-color);
+  background: transparent;
+}
+.flexsearch-result-link {
+  display: block;
+  padding: .5rem .75rem;
+  color: var(--flexsearch-heading-color);
+  text-decoration: none;
+  border-radius: .25rem;
+}
+.flexsearch-result.is-selected .flexsearch-result-link {
+  color: var(--flexsearch-selected-color);
+  background: var(--flexsearch-selected-bg);
+}
+.flexsearch-result-page {
+  display: block;
+  font-size: .7rem;
+  font-weight: 700;
+  color: var(--flexsearch-muted);
+}
+.flexsearch-result-title {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.flexsearch-result-snippet {
+  display: block;
+  font-size: .8rem;
+  line-height: 1.3rem;
+  color: var(--flexsearch-muted);
+}
+
+/* footer */
+.flexsearch-footer {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  padding: .5rem 1rem;
+  font-size: .7rem;
+  color: var(--flexsearch-muted);
+  border-top: 1px solid var(--flexsearch-divider);
+}
+.flexsearch-hints {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.flexsearch-hints li {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  margin: 0;
+  list-style: none;
+}
+.flexsearch-credit a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* mobile: icon only trigger (unless `trigger: full`), no keyboard hints, fullscreen modal */
+@media (max-width: 639px) {
+  button.flexsearch-trigger:not(.flexsearch-trigger-full) {
+    justify-content: center;
+    width: auto;
+    padding: .375rem;
+  }
+  .flexsearch-trigger:not(.flexsearch-trigger-full) .flexsearch-trigger-label,
+  .flexsearch-trigger-keys,
+  .flexsearch-hints {
+    display: none;
+  }
+  .flexsearch-dialog {
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+  }
+  .flexsearch-panel {
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+  }
+}

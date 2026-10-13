@@ -29,7 +29,7 @@ loadScriptAfter: /assets/tests.css
 <section class="tests-overview">
   <div class="tests-overview-container">
     <div class="tests-overview-header">
-      <h2 class="tests-overview-title">Testing Overview</h2>
+      <h2 id="testing-overview" class="tests-overview-title">Testing Overview</h2>
       <p class="tests-overview-subtitle">
         Cypht uses PHPUnit for unit tests and Selenium for integration testing. Our comprehensive testing strategy ensures code quality and reliability across multiple environments.
       </p>
@@ -64,7 +64,7 @@ loadScriptAfter: /assets/tests.css
 <section class="tests-tools">
   <div class="tests-tools-container">
     <div class="tests-tools-header">
-      <h2 class="tests-tools-title">Testing Infrastructure</h2>
+      <h2 id="testing-infrastructure" class="tests-tools-title">Testing Infrastructure</h2>
       <p class="tests-tools-subtitle">
         We leverage industry-leading tools and services to maintain the highest standards of code quality and reliability.
       </p>
@@ -74,7 +74,7 @@ loadScriptAfter: /assets/tests.css
       <div class="tests-tool-card">
         <div class="tests-tool-header">
           <div class="tests-tool-icon travis">🚀</div>
-          <h3 class="tests-tool-title">Travis CI</h3>
+          <h3 id="travis-ci" class="tests-tool-title">Travis CI</h3>
         </div>
         <p class="tests-tool-description">
           Continuous integration service that automatically runs our unit and UI tests on every code push. Our build matrix includes 18 combinations across 6 PHP versions (5.4-7.2) and 3 databases (MySQL, PostgreSQL, SQLite).
@@ -87,7 +87,7 @@ loadScriptAfter: /assets/tests.css
       <div class="tests-tool-card">
         <div class="tests-tool-header">
           <div class="tests-tool-icon browserstack">🌐</div>
-          <h3 class="tests-tool-title">BrowserStack</h3>
+          <h3 id="browserstack" class="tests-tool-title">BrowserStack</h3>
         </div>
         <p class="tests-tool-description">
           Cloud-based Selenium grid for cross-browser testing. We test across 4 major browsers (Safari, IE, Edge, Chrome) to ensure compatibility and reliability across different environments.
@@ -100,7 +100,7 @@ loadScriptAfter: /assets/tests.css
       <div class="tests-tool-card">
         <div class="tests-tool-header">
           <div class="tests-tool-icon coveralls">📈</div>
-          <h3 class="tests-tool-title">Coveralls</h3>
+          <h3 id="coveralls" class="tests-tool-title">Coveralls</h3>
         </div>
         <p class="tests-tool-description">
           Provides detailed PHPUnit test coverage reports with beautiful metrics and tracking over time. Updated automatically on every GitHub push with comprehensive coverage analysis.
@@ -113,7 +113,7 @@ loadScriptAfter: /assets/tests.css
       <div class="tests-tool-card">
         <div class="tests-tool-header">
           <div class="tests-tool-icon scrutinizer">🔍</div>
-          <h3 class="tests-tool-title">Scrutinizer</h3>
+          <h3 id="scrutinizer" class="tests-tool-title">Scrutinizer</h3>
         </div>
         <p class="tests-tool-description">
           Static code analyzer with advanced options for detecting potential issues, type mismatches, and code quality improvements. Analyzes our application framework with every code push.
@@ -130,7 +130,7 @@ loadScriptAfter: /assets/tests.css
 <section class="tests-coverage">
   <div class="tests-coverage-container">
     <div class="tests-coverage-header">
-      <h2 class="tests-coverage-title">Test Coverage Report</h2>
+      <h2 id="test-coverage-report" class="tests-coverage-title">Test Coverage Report</h2>
       <p class="tests-coverage-subtitle">
         Access our comprehensive HTML coverage report to see detailed test coverage metrics and analysis.
       </p>
@@ -139,7 +139,7 @@ loadScriptAfter: /assets/tests.css
     <div class="tests-coverage-card">
       <div class="tests-coverage-content">
         <div class="tests-coverage-icon">📋</div>
-        <h3 class="tests-coverage-title-card">Detailed Coverage Analysis</h3>
+        <h3 id="detailed-coverage-analysis" class="tests-coverage-title-card">Detailed Coverage Analysis</h3>
         <p class="tests-coverage-description">
           Our unit tests cover the application framework (lib/) and core module set. The HTML coverage report provides detailed insights into test coverage across all components.
         </p>

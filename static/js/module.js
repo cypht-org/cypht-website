@@ -473,7 +473,11 @@ if (typeof module !== "undefined" && module.exports) {
   module.exports = { typeModules, modules };
 }
 
-// 3. DOMContentLoaded
+// 3. Anchor of a module, shared with scripts/build-search-data.js (search results)
+const moduleSlug = (module) =>
+  "module-" + module.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+
+// 4. DOMContentLoaded
 document.addEventListener("DOMContentLoaded", function () {
   // 1. Get elements
   const typeList = document.getElementById("md-type-items");
@@ -647,31 +651,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 2.2 Shuffle array function
-  function shuffleArray(array) {
-    const newArray = [...array];
-    for (let i = newArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-    }
-    return newArray;
-  }
-
   // 3. Load modules
   function load_modules(type_id) {
     // a. Clear current list
     moduleList.innerHTML = "";
 
-    // b. Filter and shuffle modules
-    let filteredModules = type_id
+    // b. Filter modules, keeping the order defined in `modules`
+    const filteredModules = type_id
       ? modules.filter((module) => module.type_id === type_id)
       : [...modules];
-    filteredModules = shuffleArray(filteredModules);
 
     // c. Add each module to the list
     filteredModules.forEach((module) => {
       const li = document.createElement("li");
       li.className = "module-item";
+      li.id = moduleSlug(module);
       const typeInfo = get_type_modules(module.type_id);
       li.innerHTML = `
                 <div class="module-item-content h-100">
@@ -706,4 +700,5 @@ document.addEventListener("DOMContentLoaded", function () {
   load_module_types();
   load_modules();
   setActiveType(0);
+
 });

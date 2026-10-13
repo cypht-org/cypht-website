@@ -6,6 +6,33 @@ author:
   name: multiple
   url: "https://example.com/"
 image: cecil-card.png
+theme:
+  - flexsearch
+
+flexsearch:
+  enabled: true
+  trigger: auto
+  hotkey: k
+  credit: false
+  delay: 120
+  min_length: 2
+  suggest: true
+  sections:
+    "":
+      title: Cypht
+      limit: 8
+    documentation:
+      title: Documentation
+      limit: 8
+    features:
+      title: Features
+      limit: 8
+    integration:
+      title: Integrations
+      limit: 8
+    events:
+      title: Events
+      limit: 8
 
 # Reusable metadata (used by JSON-LD, OG tags, footer)
 organization:
@@ -20,6 +47,14 @@ software:
   os: "Cross-platform, self-hosted (PHP)"
 
 pages:
+  default:
+    flexsearch:
+      path: flexsearch
+      layout: flexsearch
+      output: json
+      exclude: true
+      serviceworker:
+        precache: false
   body:
     toc: [h2]
     images:
@@ -48,10 +83,6 @@ pages:
     - path: documentation-redirect
       slug: documentation
       redirect: /documentation/
-      uglyurl: true
-    - path: email-filters-redirect
-      slug: email-filters
-      redirect: /email-filters/
       uglyurl: true
     - path: features-redirect
       slug: features

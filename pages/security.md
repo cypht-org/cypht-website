@@ -75,7 +75,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Secure Cookie Management</h4>
+                    <h4 id="secure-cookie-management">Secure Cookie Management</h4>
                     <p>By default all cookies are session level, HTTP only, and have the secure flag, path, and domain values set (except one cookie used to pass user notices to the javascript)</p>
                   </div>
               </li>
@@ -86,7 +86,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Request Protection</h4>
+                    <h4 id="request-protection">Request Protection</h4>
                     <p>HTTP request header fingerprinting, CSRF token protection, and target/source origin mismatch blocking</p>
                   </div>
               </li>
@@ -97,7 +97,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Security Headers</h4>
+                    <h4 id="security-headers">Security Headers</h4>
                     <p>Security related HTTP headers like X-Content-Type-Options, X-Frame-Options, Strict-Transport-Security, and Content-Security-Policy</p>
                   </div>
               </li>
@@ -108,7 +108,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Resource Integrity</h4>
+                    <h4 id="resource-integrity">Resource Integrity</h4>
                     <p>Subresource Integrity for the 2 primary includes (site.js and site.css)</p>
                   </div>
               </li>
@@ -119,7 +119,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Session Management</h4>
+                    <h4 id="session-management">Session Management</h4>
                     <p>Configurable idle timeout module set that ends a session after a predetermined amount of time</p>
                   </div>
               </li>
@@ -130,7 +130,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Two-Factor Authentication</h4>
+                    <h4 id="two-factor-authentication">Two-Factor Authentication</h4>
                     <p>Support for 2 factor authentication with any TOTP compatible authentication application</p>
                   </div>
               </li>
@@ -141,7 +141,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Encrypted Communication</h4>
+                    <h4 id="encrypted-communication">Encrypted Communication</h4>
                     <p>Optional AES encrypted AJAX responses and local session storage cache</p>
                   </div>
               </li>
@@ -152,7 +152,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Bot Protection</h4>
+                    <h4 id="bot-protection">Bot Protection</h4>
                     <p>Optional <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank">reCAPTCHA</a> support for the login form</p>
                   </div>
               </li>
@@ -179,7 +179,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Secure Connections</h4>
+                    <h4 id="secure-connections">Secure Connections</h4>
                     <p>TLS/STARTTLS support for IMAP, LDAP, and SMTP connections. OAuth2 over IMAP/SMTP is supported (currently only Gmail and Outlook support this feature).</p>
                   </div>
                 </li>
@@ -190,7 +190,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Data Encryption</h4>
+                    <h4 id="data-encryption">Data Encryption</h4>
                     <p>Session level data is encrypted with a long random string generated on login. Data is stored server side, and the key is stored in a session level secure cookie. Persistent data between logins is encrypted with a key derived from your password, which is never stored.</p>
                   </div>
                 </li>
@@ -201,7 +201,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Encryption Standards</h4>
+                    <h4 id="encryption-standards">Encryption Standards</h4>
                     <p>All encryption is done with libsodium if available, otherwise with AES-256-CBC, encrypt-then-MAC, and PBKDF2 key derivation using OpenSSL (NOT Mcrypt).</p>
                   </div>
                 </li>
@@ -212,7 +212,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Server Hardening</h4>
+                    <h4 id="server-hardening">Server Hardening</h4>
                     <p>PHP ini settings are tightened up at runtime for extra security, including open basedir and session best practices. No writable files or directories are used inside the web-server document root.</p>
                   </div>
                 </li>
@@ -223,7 +223,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Authentication</h4>
+                    <h4 id="server-authentication">Authentication</h4>
                     <p>Optional local DB based authentication using a salt and PBKDF2 (or libsodium using Argon2 if available).</p>
                   </div>
                 </li>
@@ -234,7 +234,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Email Security</h4>
+                    <h4 id="email-security">Email Security</h4>
                     <p>HTML formatted E-Mail is filtered through HTMLPurifier with all external resources removed before rendering. Tested against the <a href="https://emailprivacytester.com/" target="_blank">"Email Privacy Tester"</a> for strong privacy protection.</p>
                   </div>
                 </li>
@@ -260,7 +260,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Secure Coding Practices</h4>
+                    <h4 id="secure-coding-practices">Secure Coding Practices</h4>
                     <p>Cypht is built with a foundational focus on security. All user input is strictly validated and sanitized, and robust access control governs every request. Internally, it employs safe array access and output encoding to neutralize threats.</p>
                   </div>
                 </li>
@@ -271,7 +271,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Secure Architecture</h4>
+                    <h4 id="secure-architecture">Secure Architecture</h4>
                     <p>Module design enforces separation of input processing and output formatting, with concise methods for better debugging and auditing. No direct access to PHP super-globals.</p>
                   </div>
                 </li>
@@ -282,7 +282,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Input Validation</h4>
+                    <h4 id="input-validation">Input Validation</h4>
                     <p>Only white-listed and typed/sanitized input is allowed. Modules must pre-define input parameters to prevent injection attacks.</p>
                   </div>
                 </li>
@@ -293,7 +293,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Comprehensive Testing</h4>
+                    <h4 id="comprehensive-testing">Comprehensive Testing</h4>
                     <p>High unit <a href="https://coveralls.io/github/cypht-org/cypht?branch=master" target="_blank">test coverage</a> with PHPUnit for the framework and core modules. UI tests using Selenium with Python bindings ensure interface reliability.</p>
                   </div>
                 </li>
@@ -304,7 +304,7 @@ loadScriptAfter: /js/security.js
                      </div>
                   </div>
                   <div class="security-item-content">
-                    <h4>Continuous Integration</h4>
+                    <h4 id="continuous-integration">Continuous Integration</h4>
                     <p>Automated CI/CD pipeline with Travis CI for running UI tests, unit tests, and static code analysis on every commit.</p>
                   </div>
                 </li>

@@ -12,7 +12,7 @@ nav_next:
   url: /integration/yunohost
 ---
 
-## Overview {#overview}
+## Cypht on Cloudron: overview {#overview}
 
 [Cloudron](https://cloudron.io) turns a server into an app store : it handles TLS certificates, backups, updates, user
 accounts and email for the apps it runs. Since Cloudron already provides mailboxes, adding Cypht gives those mailboxes

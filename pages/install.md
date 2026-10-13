@@ -125,7 +125,7 @@ loadScriptAfter: /js/install.js
                     Methods
                 </span>
                 <div>
-                    <h3>Choose installation method</h3>
+                    <h3 id="choose-installation-method">Choose installation method</h3>
                     <p class="install-methods-subtitle text-center">Choose the installation path that aligns with your experience and technical environment.</p>
                 </div>
             </div>
@@ -137,7 +137,7 @@ loadScriptAfter: /js/install.js
                         </div>
                     </div>
                     <div class="imth-card-body">
-                        <h3 class="imth-card-title">Manual Install</h3>
+                        <h3 id="manual-install" class="imth-card-title">Manual Install</h3>
                         <p class="imth-card-description">Full control over installing and configuring Cypht. Perfect for advanced users who want complete customization.</p>
                     </div>
                 </div>
@@ -148,7 +148,7 @@ loadScriptAfter: /js/install.js
                         </div>
                     </div>
                     <div class="imth-card-body">
-                        <h3 class="imth-card-title">Docker Install</h3>
+                        <h3 id="docker-install" class="imth-card-title">Docker Install</h3>
                         <p class="imth-card-description">The simplest installation with containerization. Get up and running in minutes with minimal configuration.</p>
                     </div>
                 </div>
@@ -159,7 +159,7 @@ loadScriptAfter: /js/install.js
                         </div>
                     </div>
                     <div class="imth-card-body">
-                        <h3 class="imth-card-title">YunoHost Server</h3>
+                        <h3 id="yunohost-server" class="imth-card-title">YunoHost Server</h3>
                         <p class="imth-card-description">Install Cypht on YunoHost with one click. Ideal for self-hosting enthusiasts using YunoHost platform.</p>
                     </div>
                 </div>
@@ -170,7 +170,7 @@ loadScriptAfter: /js/install.js
                         </div>
                     </div>
                     <div class="imth-card-body">
-                        <h3 class="imth-card-title">Tiki Integration</h3>
+                        <h3 id="tiki-integration" class="imth-card-title">Tiki Integration</h3>
                         <p class="imth-card-description">Integrate Cypht seamlessly with TikiWiki. Perfect for teams already using Tiki for collaboration.</p>
                     </div>
                 </div>

@@ -13,7 +13,7 @@ loadScriptAfter: /js/home-page.js
     	<div class="section-content home-hero">
     		<div class="home-hs-text-content">
                 <span class="hs-chip">✨ Supports IMAP/SMTP, JMAP and EWS</span>
-                <h2 class="display-6 fw-bold">All your E-mail, from all your accounts, in one place</h2>
+                <h2 id="all-your-e-mail-from-all-your-accounts" class="display-6 fw-bold">All your E-mail, from all your accounts, in one place</h2>
                 <p class="section-card-subtitle home-hs-subtitle">Cypht (pronounced "sift") is an <span class="hs-chip hs-chip-inline">Open Source</span> webmail, like a news reader for email. It doesn't replace your existing accounts, it combines them into a single, streamlined inbox.</p>
                 <div class="home-hero-actions">
                     <a class="action-btn cypht-primary-btn" href="/install">Get Started</a>
@@ -49,7 +49,7 @@ loadScriptAfter: /js/home-page.js
                                 <img width="500" height="500" src="/img/home/_client.webp" alt="Mail icon" loading="eager" decoding="async" />
                             </div>
                             <div class="card-content">
-                                <h3>A standard E-mail client</h3>
+                                <h3 id="a-standard-e-mail-client">A standard E-mail client</h3>
                                 <p class="card-desc">Combined views for multiple accounts, IMAP folder management, and outbound messages with SMTP.</p>
                             </div>
                          </div>
@@ -61,7 +61,7 @@ loadScriptAfter: /js/home-page.js
                                 <img width="500" height="500" src="/img/home/_plugins.webp" alt="Module system illustration" loading="eager" decoding="async" />
                             </div>
                             <div class="card-content">
-                                <h3>A set of plugins</h3>
+                                <h3 id="a-set-of-plugins">A set of plugins</h3>
                                 <p class="card-desc">Built entirely on module sets that let you add features or customize behavior without touching the core code.</p>
                             </div>
                         </div>
@@ -73,7 +73,7 @@ loadScriptAfter: /js/home-page.js
                                 <img width="500" height="500" src="/img/home/_privacy.webp" alt="Privacy illustration" loading="eager" decoding="async" />
                             </div>
                             <div class="card-content">
-                                <h3>Privacy‑first</h3>
+                                <h3 id="privacy-first">Privacy‑first</h3>
                                 <p class="card-desc">Open Source (LGPL v2.1), written in PHP and JavaScript. A lightweight webmail for ISPs, schools, businesses, or personal use.</p>
                             </div>
                         </div>
@@ -94,7 +94,7 @@ loadScriptAfter: /js/home-page.js
                 <div class="f-card m-hero">
                     <div class="m-hero-col">
                        <div class="mb-3"> <span class="pill pill-soft">Unified Interface</span> </div>
-                        <h3>Combined inbox for all your email accounts</h3>
+                        <h3 id="combined-inbox-for-all-your-email-accounts">Combined inbox for all your email accounts</h3>
                         <p>Get unified views for inbox, unread, sent, and flagged messages across all your accounts in one place, including RSS feeds.</p>
                     </div>
                     <div class="m-hero-col">
@@ -106,7 +106,7 @@ loadScriptAfter: /js/home-page.js
                     <div class="f-illus">
                            <img width="494" height="505" src="/img/u1.webp" alt="Cypht Unified Interface" class="phone-mock">
                     </div>
-                    <h3>Advanced Email Management</h3>
+                    <h3 id="advanced-email-management">Advanced Email Management</h3>
                     <p>Move or copy emails between accounts. Compose in plain text, HTML, or Markdown with flexible signature options.</p>
                 </div>
                 <!-- right card -->
@@ -114,13 +114,13 @@ loadScriptAfter: /js/home-page.js
                     <div class="f-illus">
                               <img width="597" height="418" src="/img/u4.webp" alt="Cypht Unified Interface" class="phone-mock">
                     </div>
-                    <h3>Universal Search</h3>
+                    <h3 id="universal-search">Universal Search</h3>
                     <p>Instantly search across all your email accounts and RSS feeds with powerful search features</p>
                 </div>
                 <!-- yellow card -->
                 <div class="f-card m-yellow">
                     <div class="f-apps">
-                        <h3>Extensive Module System</h3>
+                        <h3 id="extensive-module-system">Extensive Module System</h3>
                         <p>Easily extend functionality with a flexible and scalable module system.</p>
                         <div class="apps">
                             <i class="bi bi-google"></i>
@@ -135,7 +135,7 @@ loadScriptAfter: /js/home-page.js
                 <!-- cyan card -->
                 <div class="f-card m-cyan">
                     <div class="f-sync">
-                        <h3>Server-Side Filtering</h3>
+                        <h3 id="server-side-filtering">Server-Side Filtering</h3>
                         <p>Organize your inbox with Sieve email filtering that works even when you're offline.</p>
                         <div class="stack-illus">
                             <div class="layer"></div>
@@ -149,7 +149,7 @@ loadScriptAfter: /js/home-page.js
                         <div class="cta-badge">
                             <i class="bi bi-rocket"></i>
                         </div>
-                        <h3>Flexible Authentication</h3>
+                        <h3 id="flexible-authentication">Flexible Authentication</h3>
                         <p>Support for IMAP, LDAP, database, and popular email providers with auto-discovery.</p>
                         <a href="/features" class="btn btn-light cta-btn fw-bold">See all features <i class="bi bi-arrow-right"></i></a>
                     </div>
@@ -169,7 +169,7 @@ loadScriptAfter: /js/home-page.js
                             <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#81B441"stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </div>
                         <div>
-                            <h4>Do you have suggestion or other questions ?</h4>
+                            <h4 id="do-you-have-suggestion-or-other-questions">Do you have suggestion or other questions ?</h4>
                             <p class="simple-description">Our team will answer all your questions, we ensure a quick response.</p>
                             <a href="https://matrix.to/#/#cypht-org_community:gitter.im" target="_blank"
                             class="action-btn contact-btn cypht-primary-btn">

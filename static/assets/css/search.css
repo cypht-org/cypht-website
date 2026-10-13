@@ -1,0 +1,62 @@
+/* .flexsearch-results {
+      background: transparent;
+} */
+.flexsearch-results .flexsearch-group-title {
+      border-left: none;
+      border-bottom: 0.5px dashed color-mix(in srgb, var(--flexsearch-accent) 40%, transparent);
+      border-radius: 0;
+      background: var(--color-bg);
+}
+
+/* Group label icon (SVG as a mask, so it follows the text colour) */
+.flexsearch-results .flexsearch-group-title::before {
+      content: '';
+      display: inline-block;
+      width: 0.9em;
+      height: 0.9em;
+      margin-right: 0.5rem;
+      vertical-align: -0.1em;
+      background-color: currentColor;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3C/svg%3E") center / contain no-repeat;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* Result title: slightly smaller than the theme default (1rem) */
+.flexsearch-results .flexsearch-result-title {
+      font-size: 0.9rem;
+      opacity: 0.8;
+}
+
+dialog.flexsearch-dialog .flexsearch-field button#flexsearch-close.flexsearch-close {
+      box-sizing: border-box;
+      width: 2rem !important;
+      height: 1.7rem !important;
+      min-width: 0 !important;
+      padding: 0 !important;
+      overflow: hidden;
+      background: #ffffff;
+}
+
+dialog.flexsearch-dialog #flexsearch-close svg {
+      width: 0.75rem;
+      height: 0.75rem;
+}
+
+[data-theme="dark"] {
+      dialog.flexsearch-dialog .flexsearch-field button#flexsearch-close.flexsearch-close {
+            background: rgba(255, 255, 255, 0.08);
+      }
+
+      .flexsearch-results .flexsearch-group-title {
+            background: #0f0f0ff6;
+      }
+
+      .flexsearch-results .flexsearch-result-title {
+            opacity: 1;
+      }
+}
+
+/* Search input: slightly smaller than the theme default (1.125rem) */
+dialog.flexsearch-dialog .flexsearch-field input.flexsearch-input.flexsearch-input {
+      font-size: 1rem;
+}

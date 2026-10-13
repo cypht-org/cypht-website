@@ -298,48 +298,54 @@
 
     <!-- Mobile Toggle Button -->
     <div class="mobile-actions-container d-flex justify-content-between align-items-center gap-3">
-      <div class="mobile-actions d-none d-md-flex align-items-center justify-content-center gap-3">
+     
+      {# <div class="mobile-actions d-none d-md-flex align-items-center justify-content-center gap-3"> #}
+      {# <div> #}
+      <div class="nav-actions">
+        {{ include('partials/flexsearch/trigger.html.twig') }}
         <a
           href="https://github.com/cypht-org/cypht"
           target="_blank"
           rel="noopener"
-          class="action-btn github-btn"
+          class="github-btn nav-action-btn"
           title="View on GitHub"
+          aria-label="Cypht on GitHub"
         >
           <i class="bi bi-github"></i>
-          <span class="btn-text d-flex d-lg-none d-xl-flex">GitHub</span>
         </a>
 
-        <button id="theme-toggle" class="action-btn theme-toggle" aria-label="Toggle dark mode" title="Change theme">
+        <button id="theme-toggle" class="nav-action-btn theme-toggle" aria-label="Toggle dark mode" title="Change theme">
           <i id="theme-icon" class="bi bi-moon"></i>
+        </button>
+
+        <button
+          class="d-lg-none nav-action-btn hamburger-btn"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mobileNavOffcanvas"
+          aria-controls="mobileNavOffcanvas"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
+            <!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ -->
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="1.5"
+              d="M4 7h3m13 0h-9m9 10h-3M4 17h9m-9-5h16"
+            />
+          </svg>
         </button>
       </div>
 
-      <button
-        class="mobile-toggle d-lg-none"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#mobileNavOffcanvas"
-        aria-controls="mobileNavOffcanvas"
-        aria-label="Toggle navigation menu"
-        aria-expanded="false"
-      >
-        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24">
-          <!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ -->
-          <path
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-width="1.5"
-            d="M4 7h3m13 0h-9m9 10h-3M4 17h9m-9-5h16"
-          />
-        </svg>
-      </button>
+      
     </div>
 
     <!-- Mobile Navigation Offcanvas -->
     <div
-      class="offcanvas offcanvas-end px-1"
+      class="offcanvas offcanvas-end"
       tabindex="-1"
       id="mobileNavOffcanvas"
       aria-labelledby="mobileNavOffcanvasLabel"

@@ -1,13 +1,23 @@
 all: data/configOptions.json
 
+# Regenerate search records for client-side content (modules, events, config generator)
+.PHONY: search-data
+search-data:
+	@if command -v node >/dev/null 2>&1; then \
+		node scripts/build-search-data.js; \
+	else \
+		echo "[search-data] WARNING: node not found, keeping the committed data/searchExtra.json."; \
+		echo "[search-data] Install Node.js to refresh it after editing module.js, event.js or the config generator."; \
+	fi
+
 .PHONY: build
-build:
+build: search-data
 	php cecil.phar build
 
 # Production build: render the site, then unify all CSS into ONE minified
 # file (cascade preserved). Preview with: php -S localhost:8080 -t _site
 .PHONY: prod
-prod:
+prod: search-data
 	php cecil.phar build
 	php scripts/bundle-css.php
 
@@ -20,7 +30,7 @@ prod:
 # The same variable works with any build command (e.g. in CI):
 # CECIL_BASEURL=https://your-new-domain.example/ make prod
 .PHONY: demo
-demo:
+demo: search-data
 	CECIL_BASEURL="$${CECIL_BASEURL:-https://cypht.org/}" php cecil.phar build
 	php scripts/bundle-css.php
 

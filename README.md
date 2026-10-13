@@ -26,6 +26,23 @@ php cecil.phar serve  # alt: make serve
 
 Nix users can use `nix-shell -p php83 gnumake git` to get all requirements to build.
 
+### Search
+
+Site search uses the [Cecil FlexSearch component theme](https://github.com/Cecilapp/theme-flexsearch), vendored in
+`themes/flexsearch` from upstream commit `f6afed8ac852692c3c4b69a48a1958b8e68031a1`. Its build-time index splits
+documentation pages into heading-level results with direct links to their section anchors. Search settings and index
+generation are configured in `cecil.yml`; the trigger and dialog are included in the shared page and navbar layouts.
+The theme is MIT-licensed; its FlexSearch library is Apache-2.0 licensed.
+
+Content rendered client-side (modules in `static/js/module.js`, events in `static/js/event.js`) or by the layout
+(config generator) is invisible to Cecil's index, so `scripts/build-search-data.js` extracts it into
+`data/searchExtra.json` (run automatically by `make build|prod|demo`, or `make search-data`). The vendored
+`flexsearch.json.twig` appends these records, splits on `h4` headings, also indexes `exclude: true` pages, skips
+`page/N` copies, and indexes the `description` of pages rendered client-side. Headings of hand-written HTML pages need
+an `id` to become a search anchor. Commit the regenerated JSON after
+editing those sources. Node.js is optional: without it, `make` prints a warning and keeps the committed JSON (the
+deploy workflow runs `php cecil.phar build` and never needs Node).
+
 ### Update config generator options (data/configOptions.json)
 
 ```bash

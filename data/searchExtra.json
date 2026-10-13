@@ -1,0 +1,668 @@
+[
+  {
+    "id": "module-totp-authentication",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "TOTP Authentication module",
+    "description": "TOTP based 2 factor authentication using the Google Authenticator mobile app",
+    "content": "TOTP based 2 factor authentication using the Google Authenticator mobile app. 2FA. Auth & Security",
+    "href": "modules/#module-totp-authentication"
+  },
+  {
+    "id": "module-api-integration",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "API Integration module",
+    "description": "Seamless integration with external authentication systems through a secure API, enabling single sign-on (SSO) capabilities",
+    "content": "Seamless integration with external authentication systems through a secure API, enabling single sign-on (SSO) capabilities. API Login. Auth & Security",
+    "href": "modules/#module-api-integration"
+  },
+  {
+    "id": "module-recaptcha",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "reCAPTCHA module",
+    "description": "Enable reCAPTCHA on the login form for bot protection",
+    "content": "Enable reCAPTCHA on the login form for bot protection. reCAPTCHA. Auth & Security",
+    "href": "modules/#module-recaptcha"
+  },
+  {
+    "id": "module-pgp-encryption",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "PGP Encryption module",
+    "description": "End-to-end email encryption using OpenPGP standard to ensure your communications remain private and secure",
+    "content": "End-to-end email encryption using OpenPGP standard to ensure your communications remain private and secure. PGP. Auth & Security",
+    "href": "modules/#module-pgp-encryption"
+  },
+  {
+    "id": "module-user-management",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "User Management module",
+    "description": "UI features for admins to create accounts, and for users to update passwords",
+    "content": "UI features for admins to create accounts, and for users to update passwords. User Accounts. Account Management",
+    "href": "modules/#module-user-management"
+  },
+  {
+    "id": "module-dynamic-login",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Dynamic Login module",
+    "description": "Authenticate against popular mail services or auto-discover services for the specified email",
+    "content": "Authenticate against popular mail services or auto-discover services for the specified email. Dynamic Login. Account Management",
+    "href": "modules/#module-dynamic-login"
+  },
+  {
+    "id": "module-user-profiles",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "User Profiles module",
+    "description": "Manage user profiles with custom settings, reply-to addresses, names, and signatures",
+    "content": "Manage user profiles with custom settings, reply-to addresses, names, and signatures. Profiles. Account Management",
+    "href": "modules/#module-user-profiles"
+  },
+  {
+    "id": "module-recover-settings",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Recover Settings module",
+    "description": "Recover user settings after an external password change",
+    "content": "Recover user settings after an external password change. Settings. Account Management",
+    "href": "modules/#module-recover-settings"
+  },
+  {
+    "id": "module-imap-support",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "IMAP Support module",
+    "description": "Full IMAP protocol support for accessing and managing your email accounts",
+    "content": "Full IMAP protocol support for accessing and managing your email accounts. IMAP. Email",
+    "href": "modules/#module-imap-support"
+  },
+  {
+    "id": "module-imap-folder-management",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "IMAP Folder Management module",
+    "description": "IMAP email folder management support",
+    "content": "IMAP email folder management support. IMAP Folders. Email",
+    "href": "modules/#module-imap-folder-management"
+  },
+  {
+    "id": "module-smtp-support",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "SMTP Support module",
+    "description": "Send outbound email using SMTP servers",
+    "content": "Send outbound email using SMTP servers. SMTP. Email",
+    "href": "modules/#module-smtp-support"
+  },
+  {
+    "id": "module-sieve-filters",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Sieve Filters module",
+    "description": "Advanced email filtering using Sieve protocol",
+    "content": "Advanced email filtering using Sieve protocol. Sieve. Email",
+    "href": "modules/#module-sieve-filters"
+  },
+  {
+    "id": "module-contact-management",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Contact Management module",
+    "description": "Contact management with support for multiple backends",
+    "content": "Contact management with support for multiple backends. Contacts. Contacts",
+    "href": "modules/#module-contact-management"
+  },
+  {
+    "id": "module-carddav-contacts",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "CardDAV Contacts module",
+    "description": "Support for contacts stored in CardDAV",
+    "content": "Support for contacts stored in CardDAV. CardDAV. Contacts",
+    "href": "modules/#module-carddav-contacts"
+  },
+  {
+    "id": "module-ldap-contacts",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "LDAP Contacts module",
+    "description": "Support for contacts stored in LDAP",
+    "content": "Support for contacts stored in LDAP. LDAP. Contacts",
+    "href": "modules/#module-ldap-contacts"
+  },
+  {
+    "id": "module-gmail-contacts",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Gmail Contacts module",
+    "description": "Read-only support for Gmail contacts with OAuth2",
+    "content": "Read-only support for Gmail contacts with OAuth2. Gmail. Contacts",
+    "href": "modules/#module-gmail-contacts"
+  },
+  {
+    "id": "module-local-contacts",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Local Contacts module",
+    "description": "Simple locally stored contact support",
+    "content": "Simple locally stored contact support. Local. Contacts",
+    "href": "modules/#module-local-contacts"
+  },
+  {
+    "id": "module-calendar-system",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Calendar System module",
+    "description": "Basic calendar functionality",
+    "content": "Basic calendar functionality. Calendar. Productivity",
+    "href": "modules/#module-calendar-system"
+  },
+  {
+    "id": "module-rss-atom-feeds",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "RSS/ATOM Feeds module",
+    "description": "RSS and ATOM feed support",
+    "content": "RSS and ATOM feed support. Feeds. Productivity",
+    "href": "modules/#module-rss-atom-feeds"
+  },
+  {
+    "id": "module-github-integration",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "GitHub Integration module",
+    "description": "GitHub repository tracking",
+    "content": "GitHub repository tracking. GitHub. Productivity",
+    "href": "modules/#module-github-integration"
+  },
+  {
+    "id": "module-saved-searches",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Saved Searches module",
+    "description": "Save and re-run searches easily",
+    "content": "Save and re-run searches easily. Searches. Productivity",
+    "href": "modules/#module-saved-searches"
+  },
+  {
+    "id": "module-advanced-search",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Advanced Search module",
+    "description": "Support for advanced search queries",
+    "content": "Support for advanced search queries. Advanced. Productivity",
+    "href": "modules/#module-advanced-search"
+  },
+  {
+    "id": "module-core-system",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Core System module",
+    "description": "Handles page layout, login/logout, and default settings",
+    "content": "Handles page layout, login/logout, and default settings. Core. Core & Framework",
+    "href": "modules/#module-core-system"
+  },
+  {
+    "id": "module-ui-themes",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "UI Themes module",
+    "description": "Customize the look and feel with different CSS themes",
+    "content": "Customize the look and feel with different CSS themes. Themes. User Interface",
+    "href": "modules/#module-ui-themes"
+  },
+  {
+    "id": "module-inline-message-view",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Inline Message View module",
+    "description": "View messages inline in a reading pane instead of a new page",
+    "content": "View messages inline in a reading pane instead of a new page. View. User Interface",
+    "href": "modules/#module-inline-message-view"
+  },
+  {
+    "id": "module-message-highlights",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Message Highlights module",
+    "description": "Color highlighting for message lists",
+    "content": "Color highlighting for message lists. Highlights. User Interface",
+    "href": "modules/#module-message-highlights"
+  },
+  {
+    "id": "module-keyboard-shortcuts",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Keyboard Shortcuts module",
+    "description": "Navigate and perform actions using keyboard shortcuts",
+    "content": "Navigate and perform actions using keyboard shortcuts. Shortcuts. User Interface",
+    "href": "modules/#module-keyboard-shortcuts"
+  },
+  {
+    "id": "module-developer-tools",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Developer Tools module",
+    "description": "Development resources and installation details (debug mode only)",
+    "content": "Development resources and installation details (debug mode only). Developer. Diverse",
+    "href": "modules/#module-developer-tools"
+  },
+  {
+    "id": "module-wordpress-integration",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "WordPress Integration module",
+    "description": "Integration with WordPress.com services",
+    "content": "Integration with WordPress.com services. WordPress. Diverse",
+    "href": "modules/#module-wordpress-integration"
+  },
+  {
+    "id": "module-nasa-apod",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "NASA APOD module",
+    "description": "Access the NASA Astronomy Picture of the Day API content",
+    "content": "Access the NASA Astronomy Picture of the Day API content. NASA. Diverse",
+    "href": "modules/#module-nasa-apod"
+  },
+  {
+    "id": "module-site-overrides",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Site Overrides module",
+    "description": "Site-specific overrides for module configurations",
+    "content": "Site-specific overrides for module configurations. Site. Diverse",
+    "href": "modules/#module-site-overrides"
+  },
+  {
+    "id": "module-new-user-experience",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "New User Experience module",
+    "description": "Friendly interface for new users with common email service setup",
+    "content": "Friendly interface for new users with common email service setup. NUX. Diverse",
+    "href": "modules/#module-new-user-experience"
+  },
+  {
+    "id": "module-tag-management",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Tag Management module",
+    "description": "Organize content with customizable tags for better categorization",
+    "content": "Organize content with customizable tags for better categorization. Tags. Productivity",
+    "href": "modules/#module-tag-management"
+  },
+  {
+    "id": "module-message-history",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Message History module",
+    "description": "Track recently read messages during the current session",
+    "content": "Track recently read messages during the current session. History. Productivity",
+    "href": "modules/#module-message-history"
+  },
+  {
+    "id": "module-desktop-notifications",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Desktop Notifications module",
+    "description": "Get desktop notifications for new messages",
+    "content": "Get desktop notifications for new messages. Notifications. Diverse",
+    "href": "modules/#module-desktop-notifications"
+  },
+  {
+    "id": "module-idle-session-timer",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Idle Session Timer module",
+    "description": "Automatic logout after period of inactivity",
+    "content": "Automatic logout after period of inactivity. Idle Timer. Auth & Security",
+    "href": "modules/#module-idle-session-timer"
+  },
+  {
+    "id": "module-mta-sts-tls-rpt",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "MTA-STS & TLS-RPT module",
+    "description": "Displays recipient domain email security policy status during composition",
+    "content": "Displays recipient domain email security policy status during composition. MTA-STS. Auth & Security",
+    "href": "modules/#module-mta-sts-tls-rpt"
+  },
+  {
+    "id": "module-scheduled-messages",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Scheduled Messages module",
+    "description": "Schedule emails for future delivery instead of sending immediately",
+    "content": "Schedule emails for future delivery instead of sending immediately. Scheduled Send. Email",
+    "href": "modules/#module-scheduled-messages"
+  },
+  {
+    "id": "module-brute-force-protection",
+    "section": "",
+    "page": "Modules & Extensions",
+    "title": "Brute Force Protection module",
+    "description": "Login lockout mechanism to prevent brute force authentication attacks",
+    "content": "Login lockout mechanism to prevent brute force authentication attacks. Brute Force. Auth & Security",
+    "href": "modules/#module-brute-force-protection"
+  },
+  {
+    "id": "event-cypht-monthly-sync-february-roadmap-q1-priorities",
+    "section": "events",
+    "page": "Events & Community Meetups",
+    "title": "Cypht Monthly Sync - February: Roadmap & Q1 priorities",
+    "description": "Open session on where the project stands and what ships next.",
+    "content": "Open session on where the project stands and what ships next. We review recent progress, walk through priority issues and milestones, and align on features targeted for the coming weeks. Bring questions about the backlog, release scope, and how you can plug into active work.. Community Meeting. 2026-02-13. Online",
+    "href": "events/#event-cypht-monthly-sync-february-roadmap-q1-priorities"
+  },
+  {
+    "id": "event-cypht-monthly-sync-march-issue-triage-contributor-check-in",
+    "section": "events",
+    "page": "Events & Community Meetups",
+    "title": "Cypht Monthly Sync - March: Issue triage & contributor check‑in",
+    "description": "We focus on the issue tracker: what’s blocked, what needs labels or owners, and which feature requests deserve discussion.",
+    "content": "We focus on the issue tracker: what’s blocked, what needs labels or owners, and which feature requests deserve discussion. Expect a concise project health update, then room for proposals, bug reports, and coordination on pull requests and reviews.. Community Meeting. 2026-03-13. Online",
+    "href": "events/#event-cypht-monthly-sync-march-issue-triage-contributor-check-in"
+  },
+  {
+    "id": "event-cypht-monthly-sync-april-features-in-flight-release-notes",
+    "section": "events",
+    "page": "Events & Community Meetups",
+    "title": "Cypht Monthly Sync - April: Features in flight & release notes",
+    "description": "Deep dive into features under development and recently merged work.",
+    "content": "Deep dive into features under development and recently merged work. We connect implementation progress to user-facing changes, surface risks or dependencies, and use issues and discussions to decide what needs follow-up before the next cut.. Community Meeting. 2026-04-10. Online",
+    "href": "events/#event-cypht-monthly-sync-april-features-in-flight-release-notes"
+  },
+  {
+    "id": "event-cypht-monthly-sync-may-ux-polish-integrations-open-floor",
+    "section": "events",
+    "page": "Events & Community Meetups",
+    "title": "Cypht Monthly Sync - May: UX polish, integrations & open floor",
+    "description": "A practical call on refinements and extensibility: UI/UX feedback, integration points, and how modules evolve.",
+    "content": "A practical call on refinements and extensibility: UI/UX feedback, integration points, and how modules evolve. We recap project advancement since last month, review outstanding issues affecting real usage, and prioritize what to tackle next together.. Community Meeting. 2026-05-08. Online",
+    "href": "events/#event-cypht-monthly-sync-may-ux-polish-integrations-open-floor"
+  },
+  {
+    "id": "event-getting-started-with-cypht-complete-beginner-guide-on-demand",
+    "section": "events",
+    "page": "Events & Community Meetups",
+    "title": "Getting Started with Cypht - Complete Beginner Guide (On Demand)",
+    "description": "An on-demand introduction to the Cypht ecosystem, helping users understand the project, its goals, and how to get involved with the community.",
+    "content": "An on-demand introduction to the Cypht ecosystem, helping users understand the project, its goals, and how to get involved with the community.. On Demand. Online",
+    "href": "events/#event-getting-started-with-cypht-complete-beginner-guide-on-demand"
+  },
+  {
+    "id": "event-cypht-modules-deep-dive-customization-extensibility",
+    "section": "events",
+    "page": "Events & Community Meetups",
+    "title": "Cypht Modules Deep Dive - Customization & Extensibility",
+    "description": "An on-demand community session exploring Cypht’s modular architecture and how contributors can extend and customize the platform.",
+    "content": "An on-demand community session exploring Cypht’s modular architecture and how contributors can extend and customize the platform.. On Demand. Online",
+    "href": "events/#event-cypht-modules-deep-dive-customization-extensibility"
+  },
+  {
+    "id": "event-cypht-monthly-sync-june-mid-year-review-velocity-open-issues",
+    "section": "events",
+    "page": "Events & Community Meetups",
+    "title": "Cypht Monthly Sync - June: Mid‑year review, velocity & open issues",
+    "description": "Halfway through the year we take stock of shipped work versus the plan: burn‑down on key issues, feature readiness, and blockers.",
+    "content": "Halfway through the year we take stock of shipped work versus the plan: burn‑down on key issues, feature readiness, and blockers. Come prepared to discuss what’s landing next, which bugs deserve a spike, and how we keep momentum through the summer.. Community Meeting. 2026-06-12. Online",
+    "href": "events/#event-cypht-monthly-sync-june-mid-year-review-velocity-open-issues"
+  },
+  {
+    "id": "event-cypht-integration-hackathon-build-extend-in-48h",
+    "section": "events",
+    "page": "Events & Community Meetups",
+    "title": "Cypht Integration Hackathon - Build & Extend in 48h",
+    "description": "A focused sprint to prototype integrations and extensions: small teams pick issues or feature ideas and ship demos.",
+    "content": "A focused sprint to prototype integrations and extensions: small teams pick issues or feature ideas and ship demos. Not the monthly sync, this is hands‑on coding with the same community room link for coordination.. Community Meeting. 2026-06-26. Online",
+    "href": "events/#event-cypht-integration-hackathon-build-extend-in-48h"
+  },
+  {
+    "id": "event-cypht-monthly-sync-july-pr-queue-code-review-summer-priorities",
+    "section": "events",
+    "page": "Events & Community Meetups",
+    "title": "Cypht Monthly Sync - July: PR queue, code review & summer priorities",
+    "description": "We put the spotlight on pull requests and review throughput: what’s waiting on feedback, which features need design input, and how we balance bugfixes with new capability.",
+    "content": "We put the spotlight on pull requests and review throughput: what’s waiting on feedback, which features need design input, and how we balance bugfixes with new capability. A short update on project progress, then we work through the issue list together.. Community Meeting. 2026-07-10. Online",
+    "href": "events/#event-cypht-monthly-sync-july-pr-queue-code-review-summer-priorities"
+  },
+  {
+    "id": "event-cypht-monthly-sync-august-stabilization-regressions-quality-bar",
+    "section": "events",
+    "page": "Events & Community Meetups",
+    "title": "Cypht Monthly Sync - August: Stabilization, regressions & quality bar",
+    "description": "After recent changes we focus on reliability: regressions, test gaps, and performance notes from the field.",
+    "content": "After recent changes we focus on reliability: regressions, test gaps, and performance notes from the field. We tie discussions to concrete issues, agree on severity, and decide which fixes or features should lead the next iteration.. Community Meeting. 2026-08-14. Online",
+    "href": "events/#event-cypht-monthly-sync-august-stabilization-regressions-quality-bar"
+  },
+  {
+    "id": "event-cypht-monthly-sync-september-q4-roadmap-draft-feature-proposals",
+    "section": "events",
+    "page": "Events & Community Meetups",
+    "title": "Cypht Monthly Sync - September: Q4 roadmap draft & feature proposals",
+    "description": "We sketch the roadmap for the rest of the year: candidate features, technical debt paydown, and community‑driven proposals.",
+    "content": "We sketch the roadmap for the rest of the year: candidate features, technical debt paydown, and community‑driven proposals. Expect transparent talk about project advancement, issue grooming for Q4, and space to pitch ideas backed by use cases.. Community Meeting. 2026-09-11. Online",
+    "href": "events/#event-cypht-monthly-sync-september-q4-roadmap-draft-feature-proposals"
+  },
+  {
+    "id": "event-cypht-monthly-sync-october-security-privacy-hardening",
+    "section": "events",
+    "page": "Events & Community Meetups",
+    "title": "Cypht Monthly Sync - October: Security, privacy & hardening",
+    "description": "Dedicated time for security‑related issues, dependency updates, and safe‑defaults in features.",
+    "content": "Dedicated time for security‑related issues, dependency updates, and safe‑defaults in features. We review progress on prior action items, triage vulnerability reports, and align on what must ship before year‑end from a risk perspective.. Community Meeting. 2026-10-09. Online",
+    "href": "events/#event-cypht-monthly-sync-october-security-privacy-hardening"
+  },
+  {
+    "id": "event-cypht-monthly-sync-november-release-train-scope-cuts-deadlines",
+    "section": "events",
+    "page": "Events & Community Meetups",
+    "title": "Cypht Monthly Sync - November: Release train, scope cuts & deadlines",
+    "description": "As milestones approach we reconcile scope with reality: what stays, what slips, and which issues are release‑blocking.",
+    "content": "As milestones approach we reconcile scope with reality: what stays, what slips, and which issues are release‑blocking. Open discussion on feature completeness, documentation gaps, and how contributors can help close the loop before the holidays.. Community Meeting. 2026-11-13. Online",
+    "href": "events/#event-cypht-monthly-sync-november-release-train-scope-cuts-deadlines"
+  },
+  {
+    "id": "event-cypht-monthly-sync-december-year-in-review-lessons-2027-outlook",
+    "section": "events",
+    "page": "Events & Community Meetups",
+    "title": "Cypht Monthly Sync - December: Year in review, lessons & 2027 outlook",
+    "description": "We close the loop on the year: highlights from shipped features, what we learned from issues and discussions, and where the project is headed.",
+    "content": "We close the loop on the year: highlights from shipped features, what we learned from issues and discussions, and where the project is headed. Bring reflections on process, gaps to address next year, and priorities for the issue backlog in January.. Community Meeting. 2026-12-11. Online",
+    "href": "events/#event-cypht-monthly-sync-december-year-in-review-lessons-2027-outlook"
+  },
+  {
+    "id": "config-generator-general",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: General",
+    "description": "Generate the General settings of your Cypht configuration file.",
+    "content": "Application Name, Admin Users, Default Language, Always Use Mobile UI, Single Server Mode, Cypht Modules, Fancy Login Page, API Login Key, Windows CA Certificate Directory. General Settings Application Name Name of your application Admin Users Comma-separated list of admin user emails Default Language Default language code (e.g., en, fr, de) Always Use Mobile UI Force mobile UI for all devices Single Server Mode Enable single server mode Cypht Modules Comma-separated list of enabled modules Fancy Login Page Enable fancy login page design API Login Key API login key for authentication Windows CA Certificate Directory Path to CA certificates for Windows (get from https://curl.se/ca/cacert.pem)",
+    "href": "config-generator/#general"
+  },
+  {
+    "id": "config-generator-session",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: Session",
+    "description": "Generate the Session settings of your Cypht configuration file.",
+    "content": "Session Type, Session Class, Allow Session Cache, Allow Long Sessions, Long Session Lifetime (days). Session Session Type Standard PHP session handlers Custom database based sessions Custom Memcached based sessions Custom Redis based sessions Create your own session class Choose how to handle user sessions Session Class Custom session class name (if using custom session type) Allow Session Cache Enable session caching Allow Long Sessions Allow extended session lifetime Long Session Lifetime (days) Lifetime for long sessions in days",
+    "href": "config-generator/#session"
+  },
+  {
+    "id": "config-generator-auth",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: Auth",
+    "description": "Generate the Auth settings of your Cypht configuration file.",
+    "content": "Authentication Type, Authentication Class, LDAP Server, LDAP Port, Enable TLS for LDAP, LDAP Base DN, LDAP UID Attribute, IMAP Auth Name, IMAP Server, IMAP Port, Enable TLS for IMAP, IMAP Sieve Config Host, IMAP Sieve TLS Mode. Authentication Authentication Type Authenticate against the database Authenticate against an LDAP server Authenticate using an IMAP server Let the user choose from a list Custom authentication class Select the authentication method for your application Authentication Class Custom authentication class name (if using custom auth type) LDAP Server LDAP server hostname or IP address LDAP Port LDAP server port (default: 389) Enable TLS for LDAP Enable secure connection to LDAP server LDAP Base DN LDAP base distinguished name for authentication LDAP UID Attribute LDAP attribute for user identification IMAP Auth Name IMAP authentication server name IMAP Server IMAP server hostname or IP address IMAP Port IMAP server port (default: 993) Enable TLS for IMAP Enable secure connection to IMAP server IMAP Sieve Config Host Sieve configuration host for IMAP IMAP Sieve TLS Mode Enable TLS for Sieve connections",
+    "href": "config-generator/#auth"
+  },
+  {
+    "id": "config-generator-user",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: User",
+    "description": "Generate the User settings of your Cypht configuration file.",
+    "content": "User Configuration Type, User Settings Directory, Attachment Directory, Default Email Domain, Auto Create Profile, Default SMTP Name, Default SMTP Server, Default SMTP Port, SMTP TLS, Default SMTP TLS, Default SMTP No Auth. User User Configuration Type Store user settings in the filesystem Store user settings in a database Custom user settings storage Choose how to store user configuration data User Settings Directory Directory path for storing user settings (file mode only) Attachment Directory Directory path for storing email attachments Default Email Domain Default domain for email addresses Auto Create Profile Automatically create user profiles on first login Default SMTP Name Default name for SMTP server Default SMTP Server Default SMTP server hostname Default SMTP Port Default SMTP server port SMTP TLS Default SMTP TLS Enable TLS for default SMTP Default SMTP No Auth Disable authentication for default SMTP",
+    "href": "config-generator/#user"
+  },
+  {
+    "id": "config-generator-security",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: Security",
+    "description": "Generate the Security settings of your Cypht configuration file.",
+    "content": "Disable Origin Check, Disable IP Check, Disable Fingerprint, Disable Empty Superglobals, Disable Open Base Dir, Disable INI Settings, Allow External Image Sources, Cookie Domain, Cookie Path, Encrypt AJAX Requests, Encrypt Local Storage. Security Disable Origin Check Disable origin check for enhanced security (recommended) Disable IP Check Disable IP address checking Disable Fingerprint Disable browser fingerprinting Disable Empty Superglobals Disable emptying PHP superglobal arrays Disable Open Base Dir Disable open_basedir PHP restriction Disable INI Settings Disable custom PHP INI settings Allow External Image Sources Allow loading images from external sources Cookie Domain Domain for application cookies Cookie Path Path for application cookies Encrypt AJAX Requests Encrypt all AJAX requests for enhanced security Encrypt Local Storage Encrypt data stored in browser local storage",
+    "href": "config-generator/#security"
+  },
+  {
+    "id": "config-generator-cache",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: Cache",
+    "description": "Generate the Cache settings of your Cypht configuration file.",
+    "content": "Cache Class, Enable Redis, Redis Server, Redis Port, Redis Index, Redis Password, Redis Socket, Enable Memcached, Memcached Server, Memcached Port, Memcached Authentication, Memcached User, Memcached Password. Cache Cache Class Custom cache class name (leave empty for default) Enable Redis Enable Redis caching Redis Server Redis server hostname or IP Redis Port Redis server port Redis Index Redis database index Redis Password Redis authentication password Redis Socket Redis socket path (if using Unix socket) Enable Memcached Enable Memcached caching Memcached Server Memcached server hostname or IP Memcached Port Memcached server port Memcached Authentication Enable Memcached authentication Memcached User Memcached authentication username Memcached Password Memcached authentication password",
+    "href": "config-generator/#cache"
+  },
+  {
+    "id": "config-generator-user_interface",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: User Interface",
+    "description": "Generate the User Interface settings of your Cypht configuration file.",
+    "content": "JS Compress, CSS Compress, JS Exclude Dependencies, Worker Custom Imports. User Interface JS Compress Enable JS compression for enhanced security (recommended) CSS Compress Enable CSS compression for enhanced security (recommended) JS Exclude Dependencies Comma-separated list of JS dependencies to exclude Worker Custom Imports Custom imports for web workers",
+    "href": "config-generator/#user_interface"
+  },
+  {
+    "id": "config-generator-redirect",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: Redirection",
+    "description": "Generate the Redirection settings of your Cypht configuration file.",
+    "content": "Redirect After Login. Redirect Redirect After Login Redirect after login",
+    "href": "config-generator/#redirect"
+  },
+  {
+    "id": "config-generator-logging_system",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: Logging System",
+    "description": "Generate the Logging System settings of your Cypht configuration file.",
+    "content": "Debug Log, Enable Debug Logging, Log Level, Log File. Logging System Debug Log Enable Debug Logging Enable Debug Logging Log Level WARNING ERROR INFO DEBUG Choose how to handle user sessions Log File Absolute path on the server where Cypht writes its log file.",
+    "href": "config-generator/#logging_system"
+  },
+  {
+    "id": "config-generator-database",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: Database",
+    "description": "Generate the Database settings of your Cypht configuration file.",
+    "content": ". Database Config Configure your Cypht application's database settings. Set up the database connection parameters to ensure smooth data management and retrieval.",
+    "href": "config-generator/#database"
+  },
+  {
+    "id": "config-generator-twofa",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: 2FA",
+    "description": "Generate the 2FA settings of your Cypht configuration file.",
+    "content": "2FA Secret Key, Enable Simple 2FA. 2FA Config Configure your Cypht application's two-factor authentication settings. Set up the 2FA parameters to enhance security and protect your application from unauthorized access. 2FA 2FA Secret Key Secret key for two-factor authentication (32 characters) Enable Simple 2FA Enable simplified two-factor authentication mode",
+    "href": "config-generator/#twofa"
+  },
+  {
+    "id": "config-generator-carddav",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: Carddav",
+    "description": "Generate the Carddav settings of your Cypht configuration file.",
+    "content": "CardDAV Host. Carddav Config Configure your Cypht application's carddav settings. Set up the carddav parameters to enhance security and protect your application from unauthorized access. Carddav CardDAV Host CardDAV server hostname or IP address",
+    "href": "config-generator/#carddav"
+  },
+  {
+    "id": "config-generator-dynamic_login",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: Dynamic login",
+    "description": "Generate the Dynamic login settings of your Cypht configuration file.",
+    "content": "Dynamic Host, Dynamic Host Subdomain, Dynamic User, Dynamic SMTP Subdomain, Dynamic Mail Subdomain. Dynamic Login Config Configure your Cypht application's dynamic login settings. Set up the dynamic login parameters to enable flexible and secure user authentication. Dynamic Login Dynamic Host Enable dynamic host configuration Dynamic Host Subdomain Enable dynamic host subdomain support Dynamic User Enable dynamic user configuration Dynamic SMTP Subdomain Enable dynamic SMTP subdomain support Dynamic Mail Subdomain Enable dynamic mail subdomain support",
+    "href": "config-generator/#dynamic_login"
+  },
+  {
+    "id": "config-generator-github",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: Github",
+    "description": "Generate the Github settings of your Cypht configuration file.",
+    "content": "Client ID, Client Secret, Redirect URI, Authorization URL, Token URL. GitHub Config Configure your Cypht application's GitHub settings. Set up the GitHub parameters to add Github notification support to Cypht. Github Client ID GitHub OAuth application client ID Client Secret GitHub OAuth application client secret Redirect URI OAuth callback URL for GitHub authentication Authorization URL GitHub OAuth authorization endpoint Token URL GitHub OAuth token exchange endpoint",
+    "href": "config-generator/#github"
+  },
+  {
+    "id": "config-generator-ldap",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: LDAP",
+    "description": "Generate the LDAP settings of your Cypht configuration file.",
+    "content": "LDAP Server, LDAP Port, Enable TLS, Base DN, Search Term, Enable LDAP Authentication, LDAP Username, LDAP Password, Object Class, UID Attribute, Read/Write Access. LDAP Config Configure your Cypht application's LDAP settings. Set up the LDAP parameters to enable integration with LDAP for authentication and address book. LDAP LDAP Server LDAP server hostname or IP address LDAP Port LDAP server port (default: 389) Enable TLS Enable secure connection to LDAP server Base DN LDAP base distinguished name for searches Search Term LDAP attribute to search for usernames Enable LDAP Authentication Enable LDAP authentication for users LDAP Username LDAP bind username for authentication LDAP Password LDAP bind password for authentication Object Class LDAP object class for user searches UID Attribute LDAP UID attribute name Read/Write Access Enable read/write access to LDAP directory",
+    "href": "config-generator/#ldap"
+  },
+  {
+    "id": "config-generator-gmail",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: Gmail",
+    "description": "Generate the Gmail settings of your Cypht configuration file.",
+    "content": "Client ID, Client Secret, Redirect URI, Authorization URL, Token URL, Refresh Token URL. Gmail Client ID Gmail OAuth application client ID Client Secret Gmail OAuth application client secret Redirect URI OAuth callback URL for Gmail authentication Authorization URL Gmail OAuth authorization endpoint Token URL Gmail OAuth token exchange endpoint Refresh Token URL Gmail OAuth refresh token endpoint",
+    "href": "config-generator/#gmail"
+  },
+  {
+    "id": "config-generator-outlook",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: Outlook",
+    "description": "Generate the Outlook settings of your Cypht configuration file.",
+    "content": "Client ID, Client Secret, Redirect URI, Authorization URL, Token URL, Refresh Token URL. Outlook Client ID Outlook OAuth application client ID Client Secret Outlook OAuth application client secret Redirect URI OAuth callback URL for Outlook authentication Authorization URL Outlook OAuth authorization endpoint Token URL Outlook OAuth token exchange endpoint Refresh Token URL Outlook OAuth refresh token endpoint",
+    "href": "config-generator/#outlook"
+  },
+  {
+    "id": "config-generator-office365",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: Office 365",
+    "description": "Generate the Office 365 settings of your Cypht configuration file.",
+    "content": "Client ID, Client Secret, Redirect URI, Authorization URL, Token URL, Refresh Token URL. Office 365 Client ID Office 365 OAuth application client ID Client Secret Office 365 OAuth application client secret Redirect URI OAuth callback URL for Office 365 authentication Authorization URL Office 365 OAuth authorization endpoint Token URL Office 365 OAuth token exchange endpoint Refresh Token URL Office 365 OAuth refresh token endpoint",
+    "href": "config-generator/#office365"
+  },
+  {
+    "id": "config-generator-recaptcha",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: ReCaptcha",
+    "description": "Generate the ReCaptcha settings of your Cypht configuration file.",
+    "content": "Secret Key, Site Key. Recaptcha Config Configure your Cypht application's reCAPTCHA settings. Set up the reCAPTCHA parameters to enable integration with reCAPTCHA for authentication and other features. Recaptcha Secret Key reCAPTCHA secret key for server-side verification Site Key reCAPTCHA site key for client-side integration",
+    "href": "config-generator/#recaptcha"
+  },
+  {
+    "id": "config-generator-wordpress",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: Wordpress",
+    "description": "Generate the Wordpress settings of your Cypht configuration file.",
+    "content": "Client ID, Client Secret, Redirect URI. Wordpress Config Configure your Cypht application's WordPress settings. Set up the WordPress parameters to enable integration with WordPress for authentication and other features. Wordpress Client ID WordPress OAuth application client ID Client Secret WordPress OAuth application client secret Redirect URI OAuth callback URL for WordPress authentication Notice Please note that neither allow_session_cache & cache_class are configurable here, as this is not recommended and intended for advanced use only. Check app.php for more info. The config-generator source code can be found on GitHub Preview Review your generated .env file before downloading or copying to clipboard ADMIN_USERS= ALLOW_EXTERNAL_IMAGE_SOURCES=true ALLOW_LONG_SESSION=false ALLOW_SESSION_CACHE=false ALWAYS_MOBILE_UI=false APP_2FA_SECRET= APP_2FA_SIMPLE=false APP_NAME=Cypht ATTACHMENT_DIR=/var/lib/hm3/attachments AUTH_CLASS= AUTH_TYPE=DB AUTO_CREATE_PROFILE=false CACHE_CLASS=false CARD_DAV_SERVER=http://localhost:5232 COOKIE_DOMAIN= COOKIE_PATH= CSS_COMPRESS=false CYPHT_MODULES=core,contacts,local_contacts,feeds,imap,smtp,account,idle_timer,calendar,themes,nux,developer,history,saved_searches,advanced_search,highlights,profiles,inline_message,imap_folders,keyboard_shortcuts,tags DB_CONNECTION_TYPE=host DB_DRIVER=mysql DB_HOST=127.0.0.1 DB_NAME=cypht_db DB_PASS= DB_PORT=3306 DB_SOCKET=/var/lib/mysqld/mysqld.sock DB_USER=root DEBUG_LOG=false DEFAULT_EMAIL_DOMAIN= DEFAULT_LANGUAGE=en DEFAULT_SETTING_ALL_EMAIL_PER_SOURCE=20 DEFAULT_SETTING_ALL_EMAIL_SINCE=-1 week DEFAULT_SETTING_ALL_PER_SOURCE=20 DEFAULT_SETTING_ALL_SINCE=-1 week DEFAULT_SETTING_DISABLE_DELETE_PROMPT=false DEFAULT_SETTING_DRAFT_PER_SOURCE=20 DEFAULT_SETTING_DRAFT_SINCE=-1 week DEFAULT_SETTING_ENABLE_COLLECT_ADDRESS_ON_SEND=false DEFAULT_SETTING_ENABLE_KEYBOARD_SHORTCUTS=false DEFAULT_SETTING_ENABLE_SIEVE_FILTER=false DEFAULT_SETTING_ENABLE_SNOOZE=false DEFAULT_SETTING_FEED_LIMIT=20 DEFAULT_SETTING_FEED_SINCE=-1 week DEFAULT_SETTING_FLAGGED_PER_SOURCE=20 DEFAULT_SETTING_FLAGGED_SINCE=-1 week DEFAULT_SETTING_GITHUB_LIMIT=20 DEFAULT_SETTING_GITHUB_SINCE=-1 week DEFAULT_SETTING_IMAP_PER_PAGE=20 DEFAULT_SETTING_INLINE_MESSAGE=false DEFAULT_SETTING_INLINE_MESSAGE_STYLE=right DEFAULT_SETTING_JUNK_PER_SOURCE=20 DEFAULT_SETTING_JUNK_SINCE=-1 week DEFAULT_SETTING_LANGUAGE=en DEFAULT_SETTING_LIST_STYLE=email_style DEFAULT_SETTING_MSG_PART_ICONS=true DEFAULT_SETTING_NO_FOLDER_ICONS=false DEFAULT_SETTING_NO_PASSWORD_SAVE=false DEFAULT_SETTING_P",
+    "href": "config-generator/#wordpress"
+  },
+  {
+    "id": "config-generator-env-variables",
+    "section": "",
+    "page": "Build Your Configuration",
+    "title": "Configuration generator: environment variables",
+    "description": "Environment variables written to the generated Cypht .env configuration file.",
+    "content": "ADMIN_USERS, ALLOW_EXTERNAL_IMAGE_SOURCES, ALLOW_LONG_SESSION, ALLOW_SESSION_CACHE, ALWAYS_MOBILE_UI, APP_2FA_SECRET, APP_2FA_SIMPLE, APP_NAME, ATTACHMENT_DIR, AUTH_CLASS, AUTH_TYPE, AUTO_CREATE_PROFILE, CACHE_CLASS, CARD_DAV_SERVER, COOKIE_DOMAIN, COOKIE_PATH, CSS_COMPRESS, CYPHT_MODULES, DB_CONNECTION_TYPE, DB_DRIVER, DB_HOST, DB_NAME, DB_PASS, DB_PORT, DB_SOCKET, DB_USER, DEBUG_LOG, DEFAULT_EMAIL_DOMAIN, DEFAULT_LANGUAGE, DEFAULT_SETTING_ALL_EMAIL_PER_SOURCE, DEFAULT_SETTING_ALL_EMAIL_SINCE, DEFAULT_SETTING_ALL_PER_SOURCE, DEFAULT_SETTING_ALL_SINCE, DEFAULT_SETTING_DISABLE_DELETE_PROMPT, DEFAULT_SETTING_DRAFT_PER_SOURCE, DEFAULT_SETTING_DRAFT_SINCE, DEFAULT_SETTING_ENABLE_COLLECT_ADDRESS_ON_SEND, DEFAULT_SETTING_ENABLE_KEYBOARD_SHORTCUTS, DEFAULT_SETTING_ENABLE_SIEVE_FILTER, DEFAULT_SETTING_ENABLE_SNOOZE, DEFAULT_SETTING_FEED_LIMIT, DEFAULT_SETTING_FEED_SINCE, DEFAULT_SETTING_FLAGGED_PER_SOURCE, DEFAULT_SETTING_FLAGGED_SINCE, DEFAULT_SETTING_GITHUB_LIMIT, DEFAULT_SETTING_GITHUB_SINCE, DEFAULT_SETTING_IMAP_PER_PAGE, DEFAULT_SETTING_INLINE_MESSAGE, DEFAULT_SETTING_INLINE_MESSAGE_STYLE, DEFAULT_SETTING_JUNK_PER_SOURCE, DEFAULT_SETTING_JUNK_SINCE, DEFAULT_SETTING_LANGUAGE, DEFAULT_SETTING_LIST_STYLE, DEFAULT_SETTING_MSG_PART_ICONS, DEFAULT_SETTING_NO_FOLDER_ICONS, DEFAULT_SETTING_NO_PASSWORD_SAVE, DEFAULT_SETTING_PAGINATE_LINKS, DEFAULT_SETTING_REVIEW_SENT_EMAIL, DEFAULT_SETTING_SEARCH_SINCE, DEFAULT_SETTING_SENT_PER_SOURCE, DEFAULT_SETTING_SENT_SINCE, DEFAULT_SETTING_SHOW_LIST_ICONS, DEFAULT_SETTING_SIMPLE_MSG_PARTS, DEFAULT_SETTING_SMTP_AUTO_BCC, DEFAULT_SETTING_SMTP_COMPOSE_TYPE, DEFAULT_SETTING_SNOOZED_PER_SOURCE, DEFAULT_SETTING_SNOOZED_SINCE, DEFAULT_SETTING_START_PAGE, DEFAULT_SETTING_TAGS_PER_SOURCE, DEFAULT_SETTING_TAGS_SINCE, DEFAULT_SETTING_TEXT_ONLY, DEFAULT_SETTING_THEME, DEFAULT_SETTING_TIMEZONE, DEFAULT_SETTING_TRASH_PER_SOURCE, DEFAULT_SETTING_TRASH_SINCE, DEFAULT_SETTING_UNREAD_EXCLUDE_FEEDS, DEFAULT_SETTING_UNREAD_EXCLUDE_GITHUB, DEFAULT_SETTING_UNREAD_EXCLUDE_WORDPRESS, DEFAULT_SETTING_UNREAD_PER_SOURCE, DEFAULT_SETTING_UNREAD_SINCE, DEFAULT_SETTING_WORDPRESS_SINCE, DEFAULT_SMTP_NAME, DEFAULT_SMTP_NO_AUTH, DEFAULT_SMTP_PORT, DEFAULT_SMTP_SERVER, DEFAULT_SMTP_TLS, DISABLE_EMPTY_SUPERGLOBALS, DISABLE_FINGERPRINT, DISABLE_INI_SETTINGS, DISABLE_IP_CHECK, DISABLE_OPEN_BASE_DIR, DISABLE_ORIGIN_CHECK, DYNAMIC_HOST, DYNAMIC_HOST_SUBDOMAIN, DYNAMIC_MAIL_SUBDOMAIN, DYNAMIC_SMTP_SUBDOMAIN, DYNAMIC_USER, ENABLE_MEMCACHED, ENABLE_REDIS, ENCRYPT_AJAX_REQUESTS, ENCRYPT_LOCAL_STORAGE, FANCY_LOGIN, GITHUB_AUTH_URL, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, GITHUB_REDIRECT_URI, GITHUB_TOKEN_URL, GMAIL_AUTH_URI, GMAIL_CLIENT_ID, GMAIL_CLIENT_SECRET, GMAIL_CLIENT_URI, GMAIL_REFRESH_URI, GMAIL_TOKEN_URI, IMAP_AUTH_NAME, IMAP_AUTH_PORT, IMAP_AUTH_SERVER, IMAP_AUTH_SIEVE_CONF_HOST, IMAP_AUTH_SIEVE_TLS_MODE, IMAP_AUTH_TLS, JS_COMPRESS, JS_EXCLUDE_DEPS, LDAP_AUTH, LDAP_AUTH_BASE_DN, LDAP_AUTH_PORT, LDAP_AUTH_SERVER, LDAP_AUTH_TLS, LDAP_AUTH_UID_ATTR, LDAP_BASE_DN, LDAP_ENABLE_TLS, LDAP_OBJECT_CLASS, LDAP_PASS, LDAP_PORT, LDAP_READ_WRITE, LDAP_SEARCH_TERM, LDAP_SERVER, LDAP_UID_ATTR, LDAP_USER, LONG_SESSION_LIFETIME, MEMCACHED_AUTH, MEMCACHED_PASS, MEMCACHED_PORT, MEMCACHED_SERVER, MEMCACHED_USER, OFFICE365_AUTH_URI, OFFICE365_CLIENT_ID, OFFICE365_CLIENT_SECRET, OFFICE365_CLIENT_URI, OFFICE365_REFRESH_URI, OFFICE365_TOKEN_URI, OUTLOOK_AUTH_URI, OUTLOOK_CLIENT_ID, OUTLOOK_CLIENT_SECRET, OUTLOOK_CLIENT_URI, OUTLOOK_REFRESH_URI, OUTLOOK_TOKEN_URI, RECAPTCHA_SECRET, RECAPTCHA_SITE_KEY, REDIRECT_AFTER_LOGIN, REDIS_INDEX, REDIS_PASS, REDIS_PORT, REDIS_SERVER, REDIS_SOCKET, SESSION_CLASS, SESSION_TYPE, SINGLE_SERVER_MODE, USER_CONFIG_TYPE, USER_SETTINGS_DIR, WORDPRESS_CLIENT_ID, WORDPRESS_CLIENT_SECRET, WORDPRESS_CLIENT_URI, LOG_FILE, LOG_LEVEL",
+    "href": "config-generator/"
+  }
+]
