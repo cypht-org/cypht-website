@@ -38,7 +38,7 @@ h1: false
       <div class="contribute-section-block">
         <div class="contribute-section-header">
           <span class="home-overline">About the Community</span>
-          <h2 class="section-card-title">What is Cypht?</h2>
+          <h2 id="what-is-cypht" class="section-card-title">What is Cypht?</h2>
         </div>
         <div class="contribute-section-body">
           <p>
@@ -46,7 +46,7 @@ h1: false
             applications, Cypht is built entirely from plugins (called "module sets"), with core modules being
             essential. Users can customize their experience by adding or replacing modules to suit their needs.
           </p>
-          <h4>Our Values</h4>
+          <h4 id="our-values">Our Values</h4>
           <p>
             As a community, we prioritize collaboration, inclusivity, and transparency. We encourage respect for
             others and open communication. Our goal is to create a welcoming environment for all contributors,
@@ -59,14 +59,14 @@ h1: false
       <div class="contribute-section-block">
         <div class="contribute-section-header">
           <span class="home-overline">Join Us</span>
-          <h2 class="section-card-title">Getting Involved</h2>
+          <h2 id="getting-involved" class="section-card-title">Getting Involved</h2>
         </div>
         <div class="contribute-cards-grid">
           <div class="contribute-card">
             <div class="contribute-card-icon">
               <i class="bi bi-chat-dots"></i>
             </div>
-            <h4>Connect on Gitter</h4>
+            <h4 id="connect-on-gitter">Connect on Gitter</h4>
             <p>Reach out, ask questions, and connect with other community members on our Gitter channel.</p>
             <a href="https://matrix.to/#/#cypht-org_community:gitter.im" class="action-btn cypht-primary-btn btn-sm mt-2" target="_blank" rel="noopener">
               Open Gitter
@@ -76,7 +76,7 @@ h1: false
             <div class="contribute-card-icon">
               <i class="bi bi-github"></i>
             </div>
-            <h4>Contribute on GitHub</h4>
+            <h4 id="contribute-on-github">Contribute on GitHub</h4>
             <p>Browse issues, submit pull requests, and help improve the codebase directly on GitHub.</p>
             <a href="https://github.com/cypht-org/cypht" class="action-btn cypht-secondary-btn btn-sm mt-2" target="_blank" rel="noopener">
               Open GitHub
@@ -86,7 +86,7 @@ h1: false
             <div class="contribute-card-icon">
               <i class="bi bi-book"></i>
             </div>
-            <h4>Read the Docs</h4>
+            <h4 id="read-the-docs">Read the Docs</h4>
             <p>Read the official documentation to understand how Cypht works before contributing.</p>
             <a href="/documentation" class="action-btn cypht-secondary-btn btn-sm mt-2">
               Read Docs
@@ -99,7 +99,7 @@ h1: false
       <div class="contribute-section-block">
         <div class="contribute-section-header">
           <span class="home-overline">Setup</span>
-          <h2 class="section-card-title">Setting Up Your Environment</h2>
+          <h2 id="setting-up-your-environment" class="section-card-title">Setting Up Your Environment</h2>
         </div>
         <div class="contribute-section-body">
           <p>Before contributing to Cypht, you'll need to set up your development environment with the following tools:</p>
@@ -119,7 +119,7 @@ h1: false
       <div class="contribute-section-block">
         <div class="contribute-section-header">
           <span class="home-overline">Guidelines</span>
-          <h2 class="section-card-title">Contributing to Cypht</h2>
+          <h2 id="contributing-to-cypht" class="section-card-title">Contributing to Cypht</h2>
         </div>
         <div class="contribute-section-body">
           <p>

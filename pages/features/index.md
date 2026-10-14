@@ -35,7 +35,7 @@ loadScriptAfter: /js/feature.js
             <div class="ft-section">
                 <div class="ft-section-left-header">
                     <span class="hs-chip">Messaging</span>
-                    <h3 class="">Unified email experience for all your accounts in one place.</h3>
+                    <h3 id="unified-email-experience-for-all-your-accounts-in" class="">Unified email experience for all your accounts in one place.</h3>
                 </div>
                 <div class="mss-parent">
                     <div class="mss-div1 mss-div">
@@ -78,7 +78,7 @@ loadScriptAfter: /js/feature.js
             <div class="ft-section">
                 <div class="ft-section-center-header">
                     <span class="hs-chip">Performance</span>
-                    <h3 class="">Get more done with faster, lighter, and more efficient email management</h3>
+                    <h3 id="get-more-done-with-faster-lighter-and-more" class="">Get more done with faster, lighter, and more efficient email management</h3>
                 </div>
                 <div class="perf-parent">
                     <div class="perf-div1 feature-card">
@@ -139,7 +139,7 @@ loadScriptAfter: /js/feature.js
             <div class="ft-section">
                 <div class="ft-section-left-header">
                     <span class="hs-chip">Search</span>
-                    <h3 class="fc-h-title fc-h-title-left">Advanced search across all your email accounts in one place</h3>
+                    <h3 id="advanced-search-across-all-your-email-accounts-in" class="fc-h-title fc-h-title-left">Advanced search across all your email accounts in one place</h3>
                 </div>
                 <div class="search-parent">
                     <div class="search-div1 feature-card">
@@ -183,7 +183,7 @@ loadScriptAfter: /js/feature.js
             <div class="ft-section">
                 <div class="ft-section-center-header">
                     <span class="hs-chip">Development</span>
-                    <h3>Extend Cypht with modules, additional protocols, and a streamlined build workflow</h3>
+                    <h3 id="extend-cypht-with-modules-additional-protocols-and-a">Extend Cypht with modules, additional protocols, and a streamlined build workflow</h3>
                 </div>
                 <div class="dev-parent w-100">
                     <div class="dev-div1 feature-card">
@@ -228,7 +228,7 @@ loadScriptAfter: /js/feature.js
             <div class="ft-section">
                 <div class="ft-section-left-header">
                     <span class="hs-chip">Security</span>
-                    <h3 class="fc-h-title fc-h-title-left">Protect your email and sessions with encryption, strong authentication & secure storage</h3>
+                    <h3 id="protect-your-email-and-sessions-with-encryption-strong" class="fc-h-title fc-h-title-left">Protect your email and sessions with encryption, strong authentication & secure storage</h3>
                 </div>
                 <div class="security-parent w-100">
                     <div class="security-card sec-card-1">
@@ -267,7 +267,7 @@ loadScriptAfter: /js/feature.js
                 <div class="key-feature-header">
                     <div class="ft-section-center-header">
                         <span class="hs-chip">Our identity</span>
-                        <h3 class="fc-h-title fc-h-title-left">Explore the key features and capabilities that set Cypht apart from other email solutions</h3>
+                        <h3 id="explore-the-key-features-and-capabilities-that-set" class="fc-h-title fc-h-title-left">Explore the key features and capabilities that set Cypht apart from other email solutions</h3>
                     </div>
                     <!-- <div> -->
                         <ul class="key-feat-navtabs" id="myTab" role="tablist">

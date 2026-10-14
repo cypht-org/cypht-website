@@ -1,0 +1,61 @@
+{#- Search dialog (DocSearch-like modal), opened by any `[data-flexsearch-open]` element -#}
+{%- if site.flexsearch.enabled ?? true -%}
+{%- set options = site.flexsearch|default({}) -%}
+{%- set index = site.page('flexsearch') -%}
+{%- set library = options.library|default('https://cdn.jsdelivr.net/npm/flexsearch@%s/dist/flexsearch.bundle.min.js'|format(options.version|default('0.8.212'))) -%}
+{%- set config = {
+  library: '' ~ asset(library, {minify: false, ignore_missing: true}),
+  index: index ? url(index, {format: 'json'}) : '',
+  base: url()|trim('/', 'right') ~ '/',
+  language: '' ~ site.language,
+  hotkey: options.hotkey ?? 'k',
+  options: {
+    tokenize: options.tokenize|default('forward'),
+    encoder: options.encoder|default('Normalize'),
+    fields: {title: 9, page: 7, description: 5, content: 3}|merge(options.fields|default({})),
+    suggest: options.suggest ?? true,
+    min_length: options.min_length|default(1),
+    delay: options.delay|default(120),
+    boundary: options.boundary|default(160),
+    snippet: options.snippet|default(180)
+  },
+  i18n: {
+    prompt: 'Type to start searching.'|trans,
+    loading: 'Loading the search index…'|trans,
+    empty: 'No results found.'|trans,
+    error: 'Search is unavailable.'|trans
+  }
+} -%}
+<dialog id="flexsearch-dialog" class="flexsearch-dialog" aria-label="{% trans %}Search the site{% endtrans %}">
+  <div class="flexsearch-panel">
+    <form class="flexsearch-field" role="search" onsubmit="return false;">
+      <svg class="flexsearch-field-icon" viewbox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+      <input type="search" id="flexsearch-input" class="flexsearch-input" placeholder="{% trans %}Search the site{% endtrans %}"
+        autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="go"
+        role="combobox" aria-expanded="false" aria-controls="flexsearch-results" aria-autocomplete="list">
+      <button type="button" id="flexsearch-close" class="flexsearch-close" aria-label="{% trans %}Close{% endtrans %}" title="{% trans %}Close{% endtrans %}">
+        <svg viewbox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M6 6l12 12"/></svg>
+      </button>
+    </form>
+    <div class="flexsearch-body">
+      <p class="flexsearch-status" id="flexsearch-status"></p>
+      <ul class="flexsearch-results" id="flexsearch-results" role="listbox" aria-label="{% trans %}Search the site{% endtrans %}"></ul>
+    </div>
+    <footer class="flexsearch-footer">
+      <ul class="flexsearch-hints">
+        <li><kbd class="flexsearch-kbd">&crarr;</kbd> {% trans %}to select{% endtrans %}</li>
+        <li><kbd class="flexsearch-kbd">&uarr;</kbd><kbd class="flexsearch-kbd">&darr;</kbd> {% trans %}to navigate{% endtrans %}</li>
+        <li><kbd class="flexsearch-kbd">esc</kbd> {% trans %}to close{% endtrans %}</li>
+      </ul>
+      {%- if options.credit ?? true %}
+      <span class="flexsearch-credit">
+        {% trans %}Search by{% endtrans %} <a href="https://github.com/nextapps-de/flexsearch" target="_blank" rel="noopener" title="FlexSearch - Next-Generation full-text search library">FlexSearch</a>
+      </span>
+      {%- endif %}
+    </footer>
+  </div>
+</dialog>
+{#- JSON_HEX_TAG | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE #}
+<script type="application/json" id="flexsearch-config">{{ config|json_encode(1 b-or 64 b-or 256)|raw }}</script>
+{{ html(asset('flexsearch/flexsearch.js'), {defer: ''}) }}
+{%- endif -%}

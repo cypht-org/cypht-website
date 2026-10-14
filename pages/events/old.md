@@ -16,7 +16,7 @@ loadScriptAfter: /js/old_event.js
                         </a>
                   </div>
                   <div class="page-header-content">
-                        <h2 class="page-title">Past Events</h2>
+                        <h2 id="past-events" class="page-title">Past Events</h2>
                         <p class="page-subtitle">Relive the best moments from our previous events</p>
                   </div>
             </div>
@@ -33,6 +33,5 @@ loadScriptAfter: /js/old_event.js
                   </div>
             </div>
     </div>
-
   </div>
 </div>

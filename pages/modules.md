@@ -32,7 +32,7 @@ loadScriptAfter: /js/module.js
             <div class="w-100 px-lg-1 d-flex flex-column flex-lg-row justify-content-between align-items-center align-items-lg-start gap-4 gap-lg-5 text-center text-lg-start ov-text-content">
                 <div class="ov-header">
                     <div><span class="home-overline">Overview</span></div>
-                    <h2>
+                    <h2 id="cypht-s-modular-design-centers-on-a-core">
                     <span class="text-primary">Cypht's</span> Modular design centers on a core module with fully customizable components
                     </h2>
 <!--  -->

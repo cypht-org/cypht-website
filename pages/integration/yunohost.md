@@ -9,7 +9,7 @@ nav_prev:
   url: /integration/cloudron
 ---
 
-## Overview {#overview}
+## Cypht on YunoHost: overview {#overview}
 
 [YunoHost](https://yunohost.org/en/whatsyunohost) is a Debian-based distribution that simplifies server
 administration to democratise self-hosting, while staying reliable, secure, ethical and lightweight. It can be

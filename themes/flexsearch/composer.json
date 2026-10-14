@@ -1,0 +1,23 @@
+{
+  "name": "cecil/theme-flexsearch",
+  "type": "cecil-theme",
+  "description": "Cecil component theme FlexSearch",
+  "keywords": ["Cecil", "theme", "search", "FlexSearch"],
+  "license": "MIT",
+  "require": {
+    "cecil/theme-installer": "^1.4||^2.0"
+  },
+  "extra": {
+    "name": "flexsearch",
+    "branch-alias": {
+      "dev-main": "1.x-dev"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "cecil/theme-installer": true
+    }
+  }
+}

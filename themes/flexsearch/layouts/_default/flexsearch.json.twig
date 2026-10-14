@@ -1,0 +1,115 @@
+{#-
+  FlexSearch index, consumed client-side by `assets/flexsearch/flexsearch.js`:
+  the result groups (`sections`) and a flat array of records (`documents`),
+  walking every section listed in `flexsearch.sections` (in that order), or
+  every root section of the site by default.
+  Each section accepts the following options:
+    `title`:  title of the group (default: title of the section page)
+    `limit`:  maximum number of results in the group (default: 5)
+    `split`:  cut pages into one record per heading (default: true)
+    `date`:   add the page `date` to its records (default: false)
+    `length`: maximum length of the `content` of an unsplit page (default: 1000)
+
+  Every page of the section (except its root page) and of its sub-sections
+  (`docs/*`, whose `index.md` have their own section) is walked.
+  Split pages are cut on `<h2>` *and* `<h3>` (a lookahead split keeps the heading
+  at the head of each chunk), so a record never bleeds into the next one and
+  pages without `<h3>` are still indexed. The intro before the first heading
+  (minus the `<h1>`) is indexed under the page title, without anchor, so pages
+  without any `<h2>` are still indexed.
+  Unsplit pages (blog posts) give a single record: the page title, its `description`
+  and the beginning of its text, as their body often starts with a heading.
+  Anchors are read from the `id` attribute emitted by Cecil, never recomputed
+  from the title: the slug rules must not be duplicated here.
+  Beware: Twig runs string literals through `stripcslashes`, so a regex needs
+  `\\s` to reach PCRE as `\s`, and `~` as delimiter to avoid escaping slashes.
+-#}
+{#- Local change: `h4` too, so raw-HTML pages with identified `h4` (security) are split -#}
+{%- set headings = 'h[234]' -%}
+{#- `striptags` leaves entities behind: decode the ones Markdown emits (strtr-based, no double decoding) -#}
+{%- set entities = {'&lt;': '<', '&gt;': '>', '&quot;': '"', '&#039;': "'", '&#39;': "'", '&nbsp;': ' ', '&hellip;': '…', '&amp;': '&'} -%}
+{#- JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE -#}
+{%- set json = 64 b-or 256 -%}
+{#- base path of the site (`/` or `/sub/path/`): records `href` are relative to it -#}
+{%- set base = url()|trim('/', 'right') ~ '/' -%}
+{#- indexed sections: configured, or every root section of the site -#}
+{%- set sections = site.flexsearch.sections|default({}) -%}
+{%- if sections is empty -%}
+  {%- for p in site.pages|filter(p => p.type == 'section' and p.published and '/' not in p.section)|sort_by_weight -%}
+    {%- set sections = sections|merge({(p.section): {}}) -%}
+  {%- endfor -%}
+{%- endif -%}
+{%- set groups = [] -%}
+{%- for name, options in sections -%}
+  {%- set groups = groups|merge([{name: name, title: options.title ?? site.page(name).title ?? name, limit: options.limit|default(5)}]) -%}
+{%- endfor -%}
+{
+  "sections": {{ groups|json_encode(json)|raw }},
+  "documents": [
+{%- set is_first = true -%}
+{%- for section, options in sections -%}
+{%- set split = options.split ?? true -%}
+{#- the root page of the section only lists its pages: skipped -#}
+{#- Local change: `exclude: true` pages (hidden from menus/lists) stay searchable; paginated copies (`page/N`) are skipped -#}
+{%- for p in site.pages|filter(p => p.published and not (p.path matches '~(^|/)page/\\d+$~') and ((p.section == section and p.type != 'section') or p.section starts with section ~ '/'))|sort_by_weight -%}
+  {#- an unsplit page is a single chunk -#}
+  {%- set chunks = split ? p.content|preg_split('~(?=<' ~ headings ~ '[^>]*>)~') : [p.content] -%}
+  {%- for chunk in chunks -%}
+    {%- set is_intro = not split or not (chunk matches '~^<' ~ headings ~ '~') -%}
+    {%- if is_intro -%}
+      {%- set title = p.title -%}
+      {%- set anchor = '' -%}
+      {%- set body = chunk|preg_split('~</h1>~')|last -%}
+    {%- else -%}
+      {%- set parts = chunk|preg_split('~</' ~ headings ~ '>~') -%}
+      {%- set title = parts[0]|striptags|replace(entities)|trim -%}
+      {%- set anchor = chunk|preg_match_all('~^<' ~ headings ~ '[^>]*\\sid="([^"]*)"~', 1)|first|default('') -%}
+      {%- set body = parts[1]|default('') -%}
+    {%- endif -%}
+    {#- stripped block tags (images, code fences…) leave runs of blank lines behind -#}
+    {%- set content = body|striptags|replace(entities)|preg_split('~\\s*\\n\\s*\\n\\s*~')|join("\n")|trim -%}
+    {%- set description = '' -%}
+    {%- if not split and p.description|default('') is not empty -%}
+      {%- set description = p.description -%}
+    {%- elseif body|trim starts with '<p>' -%}
+      {%- set description = body|trim|split('</p>')|first|striptags|replace(entities)|trim -%}
+    {%- endif -%}
+    {%- if not split and content|length > options.length|default(1000) -%}
+      {%- set content = content|slice(0, options.length|default(1000))|trim ~ '…' -%}
+    {%- endif -%}
+    {#- Local change: a page whose body is rendered client-side is indexed through its `description` -#}
+    {%- if is_intro and loop.first and content is empty and p.description|default('') is not empty -%}
+      {%- set content = p.description -%}
+    {%- endif -%}
+    {%- if (is_intro or anchor is not empty) and content is not empty -%}
+      {%- set fragment = anchor is not empty ? '#' ~ anchor : '' -%}
+      {#- the root section is left out of the breadcrumb (`page`), as it titles the group of results -#}
+      {#- Local change: `id` is built from the path, as `p.id` can be a short value shared by several pages -#}
+      {%- set document = {
+        id: p.path|default('index') ~ fragment,
+        section: section,
+        page: p.ancestors|reverse|slice(1)|map(p => "#{p.title}")|merge([p.title])|join(' > '),
+        title: title,
+        description: description,
+        content: content,
+        href: url(p, {canonical: false})|slice(base|length) ~ fragment
+      } -%}
+      {%- if options.date|default(false) -%}
+        {%- set document = document|merge({date: p.date|date('Y-m-d')}) -%}
+      {%- endif -%}
+      {{- (is_first ? '' : ',') ~ "\n    " -}}
+      {{- document|json_encode(json)|raw -}}
+      {%- set is_first = false -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- endfor -%}
+{#- Local addition: records for client-side rendered content, see scripts/build-search-data.js -#}
+{%- for extra in site.data.searchExtra|default([]) -%}
+  {%- if extra.section in sections|keys -%}
+    {{- (is_first ? '' : ',') ~ "\n    " -}}
+    {{- extra|json_encode(json)|raw -}}
+    {%- set is_first = false -%}
+  {%- endif -%}
+{%- endfor -%}
+{{- "\n  ]\n}" -}}

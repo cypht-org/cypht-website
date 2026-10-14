@@ -730,10 +730,30 @@ function setupCopyButton(link) {
   }
 }
 
+/** Anchor of an event, shared with scripts/build-search-data.js (search results) */
+function eventSlug(event) {
+  return (
+    "event-" +
+    event.title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+  );
+}
+
+/** Opens the event matching the URL hash (#event-<slug>), e.g. from a search result */
+function openEventFromHash() {
+  const hash = decodeURIComponent(window.location.hash.slice(1));
+  const event = events.find((e) => eventSlug(e) === hash);
+  if (event) openEventOffcanvas(event, null);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderNextEvent();
   load_event_filter();
   load_events(activeFilterValue);
+  openEventFromHash();
+  window.addEventListener("hashchange", openEventFromHash);
 
   // The window opens and closes while the page stays open
   setInterval(refreshEventState, 30 * 1000);

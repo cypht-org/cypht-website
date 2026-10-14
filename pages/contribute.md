@@ -36,7 +36,7 @@ loadScriptAfter: /js/contribute.js
       <!-- Navigation -->
       <div class="contribute-nav px-4 d-flex justify-content-between mb-2">
         <div class="text-left lc-header">
-          <h2>Want to contribute ?</h2>
+          <h2 id="want-to-contribute">Want to contribute ?</h2>
           <p>
             The goal of this page is to provide everything you need to know in order to contribute to cypht-webmail and its different integrations.
           </p>
@@ -77,11 +77,11 @@ loadScriptAfter: /js/contribute.js
                     </span>
                     <span class="req-header-chip-text">Development Workflow</span>
                   </div>
-                  <h3>Our Development Approach</h3>
+                  <h3 id="our-development-approach">Our Development Approach</h3>
                 </div>
             </div>
               <div class="div2 dev-flow-card">
-                <h4>Backend Development</h4>
+                <h4 id="backend-development">Backend Development</h4>
                 <ul>
                   <li>Pure PHP</li>
                   <li>No heavy frameworks</li>
@@ -90,7 +90,7 @@ loadScriptAfter: /js/contribute.js
                 <p>Our backend is built with pure PHP, ensuring optimal performance without the overhead of heavy frameworks.</p>
               </div>
               <div class="div3 dev-flow-card">
-                <h4>Frontend Development</h4>
+                <h4 id="frontend-development">Frontend Development</h4>
                 <ul>
                   <li>HTML & CSS</li>
                   <li>Semantic structure</li>
@@ -98,7 +98,7 @@ loadScriptAfter: /js/contribute.js
                 <p>We use clean HTML and CSS with semantic structure to create modern, accessible user interfaces.</p>
               </div>
               <div class="div4 dev-flow-card">
-                <h4>Framework Integration</h4>
+                <h4 id="framework-integration">Framework Integration</h4>
                 <ul>
                   <li>Bootstrap</li>
                   <li>Enhanced UI/UX</li>
@@ -109,7 +109,7 @@ loadScriptAfter: /js/contribute.js
           <div class="dev-flow-label-card">
               <img src="/img/contribute.webp" alt="Contribute illustration" width="564" height="327" loading="lazy" decoding="async" />
               <div class="dev-flow-text">
-                <h4>Want to Contribute ?</h4>
+                <h4 id="want-to-contribute-2">Want to Contribute ?</h4>
                 <p>Join our Open Source team and help us build next-gen mailing features 🚀</p>
               </div>
           </div>
@@ -123,7 +123,7 @@ loadScriptAfter: /js/contribute.js
                 </span>
                 <span class="req-header-chip-text">Requirements</span>
             </div>
-            <h3>Before contributing, make sure you meet these requirements</h3>
+            <h3 id="before-contributing-make-sure-you-meet-these-requirements">Before contributing, make sure you meet these requirements</h3>
           </div>
           <div class="req-list">
             <ul>
@@ -173,7 +173,7 @@ loadScriptAfter: /js/contribute.js
               </span>
               <span class="req-header-chip-text">Git Guidelines</span>
             </div>
-            <h3>Follow these steps to contribute to the project</h3>
+            <h3 id="follow-these-steps-to-contribute-to-the-project">Follow these steps to contribute to the project</h3>
           </div>
           <div class="req-list">
             <ul>
@@ -313,7 +313,7 @@ loadScriptAfter: /js/contribute.js
             <span class="req-header-chip-text">Contributors</span>
           </div>
           <div class="contributor-header-text">
-            <h3>Meet the talented developers who make Cypht possible.</h3>
+            <h3 id="meet-the-talented-developers-who-make-cypht-possible">Meet the talented developers who make Cypht possible.</h3>
           </div>
         </div>
 

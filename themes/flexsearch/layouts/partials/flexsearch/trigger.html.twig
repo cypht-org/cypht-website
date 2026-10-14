@@ -1,0 +1,11 @@
+{#- Search box trigger: opens the dialog of `partials/flexsearch/dialog.html.twig` -#}
+{%- if site.flexsearch.enabled ?? true -%}
+{%- set flexsearch_trigger = site.flexsearch.trigger ?? 'auto' -%}
+<button type="button" class="flexsearch-trigger{{ flexsearch_trigger == 'icon' ? ' flexsearch-trigger-icon-only' : (flexsearch_trigger == 'full' ? ' flexsearch-trigger-full') }}" data-flexsearch-open accesskey="s" aria-haspopup="dialog" aria-label="{% trans %}Search the site{% endtrans %}">
+  <svg class="flexsearch-trigger-icon" viewbox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+  <span class="flexsearch-trigger-label">{% trans %}Search{% endtrans %}</span>
+  {%- if site.flexsearch.hotkey ?? 'k' %}
+  <span class="flexsearch-trigger-keys"><kbd class="flexsearch-kbd flexsearch-kbd-mod">Ctrl</kbd><kbd class="flexsearch-kbd">{{ (site.flexsearch.hotkey ?? 'k')|upper }}</kbd></span>
+  {%- endif %}
+</button>
+{%- endif -%}

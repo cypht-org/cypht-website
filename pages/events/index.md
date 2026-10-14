@@ -9,7 +9,7 @@ loadScriptAfter: /js/event.js
   <div class="event-content-line">
     <div class="next-event-container">
       <div class="nec-header">
-        <h2 class="page-title">Events</h2>
+        <h2 id="events" class="page-title">Events</h2>
         <span class="page-subtitle">Join us at the following upcoming events</span>
       </div>
       <!--  -->
@@ -58,7 +58,7 @@ loadScriptAfter: /js/event.js
         <div class="event-filter">
           <div class="event-filter-content">
             <div class="event-filter-header">
-              <h2>Upcoming Events</h2>
+              <h2 id="upcoming-events">Upcoming Events</h2>
                 <span class="page-subtitle next-event-description">Discover and join our upcoming events and activities</span>
             </div>
             <div class="event-filter-body">

@@ -1,10 +1,10 @@
 ---
 title: Email filters
 description: "Learn how to use Sieve email filters in Cypht to automatically sort, move, delete, and flag emails. Create powerful server-side filters that work even when you're offline."
-exclude: true
+published: false
 ---
 
-<h2>Email filters</h2>
+<h2 id="email-filters">Email filters</h2>
 <p>Cypht now supports Sieve, a powerful email filtering language that gives you complete control over your inbox. With
     Sieve, you can create complex filters to sort, move, delete, and flag your emails automatically. You can also use
     Sieve to create custom notifications and alerts.</p>
@@ -38,7 +38,7 @@ exclude: true
 CYPHT_MODULES="sievefilters" #For Cypht 2.0.x</pre>
 Once you have enabled the Sieve filter engine, you can create and manage your filters in the Filters section of the
 Cypht interface. You can create new filters, edit existing filters, and delete filters as needed.
-<h3>How to create a Sieve filter in Cypht?</h3>
+<h3 id="how-to-create-a-sieve-filter-in-cypht">How to create a Sieve filter in Cypht?</h3>
 <p>
     To create a Sieve filter in Cypht follow these steps:
 </p>
@@ -65,7 +65,7 @@ Cypht interface. You can create new filters, edit existing filters, and delete f
 <p>
     And there you go: 😄Enjoy filters with Cypht.
 </p>
-<h3>Creating custom notifications and alerts:
+<h3 id="creating-custom-notifications-and-alerts">Creating custom notifications and alerts:
 </h3>
 <p>You can also use Sieve to create custom notifications and alerts for important emails. For example, you could create
     a filter that sends you a notification every time you receive an email from your boss.
@@ -87,7 +87,7 @@ if address :is "from" "${boss_email}" { # Notify you of the new email
 notify :message "You have a new email from your boss!" :options ["Important"] :method "mailto:your-email@example.com";
 }</pre>
 
-<h3>Some examples of Sieve filters:
+<h3 id="some-examples-of-sieve-filters">Some examples of Sieve filters:
 </h3>
 <p>The following are some examples of Sieve filters that you can use in Cypht:</p>
 <pre>
@@ -113,7 +113,7 @@ if header :subject "Important" {
   fileinto "Important";
 }
 </pre>
-<h3>Related links:</h3>
+<h3 id="related-links">Related links:</h3>
 
 - http://sieve.info/
 - https://p5r.uk/blog/2011/sieve-tutorial.html
