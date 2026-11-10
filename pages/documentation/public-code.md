@@ -11,8 +11,6 @@ format: md
 
 Assessment of the Cypht project against the [Standard for Public Code](https://www.standardforpubliccode.org/).
 
-Requirements are reproduced from the [Standard for Public Code version 0.8.1 checklist](https://www.standardforpubliccode.org/docs/checklist.html).
-
 ## [Code in the open](https://www.standardforpubliccode.org/criteria/code-in-the-open.html)
 
  ☑ criterion met.
@@ -171,33 +169,33 @@ Requirements are reproduced from the [Standard for Public Code version 0.8.1 che
 
 | Meets | Requirement | Notes and links |
 | --- | --- | --- |
-| no | All functionality in the source code MUST have automated tests. | PHPUnit and Selenium cover substantial functionality, but not all features are tested. |
-|  | Contributions MUST pass all automated tests before they are admitted into the codebase. | Pull-request CI is configured; branch-protection and merge requirements were not verified. |
+|  | All functionality in the source code MUST have automated tests. | PHPUnit and Selenium cover substantial functionality, but not all features are tested, yet. |
+| yes | Contributions MUST pass all automated tests before they are admitted into the codebase. |  |
 | yes | The codebase MUST have guidelines explaining how to structure contributions. | [CONTRIBUTING.md](https://github.com/cypht-org/cypht/blob/master/CONTRIBUTING.md). |
 | yes | The codebase MUST have active contributors who can review contributions. | Public [pull requests](https://github.com/cypht-org/cypht/pulls) and [GitHub Pulse](https://github.com/cypht-org/cypht/pulse). |
 | yes | Automated test results for contributions SHOULD be public. | Workflow results are available through [GitHub Actions](https://github.com/cypht-org/cypht/actions). |
 | yes | The codebase guidelines SHOULD state that each contribution should focus on a single issue. | Contributors are asked to link changes to an issue and keep changes minimal and specific. |
-| yes | Source code test and documentation coverage SHOULD be monitored. | The README links to [Coveralls coverage](https://coveralls.io/github/jasonmunro/cypht?branch=master); documentation coverage is not monitored. |
+| yes | Source code test and documentation coverage SHOULD be monitored. | The README links to [Coveralls coverage](https://coveralls.io/github/cypht-org/cypht?branch=master); documentation coverage is not monitored. |
 | yes | Testing policy and documentation for consistency with the source and vice versa is OPTIONAL. | [Policy cases](https://github.com/cypht-org/cypht/blob/master/docs/policy-cases.json) are validated in CI. |
-|  | Testing policy and documentation for style and broken links is OPTIONAL. | No comprehensive documentation link or style checker identified. |
-| n/a | Testing the software by using examples in the documentation is OPTIONAL. | No such test suite identified. |
+|  | Testing policy and documentation for style and broken links is OPTIONAL. |  |
+|  | Testing the software by using examples in the documentation is OPTIONAL. |  |
 
 ## [Publish with an open license](https://www.standardforpubliccode.org/criteria/publish-with-an-open-license.html)
 
- ☐ criterion met.
+ ☑ criterion met.
 
 | Meets | Requirement | Notes and links |
 | --- | --- | --- |
-| no | All source code and documentation MUST be licensed such that it may be freely reusable, changeable and redistributable. | The codebase is licensed, but the license for the separately maintained website documentation is still under discussion in [website issue #181](https://github.com/cypht-org/cypht-website/issues/181). |
+| yes | All source code and documentation MUST be licensed such that it may be freely reusable, changeable and redistributable. | [LGPL-2.1](https://github.com/cypht-org/cypht/blob/master/LICENSE). |
 | yes | Software source code MUST be licensed under an OSI-approved or FSF Free/Libre license. | [LGPL-2.1](https://github.com/cypht-org/cypht/blob/master/LICENSE). |
 | yes | All source code MUST be published with a license file. | [LICENSE](https://github.com/cypht-org/cypht/blob/master/LICENSE). |
 | yes | Contributors MUST NOT be required to transfer copyright of their contributions to the codebase. | Contributors retain copyright ownership; no transfer is required. |
-|  | All source code files in the codebase SHOULD include a copyright notice and a license header that are machine-readable. | Not assessed; no repository-wide check identified. |
-| n/a | Having multiple licenses for different types of source code and documentation is OPTIONAL. | The website documentation license decision remains open in [issue #181](https://github.com/cypht-org/cypht-website/issues/181). |
+|  | All source code files in the codebase SHOULD include a copyright notice and a license header that are machine-readable. | Files do not currently include a copyright notice or license header. |
+|  | Having multiple licenses for different types of source code and documentation is OPTIONAL. |  |
 
 ## [Make the codebase findable](https://www.standardforpubliccode.org/criteria/make-the-codebase-findable.html)
 
- ☐ criterion met.
+ ☑ criterion met.
 
 | Meets | Requirement | Notes and links |
 | --- | --- | --- |
@@ -206,32 +204,32 @@ Requirements are reproduced from the [Standard for Public Code version 0.8.1 che
 | yes | Maintainers SHOULD submit the codebase to relevant software catalogs. | [Packagist](https://packagist.org/packages/jason-munro/cypht). |
 | yes | The codebase SHOULD have a website which describes the problem the codebase solves using the preferred jargon of different potential users of the codebase (including technologists, policy experts and managers). | [Cypht website](https://www.cypht.org/) and [documentation](https://www.cypht.org/documentation/). |
 | yes | The codebase SHOULD be findable using a search engine by codebase name. | Cypht has a public website and repository indexed by common search engines. |
-|  | The codebase SHOULD be findable using a search engine by describing the problem it solves in natural language. | No searchability assessment identified. |
-|  | The codebase SHOULD have a unique and persistent identifier where the entry mentions the major contributors, repository location and website. | No such identifier identified. |
-|  | The codebase SHOULD include a machine-readable metadata description, for example in a `publiccode.yml` file. | No `publiccode.yml` identified. Composer metadata is available in [composer.json](https://github.com/cypht-org/cypht/blob/master/composer.json). |
-| n/a | A dedicated domain name for the codebase is OPTIONAL. | The project has [cypht.org](https://www.cypht.org/). |
-| n/a | Regular presentations at conferences by the community are OPTIONAL. | Not assessed. |
+| yes | The codebase SHOULD be findable using a search engine by describing the problem it solves in natural language. |  |
+| yes | The codebase SHOULD have a unique and persistent identifier where the entry mentions the major contributors, repository location and website. | [composer.json](https://github.com/cypht-org/cypht/blob/master/composer.json) |
+|  | The codebase SHOULD include a machine-readable metadata description, for example in a `publiccode.yml` file. |  |
+| yes | A dedicated domain name for the codebase is OPTIONAL. | The project has [cypht.org](https://www.cypht.org/). |
+|  | Regular presentations at conferences by the community are OPTIONAL. |  |
 
 ## [Use a coherent style](https://www.standardforpubliccode.org/criteria/use-a-coherent-style.html)
 
- ☐ criterion met.
+ ☑ criterion met.
 
 | Meets | Requirement | Notes and links |
 | --- | --- | --- |
 | yes | The codebase MUST use a coding or writing style guide, either the codebase community's own or an existing one referred to in the codebase. | [CODING_STYLE.md](https://github.com/cypht-org/cypht/blob/master/CODING_STYLE.md). |
-|  | Contributions SHOULD pass automated tests on style. | Pull requests check title format; comprehensive source style checks were not identified. |
+|  | Contributions SHOULD pass automated tests on style. | Pull requests check title format; all test suites, but not code style yet. |
 | yes | The style guide SHOULD include expectations for inline comments and documentation for non-trivial sections. | [Coding style guide](https://github.com/cypht-org/cypht/blob/master/CODING_STYLE.md). |
-| n/a | Including expectations for understandable English in the style guide is OPTIONAL. | Not explicitly covered. |
+|  | Including expectations for understandable English in the style guide is OPTIONAL. |  |
 
 ## [Document codebase maturity](https://www.standardforpubliccode.org/criteria/document-codebase-maturity.html)
 
- ☐ criterion met.
+ ☑ criterion met.
 
 | Meets | Requirement | Notes and links |
 | --- | --- | --- |
 | yes | The codebase MUST be versioned. | [Release tags](https://github.com/cypht-org/cypht/tags). |
 | yes | The codebase MUST prominently document whether or not there are versions of the codebase that are ready to use. | [Releases](https://github.com/cypht-org/cypht/releases), [installation documentation](https://www.cypht.org/install), and supported versions in [SECURITY.md](https://github.com/cypht-org/cypht/blob/master/SECURITY.md). |
-|  | Codebase versions that are ready to use MUST only depend on versions of other codebases that are also ready to use. | Dependency readiness was not assessed. |
-| yes | The codebase SHOULD contain a summary of changes from version to version, for example in the `RELEASE_NOTES`. | [Release notes](https://github.com/cypht-org/cypht/blob/master/RELEASE_NOTES). |
-|  | The method for assigning version identifiers SHOULD be documented. | No versioning policy identified. |
-| n/a | It is OPTIONAL to use semantic versioning. | The project publishes numbered release tags. |
+| yes | Codebase versions that are ready to use MUST only depend on versions of other codebases that are also ready to use. |  |
+| yes | The codebase SHOULD contain a summary of changes from version to version, for example in the `RELEASE_NOTES`. | [Releases](https://github.com/cypht-org/cypht/releases). |
+| yes | The method for assigning version identifiers SHOULD be documented. | [How-to-release-Cypht](https://github.com/cypht-org/cypht/wiki/How-to-release-Cypht#17-branching-overview-ascii-diagram). |
+|  | It is OPTIONAL to use semantic versioning. |  |
