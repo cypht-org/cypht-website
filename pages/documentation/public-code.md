@@ -11,7 +11,9 @@ format: md
 
 Assessment of the Cypht project against the [Standard for Public Code](https://www.standardforpubliccode.org/).
 
-## [Code in the open](https://www.standardforpubliccode.org/criteria/code-in-the-open.html)
+## Code in the open
+
+[Criterion description](https://www.standardforpubliccode.org/criteria/code-in-the-open.html)
 
  ☑ criterion met.
 
@@ -23,7 +25,9 @@ Assessment of the Cypht project against the [Standard for Public Code](https://w
 | yes | Any source code not currently in use (such as new versions, proposals or older versions) SHOULD be published. | Public [Git tags](https://github.com/cypht-org/cypht/tags) and [releases](https://github.com/cypht-org/cypht/releases). |
 |  | Documenting which source code or policy underpins any specific interaction the general public may have with an organization is OPTIONAL. | |
 
-## [Bundle policy and source code](https://www.standardforpubliccode.org/criteria/bundle-policy-and-source-code.html)
+## Bundle policy and source code
+
+[Criterion description](https://www.standardforpubliccode.org/criteria/bundle-policy-and-source-code.html)
 
  ☑ criterion met.
 
@@ -34,7 +38,9 @@ Assessment of the Cypht project against the [Standard for Public Code](https://w
 | yes | Policy SHOULD be provided in machine-readable and unambiguous formats. | [JSON policy cases](https://github.com/cypht-org/cypht/blob/master/docs/policy-cases.json) and their [schema](https://github.com/cypht-org/cypht/blob/master/docs/policy-cases.schema.json). |
 | yes | Continuous integration tests SHOULD validate that the source code and the policy are executed coherently. | [Policy-cases workflow](https://github.com/cypht-org/cypht/blob/master/.github/workflows/policy-cases.yml). |
 
-## [Make the codebase reusable and portable](https://www.standardforpubliccode.org/criteria/make-the-codebase-reusable-and-portable.html)
+## Make the codebase reusable and portable
+
+[Criterion description](https://www.standardforpubliccode.org/criteria/make-the-codebase-reusable-and-portable.html)
 
  ☑ criterion met.
 
@@ -51,7 +57,9 @@ Assessment of the Cypht project against the [Standard for Public Code](https://w
 | yes | Codebase modules SHOULD be documented in such a way as to enable reuse in codebases in other contexts. |  |
 | yes | The software SHOULD NOT require services or platforms available from only a single vendor. | Core deployment is self-hostable; common mail and directory protocols are supported. |
 
-## [Welcome contributors](https://www.standardforpubliccode.org/criteria/welcome-contributors.html)
+## Welcome contributors
+
+[Criterion description](https://www.standardforpubliccode.org/criteria/welcome-contributors.html)
 
  ☐ criterion met.
 
@@ -66,7 +74,9 @@ Assessment of the Cypht project against the [Standard for Public Code](https://w
 | yes | The codebase SHOULD publish codebase activity statistics. | [GitHub Pulse](https://github.com/cypht-org/cypht/pulse) and repository history. |
 |  | Including a code of conduct for contributors in the codebase is OPTIONAL. |  |
 
-## [Make contributing easy](https://www.standardforpubliccode.org/criteria/make-contributing-easy.html)
+## Make contributing easy
+
+[Criterion description](https://www.standardforpubliccode.org/criteria/make-contributing-easy.html)
 
  ☑ criterion met.
 
@@ -78,7 +88,9 @@ Assessment of the Cypht project against the [Standard for Public Code](https://w
 | yes | There MUST be a way to report security issues for responsible disclosure over a closed channel. | [SECURITY.md](https://github.com/cypht-org/cypht/blob/master/SECURITY.md) directs reports to the security mailbox. |
 | yes | The documentation MUST include instructions for how to report potentially security sensitive issues. | [SECURITY.md](https://github.com/cypht-org/cypht/blob/master/SECURITY.md). |
 
-## [Maintain version control](https://www.standardforpubliccode.org/criteria/maintain-version-control.html)
+## Maintain version control
+
+[Criterion description](https://www.standardforpubliccode.org/criteria/maintain-version-control.html)
 
  ☑ criterion met.
 
@@ -93,7 +105,9 @@ Assessment of the Cypht project against the [Standard for Public Code](https://w
 | yes | Contribution guidelines SHOULD encourage file formats where the changes within the files can be easily viewed and understood in the version control system. | Contributions are submitted as Git diffs through pull requests. |
 |  | It is OPTIONAL for contributors to sign their commits and provide an email address, so that future contributors are able to contact past contributors with questions about their work. |  |
 
-## [Require review of contributions](https://www.standardforpubliccode.org/criteria/require-review-of-contributions.html)
+## Require review of contributions
+
+[Criterion description](https://www.standardforpubliccode.org/criteria/require-review-of-contributions.html)
 
  ☑ criterion met.
 
@@ -109,7 +123,9 @@ Assessment of the Cypht project against the [Standard for Public Code](https://w
 | yes | Reviews SHOULD happen within two business days. | No official policy, but it's common. |
 |  | Performing reviews by multiple reviewers is OPTIONAL. | Multiple reviewers may participate, but are not required in every case. |
 
-## [Document codebase objectives](https://www.standardforpubliccode.org/criteria/document-codebase-objectives.html)
+## Document codebase objectives
+
+[Criterion description](https://www.standardforpubliccode.org/criteria/document-codebase-objectives.html)
 
  ☑ criterion met.
 
@@ -119,7 +135,9 @@ Assessment of the Cypht project against the [Standard for Public Code](https://w
 | yes | Codebase documentation SHOULD clearly describe the connections between policy objectives and codebase objectives. | [Policy cases](https://github.com/cypht-org/cypht/blob/master/docs/policy-cases.md) explain how selected user-visible, security, and privacy requirements are tested. |
 | yes | Documenting the objectives of the codebase for the general public is OPTIONAL. | The README provides a public-facing product description. |
 
-## [Document the code](https://www.standardforpubliccode.org/criteria/document-the-code.html)
+## Document the code
+
+[Criterion description](https://www.standardforpubliccode.org/criteria/document-the-code.html)
 
  ☐ criterion met.
 
@@ -134,7 +152,9 @@ Assessment of the Cypht project against the [Standard for Public Code](https://w
 | yes | The documentation SHOULD describe the key components or modules and their relationships. For example, this could be done as a high level architectural diagram. | [Developer documentation](https://www.cypht.org/documentation/developer/dev-docs/) describes the module architecture. |
 | no | There SHOULD be continuous integration tests for the quality of the documentation. | Not yet. |
 
-## [Use plain English](https://www.standardforpubliccode.org/criteria/use-plain-english.html)
+## Use plain English
+
+[Criterion description](https://www.standardforpubliccode.org/criteria/use-plain-english.html)
 
  ☑ criterion met.
 
@@ -149,7 +169,9 @@ Assessment of the Cypht project against the [Standard for Public Code](https://w
 | yes | Documentation SHOULD aim for a lower secondary education reading level, as recommended by the Web Content Accessibility Guidelines 2. |  |
 |  | Providing additional courtesy translations of any code, documentation or tests is OPTIONAL. |  |
 
-## [Use open standards](https://www.standardforpubliccode.org/criteria/use-open-standards.html)
+## Use open standards
+
+[Criterion description](https://www.standardforpubliccode.org/criteria/use-open-standards.html)
 
  ☑ criterion met.
 
@@ -163,7 +185,9 @@ Assessment of the Cypht project against the [Standard for Public Code](https://w
 | yes | Open standards that are machine testable SHOULD be preferred over open standards that are not. | Protocol implementations and tests provide machine-verifiable interoperability. |
 |  | Non-open standards that are machine testable SHOULD be preferred over non-open standards that are not. |  |
 
-## [Use continuous integration](https://www.standardforpubliccode.org/criteria/use-continuous-integration.html)
+## Use continuous integration
+
+[Criterion description](https://www.standardforpubliccode.org/criteria/use-continuous-integration.html)
 
  ☐ criterion met.
 
@@ -180,7 +204,9 @@ Assessment of the Cypht project against the [Standard for Public Code](https://w
 |  | Testing policy and documentation for style and broken links is OPTIONAL. |  |
 |  | Testing the software by using examples in the documentation is OPTIONAL. |  |
 
-## [Publish with an open license](https://www.standardforpubliccode.org/criteria/publish-with-an-open-license.html)
+## Publish with an open license
+
+[Criterion description](https://www.standardforpubliccode.org/criteria/publish-with-an-open-license.html)
 
  ☑ criterion met.
 
@@ -193,7 +219,9 @@ Assessment of the Cypht project against the [Standard for Public Code](https://w
 |  | All source code files in the codebase SHOULD include a copyright notice and a license header that are machine-readable. | Files do not currently include a copyright notice or license header. |
 |  | Having multiple licenses for different types of source code and documentation is OPTIONAL. |  |
 
-## [Make the codebase findable](https://www.standardforpubliccode.org/criteria/make-the-codebase-findable.html)
+## Make the codebase findable
+
+[Criterion description](https://www.standardforpubliccode.org/criteria/make-the-codebase-findable.html)
 
  ☑ criterion met.
 
@@ -210,7 +238,9 @@ Assessment of the Cypht project against the [Standard for Public Code](https://w
 | yes | A dedicated domain name for the codebase is OPTIONAL. | The project has [cypht.org](https://www.cypht.org/). |
 |  | Regular presentations at conferences by the community are OPTIONAL. |  |
 
-## [Use a coherent style](https://www.standardforpubliccode.org/criteria/use-a-coherent-style.html)
+## Use a coherent style
+
+[Criterion description](https://www.standardforpubliccode.org/criteria/use-a-coherent-style.html)
 
  ☑ criterion met.
 
@@ -221,7 +251,9 @@ Assessment of the Cypht project against the [Standard for Public Code](https://w
 | yes | The style guide SHOULD include expectations for inline comments and documentation for non-trivial sections. | [Coding style guide](https://github.com/cypht-org/cypht/blob/master/CODING_STYLE.md). |
 |  | Including expectations for understandable English in the style guide is OPTIONAL. |  |
 
-## [Document codebase maturity](https://www.standardforpubliccode.org/criteria/document-codebase-maturity.html)
+## Document codebase maturity
+
+[Criterion description](https://www.standardforpubliccode.org/criteria/document-codebase-maturity.html)
 
  ☑ criterion met.
 
