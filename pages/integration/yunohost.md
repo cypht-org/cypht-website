@@ -7,6 +7,9 @@ format: md
 nav_prev:
   label: Cloudron
   url: /integration/cloudron
+nav_next:
+  label: Integrate to your own app
+  url: /integration/custom
 ---
 
 ## Cypht on YunoHost: overview {#overview}
